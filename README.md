@@ -15,7 +15,7 @@ This assumes ECPs and basis sets of the form usually seen in electronic structur
 - CMake/CTest build tools
 - Python (2.7 or above, including 3 and higher)
 
-Additionally, if you wish to regenerated the radial code (see below),  Python3 is required with numpy and sympy.
+Additionally, if you wish to regenerate the radial code (see below),  Python3 is required with numpy and sympy.
 
 ### Build instructions
 
@@ -80,3 +80,13 @@ A full bibtex citation can be found in CITATION in the main directory.
 - An improved API
 - A built in ECP library
 
+## Regenerating the radial code
+
+The recursive radial integral code has been pre-generated, as the current setting has been calibrated to balance accuracy and efficiency. If you would like to experiment (warning: after reading the paper cited above), go into the directory `src/generated/radial`. Edit the top line of  `unrol_radial.py` to change `MAX_UNROL_AM`, the maximum angular momentum to be unrolled. Then do the following:
+
+```
+python3 unrol_radial.py
+./generate.sh
+```
+
+This will generate the simplified recursive integrals and then piece together the `radial_gen.cpp` file and place it in the correct location. It should be very safe (but not very efficient) to decrease `MAX_UNROL_AM`, but be prepared for things to break if you increase it too much. 

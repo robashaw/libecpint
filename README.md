@@ -34,6 +34,7 @@ The options after cmake above can be included using the syntax `-DOPTION=value`.
 - `LIBECPINT_MAX_L` = the maximum angular momentum (in both orbital and ECP basis) required. The default is 5 (i.e. h-type functions), but this can easily be increased. Note that the higher this value, the longer the code generation will take (especially if optimization flags have not been added - see below), but it will not greatly affect compilation time.
 - `CMAKE_CXX_FLAGS` = any additional flags to be passed to the compiler. It is _strongly recommended_ that you provide optimization flags, e.g. at least `-O2` if not `-O3` for gcc/clang.
 - `LIBECPINT_MAX_UNROL` = the maximum angular momentum for which the whole integral is unrolled. The default is 2. It is _strongly recommended_ that you do not increase this past 4, as the compilation time and file sizes increase significantly. For reference, the following table gives compilation times and max. file sizes with `-O3` optimization flags and GCC 6.3.0:
+
 |  LIBECPINT_MAX_UNROL |  Compilation time (minutes)  | Max. file size (MB)  |
 |---|---|---|
 |  1  |  2  |  0.02  |

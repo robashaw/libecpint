@@ -1,0 +1,7 @@
+*.o
+*~
+*.out
+*.x
+.DS_Store
+Q*.cpp
+build/*

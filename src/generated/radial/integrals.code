@@ -1,0 +1,576 @@
+case 0 : {
+	result = ( -2*p ) * values[0];
+	result += ( 2*y ) * G1B;
+	result += ( 2*x ) * G1A;
+	break;
+}
+
+case 2 : {
+	result = ( 1 ) * values[0];
+	break;
+}
+
+case 4 : {
+	result += ( 1 ) * values[ 2 ];
+	break;
+}
+
+case 6 : {
+	result += ( 1 ) * values[ 4 ];
+	break;
+}
+
+case 8 : {
+	result += ( 1 ) * values[ 6 ];
+	break;
+}
+
+case 10 : {
+	result += ( 1 ) * values[ 8 ];
+	break;
+}
+
+case 12 : {
+	result += ( 1 ) * values[ 10 ];
+	break;
+}
+
+case 11 : {
+	result = ( p/y ) * values[0];
+	result += ( -x/y ) * G1A;
+	break;
+}
+
+case 13 : {
+	result = ( -1/(2*y) ) * values[0];
+	result += ( 1 ) * values[ 1 ];
+	break;
+}
+
+case 15 : {
+	result += ( -1/(2*y) ) * values[ 2 ];
+	result += ( 1 ) * values[ 3 ];
+	break;
+}
+
+case 17 : {
+	result += ( -1/(2*y) ) * values[ 4 ];
+	result += ( 1 ) * values[ 5 ];
+	break;
+}
+
+case 19 : {
+	result += ( -1/(2*y) ) * values[ 6 ];
+	result += ( 1 ) * values[ 7 ];
+	break;
+}
+
+case 21 : {
+	result += ( -1/(2*y) ) * values[ 8 ];
+	result += ( 1 ) * values[ 9 ];
+	break;
+}
+
+case 110 : {
+	result = ( p*(p + 2*x2 + 2*y2)/(3*x*y) ) * values[0];
+	result += ( -2*y2/(3*x) ) * G1B;
+	result += ( -2*x2/(3*y) ) * G1A;
+	result += ( -2*p/3 ) * H2;
+	break;
+}
+
+case 112 : {
+	result = ( -(p/2 + y2)/(x*y) ) * values[0];
+	result += ( p/x ) * values[ 1 ];
+	break;
+}
+
+case 114 : {
+	result = ( 1/(2*x*y) ) * values[0];
+	result += ( -(p/2 + y2)/(x*y) ) * values[ 2 ];
+	result += ( -1/x ) * values[ 1 ];
+	result += ( p/x ) * values[ 3 ];
+	break;
+}
+
+case 116 : {
+	result += ( 1/(x*y) ) * values[ 2 ];
+	result += ( -(p/2 + y2)/(x*y) ) * values[ 4 ];
+	result += ( -2/x ) * values[ 3 ];
+	result += ( p/x ) * values[ 5 ];
+	break;
+}
+
+case 118 : {
+	result += ( 3/(2*x*y) ) * values[ 4 ];
+	result += ( -(p/2 + y2)/(x*y) ) * values[ 6 ];
+	result += ( -3/x ) * values[ 5 ];
+	result += ( p/x ) * values[ 7 ];
+	break;
+}
+
+case 120 : {
+	result += ( -1/(4*x*y) ) * values[ 6 ];
+	result += ( -(p/2 + y2)/(x*y) ) * values[ 8 ];
+	result += ( 1/(2*x) ) * values[ 7 ];
+	result += ( p/x ) * values[ 9 ];
+	break;
+}
+
+case 20 : {
+	result = ( p*(p - x2)/y2 ) * values[0];
+	result += ( -3*p*x/(2*y2) + x2*x/y2 - x ) * G1A;
+	result += ( p*x/y ) * H2;
+	break;
+}
+
+case 22 : {
+	result = ( -3*p/(2*y2) + 1 ) * values[0];
+	result += ( 3*x/(2*y2) ) * G1A;
+	break;
+}
+
+case 24 : {
+	result = ( 3/(4*y2) ) * values[0];
+	result += ( 1 ) * values[ 2 ];
+	result += ( -3/(2*y) ) * values[ 1 ];
+	break;
+}
+
+case 26 : {
+	result += ( 3/(4*y2) ) * values[ 2 ];
+	result += ( 1 ) * values[ 4 ];
+	result += ( -3/(2*y) ) * values[ 3 ];
+	break;
+}
+
+case 28 : {
+	result += ( 3/(4*y2) ) * values[ 4 ];
+	result += ( 1 ) * values[ 6 ];
+	result += ( -3/(2*y) ) * values[ 5 ];
+	break;
+}
+
+case 30 : {
+	result += ( 3/(4*y2) ) * values[ 6 ];
+	result += ( 1 ) * values[ 8 ];
+	result += ( -3/(2*y) ) * values[ 7 ];
+	break;
+}
+
+case 121 : {
+	result = ( -p*(p + 2*x2)/(2*x*y2) ) * values[0];
+	result += ( x2/y2 ) * G1A;
+	result += ( p/y ) * H2;
+	break;
+}
+
+case 123 : {
+	result = ( (3*p + 2*y2)/(4*x*y2) ) * values[0];
+	result += ( p/x ) * values[ 2 ];
+	result += ( -(3*p/2 + y2)/(x*y) ) * values[ 1 ];
+	break;
+}
+
+case 125 : {
+	result = ( -3/(4*x*y2) ) * values[0];
+	result += ( (3*p - 2*y2)/(4*x*y2) ) * values[ 2 ];
+	result += ( p/x ) * values[ 4 ];
+	result += ( 3/(2*x*y) ) * values[ 1 ];
+	result += ( -(3*p/2 + y2)/(x*y) ) * values[ 3 ];
+	break;
+}
+
+case 127 : {
+	result += ( -3/(2*x*y2) ) * values[ 2 ];
+	result += ( 3*(p - 2*y2)/(4*x*y2) ) * values[ 4 ];
+	result += ( p/x ) * values[ 6 ];
+	result += ( 3/(x*y) ) * values[ 3 ];
+	result += ( -(3*p/2 + y2)/(x*y) ) * values[ 5 ];
+	break;
+}
+
+case 129 : {
+	result += ( -9/(4*x*y2) ) * values[ 4 ];
+	result += ( (3*p - 10*y2)/(4*x*y2) ) * values[ 6 ];
+	result += ( p/x ) * values[ 8 ];
+	result += ( 9/(2*x*y) ) * values[ 5 ];
+	result += ( -(3*p/2 + y2)/(x*y) ) * values[ 7 ];
+	break;
+}
+
+case 220 : {
+	result = ( -p*(3*p2 + 2*p*x2 + 2*p*y2 + 4*x2*x2 + 4*x2*y2 + 4*y2*y2)/(10*x2*y2) ) * values[0];
+	result += ( 2*y2*y/(5*x2) ) * G1B;
+	result += ( 2*x2*x/(5*y2) ) * G1A;
+	result += ( p*(3*p + 2*x2 + 2*y2)/(5*x*y) ) * H2;
+	break;
+}
+
+case 222 : {
+	result = ( (3*p2 + 4*y2*(p + y2))/(4*x2*y2) ) * values[0];
+	result += ( p2/x2 ) * values[ 2 ];
+	result += ( -p*(3*p + 4*y2)/(2*x2*y) ) * values[ 1 ];
+	break;
+}
+
+case 224 : {
+	result = ( -(3*p/2 + y2)/(x2*y2) ) * values[0];
+	result += ( (3*p2 + 4*y2*(-p + y2))/(4*x2*y2) ) * values[ 2 ];
+	result += ( p2/x2 ) * values[ 4 ];
+	result += ( (3*p + 2*y2)/(x2*y) ) * values[ 1 ];
+	result += ( -p*(3*p + 4*y2)/(2*x2*y) ) * values[ 3 ];
+	break;
+}
+
+case 226 : {
+	result = ( 3/(2*x2*y2) ) * values[0];
+	result += ( -3*p/(x2*y2) ) * values[ 2 ];
+	result += ( (3*p2 + 4*y2*(-3*p + y2))/(4*x2*y2) ) * values[ 4 ];
+	result += ( p2/x2 ) * values[ 6 ];
+	result += ( -3/(x2*y) ) * values[ 1 ];
+	result += ( 2*(3*p + 2*y2)/(x2*y) ) * values[ 3 ];
+	result += ( -p*(3*p + 4*y2)/(2*x2*y) ) * values[ 5 ];
+	break;
+}
+
+case 228 : {
+	result += ( 9/(2*x2*y2) ) * values[ 2 ];
+	result += ( 3*(-3*p + 2*y2)/(2*x2*y2) ) * values[ 4 ];
+	result += ( (3*p2 + 4*y2*(-5*p + y2))/(4*x2*y2) ) * values[ 6 ];
+	result += ( p2/x2 ) * values[ 8 ];
+	result += ( -9/(x2*y) ) * values[ 3 ];
+	result += ( 3*(3*p + 2*y2)/(x2*y) ) * values[ 5 ];
+	result += ( -p*(3*p + 4*y2)/(2*x2*y) ) * values[ 7 ];
+	break;
+}
+
+case 31 : {
+	result = ( p*(-5*p + 5*x2 + 2*y2)/(2*y2*y) ) * values[0];
+	result += ( x*(15*p - 10*x2 + 6*y2)/(4*y2*y) ) * G1A;
+	result += ( -5*p*x/(2*y2) ) * H2;
+	break;
+}
+
+case 33 : {
+	result = ( 15*p/(4*y2*y) - 3/y ) * values[0];
+	result += ( 1 ) * values[ 1 ];
+	result += ( -15*x/(4*y2*y) ) * G1A;
+	break;
+}
+
+case 35 : {
+	result = ( -15/(8*y2*y) ) * values[0];
+	result += ( -3/y ) * values[ 2 ];
+	result += ( 15/(4*y2) ) * values[ 1 ];
+	result += ( 1 ) * values[ 3 ];
+	break;
+}
+
+case 37 : {
+	result += ( -15/(8*y2*y) ) * values[ 2 ];
+	result += ( -3/y ) * values[ 4 ];
+	result += ( 15/(4*y2) ) * values[ 3 ];
+	result += ( 1 ) * values[ 5 ];
+	break;
+}
+
+case 39 : {
+	result += ( -15/(8*y2*y) ) * values[ 4 ];
+	result += ( -3/y ) * values[ 6 ];
+	result += ( 15/(4*y2) ) * values[ 5 ];
+	result += ( 1 ) * values[ 7 ];
+	break;
+}
+
+case 130 : {
+	result = ( p*(-p2 - 4*p*x2 + 2*x2*x2)/(2*x*y2*y) ) * values[0];
+	result += ( x2*(5*p/2 - x2 + y2)/y2*y ) * G1A;
+	result += ( p*(p - x2)/y2 ) * H2;
+	break;
+}
+
+case 132 : {
+	result = ( (5*p2 + 10*p*x2 - 2*p*y2 - 4*y2*y2)/(4*x*y2*y) ) * values[0];
+	result += ( p/x ) * values[ 1 ];
+	result += ( -5*x2/(2*y2*y) ) * G1A;
+	result += ( -5*p/(2*y2) ) * H2;
+	break;
+}
+
+case 134 : {
+	result = ( -(15*p + 6*y2)/(8*x*y2*y) ) * values[0];
+	result += ( -(3*p + y2)/(x*y) ) * values[ 2 ];
+	result += ( 3*(5*p + 2*y2)/(4*x*y2) ) * values[ 1 ];
+	result += ( p/x ) * values[ 3 ];
+	break;
+}
+
+case 136 : {
+	result = ( 15/(8*x*y2*y) ) * values[0];
+	result += ( 3*(-5*p + 6*y2)/(8*x*y2*y) ) * values[ 2 ];
+	result += ( -(3*p + y2)/(x*y) ) * values[ 4 ];
+	result += ( -15/(4*x*y2) ) * values[ 1 ];
+	result += ( (15*p + 2*y2)/(4*x*y2) ) * values[ 3 ];
+	result += ( p/x ) * values[ 5 ];
+	break;
+}
+
+case 138 : {
+	result += ( 15/(4*x*y2*y) ) * values[ 2 ];
+	result += ( 3*(-5*p + 14*y2)/(8*x*y2*y) ) * values[ 4 ];
+	result += ( -(3*p + y2)/(x*y) ) * values[ 6 ];
+	result += ( -15/(2*x*y2) ) * values[ 3 ];
+	result += ( (15*p - 2*y2)/(4*x*y2) ) * values[ 5 ];
+	result += ( p/x ) * values[ 7 ];
+	break;
+}
+
+case 231 : {
+	result = ( p*(3*p2 + 2*p*x2 + 4*x2*x2 + 4*x2*y2 - 4*y2*y2)/(4*x2*y2*y) ) * values[0];
+	result += ( p2/x2 ) * values[ 1 ];
+	result += ( -x2*x/y2*y ) * G1A;
+	result += ( -p*(3*p + 2*x2 + 2*y2)/(2*x*y2) ) * H2;
+	break;
+}
+
+case 233 : {
+	result = ( -(15*p2 + 12*p*y2 + 4*y2*y2)/(8*x2*y2*y) ) * values[0];
+	result += ( -p*(3*p + 2*y2)/(x2*y) ) * values[ 2 ];
+	result += ( (15*p2 + 4*y2*(3*p + y2))/(4*x2*y2) ) * values[ 1 ];
+	result += ( p2/x2 ) * values[ 3 ];
+	break;
+}
+
+case 235 : {
+	result = ( 3*(5*p + 2*y2)/(4*x2*y2*y) ) * values[0];
+	result += ( 3*(-5*p2 + 12*p*y2 + 4*y2*y2)/(8*x2*y2*y) ) * values[ 2 ];
+	result += ( -p*(3*p + 2*y2)/(x2*y) ) * values[ 4 ];
+	result += ( -(15*p + 6*y2)/(2*x2*y2) ) * values[ 1 ];
+	result += ( (15*p2 + 4*y2*(p + y2))/(4*x2*y2) ) * values[ 3 ];
+	result += ( p2/x2 ) * values[ 5 ];
+	break;
+}
+
+case 237 : {
+	result = ( -15/(4*x2*y2*y) ) * values[0];
+	result += ( 3*(5*p - 2*y2)/(2*x2*y2*y) ) * values[ 2 ];
+	result += ( (-15*p2 + 84*p*y2 + 28*y2*y2)/(8*x2*y2*y) ) * values[ 4 ];
+	result += ( -p*(3*p + 2*y2)/(x2*y) ) * values[ 6 ];
+	result += ( 15/(2*x2*y2) ) * values[ 1 ];
+	result += ( -(15*p + 4*y2)/(x2*y2) ) * values[ 3 ];
+	result += ( (15*p2 + 4*y2*(-p + y2))/(4*x2*y2) ) * values[ 5 ];
+	result += ( p2/x2 ) * values[ 7 ];
+	break;
+}
+
+case 330 : {
+	result = ( p*(15*p2*p + 6*p2*x2 + 6*p2*y2 + 4*p*x2*x2 + 24*p*x2*y2 - 24*p*y2*y2 + 8*x2*x2*x2 + 8*x2*x2*y2 + 8*x2*y2*y2 + 8*y2*y2*y2)/(28*x2*x*y2*y) ) * values[0];
+	result += ( -2*y2*y2/(7*x2*x) ) * G1B;
+	result += ( p2*p/x2*x ) * values[ 1 ];
+	result += ( -2*x2*x2/(7*y2*y) ) * G1A;
+	result += ( -p*(15*p2 + 6*p*x2 + 20*p*y2 + 4*x2*x2 + 4*x2*y2 + 4*y2*y2)/(14*x2*y2) ) * H2;
+	break;
+}
+
+case 332 : {
+	result = ( -(15*p2*p + 18*p2*y2 + 12*p*y2*y2 + 8*y2*y2*y2)/(8*x2*x*y2*y) ) * values[0];
+	result += ( -3*p2*(p + y2)/(x2*x*y) ) * values[ 2 ];
+	result += ( 3*p*(5*p2 + 6*p*y2 + 4*y2*y2)/(4*x2*x*y2) ) * values[ 1 ];
+	result += ( p2*p/x2*x ) * values[ 3 ];
+	break;
+}
+
+case 334 : {
+	result = ( 3*(15*p2 + 12*p*y2 + 4*y2*y2)/(8*x2*x*y2*y) ) * values[0];
+	result += ( (-15*p2*p + 54*p2*y2 + 4*y2*y2*(9*p - 2*y2))/(8*x2*x*y2*y) ) * values[ 2 ];
+	result += ( -3*p2*(p + y2)/(x2*x*y) ) * values[ 4 ];
+	result += ( -(45*p2 + 12*y2*(3*p + y2))/(4*x2*x*y2) ) * values[ 1 ];
+	result += ( 3*p*(5*p2 + 2*y2*(p + 2*y2))/(4*x2*x*y2) ) * values[ 3 ];
+	result += ( p2*p/x2*x ) * values[ 5 ];
+	break;
+}
+
+case 336 : {
+	result = ( -(45*p + 18*y2)/(4*x2*x*y2*y) ) * values[0];
+	result += ( 3*(15*p2 - 12*p*y2 - 4*y2*y2)/(4*x2*x*y2*y) ) * values[ 2 ];
+	result += ( (-15*p2*p + 126*p2*y2 + 4*y2*y2*(21*p - 2*y2))/(8*x2*x*y2*y) ) * values[ 4 ];
+	result += ( -3*p2*(p + y2)/(x2*x*y) ) * values[ 6 ];
+	result += ( 9*(5*p + 2*y2)/(2*x2*x*y2) ) * values[ 1 ];
+	result += ( -(45*p2 + 12*y2*(2*p + y2))/(2*x2*x*y2) ) * values[ 3 ];
+	result += ( 3*p*(5*p2 + 2*y2*(-p + 2*y2))/(4*x2*x*y2) ) * values[ 5 ];
+	result += ( p2*p/x2*x ) * values[ 7 ];
+	break;
+}
+
+case 40 : {
+	result = ( p*(-28*p2 + 63*p*x2 + 8*p*y2 - 14*x2*x2 + 6*x2*y2)/(8*y2*y2) ) * values[0];
+	result += ( x*(105*p2 - 140*p*x2 + 60*p*y2 + 28*x2*x2 - 40*x2*y2 + 12*y2*y2)/(16*y2*y2) ) * G1A;
+	result += ( p*x*(-49*p + 14*x2 - 6*y2)/(8*y2*y) ) * H2;
+	break;
+}
+
+case 42 : {
+	result = ( (-5*p*(-7*p + 7*x2 + 4*y2)/4 + y2*y2)/y2*y2 ) * values[0];
+	result += ( 5*x*(-21*p + 14*x2 - 6*y2)/(8*y2*y2) ) * G1A;
+	result += ( 35*p*x/(4*y2*y) ) * H2;
+	break;
+}
+
+case 44 : {
+	result = ( 15*(-7*p + 6*y2)/(8*y2*y2) ) * values[0];
+	result += ( 1 ) * values[ 2 ];
+	result += ( -5/y ) * values[ 1 ];
+	result += ( 105*x/(8*y2*y2) ) * G1A;
+	break;
+}
+
+case 46 : {
+	result = ( 105/(16*y2*y2) ) * values[0];
+	result += ( 45/(4*y2) ) * values[ 2 ];
+	result += ( 1 ) * values[ 4 ];
+	result += ( -105/(8*y2*y) ) * values[ 1 ];
+	result += ( -5/y ) * values[ 3 ];
+	break;
+}
+
+case 48 : {
+	result += ( 105/(16*y2*y2) ) * values[ 2 ];
+	result += ( 45/(4*y2) ) * values[ 4 ];
+	result += ( 1 ) * values[ 6 ];
+	result += ( -105/(8*y2*y) ) * values[ 3 ];
+	result += ( -5/y ) * values[ 5 ];
+	break;
+}
+
+case 141 : {
+	result = ( -p*(-7*p2 - 28*p*x2 + 2*p*y2 + 14*x2*x2 + 4*x2*y2)/(4*x*y2*y2) ) * values[0];
+	result += ( x2*(-35*p + 14*x2 - 10*y2)/(4*y2*y2) ) * G1A;
+	result += ( p*(-7*p + 7*x2 + 2*y2)/(2*y2*y) ) * H2;
+	break;
+}
+
+case 143 : {
+	result = ( -(35*p2 + 70*p*x2 - 20*p*y2 - 32*y2*y2)/(8*x*y2*y2) ) * values[0];
+	result += ( p/x ) * values[ 2 ];
+	result += ( -(5*p + y2)/(x*y) ) * values[ 1 ];
+	result += ( 35*x2/(4*y2*y2) ) * G1A;
+	result += ( 35*p/(4*y2*y) ) * H2;
+	break;
+}
+
+case 145 : {
+	result = ( 15*(7*p + 2*y2)/(16*x*y2*y2) ) * values[0];
+	result += ( 45*p/(4*x*y2) + 3/x ) * values[ 2 ];
+	result += ( p/x ) * values[ 4 ];
+	result += ( -(105*p + 30*y2)/(8*x*y2*y) ) * values[ 1 ];
+	result += ( -(5*p + y2)/(x*y) ) * values[ 3 ];
+	break;
+}
+
+case 147 : {
+	result = ( -105/(16*x*y2*y2) ) * values[0];
+	result += ( 15*(7*p - 10*y2)/(16*x*y2*y2) ) * values[ 2 ];
+	result += ( 45*p/(4*x*y2) + 2/x ) * values[ 4 ];
+	result += ( p/x ) * values[ 6 ];
+	result += ( 105/(8*x*y2*y) ) * values[ 1 ];
+	result += ( 5*(-21*p + 2*y2)/(8*x*y2*y) ) * values[ 3 ];
+	result += ( -(5*p + y2)/(x*y) ) * values[ 5 ];
+	break;
+}
+
+case 240 : {
+	result = ( p*(3*p2*p + 4*p2*x2 + 12*p*x2*x2 + 4*p*x2*y2 - 4*x2*x2*x2)/(4*x2*y2*y2) ) * values[0];
+	result += ( x2*x*(-7*p/2 + x2 - y2)/y2*y2 ) * G1A;
+	result += ( p*(-3*p2 - 4*p*x2 + 2*x2*x2)/(2*x*y2*y) ) * H2;
+	break;
+}
+
+case 242 : {
+	result = ( -(21*p2*p + 14*p2*x2 - 6*p2*y2 + 28*p*x2*x2 + 28*p*x2*y2 - 36*p*y2*y2 - 8*y2*y2*y2)/(8*x2*y2*y2) ) * values[0];
+	result += ( p2/x2 ) * values[ 2 ];
+	result += ( -p*(5*p + 2*y2)/(x2*y) ) * values[ 1 ];
+	result += ( 7*x2*x/(2*y2*y2) ) * G1A;
+	result += ( 7*p*(3*p + 2*x2 + 2*y2)/(4*x*y2*y) ) * H2;
+	break;
+}
+
+case 244 : {
+	result = ( 3*(35*p2 + 20*p*y2 + 4*y2*y2)/(16*x2*y2*y2) ) * values[0];
+	result += ( (45*p2 + 4*y2*(6*p + y2))/(4*x2*y2) ) * values[ 2 ];
+	result += ( p2/x2 ) * values[ 4 ];
+	result += ( -(105*p2 + 60*p*y2 + 12*y2*y2)/(8*x2*y2*y) ) * values[ 1 ];
+	result += ( -p*(5*p + 2*y2)/(x2*y) ) * values[ 3 ];
+	break;
+}
+
+case 246 : {
+	result = ( -(105*p + 30*y2)/(8*x2*y2*y2) ) * values[0];
+	result += ( 3*(35*p2 - 100*p*y2 - 28*y2*y2)/(16*x2*y2*y2) ) * values[ 2 ];
+	result += ( (45*p2 + 4*y2*(4*p + y2))/(4*x2*y2) ) * values[ 4 ];
+	result += ( p2/x2 ) * values[ 6 ];
+	result += ( 15*(7*p + 2*y2)/(4*x2*y2*y) ) * values[ 1 ];
+	result += ( (-105*p2 + 20*p*y2 + 4*y2*y2)/(8*x2*y2*y) ) * values[ 3 ];
+	result += ( -p*(5*p + 2*y2)/(x2*y) ) * values[ 5 ];
+	break;
+}
+
+case 341 : {
+	result = ( -p*(15*p2*p + 6*p2*x2 + 4*p*x2*x2 + 24*p*x2*y2 - 36*p*y2*y2 + 8*x2*x2*x2 + 8*x2*x2*y2 + 8*x2*y2*y2 - 16*y2*y2*y2)/(8*x2*x*y2*y2) ) * values[0];
+	result += ( p2*p/x2*x ) * values[ 2 ];
+	result += ( -p2*(5*p + 3*y2)/(x2*x*y) ) * values[ 1 ];
+	result += ( x2*x2/y2*y2 ) * G1A;
+	result += ( p*(15*p2 + 6*p*x2 + 20*p*y2 + 4*x2*x2 + 4*x2*y2 + 4*y2*y2)/(4*x2*y2*y) ) * H2;
+	break;
+}
+
+case 343 : {
+	result = ( (105*p2*p + 90*p2*y2 + 36*p*y2*y2 + 8*y2*y2*y2)/(16*x2*x*y2*y2) ) * values[0];
+	result += ( 3*p*(15*p2 + 4*y2*(3*p + y2))/(4*x2*x*y2) ) * values[ 2 ];
+	result += ( p2*p/x2*x ) * values[ 4 ];
+	result += ( -(105*p2*p + 90*p2*y2 + 36*p*y2*y2 + 8*y2*y2*y2)/(8*x2*x*y2*y) ) * values[ 1 ];
+	result += ( -p2*(5*p + 3*y2)/(x2*x*y) ) * values[ 3 ];
+	break;
+}
+
+case 345 : {
+	result = ( -(315*p2 + 180*p*y2 + 36*y2*y2)/(16*x2*x*y2*y2) ) * values[0];
+	result += ( -(-105*p2*p + 450*p2*y2 + 252*p*y2*y2 + 40*y2*y2*y2)/(16*x2*x*y2*y2) ) * values[ 2 ];
+	result += ( 3*p*(15*p2 + 4*y2*(2*p + y2))/(4*x2*x*y2) ) * values[ 4 ];
+	result += ( p2*p/x2*x ) * values[ 6 ];
+	result += ( 9*(35*p2 + 20*p*y2 + 4*y2*y2)/(8*x2*x*y2*y) ) * values[ 1 ];
+	result += ( (-105*p2*p + 30*p2*y2 + 4*y2*y2*(3*p - 2*y2))/(8*x2*x*y2*y) ) * values[ 3 ];
+	result += ( -p2*(5*p + 3*y2)/(x2*x*y) ) * values[ 5 ];
+	break;
+}
+
+case 440 : {
+	result = ( -p*(105*p2*p2 + 30*p2*p*x2 + 30*p2*p*y2 + 12*p2*x2*x2 + 180*p2*x2*y2 - 312*p2*y2*y2 + 8*p*x2*x2*x2 + 48*p*x2*x2*y2 + 120*p*x2*y2*y2 - 208*p*y2*y2*y2 + 16*x2*x2*x2*x2 + 16*x2*x2*x2*y2 + 16*x2*x2*y2*y2 + 16*x2*y2*y2*y2 + 16*y2*y2*y2*y2)/(72*x2*x2*y2*y2) ) * values[0];
+	result += ( p2*p2/x2*x2 ) * values[ 2 ];
+	result += ( 2*y2*y2*y/(9*x2*x2) ) * G1B;
+	result += ( -p2*p*(5*p + 4*y2)/(x2*x2*y) ) * values[ 1 ];
+	result += ( 2*x2*x2*x/(9*y2*y2) ) * G1A;
+	result += ( p*(105*p2*p + 30*p2*x2 + 210*p2*y2 + 12*p*x2*x2 + 40*p*x2*y2 + 84*p*y2*y2 + 8*x2*x2*x2 + 8*x2*x2*y2 + 8*x2*y2*y2 + 8*y2*y2*y2)/(36*x2*x*y2*y) ) * H2;
+	break;
+}
+
+case 442 : {
+	result = ( (105*p2*p2 + 120*p2*p*y2 + 72*p2*y2*y2 + 32*p*y2*y2*y2 + 16*y2*y2*y2*y2)/(16*x2*x2*y2*y2) ) * values[0];
+	result += ( 3*p2*(15*p2 + 8*y2*(2*p + y2))/(4*x2*x2*y2) ) * values[ 2 ];
+	result += ( p2*p2/x2*x2 ) * values[ 4 ];
+	result += ( -p*(105*p2*p + 120*p2*y2 + 72*p*y2*y2 + 32*y2*y2*y2)/(8*x2*x2*y2*y) ) * values[ 1 ];
+	result += ( -p2*p*(5*p + 4*y2)/(x2*x2*y) ) * values[ 3 ];
+	break;
+}
+
+case 444 : {
+	result = ( -(105*p2*p + 90*p2*y2 + 36*p*y2*y2 + 8*y2*y2*y2)/(4*x2*x2*y2*y2) ) * values[0];
+	result += ( (105*p2*p2 - 600*p2*p*y2 - 504*p2*y2*y2 - 160*p*y2*y2*y2 + 16*y2*y2*y2*y2)/(16*x2*x2*y2*y2) ) * values[ 2 ];
+	result += ( p2*(45*p2 + 32*p*y2 + 24*y2*y2)/(4*x2*x2*y2) ) * values[ 4 ];
+	result += ( p2*p2/x2*x2 ) * values[ 6 ];
+	result += ( (105*p2*p + 90*p2*y2 + 36*p*y2*y2 + 8*y2*y2*y2)/(2*x2*x2*y2*y) ) * values[ 1 ];
+	result += ( p*(-105*p2*p + 40*p2*y2 + y2*y2*(24*p - 32*y2))/(8*x2*x2*y2*y) ) * values[ 3 ];
+	result += ( -p2*p*(5*p + 4*y2)/(x2*x2*y) ) * values[ 5 ];
+	break;
+}
+

@@ -1,0 +1,24 @@
+                     CITATION FOR LIBECPINT
+
+If you use this library in your program and find it helpful, that's great! Any feedback would be much appreciated. If you publish results using this library, please consider citing the following paper detailing the implementation:
+
+R. A. Shaw, J. G. Hill, J. Chem. Phys. 147, 074108 (2017)
+
+The literature citation in bibtex format is:
+
+@article{Shaw2017,
+author = {Shaw, Robert A. and Hill, J. Grant},
+doi = {10.1063/1.4986887},
+issn = {0021-9606},
+journal = {The Journal of Chemical Physics},
+month = {aug},
+number = {7},
+pages = {074108},
+title = {{Prescreening and efficiency in the evaluation of integrals over ab initio effective core potentials}},
+url = {http://aip.scitation.org/doi/10.1063/1.4986887},
+volume = {147},
+year = {2017}
+}
+
+
+Please also remember to include citations for the methods and basis sets you use!

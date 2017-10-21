@@ -49,6 +49,8 @@ namespace libecpint {
 		GCQuadrature bigGrid;
 		/// The smaller integration grid, default for the type 2 integrals
 		GCQuadrature smallGrid;
+		/// Even smaller grid for primitive integrals
+		GCQuadrature primGrid; 
 		/// Modified spherical Bessel function of the first kind
 		BesselFunction bessie;
 	

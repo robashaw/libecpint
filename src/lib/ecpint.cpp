@@ -245,7 +245,6 @@ namespace libecpint {
 			TwoIndex<double> SB = realSphericalHarmonics(lam+LB, xB, phiB);
 		
 			if (A_on_ecp || B_on_ecp) {
-				
 				// Radial integrals need to be calculated by a different recursive scheme, or by quadrature
 				ThreeIndex<double> radials(L+1, lam + LA + 1, lam + LB + 1); 
 				TwoIndex<double> temp;
@@ -266,7 +265,7 @@ namespace libecpint {
 				// Neither is on the ECP, the full recursive scheme with generated integrals can be used
 				// Need LA <= LB, but symmetry means we can just swap the arguments if LB > LA. 
 				if (LA <= LB) 
-					QGEN[LA][LB][lam](U, shellA, shellB, CA, CB, SA, SB, Am, Bm, radInts, angInts, values);  
+					QGEN[LA][LB][lam](U, shellA, shellB, CA, CB, SA, SB, Am, Bm, radInts, angInts, values);
 				else {
 					ThreeIndex<double> temp_values(data.ncartB, data.ncartA, 2*U.getL() + 1); 
 					QGEN[LB][LA][lam](U, shellB, shellA, CB, CA, SB, SA, Bm, Am, radInts, angInts, temp_values);

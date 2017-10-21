@@ -33,6 +33,7 @@ namespace libecpint {
 
 	void RadialIntegral::init(int maxL, double tol, int small, int large) {
 		bigGrid.initGrid(large, ONEPOINT);
+		primGrid.initGrid(128, ONEPOINT); 
 		smallGrid.initGrid(small, TWOPOINT);
 		smallGrid.transformZeroInf();
 	

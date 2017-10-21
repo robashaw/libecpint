@@ -104,8 +104,10 @@ namespace libecpint {
 	}
 
 	std::pair<double, bool> RadialIntegral::integrate_small(int N, int l1, int l2, double n, double a, double b, double A, double B) {
-		int gridSize = smallGrid.getN();
-		std::vector<double> &gridPoints = smallGrid.getX();
+		int gridSize = primGrid.getN();
+		GCQuadrature newGrid = primGrid; 
+		newGrid.transformRMinMax(n+a+b, (a*A+b*B)/(n+a+b)); 
+		std::vector<double> &gridPoints = newGrid.getX();
 	
 		double Ftab[gridSize]; 
 		std::vector<double> besselValues1, besselValues2; 
@@ -128,8 +130,8 @@ namespace libecpint {
 		std::function<double(double, double*, int)> intgd = RadialIntegral::integrand;
 		
 		// There should be no instances where this fails, so no backup plan to large grid, but return check just in case 
-		bool success = smallGrid.integrate(intgd, Ftab, 1e-12); 
-		std::pair<double, bool> rval = {smallGrid.getI(), success};  
+		bool success = newGrid.integrate(intgd, Ftab, 1e-12); 
+		std::pair<double, bool> rval = {newGrid.getI(), success};  
 		return rval; 
 	}
 	
@@ -197,3 +199,4 @@ namespace libecpint {
 							double result = 0.0;
 							if (a > 0.1 && b > 0.1) { 
 								switch(ijk) {
+									

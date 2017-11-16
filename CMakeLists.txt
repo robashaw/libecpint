@@ -18,6 +18,11 @@ configure_file (
 	      "${PROJECT_SOURCE_DIR}/include/libecpint/config.hpp.in"
 	      "${PROJECT_BINARY_DIR}/include/libecpint/config.hpp"
 )
+
+include(CTest)
+include(ExternalProject)
+include(external/external.cmake)
+
 include_directories(${PROJECT_BINARY_DIR}/include/libecpint)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/libecpint)

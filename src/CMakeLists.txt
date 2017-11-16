@@ -24,4 +24,6 @@ add_library(ecpint
 	${GENERATED_SOURCES}
 )
 
+target_link_libraries(ecpint libpugixml)
+
 install (TARGETS ecpint DESTINATION lib)

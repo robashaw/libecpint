@@ -126,7 +126,7 @@ namespace libecpint {
 			int f6 = CA == s.CA ? 1 : 0;
 			int f7 = CB == s.CB ? 1 : 0; 
 		
-			return {f1, f2, f3, f4, f5, f6, f7};  
+			return std::make_tuple(f1, f2, f3, f4, f5, f6, f7);  
 		}
 	
 		/// Prints out a SumTerm without compressing the indices - currently preferred 
@@ -144,7 +144,7 @@ namespace libecpint {
  	/// Redundant at the moment
 	void print_lists(std::vector<SumTerm>& terms) {
 		std::sort(terms.begin(), terms.end()); 
-		Heptuple zero = {0, 0, 0, 0, 0, 0, 0}; 
+		Heptuple zero{0, 0, 0, 0, 0, 0, 0}; 
 		int i = 0; 
 		int value = 0; 
 	
@@ -269,7 +269,7 @@ namespace libecpint {
 																	
 																				terms.push_back(newTerm); 
 																			}
-																			radial_triples.push_back({N, lam1, lam2}); 
+																			radial_triples.push_back(std::make_tuple(N, lam1, lam2)); 
 																		} 
 																	}
 																	
@@ -311,18 +311,18 @@ namespace libecpint {
 			std::vector<Triple> radial_A, radial_B; 
 			for (Triple& t : radial_triples) {
 				if (std::get<1>(t) <= std::get<2>(t)) radial_A.push_back(t);  
-				else radial_B.push_back({std::get<0>(t), std::get<2>(t), std::get<1>(t)});
+				else radial_B.push_back(std::make_tuple(std::get<0>(t), std::get<2>(t), std::get<1>(t)));
 			}
 			
 			// Compute the correctly ordered radials first
-			outfile << "\tstd::vector<Triple> radial_triples_A = {" << std::endl; 
+			outfile << "\tstd::vector<Triple> radial_triples_A {" << std::endl; 
 			bool first = true; 
 			for (Triple& t : radial_A) {
 				if (!first) outfile << "," << std::endl; 
 				else first = false; 
-				outfile << "\t\t{" + std::to_string(std::get<0>(t)) + ", "
+				outfile << "\t\tstd::make_tuple(" + std::to_string(std::get<0>(t)) + ", "
 					+ std::to_string(std::get<1>(t)) + ", " 
-						+ std::to_string(std::get<2>(t)) + "}"; 
+						+ std::to_string(std::get<2>(t)) + ")"; 
 			}
 			outfile << "\t};" << std::endl << std::endl;  
 			
@@ -330,14 +330,14 @@ namespace libecpint {
 			outfile << "\tradint.type2(radial_triples_A, " << nbase << ", " << lam << ", U, shellA, shellB, Am, Bm, radials);" << std::endl << std::endl; 
 			
 			// Now compute the reverse-ordered radials
-			outfile << "\tstd::vector<Triple> radial_triples_B = {" << std::endl; 
+			outfile << "\tstd::vector<Triple> radial_triples_B {" << std::endl; 
 			first = true;
 			for (Triple& t : radial_B) {
 				if (!first) outfile << "," << std::endl; 
 				else first = false; 
-				outfile << "\t\t{" + std::to_string(std::get<0>(t)) + ", "
+				outfile << "\t\tstd::make_tuple(" + std::to_string(std::get<0>(t)) + ", "
 					+ std::to_string(std::get<1>(t)) + ", " 
-						+ std::to_string(std::get<2>(t)) + "}"; 
+						+ std::to_string(std::get<2>(t)) + ")"; 
 			}
 			outfile << "\t};" << std::endl << std::endl;  
 			

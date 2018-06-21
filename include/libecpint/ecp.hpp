@@ -63,10 +63,11 @@ namespace libecpint {
 		std::vector<GaussianECP> gaussians; ///< All the primitives in the ECP expansion
 		int N; ///< Number of Gaussians
 		int L; ///< Maximum angular momentum
+                int nCore; ///< Number of core electrons of the atom having this ECP
 		
 		std::array<double, 3> center_; ///< xyz coordinates of the atom on which the ECP is located
 	
-		/// Constructs an empty ECP (N = L = 0, center_ = {0, 0, 0})
+		/// Constructs an empty ECP (N = L = nCore = 0, center_ = {0, 0, 0})
 		ECP();
 		
 		/**

@@ -111,15 +111,14 @@ namespace libecpint {
 	int RadialIntegral::integrate(int maxL, int gridSize, TwoIndex<double> &intValues, GCQuadrature &grid, std::vector<double> &values, int offset, int skip) {
 		std::function<double(double, double*, int)> intgd = integrand; 
 		values.assign(maxL+1, 0.0);
-		int test;
+		int test = 1;
 		double params[gridSize];
 		for (int i = 0; i < grid.start; i++) params[i] = 0.0;
 		for (int i = grid.end+1; i < gridSize; i++) params[i] = 0.0;
 		for (int l = offset; l <= maxL; l+=skip) {
 			for (int i = grid.start; i <= grid.end; i++) params[i] = intValues(l, i); 
-			test = grid.integrate(intgd, params, tolerance);
+			test *= grid.integrate(intgd, params, tolerance);
 			values[l] = grid.getI();
-			if (test == 0) break;
 		}
 		return test;
 	}

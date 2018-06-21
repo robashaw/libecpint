@@ -19,9 +19,10 @@ add_custom_command(
 
 file(GLOB_RECURSE LIB_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/lib/*.cpp")
 
-add_library(ecpint
+add_library(ecpint SHARED
 	${LIB_SOURCES}
 	${GENERATED_SOURCES}
 )
 
 install (TARGETS ecpint DESTINATION lib)
+

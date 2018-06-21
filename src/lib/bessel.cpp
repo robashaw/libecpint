@@ -52,8 +52,9 @@ namespace libecpint {
 	}
 
 	BesselFunction::~BesselFunction() {
-		free(K);
-		free(C);
+		for (int i = 0; i < N+1; i++) delete[](K[i]);
+		delete[](K);
+		delete[](C);
 	}
 
 	// Tabulate the bessel function values

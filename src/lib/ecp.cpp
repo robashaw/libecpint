@@ -38,11 +38,11 @@ namespace libecpint {
 
 	// class ECP
 
-	ECP::ECP() : N(0), L(-1) {
+	ECP::ECP() : N(0), L(-1), nCore(0) {
 		center_[0] = center_[1] = center_[2] = 0.0; 	
 	}
 	
-	ECP::ECP(const double *_center) : N(0), L(-1) {
+	ECP::ECP(const double *_center) : N(0), L(-1), nCore(0) {
 		center_[0] = _center[0];
 		center_[1] = _center[1];
 		center_[2] = _center[2];
@@ -52,6 +52,7 @@ namespace libecpint {
 		gaussians = other.gaussians;
 		N = other.N;
 		L = other.L;
+                nCore = other.nCore;
 		center_ = other.center_;
 	}
 

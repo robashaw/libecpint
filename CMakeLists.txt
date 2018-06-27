@@ -1,5 +1,5 @@
-# minimum version of CMake is 3.3
-cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
+# minimum version of CMake is 3.2
+cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
 
 # define project
 project( libecpint

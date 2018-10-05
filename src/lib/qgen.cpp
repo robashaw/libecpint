@@ -4,11 +4,9 @@
 
 namespace libecpint {
 	
-	void rolled_up(int lam, ShellPairData &data, ThreeIndex<double> &radials, FiveIndex<double> &CA, FiveIndex<double> &CB, TwoIndex<double> &SA, TwoIndex<double> &SB, AngularIntegral &angint, ThreeIndex<double> &values)
+  void rolled_up(int lam, int LA, int LB, ThreeIndex<double> &radials, FiveIndex<double> &CA, FiveIndex<double> &CB, TwoIndex<double> &SA, TwoIndex<double> &SB, AngularIntegral &angint, ThreeIndex<double> &values)
 	{
 		double prefac = 16.0 * M_PI * M_PI;
-		int LA = data.LA;
-		int LB = data.LB;
 		int L = LA + LB;	
 		
 		int na = 0; 

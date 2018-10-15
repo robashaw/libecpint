@@ -4,6 +4,7 @@
 
 namespace libecpint {
 	namespace qgen {
+
 	
   void rolled_up(int lam, int LA, int LB, ThreeIndex<double> &radials, FiveIndex<double> &CA, FiveIndex<double> &CB, TwoIndex<double> &SA, TwoIndex<double> &SB, AngularIntegral &angint, ThreeIndex<double> &values)
 	{

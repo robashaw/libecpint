@@ -336,5 +336,114 @@ namespace libecpint {
 			}
 		}
 	}
+	
+	void ECPIntegral::left_shell_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 3> &results) {
+		int LA = shellA.am();
+		int LB = shellB.am();
+		
+		int ncartB = (LB+1) * (LB+2) / 2;
+		int ncartA = (LA+1) * (LA+2) / 2;
+		int ncartA_plus = (LA+2) * (LA+3) / 2;
+		int ncartA_minus = LA * (LA+1) / 2;
+		TwoIndex<double> Q_minus, Q_plus; 
+		
+		for (int i = 0; i < 3; i++) results[i].assign(ncartA, ncartB, 0.0); 
+		
+		if (LA != 0)
+			compute_shell_pair(U, shellA, shellB, Q_minus, -1, 0); 
+		
+		// hack in the exponents to the coefficients
+		GaussianShell tempA = shellA.copy();
+		for (int i = 0; i < tempA.nprimitive(); i++) 
+			tempA.coeffs[i] *= tempA.exps[i];
+		compute_shell_pair(U, tempA, shellB, Q_plus, 1, 0); 
+		
+		// Now compile the derivatives
+		if (LA != 0) {
+			int nA = 0;
+			int nA_minus, nA_plus;
+			for (int k=LA; k >= 0; k--) {
+				for (int l=LA-k; l>=0; l--) {
+					int m = LA - k - l;
+						
+					for (int nB = 0; nB < ncartB; nB++) {
+						nA_minus = nA_plus = N_INDEX(l, m);
+						results[0](nA, nB) = -k*Q_minus(nA_minus, nB) + 2.0*Q_plus(nA_plus, nB);
+						
+						nA_minus = std::max(0, N_INDEX(l-1, m));
+						nA_plus  = N_INDEX(l+1, m);
+						results[1](nA, nB) = -l*Q_minus(nA_minus, nB) + 2.0*Q_plus(nA_plus, nB);
+						
+						nA_minus = std::max(0, N_INDEX(l, m-1));
+						nA_plus  = N_INDEX(l, m+1);
+						results[2](nA, nB) = -m*Q_minus(nA_minus, nB) + 2.0*Q_plus(nA_plus, nB);
+					}
+					nA += 1;
+				}
+			}
+		} else {
+			for (int nB = 0; nB < ncartB; nB++) {
+				results[0](0, nB) = 2.0*Q_plus(0, nB);
+				results[1](0, nB) = 2.0*Q_plus(1, nB);
+				results[2](0, nB) = 2.0*Q_plus(2, nB);
+			}
+		}
+	}
+	
+	void ECPIntegral::compute_shell_pair_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 9> &results) {		
+		// First we check centres
+		double A[3], B[3], C[3];
+		*A = *shellA.center();
+		*B = *shellB.center();
+		*C = *U.center();
+		
+		double dAC = std::abs(A[0] - C[0]) + std::abs(A[1] - C[1]) + std::abs(A[2] - C[2]);
+		double dBC = std::abs(B[0] - C[0]) + std::abs(B[1] - C[1]) + std::abs(B[2] - C[2]);
+		
+		// Calculate shell derivatives
+		std::array<TwoIndex<double>, 3> QA, QB;
+		if (dAC > 1e-6) 
+			left_shell_derivative(U, shellA, shellB, QA);
+		if (dBC > 1e-6)
+			left_shell_derivative(U, shellB, shellA, QB);
+		
+		// initialise results matrices
+		int ncartA = (shellA.am()+1) * (shellA.am()+2) / 2;
+		int ncartB = (shellB.am()+1) * (shellB.am()+2) / 2;
+		
+		// Now construct the nuclear derivs
+		if (dAC > 1e-6) {
+			results[0] = QA[0];
+			results[1] = QA[1];
+			results[2] = QA[2];
+			if (dBC > 1e-6) {
+				results[3] = QB[0].transpose();
+				results[4] = QB[1].transpose();
+				results[5] = QB[2].transpose();
+				for (int i = 6; i < 9; i++) results[i].assign(ncartA, ncartB, 0.0);
+				for (int nA = 0; nA < ncartA; nA++) {
+					for (int nB = 0; nB < ncartB; nB++){
+						results[6](nA, nB) = -1.0 * (results[0](nA, nB) + results[3](nA, nB));
+						results[7](nA, nB) = -1.0 * (results[1](nA, nB) + results[4](nA, nB));
+						results[8](nA, nB) = -1.0 * (results[2](nA, nB) + results[5](nA, nB));
+					}
+				}
+			} else {
+			   results[3] = results[0]; results[3].multiply(-1.0);
+			   results[4] = results[1]; results[4].multiply(-1.0);
+			   results[5] = results[2]; results[5].multiply(-1.0);
+			}
+		} else if (dBC > 1e-6) {
+			results[3] = QB[0].transpose();
+			results[4] = QB[1].transpose();
+			results[5] = QB[2].transpose();
+		   	results[0] = results[3]; results[0].multiply(-1.0);
+		   	results[1] = results[4]; results[1].multiply(-1.0);
+		   	results[2] = results[5]; results[2].multiply(-1.0);
+		} else {
+			// else everything is zero
+			for (int i = 0; i < 9; i++) results[i].assign(ncartA, ncartB, 0.0);
+		}
+	}
 
 }

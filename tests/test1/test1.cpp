@@ -2,9 +2,8 @@
 #include "gshell.hpp"
 #include "ecpint.hpp"
 #include "multiarr.hpp"
+#include "testutil.hpp"
 #include <iostream>
-#include <fstream>
-#include <cmath>
 
 int main(int argc, char* argv[]) {
 	using namespace libecpint; 
@@ -42,39 +41,5 @@ int main(int argc, char* argv[]) {
 	ecpint.compute_shell_pair(newU, shellB, shellB, result);
 	for (auto v : result.data) flat_result.push_back(v); 
 	
-	std::ifstream input_file("test1.output"); 
-	if (input_file.is_open()) {
-		
-		std::vector<double> benchmark; 
-		std::string line;
-		while(!input_file.eof()) {
-			std::getline(input_file, line); 
-			benchmark.push_back(std::stod(line)); 
-		}
-		
-		if (benchmark.size() != flat_result.size()) {
-			std::cerr << "Size of output is incorrect!" << std::endl;
-			return 1;
-		} else {
-			double error = 0.0;
-			for (int i = 0; i < benchmark.size(); i++) {
-				double abserror = std::abs(benchmark[i] - flat_result[i]);
-				if (std::abs(benchmark[i])>1e-10) error += abserror / std::abs(benchmark[i]);
-			}
-			error /= double(benchmark.size());
-
-			if (error > 5e-6) {
-				std::cerr << "Average error in output is " << error << " percent!" << std::endl;
-				return 1;
-			} else {
-				std::cout << "Test1 passed!" << std::endl; 
-			}
-		}
-		
-	} else {
-		std::cerr << "Problem opening results file for test1!" << std::endl; 
-		return 1; 
-	}
-	
-	return 0;
+	return check_file<double>("test1.output", flat_result);
 }

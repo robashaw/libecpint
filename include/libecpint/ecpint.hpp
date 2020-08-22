@@ -26,6 +26,7 @@
 #define ECPINT_HEAD
 
 #include <vector>
+#include <array>
 #include "multiarr.hpp"
 #include "gaussquad.hpp"
 #include "ecp.hpp"
@@ -37,6 +38,8 @@
 #include "config.hpp"
 
 namespace libecpint {
+
+#define N_INDEX(l, m) ((l+m)*(l+m+1)/2 + m)
 
 	/** 
 	* \class ECPIntegral
@@ -117,6 +120,9 @@ namespace libecpint {
 		  * @param values - reference to TwoIndex array where the results will be stored
 		  */ 
 		void compute_shell_pair(ECP &U, GaussianShell &shellA, GaussianShell &shellB, TwoIndex<double> &values, int shiftA = 0, int shiftB = 0);
+		
+		void left_shell_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 3> &results); 
+		void compute_shell_pair_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 9> &results);
 	};
 
 }

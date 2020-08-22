@@ -25,6 +25,7 @@ include(external/external.cmake)
 
 include_directories(${PROJECT_BINARY_DIR}/include/libecpint)
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/libecpint)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/Faddeeva)
 

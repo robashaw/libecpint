@@ -78,6 +78,17 @@ namespace libecpint {
 			data.resize(dim1 * dim2);
 			std::fill(data.begin(), data.end(), value);
 		}
+		TwoIndex<T> transpose() {
+			TwoIndex<T> result(dims[1], dims[0]);
+			for (int i = 0; i < dims[0]; i++) {
+				for (int j = 0; j < dims[1]; j++)
+					result.data[j * dims[0] + i] = data[i * dims[1] + j];
+			}
+			return result;
+		}
+		void multiply(T k) {
+			std::transform(data.begin(), data.end(), data.begin(), [&k](T& c){return c*k;});
+		}
 		TwoIndex() { dims[0] = dims[1] = 0; }
 		TwoIndex(int dim1, int dim2) {
 			dims[0] = dim1; dims[1] = dim2;

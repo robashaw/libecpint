@@ -79,6 +79,13 @@ namespace libecpint {
 		
 		/// @return the angular momentum of the shell
 		int am() const { return l; }
+		
+		GaussianShell copy() const {
+			GaussianShell result(centerVec, l);
+			result.exps = exps;
+			result.coeffs = coeffs;
+			return result;
+		}
 	};
 
 	/**

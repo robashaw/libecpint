@@ -25,5 +25,6 @@ add_library(ecpint
 )
 
 target_link_libraries(ecpint libpugixml)
+target_link_libraries(ecpint Faddeeva)
 
 install (TARGETS ecpint DESTINATION lib)

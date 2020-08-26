@@ -366,15 +366,7 @@ namespace libecpint {
 int main(int argc, char* argv[]) {
 	
 	// Factorial singletons will not have been initialised
-#ifndef FAC_INIT
-#define FAC_INIT
-		libecpint::FAC[0] = 1.0;
-		libecpint::DFAC[0] = 1.0;
-		libecpint::DFAC[1] = 1.0;
-		
-		for (int i = 1; i < MAX_FAC; i++)  libecpint::FAC[i] = double(i) * libecpint::FAC[i-1]; 
-		for (int i = 2; i < MAX_DFAC; i++) libecpint::DFAC[i] = double(i) * libecpint::DFAC[i-2];
-#endif
+	libecpint::initFactorials();
 
 	libecpint::AngularIntegral angInts(maxL, maxL); 
 	angInts.compute(); 

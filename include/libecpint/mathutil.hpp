@@ -92,7 +92,11 @@ namespace libecpint {
 	* @return a matrix S(l, l+m) of the spherical harmonic values
 	*/
 	TwoIndex<double> realSphericalHarmonics(int lmax, double x, double phi);  
-
+	
+	/**
+	 * Initialises the global factorial and double factorial arrays
+	 */
+	void initFactorials(); 
 }
 
 #endif

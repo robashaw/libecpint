@@ -31,6 +31,18 @@ namespace libecpint {
 	double FAC[MAX_FAC];
 	double DFAC[MAX_DFAC];
 	
+	void initFactorials() {
+	#ifndef FAC_INIT
+	#define FAC_INIT
+			FAC[0] = 1.0;
+			DFAC[0] = 1.0;
+			DFAC[1] = 1.0;
+		
+			for (int i = 1; i < MAX_FAC; i++)  FAC[i] = double(i) * FAC[i-1]; 
+			for (int i = 2; i < MAX_DFAC; i++) DFAC[i] = double(i) * DFAC[i-2];
+	#endif
+	}
+	
 	// Compute all the real spherical harmonics Slm(theta, phi) for l,m up to lmax
 	// x = std::cos (theta)
 	TwoIndex<double> realSphericalHarmonics(int lmax, double x, double phi){

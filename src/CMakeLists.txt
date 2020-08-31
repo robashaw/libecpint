@@ -19,10 +19,10 @@ add_custom_command(
 
 file(GLOB_RECURSE LIB_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/lib/*.cpp")
 
-add_library(ecpint SHARED
-	${LIB_SOURCES}
-	${GENERATED_SOURCES}
-)
+add_library(ecpint ${LIB_SOURCES} ${GENERATED_SOURCES})
+if(NOT BUILD_SHARED_LIBS)
+  set_property(TARGET ecpint PROPERTY POSITION_INDEPENDENT_CODE ON)
+endif()
 target_include_directories(ecpint
   PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/libecpint>

@@ -25,9 +25,12 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/Faddeeva)
 
 add_subdirectory(src)
 
-enable_testing()
-add_subdirectory(tests)
+option(LIBECPINT_BUILD_TESTS "Enables Libecpint tests." ON)
+if (LIBECPINT_BUILD_TESTS)
+  enable_testing()
+  add_subdirectory(tests)
+endif()
 
 install (DIRECTORY include/libecpint DESTINATION include)
 install (FILES include/libecpint.hpp DESTINATION include)
-install (FILES "${PROJECT_BINARY_DIR}/include/libecpint/config.hpp" DESTINATION include/libecpint)
+install (FILES "${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp" DESTINATION include/libecpint)

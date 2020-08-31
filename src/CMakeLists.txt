@@ -7,7 +7,7 @@ add_executable(generate generate.cpp
 			lib/mathutil.cpp
 			lib/angular.cpp)
 
-execute_process(COMMAND mkdir "${CMAKE_CURRENT_BINARY_DIR}/generated")
+execute_process(COMMAND mkdir -p "${CMAKE_CURRENT_BINARY_DIR}/generated")
 execute_process(COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.part" "${CMAKE_CURRENT_BINARY_DIR}/generated")
 execute_process(COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/generated/qgen.part" "${CMAKE_CURRENT_BINARY_DIR}/generated")
 add_custom_command(

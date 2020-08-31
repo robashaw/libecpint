@@ -12,7 +12,7 @@ execute_process(COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.par
 execute_process(COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/generated/qgen.part" "${CMAKE_CURRENT_BINARY_DIR}/generated")
 add_custom_command(
 	OUTPUT ${GENERATED_SOURCES}
-	COMMAND generate "${CMAKE_SOURCE_DIR}/include/libecpint/"
+	COMMAND generate "${PROJECT_SOURCE_DIR}/include/libecpint/"
 	DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.part 
 	COMMENT "Generating and unrolling integral code."
 )

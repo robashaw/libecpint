@@ -26,7 +26,6 @@ add_library(ecpint SHARED
 target_include_directories(ecpint
   PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/libecpint>
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include/libecpint>
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include/libecpint>
     $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>

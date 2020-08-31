@@ -23,6 +23,11 @@ add_library(ecpint SHARED
 	${LIB_SOURCES}
 	${GENERATED_SOURCES}
 )
+target_include_directories(ecpint
+  PUBLIC
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/libecpint>
+    $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include/libecpint>
+) 
 
 install (TARGETS ecpint DESTINATION lib)
 

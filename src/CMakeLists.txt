@@ -6,6 +6,7 @@ STRING(REGEX REPLACE "\n" ";" GENERATED_SOURCES "${GENERATED_SOURCES}")
 add_executable(generate generate.cpp 
 			lib/mathutil.cpp
 			lib/angular.cpp)
+set_property(TARGET generate PROPERTY CXX_STANDARD 11)
 
 execute_process(COMMAND mkdir -p "${CMAKE_CURRENT_BINARY_DIR}/generated")
 execute_process(COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.part" "${CMAKE_CURRENT_BINARY_DIR}/generated")
@@ -23,6 +24,7 @@ add_library(ecpint ${LIB_SOURCES} ${GENERATED_SOURCES})
 if(NOT BUILD_SHARED_LIBS)
   set_property(TARGET ecpint PROPERTY POSITION_INDEPENDENT_CODE ON)
 endif()
+set_property(TARGET ecpint PROPERTY CXX_STANDARD 11)
 target_include_directories(ecpint
   PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/libecpint>

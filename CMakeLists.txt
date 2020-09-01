@@ -6,9 +6,6 @@ project( libecpint
          VERSION 0.9
          LANGUAGES C CXX)
 
-# we need at least C++11
-set (CMAKE_CXX_STANDARD 11)
-
 # code generator variables
 set (LIBECPINT_MAX_L "5" CACHE STRING "Maximum angular momentum")
 set (LIBECPINT_MAX_UNROL "2" CACHE STRING "Maximum L for unrolling")

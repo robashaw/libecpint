@@ -8,7 +8,7 @@ project( libecpint
 
 # code generator variables
 set (LIBECPINT_MAX_L "5" CACHE STRING  "Maximum angular momentum")
-set (LIBECPINT_MAX_UNROL "0" CACHE STRING "Maximum L for unrolling")
+set (LIBECPINT_MAX_UNROL "1" CACHE STRING "Maximum L for unrolling")
 
 # configure the config header to pass the above variables to the program
 configure_file (

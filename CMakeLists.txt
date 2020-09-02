@@ -7,8 +7,8 @@ project( libecpint
          LANGUAGES C CXX)
 
 # code generator variables
-option (LIBECPINT_MAX_L "Maximum angular momentum" "5")
-option (LIBECPINT_MAX_UNROL "Maximum L for unrolling" "2")
+set (LIBECPINT_MAX_L "5" CACHE STRING  "Maximum angular momentum")
+set (LIBECPINT_MAX_UNROL "0" CACHE STRING "Maximum L for unrolling")
 
 # configure the config header to pass the above variables to the program
 configure_file (

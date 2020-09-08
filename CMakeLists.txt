@@ -26,5 +26,5 @@ if (LIBECPINT_BUILD_TESTS)
   add_subdirectory(tests)
 endif()
 
-install (DIRECTORY include/libecpint DESTINATION include)
-install (FILES include/libecpint.hpp DESTINATION include)
+install(DIRECTORY include/libecpint DESTINATION include)
+install(FILES include/libecpint.hpp DESTINATION include)

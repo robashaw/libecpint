@@ -1,0 +1,3 @@
+include("${CMAKE_CURRENT_LIST_DIR}/ecpint-targets.cmake")
+
+@PACKAGE_INIT@

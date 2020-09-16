@@ -34,7 +34,7 @@ namespace libecpint {
 
 	ECPIntegral::ECPIntegral(int maxLB, int maxLU, int deriv) { 
 		// Make sure library can perform requested integrals
-		assert(maxLB <= LIBECPINT_MAX_L); 
+		assert(maxLB+deriv <= LIBECPINT_MAX_L); 
 		assert(maxLU <= LIBECPINT_MAX_L);
 		
 		// Initialise singletons
@@ -335,11 +335,10 @@ namespace libecpint {
 		
 		int ncartB = (LB+1) * (LB+2) / 2;
 		int ncartA = (LA+1) * (LA+2) / 2;
-		int ncartA_plus = (LA+2) * (LA+3) / 2;
 		int ncartA_minus = LA * (LA+1) / 2;
 		TwoIndex<double> Q_minus, Q_plus; 
 		
-		for (int i = 0; i < 3; i++) results[i].assign(ncartA, ncartB, 0.0); 
+		for (auto& r : results) r.assign(ncartA, ncartB, 0.0); 
 		
 		if (LA != 0)
 			compute_shell_pair(U, shellA, shellB, Q_minus, -1, 0); 
@@ -378,6 +377,157 @@ namespace libecpint {
 				results[0](0, nB) = 2.0*Q_plus(0, nB);
 				results[1](0, nB) = 2.0*Q_plus(1, nB);
 				results[2](0, nB) = 2.0*Q_plus(2, nB);
+			}
+		}
+	}
+	
+	void ECPIntegral::left_shell_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 6> &results) {
+		int LA = shellA.am();
+		int LB = shellB.am();
+		
+		int ncartB = (LB+1) * (LB+2) / 2;
+		int ncartA = (LA+1) * (LA+2) / 2;
+		int ncartA_minus = std::max(1, (LA-1) * (LA) / 2);
+		TwoIndex<double> Q_minus, Q_plus, Q_0;
+		
+		for (auto& r : results) r.assign(ncartA, ncartB, 0.0); 
+		
+		if (LA > 1)
+			compute_shell_pair(U, shellA, shellB, Q_minus, -2, 0); 
+		else
+			Q_minus.assign(ncartA_minus, ncartB, 0.0);
+		
+		// hack in the exponents to the coefficients
+		GaussianShell tempA = shellA.copy();
+		for (int i = 0; i < tempA.nprimitive(); i++) 
+			tempA.coeffs[i] *= tempA.exps[i];
+		compute_shell_pair(U, tempA, shellB, Q_0, 0, 0); 
+		
+		// and for the l+2
+		for (int i = 0; i < tempA.nprimitive(); i++) 
+			tempA.coeffs[i] *= tempA.exps[i];
+		compute_shell_pair(U, tempA, shellB, Q_plus, 2, 0); 
+
+		// Now compile the derivatives
+		int nA = 0;
+		int nA_mm, nA_pp, nA_mp, nA_pm;
+		for (int k=LA; k >= 0; k--) {
+			for (int l=LA-k; l>=0; l--) {
+				int m = LA - k - l;
+					
+				for (int nB = 0; nB < ncartB; nB++) {
+					nA_mm = nA_mp = nA_pp = N_INDEX(l, m); //dxx
+					results[0](nA, nB) = k*(k-1)*Q_minus(nA_mm, nB) - 2.0*(2*k+1)*Q_0(nA_mp, nB)
+										+4.0*Q_plus(nA_pp, nB);
+					
+					nA_mm = std::max(0, N_INDEX(l-1, m)); //dxy
+					nA_pp  = N_INDEX(l+1, m);
+					results[1](nA, nB) = k*l*Q_minus(nA_mm, nB) - 2.0*k*Q_0(nA_pp, nB)
+										- 2.0*l*Q_0(nA_mm, nB) + 4.0*Q_plus(nA_pp, nB);
+
+					nA_mm = std::max(0, N_INDEX(l, m-1)); //dxz
+					nA_pp  = N_INDEX(l, m+1);
+					results[2](nA, nB) = k*m*Q_minus(nA_mm, nB) - 2.0*k*Q_0(nA_pp, nB)
+										- 2.0*m*Q_0(nA_mm, nB) + 4.0*Q_plus(nA_pp, nB);
+
+					nA_mm = std::max(0, N_INDEX(l-2, m)); //dyy
+					nA_mp = N_INDEX(l, m);
+					nA_pp  = N_INDEX(l+2,m);
+					results[3](nA, nB) = l*(l-1)*Q_minus(nA_mm, nB) - 2.0*(2*l+1)*Q_0(nA_mp, nB)
+										+4.0*Q_plus(nA_pp, nB);
+
+					nA_mm = std::max(0, N_INDEX(l-1, m-1)); //dyz
+					nA_mp = std::max(0, N_INDEX(l-1, m+1));
+					nA_pm = std::max(0, N_INDEX(l+1, m-1));	
+					nA_pp  = N_INDEX(l+1, m+1);
+					results[4](nA, nB) = l*m*Q_minus(nA_mm, nB) - 2.0*l*Q_0(nA_mp, nB)
+										- 2.0*m*Q_0(nA_pm, nB) + 4.0*Q_plus(nA_pp, nB);
+
+					nA_mm = std::max(0, N_INDEX(l, m-2)); //dzz
+					nA_mp = N_INDEX(l, m);
+					nA_pp  = N_INDEX(l,m+2);
+					results[5](nA, nB) = m*(m-1)*Q_minus(nA_mm, nB) - 2.0*(2*m+1)*Q_0(nA_mp, nB)
+										+4.0*Q_plus(nA_pp, nB);
+
+				}
+				nA += 1;
+			}
+		}
+	}
+	
+	void ECPIntegral::mixed_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 9> &results) {
+		int LA = shellA.am();
+		int LB = shellB.am();
+		
+		int ncartB = (LB+1) * (LB+2) / 2;
+		int ncartA = (LA+1) * (LA+2) / 2;
+		int ncartB_minus = std::max(1, (LB) * (LB+1) / 2);
+		int ncartA_minus = std::max(1, (LA) * (LA+1) / 2);
+		int ncartB_plus = (LB+2) * (LB+3) / 2;
+		int ncartA_plus = (LA+2) * (LA+3) / 2;
+		TwoIndex<double> Q_mm, Q_mp, Q_pm, Q_pp;
+		
+		for (auto& r : results) r.assign(ncartA, ncartB, 0.0); 
+		
+		GaussianShell tempA = shellA.copy();
+		for (int i = 0; i < tempA.nprimitive(); i++) 
+			tempA.coeffs[i] *= tempA.exps[i];
+		GaussianShell tempB = shellB.copy();
+		for (int i = 0; i < tempB.nprimitive(); i++) 
+			tempB.coeffs[i] *= tempB.exps[i];
+		
+		if (LA > 0) {
+			if (LB > 0) {
+				compute_shell_pair(U, shellA, shellB, Q_mm, -1, -1); 
+				compute_shell_pair(U, tempA, shellB, Q_pm, 1, -1);
+			} else {
+				Q_mm.assign(ncartA_minus, ncartB_minus, 0.0);
+				Q_pm.assign(ncartA_plus, ncartB_minus, 0.0);
+			}
+			compute_shell_pair(U, shellA, tempB, Q_mp, -1, 1);
+		} else if (LB > 0) {
+			compute_shell_pair(U, tempA, shellB, Q_pm, 1, -1);
+			Q_mm.assign(ncartA_minus, ncartB_minus, 0.0);
+			Q_mp.assign(ncartA_minus, ncartB_plus, 0.0);
+		}
+		compute_shell_pair(U, tempA, tempB, Q_pp, 1, 1); 
+		
+		// Now compile the derivatives
+		int nA = 0;
+		int nB = 0;
+		int nA_m[3], nA_p[3], nB_m[3], nB_p[3], AL[3], BL[3];
+		for (int ka=LA; ka >= 0; ka--) {
+			for (int la=LA-ka; la>=0; la--) {
+				int ma = LA - ka - la;
+				AL[0]=ka; AL[1]=la; AL[2]=ma;
+				nA_m[0] = nA_p[0] = N_INDEX(la, ma);
+				nA_m[1] = std::max(0, N_INDEX(la-1, ma));
+				nA_m[2] = std::max(0, N_INDEX(la, ma-1));
+				nA_p[1] = N_INDEX(la+1,ma);
+				nA_p[2] = N_INDEX(la, ma+1);
+				
+				nB = 0;
+				for (int kb=LB; kb >= 0; kb--) {
+					for (int lb=LB-kb; lb>=0; lb--) {
+						int mb = LB - kb - lb;
+						nB_m[0] = nB_p[0] = N_INDEX(lb, mb);
+						nB_m[1] = std::max(0, N_INDEX(lb-1, mb));
+						nB_m[2] = std::max(0, N_INDEX(lb, mb-1));
+						nB_p[1] = N_INDEX(lb+1,mb);
+						nB_p[2] = N_INDEX(lb, mb+1);
+						BL[0]=kb; BL[1]=lb; BL[2]=mb;
+
+						for (int p = 0; p < 3; p++) {
+							for (int q = 0; q < 3; q++) {
+								results[3*p+q](nA, nB) = AL[p]*BL[q]*Q_mm(nA_m[p], nB_m[q]) - 2.0*BL[q]*Q_pm(nA_p[p], nB_m[q])
+									- 2.0*AL[p]*Q_mp(nA_m[p], nB_p[q]) + 4.0*Q_pp(nA_p[p], nB_p[q]);
+							}
+						}
+						
+						nB += 1;
+					}
+				}
+				nA += 1;
 			}
 		}
 	}
@@ -434,8 +584,91 @@ namespace libecpint {
 		   	results[2] = results[5]; results[2].multiply(-1.0);
 		} else {
 			// else everything is zero
-			for (int i = 0; i < 9; i++) results[i].assign(ncartA, ncartB, 0.0);
+			for (auto& r : results) r.assign(ncartA, ncartB, 0.0);
 		}
+	}
+
+	void ECPIntegral::compute_shell_pair_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 45> &results) {		
+		// First we check centres
+		double A[3], B[3], C[3];
+		*A = *shellA.center();
+		*B = *shellB.center();
+		*C = *U.center();
+		
+		double dAC = std::abs(A[0] - C[0]) + std::abs(A[1] - C[1]) + std::abs(A[2] - C[2]);
+		double dBC = std::abs(B[0] - C[0]) + std::abs(B[1] - C[1]) + std::abs(B[2] - C[2]);
+		
+		// Calculate shell derivatives
+		std::array<TwoIndex<double>, 6> QAA, QBB;
+		std::array<TwoIndex<double>, 9> QAB;
+
+		if (dAC > 1e-6) {
+			left_shell_second_derivative(U, shellA, shellB, QAA);
+			if (dBC > 1e-6) {
+				left_shell_second_derivative(U, shellB, shellA, QBB);
+				mixed_second_derivative(U, shellA, shellB, QAB);
+			}
+		} else if (dBC > 1e-6) {
+			left_shell_second_derivative(U, shellB, shellA, QBB);
+		}
+		
+		// initialise results matrices
+		int ncartA = (shellA.am()+1) * (shellA.am()+2) / 2;
+		int ncartB = (shellB.am()+1) * (shellB.am()+2) / 2;
+		for (auto& r : results) r.assign(ncartA, ncartB, 0.0);
+		
+		// Now construct the nuclear derivs
+		int jaas[9] = {0, 1, 2, 1, 3, 4, 2, 4, 5};
+		int jaa;
+		if (dAC > 1e-6) {
+			//AA (xx, xy, xz, yy, yz, zz)
+			for (int i = 0; i < 6; i++) results[i] = QAA[i]; 
+			
+			if (dBC > 1e-6) {	
+				// AB (xx, xy, xz, yx, yy, yz, zx, zy, zz)
+				for (int i = 6; i < 15; i++) results[i] = QAB[i-6];
+				 //BB (xx, xy, xz, yy, yz, zz) 
+				for (int i = 24; i < 30; i++) results[i] = QBB[i-24].transpose();
+
+				for (int nA = 0; nA < ncartA; nA++) {
+					for (int nB = 0; nB < ncartB; nB++){
+						for (int j = 0; j < 9; j++) {
+							jaa = jaas[j];
+							
+							// AC (xx, xy, xz, yx, yy, yz, zx, zy, zz)
+							for (int i = 15; i < 24; i++)
+								results[i](nA, nB) = -1.0*(QAA[jaa](nA, nB) + QAB[j](nA, nB));
+							
+							// BC (xx, xy, xz, yx, yy, yz, zx, zy, zz)
+							for (int i = 30; i < 39; i++)
+								results[i](nA, nB) = -1.0*(QBB[jaa](nB, nA) + QAB[j](nA, nB));
+							
+							// CC (xx, xy, xz, yy, yz, zz)
+							for (int i = 39; i < 45; i++)
+								results[i](nA, nB) = QAA[jaa](nA, nB) + 2.0*QAB[j](nA, nB) + QBB[jaa](nB, nA);
+						}
+					}
+				}
+			} else {
+				// AB (xx, xy, xz, yx, yy, yz, zx, zy, zz)
+				for (int i = 6; i < 15; i++) {
+					results[i] = QAA[jaas[i-6]];
+					results[i].multiply(-1.0);
+				}
+				 //BB (xx, xy, xz, yy, yz, zz) 
+				for (int i = 24; i < 30; i++) results[i] = QAA[i-24];
+			}
+		} else if (dBC > 1e-6) {
+			//BB (xx, xy, xz, yy, yz, zz)
+			for (int i = 24; i < 30; i++) results[i] = QBB[i-24].transpose(); 
+			// AB (xx, xy, xz, yx, yy, yz, zx, zy, zz)
+			for (int i = 6; i < 15; i++) {
+				results[i] = QBB[jaas[i-6]].transpose();
+				results[i].multiply(-1.0);
+			}
+			 //AA (xx, xy, xz, yy, yz, zz) 
+			for (int i = 0; i < 6; i++) results[i] = QBB[i].transpose();
+		} 
 	}
 
 }

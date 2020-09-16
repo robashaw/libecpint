@@ -66,7 +66,7 @@ namespace libecpint {
 		
 		std::array<double, 3> center_; ///< xyz coordinates of the atom on which the ECP is located
 	
-		/// Constructs an empty ECP (N = L = 0, center_ = {0, 0, 0})
+		/// Constructs an empty ECP (N = 0, L=-1, center_ = {0, 0, 0})
 		ECP();
 		
 		/**

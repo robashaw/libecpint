@@ -123,6 +123,9 @@ namespace libecpint {
 		
 		void left_shell_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 3> &results); 
 		void compute_shell_pair_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 9> &results);
+		void left_shell_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 6> &results); 
+		void mixed_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 9> &results); 
+		void compute_shell_pair_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 45> &results);
 	};
 
 }

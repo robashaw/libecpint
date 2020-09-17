@@ -13,10 +13,10 @@ set (LIBECPINT_MAX_UNROL "1" CACHE STRING "Maximum L for unrolling")
 # configure the config header to pass the above variables to the program
 configure_file (
 	      "${PROJECT_SOURCE_DIR}/include/libecpint/config.hpp.in"
-	      "${PROJECT_SOURCE_DIR}/include/libecpint/config.hpp"
+	      "${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp"
 )
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/libecpint)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/Faddeeva)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/include/libecpint)
 
 add_subdirectory(src)
 
@@ -28,3 +28,4 @@ endif()
 
 install(DIRECTORY include/libecpint DESTINATION include)
 install(FILES include/libecpint.hpp DESTINATION include)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp DESTINATION include/libecpint)

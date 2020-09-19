@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="gaussquad_8hpp" kind="file" language="C++">
+    <compoundname>gaussquad.hpp</compoundname>
+    <includes local="no">functional</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="gaussquad_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/gaussquad.cpp</includedby>
+    <includedby refid="ecpint_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp</includedby>
+    <includedby refid="radial_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp</includedby>
+    <incdepgraph>
+      <node id="114">
+        <label>functional</label>
+      </node>
+      <node id="113">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp</label>
+        <link refid="gaussquad_8hpp"/>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+      </node>
+      <node id="115">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="118">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp</label>
+        <link refid="ecpint_8hpp"/>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+      </node>
+      <node id="124">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/radial_gen.cpp</label>
+        <link refid="generated_2radial_2radial__gen_8cpp"/>
+      </node>
+      <node id="123">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp</label>
+        <link refid="radial_8hpp"/>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+      </node>
+      <node id="126">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_quad.cpp</label>
+        <link refid="radial__quad_8cpp"/>
+      </node>
+      <node id="122">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint.hpp</label>
+        <link refid="libecpint_8hpp"/>
+      </node>
+      <node id="120">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp</label>
+        <link refid="api_8hpp"/>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+      </node>
+      <node id="116">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp</label>
+        <link refid="gaussquad_8hpp"/>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+      </node>
+      <node id="121">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp</label>
+        <link refid="api_8cpp"/>
+      </node>
+      <node id="127">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/qgen.hpp</label>
+        <link refid="qgen_8hpp"/>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+      </node>
+      <node id="119">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp</label>
+        <link refid="ecpint_8cpp"/>
+      </node>
+      <node id="125">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_gen.cpp</label>
+        <link refid="lib_2radial__gen_8cpp"/>
+      </node>
+      <node id="117">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/gaussquad.cpp</label>
+        <link refid="gaussquad_8cpp"/>
+      </node>
+      <node id="128">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/qgen.cpp</label>
+        <link refid="qgen_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classlibecpint_1_1_g_c_quadrature" prot="public">libecpint::GCQuadrature</innerclass>
+    <innernamespace refid="namespacelibecpint">libecpint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2020<sp/>Robert<sp/>Shaw</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>a<sp/>part<sp/>of<sp/>Libecpint.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>a<sp/>copy<sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>&quot;Software&quot;),<sp/>to<sp/>deal<sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>without<sp/>limitation<sp/>the<sp/>rights<sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell<sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is<sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>included<sp/>in<sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>EXPRESS<sp/>OR<sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>MERCHANTABILITY,<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,<sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>GC_QUAD_HEAD</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GC_QUAD_HEAD</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;functional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacelibecpint" kindref="compound">libecpint</ref><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3f" kindref="member">GCTYPE</ref><sp/>{</highlight></codeline>
+<codeline lineno="35" refid="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3faf2e6a20e628fc9be0ff38027d732664a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3faf2e6a20e628fc9be0ff38027d732664a" kindref="member">ONEPOINT</ref>,<sp/></highlight></codeline>
+<codeline lineno="36" refid="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3fa56b5dd9ab1cc8971737f1c6c14d32e52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3fa56b5dd9ab1cc8971737f1c6c14d32e52" kindref="member">TWOPOINT</ref><sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="classlibecpint_1_1_g_c_quadrature" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlibecpint_1_1_g_c_quadrature" kindref="compound">GCQuadrature</ref><sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="54" refid="classlibecpint_1_1_g_c_quadrature_1ae0bacb92b24e1ad6916f0d24aec69a7a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1ae0bacb92b24e1ad6916f0d24aec69a7a" kindref="member">maxN</ref>;<sp/></highlight></codeline>
+<codeline lineno="55" refid="classlibecpint_1_1_g_c_quadrature_1ab1d484bbe747fcb54097eb087ae1f1fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1ab1d484bbe747fcb54097eb087ae1f1fd" kindref="member">M</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57" refid="classlibecpint_1_1_g_c_quadrature_1a2db3cb9548003ddb02baaa533651479e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1a2db3cb9548003ddb02baaa533651479e" kindref="member">x</ref>;<sp/></highlight></codeline>
+<codeline lineno="58" refid="classlibecpint_1_1_g_c_quadrature_1ac784cc6c177d4c461dbb12a43e515778" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1ac784cc6c177d4c461dbb12a43e515778" kindref="member">w</ref>;<sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="60" refid="classlibecpint_1_1_g_c_quadrature_1a7aa031524de2fd28eef7910c8cc78aba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1a7aa031524de2fd28eef7910c8cc78aba" kindref="member">I</ref>;<sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62" refid="classlibecpint_1_1_g_c_quadrature_1a02321bf542c18ca347e8e3b086b6f0ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3f" kindref="member">GCTYPE</ref><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1a02321bf542c18ca347e8e3b086b6f0ea" kindref="member">t</ref>;<sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1ac53998dfe6f4c6f59dd4cac8ee1f8701" kindref="member">sumTerms</ref>(std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)&gt;<sp/>&amp;<ref refid="namespaceunrol__radial_1a582dde0241adf8b3a95b4459b4d49b2b" kindref="member">f</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*p,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>limit,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>shift,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>skip);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69" refid="classlibecpint_1_1_g_c_quadrature_1a5ee85ae821da90c88d808175168942f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1a5ee85ae821da90c88d808175168942f2" kindref="member">start</ref>;<sp/></highlight></codeline>
+<codeline lineno="70" refid="classlibecpint_1_1_g_c_quadrature_1a661234923d00bfbf2dff3c88a5f4953e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1a661234923d00bfbf2dff3c88a5f4953e" kindref="member">end</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1a563235d3d5d9a19a5e4a77aec13f5dfd" kindref="member">GCQuadrature</ref>();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1a563235d3d5d9a19a5e4a77aec13f5dfd" kindref="member">GCQuadrature</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature" kindref="compound">GCQuadrature</ref><sp/>&amp;other);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1a2757549e5f47cfb8ae142a60db947ae3" kindref="member">initGrid</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>points,<sp/><ref refid="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3f" kindref="member">GCTYPE</ref><sp/>t);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1aaf02c22b41f79b4bfc91a3c258458466" kindref="member">integrate</ref>(std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)&gt;<sp/>&amp;<ref refid="namespaceunrol__radial_1a582dde0241adf8b3a95b4459b4d49b2b" kindref="member">f</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*params,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tolerance);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1a4353914587c53237d1b7e0dc7bf0c920" kindref="member">transformZeroInf</ref>();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1ab17203b568cea63fbfc897a404583e1a" kindref="member">transformRMinMax</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>p);<sp/><sp/></highlight><highlight class="comment">//<sp/>Transfromation<sp/>from<sp/>[-1,<sp/>1]<sp/>to<sp/>[rmin,<sp/>rmax]<sp/>from<sp/>Flores06</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="111" refid="classlibecpint_1_1_g_c_quadrature_1a62d81712867e1bc24426ec5a89a4e0ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1a62d81712867e1bc24426ec5a89a4e0ed" kindref="member">getI</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1a7aa031524de2fd28eef7910c8cc78aba" kindref="member">I</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="114" refid="classlibecpint_1_1_g_c_quadrature_1a8981b038cd9f49404b979b64be33d19e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1a8981b038cd9f49404b979b64be33d19e" kindref="member">getN</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1ae0bacb92b24e1ad6916f0d24aec69a7a" kindref="member">maxN</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117" refid="classlibecpint_1_1_g_c_quadrature_1ac21349eccf4e32896f4bbf096c71edfc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;&amp;<sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1ac21349eccf4e32896f4bbf096c71edfc" kindref="member">getX</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature_1a2db3cb9548003ddb02baaa533651479e" kindref="member">x</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp"/>
+  </compounddef>
+</doxygen>

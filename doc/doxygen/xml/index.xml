@@ -1,0 +1,493 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+  <compound refid="classlibecpint_1_1_angular_integral" kind="class"><name>libecpint::AngularIntegral</name>
+    <member refid="classlibecpint_1_1_angular_integral_1a3513c16ca75d1951fc22f511da917834" kind="variable"><name>LB</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a41c35cd22346cbd20a6f886ab3123f29" kind="variable"><name>LE</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a4ccd7f1e5c6f5cab80cf659a2e5b8e7d" kind="variable"><name>wDim</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1aee2aa0fdc71769a6a34d9582c2d1dc8a" kind="variable"><name>maxL</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a3d5eb4048daee7f411bf36e64f6a839d" kind="variable"><name>W</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a71b79b6db25a13af4333b355d4eac05e" kind="variable"><name>omega</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a15bbecae0c6c9db570f07c06f7581841" kind="function"><name>calcG</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1abfe9a899ab68d7edba0a1e4ea313a4ab" kind="function"><name>calcH1</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a607358498adb165ebb9412fa094232af" kind="function"><name>calcH2</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1ada7167723e1fba654c0efe2bcac419f8" kind="function"><name>Pijk</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a0ca75310132e0849b0a0d696e8d4c43a" kind="function"><name>makeW</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a4d71a79be812fdf54ce923e6005f821c" kind="function"><name>makeOmega</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a15586cc96d2809db4db875558b89e082" kind="function"><name>uklm</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a7dbfd0ec17dc53dd2f316394fc77186c" kind="function"><name>makeU</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a19293828fca3018cdcdc4f14e9b9ded6" kind="function"><name>AngularIntegral</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a81aa19e40bf5eba60811de5bf5e9e714" kind="function"><name>AngularIntegral</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1aa800d3d2f3edac502daf5e8fc332d710" kind="function"><name>init</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a2d43cc97a39834a4d398a952396b3ae7" kind="function"><name>compute</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a3d515a35b18f2260724fe82adc189757" kind="function"><name>clear</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a9effa990cf6a6d2b1a760b465e3cd458" kind="function"><name>getIntegral</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a5adeda40331f10cde2da58cd3e163ffd" kind="function"><name>getIntegral</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a28578c8be3cdec10a6a65e2966a96e94" kind="function"><name>isZero</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a3e60281cb1e69e01d2c79bd29ade70f9" kind="function"><name>isZero</name></member>
+  </compound>
+  <compound refid="classlibecpint_1_1_bessel_function" kind="class"><name>libecpint::BesselFunction</name>
+    <member refid="classlibecpint_1_1_bessel_function_1a9887b57c73d7e29abb8c008b26780cf8" kind="variable"><name>lMax</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1a32363daa6c7b9a594e455034c9fab0ae" kind="variable"><name>N</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1a7ec46212dae92d4bc86da2d611185ded" kind="variable"><name>order</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1a3569aa7989502d0eeb089ddde1bf9f56" kind="variable"><name>K</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1a5dcbfec899e1ed7fcba183b28b112538" kind="variable"><name>C</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1abdc78ae534dadfaba74dcfe3cfb54091" kind="function"><name>tabulate</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1af0e545daf8a60389bd010b2ab43a9375" kind="function"><name>BesselFunction</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1a099afffa30983a7d0aef859fc119044f" kind="function"><name>BesselFunction</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1af42c649bd46884942a9737e8cffaa78d" kind="function"><name>~BesselFunction</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1a6e688a911c24b88c93caa7f9e87c5965" kind="function"><name>init</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1ab568362995b5edd4ef0461116d6c0d59" kind="function"><name>calculate</name></member>
+  </compound>
+  <compound refid="structlibecpint_1_1_e_c_p" kind="struct"><name>libecpint::ECP</name>
+    <member refid="structlibecpint_1_1_e_c_p_1a3934e012fdd055afbcb14d46174861c6" kind="variable"><name>gaussians</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a36dfdf88f34a7840e7cbfd57046571ad" kind="variable"><name>N</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a1ca581f31fc7ac7a59dc9fe699caa9a7" kind="variable"><name>L</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a180a9879527c372a58155240adf2c158" kind="variable"><name>center_</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1af4dca32df3ef9f0b16c9942aebaa30b9" kind="function"><name>ECP</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a00fd5d048332aea9ac5ae51611998170" kind="function"><name>ECP</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a783c7247cf671e3eeeca19319f2005dd" kind="function"><name>ECP</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a0722152e417ce3cc1934fab12018a2fa" kind="function"><name>addPrimitive</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a67b0097de7275b589d8fb104559c85f2" kind="function"><name>center</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a062cbfaa2fefcc7e4ca0de014a791b6a" kind="function"><name>setPos</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a033d4d18c168f3052a298b1d32035dde" kind="function"><name>sort</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a9b17e65c73b6671205b3295e2d2c52f8" kind="function"><name>getGaussian</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a1eb8f3a9515a591efc9e3da28ba0a9c2" kind="function"><name>getN</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a6f3c3cbf7401f8559be5c0616f21cb2b" kind="function"><name>noType1</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a5b4a28bfac7de0329e0a84f10bb6531f" kind="function"><name>evaluate</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a8c9d96f791a742fe18616c8361d6ad0b" kind="function"><name>getL</name></member>
+  </compound>
+  <compound refid="classlibecpint_1_1_e_c_p_basis" kind="struct"><name>libecpint::ECPBasis</name>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1ace1af0a6c1ca994b54d877c32d47cec6" kind="variable"><name>basis</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1a70460015e701f21f3736188d7fdfff54" kind="variable"><name>atomList</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1a17a416202956ac683308a54816b9b0a7" kind="variable"><name>N</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1abeabb84d5402d144b288a9c17d8b1bf2" kind="variable"><name>maxL</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1a14e29c3855ad997b10c8e512bc63bdbc" kind="variable"><name>core_electrons</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1ae8a0aec737135fbc3cb04db819f90d11" kind="function"><name>ECPBasis</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1a30849fe03fcb5af55277f5c9cf3cb029" kind="function"><name>addECP</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1adc48a2df7d92a7e796d50f704b80d819" kind="function"><name>getECP</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1a6693bdf5b110fa4fcec07b5e2d7bcaef" kind="function"><name>getECPCore</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1a79335f55db2a60b87da4d0b401249d06" kind="function"><name>getAtom</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1af44efe193f718cef4986fccde8045c8a" kind="function"><name>getMaxL</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1aa98f477ed0dee4a97de5f0178ade6409" kind="function"><name>getN</name></member>
+  </compound>
+  <compound refid="classlibecpint_1_1_e_c_p_integral" kind="class"><name>libecpint::ECPIntegral</name>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1af9cee7a7a59bfa3ae1645d77b3fec7d6" kind="variable"><name>radInts</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a1d53a9bf47dfc66607950856e0f8f8b1" kind="variable"><name>angInts</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a4dd23f2102d981526a2e01c4a9818bff" kind="variable"><name>QGEN</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a4659eadbdeaf45a872facaf1f88c5664" kind="function"><name>calcC</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1aed281dde8a69e07610c31308044580b7" kind="function"><name>makeC</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1ae5871ce6997e2893ff6a8bd24fe236b0" kind="function"><name>ECPIntegral</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1afe5cd2c1f007508a1fcae65e9a26e36e" kind="function"><name>type1</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a628cffa5e8e3e4fa2abecd446a13eae9" kind="function"><name>type2</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a983fc271cb866676fe88fe46634906d8" kind="function"><name>compute_shell_pair</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1ab6ac47f8d0b0f203eac83a4ddc758d74" kind="function"><name>left_shell_derivative</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1abdb90e30f2181179ef45211e680cca0f" kind="function"><name>compute_shell_pair_derivative</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1aa7fbc2190ff870e8047ffc48d191981e" kind="function"><name>left_shell_second_derivative</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1add9d02bf57d835f6bdc9389c920b527c" kind="function"><name>mixed_second_derivative</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a12fda657835a586afbfda05e2a8660c2" kind="function"><name>compute_shell_pair_second_derivative</name></member>
+  </compound>
+  <compound refid="structlibecpint_1_1_e_c_p_integrator" kind="struct"><name>libecpint::ECPIntegrator</name>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1ac02c7727c7d543075c20c01a700a2013" kind="variable"><name>shells</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1ad0b9534fca91a74c26d6c0dbc629d77c" kind="variable"><name>centers</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a3a6607e0994d29857b8cf9f1976cdde5" kind="variable"><name>ecps</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1ae2533f7a48f4dcb1623d0714848caa91" kind="variable"><name>ecpint</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a808c40100c33f9c6697d3ecbd8932073" kind="variable"><name>maxLB</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1aa44fa6cfb8034ccad41ce1c78bbe924d" kind="variable"><name>deriv</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a6ef18fd2dd9e4a4b6990256b4d8a0898" kind="variable"><name>ncart</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1ae97cfac274e3cf027fee4c400be4a135" kind="variable"><name>ecp_is_set</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a0d3ba3a248daee1e500b5904e1e97884" kind="variable"><name>basis_is_set</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1aae57803f1ae262344dcce39efd824a0f" kind="variable"><name>integrals</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a0e56ef03d93d24a6df2ac40c909f84cf" kind="variable"><name>first_derivs</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a0e4bbbdc16a8d50ca5c7a20006d4e56c" kind="variable"><name>second_derivs</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1af6e771cf61b3df41aa66ed9442f5ba39" kind="function"><name>ECPIntegrator</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a8443f995b5cd9fe78d4411ec1a856a51" kind="function"><name>set_gaussian_basis</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1ad896e1d1a7b10241101cd9821ec0941a" kind="function"><name>set_ecp_basis</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a24b0fd76ee4d00d26335360e3fb7934b" kind="function"><name>update_gaussian_basis_coords</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1aa5b74859aabb89898bda4dc8065cae54" kind="function"><name>update_ecp_basis_coords</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1af1c1b928e3ec5835f77fb45dc763a6ed" kind="function"><name>init</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a0a39d9600dd20b4361635714b6653de0" kind="function"><name>compute</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a13c17ee1abc0f2a235d7d105ceea90a2" kind="function"><name>get_integrals</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a39c0a17097f7c767ac1f4bedf10948d2" kind="function"><name>get_first_derivs</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a2b2c43701756b081512cc9fe7c44e040" kind="function"><name>get_second_derivs</name></member>
+  </compound>
+  <compound refid="structlibecpint_1_1_five_index" kind="struct"><name>libecpint::FiveIndex</name>
+    <member refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kind="variable"><name>dims</name></member>
+    <member refid="structlibecpint_1_1_five_index_1a810af0ad1e45e32d80528e9524b6f511" kind="variable"><name>data</name></member>
+    <member refid="structlibecpint_1_1_five_index_1a841b590ccc71fe1f6a56e59d3f1c59b5" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_five_index_1a1c8335b729432ad8b47db4b309caf05c" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_five_index_1a4592156484c1d5b258f18ff14ba8f2b9" kind="function"><name>FiveIndex</name></member>
+    <member refid="structlibecpint_1_1_five_index_1a0e2eea20839a78b59e9cfbe88ae4dc64" kind="function"><name>FiveIndex</name></member>
+    <member refid="structlibecpint_1_1_five_index_1a65eb21140dfb8d6addfc26ae38e4a2d4" kind="function"><name>FiveIndex</name></member>
+  </compound>
+  <compound refid="structlibecpint_1_1_gaussian_e_c_p" kind="struct"><name>libecpint::GaussianECP</name>
+    <member refid="structlibecpint_1_1_gaussian_e_c_p_1a75255bfcde88a8f3b3e56c316ec7a99c" kind="variable"><name>n</name></member>
+    <member refid="structlibecpint_1_1_gaussian_e_c_p_1a9933bcb032148c4152160a0b70521189" kind="variable"><name>l</name></member>
+    <member refid="structlibecpint_1_1_gaussian_e_c_p_1a89433d98899bfcf9e11c40590b9a585e" kind="variable"><name>a</name></member>
+    <member refid="structlibecpint_1_1_gaussian_e_c_p_1a4899fa6262f84344b3d0f8c304c8e9f5" kind="variable"><name>d</name></member>
+    <member refid="structlibecpint_1_1_gaussian_e_c_p_1a03dbff0cd12d8f70f04cfd509c3c8bdd" kind="function"><name>GaussianECP</name></member>
+    <member refid="structlibecpint_1_1_gaussian_e_c_p_1aaa1bd52c82d1615b887d7f981271f615" kind="function"><name>GaussianECP</name></member>
+    <member refid="structlibecpint_1_1_gaussian_e_c_p_1ae21d0c4a2808b622f87621cb2b3d68cb" kind="function"><name>GaussianECP</name></member>
+  </compound>
+  <compound refid="structlibecpint_1_1_gaussian_shell" kind="struct"><name>libecpint::GaussianShell</name>
+    <member refid="structlibecpint_1_1_gaussian_shell_1ac05c0305dc8422cbdc94e668a5e9a09e" kind="variable"><name>exps</name></member>
+    <member refid="structlibecpint_1_1_gaussian_shell_1a1a12d01b4556196b36b8df746fac403d" kind="variable"><name>coeffs</name></member>
+    <member refid="structlibecpint_1_1_gaussian_shell_1abc5ea045734ff2cc0b09330786904e6b" kind="variable"><name>centerVec</name></member>
+    <member refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" kind="variable"><name>l</name></member>
+    <member refid="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" kind="function"><name>GaussianShell</name></member>
+    <member refid="structlibecpint_1_1_gaussian_shell_1ad270e1f8bc33397b080644fceb6f4755" kind="function"><name>addPrim</name></member>
+    <member refid="structlibecpint_1_1_gaussian_shell_1ad9e3f82004442f284beac5b246ae3f82" kind="function"><name>nprimitive</name></member>
+    <member refid="structlibecpint_1_1_gaussian_shell_1ad2f43aaecabbb28ac93ccb327b6b181d" kind="function"><name>ncartesian</name></member>
+    <member refid="structlibecpint_1_1_gaussian_shell_1a4516bca17cc123b121cc058052b56984" kind="function"><name>center</name></member>
+    <member refid="structlibecpint_1_1_gaussian_shell_1a738b66cf3e241c179829616e400b845e" kind="function"><name>exp</name></member>
+    <member refid="structlibecpint_1_1_gaussian_shell_1aa05357293d4bdb6d482dbd55ac80a592" kind="function"><name>coef</name></member>
+    <member refid="structlibecpint_1_1_gaussian_shell_1a1b813a78cfad1112ac6dd4a18243f1e2" kind="function"><name>am</name></member>
+    <member refid="structlibecpint_1_1_gaussian_shell_1ab1e7930b32e4ba26ee00e9747f19dca2" kind="function"><name>copy</name></member>
+  </compound>
+  <compound refid="classlibecpint_1_1_g_c_quadrature" kind="class"><name>libecpint::GCQuadrature</name>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1ae0bacb92b24e1ad6916f0d24aec69a7a" kind="variable"><name>maxN</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1ab1d484bbe747fcb54097eb087ae1f1fd" kind="variable"><name>M</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1a2db3cb9548003ddb02baaa533651479e" kind="variable"><name>x</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1ac784cc6c177d4c461dbb12a43e515778" kind="variable"><name>w</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1a7aa031524de2fd28eef7910c8cc78aba" kind="variable"><name>I</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1a02321bf542c18ca347e8e3b086b6f0ea" kind="variable"><name>t</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1a5ee85ae821da90c88d808175168942f2" kind="variable"><name>start</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1a661234923d00bfbf2dff3c88a5f4953e" kind="variable"><name>end</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1ac53998dfe6f4c6f59dd4cac8ee1f8701" kind="function"><name>sumTerms</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1a563235d3d5d9a19a5e4a77aec13f5dfd" kind="function"><name>GCQuadrature</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1abb70ca948ba7f768a59c74d9f93a471a" kind="function"><name>GCQuadrature</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1a2757549e5f47cfb8ae142a60db947ae3" kind="function"><name>initGrid</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1aaf02c22b41f79b4bfc91a3c258458466" kind="function"><name>integrate</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1a4353914587c53237d1b7e0dc7bf0c920" kind="function"><name>transformZeroInf</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1ab17203b568cea63fbfc897a404583e1a" kind="function"><name>transformRMinMax</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1a62d81712867e1bc24426ec5a89a4e0ed" kind="function"><name>getI</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1a8981b038cd9f49404b979b64be33d19e" kind="function"><name>getN</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1ac21349eccf4e32896f4bbf096c71edfc" kind="function"><name>getX</name></member>
+  </compound>
+  <compound refid="structlibecpint_1_1aux_1_1gen__seq" kind="struct"><name>libecpint::aux::gen_seq</name>
+  </compound>
+  <compound refid="structlibecpint_1_1aux_1_1gen__seq_3_010_00_01_is_8_8_8_01_4" kind="struct"><name>libecpint::aux::gen_seq&lt; 0, Is... &gt;</name>
+  </compound>
+  <compound refid="classunrol__radial_1_1_qijk" kind="class"><name>unrol_radial::Qijk</name>
+    <member refid="classunrol__radial_1_1_qijk_1a13c97ec2c24cebb9837e489d529e506d" kind="variable"><name>i</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1a8b2b786c8c0a40954fa43e3acd9932ad" kind="variable"><name>j</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1aee510945a68eeeda4358f845fb9c5f8b" kind="variable"><name>k</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1a09a48c7f163297b004a701ec253beb9c" kind="variable"><name>size</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1aa953c0bf67f31bb2a42a428b3d75a67f" kind="variable"><name>start</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1a9c6f9f85074c20f0a1490b91d96363e7" kind="variable"><name>end</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1a875fec8f932c72df77e532e38ff31f23" kind="variable"><name>subq</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1ae01082682037997e67455c44290fda74" kind="variable"><name>terms</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1a9afa1224c15304b1de7a5155829ef20f" kind="variable"><name>bases</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1aa7c08cc37af033e46fcb07cf4ff636d8" kind="variable"><name>f</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1a1673d45d057b9948beb17b4fb380f43e" kind="variable"><name>ga</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1a2531027222ac28a85ccc67d9bb1e97ab" kind="variable"><name>gb</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1aadecf334f051c42482f1c47b05dc7694" kind="variable"><name>h</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1a75b41f20d3f81ca3d7c5d6c322ca1239" kind="function"><name>__init__</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1abdf73c1a9fc867f4996ff2ad285d1d8e" kind="function"><name>print</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1a2151c6b5f04181ebd1a2fe126098ae81" kind="function"><name>print_simple</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1aabbd2439261a6e298a0f4ec02a2d6340" kind="function"><name>print_fgh</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1ad3d2dead58aa2dfb6e5c1aae0b97d9d7" kind="function"><name>write_code</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1a1085072adb017feb8d9f8d13afd98448" kind="function"><name>simplify</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1a4daf5ba9c398f8a5fcaf7f1fc1d02a0c" kind="function"><name>sort</name></member>
+    <member refid="classunrol__radial_1_1_qijk_1a2d6b98b81c59ea2d80ad318c28c72116" kind="function"><name>eliminate</name></member>
+  </compound>
+  <compound refid="classlibecpint_1_1_radial_integral" kind="class"><name>libecpint::RadialIntegral</name>
+    <member refid="classlibecpint_1_1_radial_integral_1a3eab6902a04542fea0f7716720101ab5" kind="variable"><name>bigGrid</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a8fd9dc20f11777d70a4717bcd6e42695" kind="variable"><name>smallGrid</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a0ecab0ef4febcbbde502dd2d8d0e3232" kind="variable"><name>primGrid</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a02377eb5c6fa6e3e8bc7a9adab9d54ce" kind="variable"><name>bessie</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a026d0f8ac22dfa7f59cea55ca9822813" kind="variable"><name>p</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1ad043e0f39e49dfe5ad8d24ceb794f358" kind="variable"><name>P</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a005be0590e9859b8a5a1895c33f44816" kind="variable"><name>P2</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a266948c524f26078eda4cc03a38e4c38" kind="variable"><name>K</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1aec0cebbcc385b095d3cddaca1535bfc6" kind="variable"><name>tolerance</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a74e8d553abd0eaa05895b5c4de5dffd7" kind="function"><name>integrand</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a18d110b928ca635af98f6d77af39eb30" kind="function"><name>buildBessel</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a3d24ad5249cce6f7d2c756b35838b420" kind="function"><name>calcKij</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a824424155d47851669936c7718b3659e" kind="function"><name>buildU</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a6cfc8c4b8d54763dbe5e4eacaa1d4d0c" kind="function"><name>buildF</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a70783f9cf618a9fbff0fc9320a5b7821" kind="function"><name>integrate</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1aaeaace744506f7c8249bce2f52c475fc" kind="function"><name>compute_base_integrals</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a1fd2768bf978c057e363f6d4ae12a9e7" kind="function"><name>integrate_small</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1af36637d464da95bf4eef4397021bed72" kind="function"><name>RadialIntegral</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1ab393e4e63a410d922c4b8fa1bee7df3f" kind="function"><name>init</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1ab6c465a300ab19cf5897e1b5fa48bf62" kind="function"><name>buildParameters</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a3453cf0fef8eae7ebbc44e5cd858d2cd" kind="function"><name>type1</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1ad62b2f824706436658d4fc19ee2891f9" kind="function"><name>type2</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1ac4ef3a09fc2f159cdf1a4da92c69a1d1" kind="function"><name>type2</name></member>
+  </compound>
+  <compound refid="structlibecpint_1_1aux_1_1seq" kind="struct"><name>libecpint::aux::seq</name>
+  </compound>
+  <compound refid="structlibecpint_1_1_seven_index" kind="struct"><name>libecpint::SevenIndex</name>
+    <member refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kind="variable"><name>dims</name></member>
+    <member refid="structlibecpint_1_1_seven_index_1a0920724697f71d0ebc04cbd0576ba8de" kind="variable"><name>data</name></member>
+    <member refid="structlibecpint_1_1_seven_index_1aeb2542f4929daed6093f744a7d0fd33a" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_seven_index_1a3771f25558c7140b94f4dc5d1d3cd94f" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_seven_index_1aed182d7a962881685173839c0097da37" kind="function"><name>SevenIndex</name></member>
+    <member refid="structlibecpint_1_1_seven_index_1ad53c130dda8907f1e0f24bec14d00932" kind="function"><name>SevenIndex</name></member>
+    <member refid="structlibecpint_1_1_seven_index_1acf668e56ebbe8735b9cd34880f1b96b4" kind="function"><name>SevenIndex</name></member>
+  </compound>
+  <compound refid="structlibecpint_1_1_shell_pair_data" kind="class"><name>libecpint::ShellPairData</name>
+    <member refid="structlibecpint_1_1_shell_pair_data_1a55c45f1c204af209b42a1b02697e4c1d" kind="variable"><name>LA</name></member>
+    <member refid="structlibecpint_1_1_shell_pair_data_1ac5e107efbf69f950bb7e0bf70df1e1fc" kind="variable"><name>LB</name></member>
+    <member refid="structlibecpint_1_1_shell_pair_data_1ab98896b5598353c208092f517f500fc9" kind="variable"><name>maxLBasis</name></member>
+    <member refid="structlibecpint_1_1_shell_pair_data_1a94ebbd7fee35f60f77492663e13e715f" kind="variable"><name>ncartA</name></member>
+    <member refid="structlibecpint_1_1_shell_pair_data_1a7375bb4a1a452df895172f9731c8fa32" kind="variable"><name>ncartB</name></member>
+    <member refid="structlibecpint_1_1_shell_pair_data_1ac43603240b081b43b4f512d1b1acc31a" kind="variable"><name>A</name></member>
+    <member refid="structlibecpint_1_1_shell_pair_data_1a20bca75c83dc42e380791903c829afce" kind="variable"><name>B</name></member>
+    <member refid="structlibecpint_1_1_shell_pair_data_1a84c698aa2367eabcef0b4317c69f5a42" kind="variable"><name>A2</name></member>
+    <member refid="structlibecpint_1_1_shell_pair_data_1a1fc38f370c8ff674e6cfeefeaf975088" kind="variable"><name>Am</name></member>
+    <member refid="structlibecpint_1_1_shell_pair_data_1a9600ebca9c4bcc09c6fdae223ec9fb09" kind="variable"><name>B2</name></member>
+    <member refid="structlibecpint_1_1_shell_pair_data_1ac062ca4fde545f74f14601cb6cac1587" kind="variable"><name>Bm</name></member>
+    <member refid="structlibecpint_1_1_shell_pair_data_1a3f78ab3a033791dbd8a6cd676c2a904d" kind="variable"><name>RAB2</name></member>
+    <member refid="structlibecpint_1_1_shell_pair_data_1ab2f6be977b253b7726a8082af3ed00e8" kind="variable"><name>RABm</name></member>
+  </compound>
+  <compound refid="structlibecpint_1_1_sum_term" kind="struct"><name>libecpint::SumTerm</name>
+    <member refid="structlibecpint_1_1_sum_term_1acdd12a028ce09ff86ebce56c60a9a851" kind="variable"><name>SA</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1af2d202b641fb69368b7521cbc5fcfb5a" kind="variable"><name>SB</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1af395fd40d2608eda353e51724a49fce6" kind="variable"><name>radial</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1a3ac85f8e05f73bec6eae5927be8bdefe" kind="variable"><name>CA</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1ae290762e1ba4fd9551a660240305ff92" kind="variable"><name>CB</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1a9b9d5414d83dc3ec8661056d3185ebac" kind="variable"><name>ang</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1ac62b5da10ab084cc182ef8c3d4a93aec" kind="variable"><name>mu</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1a3fd014bcda389aedea86bf1a5a9b4e27" kind="variable"><name>na</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1ab415fd3701f506f0bac1df48ba5376e2" kind="variable"><name>nb</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1a35693062da303112e9ef87378173ea2b" kind="function"><name>operator&lt;</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1a8df4a27f67009537d91520791e6452ac" kind="function"><name>operator&lt;=</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1a08c92f841d6a0c41cfb224201d2e6a81" kind="function"><name>operator==</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1a18fd43d8e6246cc3d05200375af7a2d6" kind="function"><name>ca_index</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1a64a6eadd1b210f7721089243c3db2284" kind="function"><name>cb_index</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1a783add2e2755ddd587cedc0b3baa36cf" kind="function"><name>to_string</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1a0ec4efd18783c328e8baaa243748c417" kind="function"><name>compare</name></member>
+    <member refid="structlibecpint_1_1_sum_term_1aa24a9c91e95109e1d6f831331c35093b" kind="friend"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="structlibecpint_1_1_three_index" kind="struct"><name>libecpint::ThreeIndex</name>
+    <member refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kind="variable"><name>dims</name></member>
+    <member refid="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" kind="variable"><name>data</name></member>
+    <member refid="structlibecpint_1_1_three_index_1ac78d498238d110a85ec1ea388e6e0ccc" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_three_index_1a70e34002fa6d61a6c2ae0db5d357e95b" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_three_index_1ad2750b03c39d4da327e3c2416a3053fa" kind="function"><name>ThreeIndex</name></member>
+    <member refid="structlibecpint_1_1_three_index_1a2733c35720de560972cfec04172d190a" kind="function"><name>ThreeIndex</name></member>
+    <member refid="structlibecpint_1_1_three_index_1af40f104dbb8fe8ec87c97e6a34209f7f" kind="function"><name>ThreeIndex</name></member>
+    <member refid="structlibecpint_1_1_three_index_1ab19242bc7a3110e238bba364b6c3ff36" kind="function"><name>fill</name></member>
+  </compound>
+  <compound refid="structlibecpint_1_1_two_index" kind="struct"><name>libecpint::TwoIndex</name>
+    <member refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kind="variable"><name>dims</name></member>
+    <member refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kind="variable"><name>data</name></member>
+    <member refid="structlibecpint_1_1_two_index_1a7e8a865f087c1c207300c35cbaec2cd4" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_two_index_1aa7c4691a9cd0064001345a0011481a93" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_two_index_1a44b5fe46251bc63db296a718d4f47506" kind="function"><name>assign</name></member>
+    <member refid="structlibecpint_1_1_two_index_1af9dec10df263e5438733ea4e79a45049" kind="function"><name>transpose</name></member>
+    <member refid="structlibecpint_1_1_two_index_1a695ab1652f3d10e10fb0ff24fea73ff5" kind="function"><name>add</name></member>
+    <member refid="structlibecpint_1_1_two_index_1a0a5720cd6f2359f67763770838763cca" kind="function"><name>multiply</name></member>
+    <member refid="structlibecpint_1_1_two_index_1ad667a1f8799d28687061bd15f4bb7b4b" kind="function"><name>TwoIndex</name></member>
+    <member refid="structlibecpint_1_1_two_index_1a52c49884c0e3039e00c454622b18674d" kind="function"><name>TwoIndex</name></member>
+    <member refid="structlibecpint_1_1_two_index_1a8f8e7c63baad71925c70838b0313c750" kind="function"><name>TwoIndex</name></member>
+    <member refid="structlibecpint_1_1_two_index_1ad713c361649d3d45091e64f2865afb64" kind="function"><name>TwoIndex</name></member>
+  </compound>
+  <compound refid="namespacelibecpint" kind="namespace"><name>libecpint</name>
+    <member refid="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3f" kind="enum"><name>GCTYPE</name></member>
+    <member refid="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3faf2e6a20e628fc9be0ff38027d732664a" kind="enumvalue"><name>ONEPOINT</name></member>
+    <member refid="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3fa56b5dd9ab1cc8971737f1c6c14d32e52" kind="enumvalue"><name>TWOPOINT</name></member>
+    <member refid="namespacelibecpint_1a7676a778fedc78dfdc0495c3319a2730" kind="typedef"><name>Pair</name></member>
+    <member refid="namespacelibecpint_1af2651847fa01dec731554db1e7b273fd" kind="typedef"><name>Triple</name></member>
+    <member refid="namespacelibecpint_1a4dc36ca1c5a9247d8bfaac304a7df40f" kind="typedef"><name>Quintuple</name></member>
+    <member refid="namespacelibecpint_1a48b53f3b6bfb449ec300ab57fc03763c" kind="typedef"><name>Heptuple</name></member>
+    <member refid="namespacelibecpint_1a975e7b9e0f57709418adede308d80405" kind="variable"><name>FAC</name></member>
+    <member refid="namespacelibecpint_1a4ecb557cc8bf8d94cfa80855985007bf" kind="variable"><name>DFAC</name></member>
+    <member refid="namespacelibecpint_1ae671d7a17c7b2fc7ebf29b27fa266421" kind="variable"><name>SMALL</name></member>
+    <member refid="namespacelibecpint_1a6d710d758ea6c068b95c21ce439ecb21" kind="variable"><name>TAYLOR_CUT</name></member>
+    <member refid="namespacelibecpint_1a451c1c2142ac7d2cbf57f3fcba419373" kind="variable"><name>ROOT_PI</name></member>
+    <member refid="namespacelibecpint_1a4fc3cf89f4b0b1787baabc364a16e377" kind="variable"><name>GAMMA</name></member>
+    <member refid="namespacelibecpint_1a3a4ed9b49d76dd6974d2dbc6bb181ab8" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespacelibecpint_1a9630ee3fefeb8b74101ee1a6b9678a54" kind="function"><name>print_lists</name></member>
+    <member refid="namespacelibecpint_1a1d3c6308d05c89cb1f49ca5049ab3fd1" kind="function"><name>generate_lists</name></member>
+    <member refid="namespacelibecpint_1a0d3d7448d52abd739d6d100afa6d4e8a" kind="function"><name>initFactorials</name></member>
+    <member refid="namespacelibecpint_1af2fa15848e7d9cfe1e61fc579a94080d" kind="function"><name>realSphericalHarmonics</name></member>
+    <member refid="namespacelibecpint_1a23ce2cda098d601b0fddfb10b971e33f" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespacelibecpint_1a25b52c5d023603d9fb96ea30fc36a4ef" kind="function"><name>check_file</name></member>
+  </compound>
+  <compound refid="namespacelibecpint_1_1aux" kind="namespace"><name>libecpint::aux</name>
+    <member refid="namespacelibecpint_1_1aux_1a8e2ec9ac4e466e11814c592a83efb66f" kind="function"><name>print_tuple</name></member>
+  </compound>
+  <compound refid="namespacelibecpint_1_1qgen" kind="namespace"><name>libecpint::qgen</name>
+    <member refid="namespacelibecpint_1_1qgen_1aa957a79b70df8879d0abbfb12a2ce49b" kind="function"><name>rolled_up</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a93436d53d6ef5500eb458ef11e8043ac" kind="function"><name>Q0_0_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ad0ca8d8424656a9535a6feadae469fab" kind="function"><name>Q0_0_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a54295e912bd54f3f8c4e67c9d8497b6d" kind="function"><name>Q0_0_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1af524f71fe882318cfb0204f01004e173" kind="function"><name>Q0_0_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a460b4be26220556a7fab6c56fd0798ca" kind="function"><name>Q0_0_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1af85290fe10772c77a0e271ef9a294439" kind="function"><name>Q0_1_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a2cacc14c8239c3f202631e089a75bf8f" kind="function"><name>Q0_1_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a119daa634903dbecf64d19eb5ba15d08" kind="function"><name>Q0_1_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a4102cedccaa2b99ae690e9b8c69551c2" kind="function"><name>Q0_1_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1af27c1bf759fb1fcdd066d4631339342f" kind="function"><name>Q0_1_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a29754bb55ad841e326de3c986f8e2848" kind="function"><name>Q1_1_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a58617819fd10d1083afc396fbc79e387" kind="function"><name>Q1_1_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1afb34239e6c998eae905ec5d398d4b184" kind="function"><name>Q1_1_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a769451399d6f3ecc4f51f12d01e80449" kind="function"><name>Q1_1_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ae04fe02eb63130146d27b9b21029f7a0" kind="function"><name>Q1_1_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a151b9ededca4173cafa6df8d87d96fd5" kind="function"><name>Q0_2_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1af85e85322bbdc11c456c2e6cf87e1f03" kind="function"><name>Q0_2_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ae06aaa3298e7e07f2a3ac58799292f5a" kind="function"><name>Q0_2_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab42100cc0c65d9f9cd2e667cc81bc808" kind="function"><name>Q0_2_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ac8041349c5e5382f5589ab5556c82060" kind="function"><name>Q0_2_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a382cf81c48b6fae7aeba3be5ae6e457b" kind="function"><name>Q1_2_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ac539befd8e56f73c61f5a32909e357da" kind="function"><name>Q1_2_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1afd292aa3e56e39b254622448c50b1c66" kind="function"><name>Q1_2_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1aa362053769b5edcb1ec8552f10d52be6" kind="function"><name>Q1_2_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a013e0cc0f5b8223acc2c0f4877d450b8" kind="function"><name>Q1_2_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ac6caab55a19cf3268cf3c56d3575034b" kind="function"><name>Q2_2_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ae25acfbdd96fea07bf14a59e02fc7d54" kind="function"><name>Q2_2_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a1d4e032617fe380182fe6046722aff4a" kind="function"><name>Q2_2_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ae1ab26e9c37e6099370e5eac81e387bb" kind="function"><name>Q2_2_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a67e080a65877ef94a995b6375c8f813a" kind="function"><name>Q2_2_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ac47c5efbc05973541703abc8265d2dc6" kind="function"><name>Q0_3_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1aa4d41ca8cc3ec21577526011329df084" kind="function"><name>Q0_3_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a61a0d2a085bc8553dd2c9bffc8ad5abf" kind="function"><name>Q0_3_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a999bc28a5d80787f03cc1a3ff1a8c39b" kind="function"><name>Q0_3_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a71c8b6f8381698df16df610a6ef84e72" kind="function"><name>Q0_3_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a924e19764d9f679e62ae85fc6cac2410" kind="function"><name>Q1_3_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a9893d98cd4ed014e325e9d6392f40ac8" kind="function"><name>Q1_3_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a483926fa6186bbe5c39fdc797ea816b2" kind="function"><name>Q1_3_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a73b671bedf8c4d6dd679961436290720" kind="function"><name>Q1_3_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a3ed03cc7f1a6e5af9a85708f81d80f8a" kind="function"><name>Q1_3_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a1d96905f9de2c9caaba87c3790f6d30b" kind="function"><name>Q2_3_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1af14b5de42b087d7ed2768844928538c2" kind="function"><name>Q2_3_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a0415776547539e74b707bb57a725a26e" kind="function"><name>Q2_3_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a21be6a1d89b69da23eb7b760e4beabd3" kind="function"><name>Q2_3_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a65d824b28264272e12f6b2487b639711" kind="function"><name>Q2_3_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a0c98c29930ffdb324f6df35cc1f9544c" kind="function"><name>Q3_3_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ac0c591b25ebe3779266e40f02e37125c" kind="function"><name>Q3_3_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a4fb015300d593d8ee8166eb84afacb32" kind="function"><name>Q3_3_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a7e4b20f55e6c486cca3d72e08d159b97" kind="function"><name>Q3_3_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1aaa40ba470be53681e75b124354b40c2c" kind="function"><name>Q3_3_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a5fc2c9a204e7c97db133573731819a2a" kind="function"><name>Q0_4_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab91f04eece262074221b150ca5e0e62a" kind="function"><name>Q0_4_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab3e29d310b8765ca9dc9ae7e881b42bb" kind="function"><name>Q0_4_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1aacd750e55133a09211f6abfe0ea4ea3b" kind="function"><name>Q0_4_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1acc501264ac82792276fdb06aa2e68d28" kind="function"><name>Q0_4_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1af7a7b5fedc7e77a0a124d2d8d94caef1" kind="function"><name>Q1_4_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a4e660a607aefaeda5a7b0aff0921c062" kind="function"><name>Q1_4_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a90ba6aa515ccce14c9f5e63b24be86aa" kind="function"><name>Q1_4_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ae6cb9ae3d166614d151089947c8eb841" kind="function"><name>Q1_4_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a4fe80a30975e5d5c8af497fd15a760e4" kind="function"><name>Q1_4_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a2c596f5f83378630677beef4ae8f43cf" kind="function"><name>Q2_4_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a463f70942e5de5172504d92ec6cc9616" kind="function"><name>Q2_4_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ae71431041dc69e2d429acbf54f03464d" kind="function"><name>Q2_4_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a7e6a3a6f82a7b50654fd980987749345" kind="function"><name>Q2_4_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a88f6bba85f7bbfccf8a9ccd31a229c54" kind="function"><name>Q2_4_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a704923aff02da8fec8e6586d2023f8b2" kind="function"><name>Q3_4_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a2752f2e9ae667bd4ce018630be1e9c13" kind="function"><name>Q3_4_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a5e894ba7de331a41aaa57f9136024631" kind="function"><name>Q3_4_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab8ec2d5a9021a4daaf5ad8b94db84cf2" kind="function"><name>Q3_4_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a8b1013e12370dc883604a9d26f8d7155" kind="function"><name>Q3_4_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a5febb3c055ce4769bc1a750f98758aab" kind="function"><name>Q4_4_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1aa3d5947febd6747a1936eb7228e486e5" kind="function"><name>Q4_4_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a4f3562bdf89c17a5fcd755bc68268194" kind="function"><name>Q4_4_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a785079edd6208c7b4f42d9bbed24b8a6" kind="function"><name>Q4_4_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a5d4d33e9ee0c2a5d2c70296a32ad3eb8" kind="function"><name>Q4_4_4</name></member>
+  </compound>
+  <compound refid="namespacemakelist" kind="namespace"><name>makelist</name>
+    <member refid="namespacemakelist_1a92f763e70ec614d7cc630b6b3afc201e" kind="variable"><name>max_am</name></member>
+    <member refid="namespacemakelist_1ae1a361014e097535367c775cc83758fd" kind="variable"><name>prefix</name></member>
+    <member refid="namespacemakelist_1a7a96fbd7cb2ac37090089795370aedb7" kind="variable"><name>file</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="namespacesympy" kind="namespace"><name>sympy</name>
+  </compound>
+  <compound refid="namespaceunrol__radial" kind="namespace"><name>unrol_radial</name>
+    <member refid="namespaceunrol__radial_1a7e0a7548eed4ebb942e94e7b9405f123" kind="variable"><name>MAX_UNROL_AM</name></member>
+    <member refid="namespaceunrol__radial_1a582dde0241adf8b3a95b4459b4d49b2b" kind="variable"><name>f</name></member>
+    <member refid="namespaceunrol__radial_1a02363db1e3121f4cb64855282f206fff" kind="variable"><name>file</name></member>
+    <member refid="namespaceunrol__radial_1a032ec358895dd239986cf46342a0de86" kind="variable"><name>q</name></member>
+    <member refid="namespaceunrol__radial_1aff823186ee3dc7e823e3f1a858233df6" kind="function"><name>parse</name></member>
+    <member refid="namespaceunrol__radial_1afc2f4f223df08979b137c507be4bbd37" kind="function"><name>unrol</name></member>
+    <member refid="namespaceunrol__radial_1a2cd46d9b308d3d493fdd7a516019c717" kind="function"><name>collect</name></member>
+    <member refid="namespaceunrol__radial_1a48a1059eae24c36cd6464073577d147a" kind="function"><name>algebraic_unrol</name></member>
+  </compound>
+  <compound refid="libecpint_8hpp" kind="file"><name>libecpint.hpp</name>
+  </compound>
+  <compound refid="angular_8hpp" kind="file"><name>angular.hpp</name>
+  </compound>
+  <compound refid="api_8hpp" kind="file"><name>api.hpp</name>
+  </compound>
+  <compound refid="bessel_8hpp" kind="file"><name>bessel.hpp</name>
+  </compound>
+  <compound refid="ecp_8hpp" kind="file"><name>ecp.hpp</name>
+  </compound>
+  <compound refid="ecpint_8hpp" kind="file"><name>ecpint.hpp</name>
+    <member refid="ecpint_8hpp_1a8546f51f524d0baff0bf3f3b321fbc9b" kind="define"><name>N_INDEX</name></member>
+  </compound>
+  <compound refid="gaussquad_8hpp" kind="file"><name>gaussquad.hpp</name>
+  </compound>
+  <compound refid="gshell_8hpp" kind="file"><name>gshell.hpp</name>
+  </compound>
+  <compound refid="mathutil_8hpp" kind="file"><name>mathutil.hpp</name>
+    <member refid="mathutil_8hpp_1ae71449b1cc6e6250b91f539153a7a0d3" kind="define"><name>M_PI</name></member>
+    <member refid="mathutil_8hpp_1aaf00c7de57af68f4e9d7acc87adb8d87" kind="define"><name>MAX_FAC</name></member>
+    <member refid="mathutil_8hpp_1a30bbac291639d5f7d964a92fa8742b94" kind="define"><name>MAX_DFAC</name></member>
+  </compound>
+  <compound refid="multiarr_8hpp" kind="file"><name>multiarr.hpp</name>
+  </compound>
+  <compound refid="qgen_8hpp" kind="file"><name>qgen.hpp</name>
+  </compound>
+  <compound refid="radial_8hpp" kind="file"><name>radial.hpp</name>
+  </compound>
+  <compound refid="testutil_8hpp" kind="file"><name>testutil.hpp</name>
+  </compound>
+  <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="generate_8cpp" kind="file"><name>generate.cpp</name>
+    <member refid="generate_8cpp_1a96e56aec07e9dee3b0b39b2c73c59413" kind="variable"><name>maxL</name></member>
+    <member refid="generate_8cpp_1afb5b7ba33f80b513ca99f1de6f77c5b0" kind="variable"><name>maxUnrol</name></member>
+    <member refid="generate_8cpp_1aab0234bf29568417ed693e6f0e10e76c" kind="variable"><name>maxN</name></member>
+    <member refid="generate_8cpp_1a224a61a8e26d33e9d9089b86b86b3fba" kind="variable"><name>CAX1</name></member>
+    <member refid="generate_8cpp_1ac7ae95c5f32933895a50c459d5d03304" kind="variable"><name>CAX2</name></member>
+    <member refid="generate_8cpp_1abefb1d8e3468d04e0e82fd81b63169f7" kind="variable"><name>CAX3</name></member>
+    <member refid="generate_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="generated_2radial_2radial__gen_8cpp" kind="file"><name>radial_gen.cpp</name>
+  </compound>
+  <compound refid="lib_2radial__gen_8cpp" kind="file"><name>radial_gen.cpp</name>
+  </compound>
+  <compound refid="unrol__radial_8py" kind="file"><name>unrol_radial.py</name>
+  </compound>
+  <compound refid="angular_8cpp" kind="file"><name>angular.cpp</name>
+  </compound>
+  <compound refid="api_8cpp" kind="file"><name>api.cpp</name>
+  </compound>
+  <compound refid="bessel_8cpp" kind="file"><name>bessel.cpp</name>
+  </compound>
+  <compound refid="ecp_8cpp" kind="file"><name>ecp.cpp</name>
+  </compound>
+  <compound refid="ecpint_8cpp" kind="file"><name>ecpint.cpp</name>
+  </compound>
+  <compound refid="gaussquad_8cpp" kind="file"><name>gaussquad.cpp</name>
+  </compound>
+  <compound refid="gshell_8cpp" kind="file"><name>gshell.cpp</name>
+  </compound>
+  <compound refid="mathutil_8cpp" kind="file"><name>mathutil.cpp</name>
+    <member refid="mathutil_8cpp_1a9450534f682d7a567d3872551afa2ec4" kind="define"><name>FAC_INIT</name></member>
+  </compound>
+  <compound refid="qgen_8cpp" kind="file"><name>qgen.cpp</name>
+  </compound>
+  <compound refid="radial__quad_8cpp" kind="file"><name>radial_quad.cpp</name>
+  </compound>
+  <compound refid="makelist_8py" kind="file"><name>makelist.py</name>
+  </compound>
+  <compound refid="dir_c6b3506109318da869165b36926fcb30" kind="dir"><name>/Users/robertshaw/devfiles/libecpint_new/src/generated</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>/Users/robertshaw/devfiles/libecpint_new/include</name>
+  </compound>
+  <compound refid="dir_c85d3e3c5052e9ad9ce18c6863244a25" kind="dir"><name>/Users/robertshaw/devfiles/libecpint_new/src/lib</name>
+  </compound>
+  <compound refid="dir_2a4bd5cb231436a2565b9ec017c8f12b" kind="dir"><name>/Users/robertshaw/devfiles/libecpint_new/include/libecpint</name>
+  </compound>
+  <compound refid="dir_52981df39a7c57b8ef961c18e6f88235" kind="dir"><name>/Users/robertshaw/devfiles/libecpint_new/src/generated/radial</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>/Users/robertshaw/devfiles/libecpint_new/src</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

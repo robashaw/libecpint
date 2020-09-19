@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -489,9 +489,13 @@ namespace libecpint {
 			compute_shell_pair(U, tempA, shellB, Q_pm, 1, -1);
 			Q_mm.assign(ncartA_minus, ncartB_minus, 0.0);
 			Q_mp.assign(ncartA_minus, ncartB_plus, 0.0);
+		} else {
+			Q_mm.assign(ncartA_minus, ncartB_minus, 0.0);
+			Q_mp.assign(ncartA_minus, ncartB_plus, 0.0);
+			Q_pm.assign(ncartA_plus, ncartB_minus, 0.0);
 		}
 		compute_shell_pair(U, tempA, tempB, Q_pp, 1, 1); 
-		
+
 		// Now compile the derivatives
 		int nA = 0;
 		int nB = 0;

@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -26,6 +26,7 @@
 #define GSHELL_HEAD
 
 #include <vector>
+#include <array>
 
 namespace libecpint {
 
@@ -39,15 +40,45 @@ namespace libecpint {
 		
 		/// Pointer to xyz coordinates of basis function (pointer so as to update if geometry changes)
 		double* centerVec; 
+		bool local_ptr;
+		
+		/// Local copy of coords if there is nothing else to point to
+		double localCenter[3];
 		
 		int l; ///< Angular momentum of shell
 	
 		/** 
-		  * Constructs a GaussianShell
+		  * Constructs a GaussianShell with pointer to coords
 		  * @param A - xyz coordinates of shell
 		  * @param l - angular momentum of shell
 		  */ 
 		GaussianShell(double* A, int l);
+		
+		/** 
+	     * Constructs a GaussianShell with a local copy of coords
+	     * @param A - xyz coordinates of shell
+	     * @param l - angular momentum of shell
+	     */ 
+		GaussianShell(std::array<double, 3> A, int l);
+		
+		/**
+		  * Copy constructor for a GaussianShell
+		  * @param other - reference to the GaussianShell to be copied
+		  */
+		GaussianShell(const GaussianShell& other) { 
+			exps = other.exps;
+			coeffs = other.coeffs;
+			centerVec = other.centerVec;
+			l = other.l;
+			
+			local_ptr = other.local_ptr;
+			if (local_ptr) {
+				localCenter[0] = other.localCenter[0];
+				localCenter[1] = other.localCenter[1];
+				localCenter[2] = other.localCenter[2];
+				centerVec = localCenter;
+			}
+		} 
 		
 		/**
 		  * Adds a Gaussian primitive to the shell
@@ -82,6 +113,13 @@ namespace libecpint {
 		
 		GaussianShell copy() const {
 			GaussianShell result(centerVec, l);
+			result.local_ptr = local_ptr;
+			if (local_ptr) {
+				result.localCenter[0] = localCenter[0];
+				result.localCenter[1] = localCenter[1];
+				result.localCenter[2] = localCenter[2];
+				result.centerVec = result.localCenter;
+			}
 			result.exps = exps;
 			result.coeffs = coeffs;
 			return result;

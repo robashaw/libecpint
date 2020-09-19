@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file was generated as a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining

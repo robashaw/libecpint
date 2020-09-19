@@ -1,13 +1,14 @@
-# minimum version of CMake is 3.3
-cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
+# minimum version of CMake is 3.12
+cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 
 # define project
 project( libecpint
-         VERSION 0.9
+         VERSION 1.0
          LANGUAGES C CXX)
 
 # we need at least C++11
 set (CMAKE_CXX_STANDARD 11)
+set (CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 # code generator variables
 set (LIBECPINT_MAX_L "5" CACHE STRING "Maximum angular momentum")
@@ -33,6 +34,7 @@ add_subdirectory(src)
 
 enable_testing()
 add_subdirectory(tests)
+add_subdirectory(doc)
 
 install (DIRECTORY include/libecpint DESTINATION include)
 install (FILES include/libecpint.hpp DESTINATION include)

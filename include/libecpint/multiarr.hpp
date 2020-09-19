@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -86,6 +86,10 @@ namespace libecpint {
 			}
 			return result;
 		}
+		void add(const TwoIndex<T>& other) {
+			std::transform (data.begin(), data.end(), other.data.begin(), data.begin(), std::plus<T>());
+		}
+		
 		void multiply(T k) {
 			std::transform(data.begin(), data.end(), data.begin(), [&k](T& c){return c*k;});
 		}

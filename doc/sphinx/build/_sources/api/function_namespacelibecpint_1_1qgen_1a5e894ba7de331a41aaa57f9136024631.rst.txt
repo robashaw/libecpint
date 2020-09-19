@@ -1,0 +1,13 @@
+.. _exhale_function_namespacelibecpint_1_1qgen_1a5e894ba7de331a41aaa57f9136024631:
+
+Function libecpint::qgen::Q3_4_2
+================================
+
+- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_new_include_libecpint_qgen.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: libecpint::qgen::Q3_4_2(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&)

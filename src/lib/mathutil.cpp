@@ -23,7 +23,6 @@
  */
 
 #include "mathutil.hpp"
-#include <cmath>
 #include <iostream>
 
 namespace libecpint {
@@ -101,4 +100,9 @@ namespace libecpint {
 		
 		return rshValues;
 	}
+	
+	double frobenius_norm(TwoIndex<double>& mat) {
+		return std::sqrt(std::inner_product(mat.data.begin(), mat.data.end(), mat.data.begin(), 0));
+	}
+	
 }

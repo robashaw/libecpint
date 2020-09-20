@@ -31,6 +31,8 @@
   */
 
 #include <vector>
+#include <numeric>
+#include <cmath>
 #include "multiarr.hpp"
 
 #ifndef M_PI
@@ -92,6 +94,8 @@ namespace libecpint {
 	* @return a matrix S(l, l+m) of the spherical harmonic values
 	*/
 	TwoIndex<double> realSphericalHarmonics(int lmax, double x, double phi);  
+	
+	double frobenius_norm(TwoIndex<double>& mat);
 	
 	/**
 	 * Initialises the global factorial and double factorial arrays

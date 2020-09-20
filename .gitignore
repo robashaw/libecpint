@@ -5,3 +5,7 @@
 .DS_Store
 Q*.cpp
 build/*
+doc/doxygen/html/*
+doc/doxygen/xml/*
+doc/doxygen/latex/*
+doc/sphinx/build/*

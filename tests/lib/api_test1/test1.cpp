@@ -57,7 +57,7 @@ double u_exps[16]    = {1.0,
 double u_coefs[16]   = {0.0,
 					  49.962834, 370.014205, 10.241439,
 				      99.112244, 198.253046, 28.261740, 56.623366,
-				      18.605853, -27.923280, -0.379693, -0.780583, 0.035968, 0.094397,
+				      -18.605853, -27.923280, -0.379693, -0.780583, 0.035968, 0.094397,
 				      -1.091269, -2.887691};
 int    u_ams[16]     = {4, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3};
 int    u_ns[16]      = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
@@ -70,7 +70,7 @@ int main(int argc, char* argv[]) {
 	factory.set_gaussian_basis(17, g_coords, g_exps, g_coefs, g_ams, g_lengths);
 	factory.set_ecp_basis(1, u_coords, u_exps, u_coefs, u_ams, u_ns, u_lengths);
 	factory.init();
-	factory.compute();
+	factory.compute_integrals();
 	
 	std::vector<double> flat_result;
 	std::shared_ptr<std::vector<double>> ints = factory.get_integrals();

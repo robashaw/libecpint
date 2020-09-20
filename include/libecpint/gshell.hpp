@@ -46,7 +46,8 @@ namespace libecpint {
 		double localCenter[3];
 		
 		int l; ///< Angular momentum of shell
-	
+		int atom_id; ///< internal id of the atom the shell is on
+		
 		/** 
 		  * Constructs a GaussianShell with pointer to coords
 		  * @param A - xyz coordinates of shell

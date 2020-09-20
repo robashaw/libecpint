@@ -28,8 +28,21 @@
 #include <vector>
 #include <array>
 #include <map>
+#include <string>
 
 namespace libecpint {
+	
+	const std::string atom_names[109] = {"h", "he", "li", "be", "b", "c", "n",
+		"o", "f", "ne", "na", "mg", "al", "si", "p", "s", "cl", "ar",
+		"k", "ca", "sc", "ti", "v", "cr", "mn", "fe", "co", "ni", "cu",
+		"zn", "ga", "ge", "as", "se", "br", "kr", "rb", "sr", "y", "zr",
+		"nb", "mo", "tc", "ru", "rh", "pd", "ag", "cd", "in", "sn", "sb",
+		"te", "i", "xe", "cs", "ba", "la", "ce", "pr", "nd", "pm", "sm",
+		"eu", "gd", "tb", "dy", "ho", "er", "tm", "yb", "lu", "hf", "ta",
+		"w", "re", "os", "ir", "pt", "au", "hg", "tl", "pb", "bi", "po",
+		"at", "rn", "fr", "ra", "ac", "th", "pa", "u", "np", "pu", "am",
+		"cm", "bk", "cf", "es", "fm", "md", "no", "lr", "rf", "db", "sg",
+		"bh", "hs", "mt" };
 	
 	/** \struct GaussianECP
 	  * \brief  Describes a Gaussian of angular momentum l of the form d r^n e^{-ax^2}
@@ -63,6 +76,7 @@ namespace libecpint {
 		std::vector<GaussianECP> gaussians; ///< All the primitives in the ECP expansion
 		int N; ///< Number of Gaussians
 		int L; ///< Maximum angular momentum
+		int atom_id; ///< Internal id of the atom the ECP is on
 		
 		std::array<double, 3> center_; ///< xyz coordinates of the atom on which the ECP is located
 	
@@ -169,6 +183,8 @@ namespace libecpint {
 		
 		/// @return the number of ECPs in basis
 		int getN() const { return N; }
+		
+		void addECP_from_file(int q, std::array<double, 3> coords, std::string filename);
 	};
 
 }

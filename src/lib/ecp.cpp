@@ -27,6 +27,7 @@
 #include <cmath>
 #include <iostream>
 #include <algorithm>
+#include "pugixml.hpp"
 
 namespace libecpint {
 
@@ -108,5 +109,35 @@ namespace libecpint {
 		if (it != core_electrons.end()) core = it->second;
 		return core;
 	}
+	
+	void ECPBasis::addECP_from_file(int q, std::array<double, 3> coords, std::string filename) {
+		ECP newECP;
+		newECP.center_ = coords;
 
+		std::string atom_name = q < 1 ? "X" : atom_names[q-1]; 
+		pugi::xml_document doc;
+		pugi::xml_parse_result result = doc.load_file(filename.c_str());
+		pugi::xml_node atom_node = doc.child("root").child(atom_name.c_str()); 
+		int maxl = std::stoi(atom_node.attribute("maxl").value());
+		int ncore = std::stoi(atom_node.attribute("ncore").value()); 
+		
+		auto it = core_electrons.find(q);
+		if (it == core_electrons.end())
+			core_electrons[q] = ncore; 
+	
+		for (pugi::xml_node shell = atom_node.child("Shell"); shell; shell = shell.next_sibling("Shell")) {
+
+			int l = std::stoi(shell.attribute("lval").value());
+			
+			for (pugi::xml_node nxc = shell.child("nxc"); nxc; nxc = nxc.next_sibling("nxc")) {
+				int n = std::stoi(nxc.attribute("n").value()); 
+				double x = std::stod(nxc.attribute("x").value()); 
+				double c = std::stod(nxc.attribute("c").value()); 
+				newECP.addPrimitive(n, l, x, c); 
+			}
+		}
+		
+		newECP.sort();
+		addECP(newECP, 0);
+	}
 }

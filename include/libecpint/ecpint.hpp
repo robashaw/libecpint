@@ -39,7 +39,7 @@
 
 namespace libecpint {
 
-#define N_INDEX(l, m) ((l+m)*(l+m+1)/2 + m)
+#define N_INDEX(l, m) (((l+m)*(l+m+1))/2 + m)
 
 	/** 
 	* \class ECPIntegral

@@ -42,15 +42,15 @@ int main(int argc, char* argv[]) {
 
 	ecpint.compute_shell_pair_second_derivative(newU, shellA, shellB, results);
 	for (int i = 0; i < 45; i++) {
-		for (auto v : results[i].data) 
+		for (auto& v : results[i].data) 
 			flat_result.push_back(v); 
 	}
 
 	ecpint.compute_shell_pair_second_derivative(newU, shellB, shellB, results);
 	for (int i = 0; i < 45; i++) {
-		for (auto v : results[i].data) 
+		for (auto& v : results[i].data) 
 			flat_result.push_back(v); 
 	}
-
+	
 	return check_file<double>("hess_test2.output", flat_result);
 }

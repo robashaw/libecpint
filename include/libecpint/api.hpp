@@ -34,40 +34,43 @@
 
 namespace libecpint {
 	
+#define H_START(i, j, N) (9*j + 3*(3*N-1)*i - (9*i*(i+1))/2 - 3)
+	
 	struct ECPIntegrator {
 		std::vector<GaussianShell> shells;
 		ECPBasis ecps; 
 		std::shared_ptr<ECPIntegral> ecpint; 
-		int maxLB, deriv, ncart;
+		int maxLB, deriv, ncart, natoms;
 		
 		bool ecp_is_set, basis_is_set;
 		
 		TwoIndex<double> integrals; 
-		std::array<TwoIndex<double>, 9> first_derivs;
-		std::array<TwoIndex<double>, 45> second_derivs;
+		std::vector<TwoIndex<double>> first_derivs, second_derivs;
 		
 		ECPIntegrator() { ecp_is_set = basis_is_set = false; maxLB = ncart = 0; }
 		
 		void set_gaussian_basis(int nshells, double* coords, double* exponents, double* coefs, int* ams, int* shell_lengths);
 		void set_ecp_basis(int necps, double* coords, double* exponents, double* coefs, int* ams, int* ns, int* shell_lengths);
-		//void set_ecp_basis_from_library(int necps, double* coords, int* charges, std::vector<std::string> names);
+		void set_ecp_basis_from_library(int necps, double* coords, int* charges, std::vector<std::string> names, std::string share_dir);
 		void update_gaussian_basis_coords(int nshells, double* coords);
 		void update_ecp_basis_coords(int necps, double* coords);
 		
 		void init(int deriv_ = 0);
-		void compute();
+		void compute_integrals();
+		void compute_first_derivs();
+		void compute_second_derivs();
 		
 		std::shared_ptr<std::vector<double>> get_integrals() { return std::make_shared<std::vector<double>>(integrals.data); }
 		
-		std::array<std::shared_ptr<std::vector<double>>, 9> get_first_derivs() {
-			std::array<std::shared_ptr<std::vector<double>>, 9> results;
-			for (int i = 0; i < 9; i++) results[i] = std::make_shared<std::vector<double>>(first_derivs[i].data);
+		std::vector<std::shared_ptr<std::vector<double>>> get_first_derivs() {
+			std::vector<std::shared_ptr<std::vector<double>>> results;
+			for (auto& v : first_derivs) results.push_back(std::make_shared<std::vector<double>>(v.data));
 			return results;
 		}
 		
-		std::array<std::shared_ptr<std::vector<double>>, 45> get_second_derivs() {
-			std::array<std::shared_ptr<std::vector<double>>, 45> results;
-			for (int i = 0; i < 45; i++) results[i] = std::make_shared<std::vector<double>>(second_derivs[i].data);
+		std::vector<std::shared_ptr<std::vector<double>>> get_second_derivs() {
+			std::vector<std::shared_ptr<std::vector<double>>> results;
+			for (auto& v : second_derivs) results.push_back(std::make_shared<std::vector<double>>(v.data));
 			return results;
 		}
 	};

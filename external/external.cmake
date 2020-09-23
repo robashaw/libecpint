@@ -23,7 +23,6 @@ if((NOT PUGIXML_LIBRARY) OR (NOT PUGIXML_INCLUDE_DIR))
 			GIT_REPOSITORY https://github.com/zeux/pugixml
 			CMAKE_ARGS “-DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>”
 			UPDATE_COMMAND ""
-			BUILD_COMMAND "make pugixml"
 			INSTALL_COMMAND ""
 			)
 									       

@@ -20,16 +20,16 @@ if((NOT PUGIXML_LIBRARY) OR (NOT PUGIXML_INCLUDE_DIR))
 	
 	ExternalProject_Add(pugixml_external
 			PREFIX ${EXTERNAL_BUILD_DIR}/pugixml
-				GIT_REPOSITORY https://github.com/zeux/pugixml
-						CMAKE_ARGS “-DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>”
-								UPDATE_COMMAND ""
-									       )
+			GIT_REPOSITORY https://github.com/zeux/pugixml
+			CMAKE_ARGS “-DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>”
+			UPDATE_COMMAND ""
+			)
 									       
-									       set(PUGIXML_LIBRARY ${EXTERNAL_BUILD_DIR}/pugixml/src/pugixml_external-build/libpugixml${CMAKE_STATIC_LIBRARY_SUFFIX})
-									       set(PUGIXML_INCLUDE_DIR ${CMAKE_CURRENT_BINARY_DIR}/pugixml/src/pugixml_external/include)
-									       
-									       add_library(libpugixml STATIC IMPORTED)
-									       set_target_properties(libpugixml PROPERTIES IMPORTED_LOCATION ${PUGIXML_LIBRARY})
+	set(PUGIXML_LIBRARY ${EXTERNAL_BUILD_DIR}/pugixml/src/pugixml_external-build/libpugixml${CMAKE_STATIC_LIBRARY_SUFFIX})
+	set(PUGIXML_INCLUDE_DIR ${CMAKE_CURRENT_BINARY_DIR}/pugixml/src/pugixml_external/include)
+	
+	add_library(libpugixml STATIC IMPORTED)
+	set_target_properties(libpugixml PROPERTIES IMPORTED_LOCATION ${PUGIXML_LIBRARY})
 									       
 else()
 	message("Found pugixml")
@@ -57,8 +57,6 @@ ExternalProject_Add(
     googletest
     GIT_REPOSITORY https://github.com/google/googletest.git
     GIT_TAG master
-    SOURCE_DIR "${CMAKE_BINARY_DIR}/gtestsrc"
-    BINARY_DIR "${CMAKE_BINARY_DIR}/gtestbuild"
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ""
     INSTALL_COMMAND ""

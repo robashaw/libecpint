@@ -13,6 +13,9 @@ coverage:
       default:
         threshold: 50%
   ignore:
-   - "tests/"
+   - "tests"
    - "src/generate.cpp"
    - "Q*.cpp"
+   - "external"
+   - "googletest-src"
+   - "googletest-build"

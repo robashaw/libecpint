@@ -1,0 +1,68 @@
+trigger:
+- readecp
+
+jobs:
+# Configure, build, install, and test job
+- job: 'linux_build'
+  displayName: 'Linux Builds'
+  pool:
+    vmImage: 'ubuntu-18.04'
+  timeoutInMinutes: 10
+  variables:
+    CTEST_OUTPUT_ON_FAILURE: 1
+  strategy:
+    matrix:
+      gcc_latest:
+        CXX_COMPILER: 'g++'
+        C_COMPILER: 'gcc'
+        F_COMPILER: 'gfortran'
+        BUILD_TYPE: 'release'
+        APT_INSTALL: 'gfortran'
+
+  steps:
+  - checkout: self
+    submodules: true
+    displayName: "Checkout repos"
+  - bash: |
+      [[ "${APT_REPOSITORY}" ]] && echo "Add Repo ${APT_REPOSITORY}" && sudo add-apt-repository "${APT_REPOSITORY}"
+      sudo apt-get update
+      sudo apt-get install ${APT_INSTALL}
+    displayName: "Apt-Get Packages"
+  - bash: |
+      echo "" && echo "Ubuntu"
+      lsb_release -a
+      echo "" && echo "Uname:"
+      uname -a
+      echo "" && echo "Free:"
+      free -m
+      echo "" && echo "df:"
+      df -h
+      echo "" && echo "Ulimit:"
+      ulimit -a
+      echo "" && echo "Nprocs:"
+      getconf _NPROCESSORS_ONLN
+      echo "CXX Ver:"
+      ${CXX_COMPILER} --version
+      echo "F Ver:"
+      ${F_COMPILER} --version
+      echo "C Ver:"
+      ${C_COMPILER} --version
+    displayName: 'Build Environment'
+  - bash: |
+      cmake -Bbuild -H. \
+        -DCMAKE_INSTALL_PREFIX=$(Agent.BuildDirectory)/Install \
+        -DCMAKE_CXX_FLAGS="-O3 -fprofile-arcs -ftest-coverage" \
+	-DLIBECPINT_MAX_UNROL=1 \
+	-DLIBECPINT_MAX_L=4
+    displayName: 'Configure Build'
+  - bash: |
+      cd build
+      make all
+    displayName: 'Build'
+  - bash: |
+      cd build
+      make test
+    displayName: 'Tests'
+  - bash:
+      bash <(curl -s https://codecov.io/bash)
+    displayName: 'Upload to codecov.io'

@@ -42,7 +42,7 @@ endif()
 
 #
 # add google test
-#
+
 find_library(GTEST_LIBRARY gtest
 					HINTS "/usr/local" "/usr/local/lib" "/usr/lib")
 find_path(GTEST_INCLUDE_DIR gtest/gtest.h
@@ -51,29 +51,30 @@ find_path(GTEST_INCLUDE_DIR gtest/gtest.h
 if((NOT GTEST_LIBRARY) OR (NOT GTEST_INCLUDE_DIR))
 	message("Unable to find google test, cloning...")
 	
-	# Add gtest
-# http://stackoverflow.com/questions/9689183/cmake-googletest
-ExternalProject_Add(
-    googletest
-    GIT_REPOSITORY https://github.com/google/googletest.git
-    GIT_TAG master
-    CONFIGURE_COMMAND ""
-    BUILD_COMMAND ""
-    INSTALL_COMMAND ""
-    TEST_COMMAND ""
-)
-# Specify include dir
-ExternalProject_Get_Property(googletest source_dir)
-set(GTEST_INCLUDE_DIR ${source_dir}/include)
+	# Download and unpack googletest at configure time
+	configure_file(${CMAKE_SOURCE_DIR}/external/CMakeLists.txt.in googletest-download/CMakeLists.txt)
+	execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
+	  RESULT_VARIABLE result
+	  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download )
+	if(result)
+	  message(FATAL_ERROR "CMake step for googletest failed: ${result}")
+	endif()
+	execute_process(COMMAND ${CMAKE_COMMAND} --build .
+	  RESULT_VARIABLE result
+	  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download )
+	if(result)
+	  message(FATAL_ERROR "Build step for googletest failed: ${result}")
+	endif()
 
-# Library
-ExternalProject_Get_Property(googletest binary_dir)
-set(GTEST_LIBRARY ${binary_dir}/${CMAKE_FIND_LIBRARY_PREFIXES}gtest.a)
-add_library(${GTEST_LIBRARY} UNKNOWN IMPORTED)
-set_target_properties(gtest PROPERTIES
-    IMPORTED_LOCATION ${GTEST_LIBRARY}
-)
-add_dependencies(${GTEST_LIBRARY} googletest)
+	# Prevent overriding the parent project's compiler/linker
+	# settings on Windows
+	set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+	# Add googletest directly to our build. This defines
+	# the gtest and gtest_main targets.
+	add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
+	                 ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
+	                 EXCLUDE_FROM_ALL)
 									       
 else()
 	message("Found googletest")

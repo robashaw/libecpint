@@ -25,6 +25,7 @@
 #include "api.hpp"
 #include <iostream>
 #include <cmath>
+#include <cassert>
 #include "mathutil.hpp"
 
 namespace libecpint {

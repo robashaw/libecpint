@@ -1,4 +1,4 @@
-find_package(Doxygen REQUIRED)
+find_package(Doxygen)
 
 # Find all the public headers
 get_target_property(LIBECPINT_PUBLIC_HEADER_DIR ecpint  INTERFACE_INCLUDE_DIRECTORIES)

@@ -1,4 +1,4 @@
-find_package(Sphinx REQUIRED)
+find_package(Sphinx)
 find_package(Python COMPONENTS Interpreter Development)
 
 set(SPHINX_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/source)

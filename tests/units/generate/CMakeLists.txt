@@ -2,7 +2,6 @@ add_executable(gen_test
 	generate.cpp
 )
 
-message(${GTEST_INCLUDE_DIR})
 target_link_libraries(gen_test gtest)
 target_link_libraries(gen_test ecpint)
 

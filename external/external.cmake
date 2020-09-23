@@ -74,7 +74,9 @@ if((NOT GTEST_LIBRARY) OR (NOT GTEST_INCLUDE_DIR))
 	# the gtest and gtest_main targets.
 	add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 	                 ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
-	                 EXCLUDE_FROM_ALL)
+	                 )
+					 
+	set(GTEST_INCLUDE_DIR ${gtest_SOURCE_DIR}/include)
 									       
 else()
 	message("Found googletest")

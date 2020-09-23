@@ -4,7 +4,6 @@ add_executable(ecp_test
 	ecpbasis.cpp
 )
 
-message(${GTEST_INCLUDE_DIR})
 target_link_libraries(ecp_test gtest)
 target_link_libraries(ecp_test ecpint)
 

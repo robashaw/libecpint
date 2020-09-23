@@ -6,7 +6,6 @@ add_executable(multiarr_test
 	sevenindex.cpp
 )
 
-message(${GTEST_INCLUDE_DIR})
 target_link_libraries(multiarr_test gtest)
 target_link_libraries(multiarr_test ecpint)
 

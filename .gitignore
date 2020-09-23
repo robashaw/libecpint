@@ -3,7 +3,6 @@
 *.out
 *.x
 .DS_Store
-Q*.cpp
 build/*
 doc/doxygen/html/*
 doc/doxygen/xml/*

@@ -52,8 +52,8 @@ jobs:
       cmake -Bbuild -H. \
         -DCMAKE_INSTALL_PREFIX=$(Agent.BuildDirectory)/Install \
         -DCMAKE_CXX_FLAGS="-O3 -fprofile-arcs -ftest-coverage" \
-	-DLIBECPINT_MAX_UNROL=1 \
-	-DLIBECPINT_MAX_L=4
+        -DLIBECPINT_MAX_UNROL=1 \
+        -DLIBECPINT_MAX_L=4
     displayName: 'Configure Build'
   - bash: |
       cd build

@@ -9,7 +9,7 @@ set(EXTERNAL_BUILD_DIR ${PROJECT_BINARY_DIR}/external/build)
 
 #
 # add pugixml
-#
+
 find_library(PUGIXML_LIBRARY pugixml
 					HINTS "/usr/local" "/usr/local/lib" "/usr/lib")
 find_path(PUGIXML_INCLUDE_DIR pugixml.hpp
@@ -27,7 +27,7 @@ if((NOT PUGIXML_LIBRARY) OR (NOT PUGIXML_INCLUDE_DIR))
 			)
 									       
 	set(PUGIXML_LIBRARY ${EXTERNAL_BUILD_DIR}/pugixml/src/pugixml_external-build/libpugixml${CMAKE_STATIC_LIBRARY_SUFFIX})
-	set(PUGIXML_INCLUDE_DIR ${CMAKE_CURRENT_BINARY_DIR}/pugixml/src/pugixml_external/include)
+	set(PUGIXML_INCLUDE_DIR ${EXTERNAL_BUILD_DIR}/pugixml/src/pugixml_external/src)
 	
 	add_library(libpugixml STATIC IMPORTED)
 	set_target_properties(libpugixml PROPERTIES IMPORTED_LOCATION ${PUGIXML_LIBRARY})

@@ -29,8 +29,6 @@ Includes
 --------
 
 
-- ``cmath``
-
 - ``iostream``
 
 - ``mathutil.hpp`` (:ref:`file__Users_robertshaw_devfiles_libecpint_new_include_libecpint_mathutil.hpp`)
@@ -50,6 +48,8 @@ Namespaces
 Functions
 ---------
 
+
+- :ref:`exhale_function_namespacelibecpint_1a4c0dd5f75d6fc9b5329c97195b0b5e6c`
 
 - :ref:`exhale_function_namespacelibecpint_1a0d3d7448d52abd739d6d100afa6d4e8a`
 

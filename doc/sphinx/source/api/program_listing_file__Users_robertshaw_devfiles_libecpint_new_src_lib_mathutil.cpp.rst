@@ -35,7 +35,6 @@ Program Listing for File mathutil.cpp
     */
    
    #include "mathutil.hpp"
-   #include <cmath>
    #include <iostream>
    
    namespace libecpint {
@@ -113,4 +112,9 @@ Program Listing for File mathutil.cpp
            
            return rshValues;
        }
+       
+       double frobenius_norm(TwoIndex<double>& mat) {
+           return std::sqrt(std::inner_product(mat.data.begin(), mat.data.end(), mat.data.begin(), 0));
+       }
+       
    }

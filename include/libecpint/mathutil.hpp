@@ -39,12 +39,12 @@
 #define M_PI 3.14159265358979323846
 #endif
 
-#define MAX_FAC 100
-#define MAX_DFAC 200
+#define MAX_FAC 100 ///< the maximum factorial needed
+#define MAX_DFAC 200 ///< the maximum double factorial needed
 
 namespace libecpint {
 	
-	const double ROOT_PI = 1.772453850905516;
+	const double ROOT_PI = 1.772453850905516; ///< square root of PI
 
 	extern double FAC[MAX_FAC];		///< Array of factorials
 	extern double DFAC[MAX_DFAC]; 	///< Array of double factorials
@@ -95,6 +95,10 @@ namespace libecpint {
 	*/
 	TwoIndex<double> realSphericalHarmonics(int lmax, double x, double phi);  
 	
+	/**
+	  * @param mat - a reference to a TwoIndex array
+	  * @return the Frobenius norm of mat
+	  */
 	double frobenius_norm(TwoIndex<double>& mat);
 	
 	/**

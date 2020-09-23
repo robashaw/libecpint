@@ -37,6 +37,8 @@ Includes
 
 - ``iostream``
 
+- ``pugixml.hpp``
+
 
 
 

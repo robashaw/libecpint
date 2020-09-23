@@ -37,6 +37,7 @@ Program Listing for File api.cpp
    #include "api.hpp"
    #include <iostream>
    #include <cmath>
+   #include "mathutil.hpp"
    
    namespace libecpint {
        
@@ -44,8 +45,8 @@ Program Listing for File api.cpp
            int ctr = 0;
            for (int i = 0; i < nshells; i++) {
                ncart += (ams[i]+1)*(ams[i]+2)/2;
-               centers.push_back({coords[3*i], coords[3*i+1], coords[3*i+2]});
-               GaussianShell newShell(centers[i].data(), ams[i]);
+               std::array<double, 3> cvec = {coords[3*i], coords[3*i+1], coords[3*i+2]};
+               GaussianShell newShell(cvec, ams[i]);
                if (ams[i] > maxLB) maxLB = ams[i];
                for (int n = 0; n < shell_lengths[i]; n++) {
                    newShell.addPrim(exponents[ctr], coefs[ctr]);
@@ -70,13 +71,23 @@ Program Listing for File api.cpp
            ecp_is_set = true;
        }
        
+       void ECPIntegrator::set_ecp_basis_from_library(int necps, double* coords, int* charges, std::vector<std::string> names, std::string share_dir) {
+           for (int i = 0; i < necps; i++) {
+               std::array<double, 3> center = {coords[3*i], coords[3*i+1], coords[3*i+2]};
+               int q = charges[i];
+               std::string filename = share_dir + "/xml/" + names[i] + ".xml"; 
+               ecps.addECP_from_file(q, center, filename);
+           }
+           ecp_is_set = true;
+       }
+       
        void ECPIntegrator::update_gaussian_basis_coords(int nshells, double* coords) {
            assert(nshells = shells.size());
            
            for (int i = 0; i < nshells; i++){
-               centers[i][0] = coords[3*i];
-               centers[i][1] = coords[3*i+1];
-               centers[i][2] = coords[3*i+2];
+               shells[i].localCenter[0] = coords[3*i];
+               shells[i].localCenter[1] = coords[3*i+1];
+               shells[i].localCenter[2] = coords[3*i+2];
            }
        }
        
@@ -88,25 +99,66 @@ Program Listing for File api.cpp
        }
        
        void ECPIntegrator::init(int deriv_) {
+           assert(ecp_is_set);
+           assert(basis_is_set);
            deriv = std::max(0, std::min(2, deriv_));
            ecpint = std::make_shared<ECPIntegral>(maxLB, ecps.getMaxL(), deriv);
+           
+           // Determine the internal atom ids
+           natoms = 0;
+           std::vector<std::array<double, 3>> centers;
+           for (auto& s : shells) {
+               int i = 0;
+               bool found = false;
+               while ( !found && (i < centers.size()) ) {
+                   double diff = std::abs(centers[i][0] - s.centerVec[0]);
+                   diff += std::abs(centers[i][1] - s.centerVec[1]);
+                   diff += std::abs(centers[i][2] - s.centerVec[2]);
+                   if (diff < 1e-4) {
+                       s.atom_id = i;
+                       found = true;
+                   }
+                   i++;
+               }
+               if (!found) {
+                   s.atom_id = natoms;
+                   natoms++;
+                   centers.push_back({s.centerVec[0], s.centerVec[1], s.centerVec[2]});
+               }
+           }
+           
+           for (int n = 0; n < ecps.getN(); n++) {
+               ECP& U = ecps.getECP(n);
+               int i = 0;
+               bool found = false;
+               while ( !found && (i < centers.size()) ) {
+                   double diff = std::abs(centers[i][0] - U.center_[0]);
+                   diff += std::abs(centers[i][1] - U.center_[1]);
+                   diff += std::abs(centers[i][2] - U.center_[2]);
+                   if (diff < 1e-4) {
+                       U.atom_id = i;
+                       found = true;
+                   }
+                   i++;
+               }
+               if (!found) {
+                   U.atom_id = natoms;
+                   natoms++;
+                   centers.push_back({U.center_[0], U.center_[1], U.center_[2]});
+               }
+           }
        }
        
-       void ECPIntegrator::compute() {
+       void ECPIntegrator::compute_integrals() {
            // initialise all to zero
            integrals.assign(ncart, ncart, 0.0);
-           if (deriv > 0) {
-                for (auto& r : first_derivs) r.assign(ncart, ncart, 0.0);
-                if (deriv > 1) 
-                    for (auto& r : second_derivs) r.assign(ncart, ncart, 0.0);
-           }
            
            // loop over shells
            TwoIndex<double> tempValues;
-           std::array<TwoIndex<double>, 9> tempGrads;
-           std::array<TwoIndex<double>, 45> tempHess;
+           int nshells = shells.size();
+           
            int n1 = 0;
-           for(auto s1=0; s1!=shells.size(); ++s1) {
+           for(auto s1=0; s1<nshells; ++s1) {
                GaussianShell& shellA = shells[s1];
                int ncartA = shellA.ncartesian();
                
@@ -116,29 +168,11 @@ Program Listing for File api.cpp
                    int ncartB = shellB.ncartesian();
                    
                    TwoIndex<double> shellPairInts(ncartA, ncartB, 0.0);
-                   std::array<TwoIndex<double>, 9> shellPairGrads;
-                   std::array<TwoIndex<double>, 45> shellPairHess;
-                   if (deriv > 0) {
-                       for (auto& r : shellPairGrads) r.assign(ncartA, ncartB, 0.0);
-                       if (deriv > 1)
-                           for (auto& r : shellPairHess) r.assign(ncartA, ncartB, 0.0);
-                   }
-                   
                    
                    for (int i = 0; i < ecps.getN(); i++) {
                        ECP& U = ecps.getECP(i);
-                       
                        ecpint->compute_shell_pair(U, shellA, shellB, tempValues);
                        shellPairInts.add(tempValues);
-                       
-                       if (deriv > 0) {
-                           ecpint->compute_shell_pair_derivative(U, shellA, shellB, tempGrads);
-                           for (int i = 0; i < 9; i++) shellPairGrads[i].add(tempGrads[i]);
-                           if (deriv > 1) {
-                               ecpint->compute_shell_pair_second_derivative(U, shellA, shellB, tempHess);
-                               for (int i = 0; i < 45; i++) shellPairHess[i].add(tempHess[i]);
-                           }
-                       }
                    }
                
                    for (int i = n1; i < n1 + ncartA; i++) {
@@ -148,26 +182,228 @@ Program Listing for File api.cpp
                        }
                    }
                
-                   if (deriv > 0) {
-                       for (int i = n1; i < n1 + ncartA; i++) {
-                           for (int j = n2; j < n2 + ncartB; j++) {
-                               for (int k = 0; k < 9; k++) {
-                                   first_derivs[k](i, j) = shellPairGrads[k](i-n1, j-n2);
-                                   first_derivs[k](j, i) = first_derivs[k](i, j);
+                   n2 += ncartB;
+               }
+           
+               n1 += ncartA; 
+           }
+       }
+       
+       void ECPIntegrator::compute_first_derivs() {
+           assert(deriv > 0);
+           
+           for (int n = 0; n < 3*natoms; n++)
+               first_derivs.push_back(TwoIndex<double>(ncart, ncart, 0.0));
+           
+           // loop over shells
+           std::array<TwoIndex<double>, 9> tempValues;
+           int nshells = shells.size();
+           
+           int n1 = 0;
+           int Aix, Bix, Cix;
+           for(auto s1=0; s1<nshells; ++s1) {
+               GaussianShell& shellA = shells[s1];
+               int ncartA = shellA.ncartesian();
+               Aix = shellA.atom_id;
+               
+               int n2 = 0;
+               for(auto s2=0; s2<=s1; ++s2) {
+                   GaussianShell& shellB = shells[s2];
+                   int ncartB = shellB.ncartesian();
+                   Bix = shellB.atom_id;
+                   
+                   for (int i = 0; i < ecps.getN(); i++) {
+                       ECP& U = ecps.getECP(i);
+                       Cix = U.atom_id;
+                       ecpint->compute_shell_pair_derivative(U, shellA, shellB, tempValues);
+                       
+                       // work out where to put them
+                       for (int n = 0; n < 3; n++) {
+                           for (int k = n1; k < n1 + ncartA; k++) {
+                               for (int l = n2; l < n2 + ncartB; l++) {
+                                   first_derivs[3*Aix+n](k, l) += tempValues[n](k-n1, l-n2);
+                                   first_derivs[3*Bix+n](k, l) += tempValues[n+3](k-n1, l-n2);
+                                   first_derivs[3*Cix+n](k, l) += tempValues[n+6](k-n1, l-n2);
+                                   
+                                   if (s2 < s1) {
+                                       first_derivs[3*Aix+n](l, k) = first_derivs[3*Aix+n](k, l);
+                                       first_derivs[3*Bix+n](l, k) = first_derivs[3*Bix+n](k, l);
+                                       first_derivs[3*Cix+n](l, k) = first_derivs[3*Cix+n](k, l);
+                                   }
+   
                                }
                            }
-                       }
+                       }       
+                   }
+               
+                   n2 += ncartB;
+               }
+           
+               n1 += ncartA; 
+           }
+       }
+       
+       void ECPIntegrator::compute_second_derivs() {
+           assert(deriv > 1);
+           
+           int nhess = (3*natoms*(3*natoms+1))/2;
+           for (int n = 0; n < nhess; n++)
+               second_derivs.push_back(TwoIndex<double>(ncart, ncart, 0.0));
+           
+           // loop over shells
+           std::array<TwoIndex<double>, 45> tempValues;
+           int nshells = shells.size();
+           
+           int n1 = 0;
+           int Aix, Bix, Cix;
+           int saa, sab, sac, sbb, sbc, scc;
+           int ixes[6] = {0, 1, 2, 4, 5, 8};
+           int back_ixes[6] = {0, 3, 6, 4, 7, 8};
+           int jxes[9] = {0, 3, 6, 1, 4, 7, 2, 5, 8};
+           for(auto s1=0; s1<nshells; ++s1) {
+               GaussianShell& shellA = shells[s1];
+               int ncartA = shellA.ncartesian();
+               Aix = shellA.atom_id;
+               
+               int n2 = 0;
+               for(auto s2=0; s2<=s1; ++s2) {
+                   GaussianShell& shellB = shells[s2];
+                   int ncartB = shellB.ncartesian();
+                   Bix = shellB.atom_id;
+                   
+                   saa = H_START(Aix, Aix, natoms) + 3;
+                   sbb = H_START(Bix, Bix, natoms) + 3;
+                   sab = H_START(std::min(Aix, Bix), std::max(Aix, Bix), natoms);
+                   sab = Aix == Bix ? sab + 3 : sab;
+                   
+                   for (int i = 0; i < ecps.getN(); i++) {
+                       ECP& U = ecps.getECP(i);
+                       Cix = U.atom_id;
+                       ecpint->compute_shell_pair_second_derivative(U, shellA, shellB, tempValues);
+                   
+                       // work out where to put them
+                       scc = H_START(Cix, Cix, natoms) + 3;
+                       sac = H_START(std::min(Aix, Cix), std::max(Aix, Cix), natoms);
+                       sac = Aix == Cix ? sac + 3 : sac;
+                       sbc = H_START(std::min(Bix, Cix), std::max(Bix, Cix), natoms);
+                       sbc = Bix == Cix ? sbc + 3 : sbc;
                        
-                       if (deriv > 1) {
-                           for (int i = n1; i < n1 + ncartA; i++) {
-                               for (int j = n2; j < n2 + ncartB; j++) {
-                                   for (int k = 0; k < 45; k++) {
-                                       second_derivs[k](i, j) = shellPairHess[k](i-n1, j-n2);
-                                       second_derivs[k](j, i) = second_derivs[k](i, j);
+                       if ((Aix == Cix) || (Bix == Cix)) {
+                           if (Bix != Aix) {
+                               // two distinct atoms
+                               // only need to worry about AA, AB, and BB blocks
+                               for (int n = 0; n < 6; n++) {
+                                   for (int k = n1; k < n1 + ncartA; k++) {
+                                       for (int l = n2; l < n2 + ncartB; l++) {
+                                           second_derivs[saa+n](k, l) += tempValues[n](k-n1, l-n2);
+                                           second_derivs[sbb+n](k, l) += tempValues[n+24](k-n1, l-n2);
+                                   
+                                           if (s1 != s2) {
+                                               second_derivs[saa+n](l, k) = second_derivs[saa+n](k, l);
+                                               second_derivs[sbb+n](l, k) = second_derivs[sbb+n](k, l);
+                                           }
+                                       }
+                                   }
+                               }
+                               
+                               for (int n = 0; n < 9; n++) {
+                                   for (int k = n1; k < n1 + ncartA; k++) {
+                                       for (int l = n2; l < n2 + ncartB; l++) {
+                                           if (Aix > Bix) {
+                                               second_derivs[sab+n](k, l) += tempValues[jxes[n]+6](k-n1, l-n2);
+                                               if (s1 != s2) second_derivs[sab+n](l, k) = second_derivs[sab+n](k, l);
+                                           } else {
+                                               second_derivs[sab+n](k, l) += tempValues[n+6](k-n1, l-n2);
+                                               if (s1 != s2) second_derivs[sab+n](l, k) = second_derivs[sab+n](k, l);
+                                           }
+                                       }
+                                   }
+                               }
+                           } // else everything is zero
+                       } else if (Aix == Bix) {
+                           // two distinct atoms, need to worry about everything
+                           for (int n = 0; n < 6; n++) {
+                               for (int k = n1; k < n1 + ncartA; k++) {
+                                   for (int l = n2; l < n2 + ncartB; l++) {
+                                       second_derivs[saa+n](k, l) += tempValues[n](k-n1, l-n2); // aa
+                                       second_derivs[saa+n](k, l) += tempValues[n+24](k-n1, l-n2); // bb = aa
+                                       second_derivs[scc+n](k, l) += tempValues[n+39](k-n1, l-n2); // cc
+                                       second_derivs[saa+n](k, l) += tempValues[ixes[n]+6](k-n1, l-n2); // ab = aa
+                                       second_derivs[saa+n](k, l) += tempValues[back_ixes[n]+6](k-n1, l-n2); // ba = aa
+                                       
+                                       if (s1 != s2) {
+                                           second_derivs[saa+n](l, k) = second_derivs[saa+n](k, l);
+                                           second_derivs[scc+n](l, k) = second_derivs[scc+n](k, l);
+                                       }
+                                   }
+                               }
+                           }
+                       
+                           for (int n = 0; n < 9; n++) {
+                               for (int k = n1; k < n1 + ncartA; k++) {
+                                   for (int l = n2; l < n2 + ncartB; l++) {                        
+                                       if (Aix > Cix) {
+                                           second_derivs[sac+n](k, l) += tempValues[jxes[n]+15](k-n1, l-n2);
+                                           second_derivs[sac+n](k, l) += tempValues[jxes[n]+30](k-n1, l-n2); // bc = ac
+                                           
+                                           if (s1 != s2) second_derivs[sac+n](l, k) = second_derivs[sac+n](k, l);
+                                       } else {
+                                           second_derivs[sac+n](k, l) += tempValues[n+15](k-n1, l-n2);
+                                           second_derivs[sac+n](k, l) += tempValues[n+30](k-n1, l-n2); // bc = ac
+                                           
+                                           if (s1 != s2) second_derivs[sbc+n](l, k) = second_derivs[sbc+n](k, l);
+                                       }
+                                   }
+                               }
+                           }
+                       } else {
+                           for (int n = 0; n < 6; n++) {
+                               for (int k = n1; k < n1 + ncartA; k++) {
+                                   for (int l = n2; l < n2 + ncartB; l++) {
+                                       second_derivs[saa+n](k, l) += tempValues[n](k-n1, l-n2);
+                                       second_derivs[sbb+n](k, l) += tempValues[n+24](k-n1, l-n2);
+                                       second_derivs[scc+n](k, l) += tempValues[n+39](k-n1, l-n2);
+                                   
+                                       if (s1 != s2) {
+                                           second_derivs[saa+n](l, k) = second_derivs[saa+n](k, l);
+                                           second_derivs[sbb+n](l, k) = second_derivs[sbb+n](k, l);
+                                           second_derivs[scc+n](l, k) = second_derivs[scc+n](k, l);
+                                       }
+                                   }
+                               }
+                           }
+                       
+                           for (int n = 0; n < 9; n++) {
+                               for (int k = n1; k < n1 + ncartA; k++) {
+                                   for (int l = n2; l < n2 + ncartB; l++) {
+                                       if (Aix > Bix) {
+                                           second_derivs[sab+n](k, l) += tempValues[jxes[n]+6](k-n1, l-n2);
+                                           if (s1 != s2) second_derivs[sab+n](l, k) = second_derivs[sab+n](k, l);
+                                       } else {
+                                           second_derivs[sab+n](k, l) += tempValues[n+6](k-n1, l-n2);
+                                           if (s1 != s2) second_derivs[sab+n](l, k) = second_derivs[sab+n](k, l);
+                                       }
+                                   
+                                       if (Aix > Cix) {
+                                           second_derivs[sac+n](k, l) += tempValues[jxes[n]+15](k-n1, l-n2);
+                                           if (s1 != s2) second_derivs[sac+n](l, k) = second_derivs[sac+n](k, l);
+                                       } else {
+                                           second_derivs[sac+n](k, l) += tempValues[n+15](k-n1, l-n2);
+                                           if (s1 != s2) second_derivs[sac+n](l, k) = second_derivs[sac+n](k, l);
+                                       }
+                                   
+                                       if (Bix > Cix) {
+                                           second_derivs[sbc+n](k, l) += tempValues[jxes[n]+30](k-n1, l-n2);
+                                           if (s1 != s2) second_derivs[sbc+n](l, k) = second_derivs[sbc+n](k, l);
+                                       } else {
+                                           second_derivs[sbc+n](k, l) += tempValues[n+30](k-n1, l-n2);
+                                           if (s1 != s2) second_derivs[sbc+n](l, k) = second_derivs[sbc+n](k, l);
+                                       }
                                    }
                                }
                            }
                        }
+                       
                    }
                
                    n2 += ncartB;

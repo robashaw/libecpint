@@ -33,7 +33,11 @@ Includes
 --------
 
 
+- ``cmath``
+
 - ``multiarr.hpp`` (:ref:`file__Users_robertshaw_devfiles_libecpint_new_include_libecpint_multiarr.hpp`)
+
+- ``numeric``
 
 - ``vector``
 
@@ -48,6 +52,8 @@ Included By
 - :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_generated_radial_radial_gen.cpp`
 
 - :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_lib_angular.cpp`
+
+- :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_lib_api.cpp`
 
 - :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_lib_bessel.cpp`
 

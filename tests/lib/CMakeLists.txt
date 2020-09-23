@@ -1,5 +1,5 @@
-add_subdirectory(test1)
-add_subdirectory(test2)
+add_subdirectory(int_test1)
+add_subdirectory(int_test2)
 add_subdirectory(deriv_test1)
 add_subdirectory(deriv_test2)
 add_subdirectory(hess_test1)

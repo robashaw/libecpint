@@ -29,6 +29,8 @@ Includes
 --------
 
 
+- ``array``
+
 - ``vector``
 
 

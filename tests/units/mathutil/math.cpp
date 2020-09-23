@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "mathutil.hpp"
+#include "multiarr.hpp"
 #include <cstdlib>
 #include <cmath>
 #include <iostream>
@@ -46,6 +47,25 @@ TEST(RealSphericalHarmonics, Lgt0) {
 	EXPECT_NEAR(result(0, 0), 0.282095, 1e-6);
 	EXPECT_NEAR(result(1, 1), 0.423142, 1e-6);
 	EXPECT_NEAR(result(2, 2), 0.394239, 1e-6);
+}
+
+TEST(FrobeniusNorm, ZeroMat) {
+	TwoIndex<double> mat;
+	EXPECT_DOUBLE_EQ(frobenius_norm(mat), 0.0);
+	
+	mat.assign(5, 5, 0.0);
+	EXPECT_DOUBLE_EQ(frobenius_norm(mat), 0.0);
+}
+
+TEST(FrobeniusNorm, NonZeroMat) {
+	TwoIndex<double> mat(4, 4);
+	for (int i = 0; i < 4; i++) mat(i, i) = 0.5;
+	EXPECT_DOUBLE_EQ(frobenius_norm(mat), 1.0);
+	
+	mat(0, 2) = 4.1;
+	mat(1, 3) = 0.05;
+	mat(3, 0) = 0.842;
+	EXPECT_NEAR(frobenius_norm(mat), 4.3036570495, 1e-10);
 }
 
 int main(int argc, char** argv)

@@ -551,9 +551,11 @@ Program Listing for File ecpint.cpp
        void ECPIntegral::compute_shell_pair_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 9> &results) {       
            // First we check centres
            double A[3], B[3], C[3];
-           *A = *shellA.center();
-           *B = *shellB.center();
-           *C = *U.center();
+           for (int i = 0; i < 3; i++) {
+               A[i] = shellA.center()[i];
+               B[i] = shellB.center()[i];
+               C[i] = U.center()[i];
+           }
            
            double dAC = std::abs(A[0] - C[0]) + std::abs(A[1] - C[1]) + std::abs(A[2] - C[2]);
            double dBC = std::abs(B[0] - C[0]) + std::abs(B[1] - C[1]) + std::abs(B[2] - C[2]);
@@ -590,6 +592,7 @@ Program Listing for File ecpint.cpp
                   results[3] = results[0]; results[3].multiply(-1.0);
                   results[4] = results[1]; results[4].multiply(-1.0);
                   results[5] = results[2]; results[5].multiply(-1.0);
+                  for (int i = 6; i < 9; i++) results[i].assign(ncartA, ncartB, 0.0);
                }
            } else if (dBC > 1e-6) {
                results[3] = QB[0].transpose();
@@ -598,6 +601,7 @@ Program Listing for File ecpint.cpp
                results[0] = results[3]; results[0].multiply(-1.0);
                results[1] = results[4]; results[1].multiply(-1.0);
                results[2] = results[5]; results[2].multiply(-1.0);
+               for (int i = 6; i < 9; i++) results[i].assign(ncartA, ncartB, 0.0);
            } else {
                // else everything is zero
                for (auto& r : results) r.assign(ncartA, ncartB, 0.0);
@@ -607,9 +611,11 @@ Program Listing for File ecpint.cpp
        void ECPIntegral::compute_shell_pair_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 45> &results) {       
            // First we check centres
            double A[3], B[3], C[3];
-           *A = *shellA.center();
-           *B = *shellB.center();
-           *C = *U.center();
+           for (int i = 0; i < 3; i++) {
+               A[i] = shellA.center()[i];
+               B[i] = shellB.center()[i];
+               C[i] = U.center()[i];
+           }
            
            double dAC = std::abs(A[0] - C[0]) + std::abs(A[1] - C[1]) + std::abs(A[2] - C[2]);
            double dBC = std::abs(B[0] - C[0]) + std::abs(B[1] - C[1]) + std::abs(B[2] - C[2]);
@@ -635,7 +641,8 @@ Program Listing for File ecpint.cpp
            
            // Now construct the nuclear derivs
            int jaas[9] = {0, 1, 2, 1, 3, 4, 2, 4, 5};
-           int jaa;
+           int jbbs[9] = {0, 3, 6, 1, 4, 7, 2, 5, 8};
+           int jaa, jbb;
            if (dAC > 1e-6) {
                //AA (xx, xy, xz, yy, yz, zz)
                for (int i = 0; i < 6; i++) results[i] = QAA[i]; 
@@ -650,18 +657,16 @@ Program Listing for File ecpint.cpp
                        for (int nB = 0; nB < ncartB; nB++){
                            for (int j = 0; j < 9; j++) {
                                jaa = jaas[j];
+                               jbb = jbbs[j];
                                
                                // AC (xx, xy, xz, yx, yy, yz, zx, zy, zz)
-                               for (int i = 15; i < 24; i++)
-                                   results[i](nA, nB) = -1.0*(QAA[jaa](nA, nB) + QAB[j](nA, nB));
+                               results[15+j](nA, nB) = -1.0*(QAA[jaa](nA, nB) + QAB[j](nA, nB));
                                
                                // BC (xx, xy, xz, yx, yy, yz, zx, zy, zz)
-                               for (int i = 30; i < 39; i++)
-                                   results[i](nA, nB) = -1.0*(QBB[jaa](nB, nA) + QAB[j](nA, nB));
+                               results[30+j](nA, nB) = -1.0*(QBB[jaa](nB, nA) + QAB[jbb](nA, nB));
                                
                                // CC (xx, xy, xz, yy, yz, zz)
-                               for (int i = 39; i < 45; i++)
-                                   results[i](nA, nB) = QAA[jaa](nA, nB) + 2.0*QAB[j](nA, nB) + QBB[jaa](nB, nA);
+                               results[39+jaa](nA, nB) = -results[30+j](nA, nB) -results[15+j](nA, nB); 
                            }
                        }
                    }

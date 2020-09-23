@@ -32,6 +32,7 @@
 
 namespace libecpint {
 	
+	/// names of each atom in order of atomic number
 	const std::string atom_names[109] = {"h", "he", "li", "be", "b", "c", "n",
 		"o", "f", "ne", "na", "mg", "al", "si", "p", "s", "cl", "ar",
 		"k", "ca", "sc", "ti", "v", "cr", "mn", "fe", "co", "ni", "cu",
@@ -184,6 +185,11 @@ namespace libecpint {
 		/// @return the number of ECPs in basis
 		int getN() const { return N; }
 		
+		/** Creates and adds an ECP object to the basis by reading from the ECP library
+		  * @param q - the atomic number of the atom
+		  * @param coords - the [x, y, z] coordinates (in bohr) of the ECP
+		  * @param filename - path to the XML file containing the basis specification 
+		  */
 		void addECP_from_file(int q, std::array<double, 3> coords, std::string filename);
 	};
 

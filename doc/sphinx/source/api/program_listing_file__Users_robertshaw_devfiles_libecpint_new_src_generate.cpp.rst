@@ -73,7 +73,7 @@ Program Listing for File generate.cpp
                }
                return result; 
            }
-       
+          
            bool operator<=(const SumTerm& s) const {
                return (*this == s) || (*this < s); 
            }

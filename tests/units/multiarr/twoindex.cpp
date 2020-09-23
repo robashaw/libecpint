@@ -57,3 +57,16 @@ TEST_F(TwoIndexTest, CopyCtor) {
 	EXPECT_DOUBLE_EQ(tmp(1, 2), 4.4);
 	EXPECT_DOUBLE_EQ(matrix_(1, 2), 0.0);
 }
+
+TEST_F(TwoIndexTest, Add) {
+	TwoIndex<double> m2(2, 3);
+	m2(0, 1) = 1.4;
+	m2(1, 0) = -0.8;
+	m2(1, 2) = 3.12;
+	
+	matrix_.add(m2);
+	EXPECT_DOUBLE_EQ(matrix_(0, 1), 1.4);
+	EXPECT_DOUBLE_EQ(matrix_(1, 0), -0.8);
+	EXPECT_DOUBLE_EQ(matrix_(1, 2), 3.12);
+	EXPECT_DOUBLE_EQ(matrix_(0, 0), 0); 
+}

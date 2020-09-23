@@ -33,6 +33,8 @@ Includes
 
 - ``map``
 
+- ``string``
+
 - ``vector``
 
 
@@ -68,4 +70,11 @@ Classes
 - :ref:`exhale_struct_classlibecpint_1_1_e_c_p_basis`
 
 - :ref:`exhale_struct_structlibecpint_1_1_gaussian_e_c_p`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespacelibecpint_1a076d4d1e17ab2a37661480ba095329d7`
 

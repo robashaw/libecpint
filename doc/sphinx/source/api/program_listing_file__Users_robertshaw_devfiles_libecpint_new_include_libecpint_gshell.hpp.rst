@@ -38,6 +38,7 @@ Program Listing for File gshell.hpp
    #define GSHELL_HEAD
    
    #include <vector>
+   #include <array>
    
    namespace libecpint {
    
@@ -46,10 +47,31 @@ Program Listing for File gshell.hpp
            std::vector<double> coeffs; 
            
            double* centerVec; 
+           bool local_ptr; 
+           
+           double localCenter[3];
            
            int l; 
-       
+           int atom_id; 
+           
            GaussianShell(double* A, int l);
+           
+           GaussianShell(std::array<double, 3> A, int l);
+           
+           GaussianShell(const GaussianShell& other) { 
+               exps = other.exps;
+               coeffs = other.coeffs;
+               centerVec = other.centerVec;
+               l = other.l;
+               
+               local_ptr = other.local_ptr;
+               if (local_ptr) {
+                   localCenter[0] = other.localCenter[0];
+                   localCenter[1] = other.localCenter[1];
+                   localCenter[2] = other.localCenter[2];
+                   centerVec = localCenter;
+               }
+           } 
            
            void addPrim(double exp, double c);
            
@@ -67,6 +89,13 @@ Program Listing for File gshell.hpp
            
            GaussianShell copy() const {
                GaussianShell result(centerVec, l);
+               result.local_ptr = local_ptr;
+               if (local_ptr) {
+                   result.localCenter[0] = localCenter[0];
+                   result.localCenter[1] = localCenter[1];
+                   result.localCenter[2] = localCenter[2];
+                   result.centerVec = result.localCenter;
+               }
                result.exps = exps;
                result.coeffs = coeffs;
                return result;

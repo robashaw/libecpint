@@ -72,6 +72,8 @@ Functions
 
 - :ref:`exhale_function_namespacelibecpint_1a25b52c5d023603d9fb96ea30fc36a4ef`
 
+- :ref:`exhale_function_namespacelibecpint_1a4c0dd5f75d6fc9b5329c97195b0b5e6c`
+
 - :ref:`exhale_function_namespacelibecpint_1a1d3c6308d05c89cb1f49ca5049ab3fd1`
 
 - :ref:`exhale_function_namespacelibecpint_1a0d3d7448d52abd739d6d100afa6d4e8a`
@@ -101,6 +103,8 @@ Typedefs
 Variables
 ---------
 
+
+- :ref:`exhale_variable_namespacelibecpint_1a076d4d1e17ab2a37661480ba095329d7`
 
 - :ref:`exhale_variable_namespacelibecpint_1a4ecb557cc8bf8d94cfa80855985007bf`
 

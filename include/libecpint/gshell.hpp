@@ -40,7 +40,7 @@ namespace libecpint {
 		
 		/// Pointer to xyz coordinates of basis function (pointer so as to update if geometry changes)
 		double* centerVec; 
-		bool local_ptr;
+		bool local_ptr; ///< true if the centerVec is a reference to localCenter, false otherwise
 		
 		/// Local copy of coords if there is nothing else to point to
 		double localCenter[3];
@@ -112,6 +112,7 @@ namespace libecpint {
 		/// @return the angular momentum of the shell
 		int am() const { return l; }
 		
+		/// @return a copy of this GaussianShell
 		GaussianShell copy() const {
 			GaussianShell result(centerVec, l);
 			result.local_ptr = local_ptr;

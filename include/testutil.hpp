@@ -1,3 +1,27 @@
+/* 
+ *      Copyright (c) 2020 Robert Shaw
+ *		This file is a part of Libecpint.
+ *
+ *      Permission is hereby granted, free of charge, to any person obtaining
+ *      a copy of this software and associated documentation files (the
+ *      "Software"), to deal in the Software without restriction, including
+ *      without limitation the rights to use, copy, modify, merge, publish,
+ *      distribute, sublicense, and/or sell copies of the Software, and to
+ *      permit persons to whom the Software is furnished to do so, subject to
+ *      the following conditions:
+ *
+ *      The above copyright notice and this permission notice shall be
+ *      included in all copies or substantial portions of the Software.
+ *
+ *      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ *      EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ *      MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ *      NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ *      LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ *      OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ *      WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
 #ifndef TESTING_HEAD
 #define TESTING_HEAD
 
@@ -10,6 +34,14 @@
 
 namespace libecpint {
 
+/*! A helper function for tests that reads in a file of values and compares them
+	to those provided by the test, returning 0 on success or 1 on failure.
+	
+	@tparam T - the type of the value; must be pipeable from a stringstream.
+	@param filename - the file to read data from
+	@param results - reference to the vector of calculated results
+	@return 0 if the results agree with the file within 0.00005%, 1 otherwise
+ */
 template <typename T>
 int check_file(std::string filename, std::vector<T>& results) {
 	std::ifstream input_file(filename); 

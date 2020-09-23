@@ -38,18 +38,20 @@ Program Listing for File mathutil.hpp
    #define MATHUTILHEADERDEF
    
    #include <vector>
+   #include <numeric>
+   #include <cmath>
    #include "multiarr.hpp"
    
    #ifndef M_PI
    #define M_PI 3.14159265358979323846
    #endif
    
-   #define MAX_FAC 100
-   #define MAX_DFAC 200
+   #define MAX_FAC 100 
+   #define MAX_DFAC 200 
    
    namespace libecpint {
        
-       const double ROOT_PI = 1.772453850905516;
+       const double ROOT_PI = 1.772453850905516; 
    
        extern double FAC[MAX_FAC];     
        extern double DFAC[MAX_DFAC];   
@@ -88,6 +90,8 @@ Program Listing for File mathutil.hpp
        };
        
        TwoIndex<double> realSphericalHarmonics(int lmax, double x, double phi);  
+       
+       double frobenius_norm(TwoIndex<double>& mat);
        
        void initFactorials(); 
    }

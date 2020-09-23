@@ -171,6 +171,11 @@ Functions
 .. toctree::
    :maxdepth: 5
 
+   function_namespacelibecpint_1a4c0dd5f75d6fc9b5329c97195b0b5e6c.rst
+
+.. toctree::
+   :maxdepth: 5
+
    function_namespacelibecpint_1a1d3c6308d05c89cb1f49ca5049ab3fd1.rst
 
 .. toctree::
@@ -625,6 +630,11 @@ Variables
 .. toctree::
    :maxdepth: 5
 
+   variable_namespacelibecpint_1a076d4d1e17ab2a37661480ba095329d7.rst
+
+.. toctree::
+   :maxdepth: 5
+
    variable_namespacelibecpint_1a4ecb557cc8bf8d94cfa80855985007bf.rst
 
 .. toctree::
@@ -710,6 +720,11 @@ Defines
    :maxdepth: 5
 
    define_mathutil_8cpp_1a9450534f682d7a567d3872551afa2ec4.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define_api_8hpp_1a9c5be1c4ba084c752edba30f62c5da6d.rst
 
 .. toctree::
    :maxdepth: 5

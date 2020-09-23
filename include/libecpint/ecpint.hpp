@@ -39,6 +39,7 @@
 
 namespace libecpint {
 
+/// returns the index of the basis function with y,z angular momentum components l,m
 #define N_INDEX(l, m) (((l+m)*(l+m+1))/2 + m)
 
 	/** 
@@ -110,7 +111,8 @@ namespace libecpint {
 		void type2(int l, ECP& U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, FiveIndex<double> &CA, FiveIndex<double> &CB, ThreeIndex<double> &values);
 	
 		/**
-		  * Computes the overall ECP integrals over the given ECP center and shell pair. This is currently the main interface.
+		  * Computes the overall ECP integrals over the given ECP center and shell pair. This is the lower level API, where you want finer control
+		  * over the calculation.
 		  * Results are returned with rows corresponding to shellA and cols to shellB, with the Cartesian functions in alpha order e.g.
 		  * {xxx, xxy, xxz, xyy, xyz, xzz, yyy, yyz, yzz, zzz} l = 3
 		  * 
@@ -121,11 +123,72 @@ namespace libecpint {
 		  */ 
 		void compute_shell_pair(ECP &U, GaussianShell &shellA, GaussianShell &shellB, TwoIndex<double> &values, int shiftA = 0, int shiftB = 0);
 		
-		void left_shell_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 3> &results); 
+		/**
+	 	  * Computes the overall ECP integral first derivatives over the given ECP center, C, and shell pair (A | B) 
+		  * The results are placed in order [Ax, Ay, Az, Bx, By, Bz, Cx, Cy, Cz] and are calculated so that each component
+		  * can always be added to the relevant total derivative. E.g. if A = B, then the contribution to the total derivative
+		  * for that coordinate on the x axis will be Ax + Bx. 
+		  * The order for each derivative matrices matches that specified in compute_shell_pair
+	 	  * 
+	 	  * @param U - reference to the ECP
+	 	  * @param shellA - the first basis shell (rows in values) 
+	 	  * @param shellB - the second basis shell (cols in values)
+	 	  * @param results - reference to array of 9 TwoIndex arrays where the results will be stored
+	 	  */ 
 		void compute_shell_pair_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 9> &results);
-		void left_shell_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 6> &results); 
-		void mixed_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 9> &results); 
+		
+		/**
+ 		  * Computes the overall ECP integral second derivatives over the given ECP center, C, and shell pair (A | B) 
+		  * The results are placed in order [AA, AB, AC, BB, BC, CC] with components [xx, xy, xz, yy, yz, zz] for AA, BB, and CC,
+		  * and [xx, xy, xz, yx, yy, yz, zx, zy, zz] for AB, AC, and BC. As for the first derivatives, the components are calculated
+		  * such that they can usually be added to the relevant total derivative. However, this is more complicated than for first derivatives,
+		  * especially in the instance where A=B. It's recommended to look at the compute_second_derivatives interface in api.cpp for how
+		  * to handle this. 
+		  * The order for each derivative matrices matches that specified in compute_shell_pair
+ 		  * 
+ 		  * @param U - reference to the ECP
+ 		  * @param shellA - the first basis shell (rows in values) 
+ 		  * @param shellB - the second basis shell (cols in values)
+ 		  * @param results - reference to array of 45 TwoIndex arrays where the results will be stored
+ 		  */ 
 		void compute_shell_pair_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 45> &results);
+		
+		/** 
+		  * Worker function to calculate the derivative of the integral <A | C | B> with respect to A. 
+		  * This is given as <d_q A(l_q) | C | B> = l_q*<A(l_q-1) | C | B> - 2*mu*<A(l_q + 1) | C | B>
+		  * where l_q is the angular momentum component of A in the q coordinate, and mu is the exponent of A.
+		  * 
+		  * @param U - reference to the ECP	
+ 		  * @param shellA - the first basis shell (rows in values) 
+ 		  * @param shellB - the second basis shell (cols in values)
+ 		  * @param results - reference to array of 3 TwoIndex arrays for the [x, y, z] derivatives
+		  */
+		void left_shell_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 3> &results); 
+		
+		/** 
+		  * Worker function to calculate the second derivatives of the integral <A | C | B> with respect to AA. 
+		  * This is given as <d_p d_q A(l_p, l_q) | C | B> = l_p*l_q*<A(l_p-1, l_q-1) | C | B> - 2*mu*l_p*<A(l_p-1, l_q+1) | C | B>
+		  * - 2*mu*l_q*<A(l_p+1, l_q-1) | C | B> + 4*mu^2*<A(l_p+1, l_q+1) | C | B >
+		  * 
+		  * @param U - reference to the ECP
+		  * @param shellA - the first basis shell (rows in values) 
+		  * @param shellB - the second basis shell (cols in values)
+		  * @param results - reference to array of 6 TwoIndex arrays for the [xx, xy, xz, yy, yz, zz] derivatives
+		  */
+		void left_shell_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 6> &results); 
+		
+		/** 
+		  * Worker function to calculate the second derivatives of the integral <A | C | B> with respect to AB. 
+		  * This is given as <d_p A(l_p) | C | d_q B(l_q)> = l_p*l_q*<A(l_p-1) | C | B(l_q-1)> - 2*mu_B*l_p*<A(l_p-1) | C | B(l_q+1)>
+		  * - 2*mu_A*l_q*<A(l_p+1) | C | B(l_q-1)> + 4*mu_A*mu_B*<A(l_p+1) | C | B(l_q+1) > 
+		  * 
+		  * @param U - reference to the ECP
+		  * @param shellA - the first basis shell (rows in values) 
+		  * @param shellB - the second basis shell (cols in values)
+		  * @param results - reference to array of 9 TwoIndex arrays for the [xx, xy, xz, yx, yy, yz, zx, zy, zz] derivatives
+		  */
+		void mixed_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 9> &results); 
+		
 	};
 
 }

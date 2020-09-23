@@ -57,8 +57,8 @@ ExternalProject_Add(
     googletest
     GIT_REPOSITORY https://github.com/google/googletest.git
     GIT_TAG master
-    SOURCE_DIR "${CMAKE_BINARY_DIR}/googletest-src"
-    BINARY_DIR "${CMAKE_BINARY_DIR}/googletest-build"
+    SOURCE_DIR "${CMAKE_BINARY_DIR}/gtestsrc"
+    BINARY_DIR "${CMAKE_BINARY_DIR}/gtestbuild"
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ""
     INSTALL_COMMAND ""
@@ -73,7 +73,7 @@ ExternalProject_Get_Property(googletest binary_dir)
 set(GTEST_LIBRARY ${binary_dir}/${CMAKE_FIND_LIBRARY_PREFIXES}gtest.a)
 add_library(${GTEST_LIBRARY} UNKNOWN IMPORTED)
 set_target_properties(gtest PROPERTIES
-    IMPORTED_LOCATION ${binary_dir}/libgtest.a
+    IMPORTED_LOCATION ${GTEST_LIBRARY}
 )
 add_dependencies(${GTEST_LIBRARY} googletest)
 									       

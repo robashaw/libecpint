@@ -21,7 +21,10 @@ if((NOT PUGIXML_LIBRARY) OR (NOT PUGIXML_INCLUDE_DIR))
 	ExternalProject_Add(pugixml_external
 			PREFIX ${EXTERNAL_BUILD_DIR}/pugixml
 			GIT_REPOSITORY https://github.com/zeux/pugixml
+			CMAKE_ARGS “-DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>”
 			UPDATE_COMMAND ""
+			BUILD_COMMAND "make pugixml"
+			INSTALL_COMMAND ""
 			)
 									       
 	set(PUGIXML_LIBRARY ${EXTERNAL_BUILD_DIR}/pugixml/src/pugixml_external-build/libpugixml${CMAKE_STATIC_LIBRARY_SUFFIX})

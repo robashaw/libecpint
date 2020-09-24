@@ -210,6 +210,8 @@ namespace libecpint {
 		* @param radials - the array to return the integrals in, indexed as (N, l1, l2)
 		*/
 		void type2(std::vector<Triple> &triples, int nbase, int lam, ECP &U, GaussianShell &shellA, GaussianShell &shellB, double A, double B, ThreeIndex<double> &radials); 
+	
+		double estimate_type2(int N, int l1, int l2, double n, double a, double b, double A, double B);
 	};
 
 }

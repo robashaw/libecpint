@@ -140,43 +140,6 @@ namespace libecpint {
 		return os;
 	}
 
- 	/// Redundant at the moment
-	void print_lists(std::vector<SumTerm>& terms) {
-		std::sort(terms.begin(), terms.end()); 
-		Heptuple zero = {0, 0, 0, 0, 0, 0, 0}; 
-		int i = 0; 
-		int value = 0; 
-	
-		std::cout << "\tdouble r = radial" << terms[0].radial << ";" << std::endl;
-		std::cout << "\tdouble a = " << terms[0].ang << ";" << std::endl; 
-	
-		while (i < terms.size() - 1) {
-			SumTerm& t1 = terms[i]; 
-		
-			std::cout << t1.to_string(false) << std::endl; 
-		
-			Heptuple comparison = t1.compare(terms[i+1]); 
-		
-			t1 = terms[i+1]; 
-			int f0 = std::get<0>(comparison);
-			int f1 = std::get<1>(comparison);
-			int f4 = std::get<4>(comparison); 
-		
-			if (f1 + f4 < 2)
-				std::cout << "\tvalues[" << value << "] += r * a * tmp;" << std::endl << std::endl << "\ttmp = 0.0;" << std::endl; 
-			if (f0 == 0) 
-				value++; 
-			if (f1 == 0) 
-				std::cout << "\tr = radial" << t1.radial << ";" << std::endl;  
-			if (f4 == 0)
-				std::cout << "\ta = " << t1.ang << ";" << std::endl; 
-			i++; 
-		}
-		std::cout << terms[i].to_string(false) << std::endl;
-		std::cout << "\tvalue" << value << " += r * a * tmp;" << std::endl << std::endl;  
-	
-	}
-
 } // end namespace
 
 #endif

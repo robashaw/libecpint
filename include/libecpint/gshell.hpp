@@ -45,6 +45,8 @@ namespace libecpint {
 		/// Local copy of coords if there is nothing else to point to
 		double localCenter[3];
 		
+		double min_exp; ///< the minimum exponent in the shell
+		
 		int l; ///< Angular momentum of shell
 		int atom_id; ///< internal id of the atom the shell is on
 		
@@ -71,6 +73,7 @@ namespace libecpint {
 			coeffs = other.coeffs;
 			centerVec = other.centerVec;
 			l = other.l;
+			min_exp = other.min_exp;
 			
 			local_ptr = other.local_ptr;
 			if (local_ptr) {
@@ -115,6 +118,7 @@ namespace libecpint {
 		/// @return a copy of this GaussianShell
 		GaussianShell copy() const {
 			GaussianShell result(centerVec, l);
+			result.min_exp = min_exp;
 			result.local_ptr = local_ptr;
 			if (local_ptr) {
 				result.localCenter[0] = localCenter[0];

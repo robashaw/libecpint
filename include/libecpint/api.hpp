@@ -37,6 +37,8 @@ namespace libecpint {
 /// returns the index for the ij-th second derivative for a system with N atoms
 #define H_START(i, j, N) (9*j + 3*(3*N-1)*i - (9*i*(i+1))/2 - 3)
 	
+	const double TWO_C_TOLERANCE = 1E-12;
+	
 	/** \struct ECPIntegrator
 	  * \brief API object that stores and handles all data for computing ECP integrals and their derivatives.
 	  * 
@@ -60,6 +62,7 @@ namespace libecpint {
 		int deriv; ///< maximum derivative order to be calculated (defaults to 0)
 		int ncart; ///< total number of cartesian gaussians in the gaussian basis, determined by set_gaussian_basis
 		int natoms; ///< total number of distinct atoms, determined during init
+		double min_alpha; ///< the minimum exponent in the gaussian basis
 		
 		bool ecp_is_set; ///< true if the ecp basis has been set, false by default
 		bool basis_is_set; ///< true if the gaussian basis has been set, false by default
@@ -189,6 +192,8 @@ namespace libecpint {
 			return results;
 		}
 	};
+	
+	double shell_bound(int la, double alpha, double A2, double eta);
 	
 }
 

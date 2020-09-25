@@ -39,6 +39,10 @@
 #define M_PI 3.14159265358979323846
 #endif
 
+#ifndef M_EULER
+#define M_EULER 2.71828182845904523536
+#endif
+
 #define MAX_FAC 100 ///< the maximum factorial needed
 #define MAX_DFAC 200 ///< the maximum double factorial needed
 

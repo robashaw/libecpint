@@ -41,18 +41,21 @@ namespace libecpint {
 
 	ECP::ECP() : N(0), L(-1) {
 		center_[0] = center_[1] = center_[2] = 0.0; 	
+		min_exp = 100.0;
 	}
 	
 	ECP::ECP(const double *_center) : N(0), L(-1) {
 		center_[0] = _center[0];
 		center_[1] = _center[1];
 		center_[2] = _center[2];
+		min_exp = 100.0;
 	}
 
 	ECP::ECP(const ECP &other) {
 		gaussians = other.gaussians;
 		N = other.N;
 		L = other.L;
+		min_exp = other.min_exp;
 		center_ = other.center_;
 	}
 
@@ -61,6 +64,7 @@ namespace libecpint {
 		gaussians.push_back(newEcp);
 		N++;
 		L = l > L ? l : L;
+		min_exp = a < min_exp ? a : min_exp;
 		if (needSort) sort();
 	}
 

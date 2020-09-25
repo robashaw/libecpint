@@ -78,6 +78,7 @@ namespace libecpint {
 		int N; ///< Number of Gaussians
 		int L; ///< Maximum angular momentum
 		int atom_id; ///< Internal id of the atom the ECP is on
+		double min_exp; ///< minimum exponent in the ECP
 		
 		std::array<double, 3> center_; ///< xyz coordinates of the atom on which the ECP is located
 	

@@ -43,7 +43,7 @@ namespace libecpint {
 	@return 0 if the results agree with the file within 0.00005%, 1 otherwise
  */
 template <typename T>
-int check_file(std::string filename, std::vector<T>& results) {
+int check_file(std::string filename, std::vector<T>& results, double thresh=1e-5) {
 	std::ifstream input_file(filename); 
 	if (input_file.is_open()) {
 		
@@ -70,7 +70,7 @@ int check_file(std::string filename, std::vector<T>& results) {
 			}
 			error /= double(benchmark.size());
     
-			if (error > 5e-6) {
+			if (error > thresh) {
 				std::cerr << "Average error in output is " << error << " percent!" << std::endl;
 				return 1;
 			} else {

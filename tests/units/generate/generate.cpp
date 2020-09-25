@@ -56,8 +56,9 @@ TEST_F(SumTermTest, Indices) {
 	
 	terms[5].CA = Quintuple(5, 4, 3, 2, 1);
 	terms[5].CB = Quintuple(0, 4, 3, 2, 1);
-	EXPECT_EQ(terms[5].ca_index(), 612);
-	EXPECT_EQ(terms[5].cb_index(), 612);
+	int n = 4 + 3*CAX1 + 2*CAX2 + CAX3;
+	EXPECT_EQ(terms[5].ca_index(), n);
+	EXPECT_EQ(terms[5].cb_index(), n);
 }
 
 TEST_F(SumTermTest, Compare) {

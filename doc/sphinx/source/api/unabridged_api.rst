@@ -161,6 +161,11 @@ Functions
 .. toctree::
    :maxdepth: 5
 
+   function_generate_8cpp_1a45aa3f4947203d38d9cb52b96d002cea.rst
+
+.. toctree::
+   :maxdepth: 5
+
    function_namespacelibecpint_1_1aux_1a8e2ec9ac4e466e11814c592a83efb66f.rst
 
 .. toctree::
@@ -176,11 +181,6 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_namespacelibecpint_1a1d3c6308d05c89cb1f49ca5049ab3fd1.rst
-
-.. toctree::
-   :maxdepth: 5
-
    function_namespacelibecpint_1a0d3d7448d52abd739d6d100afa6d4e8a.rst
 
 .. toctree::
@@ -192,11 +192,6 @@ Functions
    :maxdepth: 5
 
    function_namespacelibecpint_1a23ce2cda098d601b0fddfb10b971e33f.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   function_namespacelibecpint_1a9630ee3fefeb8b74101ee1a6b9678a54.rst
 
 .. toctree::
    :maxdepth: 5
@@ -615,22 +610,22 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_generate_8cpp_1a224a61a8e26d33e9d9089b86b86b3fba.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate_8cpp_1ac7ae95c5f32933895a50c459d5d03304.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate_8cpp_1abefb1d8e3468d04e0e82fd81b63169f7.rst
-
-.. toctree::
-   :maxdepth: 5
-
    variable_namespacelibecpint_1a076d4d1e17ab2a37661480ba095329d7.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable_namespacelibecpint_1a02017a941eee202982bab7731ead620d.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable_namespacelibecpint_1ae0ba3cdb903f3057f168bfaa5495bba0.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable_namespacelibecpint_1acdba31532082cde9ce50b5c6ecd2b442.rst
 
 .. toctree::
    :maxdepth: 5
@@ -646,6 +641,21 @@ Variables
    :maxdepth: 5
 
    variable_namespacelibecpint_1a4fc3cf89f4b0b1787baabc364a16e377.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable_namespacelibecpint_1a190a564f849660c170e298aba2181d0a.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable_namespacelibecpint_1a6a8879ed7b1d299f2b2e92b105cce919.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable_namespacelibecpint_1a20c4903045164881b8dedf0d6a6ed0fb.rst
 
 .. toctree::
    :maxdepth: 5
@@ -676,21 +686,6 @@ Variables
    :maxdepth: 5
 
    variable_namespacemakelist_1ae1a361014e097535367c775cc83758fd.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate_8cpp_1a96e56aec07e9dee3b0b39b2c73c59413.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate_8cpp_1aab0234bf29568417ed693e6f0e10e76c.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate_8cpp_1afb5b7ba33f80b513ca99f1de6f77c5b0.rst
 
 .. toctree::
    :maxdepth: 5

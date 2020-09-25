@@ -16,6 +16,7 @@ Subdirectories
 Files
 -----
 
+- :ref:`file__Users_robertshaw_devfiles_libecpint_new_include_generate.hpp`
 - :ref:`file__Users_robertshaw_devfiles_libecpint_new_include_libecpint.hpp`
 - :ref:`file__Users_robertshaw_devfiles_libecpint_new_include_testutil.hpp`
 

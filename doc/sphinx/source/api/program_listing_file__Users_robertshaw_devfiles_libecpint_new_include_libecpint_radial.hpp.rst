@@ -88,6 +88,8 @@ Program Listing for File radial.hpp
            void type2(int lam, int l1start, int l1end, int l2start, int l2end, int N, ECP &U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, TwoIndex<double> &values);    
    
            void type2(std::vector<Triple> &triples, int nbase, int lam, ECP &U, GaussianShell &shellA, GaussianShell &shellB, double A, double B, ThreeIndex<double> &radials); 
+       
+           double estimate_type2(int N, int l1, int l2, double n, double a, double b, double A, double B);
        };
    
    }

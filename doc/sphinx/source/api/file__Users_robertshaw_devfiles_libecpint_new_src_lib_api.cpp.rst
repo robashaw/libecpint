@@ -31,6 +31,8 @@ Includes
 
 - ``api.hpp`` (:ref:`file__Users_robertshaw_devfiles_libecpint_new_include_libecpint_api.hpp`)
 
+- ``cassert``
+
 - ``cmath``
 
 - ``iostream``

@@ -211,6 +211,21 @@ namespace libecpint {
 		*/
 		void type2(std::vector<Triple> &triples, int nbase, int lam, ECP &U, GaussianShell &shellA, GaussianShell &shellB, double A, double B, ThreeIndex<double> &radials); 
 	
+		/**
+		  * Estimates the value of the requested type 2 radial integral for prescreening, as described in ref. Shaw2017.
+		  * The modal point is estimated by ignoring the ratios of bessel function derivatives - this gives an overestimate
+		  * so is okay for screening, but would not be good for approximating the integral itself.
+		  *
+		  * @param N - power of r in integrand
+		  * @param l1 - angular momentum of first Bessel function
+		  * @param l2 - angular momentum of second Bessel function
+		  * @param n - exponent of ECP
+		  * @param a - exponent of primitive in shellA
+		  * @param b - exponent of primitive in shellB
+		  * @param A - magnitude of distance of shellA from ECP
+		  * @param B - magnitude of distance of shellB from ECP
+		  * @return estimated value (upper bound) of the type 2 integral 
+		  */
 		double estimate_type2(int N, int l1, int l2, double n, double a, double b, double A, double B);
 	};
 

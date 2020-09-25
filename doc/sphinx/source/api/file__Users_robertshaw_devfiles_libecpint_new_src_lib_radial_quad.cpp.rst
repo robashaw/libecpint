@@ -29,6 +29,8 @@ Includes
 --------
 
 
+- ``Faddeeva.hpp``
+
 - ``cmath``
 
 - ``iostream``

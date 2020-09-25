@@ -110,7 +110,6 @@ namespace libecpint {
 		std::vector<double> &gridPoints = newGrid.getX();
 	
 		double Ftab[gridSize]; 
-		std::vector<double> besselValues1, besselValues2; 
 	
 		double z, zA, zB;
 		double aA = 2.0 * a * A;
@@ -120,11 +119,10 @@ namespace libecpint {
 			zA = z - A; 
 			zB = z - B; 
 			
-			// TODO: Efficiencies could be found here by calculating Bessel function for only l1/l2, not all l up to l1/l2
-			bessie.calculate(aA * z, l1, besselValues1);
-			bessie.calculate(bB * z, l2, besselValues2);  
+			double besselValue1 = bessie.calculate(aA * z, l1);
+			double besselValue2 = bessie.calculate(bB * z, l2);
 			
-			Ftab[i] = pow(z, N) * exp(-n * z * z - a * zA * zA - b * zB * zB) * besselValues1[l1] * besselValues2[l2];
+			Ftab[i] = pow(z, N) * exp(-n * z * z - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
 		}
 	
 		std::function<double(double, double*, int)> intgd = RadialIntegral::integrand;

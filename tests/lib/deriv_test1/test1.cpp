@@ -51,5 +51,7 @@ int main(int argc, char* argv[]) {
 			flat_result.push_back(v); 
 	}
 	
+	for (auto& v : flat_result) std::cout << std::setprecision(15) << v << std::endl;
+	
 	return check_file<double>("deriv_test1.output", flat_result);
 }

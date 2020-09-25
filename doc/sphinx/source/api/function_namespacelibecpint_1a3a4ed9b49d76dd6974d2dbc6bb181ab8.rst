@@ -3,7 +3,7 @@
 Function libecpint::operator<<(std::ostream&, const SumTerm&)
 =============================================================
 
-- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_generate.cpp`
+- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_new_include_generate.hpp`
 
 
 Function Documentation

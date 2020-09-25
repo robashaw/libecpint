@@ -25,6 +25,7 @@
 #include "bessel.hpp"
 #include "mathutil.hpp"
 #include <cmath>
+#include <cassert>
 #include <iostream>
 
 namespace libecpint {
@@ -111,6 +112,16 @@ namespace libecpint {
 		return retval;
 	}	
 
+	// Get an upper bound for M_l(z)
+	double BesselFunction::upper_bound(const double z, int L) {	
+		// find nearest point (on left) in tabulated values
+		int ix = std::floor(N*z/16.0);
+		int minix = L > 0 ? 1 : 0;
+		ix = std::min(N, std::max(minix, ix));
+		int lx = std::min(L, lMax);
+		return K[ix][lx];
+	}
+
 	// Calculate modified spherical Bessel function K_l(z), weighted with an exponential factor e^(-z)
 	// for l = 0 to lMax. This restricts K(z) to the interval [0,1].
 	void BesselFunction::calculate(const double z, int maxL, std::vector<double> &values) {
@@ -155,11 +166,11 @@ namespace libecpint {
 			double scale = N/16.0;
 		
 			// Index of abscissa z in table
-			int index = floor(z * scale + 0.5);
-			double dz = z - index/scale; // z - z0
+			int ix = floor(z * scale + 0.5);
+			double dz = z - ix/scale; // z - z0
 		
 			if (fabs(dz) < 1e-12) { // z is one of the tabulated points
-				for (int l = 0; l <= maxL; l++) values[l] = K[index][l];
+				for (int l = 0; l <= maxL; l++) values[l] = K[ix][l];
 			} else {
 				// Determine the necessary derivatives from
 				// K_l^(n+1) = C_l K_(l-1)^(n) + (C_l + 1/(2l+1))K_(l+1)^(n) - K_l^(n)
@@ -167,7 +178,7 @@ namespace libecpint {
 		
 				// Copy K values into dK
 				for (int l = 0; l < maxLambda; l++)
-					dK[0][l] = K[index][l];
+					dK[0][l] = K[ix][l];
 			
 				// Then the rest
 				for (int n = 1; n < TAYLOR_CUT+1; n++) { 
@@ -192,5 +203,55 @@ namespace libecpint {
 				}
 			}
 		}
+	}
+	
+	// Calculate a modified spherical bessel function value at a point for only a single L
+	// method the same as in calculate for multiple L, but with efficiencies
+	double BesselFunction::calculate(const double z, int L) {
+		assert(lMax+1 > L);
+		double value = 0.0;
+		
+		if (z <= 0) value = 1.0;
+		else if (z < SMALL) {
+			value = 1.0 - z;
+			for (int k = 1; k < L+1; k++)
+				value *= z/(2.0*L+1.0);
+		} else if (z > 16.0) {
+			double v0 = 0.5/z;
+			value = 1.0;
+			double Tlk = 1.0;
+			for (int k = 1; k < L+1; k++) {
+				Tlk *= -v0 * (L - k +1)*(L+k)/(double(k));
+				value += Tlk;
+			}
+			value = v0 * value;
+		} else {
+			double scale = N/16.0;
+			int ix = floor(z * scale + 0.5);
+			double dz = z - ix/scale; // z - z0
+			if (std::abs(dz) < 1e-12) value = K[ix][L];
+			else {
+				int lambda = L+TAYLOR_CUT;
+				double dK[TAYLOR_CUT+1][lambda];
+				for (int l = 0; l < lambda; l++)
+					dK[0][l] = K[ix][l];
+
+				for (int n = 1; n < TAYLOR_CUT+1; n++) { 
+					dK[n][0] = dK[n-1][1] - dK[n-1][0];
+					for (int l = 1; l <= lambda - n; l++) 
+						dK[n][l] = C[l]*dK[n-1][l-1] + (C[l] + 1.0/(2.0*l + 1.0))*dK[n-1][l+1] - dK[n-1][l];
+				}
+			
+				double dzn[TAYLOR_CUT+1];
+				dzn[0] = 1.0;
+				for (int n = 1; n < TAYLOR_CUT + 1; n++)
+					dzn[n] = dzn[n-1] * dz / ((double) n);
+				
+				for (int n = 0; n < TAYLOR_CUT+1; n++)
+					value += dzn[n] * dK[n][L]; 
+			}
+		}
+		
+		return value;
 	}
 }

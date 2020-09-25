@@ -56,6 +56,20 @@ namespace libecpint {
 		*/
 		void rolled_up(int lam, int LA, int LB, ThreeIndex<double>& radials, FiveIndex<double>& CA, FiveIndex<double>& CB, TwoIndex<double>& SA, TwoIndex<double>& SB, AngularIntegral& angints, ThreeIndex<double>& values);
 
+		/** 
+		*  As per rolled_up, but for the special case where shell A is located on the ECP (see Shaw2017 supp. info.)
+		*  per symmetry, the shell B on ECP case is the same with A and B variables reversed.  
+		*
+		*  @param lam - angular momentum of ECP shell
+		*  @param LA - angular momentum of basis shellA
+		*  @param LB - angular momentum of basis shellB
+		*  @param radials - array of radial integrals, indexed as (N, lA, lB)
+		*  @param CB - binomial expansion coefficients of shellB
+		*  @param SB - spherical harmonics of shellB
+		*  @param angints - object containing the angular integrals
+		*  @param values - the array in which the results are returned
+		*/
+		void rolled_up_special(int lam, int LA, int LB, ThreeIndex<double>& radials, FiveIndex<double>& CB, TwoIndex<double>& SB, AngularIntegral& angints, ThreeIndex<double>& values);
 
 	void Q0_0_0(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
 	void Q0_0_1(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);

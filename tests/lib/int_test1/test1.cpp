@@ -41,5 +41,7 @@ int main(int argc, char* argv[]) {
 	ecpint.compute_shell_pair(newU, shellB, shellB, result);
 	for (auto v : result.data) flat_result.push_back(v); 
 	
+	for (auto& v : flat_result) std::cout << std::setprecision(15) << v << std::endl;
+	
 	return check_file<double>("test1.output", flat_result);
 }

@@ -114,7 +114,7 @@ Program Listing for File mathutil.cpp
        }
        
        double frobenius_norm(TwoIndex<double>& mat) {
-           return std::sqrt(std::inner_product(mat.data.begin(), mat.data.end(), mat.data.begin(), 0));
+           return std::sqrt(std::inner_product(mat.data.begin(), mat.data.end(), mat.data.begin(), 0.0));
        }
        
    }

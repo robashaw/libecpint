@@ -47,8 +47,6 @@ Included By
 -----------
 
 
-- :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_generate.cpp`
-
 - :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_generated_radial_radial_gen.cpp`
 
 - :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_lib_angular.cpp`
@@ -66,6 +64,8 @@ Included By
 - :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_lib_radial_gen.cpp`
 
 - :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_lib_radial_quad.cpp`
+
+- :ref:`file__Users_robertshaw_devfiles_libecpint_new_include_generate.hpp`
 
 
 

@@ -237,10 +237,11 @@ namespace libecpint {
 			TwoIndex<double> SA = realSphericalHarmonics(lam+LA, xA, phiA);
 			TwoIndex<double> SB = realSphericalHarmonics(lam+LB, xB, phiB);
 		
-			if (A_on_ecp || B_on_ecp) {
+			if (A_on_ecp) {
 				// Radial integrals need to be calculated by a different recursive scheme, or by quadrature
 				ThreeIndex<double> radials(L+1, lam + LA + 1, lam + LB + 1); 
 				TwoIndex<double> temp;
+				std::fill(values.data.begin(), values.data.end(), 0.0);
 
 				for (int N = 0; N < L+1; N++) {
 					radInts.type2(lam, 0, lam + LA, 0, lam + LB, N, U, shellA, shellB, data, temp); 
@@ -249,10 +250,30 @@ namespace libecpint {
 							radials(N, l1, l2) = temp(l1, l2);
 				}
 				
-				// TODO: Write a version of rolled_up specifically for this case, as a significant number of terms
-				// can be neglected a priori - see Shaw2017 supplementary material. 
-				qgen::rolled_up(lam, LA, LB, radials, CA, CB, SA, SB, angInts, values);
+				// a significant number of terms can be neglected a priori - see Shaw2017 supplementary material. 
+				qgen::rolled_up_special(lam, LA, LB, radials, CB, SB, angInts, values);
 				
+			} else if (B_on_ecp){
+				// Same as above with A and B reversed
+				ThreeIndex<double> radials(L+1, lam + LB + 1, lam + LA + 1); 
+				ThreeIndex<double> tmpValues(values.dims[1], values.dims[0], values.dims[2]);
+				std::fill(tmpValues.data.begin(), tmpValues.data.end(), 0.0);
+				TwoIndex<double> temp;
+
+				for (int N = 0; N < L+1; N++) {
+					radInts.type2(lam, 0, lam + LA, 0, lam + LB, N, U, shellA, shellB, data, temp); 
+					for (int l1 = 0; l1 < lam + LB + 1; l1++)
+						for (int l2 = 0; l2 < lam + LA + 1; l2++)
+							radials(N, l1, l2) = temp(l2, l1);
+				}
+				
+				// a significant number of terms can be neglected a priori - see Shaw2017 supplementary material. 
+				qgen::rolled_up_special(lam, LB, LA, radials, CA, SA, angInts, tmpValues);
+				// transcribe back into values
+				for (int na = 0; na < values.dims[0]; na++)
+					for (int nb = 0; nb < values.dims[1]; nb++)
+						for (int nc = 0; nc < values.dims[2]; nc++)
+							values(na, nb, nc) = tmpValues(nb, na, nc);
 			} else {
 				
 				// Neither is on the ECP, the full recursive scheme with generated integrals can be used

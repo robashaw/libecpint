@@ -148,5 +148,7 @@ int main(int argc, char* argv[]) {
 		std::cout << v << " " << flat_finite[i] << " " << v - flat_finite[i] << std::endl;
 	}*/
 	
+	for (auto& v : flat_result) std::cout << std::setprecision(15) << v << std::endl;
+	
 	return check_file<double>("hess_test1.output", flat_result);
 }

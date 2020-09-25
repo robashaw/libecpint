@@ -74,15 +74,11 @@ Functions
 
 - :ref:`exhale_function_namespacelibecpint_1a4c0dd5f75d6fc9b5329c97195b0b5e6c`
 
-- :ref:`exhale_function_namespacelibecpint_1a1d3c6308d05c89cb1f49ca5049ab3fd1`
-
 - :ref:`exhale_function_namespacelibecpint_1a0d3d7448d52abd739d6d100afa6d4e8a`
 
 - :ref:`exhale_function_namespacelibecpint_1a3a4ed9b49d76dd6974d2dbc6bb181ab8`
 
 - :ref:`exhale_function_namespacelibecpint_1a23ce2cda098d601b0fddfb10b971e33f`
-
-- :ref:`exhale_function_namespacelibecpint_1a9630ee3fefeb8b74101ee1a6b9678a54`
 
 - :ref:`exhale_function_namespacelibecpint_1af2fa15848e7d9cfe1e61fc579a94080d`
 
@@ -106,11 +102,23 @@ Variables
 
 - :ref:`exhale_variable_namespacelibecpint_1a076d4d1e17ab2a37661480ba095329d7`
 
+- :ref:`exhale_variable_namespacelibecpint_1a02017a941eee202982bab7731ead620d`
+
+- :ref:`exhale_variable_namespacelibecpint_1ae0ba3cdb903f3057f168bfaa5495bba0`
+
+- :ref:`exhale_variable_namespacelibecpint_1acdba31532082cde9ce50b5c6ecd2b442`
+
 - :ref:`exhale_variable_namespacelibecpint_1a4ecb557cc8bf8d94cfa80855985007bf`
 
 - :ref:`exhale_variable_namespacelibecpint_1a975e7b9e0f57709418adede308d80405`
 
 - :ref:`exhale_variable_namespacelibecpint_1a4fc3cf89f4b0b1787baabc364a16e377`
+
+- :ref:`exhale_variable_namespacelibecpint_1a190a564f849660c170e298aba2181d0a`
+
+- :ref:`exhale_variable_namespacelibecpint_1a6a8879ed7b1d299f2b2e92b105cce919`
+
+- :ref:`exhale_variable_namespacelibecpint_1a20c4903045164881b8dedf0d6a6ed0fb`
 
 - :ref:`exhale_variable_namespacelibecpint_1a451c1c2142ac7d2cbf57f3fcba419373`
 

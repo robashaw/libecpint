@@ -52,7 +52,7 @@ Included By
 -----------
 
 
-- :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_generate.cpp`
+- :ref:`file__Users_robertshaw_devfiles_libecpint_new_include_generate.hpp`
 
 - :ref:`file__Users_robertshaw_devfiles_libecpint_new_include_libecpint_angular.hpp`
 

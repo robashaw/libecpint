@@ -36,6 +36,7 @@ Program Listing for File radial_quad.cpp
    
    #include "radial.hpp"
    #include "mathutil.hpp"
+   #include "Faddeeva.hpp"
    #include <iostream>
    #include <cmath>
    
@@ -243,6 +244,25 @@ Program Listing for File radial_quad.cpp
                }
            }
        }
+       
+       double RadialIntegral::estimate_type2(int N, int l1, int l2, double n, double a, double b, double A, double B) {
+           std::vector<double> besselValues1, besselValues2; 
+           double kA = 2.0*a*A;
+           double kB = 2.0*b*B;
+           double c0 = std::max(N - l1 - l2, 0);
+           double c1_min = kA + kB;
+           double p = a + b + n;
+   
+           double P = c1_min + std::sqrt(c1_min*c1_min + 8.0*p*c0);
+           P /= (4.0*p);
+   
+           double zA = P - A; 
+           double zB = P - B;
+           bessie.calculate(kA * P, l1, besselValues1);
+           bessie.calculate(kB * P, l2, besselValues2);  
+           double Fres = std::pow(P, N) * std::exp(-n * P * P - a * zA * zA - b * zB * zB) * besselValues1[l1] * besselValues2[l2];
+           return (0.5 * std::sqrt(M_PI/p) * Fres * (1.0 + Faddeeva::erf(std::sqrt(p)*P)));
+       }
    
        void RadialIntegral::type2(int l, int l1start, int l1end, int l2start, int l2end, int N, ECP &U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, TwoIndex<double> &values) {
        
@@ -284,7 +304,7 @@ Program Listing for File radial_quad.cpp
            for (int l1 = 0; l1 <= l1end; l1++) {
                int l2start = (l1 + N) % 2;
                for (int l2 = l2start; l2 <= l2end; l2+=2) {
-               
+                   
                    for (int i = 0; i < gridSize; i++) params[i] = Utab[i] * Fa(l1, i) * Fb(l2, i);
                    tests[ix] = smallGrid.integrate(intgd, params, tolerance);
                    failed = failed || (tests[ix] == 0); 

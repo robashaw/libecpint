@@ -110,6 +110,11 @@ Files
 .. toctree::
    :maxdepth: 5
 
+   file__Users_robertshaw_devfiles_libecpint_new_include_generate.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
    file__Users_robertshaw_devfiles_libecpint_new_src_lib_gshell.cpp.rst
 
 .. toctree::

@@ -234,7 +234,6 @@ namespace libecpint {
 	}
 	
 	double RadialIntegral::estimate_type2(int N, int l1, int l2, double n, double a, double b, double A, double B) {
-		std::vector<double> besselValues1, besselValues2; 
 		double kA = 2.0*a*A;
 		double kB = 2.0*b*B;
 		double c0 = std::max(N - l1 - l2, 0);
@@ -246,9 +245,9 @@ namespace libecpint {
 
 		double zA = P - A; 
 		double zB = P - B;
-		bessie.calculate(kA * P, l1, besselValues1);
-		bessie.calculate(kB * P, l2, besselValues2);  
-		double Fres = std::pow(P, N) * std::exp(-n * P * P - a * zA * zA - b * zB * zB) * besselValues1[l1] * besselValues2[l2];
+		double besselValue1 = bessie.upper_bound(kA * P, l1);
+		double besselValue2 = bessie.upper_bound(kB * P, l2);
+		double Fres = std::pow(P, N) * std::exp(-n * P * P - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
 		return (0.5 * std::sqrt(M_PI/p) * Fres * (1.0 + Faddeeva::erf(std::sqrt(p)*P)));
 	}
 

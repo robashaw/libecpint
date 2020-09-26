@@ -185,7 +185,7 @@ namespace libecpint {
 		// 5 terms is usually sufficient for machine accuracy
 		else {
 			// Index of abscissa z in table
-			int ix = floor(z * scale + 0.5);
+			int ix = std::floor(z * scale + 0.5);
 			double dz = z - ix/scale; // z - z0
 		
 			if (fabs(dz) < 1e-12) { // z is one of the tabulated points
@@ -230,17 +230,12 @@ namespace libecpint {
 			}
 			value = v0 * value;
 		} else {
-			int ix = floor(z * scale + 0.5);
+			int ix = std::floor(z * scale + 0.5);
 			double dz = z - ix/scale; // z - z0
-			if (std::abs(dz) < 1e-12) value = K[ix][L];
-			else {
-				double dzn[TAYLOR_CUT+1];
-				dzn[0] = 1.0;
-				for (int n = 1; n < TAYLOR_CUT + 1; n++)
-					dzn[n] = dzn[n-1] * dz / ((double) n);
-				
-				for (int n = 0; n < TAYLOR_CUT+1; n++)
-					value += dzn[n] * dK[ix][n][L]; 
+			double dzn = 1.0;
+			for (int n = 0; n < TAYLOR_CUT+1; n++) {
+				value += dzn * dK[ix][n][L]; 
+				dzn *= dz / (n+1);
 			}
 		}
 		

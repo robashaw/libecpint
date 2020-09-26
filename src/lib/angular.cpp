@@ -192,7 +192,7 @@ namespace libecpint {
 		int lamDim = LE + LB; 
 		int muDim = 2*lamDim + 1;
 		SevenIndex<double> values{LB+1, LB+1, LB+1, lamDim+1, muDim+1, lamDim+1, muDim+1};
-	
+		
 		double om_plus=0.0, om_minus=0.0;
 		double wval; 
 		for (int k = 0; k <= LB; k++) {

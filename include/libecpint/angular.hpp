@@ -137,6 +137,9 @@ namespace libecpint {
 		*/
 		double getIntegral(int k, int l, int m, int lam, int mu, int rho, int sigma) const;
 		
+		int* getOmegaMults() { return omega.mults; }
+		std::vector<double>& getOmegaData() { return omega.data; }
+		
 		/// is W(k, l, m, lam, mu) zero to within a given tolerance?
 		bool isZero(int k, int l, int m, int lam, int mu, double tolerance) const;
 		

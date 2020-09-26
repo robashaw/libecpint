@@ -49,12 +49,14 @@ namespace libecpint {
 		int lMax; ///< Maximum angular momentum
 		int N; ///< Number of abscissae
 		int order; ///< Order to which the Bessel series is expanded
+		double scale; ///< N/16.0
 	
 		double **K; ///< Bessel function values
+		double ***dK; ///< Bessel function derivatives
 		double *C; ///< Coefficients of derivatives of the Bessel function
 	
 		/**
-		* Pretabulates the Bessel function to a given accuracy.
+		* Pretabulates the Bessel function (and derivs) to a given accuracy.
 		* @param accuracy - the tolerance at which a value is considered converged
 		* @return zero if successful, -1 if not converged
 		*/

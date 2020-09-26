@@ -44,7 +44,7 @@ namespace libecpint {
 	}
 
 	void RadialIntegral::buildBessel(std::vector<double> &r, int nr, int maxL, TwoIndex<double> &values, double weight) {
-		std::vector<double> besselValues;
+		std::vector<double> besselValues(maxL+1, 0.0);
 		if (std::abs(weight) < 1e-15) {
 			for (int i = 0; i < nr; i++) {
 				values(0, i) = 1.0;

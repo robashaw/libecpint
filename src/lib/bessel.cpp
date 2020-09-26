@@ -42,10 +42,17 @@ namespace libecpint {
 		lMax = _lMax > -1 ? _lMax : 0;
 		N = _N > 0 ? _N : 1;
 		order = _order > 0 ? _order : 1;
+		scale = N/16.0;
 	
 		// Allocate arrays
 		K = new double*[N+1];
-		for (int i = 0; i < N+1; i++) K[i] = new double[lMax + TAYLOR_CUT + 1];
+		dK = new double**[N+1];
+		for (int i = 0; i < N+1; i++) {
+			K[i] = new double[lMax + TAYLOR_CUT + 1];
+			dK[i] = new double*[TAYLOR_CUT + 1];
+			for (int j = 0; j < TAYLOR_CUT + 1; j++)
+				dK[i][j] = new double[lMax + TAYLOR_CUT];
+		}
 		C = new double[lMax+TAYLOR_CUT];
 	
 		// Tabulate values
@@ -54,6 +61,7 @@ namespace libecpint {
 
 	BesselFunction::~BesselFunction() {
 		free(K);
+		free(dK);
 		free(C);
 	}
 
@@ -108,6 +116,21 @@ namespace libecpint {
 	
 		// Determine coefficients for derivative recurrence
 		for (int i = 1; i<lmax; i++) C[i] = i/(2.0*i + 1.0);
+		
+		// Determine the necessary derivatives from
+		// K_l^(n+1) = C_l K_(l-1)^(n) + (C_l + 1/(2l+1))K_(l+1)^(n) - K_l^(n)
+		for (int ix = 0; ix < N+1; ix++) {
+			// Copy K values into dK
+			for (int l = 0; l < lMax+TAYLOR_CUT; l++)
+				dK[ix][0][l] = K[ix][l];
+	    	
+			// Then the rest
+			for (int n = 1; n < TAYLOR_CUT+1; n++) { 
+				dK[ix][n][0] = dK[ix][n-1][1] - dK[ix][n-1][0];
+				for (int l = 1; l <= lMax + TAYLOR_CUT - n; l++) 
+					dK[ix][n][l] = C[l]*dK[ix][n-1][l-1] + (C[l] + 1.0/(2.0*l + 1.0))*dK[ix][n-1][l+1] - dK[ix][n-1][l];
+			}
+		}
 	
 		return retval;
 	}	
@@ -129,7 +152,6 @@ namespace libecpint {
 			std::cout << "Asked for " << maxL << " but only initialised to maximum L = " << lMax << "\n";
 			maxL = lMax;
 		}
-		values.assign(maxL + 1, 0.0);
 	
 		// Set K_0(z) = 1.0, and K_l(z) = 0.0 (for l != 0) if z <= 0
 		if (z <= 0) values[0] = 1.0;
@@ -162,9 +184,6 @@ namespace libecpint {
 		// Use Taylor series around pretabulated values in class
 		// 5 terms is usually sufficient for machine accuracy
 		else {
-			int maxLambda = maxL + TAYLOR_CUT;
-			double scale = N/16.0;
-		
 			// Index of abscissa z in table
 			int ix = floor(z * scale + 0.5);
 			double dz = z - ix/scale; // z - z0
@@ -172,21 +191,6 @@ namespace libecpint {
 			if (fabs(dz) < 1e-12) { // z is one of the tabulated points
 				for (int l = 0; l <= maxL; l++) values[l] = K[ix][l];
 			} else {
-				// Determine the necessary derivatives from
-				// K_l^(n+1) = C_l K_(l-1)^(n) + (C_l + 1/(2l+1))K_(l+1)^(n) - K_l^(n)
-				double dK[TAYLOR_CUT+1][maxLambda];
-		
-				// Copy K values into dK
-				for (int l = 0; l < maxLambda; l++)
-					dK[0][l] = K[ix][l];
-			
-				// Then the rest
-				for (int n = 1; n < TAYLOR_CUT+1; n++) { 
-					dK[n][0] = dK[n-1][1] - dK[n-1][0];
-					for (int l = 1; l <= maxLambda - n; l++) 
-						dK[n][l] = C[l]*dK[n-1][l-1] + (C[l] + 1.0/(2.0*l + 1.0))*dK[n-1][l+1] - dK[n-1][l];
-				}
-			
 		
 				// Calculate (dz)^n/n! terms just once
 				double dzn[TAYLOR_CUT+1];
@@ -199,7 +203,7 @@ namespace libecpint {
 				for (int l = 0; l <= maxL; l++) {
 					values[l] = 0.0;
 					for (int n = 0; n < TAYLOR_CUT+1; n++)
-						values[l] += dzn[n] * dK[n][l]; 
+						values[l] += dzn[n] * dK[ix][n][l]; 
 				}
 			}
 		}
@@ -226,29 +230,17 @@ namespace libecpint {
 			}
 			value = v0 * value;
 		} else {
-			double scale = N/16.0;
 			int ix = floor(z * scale + 0.5);
 			double dz = z - ix/scale; // z - z0
 			if (std::abs(dz) < 1e-12) value = K[ix][L];
 			else {
-				int lambda = L+TAYLOR_CUT;
-				double dK[TAYLOR_CUT+1][lambda];
-				for (int l = 0; l < lambda; l++)
-					dK[0][l] = K[ix][l];
-
-				for (int n = 1; n < TAYLOR_CUT+1; n++) { 
-					dK[n][0] = dK[n-1][1] - dK[n-1][0];
-					for (int l = 1; l <= lambda - n; l++) 
-						dK[n][l] = C[l]*dK[n-1][l-1] + (C[l] + 1.0/(2.0*l + 1.0))*dK[n-1][l+1] - dK[n-1][l];
-				}
-			
 				double dzn[TAYLOR_CUT+1];
 				dzn[0] = 1.0;
 				for (int n = 1; n < TAYLOR_CUT + 1; n++)
 					dzn[n] = dzn[n-1] * dz / ((double) n);
 				
 				for (int n = 0; n < TAYLOR_CUT+1; n++)
-					value += dzn[n] * dK[n][L]; 
+					value += dzn[n] * dK[ix][n][L]; 
 			}
 		}
 		

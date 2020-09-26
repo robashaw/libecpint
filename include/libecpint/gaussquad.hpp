@@ -106,6 +106,7 @@ namespace libecpint {
 		* @param p - the centre of the Gaussian envelope
 		*/
 		void transformRMinMax(double z, double p);  // Transfromation from [-1, 1] to [rmin, rmax] from Flores06
+		void untransformRMinMax(double z, double p);
 	
 		/// @return the calculated integral value - must have called integrate first
 		double getI() const { return I; }

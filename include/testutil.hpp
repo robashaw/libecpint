@@ -43,7 +43,7 @@ namespace libecpint {
 	@return 0 if the results agree with the file within 0.00005%, 1 otherwise
  */
 template <typename T>
-int check_file(std::string filename, std::vector<T>& results, double thresh=1e-5) {
+int check_file(std::string filename, std::vector<T>& results, double thresh=1e-5, double precision=1e-10) {
 	std::ifstream input_file(filename); 
 	if (input_file.is_open()) {
 		
@@ -66,7 +66,12 @@ int check_file(std::string filename, std::vector<T>& results, double thresh=1e-5
 			double error = 0.0;
 			for (int i = 0; i < benchmark.size(); i++) {
 				double abserror = std::abs(benchmark[i] - results[i]);
-				if (std::abs(benchmark[i])>1e-10) error += abserror / std::abs(benchmark[i]);
+				if (abserror > precision) {
+					std::cout << std::setw(10) << "Line " << std::setw(5) << i 
+						<< std::setw(5) << ":" << std::setw(15) <<  benchmark[i] 
+						<< " / " << std::setw(15) << results[i] << std::endl;
+				}
+				if (std::abs(benchmark[i])>precision) error += abserror / std::abs(benchmark[i]);
 			}
 			error /= double(benchmark.size());
     

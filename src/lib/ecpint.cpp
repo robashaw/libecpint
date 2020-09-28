@@ -40,6 +40,7 @@ namespace libecpint {
 		
 		// Initialise singletons
 		initFactorials();
+		zero = nonzero = skipped = 0;
 		
 		// Initialise angular and radial integrators
 		angInts.init(maxLB + deriv, maxLU);
@@ -161,12 +162,8 @@ namespace libecpint {
 		int maxLBasis = data.maxLBasis;
 	
 		double Am = data.Am; double Bm = data.Bm;
-		
-		// If shellA or shellB are on the same centre as the ECP, simpler integrals can be performed
-		bool A_on_ecp = Am < 1e-7;
-		bool B_on_ecp = Bm < 1e-7;
 
-		if (A_on_ecp && B_on_ecp) {
+		if (data.A_on_ecp && data.B_on_ecp) {
 			
 			// Both on ECP, simplest case - see Shaw2017 supplementary material
 			double prefactor = 4.0 * M_PI; 
@@ -237,7 +234,7 @@ namespace libecpint {
 			TwoIndex<double> SA = realSphericalHarmonics(lam+LA, xA, phiA);
 			TwoIndex<double> SB = realSphericalHarmonics(lam+LB, xB, phiB);
 		
-			if (A_on_ecp) {
+			if (data.A_on_ecp) {
 				// Radial integrals need to be calculated by a different recursive scheme, or by quadrature
 				ThreeIndex<double> radials(L+1, lam + LA + 1, lam + LB + 1); 
 				TwoIndex<double> temp;
@@ -253,7 +250,7 @@ namespace libecpint {
 				// a significant number of terms can be neglected a priori - see Shaw2017 supplementary material. 
 				qgen::rolled_up_special(lam, LA, LB, radials, CB, SB, angInts, values);
 				
-			} else if (B_on_ecp){
+			} else if (data.B_on_ecp){
 				// Same as above with A and B reversed
 				ThreeIndex<double> radials(L+1, lam + LB + 1, lam + LA + 1); 
 				ThreeIndex<double> tmpValues(values.dims[1], values.dims[0], values.dims[2]);
@@ -293,6 +290,49 @@ namespace libecpint {
 		}
 	}
 
+	void ECPIntegral::estimate_type2(ECP& U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, double* results) {
+		double sigma_a, sigma_b, min_eta, n2, an, bn, a_bound, b_bound, ab_bound;
+		double atilde, btilde, ztilde, Tk, Tk_0, xp;
+		
+		double Na_0 = 0.5 * data.LA / M_EULER;
+		double Nb_0 = 0.5 * data.LB / M_EULER;
+		
+		for (int l = 0; l <= U.getL(); l++) {
+			min_eta = U.min_exp_l[l];
+			n2 = min_eta * min_eta;
+			an = shellA.min_exp + min_eta;
+			bn = shellB.min_exp + min_eta;
+			if (data.A2 < 1e-6) sigma_a = 0.5 * an / shellA.min_exp;
+			else sigma_a = 0.5 * data.LA * an * an / (shellA.min_exp * (n2*data.A2 + data.LA * an));
+			if (data.B2 < 1e-6) sigma_b = 0.5 * bn / shellB.min_exp;
+			else sigma_b = 0.5 * data.LB * bn * bn / (shellB.min_exp * (n2*data.B2 + data.LB * bn));
+			
+			atilde = (1.0 - sigma_a) * shellA.min_exp;
+			btilde = (1.0 - sigma_b) * shellB.min_exp;
+			
+			a_bound = 0.0;
+			for (int i = 0; i < shellA.exps.size(); i++)
+				a_bound += std::pow(Na_0 / (shellA.exps[i] * sigma_a), data.LA/2.0) * std::abs(shellA.coeffs[i]); 
+			
+			b_bound = 0.0;
+			for (int i = 0; i < shellB.exps.size(); i++)
+				b_bound += std::pow(Nb_0 / (shellB.exps[i] * sigma_b), data.LB/2.0) * std::abs(shellB.coeffs[i]);
+			
+			double Tk_0 = 2.0 * atilde * btilde * data.Am * data.Bm; 
+			ab_bound = 0.0;
+			xp = atilde*atilde*data.A2 + btilde*btilde*data.B2;
+			for (int k = U.l_starts[l]; k < U.l_starts[l+1]; k++) {
+				GaussianECP& g = U.getGaussian(k);
+				ztilde = atilde + btilde + g.a;
+				Tk = Tk_0 / ztilde;
+				Tk = Tk > 1 ? 0.5 * std::exp(Tk) / Tk : SINH_1;
+				ab_bound += std::abs(g.d) * std::pow(M_PI/g.a, 1.5) * std::exp(xp / ztilde) * Tk;
+			}
+			ab_bound *= std::exp(-atilde*data.A2 -btilde*data.B2);
+			results[l] = (2*l+1)*(2*l+1)* a_bound * b_bound * ab_bound;
+		}
+	}
+
 	void ECPIntegral::compute_shell_pair(ECP &U, GaussianShell &shellA, GaussianShell &shellB, TwoIndex<double> &values, int shiftA, int shiftB) {
 	
 		ShellPairData data;
@@ -315,8 +355,10 @@ namespace libecpint {
 	
 		data.A2 = data.A[0]*data.A[0] + data.A[1]*data.A[1] + data.A[2]*data.A[2];
 		data.Am = sqrt(data.A2);
+		data.A_on_ecp = (data.Am < 1e-6); 
 		data.B2 = data.B[0]*data.B[0] + data.B[1]*data.B[1] + data.B[2]*data.B[2];
 		data.Bm = sqrt(data.B2);
+		data.B_on_ecp = (data.Bm < 1e-6);
 		double RAB[3] = {data.A[0] - data.B[0], data.A[1] - data.B[1], data.A[2] - data.B[2]};
 		data.RAB2 = RAB[0]*RAB[0] + RAB[1]*RAB[1] + RAB[2]*RAB[2];
 		data.RABm = sqrt(data.RAB2);
@@ -329,18 +371,34 @@ namespace libecpint {
 		FiveIndex<double> CB(1, data.ncartB, data.LB+1, data.LB+1, data.LB+1);
 		makeC(CA, data.LA, data.A);
 		makeC(CB, data.LB, data.B);
+		
+		double screens[U.getL() + 1];
+		estimate_type2(U, shellA, shellB, data, screens);
 	
 		// Calculate type1 integrals, if necessary
 		values.assign(data.ncartA, data.ncartB, 0.0);
-		if (!U.noType1())
+		if (!U.noType1() && screens[U.getL()] > tolerance)
 			type1(U, shellA, shellB, data, CA, CB, values);
+		
+		std::vector<int> l_list; 
+		if (data.A_on_ecp && data.B_on_ecp) {
+			if (data.LA == data.LB && screens[data.LA] > tolerance && data.LA < U.getL())
+				 l_list.push_back(data.LA);
+		} else if (data.A_on_ecp && screens[data.LA] > tolerance && data.LA < U.getL()) {
+			l_list.push_back(data.LA); 
+		} else if (data.B_on_ecp && screens[data.LB] > tolerance && data.LB < U.getL()) {
+			l_list.push_back(data.LB); 
+		} else {
+			for (int l = 0; l < U.getL(); l++) 
+				if (screens[l] > tolerance) l_list.push_back(l); 
+		}
 		
 		// Now all the type2 integrals
 		ThreeIndex<double> t2vals(data.ncartA, data.ncartB, 2*U.getL() + 1);
-		for (int l = 0; l < U.getL(); l++) {
+		for (int l : l_list) {
 			t2vals.fill(0.0);
 			type2(l, U, shellA, shellB, data, CA, CB, t2vals);
-		
+
 			for (int m = -l; m <= l; m++) {
 				for(int na = 0; na < data.ncartA; na++) {
 					for (int nb = 0; nb < data.ncartB; nb++) {

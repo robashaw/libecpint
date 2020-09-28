@@ -214,6 +214,11 @@ namespace libecpint {
 			n1 += ncartA;
 		} 
 		
+		//std::cout << "Total: " << ecpint->skipped + ecpint->zero + ecpint->nonzero << std::endl;
+		//std::cout << "Skipped: " << ecpint->skipped << std::endl;
+		//std::cout << "Zero: " << ecpint->zero << std::endl;
+		//std::cout << "Non-zero: " << ecpint->nonzero << std::endl;
+		
 	}
 	
 	void ECPIntegrator::compute_first_derivs() {

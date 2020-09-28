@@ -150,6 +150,8 @@ namespace libecpint {
 		double Bm;		///< Magnitude of distance from ECP to shellB
 		double RAB2; 	///< Square of distance between shells A and B
 		double RABm;	///< Magnitude of distance between shells A and B
+		bool A_on_ecp;  ///< True if Am == 0
+		bool B_on_ecp;  ///< True if Bm == 0
 	};
 
 }

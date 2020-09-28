@@ -58,6 +58,8 @@ namespace libecpint {
 	private:
 		RadialIntegral radInts; ///< The interface to the radial integral calculation
 		AngularIntegral angInts; ///< The angular integrals, which can be reused over all ECP centers
+				
+		double tolerance = 1e-12;
 	
 		/// Worker functions for calculating binomial expansion coefficients
 		double calcC(int a, int m, double A) const;
@@ -68,6 +70,7 @@ namespace libecpint {
 		 RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
 
 	public:
+		int skipped, zero, nonzero;
 		
 		/** 
 		  * Constructs the coefficients in the binomial expansion (see REF. Shaw2017)
@@ -109,6 +112,8 @@ namespace libecpint {
 		  * @param values - array in which results are returned
 		  */
 		void type2(int l, ECP& U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, FiveIndex<double> &CA, FiveIndex<double> &CB, ThreeIndex<double> &values);
+		
+		void estimate_type2(ECP& U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, double* results);
 	
 		/**
 		  * Computes the overall ECP integrals over the given ECP center and shell pair. This is the lower level API, where you want finer control

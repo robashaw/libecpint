@@ -49,6 +49,7 @@
 namespace libecpint {
 	
 	const double ROOT_PI = 1.772453850905516; ///< square root of PI
+	const double SINH_1 = 1.1752011936;
 
 	extern double FAC[MAX_FAC];		///< Array of factorials
 	extern double DFAC[MAX_DFAC]; 	///< Array of double factorials

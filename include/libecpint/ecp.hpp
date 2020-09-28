@@ -29,6 +29,7 @@
 #include <array>
 #include <map>
 #include <string>
+#include "config.hpp"
 
 namespace libecpint {
 	
@@ -79,6 +80,8 @@ namespace libecpint {
 		int L; ///< Maximum angular momentum
 		int atom_id; ///< Internal id of the atom the ECP is on
 		double min_exp; ///< minimum exponent in the ECP
+		double min_exp_l[LIBECPINT_MAX_L+1]; ///< minimum exponent in each l-shell
+		int    l_starts[LIBECPINT_MAX_L+2]; ///< starting index of each l-shell
 		
 		std::array<double, 3> center_; ///< xyz coordinates of the atom on which the ECP is located
 	

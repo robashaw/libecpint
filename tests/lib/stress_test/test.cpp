@@ -1,7 +1,10 @@
 #include "api.hpp"
 #include "testutil.hpp"
+#include "config.hpp"
 #include <iostream>
 #include <string>
+#include <chrono>
+#include <ctime>
 
 				  	
 double ag_exps[61]    = {1.800750E+02,2.189870E+01,1.386700E+01,6.142630E+00,1.438140E+00,6.483820E-01,1.288820E-01,4.573800E-02,
@@ -30,7 +33,15 @@ double ag_coefs[61]   = {8.490000E-04,-6.545000E-02,2.977650E-01,-7.531210E-01,8
 						 1.0,
 					 	 1.0};
 
-double ag_centers[18] = {0.0,  3.0, 0.0,
+double ag_2_centers[6]  = {0.0, 0.0, -2.4,
+						   0.0, 0.0, 2.4};
+						   
+double ag_4_centers[12] = {0.0, 0.0, 4.5,
+						   0.0, 0.0, -4.5,
+					   	   0.0, 2.4, 0.0,
+					   	   0.0, -2.4, 0.0};
+
+double ag_6_centers[18] = {0.0,  3.0, 0.0,
 						 2.6, -1.5, 0.0,
 					     5.0,  2.9, 0.0,
 					     0.0, -5.8, 0.0,
@@ -41,23 +52,27 @@ int ag_charges[6] = {47, 47, 47, 47, 47, 47};
 int ag_lengths[12] = {8, 8, 8, 1, 7, 7, 7, 1, 6, 6, 1, 1};
 int ag_ams[12] = {0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 3};					
 
-int main(int argc, char* argv[]) {
-	using namespace libecpint; 
-	
+using namespace libecpint; 
+
+void run_bench(int n_centers, double* centers, std::string& share_dir) {
+	std::cout << "N: " << n_centers << std::endl;
 	std::vector<std::string> names;
-	for (int i = 0; i < 6; i++) names.push_back("ecp28mdf");
-	std::string share_dir = argv[1];
-	double g_coords[3*12*6];
-	double g_coefs[61*6];
-	double g_exps[61*6];
-	int g_lengths[12*6];
-	int g_ams[12*6];
+	std::chrono::steady_clock::time_point first_time, last_time;
+	
+	for (int i = 0; i < n_centers; i++) names.push_back("ecp28mdf");
+	double g_coords[3*12*n_centers];
+	double g_coefs[61*n_centers];
+	double g_exps[61*n_centers];
+	int g_lengths[12*n_centers];
+	int g_ams[12*n_centers];
 	double x, y, z;
 	int gctr = 0;
-	for (int i = 0; i < 6; i++) {
-		x = ag_centers[3*i];
-		y = ag_centers[3*i+1];
-		z = ag_centers[3*i+2];
+	int charges[n_centers];
+	for (int i = 0; i < n_centers; i++) {
+		charges[i] = 47;
+		x = centers[3*i];
+		y = centers[3*i+1];
+		z = centers[3*i+2];
 		int lctr = 0;
 		for (int j = 0; j < 12; j++) {
 			g_coords[36*i+3*j] = x;
@@ -74,12 +89,57 @@ int main(int argc, char* argv[]) {
 			}
 		}
 	} 
-	
+	std::cout << std::setw(20) << "Initialisation... "; 
+	first_time = std::chrono::steady_clock::now();
 	ECPIntegrator factory;
-	factory.set_gaussian_basis(12*6, g_coords, g_exps, g_coefs, g_ams, g_lengths);
-	factory.set_ecp_basis_from_library(6, ag_centers, ag_charges, names, share_dir);
-	factory.init(0);
+	factory.set_gaussian_basis(12*n_centers, g_coords, g_exps, g_coefs, g_ams, g_lengths);
+	factory.set_ecp_basis_from_library(n_centers, centers, charges, names, share_dir);
+	
+	int init_val = LIBECPINT_MAX_L > 4 ? 2 : (LIBECPINT_MAX_L > 3 ? 1 : 0);
+	factory.init(init_val);
+	last_time = std::chrono::steady_clock::now();
+	std::cout << std::setw(20) << "done. TIME TAKEN: " << 
+		std::chrono::duration<double, std::deci>(last_time - first_time).count()/10.0 << " seconds" << std::endl; 
+	
+	std::cout << std::setw(20) << "Integrals... "; 
+	first_time = std::chrono::steady_clock::now();
 	factory.compute_integrals();
-	//factory.compute_first_derivs();
-	//factory.compute_second_derivs();
+	last_time = std::chrono::steady_clock::now();
+	std::cout << std::setw(20) << "done. TIME TAKEN: " << 
+		std::chrono::duration<double, std::deci>(last_time - first_time).count()/10.0 << " seconds" << std::endl; 
+	
+	if (LIBECPINT_MAX_L > 3) {
+		if (n_centers < 6) {
+			std::cout << std::setw(20) << "1st derivs... "; 
+			first_time = std::chrono::steady_clock::now();
+			factory.compute_first_derivs();
+			last_time = std::chrono::steady_clock::now();
+			std::cout << std::setw(20) << "done. TIME TAKEN: " << 
+				std::chrono::duration<double, std::deci>(last_time - first_time).count()/10.0 << " seconds" << std::endl; 
+		}
+		if (LIBECPINT_MAX_L > 4) {
+			if (n_centers < 4) {
+				std::cout << std::setw(20) << "2nd derivs... "; 
+				first_time = std::chrono::steady_clock::now();
+				factory.compute_second_derivs();
+				last_time = std::chrono::steady_clock::now();
+				std::cout << std::setw(20) << "done. TIME TAKEN: " << 
+					std::chrono::duration<double, std::deci>(last_time - first_time).count()/10.0 << " seconds" << std::endl; 
+			}
+		} else {
+			std::cout << "Insufficient LIBECPINT_MAX_L for 2nd derivatives" << std::endl;
+		}
+	} else {
+		std::cout << "Insufficient LIBECPINT_MAX_L for derivatives" << std::endl;
+	}
+	std::cout << std::endl;
+		
+}
+
+int main(int argc, char* argv[]) {
+	std::string share_dir = argv[1];
+	
+	run_bench(2, ag_2_centers, share_dir);
+	run_bench(4, ag_4_centers, share_dir);
+	run_bench(6, ag_6_centers, share_dir);
 }

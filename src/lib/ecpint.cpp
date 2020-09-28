@@ -50,7 +50,7 @@ namespace libecpint {
 
 	double ECPIntegral::calcC(int a, int m, double A) const {
 		double value = 1.0 - 2*((a-m) % 2);
-		value *= pow(A, a-m);
+		value *= std::pow(A, a-m);
 		value *= FAC[a]/(FAC[m] * FAC[a-m]);
 		return value;
 	}
@@ -204,7 +204,7 @@ namespace libecpint {
 										
 											double o_root_p = 1.0 / sqrt(p);
 											int N = 2 + LA + LB + nC;
-											value += 0.5*dA*dB*dC*GAMMA[N]*pow(o_root_p, N+1); 
+											value += 0.5*dA*dB*dC*GAMMA[N]*FAST_POW[N+1](o_root_p);
 										}
 									}
 								}
@@ -312,11 +312,11 @@ namespace libecpint {
 			
 			a_bound = 0.0;
 			for (int i = 0; i < shellA.exps.size(); i++)
-				a_bound += std::pow(Na_0 / (shellA.exps[i] * sigma_a), data.LA/2.0) * std::abs(shellA.coeffs[i]); 
+				a_bound += FAST_POW[data.LA](std::sqrt(Na_0 / (shellA.exps[i] * sigma_a))) * std::abs(shellA.coeffs[i]); 
 			
 			b_bound = 0.0;
 			for (int i = 0; i < shellB.exps.size(); i++)
-				b_bound += std::pow(Nb_0 / (shellB.exps[i] * sigma_b), data.LB/2.0) * std::abs(shellB.coeffs[i]);
+				b_bound += FAST_POW[data.LB](std::sqrt(Nb_0 / (shellB.exps[i] * sigma_b))) * std::abs(shellB.coeffs[i]);
 			
 			double Tk_0 = 2.0 * atilde * btilde * data.Am * data.Bm; 
 			ab_bound = 0.0;
@@ -326,7 +326,7 @@ namespace libecpint {
 				ztilde = atilde + btilde + g.a;
 				Tk = Tk_0 / ztilde;
 				Tk = Tk > 1 ? 0.5 * std::exp(Tk) / Tk : SINH_1;
-				ab_bound += std::abs(g.d) * std::pow(M_PI/g.a, 1.5) * std::exp(xp / ztilde) * Tk;
+				ab_bound += std::abs(g.d) * FAST_POW[3](std::sqrt(M_PI/g.a)) * std::exp(xp / ztilde) * Tk;
 			}
 			ab_bound *= std::exp(-atilde*data.A2 -btilde*data.B2);
 			results[l] = (2*l+1)*(2*l+1)* a_bound * b_bound * ab_bound;

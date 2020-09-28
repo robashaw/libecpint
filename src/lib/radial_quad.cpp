@@ -105,7 +105,7 @@ namespace libecpint {
 		double r;
 		for (int i = 0; i < gridSize; i++) {
 			r = gridPoints[i];
-			Utab[i] = std::pow(r, N+2) * U.evaluate(r, l);
+			Utab[i] = FAST_POW[N+2](r) * U.evaluate(r, l);
 		}
 	}
 
@@ -247,7 +247,7 @@ namespace libecpint {
 		double zB = P - B;
 		double besselValue1 = bessie.upper_bound(kA * P, l1);
 		double besselValue2 = bessie.upper_bound(kB * P, l2);
-		double Fres = std::pow(P, N) * std::exp(-n * P * P - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
+		double Fres = FAST_POW[N](P) * std::exp(-n * P * P - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
 		return (0.5 * std::sqrt(M_PI/p) * Fres * (1.0 + Faddeeva::erf(std::sqrt(p)*P)));
 	}
 

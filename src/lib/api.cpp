@@ -151,7 +151,7 @@ namespace libecpint {
 		
 		double atilde = (1.0 - sigma) * alpha;
 		double Na = la / (2*M_EULER*alpha*sigma);
-		Na = std::pow(Na, la/2);
+		Na = FAST_POW[la](std::sqrt(Na));
 		double result = atilde * eta * A2 / (atilde + eta);
 		result = std::exp(-result) * Na;
 		return result;
@@ -165,8 +165,8 @@ namespace libecpint {
 		TwoIndex<double> tempValues;
 		int nshells = shells.size();
 	
-		double thresh = std::pow((maxLB+3.0)/min_alpha, maxLB+3)*std::pow(M_PI/(2*maxLB+3.0), 3);
-		thresh /= std::pow(2.0*M_EULER, maxLB);
+		double thresh = FAST_POW[maxLB+3]((maxLB+3.0)/min_alpha)*FAST_POW[3](M_PI/(2*maxLB+3.0));
+		thresh /= FAST_POW[maxLB](2.0*M_EULER);
 		thresh = TWO_C_TOLERANCE / std::sqrt(thresh);
 		
 		int n1 = 0;

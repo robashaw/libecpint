@@ -120,7 +120,7 @@ namespace libecpint {
 		zA = z-A; zB = z-B;
 		besselValue1 = bessie.calculate(aA * z, l1);
 		besselValue2 = bessie.calculate(bB * z, l2);
-		Ftab[0] = pow(z, N) * exp(-n * z * z - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
+		Ftab[0] = FAST_POW[N](z) * exp(-n * z * z - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
 		
 		int i = 1;
 		double TOL = tolerance; ////(double(gridSize));
@@ -133,7 +133,7 @@ namespace libecpint {
 			
 			besselValue1 = bessie.calculate(aA * z, l1);
 			besselValue2 = bessie.calculate(bB * z, l2);		
-			Ftab[i] = pow(z, N) * exp(-n * z * z - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
+			Ftab[i] = FAST_POW[N](z) * exp(-n * z * z - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
 
 			delta = Ftab[i] - Ftab[i-1];
 			not_in_tail = (Ftab[i] > TOL) || (delta > 0);

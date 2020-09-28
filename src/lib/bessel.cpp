@@ -212,7 +212,6 @@ namespace libecpint {
 	// Calculate a modified spherical bessel function value at a point for only a single L
 	// method the same as in calculate for multiple L, but with efficiencies
 	double BesselFunction::calculate(const double z, int L) {
-		assert(lMax+1 > L);
 		double value = 0.0;
 		
 		if (z <= 0) value = 1.0;

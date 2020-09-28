@@ -54,6 +54,35 @@ namespace libecpint {
 	extern double FAC[MAX_FAC];		///< Array of factorials
 	extern double DFAC[MAX_DFAC]; 	///< Array of double factorials
 	
+	double pow_0(double);
+	double pow_1(double);
+	double pow_2(double);
+	double pow_3(double);
+	double pow_4(double);
+	double pow_5(double);
+	double pow_6(double);
+	double pow_7(double);
+	double pow_8(double);
+	double pow_9(double);
+	double pow_10(double);
+	double pow_11(double);
+	double pow_12(double);
+	double pow_13(double);
+	double pow_14(double);
+	double pow_15(double);
+	double pow_16(double);
+	double pow_17(double);
+	double pow_18(double);
+	double pow_19(double);
+	double pow_20(double);
+	
+	/// Array of function pointers to hand-coded x**n routines
+	static double (*FAST_POW[21])(double) {pow_0, pow_1, pow_2, pow_3, pow_4, pow_5,
+									  pow_6, pow_7, pow_8, pow_9, pow_10, pow_11,
+								  	  pow_12, pow_13, pow_14, pow_15, pow_16, pow_17,
+								  	  pow_18, pow_19, pow_20};
+	
+	
 	/**
 	  * Gamma function tabulation, where GAMMA[i] = Gamma((i+1)/2)
 	  * e.g. GAMMA[0] = Gamma(1/2) = sqrt(Pi), GAMMA[1] = 0! = 1, GAMMA[2] = Gamma(3/2) = sqrt(Pi) / 2, etc.

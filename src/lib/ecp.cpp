@@ -28,6 +28,7 @@
 #include <iostream>
 #include <algorithm>
 #include "pugixml.hpp"
+#include "mathutil.hpp"
 
 namespace libecpint {
 
@@ -103,7 +104,7 @@ namespace libecpint {
 		double value = 0.0;
 		double r2 = r*r;
 		for (int i = l_starts[l]; i < l_starts[l+1]; i++) {
-			value += pow(r, gaussians[i].n) * gaussians[i].d * exp(-gaussians[i].a * r2);
+			value += FAST_POW[gaussians[i].n](r) * gaussians[i].d * exp(-gaussians[i].a * r2);
 		} 
 		return value; 
 	}

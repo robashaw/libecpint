@@ -31,7 +31,7 @@ namespace libecpint {
 
 	double AngularIntegral::calcG(int l, int m) const {
 		double value = 0.0;
-		double value1 = std::pow(2.0, l) * FAC[l];
+		double value1 = FAST_POW[l](2.0) * FAC[l];
 		value1 = 1.0 / value1; 
 		double value2 = (2.0 * l + 1) * FAC[l - m] / (2.0 * M_PI * FAC[l + m]);
 		value2 = std::sqrt(value2); 

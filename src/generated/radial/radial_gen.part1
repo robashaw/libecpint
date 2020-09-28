@@ -111,19 +111,36 @@ namespace libecpint {
 	
 		double Ftab[gridSize]; 
 	
-		double z, zA, zB;
+		double z, zA, zB, besselValue1, besselValue2;
 		double aA = 2.0 * a * A;
 		double bB = 2.0 * b * B;
-		for (int i = 0; i < gridSize; i++) {
+		
+		z = gridPoints[0];
+		zA = z-A; zB = z-B;
+		besselValue1 = bessie.calculate(aA * z, l1);
+		besselValue2 = bessie.calculate(bB * z, l2);
+		Ftab[0] = pow(z, N) * exp(-n * z * z - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
+		
+		int i = 1;
+		double TOL = tolerance; ////(double(gridSize));
+		bool not_in_tail = true;
+		double delta=1.0;
+		while (not_in_tail && i < gridSize) {
 			z = gridPoints[i];
 			zA = z - A; 
 			zB = z - B; 
 			
-			double besselValue1 = bessie.calculate(aA * z, l1);
-			double besselValue2 = bessie.calculate(bB * z, l2);
-			
+			besselValue1 = bessie.calculate(aA * z, l1);
+			besselValue2 = bessie.calculate(bB * z, l2);		
 			Ftab[i] = pow(z, N) * exp(-n * z * z - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
+
+			delta = Ftab[i] - Ftab[i-1];
+			not_in_tail = (Ftab[i] > TOL) || (delta > 0);
+			i++; 
 		}
+		
+		for (int j = i; j < gridSize; j++)
+			Ftab[j] = 0.0;
 	
 		std::function<double(double, double*, int)> intgd = RadialIntegral::integrand;
 		

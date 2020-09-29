@@ -5,6 +5,7 @@
 #include <string>
 #include <chrono>
 #include <ctime>
+#include <cmath>
 
 				  	
 double ag_exps[61]    = {1.800750E+02,2.189870E+01,1.386700E+01,6.142630E+00,1.438140E+00,6.483820E-01,1.288820E-01,4.573800E-02,
@@ -54,10 +55,11 @@ int ag_ams[12] = {0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 3};
 
 using namespace libecpint; 
 
-void run_bench(int n_centers, double* centers, std::string& share_dir) {
+std::vector<double> run_bench(int n_centers, double* centers, std::string& share_dir) {
 	std::cout << "N: " << n_centers << std::endl;
 	std::vector<std::string> names;
 	std::chrono::steady_clock::time_point first_time, last_time;
+	std::vector<double> timings;
 	
 	for (int i = 0; i < n_centers; i++) names.push_back("ecp28mdf");
 	double g_coords[3*12*n_centers];
@@ -98,33 +100,35 @@ void run_bench(int n_centers, double* centers, std::string& share_dir) {
 	int init_val = LIBECPINT_MAX_L > 4 ? 2 : (LIBECPINT_MAX_L > 3 ? 1 : 0);
 	factory.init(init_val);
 	last_time = std::chrono::steady_clock::now();
+	timings.push_back(std::chrono::duration<double, std::deci>(last_time - first_time).count()/10.0);
 	std::cout << std::setw(20) << "done. TIME TAKEN: " << 
-		std::chrono::duration<double, std::deci>(last_time - first_time).count()/10.0 << " seconds" << std::endl; 
+		std::setw(15) <<  timings[0] << " seconds" << std::endl; 
 	
 	std::cout << std::setw(20) << "Integrals... "; 
 	first_time = std::chrono::steady_clock::now();
 	factory.compute_integrals();
 	last_time = std::chrono::steady_clock::now();
+	timings.push_back(std::chrono::duration<double, std::deci>(last_time - first_time).count()/10.0);
 	std::cout << std::setw(20) << "done. TIME TAKEN: " << 
-		std::chrono::duration<double, std::deci>(last_time - first_time).count()/10.0 << " seconds" << std::endl; 
+		std::setw(15) << timings[1] << " seconds" << std::endl; 
 	
 	if (LIBECPINT_MAX_L > 3) {
-		if (n_centers < 6) {
-			std::cout << std::setw(20) << "1st derivs... "; 
-			first_time = std::chrono::steady_clock::now();
-			factory.compute_first_derivs();
-			last_time = std::chrono::steady_clock::now();
-			std::cout << std::setw(20) << "done. TIME TAKEN: " << 
-				std::chrono::duration<double, std::deci>(last_time - first_time).count()/10.0 << " seconds" << std::endl; 
-		}
+		std::cout << std::setw(20) << "1st derivs... "; 
+		first_time = std::chrono::steady_clock::now();
+		factory.compute_first_derivs();
+		last_time = std::chrono::steady_clock::now();
+		timings.push_back(std::chrono::duration<double, std::deci>(last_time - first_time).count()/10.0);
+		std::cout << std::setw(20) << "done. TIME TAKEN: " << 
+			std::setw(15) << timings[2] << " seconds" << std::endl; 
 		if (LIBECPINT_MAX_L > 4) {
 			if (n_centers < 4) {
 				std::cout << std::setw(20) << "2nd derivs... "; 
 				first_time = std::chrono::steady_clock::now();
 				factory.compute_second_derivs();
 				last_time = std::chrono::steady_clock::now();
+				timings.push_back(std::chrono::duration<double, std::deci>(last_time - first_time).count()/10.0);
 				std::cout << std::setw(20) << "done. TIME TAKEN: " << 
-					std::chrono::duration<double, std::deci>(last_time - first_time).count()/10.0 << " seconds" << std::endl; 
+					std::setw(15) << timings[3] << " seconds" << std::endl; 
 			}
 		} else {
 			std::cout << "Insufficient LIBECPINT_MAX_L for 2nd derivatives" << std::endl;
@@ -133,13 +137,53 @@ void run_bench(int n_centers, double* centers, std::string& share_dir) {
 		std::cout << "Insufficient LIBECPINT_MAX_L for derivatives" << std::endl;
 	}
 	std::cout << std::endl;
-		
+	return timings;
 }
 
 int main(int argc, char* argv[]) {
 	std::string share_dir = argv[1];
 	
-	run_bench(2, ag_2_centers, share_dir);
-	run_bench(4, ag_4_centers, share_dir);
-	run_bench(6, ag_6_centers, share_dir);
+	std::vector<double> t2 = run_bench(2, ag_2_centers, share_dir);
+	std::vector<double> t4 = run_bench(4, ag_4_centers, share_dir);
+	std::vector<double> t6 = run_bench(6, ag_6_centers, share_dir);
+	
+	double nsum = 0.0, nsum2 = 0.0;
+	double ysum_int = 0.0, ysum_deriv = 0.0;
+	double ynsum_int = 0.0, ynsum_deriv = 0.0;
+	
+	double lnN = std::log(2);
+	double lnY = std::log(t2[1]);
+	nsum += lnN;
+	nsum2 += lnN*lnN;
+	ysum_int += lnY;
+	ynsum_int += lnN*lnY;
+	lnY = std::log(t2[2]);
+	ysum_deriv += lnY;
+	ynsum_deriv += lnN*lnY;
+	
+	lnN = std::log(4);
+	lnY = std::log(t4[1]);
+	nsum += lnN;
+	nsum2 += lnN*lnN;
+	ysum_int += lnY;
+	ynsum_int += lnN*lnY;
+	lnY = std::log(t4[2]);
+	ysum_deriv += lnY;
+	ynsum_deriv += lnN*lnY;
+	
+	lnN = std::log(6);
+	lnY = std::log(t6[1]);
+	nsum += lnN;
+	nsum2 += lnN*lnN;
+	ysum_int += lnY;
+	ynsum_int += lnN*lnY;
+	lnY = std::log(t6[2]);
+	ysum_deriv += lnY;
+	ynsum_deriv += lnN*lnY;
+	
+	nsum2 = nsum2 - (nsum*nsum/3.0);
+	ysum_int = ynsum_int - (nsum*ysum_int/3.0);
+	ysum_deriv = ynsum_deriv - (nsum*ysum_deriv/3.0);
+	std::cout << std::setw(30) << "Scaling of integrals: N**" << std::setprecision(3) << ysum_int/nsum2 << std::endl;
+	std::cout << std::setw(30) << "Scaling of 1st derivs: N**" << std::setprecision(3) << ysum_deriv/nsum2 << std::endl;
 }

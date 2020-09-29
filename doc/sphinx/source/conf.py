@@ -34,7 +34,9 @@
 extensions = ['sphinx.ext.mathjax', 'breathe', 'exhale']
 
 # Breathe Configuration
+breathe_projects = { "libecpint": "../../doxygen/xml/" }
 breathe_default_project = "libecpint"
+
 
 exhale_args = {
     # These arguments are required

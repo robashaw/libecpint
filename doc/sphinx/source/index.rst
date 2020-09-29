@@ -7,6 +7,11 @@
 libecpint : C++ ECP integral library
 =====================================
 
+About
+=======
+
+libecpint is an open-source library for the calculation of integrals over effective core potentials (ECPs) in quantum chemistry software. It was written predominantly by Robert A. Shaw (@robertshaw383), with some assistance from J. Grant Hill (@Dr_GHill), and a helpful pull request from Peter Kraus (@pk_kraus). It is currently used in at least two major quantum chemistry packages: Psi4 (@PSI_code) and entos (@EntosAI). 
+
 .. toctree::
    :maxdepth: 2
    

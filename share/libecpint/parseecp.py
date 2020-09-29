@@ -92,3 +92,11 @@ def write_ecp_basis(atoms, name):
                         print("Actual no. of exps: ", len(shell.exps))
                         print("Actual no. of coeffs: ",  len(shell.contr))
         tree.write(new_file, pretty_print = True)
+
+if __name__ == "__main__":
+    import sys
+    name = sys.argv[1]
+    input_file = open('raw/' + name + '.ecp', 'r')
+    atoms = parse_ecp(input_file)
+    write_ecp_basis(atoms, name)
+    

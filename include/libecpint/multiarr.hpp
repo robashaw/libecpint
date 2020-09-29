@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -78,6 +78,21 @@ namespace libecpint {
 			data.resize(dim1 * dim2);
 			std::fill(data.begin(), data.end(), value);
 		}
+		TwoIndex<T> transpose() {
+			TwoIndex<T> result(dims[1], dims[0]);
+			for (int i = 0; i < dims[0]; i++) {
+				for (int j = 0; j < dims[1]; j++)
+					result.data[j * dims[0] + i] = data[i * dims[1] + j];
+			}
+			return result;
+		}
+		void add(const TwoIndex<T>& other) {
+			std::transform (data.begin(), data.end(), other.data.begin(), data.begin(), std::plus<T>());
+		}
+		
+		void multiply(T k) {
+			std::transform(data.begin(), data.end(), data.begin(), [&k](T& c){return c*k;});
+		}
 		TwoIndex() { dims[0] = dims[1] = 0; }
 		TwoIndex(int dim1, int dim2) {
 			dims[0] = dim1; dims[1] = dim2;
@@ -135,21 +150,33 @@ namespace libecpint {
 	template<typename T>
 	struct SevenIndex {
 		int dims[7];
+		int mults[6];
 		std::vector<T> data;
 		T& operator()(int i, int j, int k, int l, int m, int n, int p) {
-			return data[p + dims[6]*(n + dims[5] * (m + dims[4] * (l + dims[3] * (k + dims[2] * (j + dims[1] * i)))))];
+			return data[p + mults[5]*n + mults[4]*m + mults[3]*l + mults[2]*k + mults[1]*j + mults[0]*i];
 		}
 		T operator()(int i, int j, int k, int l, int m, int n, int p) const {
-			return data[p + dims[6]*(n + dims[5] * (m + dims[4] * (l + dims[3] * (k + dims[2] * (j + dims[1] * i)))))];
+			return data[p + mults[5]*n + mults[4]*m + mults[3]*l + mults[2]*k + mults[1]*j + mults[0]*i];
 		}
-		SevenIndex() { dims[0] = dims[1] = dims[2] = dims[3] = dims[4] = dims[5] = dims[6] = 0; }
+		SevenIndex() { dims[0] = dims[1] = dims[2] = dims[3] = dims[4] = dims[5] = dims[6] = 0; 
+					   mults[0] = mults[1] = mults[2] = mults[3] = mults[4] = mults[5] = 0; }
 		SevenIndex(int dim1, int dim2, int dim3, int dim4, int dim5, int dim6, int dim7) {
 			dims[0] = dim1; dims[1] = dim2; dims[2] = dim3; dims[3] = dim4; dims[4] = dim5; dims[5] = dim6; dims[6] = dim7;
 			data.resize(dim1 * dim2 * dim3 * dim4 * dim5 * dim6 * dim7);
+			mults[5] = dim7;
+			mults[4] = dim7*dim6;
+			mults[3] = mults[4]*dim5;
+			mults[2] = mults[3]*dim4;
+			mults[1] = mults[2]*dim3;
+			mults[0] = mults[1]*dim2;
 		}
 		SevenIndex(const SevenIndex<T> &other) {
 			data = other.data;
-			for (int n = 0; n < 7; n++) dims[n] = other.dims[n];
+			for (int n = 0; n < 6; n++) {
+				dims[n] = other.dims[n];
+				mults[n] = other.mults[n];
+			}
+			dims[6] = other.dims[6];
 		}
 	};
 

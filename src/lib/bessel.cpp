@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -25,6 +25,7 @@
 #include "bessel.hpp"
 #include "mathutil.hpp"
 #include <cmath>
+#include <cassert>
 #include <iostream>
 
 namespace libecpint {
@@ -41,10 +42,17 @@ namespace libecpint {
 		lMax = _lMax > -1 ? _lMax : 0;
 		N = _N > 0 ? _N : 1;
 		order = _order > 0 ? _order : 1;
+		scale = N/16.0;
 	
 		// Allocate arrays
 		K = new double*[N+1];
-		for (int i = 0; i < N+1; i++) K[i] = new double[lMax + TAYLOR_CUT + 1];
+		dK = new double**[N+1];
+		for (int i = 0; i < N+1; i++) {
+			K[i] = new double[lMax + TAYLOR_CUT + 1];
+			dK[i] = new double*[TAYLOR_CUT + 1];
+			for (int j = 0; j < TAYLOR_CUT + 1; j++)
+				dK[i][j] = new double[lMax + TAYLOR_CUT];
+		}
 		C = new double[lMax+TAYLOR_CUT];
 	
 		// Tabulate values
@@ -53,6 +61,7 @@ namespace libecpint {
 
 	BesselFunction::~BesselFunction() {
 		free(K);
+		free(dK);
 		free(C);
 	}
 
@@ -107,9 +116,34 @@ namespace libecpint {
 	
 		// Determine coefficients for derivative recurrence
 		for (int i = 1; i<lmax; i++) C[i] = i/(2.0*i + 1.0);
+		
+		// Determine the necessary derivatives from
+		// K_l^(n+1) = C_l K_(l-1)^(n) + (C_l + 1/(2l+1))K_(l+1)^(n) - K_l^(n)
+		for (int ix = 0; ix < N+1; ix++) {
+			// Copy K values into dK
+			for (int l = 0; l < lMax+TAYLOR_CUT; l++)
+				dK[ix][0][l] = K[ix][l];
+	    	
+			// Then the rest
+			for (int n = 1; n < TAYLOR_CUT+1; n++) { 
+				dK[ix][n][0] = dK[ix][n-1][1] - dK[ix][n-1][0];
+				for (int l = 1; l <= lMax + TAYLOR_CUT - n; l++) 
+					dK[ix][n][l] = C[l]*dK[ix][n-1][l-1] + (C[l] + 1.0/(2.0*l + 1.0))*dK[ix][n-1][l+1] - dK[ix][n-1][l];
+			}
+		}
 	
 		return retval;
 	}	
+
+	// Get an upper bound for M_l(z)
+	double BesselFunction::upper_bound(const double z, int L) {	
+		// find nearest point (on left) in tabulated values
+		int ix = std::floor(N*z/16.0);
+		int minix = L > 0 ? 1 : 0;
+		ix = std::min(N, std::max(minix, ix));
+		int lx = std::min(L, lMax);
+		return K[ix][lx];
+	}
 
 	// Calculate modified spherical Bessel function K_l(z), weighted with an exponential factor e^(-z)
 	// for l = 0 to lMax. This restricts K(z) to the interval [0,1].
@@ -118,7 +152,6 @@ namespace libecpint {
 			std::cout << "Asked for " << maxL << " but only initialised to maximum L = " << lMax << "\n";
 			maxL = lMax;
 		}
-		values.assign(maxL + 1, 0.0);
 	
 		// Set K_0(z) = 1.0, and K_l(z) = 0.0 (for l != 0) if z <= 0
 		if (z <= 0) values[0] = 1.0;
@@ -151,31 +184,13 @@ namespace libecpint {
 		// Use Taylor series around pretabulated values in class
 		// 5 terms is usually sufficient for machine accuracy
 		else {
-			int maxLambda = maxL + TAYLOR_CUT;
-			double scale = N/16.0;
-		
 			// Index of abscissa z in table
-			int index = floor(z * scale + 0.5);
-			double dz = z - index/scale; // z - z0
+			int ix = std::floor(z * scale + 0.5);
+			double dz = z - ix/scale; // z - z0
 		
 			if (fabs(dz) < 1e-12) { // z is one of the tabulated points
-				for (int l = 0; l <= maxL; l++) values[l] = K[index][l];
+				for (int l = 0; l <= maxL; l++) values[l] = K[ix][l];
 			} else {
-				// Determine the necessary derivatives from
-				// K_l^(n+1) = C_l K_(l-1)^(n) + (C_l + 1/(2l+1))K_(l+1)^(n) - K_l^(n)
-				double dK[TAYLOR_CUT+1][maxLambda];
-		
-				// Copy K values into dK
-				for (int l = 0; l < maxLambda; l++)
-					dK[0][l] = K[index][l];
-			
-				// Then the rest
-				for (int n = 1; n < TAYLOR_CUT+1; n++) { 
-					dK[n][0] = dK[n-1][1] - dK[n-1][0];
-					for (int l = 1; l <= maxLambda - n; l++) 
-						dK[n][l] = C[l]*dK[n-1][l-1] + (C[l] + 1.0/(2.0*l + 1.0))*dK[n-1][l+1] - dK[n-1][l];
-				}
-			
 		
 				// Calculate (dz)^n/n! terms just once
 				double dzn[TAYLOR_CUT+1];
@@ -188,9 +203,41 @@ namespace libecpint {
 				for (int l = 0; l <= maxL; l++) {
 					values[l] = 0.0;
 					for (int n = 0; n < TAYLOR_CUT+1; n++)
-						values[l] += dzn[n] * dK[n][l]; 
+						values[l] += dzn[n] * dK[ix][n][l]; 
 				}
 			}
 		}
+	}
+	
+	// Calculate a modified spherical bessel function value at a point for only a single L
+	// method the same as in calculate for multiple L, but with efficiencies
+	double BesselFunction::calculate(const double z, int L) {
+		double value = 0.0;
+		
+		if (z <= 0) value = 1.0;
+		else if (z < SMALL) {
+			value = 1.0 - z;
+			for (int k = 1; k < L+1; k++)
+				value *= z/(2.0*L+1.0);
+		} else if (z > 16.0) {
+			double v0 = 0.5/z;
+			value = 1.0;
+			double Tlk = 1.0;
+			for (int k = 1; k < L+1; k++) {
+				Tlk *= -v0 * (L - k +1)*(L+k)/(double(k));
+				value += Tlk;
+			}
+			value = v0 * value;
+		} else {
+			int ix = std::floor(z * scale + 0.5);
+			double dz = z - ix/scale; // z - z0
+			double dzn = 1.0;
+			for (int n = 0; n < TAYLOR_CUT+1; n++) {
+				value += dzn * dK[ix][n][L]; 
+				dzn *= dz / (n+1);
+			}
+		}
+		
+		return value;
 	}
 }

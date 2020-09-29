@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -27,6 +27,8 @@
 #include <cmath>
 #include <iostream>
 #include <algorithm>
+#include "pugixml.hpp"
+#include "mathutil.hpp"
 
 namespace libecpint {
 
@@ -40,18 +42,36 @@ namespace libecpint {
 
 	ECP::ECP() : N(0), L(-1) {
 		center_[0] = center_[1] = center_[2] = 0.0; 	
+		min_exp = 1000.0;
+		for (int i = 0; i < LIBECPINT_MAX_L + 1; i++) {
+			 min_exp_l[i] = 1000.0;
+			 l_starts[i] = 0;
+		}
+		l_starts[LIBECPINT_MAX_L+1] = 0;
 	}
 	
 	ECP::ECP(const double *_center) : N(0), L(-1) {
 		center_[0] = _center[0];
 		center_[1] = _center[1];
 		center_[2] = _center[2];
+		min_exp = 1000.0;
+		for (int i = 0; i < LIBECPINT_MAX_L + 1; i++) {
+			 min_exp_l[i] = 1000.0;
+			 l_starts[i] = 0;
+		}
+		l_starts[LIBECPINT_MAX_L+1] = 0;
 	}
 
 	ECP::ECP(const ECP &other) {
 		gaussians = other.gaussians;
 		N = other.N;
 		L = other.L;
+		min_exp = other.min_exp;
+		for (int i = 0; i < LIBECPINT_MAX_L + 1; i++) {
+			min_exp_l[i] = other.min_exp_l[i];
+			l_starts[i] = other.l_starts[i];
+		}
+		l_starts[LIBECPINT_MAX_L+1] = other.l_starts[LIBECPINT_MAX_L+1];
 		center_ = other.center_;
 	}
 
@@ -60,6 +80,10 @@ namespace libecpint {
 		gaussians.push_back(newEcp);
 		N++;
 		L = l > L ? l : L;
+		min_exp = a < min_exp ? a : min_exp;
+		min_exp_l[l] = a < min_exp_l[l] ? a : min_exp_l[l];
+		for (int lx = l+1; lx < LIBECPINT_MAX_L + 2; lx++)
+			l_starts[lx] += 1;
 		if (needSort) sort();
 	}
 
@@ -78,11 +102,11 @@ namespace libecpint {
 	// Evaluate U_l(r), assuming that gaussians sorted by angular momentum
 	double ECP::evaluate(double r, int l) {
 		double value = 0.0;
-		int am = 0;
 		double r2 = r*r;
-		for (int i = 0; i < N; i++) {
-			if (gaussians[i].l == l) // Only evaluate if in correct shell
-				value += pow(r, gaussians[i].n) * gaussians[i].d * exp(-gaussians[i].a * r2);
+		int p;
+		for (int i = l_starts[l]; i < l_starts[l+1]; i++) {
+			p = gaussians[i].n > -1 ? gaussians[i].n : MAX_POW - gaussians[i].n;
+			value += FAST_POW[p](r) * gaussians[i].d * exp(-gaussians[i].a * r2);
 		} 
 		return value; 
 	}
@@ -108,5 +132,35 @@ namespace libecpint {
 		if (it != core_electrons.end()) core = it->second;
 		return core;
 	}
+	
+	void ECPBasis::addECP_from_file(int q, std::array<double, 3> coords, std::string filename) {
+		ECP newECP;
+		newECP.center_ = coords;
 
+		std::string atom_name = q < 1 ? "X" : atom_names[q-1]; 
+		pugi::xml_document doc;
+		pugi::xml_parse_result result = doc.load_file(filename.c_str());
+		pugi::xml_node atom_node = doc.child("root").child(atom_name.c_str()); 
+		int maxl = std::stoi(atom_node.attribute("maxl").value());
+		int ncore = std::stoi(atom_node.attribute("ncore").value()); 
+		
+		auto it = core_electrons.find(q);
+		if (it == core_electrons.end())
+			core_electrons[q] = ncore; 
+	
+		for (pugi::xml_node shell = atom_node.child("Shell"); shell; shell = shell.next_sibling("Shell")) {
+
+			int l = std::stoi(shell.attribute("lval").value());
+			
+			for (pugi::xml_node nxc = shell.child("nxc"); nxc; nxc = nxc.next_sibling("nxc")) {
+				int n = std::stoi(nxc.attribute("n").value()); 
+				double x = std::stod(nxc.attribute("x").value()); 
+				double c = std::stod(nxc.attribute("c").value()); 
+				newECP.addPrimitive(n, l, x, c); 
+			}
+		}
+		
+		newECP.sort();
+		addECP(newECP, 0);
+	}
 }

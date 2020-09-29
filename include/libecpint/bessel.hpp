@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -49,12 +49,14 @@ namespace libecpint {
 		int lMax; ///< Maximum angular momentum
 		int N; ///< Number of abscissae
 		int order; ///< Order to which the Bessel series is expanded
+		double scale; ///< N/16.0
 	
 		double **K; ///< Bessel function values
+		double ***dK; ///< Bessel function derivatives
 		double *C; ///< Coefficients of derivatives of the Bessel function
 	
 		/**
-		* Pretabulates the Bessel function to a given accuracy.
+		* Pretabulates the Bessel function (and derivs) to a given accuracy.
 		* @param accuracy - the tolerance at which a value is considered converged
 		* @return zero if successful, -1 if not converged
 		*/
@@ -86,6 +88,20 @@ namespace libecpint {
 		* @param values - reference to vector in which to put the values for l = 0 to maxL
 		*/
 		void calculate(const double z, int maxL, std::vector<double> &values);
+		
+		/**
+		* Calculates the Bessel function value at a given point for a single angular momentum
+		* @param z - point at which to evaluate
+		* @param L - angular momentum needed; must be <= lMax for object
+		*/
+		double calculate(const double z, int L);
+		
+		/**
+		* Calculates an upper bound to the Bessel function value at a given point for a given angular momentum
+		* @param z - point at which to evaluate
+		* @param L - angular momentum needed; must be <= lMax for object
+		*/
+		double upper_bound(const double z, int L);
 	};
 
 }

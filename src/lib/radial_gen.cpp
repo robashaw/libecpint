@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file was generated as a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -105,33 +105,50 @@ namespace libecpint {
 
 	std::pair<double, bool> RadialIntegral::integrate_small(int N, int l1, int l2, double n, double a, double b, double A, double B) {
 		int gridSize = primGrid.getN();
-		GCQuadrature newGrid = primGrid; 
-		newGrid.transformRMinMax(n+a+b, (a*A+b*B)/(n+a+b)); 
-		std::vector<double> &gridPoints = newGrid.getX();
+		double zt = n+a+b;
+		double pt = (a*A + b*B)/zt;
+		primGrid.transformRMinMax(zt, pt); 
+		std::vector<double> &gridPoints = primGrid.getX();
 	
 		double Ftab[gridSize]; 
-		std::vector<double> besselValues1, besselValues2; 
 	
-		double z, zA, zB;
+		double z, zA, zB, besselValue1, besselValue2;
 		double aA = 2.0 * a * A;
 		double bB = 2.0 * b * B;
-		for (int i = 0; i < gridSize; i++) {
+		
+		z = gridPoints[0];
+		zA = z-A; zB = z-B;
+		besselValue1 = bessie.calculate(aA * z, l1);
+		besselValue2 = bessie.calculate(bB * z, l2);
+		Ftab[0] = FAST_POW[N](z) * exp(-n * z * z - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
+		
+		int i = 1;
+		double TOL = tolerance; ////(double(gridSize));
+		bool not_in_tail = true;
+		double delta=1.0;
+		while (not_in_tail && i < gridSize) {
 			z = gridPoints[i];
 			zA = z - A; 
 			zB = z - B; 
 			
-			// TODO: Efficiencies could be found here by calculating Bessel function for only l1/l2, not all l up to l1/l2
-			bessie.calculate(aA * z, l1, besselValues1);
-			bessie.calculate(bB * z, l2, besselValues2);  
-			
-			Ftab[i] = pow(z, N) * exp(-n * z * z - a * zA * zA - b * zB * zB) * besselValues1[l1] * besselValues2[l2];
+			besselValue1 = bessie.calculate(aA * z, l1);
+			besselValue2 = bessie.calculate(bB * z, l2);		
+			Ftab[i] = FAST_POW[N](z) * exp(-n * z * z - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
+
+			delta = Ftab[i] - Ftab[i-1];
+			not_in_tail = (Ftab[i] > TOL) || (delta > 0);
+			i++; 
 		}
+		
+		for (int j = i; j < gridSize; j++)
+			Ftab[j] = 0.0;
 	
 		std::function<double(double, double*, int)> intgd = RadialIntegral::integrand;
 		
 		// There should be no instances where this fails, so no backup plan to large grid, but return check just in case 
-		bool success = newGrid.integrate(intgd, Ftab, 1e-12); 
-		std::pair<double, bool> rval = {newGrid.getI(), success};  
+		bool success = primGrid.integrate(intgd, Ftab, 1e-12); 
+		std::pair<double, bool> rval = {primGrid.getI(), success};  
+		primGrid.untransformRMinMax(zt, pt);
 		return rval; 
 	}
 	
@@ -197,7 +214,7 @@ namespace libecpint {
 							
 							int ijk = i*10000 + j*100 + k; 
 							double result = 0.0;
-							if (a > 0.1 && b > 0.1) { 
+							if (a * b > MIN_EXP) {// && b > MIN_EXP) { 
 								switch(ijk) {
 									case 2 : {
 										result = ( 1 ) * values[0];
@@ -706,15 +723,19 @@ namespace libecpint {
 									}
 
 									default: {
-										std::pair<double, bool> quadval = integrate_small(k, i, j, u.a, a, b, A, B);
-										result = quadval.first; 
-										if (!quadval.second) std::cout << "Quadrature failed" << std::endl; 
+										if (estimate_type2(k, i, j, u.a, a, b, A, B) > tolerance){ 
+											std::pair<double, bool> quadval = integrate_small(k, i, j, u.a, a, b, A, B);
+											result = quadval.first; 
+											if (!quadval.second) std::cout << "Quadrature failed" << std::endl; 
+										}
 									}
 								}
 							} else {
-								std::pair<double, bool> quadval = integrate_small(k, i, j, u.a, a, b, A, B);
-								result = quadval.first; 
-								if (!quadval.second) std::cout << "Quadrature failed" << std::endl; 
+								if (estimate_type2(k, i, j, u.a, a, b, A, B) > tolerance){ 
+									std::pair<double, bool> quadval = integrate_small(k, i, j, u.a, a, b, A, B);
+									result = quadval.first; 
+									if (!quadval.second) std::cout << "Quadrature failed" << std::endl; 
+								}
 							} 
 							
 							radials(k-2-u.n, i, j) += da * db * u.d * result;

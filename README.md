@@ -1,5 +1,8 @@
 ## Libecpint
 
+[![Build Status](https://dev.azure.com/robertshaw383/libecpint/_apis/build/status/robashaw.libecpint?branchName=readecp)](https://dev.azure.com/robertshaw383/libecpint/_build/latest?definitionId=2&branchName=readecp)
+[![codecov](https://codecov.io/gh/robashaw/libecpint/branch/readecp/graph/badge.svg)](https://codecov.io/gh/robashaw/libecpint)
+
 Libecpint is a C++ library for the efficient evaluation of integrals over ab initio effective core potentials, using a mixture of generated, recursive code and Gauss-Chebyshev quadrature. It is designed to be standalone and generic, but is currently in development and may not be completely stable. If you experience any problems please raise an issue here; contributions and suggestions are also welcome.
 
 ### Applications

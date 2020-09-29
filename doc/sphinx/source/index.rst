@@ -1,0 +1,24 @@
+.. libecpint documentation master file, created by
+   sphinx-quickstart on Sat Sep 19 00:21:17 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+=====================================
+libecpint : C++ ECP integral library
+=====================================
+
+.. toctree::
+   :maxdepth: 2
+   
+   introduction
+   installation
+   usage
+   api/library_root
+
+   
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

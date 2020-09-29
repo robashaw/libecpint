@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -263,6 +263,26 @@ namespace libecpint {
 		for (int i = 0; i < maxN; i++) {
 			x[i] = rmid * x[i] + amid;
 			w[i] *= rmid;
+		}
+	}
+	
+	void GCQuadrature::untransformRMinMax(double z, double p) {
+		double osz = 1.0 / sqrt(z);
+	
+		// Determine interval
+		double rmin = p - 7.0 * osz;
+		rmin = rmin > 0 ? rmin : 0.0;
+		double rmax = p + 9.0 * osz;
+	
+		// Find the relative and absolute midpoints 
+		double rmid = 0.5*(rmax - rmin); // Midpoint of interval relative to rmin
+		double amid = rmid + rmin; // Midpoint of interval
+	
+		// Transform weights and abscissae by linearly transforming
+		// both are scaled by rmid, and the abscissae are translated by amid
+		for (int i = 0; i < maxN; i++) {
+			x[i] = (x[i] - amid) / rmid;
+			w[i] /= rmid;
 		}
 	}
 

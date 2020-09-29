@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -24,6 +24,7 @@
 
 #include "radial.hpp"
 #include "mathutil.hpp"
+#include "Faddeeva.hpp"
 #include <iostream>
 #include <cmath>
 
@@ -43,7 +44,7 @@ namespace libecpint {
 	}
 
 	void RadialIntegral::buildBessel(std::vector<double> &r, int nr, int maxL, TwoIndex<double> &values, double weight) {
-		std::vector<double> besselValues;
+		std::vector<double> besselValues(maxL+1, 0.0);
 		if (std::abs(weight) < 1e-15) {
 			for (int i = 0; i < nr; i++) {
 				values(0, i) = 1.0;
@@ -104,7 +105,7 @@ namespace libecpint {
 		double r;
 		for (int i = 0; i < gridSize; i++) {
 			r = gridPoints[i];
-			Utab[i] = std::pow(r, N+2) * U.evaluate(r, l);
+			Utab[i] = FAST_POW[N+2](r) * U.evaluate(r, l);
 		}
 	}
 
@@ -231,6 +232,24 @@ namespace libecpint {
 			}
 		}
 	}
+	
+	double RadialIntegral::estimate_type2(int N, int l1, int l2, double n, double a, double b, double A, double B) {
+		double kA = 2.0*a*A;
+		double kB = 2.0*b*B;
+		double c0 = std::max(N - l1 - l2, 0);
+		double c1_min = kA + kB;
+		double p = a + b + n;
+
+		double P = c1_min + std::sqrt(c1_min*c1_min + 8.0*p*c0);
+		P /= (4.0*p);
+
+		double zA = P - A; 
+		double zB = P - B;
+		double besselValue1 = bessie.upper_bound(kA * P, l1);
+		double besselValue2 = bessie.upper_bound(kB * P, l2);
+		double Fres = FAST_POW[N](P) * std::exp(-n * P * P - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
+		return (0.5 * std::sqrt(M_PI/p) * Fres * (1.0 + Faddeeva::erf(std::sqrt(p)*P)));
+	}
 
 	void RadialIntegral::type2(int l, int l1start, int l1end, int l2start, int l2end, int N, ECP &U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, TwoIndex<double> &values) {
 	
@@ -272,7 +291,7 @@ namespace libecpint {
 		for (int l1 = 0; l1 <= l1end; l1++) {
 			int l2start = (l1 + N) % 2;
 			for (int l2 = l2start; l2 <= l2end; l2+=2) {
-			
+				
 				for (int i = 0; i < gridSize; i++) params[i] = Utab[i] * Fa(l1, i) * Fb(l2, i);
 				tests[ix] = smallGrid.integrate(intgd, params, tolerance);
 				failed = failed || (tests[ix] == 0); 

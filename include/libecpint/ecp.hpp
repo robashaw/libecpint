@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -28,8 +28,23 @@
 #include <vector>
 #include <array>
 #include <map>
+#include <string>
+#include "config.hpp"
 
 namespace libecpint {
+	
+	/// names of each atom in order of atomic number
+	const std::string atom_names[109] = {"h", "he", "li", "be", "b", "c", "n",
+		"o", "f", "ne", "na", "mg", "al", "si", "p", "s", "cl", "ar",
+		"k", "ca", "sc", "ti", "v", "cr", "mn", "fe", "co", "ni", "cu",
+		"zn", "ga", "ge", "as", "se", "br", "kr", "rb", "sr", "y", "zr",
+		"nb", "mo", "tc", "ru", "rh", "pd", "ag", "cd", "in", "sn", "sb",
+		"te", "i", "xe", "cs", "ba", "la", "ce", "pr", "nd", "pm", "sm",
+		"eu", "gd", "tb", "dy", "ho", "er", "tm", "yb", "lu", "hf", "ta",
+		"w", "re", "os", "ir", "pt", "au", "hg", "tl", "pb", "bi", "po",
+		"at", "rn", "fr", "ra", "ac", "th", "pa", "u", "np", "pu", "am",
+		"cm", "bk", "cf", "es", "fm", "md", "no", "lr", "rf", "db", "sg",
+		"bh", "hs", "mt" };
 	
 	/** \struct GaussianECP
 	  * \brief  Describes a Gaussian of angular momentum l of the form d r^n e^{-ax^2}
@@ -63,10 +78,14 @@ namespace libecpint {
 		std::vector<GaussianECP> gaussians; ///< All the primitives in the ECP expansion
 		int N; ///< Number of Gaussians
 		int L; ///< Maximum angular momentum
+		int atom_id; ///< Internal id of the atom the ECP is on
+		double min_exp; ///< minimum exponent in the ECP
+		double min_exp_l[LIBECPINT_MAX_L+1]; ///< minimum exponent in each l-shell
+		int    l_starts[LIBECPINT_MAX_L+2]; ///< starting index of each l-shell
 		
 		std::array<double, 3> center_; ///< xyz coordinates of the atom on which the ECP is located
 	
-		/// Constructs an empty ECP (N = L = 0, center_ = {0, 0, 0})
+		/// Constructs an empty ECP (N = 0, L=-1, center_ = {0, 0, 0})
 		ECP();
 		
 		/**
@@ -169,6 +188,13 @@ namespace libecpint {
 		
 		/// @return the number of ECPs in basis
 		int getN() const { return N; }
+		
+		/** Creates and adds an ECP object to the basis by reading from the ECP library
+		  * @param q - the atomic number of the atom
+		  * @param coords - the [x, y, z] coordinates (in bohr) of the ECP
+		  * @param filename - path to the XML file containing the basis specification 
+		  */
+		void addECP_from_file(int q, std::array<double, 3> coords, std::string filename);
 	};
 
 }

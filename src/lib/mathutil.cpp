@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -23,13 +23,48 @@
  */
 
 #include "mathutil.hpp"
-#include <cmath>
 #include <iostream>
 
 namespace libecpint {
 	
 	double FAC[MAX_FAC];
 	double DFAC[MAX_DFAC];
+	
+	double pow_m2(double z) { return 1.0/(z*z); }
+	double pow_m1(double z) { return 1.0/z; }
+	double pow_0(double z) { return 1.0; }
+	double pow_1(double z) { return z; }
+	double pow_2(double z) { return z*z; }
+	double pow_3(double z) { return z*z*z; } 
+	double pow_4(double z) { double z2 = z*z; return z2*z2; }
+	double pow_5(double z) { double z2 = z*z; double z3 = z2*z; return z2*z3; };
+	double pow_6(double z) { double z2 = z*z; return z2*z2*z2; }
+	double pow_7(double z) { double z2 = z*z; double z3 = z*z2; return z3*z2*z2; }
+	double pow_8(double z) { double z2 = z*z; double z4 = z2*z2; return z4*z4; }
+	double pow_9(double z) { double z3 = z*z*z; return z3*z3*z3; }
+	double pow_10(double z) { double z2 = z*z; double z3 = z*z2; double z5= z2*z3; return z5*z5; }
+	double pow_11(double z) { double z2 = z*z; double z3 = z*z2; return z3*z3*z3*z2; }
+	double pow_12(double z) { double z3 = z*z*z; double z6 = z3*z3; return z6*z6; }
+	double pow_13(double z) { double z3 = z*z*z; double z6 = z3*z3; return z6*z6*z; }
+	double pow_14(double z) { double z2 = z*z; double z3 = z*z2; double z7 = z2*z2*z3; return z7*z7; }
+	double pow_15(double z) { double z2 = z*z; double z3 = z*z2; double z5 = z2*z3; return z5*z5*z5; }
+	double pow_16(double z) { double z2 = z*z; double z4 = z2*z2; double z8 = z4*z4; return z8*z8; }
+	double pow_17(double z) { double z2 = z*z; double z4 = z2*z2; double z8 = z4*z4; return z8*z8*z;}
+	double pow_18(double z) { double z3 = z*z*z; double z9 = z3*z3*z3; return z9*z9; }
+	double pow_19(double z) { double z3 = z*z*z; double z9 = z3*z3*z3; return z9*z9*z; }
+	double pow_20(double z) { double z2 = z*z; double z4 = z2*z2; double z8 = z4*z4; return z8*z8*z4; }
+	
+	void initFactorials() {
+	#ifndef FAC_INIT
+	#define FAC_INIT
+			FAC[0] = 1.0;
+			DFAC[0] = 1.0;
+			DFAC[1] = 1.0;
+		
+			for (int i = 1; i < MAX_FAC; i++)  FAC[i] = double(i) * FAC[i-1]; 
+			for (int i = 2; i < MAX_DFAC; i++) DFAC[i] = double(i) * DFAC[i-2];
+	#endif
+	}
 	
 	// Compute all the real spherical harmonics Slm(theta, phi) for l,m up to lmax
 	// x = std::cos (theta)
@@ -89,4 +124,9 @@ namespace libecpint {
 		
 		return rshValues;
 	}
+	
+	double frobenius_norm(TwoIndex<double>& mat) {
+		return std::sqrt(std::inner_product(mat.data.begin(), mat.data.end(), mat.data.begin(), 0.0));
+	}
+	
 }

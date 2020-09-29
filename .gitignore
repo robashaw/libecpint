@@ -3,5 +3,9 @@
 *.out
 *.x
 .DS_Store
-Q*.cpp
 build/*
+build_debug/*
+doc/doxygen/html/*
+doc/doxygen/xml/*
+doc/doxygen/latex/*
+doc/sphinx/build/*

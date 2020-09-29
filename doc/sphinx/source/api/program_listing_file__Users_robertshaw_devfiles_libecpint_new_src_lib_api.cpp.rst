@@ -11,28 +11,28 @@ Program Listing for File api.cpp
 .. code-block:: cpp
 
    /* 
-    *      Copyright (c) 2020 Robert Shaw
-    *      This file is a part of Libecpint.
-    *
-    *      Permission is hereby granted, free of charge, to any person obtaining
-    *      a copy of this software and associated documentation files (the
-    *      "Software"), to deal in the Software without restriction, including
-    *      without limitation the rights to use, copy, modify, merge, publish,
-    *      distribute, sublicense, and/or sell copies of the Software, and to
-    *      permit persons to whom the Software is furnished to do so, subject to
-    *      the following conditions:
-    *
-    *      The above copyright notice and this permission notice shall be
-    *      included in all copies or substantial portions of the Software.
-    *
-    *      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-    *      EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-    *      MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-    *      NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-    *      LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-    *      OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-    *      WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-    */
+   *      Copyright (c) 2020 Robert Shaw
+   *       This file is a part of Libecpint.
+   *
+   *      Permission is hereby granted, free of charge, to any person obtaining
+   *      a copy of this software and associated documentation files (the
+   *      "Software"), to deal in the Software without restriction, including
+   *      without limitation the rights to use, copy, modify, merge, publish,
+   *      distribute, sublicense, and/or sell copies of the Software, and to
+   *      permit persons to whom the Software is furnished to do so, subject to
+   *      the following conditions:
+   *
+   *      The above copyright notice and this permission notice shall be
+   *      included in all copies or substantial portions of the Software.
+   *
+   *      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   *      EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   *      MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+   *      NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+   *      LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+   *      OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+   *      WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+   */
    
    #include "api.hpp"
    #include <iostream>
@@ -44,6 +44,7 @@ Program Listing for File api.cpp
        
        void ECPIntegrator::set_gaussian_basis (int nshells, double* coords, double* exponents, double* coefs, int* ams, int* shell_lengths) {
            int ctr = 0;
+           min_alpha = 100.0;
            for (int i = 0; i < nshells; i++) {
                ncart += (ams[i]+1)*(ams[i]+2)/2;
                std::array<double, 3> cvec = {coords[3*i], coords[3*i+1], coords[3*i+2]};
@@ -53,6 +54,7 @@ Program Listing for File api.cpp
                    newShell.addPrim(exponents[ctr], coefs[ctr]);
                    ctr++;
                }
+               min_alpha = newShell.min_exp < min_alpha ? newShell.min_exp : min_alpha;
                shells.push_back(newShell);
            } 
            basis_is_set = true;
@@ -150,6 +152,23 @@ Program Listing for File api.cpp
            }
        }
        
+       double shell_bound(int la, double alpha, double A2, double eta) {
+           double sigma;
+           if (A2 < 1e-6) {
+               sigma = 0.5 * (1.0 + eta/alpha);
+           } else {
+               sigma = 1.0/(2.0*alpha*(eta*eta*A2 + la*(alpha + eta)));
+               sigma = sigma * la * (alpha + eta) * (alpha + eta);
+           }
+           
+           double atilde = (1.0 - sigma) * alpha;
+           double Na = la / (2*M_EULER*alpha*sigma);
+           Na = FAST_POW[la](std::sqrt(Na));
+           double result = atilde * eta * A2 / (atilde + eta);
+           result = std::exp(-result) * Na;
+           return result;
+       }
+       
        void ECPIntegrator::compute_integrals() {
            // initialise all to zero
            integrals.assign(ncart, ncart, 0.0);
@@ -157,37 +176,61 @@ Program Listing for File api.cpp
            // loop over shells
            TwoIndex<double> tempValues;
            int nshells = shells.size();
+       
+           double thresh = FAST_POW[maxLB+3]((maxLB+3.0)/min_alpha)*FAST_POW[3](M_PI/(2*maxLB+3.0));
+           thresh /= FAST_POW[maxLB](2.0*M_EULER);
+           thresh = TWO_C_TOLERANCE / std::sqrt(thresh);
            
            int n1 = 0;
+           double acx, acy, acz, A2, sb;
            for(auto s1=0; s1<nshells; ++s1) {
                GaussianShell& shellA = shells[s1];
                int ncartA = shellA.ncartesian();
+               std::vector<int> ns;
                
-               int n2 = 0;
-               for(auto s2=0; s2<=s1; ++s2) {
-                   GaussianShell& shellB = shells[s2];
-                   int ncartB = shellB.ncartesian();
+               for (int i = 0; i < ecps.getN(); i++) {
+                   ECP& U = ecps.getECP(i);    
                    
-                   TwoIndex<double> shellPairInts(ncartA, ncartB, 0.0);
-                   
-                   for (int i = 0; i < ecps.getN(); i++) {
-                       ECP& U = ecps.getECP(i);
-                       ecpint->compute_shell_pair(U, shellA, shellB, tempValues);
-                       shellPairInts.add(tempValues);
-                   }
-               
-                   for (int i = n1; i < n1 + ncartA; i++) {
-                       for (int j = n2; j < n2 + ncartB; j++) {
-                           integrals(i, j) = shellPairInts(i-n1, j-n2);
-                           integrals(j, i) = integrals(i, j);
-                       }
-                   }
-               
-                   n2 += ncartB;
+                   acx = shellA.center()[0] - U.center_[0]; 
+                   acy = shellA.center()[1] - U.center_[1];
+                   acz = shellA.center()[2] - U.center_[2];
+                   A2 = acx*acx + acy*acy + acz*acz;
+                   sb = shell_bound(shellA.l, shellA.min_exp, A2, U.min_exp);
+                   if (sb > thresh) ns.push_back(i);
                }
+               
+               if (ns.size() > 0) {
+                   int n2 = 0;
+                   for(auto s2=0; s2<=s1; ++s2) {
+                       GaussianShell& shellB = shells[s2];
+                       int ncartB = shellB.ncartesian();
+               
+                       TwoIndex<double> shellPairInts(ncartA, ncartB, 0.0);
+                   
+                       for (auto i : ns) {
+                           ECP& U = ecps.getECP(i);
+                           ecpint->compute_shell_pair(U, shellA, shellB, tempValues);
+                           shellPairInts.add(tempValues);
+                       }
+   
+                       for (int i = n1; i < n1 + ncartA; i++) {
+                           for (int j = n2; j < n2 + ncartB; j++) {
+                               integrals(i, j) = shellPairInts(i-n1, j-n2);
+                               integrals(j, i) = integrals(i, j);
+                           }
+                       }
+                  
+                       n2 += ncartB;
+                   }
+               }
+               n1 += ncartA;
+           } 
            
-               n1 += ncartA; 
-           }
+           //std::cout << "Total: " << ecpint->skipped + ecpint->zero + ecpint->nonzero << std::endl;
+           //std::cout << "Skipped: " << ecpint->skipped << std::endl;
+           //std::cout << "Zero: " << ecpint->zero << std::endl;
+           //std::cout << "Non-zero: " << ecpint->nonzero << std::endl;
+           
        }
        
        void ECPIntegrator::compute_first_derivs() {

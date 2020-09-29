@@ -33,6 +33,8 @@ Includes
 
 - ``fstream``
 
+- ``iomanip``
+
 - ``iostream``
 
 - ``sstream``
@@ -57,5 +59,5 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_namespacelibecpint_1a25b52c5d023603d9fb96ea30fc36a4ef`
+- :ref:`exhale_function_namespacelibecpint_1a2c6257f0f39de7233558e384908f1526`
 

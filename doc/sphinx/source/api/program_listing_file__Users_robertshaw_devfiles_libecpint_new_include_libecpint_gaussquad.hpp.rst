@@ -77,6 +77,7 @@ Program Listing for File gaussquad.hpp
            void transformZeroInf();
            
            void transformRMinMax(double z, double p);  // Transfromation from [-1, 1] to [rmin, rmax] from Flores06
+           void untransformRMinMax(double z, double p);
        
            double getI() const { return I; }
        

@@ -41,6 +41,7 @@ Program Listing for File ecp.hpp
    #include <array>
    #include <map>
    #include <string>
+   #include "config.hpp"
    
    namespace libecpint {
        
@@ -74,6 +75,9 @@ Program Listing for File ecp.hpp
            int N; 
            int L; 
            int atom_id; 
+           double min_exp; 
+           double min_exp_l[LIBECPINT_MAX_L+1]; 
+           int    l_starts[LIBECPINT_MAX_L+2]; 
            
            std::array<double, 3> center_; 
        

@@ -58,6 +58,8 @@ Program Listing for File ecpint.hpp
        private:
            RadialIntegral radInts; 
            AngularIntegral angInts; 
+                   
+           double tolerance = 1e-12;
        
            double calcC(int a, int m, double A) const;
            
@@ -66,6 +68,7 @@ Program Listing for File ecpint.hpp
             RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
    
        public:
+           int skipped, zero, nonzero;
            
            void makeC(FiveIndex<double> &C, int L, double *A);
            
@@ -74,6 +77,8 @@ Program Listing for File ecpint.hpp
            void type1(ECP& U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, FiveIndex<double> &CA, FiveIndex<double> &CB, TwoIndex<double> &values);
            
            void type2(int l, ECP& U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, FiveIndex<double> &CA, FiveIndex<double> &CB, ThreeIndex<double> &values);
+           
+           void estimate_type2(ECP& U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, double* results);
        
            void compute_shell_pair(ECP &U, GaussianShell &shellA, GaussianShell &shellB, TwoIndex<double> &values, int shiftA = 0, int shiftB = 0);
            

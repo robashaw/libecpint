@@ -46,15 +46,51 @@ Program Listing for File mathutil.hpp
    #define M_PI 3.14159265358979323846
    #endif
    
+   #ifndef M_EULER
+   #define M_EULER 2.71828182845904523536
+   #endif
+   
    #define MAX_FAC 100 
    #define MAX_DFAC 200 
    
    namespace libecpint {
        
        const double ROOT_PI = 1.772453850905516; 
+       const double SINH_1 = 1.1752011936;
+       const int MAX_POW = 20;
    
        extern double FAC[MAX_FAC];     
        extern double DFAC[MAX_DFAC];   
+       
+       double pow_m2(double);
+       double pow_m1(double);
+       double pow_0(double);
+       double pow_1(double);
+       double pow_2(double);
+       double pow_3(double);
+       double pow_4(double);
+       double pow_5(double);
+       double pow_6(double);
+       double pow_7(double);
+       double pow_8(double);
+       double pow_9(double);
+       double pow_10(double);
+       double pow_11(double);
+       double pow_12(double);
+       double pow_13(double);
+       double pow_14(double);
+       double pow_15(double);
+       double pow_16(double);
+       double pow_17(double);
+       double pow_18(double);
+       double pow_19(double);
+       double pow_20(double);
+       
+       static double (*FAST_POW[23])(double) {pow_0, pow_1, pow_2, pow_3, pow_4, pow_5,
+                                         pow_6, pow_7, pow_8, pow_9, pow_10, pow_11,
+                                         pow_12, pow_13, pow_14, pow_15, pow_16, pow_17,
+                                         pow_18, pow_19, pow_20, pow_m1, pow_m2};
+       
        
        const double GAMMA[30] = {
            1.7724538509055,

@@ -43,7 +43,7 @@ Program Listing for File angular.cpp
    
        double AngularIntegral::calcG(int l, int m) const {
            double value = 0.0;
-           double value1 = std::pow(2.0, l) * FAC[l];
+           double value1 = FAST_POW[l](2.0) * FAC[l];
            value1 = 1.0 / value1; 
            double value2 = (2.0 * l + 1) * FAC[l - m] / (2.0 * M_PI * FAC[l + m]);
            value2 = std::sqrt(value2); 
@@ -204,7 +204,7 @@ Program Listing for File angular.cpp
            int lamDim = LE + LB; 
            int muDim = 2*lamDim + 1;
            SevenIndex<double> values{LB+1, LB+1, LB+1, lamDim+1, muDim+1, lamDim+1, muDim+1};
-       
+           
            double om_plus=0.0, om_minus=0.0;
            double wval; 
            for (int k = 0; k <= LB; k++) {

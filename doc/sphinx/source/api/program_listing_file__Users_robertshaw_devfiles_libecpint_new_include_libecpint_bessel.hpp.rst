@@ -50,8 +50,10 @@ Program Listing for File bessel.hpp
            int lMax; 
            int N; 
            int order; 
+           double scale; 
        
            double **K; 
+           double ***dK; 
            double *C; 
        
            int tabulate(const double accuracy);
@@ -66,6 +68,10 @@ Program Listing for File bessel.hpp
            void init(int lMax, int N, int order, const double accuracy);
        
            void calculate(const double z, int maxL, std::vector<double> &values);
+           
+           double calculate(const double z, int L);
+           
+           double upper_bound(const double z, int L);
        };
    
    }

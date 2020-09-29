@@ -74,3 +74,10 @@ Defines
 
 - :ref:`exhale_define_api_8hpp_1a9c5be1c4ba084c752edba30f62c5da6d`
 
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespacelibecpint_1a2a771df5ca42d30ffdf70033fbc94770`
+

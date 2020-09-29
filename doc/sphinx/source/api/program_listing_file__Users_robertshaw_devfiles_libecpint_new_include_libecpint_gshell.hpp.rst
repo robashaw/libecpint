@@ -51,6 +51,8 @@ Program Listing for File gshell.hpp
            
            double localCenter[3];
            
+           double min_exp; 
+           
            int l; 
            int atom_id; 
            
@@ -63,6 +65,7 @@ Program Listing for File gshell.hpp
                coeffs = other.coeffs;
                centerVec = other.centerVec;
                l = other.l;
+               min_exp = other.min_exp;
                
                local_ptr = other.local_ptr;
                if (local_ptr) {
@@ -89,6 +92,7 @@ Program Listing for File gshell.hpp
            
            GaussianShell copy() const {
                GaussianShell result(centerVec, l);
+               result.min_exp = min_exp;
                result.local_ptr = local_ptr;
                if (local_ptr) {
                    result.localCenter[0] = localCenter[0];
@@ -116,6 +120,8 @@ Program Listing for File gshell.hpp
            double Bm;      
            double RAB2;    
            double RABm;    
+           bool A_on_ecp;  
+           bool B_on_ecp;  
        };
    
    }

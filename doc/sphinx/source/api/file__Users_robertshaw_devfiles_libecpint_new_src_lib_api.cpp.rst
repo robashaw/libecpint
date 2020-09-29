@@ -50,3 +50,10 @@ Namespaces
 
 - :ref:`namespace_libecpint`
 
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespacelibecpint_1a544c252dcf08f3ce5560b8066730601c`
+

@@ -38,6 +38,7 @@ Program Listing for File testutil.hpp
    #define TESTING_HEAD
    
    #include <iostream>
+   #include <iomanip>
    #include <fstream>
    #include <cmath>
    #include <string>
@@ -47,7 +48,7 @@ Program Listing for File testutil.hpp
    namespace libecpint {
    
    template <typename T>
-   int check_file(std::string filename, std::vector<T>& results) {
+   int check_file(std::string filename, std::vector<T>& results, double thresh=1e-5, double precision=1e-10) {
        std::ifstream input_file(filename); 
        if (input_file.is_open()) {
            
@@ -70,11 +71,16 @@ Program Listing for File testutil.hpp
                double error = 0.0;
                for (int i = 0; i < benchmark.size(); i++) {
                    double abserror = std::abs(benchmark[i] - results[i]);
-                   if (std::abs(benchmark[i])>1e-10) error += abserror / std::abs(benchmark[i]);
+                   if (abserror > precision) {
+                       std::cout << std::setw(10) << "Line " << std::setw(5) << i 
+                           << std::setw(5) << ":" << std::setw(15) <<  benchmark[i] 
+                           << " / " << std::setw(15) << results[i] << std::endl;
+                   }
+                   if (std::abs(benchmark[i])>precision) error += abserror / std::abs(benchmark[i]);
                }
                error /= double(benchmark.size());
        
-               if (error > 5e-6) {
+               if (error > thresh) {
                    std::cerr << "Average error in output is " << error << " percent!" << std::endl;
                    return 1;
                } else {

@@ -31,6 +31,8 @@ Includes
 
 - ``cmath``
 
+- ``iostream``
+
 - ``mathutil.hpp`` (:ref:`file__Users_robertshaw_devfiles_libecpint_new_include_libecpint_mathutil.hpp`)
 
 - ``qgen.hpp`` (:ref:`file__Users_robertshaw_devfiles_libecpint_new_include_libecpint_qgen.hpp`)
@@ -54,4 +56,6 @@ Functions
 
 
 - :ref:`exhale_function_namespacelibecpint_1_1qgen_1aa957a79b70df8879d0abbfb12a2ce49b`
+
+- :ref:`exhale_function_namespacelibecpint_1_1qgen_1a2746fee105d370ee314fe22e752affeb`
 

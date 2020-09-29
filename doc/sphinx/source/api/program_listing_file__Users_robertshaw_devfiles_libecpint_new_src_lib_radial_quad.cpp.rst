@@ -56,7 +56,7 @@ Program Listing for File radial_quad.cpp
        }
    
        void RadialIntegral::buildBessel(std::vector<double> &r, int nr, int maxL, TwoIndex<double> &values, double weight) {
-           std::vector<double> besselValues;
+           std::vector<double> besselValues(maxL+1, 0.0);
            if (std::abs(weight) < 1e-15) {
                for (int i = 0; i < nr; i++) {
                    values(0, i) = 1.0;
@@ -117,7 +117,7 @@ Program Listing for File radial_quad.cpp
            double r;
            for (int i = 0; i < gridSize; i++) {
                r = gridPoints[i];
-               Utab[i] = std::pow(r, N+2) * U.evaluate(r, l);
+               Utab[i] = FAST_POW[N+2](r) * U.evaluate(r, l);
            }
        }
    
@@ -246,7 +246,6 @@ Program Listing for File radial_quad.cpp
        }
        
        double RadialIntegral::estimate_type2(int N, int l1, int l2, double n, double a, double b, double A, double B) {
-           std::vector<double> besselValues1, besselValues2; 
            double kA = 2.0*a*A;
            double kB = 2.0*b*B;
            double c0 = std::max(N - l1 - l2, 0);
@@ -258,9 +257,9 @@ Program Listing for File radial_quad.cpp
    
            double zA = P - A; 
            double zB = P - B;
-           bessie.calculate(kA * P, l1, besselValues1);
-           bessie.calculate(kB * P, l2, besselValues2);  
-           double Fres = std::pow(P, N) * std::exp(-n * P * P - a * zA * zA - b * zB * zB) * besselValues1[l1] * besselValues2[l2];
+           double besselValue1 = bessie.upper_bound(kA * P, l1);
+           double besselValue2 = bessie.upper_bound(kB * P, l2);
+           double Fres = FAST_POW[N](P) * std::exp(-n * P * P - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
            return (0.5 * std::sqrt(M_PI/p) * Fres * (1.0 + Faddeeva::erf(std::sqrt(p)*P)));
        }
    

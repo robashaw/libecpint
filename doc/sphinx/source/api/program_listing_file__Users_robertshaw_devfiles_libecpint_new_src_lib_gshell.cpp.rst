@@ -38,18 +38,20 @@ Program Listing for File gshell.cpp
    
    namespace libecpint {
    
-       GaussianShell::GaussianShell(double *A, int _l) : centerVec(A), l(_l), local_ptr(false) {}
+       GaussianShell::GaussianShell(double *A, int _l) : centerVec(A), l(_l), local_ptr(false), min_exp(100.0) {}
        GaussianShell::GaussianShell(std::array<double, 3> A, int _l) : l(_l) {
            centerVec = localCenter;
            local_ptr = true;
            localCenter[0] = A[0];
            localCenter[1] = A[1];
            localCenter[2] = A[2];
+           min_exp = 100.0;
        }
    
        void GaussianShell::addPrim(double e, double c) {
            exps.push_back(e);
            coeffs.push_back(c);
+           min_exp = e < min_exp ? e : min_exp;
        }
    
    }

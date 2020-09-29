@@ -37,6 +37,8 @@ Includes
 
 - ``iostream``
 
+- ``mathutil.hpp`` (:ref:`file__Users_robertshaw_devfiles_libecpint_new_include_libecpint_mathutil.hpp`)
+
 - ``pugixml.hpp``
 
 

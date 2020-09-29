@@ -31,6 +31,8 @@ Includes
 
 - ``array``
 
+- ``config.hpp``
+
 - ``map``
 
 - ``string``

@@ -55,6 +55,8 @@ Included By
 
 - :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_lib_bessel.cpp`
 
+- :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_lib_ecp.cpp`
+
 - :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_lib_ecpint.cpp`
 
 - :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_lib_mathutil.cpp`
@@ -81,6 +83,8 @@ Defines
 -------
 
 
+- :ref:`exhale_define_mathutil_8hpp_1a620539bb392918432be69023bb266dfb`
+
 - :ref:`exhale_define_mathutil_8hpp_1ae71449b1cc6e6250b91f539153a7a0d3`
 
 - :ref:`exhale_define_mathutil_8hpp_1a30bbac291639d5f7d964a92fa8742b94`
@@ -92,7 +96,13 @@ Variables
 ---------
 
 
+- :ref:`exhale_variable_namespacelibecpint_1a683275f366eb38bfcc526bf5264d9376`
+
 - :ref:`exhale_variable_namespacelibecpint_1a4fc3cf89f4b0b1787baabc364a16e377`
 
+- :ref:`exhale_variable_namespacelibecpint_1a35fea7df6515abbb84fc029150055a28`
+
 - :ref:`exhale_variable_namespacelibecpint_1a451c1c2142ac7d2cbf57f3fcba419373`
+
+- :ref:`exhale_variable_namespacelibecpint_1a6305f5251f77037717df018fd2e56700`
 

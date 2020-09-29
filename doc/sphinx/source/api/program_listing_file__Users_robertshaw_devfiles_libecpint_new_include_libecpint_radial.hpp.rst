@@ -46,6 +46,7 @@ Program Listing for File radial.hpp
    
    namespace libecpint {
    
+       const double MIN_EXP = 0.002;
        class RadialIntegral
        {
        private:

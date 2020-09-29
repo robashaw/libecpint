@@ -40,6 +40,7 @@ Program Listing for File ecp.cpp
    #include <iostream>
    #include <algorithm>
    #include "pugixml.hpp"
+   #include "mathutil.hpp"
    
    namespace libecpint {
    
@@ -53,18 +54,36 @@ Program Listing for File ecp.cpp
    
        ECP::ECP() : N(0), L(-1) {
            center_[0] = center_[1] = center_[2] = 0.0;     
+           min_exp = 1000.0;
+           for (int i = 0; i < LIBECPINT_MAX_L + 1; i++) {
+                min_exp_l[i] = 1000.0;
+                l_starts[i] = 0;
+           }
+           l_starts[LIBECPINT_MAX_L+1] = 0;
        }
        
        ECP::ECP(const double *_center) : N(0), L(-1) {
            center_[0] = _center[0];
            center_[1] = _center[1];
            center_[2] = _center[2];
+           min_exp = 1000.0;
+           for (int i = 0; i < LIBECPINT_MAX_L + 1; i++) {
+                min_exp_l[i] = 1000.0;
+                l_starts[i] = 0;
+           }
+           l_starts[LIBECPINT_MAX_L+1] = 0;
        }
    
        ECP::ECP(const ECP &other) {
            gaussians = other.gaussians;
            N = other.N;
            L = other.L;
+           min_exp = other.min_exp;
+           for (int i = 0; i < LIBECPINT_MAX_L + 1; i++) {
+               min_exp_l[i] = other.min_exp_l[i];
+               l_starts[i] = other.l_starts[i];
+           }
+           l_starts[LIBECPINT_MAX_L+1] = other.l_starts[LIBECPINT_MAX_L+1];
            center_ = other.center_;
        }
    
@@ -73,6 +92,10 @@ Program Listing for File ecp.cpp
            gaussians.push_back(newEcp);
            N++;
            L = l > L ? l : L;
+           min_exp = a < min_exp ? a : min_exp;
+           min_exp_l[l] = a < min_exp_l[l] ? a : min_exp_l[l];
+           for (int lx = l+1; lx < LIBECPINT_MAX_L + 2; lx++)
+               l_starts[lx] += 1;
            if (needSort) sort();
        }
    
@@ -91,11 +114,11 @@ Program Listing for File ecp.cpp
        // Evaluate U_l(r), assuming that gaussians sorted by angular momentum
        double ECP::evaluate(double r, int l) {
            double value = 0.0;
-           int am = 0;
            double r2 = r*r;
-           for (int i = 0; i < N; i++) {
-               if (gaussians[i].l == l) // Only evaluate if in correct shell
-                   value += pow(r, gaussians[i].n) * gaussians[i].d * exp(-gaussians[i].a * r2);
+           int p;
+           for (int i = l_starts[l]; i < l_starts[l+1]; i++) {
+               p = gaussians[i].n > -1 ? gaussians[i].n : MAX_POW - gaussians[i].n;
+               value += FAST_POW[p](r) * gaussians[i].d * exp(-gaussians[i].a * r2);
            } 
            return value; 
        }

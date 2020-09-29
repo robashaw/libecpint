@@ -48,6 +48,8 @@ Program Listing for File api.hpp
    
    #define H_START(i, j, N) (9*j + 3*(3*N-1)*i - (9*i*(i+1))/2 - 3)
        
+       const double TWO_C_TOLERANCE = 1E-12;
+       
        struct ECPIntegrator {
            std::vector<GaussianShell> shells; 
            ECPBasis ecps; 
@@ -56,6 +58,7 @@ Program Listing for File api.hpp
            int deriv; 
            int ncart; 
            int natoms; 
+           double min_alpha; 
            
            bool ecp_is_set; 
            bool basis_is_set; 
@@ -100,6 +103,8 @@ Program Listing for File api.hpp
                return results;
            }
        };
+       
+       double shell_bound(int la, double alpha, double A2, double eta);
        
    }
    

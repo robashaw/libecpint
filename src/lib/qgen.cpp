@@ -34,7 +34,7 @@ namespace libecpint {
 			double prefac = 16.0 * M_PI * M_PI;
 			int L = LA + LB;	
 		
-			int z1, z2, w_m, w_l;
+			int z1, z2, w_m, w_l, w_lm;
 			int w_ax, w_ay, w_az, w_l1; 
 			int w_bx, w_by, w_bz, w_l2; 
 			double C, val;
@@ -80,24 +80,26 @@ namespace libecpint {
 														for (int lam1 = 0; lam1 <= lam + alpha; lam1++) {
 															w_l = lam1*w_size+lam; 
 															w_l1 = w_az + lam1*(1+mults[5]);
-															w_m = -mults[4];
+															w_m = w_l1-mults[4];
 															for (int mu = -lam; mu <= lam; mu++) {
 																w_m += mults[4];
+																w_lm = lam1*SA.dims[1];
 																w1_contr[w_l+mu] = 0.0;
 																for (int mu1 = -lam1; mu1 <= lam1; mu1++)
-																	w1_contr[w_l+mu] += SA(lam1, lam1+mu1) * omega[w_l1+w_m+mu1];
+																	w1_contr[w_l+mu] += SA.data[w_lm++] * omega[w_m+mu1];
 															}
 														}
 										
 														for (int lam2 = 0; lam2 <= lam+beta; lam2++) {
 															w_l  = lam2*w_size+lam;
 															w_l2 = w_bz + lam2*(1+mults[5]);
-															w_m = -mults[4];
+															w_m = w_l2-mults[4];
 															for (int mu = -lam; mu <= lam; mu++) {
 																w_m += mults[4];
+																w_lm = lam2*SB.dims[1];
 																w2_contr[w_l+mu] = 0.0;
 																for (int mu2 = -lam2; mu2 <= lam2; mu2++) 
-																	w2_contr[w_l+mu] += SB(lam2, lam2+mu2) * omega[w_l2+w_m+mu2];
+																	w2_contr[w_l+mu] += SB.data[w_lm++] * omega[w_m+mu2];
 															}
 														}
 															

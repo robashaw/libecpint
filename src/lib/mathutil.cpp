@@ -30,6 +30,8 @@ namespace libecpint {
 	double FAC[MAX_FAC];
 	double DFAC[MAX_DFAC];
 	
+	double pow_m2(double z) { return 1.0/(z*z); }
+	double pow_m1(double z) { return 1.0/z; }
 	double pow_0(double z) { return 1.0; }
 	double pow_1(double z) { return z; }
 	double pow_2(double z) { return z*z; }

@@ -50,10 +50,13 @@ namespace libecpint {
 	
 	const double ROOT_PI = 1.772453850905516; ///< square root of PI
 	const double SINH_1 = 1.1752011936;
+	const int MAX_POW = 20;
 
 	extern double FAC[MAX_FAC];		///< Array of factorials
 	extern double DFAC[MAX_DFAC]; 	///< Array of double factorials
 	
+	double pow_m2(double);
+	double pow_m1(double);
 	double pow_0(double);
 	double pow_1(double);
 	double pow_2(double);
@@ -77,10 +80,10 @@ namespace libecpint {
 	double pow_20(double);
 	
 	/// Array of function pointers to hand-coded x**n routines
-	static double (*FAST_POW[21])(double) {pow_0, pow_1, pow_2, pow_3, pow_4, pow_5,
+	static double (*FAST_POW[23])(double) {pow_0, pow_1, pow_2, pow_3, pow_4, pow_5,
 									  pow_6, pow_7, pow_8, pow_9, pow_10, pow_11,
 								  	  pow_12, pow_13, pow_14, pow_15, pow_16, pow_17,
-								  	  pow_18, pow_19, pow_20};
+								  	  pow_18, pow_19, pow_20, pow_m1, pow_m2};
 	
 	
 	/**

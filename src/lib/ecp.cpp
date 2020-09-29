@@ -103,8 +103,10 @@ namespace libecpint {
 	double ECP::evaluate(double r, int l) {
 		double value = 0.0;
 		double r2 = r*r;
+		int p;
 		for (int i = l_starts[l]; i < l_starts[l+1]; i++) {
-			value += FAST_POW[gaussians[i].n](r) * gaussians[i].d * exp(-gaussians[i].a * r2);
+			p = gaussians[i].n > -1 ? gaussians[i].n : MAX_POW - gaussians[i].n;
+			value += FAST_POW[p](r) * gaussians[i].d * exp(-gaussians[i].a * r2);
 		} 
 		return value; 
 	}

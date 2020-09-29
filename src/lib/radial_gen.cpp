@@ -214,7 +214,7 @@ namespace libecpint {
 							
 							int ijk = i*10000 + j*100 + k; 
 							double result = 0.0;
-							if (a > MIN_EXP && b > MIN_EXP) { 
+							if (a * b > MIN_EXP) {// && b > MIN_EXP) { 
 								switch(ijk) {
 									case 2 : {
 										result = ( 1 ) * values[0];

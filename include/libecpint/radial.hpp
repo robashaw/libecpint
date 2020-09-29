@@ -34,7 +34,7 @@
 
 namespace libecpint {
 
-	const double MIN_EXP = 0.1;
+	const double MIN_EXP = 0.002;
 	/** 
 	* \class RadialIntegral
 	* \brief Abstracts the calculation of radial integrals for ECP integration.

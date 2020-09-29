@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacelibecpint_1_1aux" kind="namespace" language="C++">
+    <compoundname>libecpint::aux</compoundname>
+    <innerclass refid="structlibecpint_1_1aux_1_1gen__seq" prot="public">libecpint::aux::gen_seq</innerclass>
+    <innerclass refid="structlibecpint_1_1aux_1_1gen__seq_3_010_00_01_is_8_8_8_01_4" prot="public">libecpint::aux::gen_seq&lt; 0, Is... &gt;</innerclass>
+    <innerclass refid="structlibecpint_1_1aux_1_1seq" prot="public">libecpint::aux::seq</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacelibecpint_1_1aux_1a8e2ec9ac4e466e11814c592a83efb66f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Ch</type>
+          </param>
+          <param>
+            <type>class Tr</type>
+          </param>
+          <param>
+            <type>class Tuple</type>
+          </param>
+          <param>
+            <type>std::size_t...</type>
+            <declname>Is</declname>
+            <defname>Is</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void libecpint::aux::print_tuple</definition>
+        <argsstring>(std::basic_ostream&lt; Ch, Tr &gt; &amp;os, Tuple const &amp;t, seq&lt; Is... &gt;)</argsstring>
+        <name>print_tuple</name>
+        <param>
+          <type>std::basic_ostream&lt; Ch, Tr &gt; &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>Tuple const &amp;</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1aux_1_1seq" kindref="compound">seq</ref>&lt; Is... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="54" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="54" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="47" column="1"/>
+  </compounddef>
+</doxygen>

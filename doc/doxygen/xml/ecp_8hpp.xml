@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="ecp_8hpp" kind="file" language="C++">
+    <compoundname>ecp.hpp</compoundname>
+    <includes local="no">vector</includes>
+    <includes local="no">array</includes>
+    <includes local="no">map</includes>
+    <includes local="no">string</includes>
+    <includes local="yes">config.hpp</includes>
+    <includedby refid="ecp_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp</includedby>
+    <includedby refid="ecpint_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp</includedby>
+    <includedby refid="radial_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp</includedby>
+    <includedby refid="qgen_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/qgen.hpp</includedby>
+    <incdepgraph>
+      <node id="92">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp</label>
+        <link refid="ecp_8hpp"/>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+      </node>
+      <node id="96">
+        <label>string</label>
+      </node>
+      <node id="95">
+        <label>map</label>
+      </node>
+      <node id="97">
+        <label>config.hpp</label>
+      </node>
+      <node id="93">
+        <label>vector</label>
+      </node>
+      <node id="94">
+        <label>array</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="98">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp</label>
+        <link refid="ecp_8hpp"/>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="100">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp</label>
+        <link refid="ecpint_8hpp"/>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+      </node>
+      <node id="106">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/radial_gen.cpp</label>
+        <link refid="generated_2radial_2radial__gen_8cpp"/>
+      </node>
+      <node id="105">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp</label>
+        <link refid="radial_8hpp"/>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="108">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_quad.cpp</label>
+        <link refid="radial__quad_8cpp"/>
+      </node>
+      <node id="104">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint.hpp</label>
+        <link refid="libecpint_8hpp"/>
+      </node>
+      <node id="102">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp</label>
+        <link refid="api_8hpp"/>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+      </node>
+      <node id="99">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp</label>
+        <link refid="ecp_8cpp"/>
+      </node>
+      <node id="103">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp</label>
+        <link refid="api_8cpp"/>
+      </node>
+      <node id="109">
+        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/qgen.hpp</label>
+        <link refid="qgen_8hpp"/>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+      </node>
+      <node id="101">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp</label>
+        <link refid="ecpint_8cpp"/>
+      </node>
+      <node id="107">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_gen.cpp</label>
+        <link refid="lib_2radial__gen_8cpp"/>
+      </node>
+      <node id="110">
+        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/qgen.cpp</label>
+        <link refid="qgen_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structlibecpint_1_1_gaussian_e_c_p" prot="public">libecpint::GaussianECP</innerclass>
+    <innerclass refid="structlibecpint_1_1_e_c_p" prot="public">libecpint::ECP</innerclass>
+    <innerclass refid="classlibecpint_1_1_e_c_p_basis" prot="public">libecpint::ECPBasis</innerclass>
+    <innernamespace refid="namespacelibecpint">libecpint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2020<sp/>Robert<sp/>Shaw</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>file<sp/>is<sp/>a<sp/>part<sp/>of<sp/>Libecpint.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>a<sp/>copy<sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>&quot;Software&quot;),<sp/>to<sp/>deal<sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>without<sp/>limitation<sp/>the<sp/>rights<sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell<sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is<sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>included<sp/>in<sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>EXPRESS<sp/>OR<sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>MERCHANTABILITY,<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,<sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>ECP_HEAD</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ECP_HEAD</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;array&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;config.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacelibecpint" kindref="compound">libecpint</ref><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="37" refid="namespacelibecpint_1a076d4d1e17ab2a37661480ba095329d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="namespacelibecpint_1a076d4d1e17ab2a37661480ba095329d7" kindref="member">atom_names</ref>[109]<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;h&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;he&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;li&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;be&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;b&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;c&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;o&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;f&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ne&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;na&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;mg&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;al&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;si&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;p&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;s&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;cl&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ar&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;k&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ca&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;sc&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ti&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;v&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;cr&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;mn&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;fe&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;co&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ni&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;cu&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;zn&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ga&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ge&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;as&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;se&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;br&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;kr&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;rb&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;sr&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;y&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;zr&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;nb&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;mo&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;tc&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ru&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;rh&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;pd&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ag&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;cd&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;in&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;sn&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;sb&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;te&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;i&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;xe&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;cs&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ba&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;la&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ce&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;pr&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;nd&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;pm&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;sm&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;eu&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;gd&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;tb&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;dy&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ho&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;er&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;tm&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yb&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;lu&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;hf&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ta&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;re&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;os&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ir&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;pt&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;au&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;hg&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;tl&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;pb&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;bi&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;po&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;at&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;rn&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;fr&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ra&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ac&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;th&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;pa&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;u&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;np&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;pu&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;am&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;cm&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;bk&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;cf&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;es&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;fm&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;md&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;no&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;lr&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;rf&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;db&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;sg&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;bh&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;hs&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;mt&quot;</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52" refid="structlibecpint_1_1_gaussian_e_c_p" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref><sp/>{</highlight></codeline>
+<codeline lineno="53" refid="structlibecpint_1_1_gaussian_e_c_p_1a75255bfcde88a8f3b3e56c316ec7a99c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a75255bfcde88a8f3b3e56c316ec7a99c" kindref="member">n</ref>;<sp/></highlight></codeline>
+<codeline lineno="54" refid="structlibecpint_1_1_gaussian_e_c_p_1a9933bcb032148c4152160a0b70521189" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a9933bcb032148c4152160a0b70521189" kindref="member">l</ref>;<sp/></highlight></codeline>
+<codeline lineno="55" refid="structlibecpint_1_1_gaussian_e_c_p_1a89433d98899bfcf9e11c40590b9a585e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a89433d98899bfcf9e11c40590b9a585e" kindref="member">a</ref>;<sp/></highlight></codeline>
+<codeline lineno="56" refid="structlibecpint_1_1_gaussian_e_c_p_1a4899fa6262f84344b3d0f8c304c8e9f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a4899fa6262f84344b3d0f8c304c8e9f5" kindref="member">d</ref>;<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a03dbff0cd12d8f70f04cfd509c3c8bdd" kindref="member">GaussianECP</ref>();<sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a03dbff0cd12d8f70f04cfd509c3c8bdd" kindref="member">GaussianECP</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>d);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a03dbff0cd12d8f70f04cfd509c3c8bdd" kindref="member">GaussianECP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref>&amp;<sp/>other);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="structlibecpint_1_1_e_c_p" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>{</highlight></codeline>
+<codeline lineno="78" refid="structlibecpint_1_1_e_c_p_1a3934e012fdd055afbcb14d46174861c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;GaussianECP&gt;<sp/><ref refid="structlibecpint_1_1_e_c_p_1a3934e012fdd055afbcb14d46174861c6" kindref="member">gaussians</ref>;<sp/></highlight></codeline>
+<codeline lineno="79" refid="structlibecpint_1_1_e_c_p_1a36dfdf88f34a7840e7cbfd57046571ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a36dfdf88f34a7840e7cbfd57046571ad" kindref="member">N</ref>;<sp/></highlight></codeline>
+<codeline lineno="80" refid="structlibecpint_1_1_e_c_p_1a1ca581f31fc7ac7a59dc9fe699caa9a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a1ca581f31fc7ac7a59dc9fe699caa9a7" kindref="member">L</ref>;<sp/></highlight></codeline>
+<codeline lineno="81" refid="structlibecpint_1_1_e_c_p_1a8fedd3e5bacafd322282a00804448232" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a8fedd3e5bacafd322282a00804448232" kindref="member">atom_id</ref>;<sp/></highlight></codeline>
+<codeline lineno="82" refid="structlibecpint_1_1_e_c_p_1a8072e7e01ac6f76d8b1a704581fcefd1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a8072e7e01ac6f76d8b1a704581fcefd1" kindref="member">min_exp</ref>;<sp/></highlight></codeline>
+<codeline lineno="83" refid="structlibecpint_1_1_e_c_p_1a265c9db1f48ad60398265d29ac915457" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a265c9db1f48ad60398265d29ac915457" kindref="member">min_exp_l</ref>[LIBECPINT_MAX_L+1];<sp/></highlight></codeline>
+<codeline lineno="84" refid="structlibecpint_1_1_e_c_p_1ad2dd3b092c83374688c51093d824e6af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_e_c_p_1ad2dd3b092c83374688c51093d824e6af" kindref="member">l_starts</ref>[LIBECPINT_MAX_L+2];<sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="86" refid="structlibecpint_1_1_e_c_p_1a180a9879527c372a58155240adf2c158" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;double,<sp/>3&gt;<sp/><ref refid="structlibecpint_1_1_e_c_p_1a180a9879527c372a58155240adf2c158" kindref="member">center_</ref>;<sp/></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_e_c_p_1af4dca32df3ef9f0b16c9942aebaa30b9" kindref="member">ECP</ref>();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_e_c_p_1af4dca32df3ef9f0b16c9942aebaa30b9" kindref="member">ECP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*_center);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_e_c_p_1af4dca32df3ef9f0b16c9942aebaa30b9" kindref="member">ECP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>&amp;other);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a0722152e417ce3cc1934fab12018a2fa" kindref="member">addPrimitive</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>d,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>needSort<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="111" refid="structlibecpint_1_1_e_c_p_1a67b0097de7275b589d8fb104559c85f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/><ref refid="structlibecpint_1_1_e_c_p_1a67b0097de7275b589d8fb104559c85f2" kindref="member">center</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;center_[0];<sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a062cbfaa2fefcc7e4ca0de014a791b6a" kindref="member">setPos</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a033d4d18c168f3052a298b1d32035dde" kindref="member">sort</ref>();<sp/></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="123" refid="structlibecpint_1_1_e_c_p_1a9b17e65c73b6671205b3295e2d2c52f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref>&amp;<sp/><ref refid="structlibecpint_1_1_e_c_p_1a9b17e65c73b6671205b3295e2d2c52f8" kindref="member">getGaussian</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>gaussians[i];<sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="126" refid="structlibecpint_1_1_e_c_p_1a1eb8f3a9515a591efc9e3da28ba0a9c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a1eb8f3a9515a591efc9e3da28ba0a9c2" kindref="member">getN</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a36dfdf88f34a7840e7cbfd57046571ad" kindref="member">N</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a6f3c3cbf7401f8559be5c0616f21cb2b" kindref="member">noType1</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a5b4a28bfac7de0329e0a84f10bb6531f" kindref="member">evaluate</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="140" refid="structlibecpint_1_1_e_c_p_1a8c9d96f791a742fe18616c8361d6ad0b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a8c9d96f791a742fe18616c8361d6ad0b" kindref="member">getL</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a1ca581f31fc7ac7a59dc9fe699caa9a7" kindref="member">L</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="classlibecpint_1_1_e_c_p_basis" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlibecpint_1_1_e_c_p_basis" kindref="compound">ECPBasis</ref><sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="149" refid="classlibecpint_1_1_e_c_p_basis_1ace1af0a6c1ca994b54d877c32d47cec6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;ECP&gt;<sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1ace1af0a6c1ca994b54d877c32d47cec6" kindref="member">basis</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="150" refid="classlibecpint_1_1_e_c_p_basis_1a70460015e701f21f3736188d7fdfff54" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a70460015e701f21f3736188d7fdfff54" kindref="member">atomList</ref>;<sp/></highlight></codeline>
+<codeline lineno="151" refid="classlibecpint_1_1_e_c_p_basis_1a17a416202956ac683308a54816b9b0a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a17a416202956ac683308a54816b9b0a7" kindref="member">N</ref>;<sp/></highlight></codeline>
+<codeline lineno="152" refid="classlibecpint_1_1_e_c_p_basis_1abeabb84d5402d144b288a9c17d8b1bf2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1abeabb84d5402d144b288a9c17d8b1bf2" kindref="member">maxL</ref>;<sp/></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1ae8a0aec737135fbc3cb04db819f90d11" kindref="member">ECPBasis</ref>();<sp/></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="159" refid="classlibecpint_1_1_e_c_p_basis_1a14e29c3855ad997b10c8e512bc63bdbc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::map&lt;int,<sp/>int&gt;<sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a14e29c3855ad997b10c8e512bc63bdbc" kindref="member">core_electrons</ref>;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a30849fe03fcb5af55277f5c9cf3cb029" kindref="member">addECP</ref>(<ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>&amp;U,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>atom);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref>&amp;<sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1adc48a2df7d92a7e796d50f704b80d819" kindref="member">getECP</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a6693bdf5b110fa4fcec07b5e2d7bcaef" kindref="member">getECPCore</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespaceunrol__radial_1a032ec358895dd239986cf46342a0de86" kindref="member">q</ref>);<sp/></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="184" refid="classlibecpint_1_1_e_c_p_basis_1a79335f55db2a60b87da4d0b401249d06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a79335f55db2a60b87da4d0b401249d06" kindref="member">getAtom</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>atomList[i];<sp/>}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="187" refid="classlibecpint_1_1_e_c_p_basis_1af44efe193f718cef4986fccde8045c8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1af44efe193f718cef4986fccde8045c8a" kindref="member">getMaxL</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1abeabb84d5402d144b288a9c17d8b1bf2" kindref="member">maxL</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="190" refid="classlibecpint_1_1_e_c_p_basis_1aa98f477ed0dee4a97de5f0178ade6409" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1aa98f477ed0dee4a97de5f0178ade6409" kindref="member">getN</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a17a416202956ac683308a54816b9b0a7" kindref="member">N</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1adeb08aee90fc97e9365503f14e7717db" kindref="member">addECP_from_file</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespaceunrol__radial_1a032ec358895dd239986cf46342a0de86" kindref="member">q</ref>,<sp/>std::array&lt;double,<sp/>3&gt;<sp/>coords,<sp/>std::string<sp/>filename);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp"/>
+  </compounddef>
+</doxygen>

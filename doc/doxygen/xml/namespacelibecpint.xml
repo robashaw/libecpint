@@ -1,0 +1,993 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacelibecpint" kind="namespace" language="C++">
+    <compoundname>libecpint</compoundname>
+    <innerclass refid="classlibecpint_1_1_angular_integral" prot="public">libecpint::AngularIntegral</innerclass>
+    <innerclass refid="classlibecpint_1_1_bessel_function" prot="public">libecpint::BesselFunction</innerclass>
+    <innerclass refid="structlibecpint_1_1_e_c_p" prot="public">libecpint::ECP</innerclass>
+    <innerclass refid="classlibecpint_1_1_e_c_p_basis" prot="public">libecpint::ECPBasis</innerclass>
+    <innerclass refid="classlibecpint_1_1_e_c_p_integral" prot="public">libecpint::ECPIntegral</innerclass>
+    <innerclass refid="structlibecpint_1_1_e_c_p_integrator" prot="public">libecpint::ECPIntegrator</innerclass>
+    <innerclass refid="structlibecpint_1_1_five_index" prot="public">libecpint::FiveIndex</innerclass>
+    <innerclass refid="structlibecpint_1_1_gaussian_e_c_p" prot="public">libecpint::GaussianECP</innerclass>
+    <innerclass refid="structlibecpint_1_1_gaussian_shell" prot="public">libecpint::GaussianShell</innerclass>
+    <innerclass refid="classlibecpint_1_1_g_c_quadrature" prot="public">libecpint::GCQuadrature</innerclass>
+    <innerclass refid="classlibecpint_1_1_radial_integral" prot="public">libecpint::RadialIntegral</innerclass>
+    <innerclass refid="structlibecpint_1_1_seven_index" prot="public">libecpint::SevenIndex</innerclass>
+    <innerclass refid="structlibecpint_1_1_shell_pair_data" prot="public">libecpint::ShellPairData</innerclass>
+    <innerclass refid="structlibecpint_1_1_sum_term" prot="public">libecpint::SumTerm</innerclass>
+    <innerclass refid="structlibecpint_1_1_three_index" prot="public">libecpint::ThreeIndex</innerclass>
+    <innerclass refid="structlibecpint_1_1_two_index" prot="public">libecpint::TwoIndex</innerclass>
+    <innernamespace refid="namespacelibecpint_1_1aux">libecpint::aux</innernamespace>
+    <innernamespace refid="namespacelibecpint_1_1qgen">libecpint::qgen</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3f" prot="public" static="no">
+        <name>GCTYPE</name>
+        <enumvalue id="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3faf2e6a20e628fc9be0ff38027d732664a" prot="public">
+          <name>ONEPOINT</name>
+          <briefdescription>
+<para>Described in Perez92. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3fa56b5dd9ab1cc8971737f1c6c14d32e52" prot="public">
+          <name>TWOPOINT</name>
+          <briefdescription>
+<para>Described in Perez93. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Different choices of integration algorithm, see references. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="34" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" bodystart="34" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacelibecpint_1a7676a778fedc78dfdc0495c3319a2730" prot="public" static="no">
+        <type>std::tuple&lt; int, int &gt;</type>
+        <definition>using libecpint::Pair = typedef std::tuple&lt;int, int&gt;</definition>
+        <argsstring></argsstring>
+        <name>Pair</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="42" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacelibecpint_1af2651847fa01dec731554db1e7b273fd" prot="public" static="no">
+        <type>std::tuple&lt; int, int, int &gt;</type>
+        <definition>using libecpint::Triple = typedef std::tuple&lt;int, int, int&gt;</definition>
+        <argsstring></argsstring>
+        <name>Triple</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="43" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacelibecpint_1a4dc36ca1c5a9247d8bfaac304a7df40f" prot="public" static="no">
+        <type>std::tuple&lt; int, int, int, int, int &gt;</type>
+        <definition>using libecpint::Quintuple = typedef std::tuple&lt;int, int, int, int, int&gt;</definition>
+        <argsstring></argsstring>
+        <name>Quintuple</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="44" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacelibecpint_1a48b53f3b6bfb449ec300ab57fc03763c" prot="public" static="no">
+        <type>std::tuple&lt; int, int, int, int, int, int, int &gt;</type>
+        <definition>using libecpint::Heptuple = typedef std::tuple&lt;int, int, int, int, int, int, int&gt;</definition>
+        <argsstring></argsstring>
+        <name>Heptuple</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="45" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacelibecpint_1a975e7b9e0f57709418adede308d80405" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double libecpint::FAC</definition>
+        <argsstring>[MAX_FAC]</argsstring>
+        <name>FAC</name>
+        <briefdescription>
+<para>Array of factorials. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="30" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a4ecb557cc8bf8d94cfa80855985007bf" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double libecpint::DFAC</definition>
+        <argsstring>[MAX_DFAC]</argsstring>
+        <name>DFAC</name>
+        <briefdescription>
+<para>Array of double factorials. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="31" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int libecpint::maxL</definition>
+        <argsstring></argsstring>
+        <name>maxL</name>
+        <initializer>= LIBECPINT_MAX_L</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="39" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a20c4903045164881b8dedf0d6a6ed0fb" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int libecpint::maxUnrol</definition>
+        <argsstring></argsstring>
+        <name>maxUnrol</name>
+        <initializer>= LIBECPINT_MAX_UNROL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="40" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a6a8879ed7b1d299f2b2e92b105cce919" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int libecpint::maxN</definition>
+        <argsstring></argsstring>
+        <name>maxN</name>
+        <initializer>= 15</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="41" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a02017a941eee202982bab7731ead620d" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int libecpint::CAX1</definition>
+        <argsstring></argsstring>
+        <name>CAX1</name>
+        <initializer>= <ref refid="namespacelibecpint_1a6a8879ed7b1d299f2b2e92b105cce919" kindref="member">maxN</ref> + 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="42" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1ae0ba3cdb903f3057f168bfaa5495bba0" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int libecpint::CAX2</definition>
+        <argsstring></argsstring>
+        <name>CAX2</name>
+        <initializer>= <ref refid="namespacelibecpint_1a02017a941eee202982bab7731ead620d" kindref="member">CAX1</ref> * (<ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref> + 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="43" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1acdba31532082cde9ce50b5c6ecd2b442" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int libecpint::CAX3</definition>
+        <argsstring></argsstring>
+        <name>CAX3</name>
+        <initializer>= <ref refid="namespacelibecpint_1ae0ba3cdb903f3057f168bfaa5495bba0" kindref="member">CAX2</ref> * (<ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref> + 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="44" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a2a771df5ca42d30ffdf70033fbc94770" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double libecpint::TWO_C_TOLERANCE</definition>
+        <argsstring></argsstring>
+        <name>TWO_C_TOLERANCE</name>
+        <initializer>= 1E-12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="40" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1ae671d7a17c7b2fc7ebf29b27fa266421" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double libecpint::SMALL</definition>
+        <argsstring></argsstring>
+        <name>SMALL</name>
+        <initializer>= 1.0E-7</initializer>
+        <briefdescription>
+<para>Numerical tolerance of z below which K_n(z) = { 1 (n=0), 0 otherwise }. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="32" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a6d710d758ea6c068b95c21ce439ecb21" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int libecpint::TAYLOR_CUT</definition>
+        <argsstring></argsstring>
+        <name>TAYLOR_CUT</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+<para>Order of local Taylor series to be used in Bessel function expansion. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="33" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a076d4d1e17ab2a37661480ba095329d7" prot="public" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string libecpint::atom_names[109]</definition>
+        <argsstring>[109]</argsstring>
+        <name>atom_names</name>
+        <initializer>= {&quot;h&quot;, &quot;he&quot;, &quot;li&quot;, &quot;be&quot;, &quot;b&quot;, &quot;c&quot;, &quot;n&quot;,
+		&quot;o&quot;, &quot;f&quot;, &quot;ne&quot;, &quot;na&quot;, &quot;mg&quot;, &quot;al&quot;, &quot;si&quot;, &quot;p&quot;, &quot;s&quot;, &quot;cl&quot;, &quot;ar&quot;,
+		&quot;k&quot;, &quot;ca&quot;, &quot;sc&quot;, &quot;ti&quot;, &quot;v&quot;, &quot;cr&quot;, &quot;mn&quot;, &quot;fe&quot;, &quot;co&quot;, &quot;ni&quot;, &quot;cu&quot;,
+		&quot;zn&quot;, &quot;ga&quot;, &quot;ge&quot;, &quot;as&quot;, &quot;se&quot;, &quot;br&quot;, &quot;kr&quot;, &quot;rb&quot;, &quot;sr&quot;, &quot;y&quot;, &quot;zr&quot;,
+		&quot;nb&quot;, &quot;mo&quot;, &quot;tc&quot;, &quot;ru&quot;, &quot;rh&quot;, &quot;pd&quot;, &quot;ag&quot;, &quot;cd&quot;, &quot;in&quot;, &quot;sn&quot;, &quot;sb&quot;,
+		&quot;te&quot;, &quot;i&quot;, &quot;xe&quot;, &quot;cs&quot;, &quot;ba&quot;, &quot;la&quot;, &quot;ce&quot;, &quot;pr&quot;, &quot;nd&quot;, &quot;pm&quot;, &quot;sm&quot;,
+		&quot;eu&quot;, &quot;gd&quot;, &quot;tb&quot;, &quot;dy&quot;, &quot;ho&quot;, &quot;er&quot;, &quot;tm&quot;, &quot;yb&quot;, &quot;lu&quot;, &quot;hf&quot;, &quot;ta&quot;,
+		&quot;w&quot;, &quot;re&quot;, &quot;os&quot;, &quot;ir&quot;, &quot;pt&quot;, &quot;au&quot;, &quot;hg&quot;, &quot;tl&quot;, &quot;pb&quot;, &quot;bi&quot;, &quot;po&quot;,
+		&quot;at&quot;, &quot;rn&quot;, &quot;fr&quot;, &quot;ra&quot;, &quot;ac&quot;, &quot;th&quot;, &quot;pa&quot;, &quot;u&quot;, &quot;np&quot;, &quot;pu&quot;, &quot;am&quot;,
+		&quot;cm&quot;, &quot;bk&quot;, &quot;cf&quot;, &quot;es&quot;, &quot;fm&quot;, &quot;md&quot;, &quot;no&quot;, &quot;lr&quot;, &quot;rf&quot;, &quot;db&quot;, &quot;sg&quot;,
+		&quot;bh&quot;, &quot;hs&quot;, &quot;mt&quot; }</initializer>
+        <briefdescription>
+<para>names of each atom in order of atomic number </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="37" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a451c1c2142ac7d2cbf57f3fcba419373" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double libecpint::ROOT_PI</definition>
+        <argsstring></argsstring>
+        <name>ROOT_PI</name>
+        <initializer>= 1.772453850905516</initializer>
+        <briefdescription>
+<para>square root of PI </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" line="51" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a6305f5251f77037717df018fd2e56700" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double libecpint::SINH_1</definition>
+        <argsstring></argsstring>
+        <name>SINH_1</name>
+        <initializer>= 1.1752011936</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" line="52" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a35fea7df6515abbb84fc029150055a28" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int libecpint::MAX_POW</definition>
+        <argsstring></argsstring>
+        <name>MAX_POW</name>
+        <initializer>= 20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" line="53" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a683275f366eb38bfcc526bf5264d9376" prot="public" static="yes" mutable="no">
+        <type>double(*</type>
+        <definition>double(* libecpint::FAST_POW[23])(double)</definition>
+        <argsstring>[23])(double)</argsstring>
+        <name>FAST_POW</name>
+        <briefdescription>
+<para>Array of function pointers to hand-coded x**n routines. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" line="83" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a4fc3cf89f4b0b1787baabc364a16e377" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double libecpint::GAMMA[30]</definition>
+        <argsstring>[30]</argsstring>
+        <name>GAMMA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gamma function tabulation, where GAMMA[i] = Gamma((i+1)/2) e.g. GAMMA[0] = Gamma(1/2) = sqrt(Pi), GAMMA[1] = 0! = 1, GAMMA[2] = Gamma(3/2) = sqrt(Pi) / 2, etc. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" line="93" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacelibecpint_1a0084068573b7163775f478479de24255" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double libecpint::MIN_EXP</definition>
+        <argsstring></argsstring>
+        <name>MIN_EXP</name>
+        <initializer>= 0.002</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp" line="37" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacelibecpint_1a544c252dcf08f3ce5560b8066730601c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::shell_bound</definition>
+        <argsstring>(int la, double alpha, double A2, double eta)</argsstring>
+        <name>shell_bound</name>
+        <param>
+          <type>int</type>
+          <declname>la</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>A2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>eta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp" line="143" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp" bodystart="143" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a11466fdaf07952a659fe9ab5cd634743" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_m2</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_m2</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="33" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a36d15d50e1c9979ab73acf66f1019304" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_m1</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_m1</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="34" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a34d3b9ccb2d69e977f74ff88524cf856" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_0</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_0</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="35" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a1addfbe82d0601ae0f2392e952e58dda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_1</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_1</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="36" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a7b6040a6e46c20d2e23b692e0fbffdf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_2</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_2</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="37" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a61d1d1633673052f4bdf09074343672c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_3</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_3</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="38" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1abda78a2e83d967ee3da8b2fa7bff6ad0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_4</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_4</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="39" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a86323740854f95e4faa929dc192aea06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_5</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_5</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="40" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a7ecd27cd3ddff36e2a2e0ebeffa3d303" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_6</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_6</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="41" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a5bd73223ef2829c4d4e8f1fb68b7bcbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_7</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_7</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="42" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a2419326594e0adba8c22660003cee2ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_8</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_8</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="43" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1ac6cc42cb342d04a07173673b14e59b5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_9</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_9</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="44" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a8d415487a348138eae566f7b8ee4ce24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_10</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_10</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="45" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1aea1a1b36dedb45829a2cdb5ee133b6ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_11</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_11</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="46" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a38e7f34b9f4f6181178d70e2d1ebb7df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_12</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_12</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="47" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1afd6b073b13a5cc8ddb89a4d331dae638" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_13</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_13</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="48" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1ad62d70ca1e4137214af96b66ba9e50f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_14</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_14</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="49" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1aad2f9701f24b74e7db5f8d1098b48cf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_15</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_15</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="50" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a250f67b7a3f611c4b8acdd8d90e0bec6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_16</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_16</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="51" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1aa93c5edc1ed250d59cfb1687865c7af3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_17</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_17</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="52" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a15cb24b7b0a3530c911ff0c782ef3378" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_18</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_18</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="53" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a02aadabb1b7fceb975aa42706bb2be8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_19</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_19</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="54" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a5d0157ab6282709bcec5e37a841e8fbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::pow_20</definition>
+        <argsstring>(double z)</argsstring>
+        <name>pow_20</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="55" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a0d3d7448d52abd739d6d100afa6d4e8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::initFactorials</definition>
+        <argsstring>()</argsstring>
+        <name>initFactorials</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialises the global factorial and double factorial arrays </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="57" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="57" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1af2fa15848e7d9cfe1e61fc579a94080d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref>&lt; double &gt;</type>
+        <definition>TwoIndex&lt; double &gt; libecpint::realSphericalHarmonics</definition>
+        <argsstring>(int lmax, double x, double phi)</argsstring>
+        <name>realSphericalHarmonics</name>
+        <param>
+          <type>int</type>
+          <declname>lmax</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>phi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates real spherical harmonics S_lm(theta, phi) for all l, m up to lmax <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lmax</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the maximum angular momentum needed </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- cos(theta), where theta is the polar angle in spherical coordinates </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>phi</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the azimuth angle in spherical coordinates </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a matrix S(l, l+m) of the spherical harmonic values </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="71" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="71" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a4c0dd5f75d6fc9b5329c97195b0b5e6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::frobenius_norm</definition>
+        <argsstring>(TwoIndex&lt; double &gt; &amp;mat)</argsstring>
+        <name>frobenius_norm</name>
+        <param>
+          <type><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref>&lt; double &gt; &amp;</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- a reference to a <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref> array </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the Frobenius norm of mat </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" line="128" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp" bodystart="128" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a3a4ed9b49d76dd6974d2dbc6bb181ab8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; libecpint::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, const SumTerm &amp;s)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structlibecpint_1_1_sum_term" kindref="compound">SumTerm</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="136" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="136" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a23ce2cda098d601b0fddfb10b971e33f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Ch</type>
+          </param>
+          <param>
+            <type>class Tr</type>
+          </param>
+          <param>
+            <type>class...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto libecpint::operator&lt;&lt;</definition>
+        <argsstring>(std::basic_ostream&lt; Ch, Tr &gt; &amp;os, std::tuple&lt; Args... &gt; const &amp;t) -&gt; std::basic_ostream&lt; Ch, Tr &gt; &amp;</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::basic_ostream&lt; Ch, Tr &gt; &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>std::tuple&lt; Args... &gt; const &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="61" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="61" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacelibecpint_1a2c6257f0f39de7233558e384908f1526" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>int</type>
+        <definition>int libecpint::check_file</definition>
+        <argsstring>(std::string filename, std::vector&lt; T &gt; &amp;results, double thresh=1e-5, double precision=1e-10)</argsstring>
+        <name>check_file</name>
+        <param>
+          <type>std::string</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; T &gt; &amp;</type>
+          <declname>results</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>thresh</declname>
+          <defval>1e-5</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>precision</declname>
+          <defval>1e-10</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A helper function for tests that reads in a file of values and compares them to those provided by the test, returning 0 on success or 1 on failure.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the type of the value; must be pipeable from a stringstream. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the file to read data from </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>results</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to the vector of calculated results </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if the results agree with the file within 0.00005%, 1 otherwise </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/testutil.hpp" line="47" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/testutil.hpp" bodystart="47" bodyend="93"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/radial_gen.cpp" line="30" column="1"/>
+  </compounddef>
+</doxygen>

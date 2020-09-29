@@ -1,0 +1,919 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classlibecpint_1_1_e_c_p_integral" kind="class" language="C++" prot="public">
+    <compoundname>libecpint::ECPIntegral</compoundname>
+    <includes refid="ecpint_8hpp" local="no">ecpint.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlibecpint_1_1_e_c_p_integral_1af9cee7a7a59bfa3ae1645d77b3fec7d6" prot="private" static="no" mutable="no">
+        <type><ref refid="classlibecpint_1_1_radial_integral" kindref="compound">RadialIntegral</ref></type>
+        <definition>RadialIntegral libecpint::ECPIntegral::radInts</definition>
+        <argsstring></argsstring>
+        <name>radInts</name>
+        <briefdescription>
+<para>The interface to the radial integral calculation. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="59" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_e_c_p_integral_1a1d53a9bf47dfc66607950856e0f8f8b1" prot="private" static="no" mutable="no">
+        <type><ref refid="classlibecpint_1_1_angular_integral" kindref="compound">AngularIntegral</ref></type>
+        <definition>AngularIntegral libecpint::ECPIntegral::angInts</definition>
+        <argsstring></argsstring>
+        <name>angInts</name>
+        <briefdescription>
+<para>The angular integrals, which can be reused over all <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> centers. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="60" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_e_c_p_integral_1adf1cf428039ead3bcf749f534454077c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double libecpint::ECPIntegral::tolerance</definition>
+        <argsstring></argsstring>
+        <name>tolerance</name>
+        <initializer>= 1e-12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="62" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classlibecpint_1_1_e_c_p_integral_1a4dd23f2102d981526a2e01c4a9818bff" prot="private" static="yes" mutable="no">
+        <type>void(*</type>
+        <definition>void(* libecpint::ECPIntegral::QGEN[LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1])(ECP &amp;, GaussianShell &amp;, GaussianShell &amp;, FiveIndex&lt; double &gt; &amp;, FiveIndex&lt; double &gt; &amp;, TwoIndex&lt; double &gt; &amp;, TwoIndex&lt; double &gt; &amp;, double, double, RadialIntegral &amp;, AngularIntegral &amp;, ThreeIndex&lt; double &gt; &amp;)</definition>
+        <argsstring>[LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1])(ECP &amp;, GaussianShell &amp;, GaussianShell &amp;, FiveIndex&lt; double &gt; &amp;, FiveIndex&lt; double &gt; &amp;, TwoIndex&lt; double &gt; &amp;, TwoIndex&lt; double &gt; &amp;, double, double, RadialIntegral &amp;, AngularIntegral &amp;, ThreeIndex&lt; double &gt; &amp;)</argsstring>
+        <name>QGEN</name>
+        <briefdescription>
+<para>Array of function pointers to generated integral evaluators in qgen. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="68" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classlibecpint_1_1_e_c_p_integral_1aba908eb13b8af1c8e75985689e261b52" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::ECPIntegral::skipped</definition>
+        <argsstring></argsstring>
+        <name>skipped</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="73" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_e_c_p_integral_1aae5da3068b091751bb508d88aed0fe01" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::ECPIntegral::zero</definition>
+        <argsstring></argsstring>
+        <name>zero</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="73" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_e_c_p_integral_1ad5e0dad126b9c0631dd3afe137c58d64" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::ECPIntegral::nonzero</definition>
+        <argsstring></argsstring>
+        <name>nonzero</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="73" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlibecpint_1_1_e_c_p_integral_1a4659eadbdeaf45a872facaf1f88c5664" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::ECPIntegral::calcC</definition>
+        <argsstring>(int a, int m, double A) const</argsstring>
+        <name>calcC</name>
+        <param>
+          <type>int</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+<para>Worker functions for calculating binomial expansion coefficients. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="65" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp" bodystart="51" bodyend="56"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlibecpint_1_1_e_c_p_integral_1aed281dde8a69e07610c31308044580b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::ECPIntegral::makeC</definition>
+        <argsstring>(FiveIndex&lt; double &gt; &amp;C, int L, double *A)</argsstring>
+        <name>makeC</name>
+        <param>
+          <type><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex</ref>&lt; double &gt; &amp;</type>
+          <declname>C</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs the coefficients in the binomial expansion (see REF. Shaw2017) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>C</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to a <ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex</ref> array to store the results in </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- maximum angular momentum to go up to in expansion </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- xyz coordinates for the center to calculate over </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="81" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp" bodystart="58" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_e_c_p_integral_1ae5871ce6997e2893ff6a8bd24fe236b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>libecpint::ECPIntegral::ECPIntegral</definition>
+        <argsstring>(int maxLB, int maxLU, int deriv=0)</argsstring>
+        <name>ECPIntegral</name>
+        <param>
+          <type>int</type>
+          <declname>maxLB</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maxLU</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>deriv</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates an <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrator, initialising the radial and angular parts for subsequent calculations. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maxLB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the maximum angular momentum in the orbital basis </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxLU</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the maximum angular momentum in the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> basis </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deriv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the maximum order of derivative to be calculated (TODO: derivs currently being implemented) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="89" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp" bodystart="36" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_e_c_p_integral_1afe5cd2c1f007508a1fcae65e9a26e36e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::ECPIntegral::type1</definition>
+        <argsstring>(ECP &amp;U, GaussianShell &amp;shellA, GaussianShell &amp;shellB, ShellPairData &amp;data, FiveIndex&lt; double &gt; &amp;CA, FiveIndex&lt; double &gt; &amp;CB, TwoIndex&lt; double &gt; &amp;values)</argsstring>
+        <name>type1</name>
+        <param>
+          <type><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> &amp;</type>
+          <declname>U</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellA</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellB</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_shell_pair_data" kindref="compound">ShellPairData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex</ref>&lt; double &gt; &amp;</type>
+          <declname>CA</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex</ref>&lt; double &gt; &amp;</type>
+          <declname>CB</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref>&lt; double &gt; &amp;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the type 1 integrals for the given <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> center over the given shell pair, using quadrature <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the first basis shell (rows in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the second basis shell (cols in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- wrapper for data about shell pair </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>CA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- binomial expansion coefficients for shellA, made with makeC </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>CB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- binomial expansion coefficients for shellB, made with makeC </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>values</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- array in which results are returned </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="101" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp" bodystart="77" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_e_c_p_integral_1a628cffa5e8e3e4fa2abecd446a13eae9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::ECPIntegral::type2</definition>
+        <argsstring>(int l, ECP &amp;U, GaussianShell &amp;shellA, GaussianShell &amp;shellB, ShellPairData &amp;data, FiveIndex&lt; double &gt; &amp;CA, FiveIndex&lt; double &gt; &amp;CB, ThreeIndex&lt; double &gt; &amp;values)</argsstring>
+        <name>type2</name>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> &amp;</type>
+          <declname>U</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellA</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellB</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_shell_pair_data" kindref="compound">ShellPairData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex</ref>&lt; double &gt; &amp;</type>
+          <declname>CA</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex</ref>&lt; double &gt; &amp;</type>
+          <declname>CB</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex</ref>&lt; double &gt; &amp;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the type 2 integrals for the given <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> center over the given shell pair <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- angular momentum shell of <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> to calculate over </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the first basis shell (rows in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the second basis shell (cols in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- wrapper for data about shell pair </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>CA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- binomial expansion coefficients for shellA, made with makeC </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>CB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- binomial expansion coefficients for shellB, made with makeC </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>values</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- array in which results are returned </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="114" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp" bodystart="156" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_e_c_p_integral_1a37a53e640e2d09202d7ce6925fbbcaff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::ECPIntegral::estimate_type2</definition>
+        <argsstring>(ECP &amp;U, GaussianShell &amp;shellA, GaussianShell &amp;shellB, ShellPairData &amp;data, double *results)</argsstring>
+        <name>estimate_type2</name>
+        <param>
+          <type><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> &amp;</type>
+          <declname>U</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellA</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellB</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_shell_pair_data" kindref="compound">ShellPairData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>results</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="116" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp" bodystart="293" bodyend="334"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_e_c_p_integral_1a983fc271cb866676fe88fe46634906d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::ECPIntegral::compute_shell_pair</definition>
+        <argsstring>(ECP &amp;U, GaussianShell &amp;shellA, GaussianShell &amp;shellB, TwoIndex&lt; double &gt; &amp;values, int shiftA=0, int shiftB=0)</argsstring>
+        <name>compute_shell_pair</name>
+        <param>
+          <type><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> &amp;</type>
+          <declname>U</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellA</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellB</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref>&lt; double &gt; &amp;</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>shiftA</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>shiftB</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Computes the overall <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrals over the given <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> center and shell pair. This is the lower level API, where you want finer control over the calculation. Results are returned with rows corresponding to shellA and cols to shellB, with the Cartesian functions in alpha order e.g. {xxx, xxy, xxz, xyy, xyz, xzz, yyy, yyz, yzz, zzz} l = 3</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> to calculate the integral over </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the first basis shell (rows in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the second basis shell (cols in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>values</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref> array where the results will be stored </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="129" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp" bodystart="336" bodyend="410"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_e_c_p_integral_1abdb90e30f2181179ef45211e680cca0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::ECPIntegral::compute_shell_pair_derivative</definition>
+        <argsstring>(ECP &amp;U, GaussianShell &amp;shellA, GaussianShell &amp;shellB, std::array&lt; TwoIndex&lt; double &gt;, 9 &gt; &amp;results)</argsstring>
+        <name>compute_shell_pair_derivative</name>
+        <param>
+          <type><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> &amp;</type>
+          <declname>U</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellA</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellB</declname>
+        </param>
+        <param>
+          <type>std::array&lt; <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref>&lt; double &gt;, 9 &gt; &amp;</type>
+          <declname>results</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Computes the overall <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integral first derivatives over the given <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> center, C, and shell pair (A | B) The results are placed in order [Ax, Ay, Az, Bx, By, Bz, Cx, Cy, Cz] and are calculated so that each component can always be added to the relevant total derivative. E.g. if A = B, then the contribution to the total derivative for that coordinate on the x axis will be Ax + Bx. The order for each derivative matrices matches that specified in compute_shell_pair</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the first basis shell (rows in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the second basis shell (cols in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>results</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to array of 9 <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref> arrays where the results will be stored </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="143" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp" bodystart="619" bodyend="677"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_e_c_p_integral_1a12fda657835a586afbfda05e2a8660c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::ECPIntegral::compute_shell_pair_second_derivative</definition>
+        <argsstring>(ECP &amp;U, GaussianShell &amp;shellA, GaussianShell &amp;shellB, std::array&lt; TwoIndex&lt; double &gt;, 45 &gt; &amp;results)</argsstring>
+        <name>compute_shell_pair_second_derivative</name>
+        <param>
+          <type><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> &amp;</type>
+          <declname>U</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellA</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellB</declname>
+        </param>
+        <param>
+          <type>std::array&lt; <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref>&lt; double &gt;, 45 &gt; &amp;</type>
+          <declname>results</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Computes the overall <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integral second derivatives over the given <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> center, C, and shell pair (A | B) The results are placed in order [AA, AB, AC, BB, BC, CC] with components [xx, xy, xz, yy, yz, zz] for AA, BB, and CC, and [xx, xy, xz, yx, yy, yz, zx, zy, zz] for AB, AC, and BC. As for the first derivatives, the components are calculated such that they can usually be added to the relevant total derivative. However, this is more complicated than for first derivatives, especially in the instance where A=B. It&apos;s recommended to look at the compute_second_derivatives interface in <ref refid="api_8cpp" kindref="compound">api.cpp</ref> for how to handle this. The order for each derivative matrices matches that specified in compute_shell_pair</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the first basis shell (rows in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the second basis shell (cols in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>results</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to array of 45 <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref> arrays where the results will be stored </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="159" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp" bodystart="679" bodyend="761"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_e_c_p_integral_1ab6ac47f8d0b0f203eac83a4ddc758d74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::ECPIntegral::left_shell_derivative</definition>
+        <argsstring>(ECP &amp;U, GaussianShell &amp;shellA, GaussianShell &amp;shellB, std::array&lt; TwoIndex&lt; double &gt;, 3 &gt; &amp;results)</argsstring>
+        <name>left_shell_derivative</name>
+        <param>
+          <type><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> &amp;</type>
+          <declname>U</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellA</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellB</declname>
+        </param>
+        <param>
+          <type>std::array&lt; <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref>&lt; double &gt;, 3 &gt; &amp;</type>
+          <declname>results</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Worker function to calculate the derivative of the integral &lt;A | C | B&gt; with respect to A. This is given as &lt;d_q A(l_q) | C | B&gt; = l_q*&lt;A(l_q-1) | C | B&gt; - 2*mu*&lt;A(l_q + 1) | C | B&gt; where l_q is the angular momentum component of A in the q coordinate, and mu is the exponent of A.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the first basis shell (rows in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the second basis shell (cols in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>results</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to array of 3 <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref> arrays for the [x, y, z] derivatives </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="171" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp" bodystart="412" bodyend="462"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_e_c_p_integral_1aa7fbc2190ff870e8047ffc48d191981e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::ECPIntegral::left_shell_second_derivative</definition>
+        <argsstring>(ECP &amp;U, GaussianShell &amp;shellA, GaussianShell &amp;shellB, std::array&lt; TwoIndex&lt; double &gt;, 6 &gt; &amp;results)</argsstring>
+        <name>left_shell_second_derivative</name>
+        <param>
+          <type><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> &amp;</type>
+          <declname>U</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellA</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellB</declname>
+        </param>
+        <param>
+          <type>std::array&lt; <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref>&lt; double &gt;, 6 &gt; &amp;</type>
+          <declname>results</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Worker function to calculate the second derivatives of the integral &lt;A | C | B&gt; with respect to AA. This is given as &lt;d_p d_q A(l_p, l_q) | C | B&gt; = l_p*l_q*&lt;A(l_p-1, l_q-1) | C | B&gt; - 2*mu*l_p*&lt;A(l_p-1, l_q+1) | C | B&gt;<itemizedlist>
+<listitem><para>2*mu*l_q*&lt;A(l_p+1, l_q-1) | C | B&gt; + 4*mu^2*&lt;A(l_p+1, l_q+1) | C | B &gt;</para></listitem></itemizedlist>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the first basis shell (rows in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the second basis shell (cols in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>results</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to array of 6 <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref> arrays for the [xx, xy, xz, yy, yz, zz] derivatives </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="183" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp" bodystart="464" bodyend="536"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_e_c_p_integral_1add9d02bf57d835f6bdc9389c920b527c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::ECPIntegral::mixed_second_derivative</definition>
+        <argsstring>(ECP &amp;U, GaussianShell &amp;shellA, GaussianShell &amp;shellB, std::array&lt; TwoIndex&lt; double &gt;, 9 &gt; &amp;results)</argsstring>
+        <name>mixed_second_derivative</name>
+        <param>
+          <type><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> &amp;</type>
+          <declname>U</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellA</declname>
+        </param>
+        <param>
+          <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>shellB</declname>
+        </param>
+        <param>
+          <type>std::array&lt; <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref>&lt; double &gt;, 9 &gt; &amp;</type>
+          <declname>results</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Worker function to calculate the second derivatives of the integral &lt;A | C | B&gt; with respect to AB. This is given as &lt;d_p A(l_p) | C | d_q B(l_q)&gt; = l_p*l_q*&lt;A(l_p-1) | C | B(l_q-1)&gt; - 2*mu_B*l_p*&lt;A(l_p-1) | C | B(l_q+1)&gt;<itemizedlist>
+<listitem><para>2*mu_A*l_q*&lt;A(l_p+1) | C | B(l_q-1)&gt; + 4*mu_A*mu_B*&lt;A(l_p+1) | C | B(l_q+1) &gt;</para></listitem></itemizedlist>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the first basis shell (rows in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shellB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the second basis shell (cols in values) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>results</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to array of 9 <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref> arrays for the [xx, xy, xz, yx, yy, yz, zx, zy, zz] derivatives </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="195" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp" bodystart="538" bodyend="617"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Calculates <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrals. </para>    </briefdescription>
+    <detaileddescription>
+<para>Given an <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> basis, and orbital bases, this will calculate the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrals over all <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> centers.</para><para>REFERENCES: (Shaw2017) R. A. Shaw, J. G. Hill, J. Chem. Phys. 147 (2017), 074108 (Flores06) R. Flores-Moreno et al., J. Comput. Chem. 27 (2006), 1009 (MM81) L. E. McMurchie and E. R. Davidson, J. Comp. Phys. 44 (1981), 289 - 301 </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="30">
+        <label>libecpint::TwoIndex&lt; double &gt;</label>
+        <link refid="structlibecpint_1_1_two_index"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="25">
+        <label>std::vector&lt; double &gt;</label>
+      </node>
+      <node id="28">
+        <label>libecpint::BesselFunction</label>
+        <link refid="classlibecpint_1_1_bessel_function"/>
+      </node>
+      <node id="26">
+        <label>libecpint::FiveIndex&lt; double &gt;</label>
+        <link refid="structlibecpint_1_1_five_index"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="27">
+        <label>libecpint::RadialIntegral</label>
+        <link refid="classlibecpint_1_1_radial_integral"/>
+        <childnode refid="28" relation="usage">
+          <edgelabel>bessie</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>primGrid</edgelabel>
+          <edgelabel>smallGrid</edgelabel>
+          <edgelabel>bigGrid</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>P2</edgelabel>
+          <edgelabel>K</edgelabel>
+          <edgelabel>p</edgelabel>
+          <edgelabel>P</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>libecpint::AngularIntegral</label>
+        <link refid="classlibecpint_1_1_angular_integral"/>
+        <childnode refid="24" relation="usage">
+          <edgelabel>omega</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>W</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>libecpint::ECPIntegral</label>
+        <link refid="classlibecpint_1_1_e_c_p_integral"/>
+        <childnode refid="23" relation="usage">
+          <edgelabel>angInts</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>radInts</edgelabel>
+        </childnode>
+      </node>
+      <node id="24">
+        <label>libecpint::SevenIndex&lt; double &gt;</label>
+        <link refid="structlibecpint_1_1_seven_index"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="29">
+        <label>libecpint::GCQuadrature</label>
+        <link refid="classlibecpint_1_1_g_c_quadrature"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>w</edgelabel>
+          <edgelabel>x</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" line="57" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp" bodystart="56" bodyend="197"/>
+    <listofallmembers>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1a1d53a9bf47dfc66607950856e0f8f8b1" prot="private" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>angInts</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1a4659eadbdeaf45a872facaf1f88c5664" prot="private" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>calcC</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1a983fc271cb866676fe88fe46634906d8" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>compute_shell_pair</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1abdb90e30f2181179ef45211e680cca0f" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>compute_shell_pair_derivative</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1a12fda657835a586afbfda05e2a8660c2" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>compute_shell_pair_second_derivative</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1ae5871ce6997e2893ff6a8bd24fe236b0" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>ECPIntegral</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1a37a53e640e2d09202d7ce6925fbbcaff" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>estimate_type2</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1ab6ac47f8d0b0f203eac83a4ddc758d74" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>left_shell_derivative</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1aa7fbc2190ff870e8047ffc48d191981e" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>left_shell_second_derivative</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1aed281dde8a69e07610c31308044580b7" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>makeC</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1add9d02bf57d835f6bdc9389c920b527c" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>mixed_second_derivative</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1ad5e0dad126b9c0631dd3afe137c58d64" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>nonzero</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1a4dd23f2102d981526a2e01c4a9818bff" prot="private" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>QGEN</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1af9cee7a7a59bfa3ae1645d77b3fec7d6" prot="private" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>radInts</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1aba908eb13b8af1c8e75985689e261b52" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>skipped</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1adf1cf428039ead3bcf749f534454077c" prot="private" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>tolerance</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1afe5cd2c1f007508a1fcae65e9a26e36e" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>type1</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1a628cffa5e8e3e4fa2abecd446a13eae9" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>type2</name></member>
+      <member refid="classlibecpint_1_1_e_c_p_integral_1aae5da3068b091751bb508d88aed0fe01" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegral</scope><name>zero</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

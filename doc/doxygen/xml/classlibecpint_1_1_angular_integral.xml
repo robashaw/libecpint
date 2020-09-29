@@ -1,0 +1,753 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classlibecpint_1_1_angular_integral" kind="class" language="C++" prot="public">
+    <compoundname>libecpint::AngularIntegral</compoundname>
+    <includes refid="angular_8hpp" local="no">angular.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlibecpint_1_1_angular_integral_1a3513c16ca75d1951fc22f511da917834" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::AngularIntegral::LB</definition>
+        <argsstring></argsstring>
+        <name>LB</name>
+        <briefdescription>
+<para>Maximum angular momentum of orbital basis. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="43" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_angular_integral_1a41c35cd22346cbd20a6f886ab3123f29" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::AngularIntegral::LE</definition>
+        <argsstring></argsstring>
+        <name>LE</name>
+        <briefdescription>
+<para>Maximum angular momentum of <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> basis. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="44" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_angular_integral_1a4ccd7f1e5c6f5cab80cf659a2e5b8e7d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::AngularIntegral::wDim</definition>
+        <argsstring></argsstring>
+        <name>wDim</name>
+        <briefdescription>
+<para>Limits for the w-integral indices. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="46" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_angular_integral_1aee2aa0fdc71769a6a34d9582c2d1dc8a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::AngularIntegral::maxL</definition>
+        <argsstring></argsstring>
+        <name>maxL</name>
+        <briefdescription>
+<para>Limits for the angular momentum indices. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="47" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_angular_integral_1a3d5eb4048daee7f411bf36e64f6a839d" prot="private" static="no" mutable="no">
+        <type><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex</ref>&lt; double &gt;</type>
+        <definition>FiveIndex&lt;double&gt; libecpint::AngularIntegral::W</definition>
+        <argsstring></argsstring>
+        <name>W</name>
+        <briefdescription>
+<para>Stores the type 1 angular integrals. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="49" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_angular_integral_1a71b79b6db25a13af4333b355d4eac05e" prot="private" static="no" mutable="no">
+        <type><ref refid="structlibecpint_1_1_seven_index" kindref="compound">SevenIndex</ref>&lt; double &gt;</type>
+        <definition>SevenIndex&lt;double&gt; libecpint::AngularIntegral::omega</definition>
+        <argsstring></argsstring>
+        <name>omega</name>
+        <briefdescription>
+<para>Stores the type 2 angular integrals. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="50" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a15bbecae0c6c9db570f07c06f7581841" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::AngularIntegral::calcG</definition>
+        <argsstring>(int l, int m) const</argsstring>
+        <name>calcG</name>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Worker functions for calculating terms in the USP to spherical transformation coefficients. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="53" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="32" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1abfe9a899ab68d7edba0a1e4ea313a4ab" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::AngularIntegral::calcH1</definition>
+        <argsstring>(int i, int j, int l, int m) const</argsstring>
+        <name>calcH1</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>j</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="54" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="42" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a607358498adb165ebb9412fa094232af" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::AngularIntegral::calcH2</definition>
+        <argsstring>(int i, int j, int k, int m) const</argsstring>
+        <name>calcH2</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>j</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="55" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="51" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1ada7167723e1fba654c0efe2bcac419f8" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex</ref>&lt; double &gt;</type>
+        <definition>ThreeIndex&lt; double &gt; libecpint::AngularIntegral::Pijk</definition>
+        <argsstring>(int maxI) const</argsstring>
+        <name>Pijk</name>
+        <param>
+          <type>int</type>
+          <declname>maxI</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the polynomial integrals, int (x^i y^j z^k dOm) where dOm is the solid angle differential <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maxI</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the maximum power, i, to determine </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex</ref> of polynomials P(i, j, k), where strictly i &gt;= j &gt;= k </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="62" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="104" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a0ca75310132e0849b0a0d696e8d4c43a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::AngularIntegral::makeW</definition>
+        <argsstring>(FiveIndex&lt; double &gt; &amp;U)</argsstring>
+        <name>makeW</name>
+        <param>
+          <type><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex</ref>&lt; double &gt; &amp;</type>
+          <declname>U</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Builds the type 1 angular integrals <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the USP to spherical transformation coefficients </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="68" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="143" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a4d71a79be812fdf54ce923e6005f821c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::AngularIntegral::makeOmega</definition>
+        <argsstring>(FiveIndex&lt; double &gt; &amp;U)</argsstring>
+        <name>makeOmega</name>
+        <param>
+          <type><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex</ref>&lt; double &gt; &amp;</type>
+          <declname>U</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Builds the type 2 angular integrals <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the USP to spherical transformation coefficients </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="73" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="190" bodyend="234"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a15586cc96d2809db4db875558b89e082" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex</ref>&lt; double &gt;</type>
+        <definition>ThreeIndex&lt; double &gt; libecpint::AngularIntegral::uklm</definition>
+        <argsstring>(int lam, int mu) const</argsstring>
+        <name>uklm</name>
+        <param>
+          <type>int</type>
+          <declname>lam</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates all possible USP to spherical transformation coefficients for a given angular momentum <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lam</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the angular momentum </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the subshell </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex</ref> of the values U_lam,mu(k, l, m) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="83" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="63" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a7dbfd0ec17dc53dd2f316394fc77186c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex</ref>&lt; double &gt;</type>
+        <definition>FiveIndex&lt; double &gt; libecpint::AngularIntegral::makeU</definition>
+        <argsstring>()</argsstring>
+        <name>makeU</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Builds the USP to spherical transformation coefficients for use in calculating the type 1 and 2 integrals <simplesect kind="return"><para><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex</ref> of the coefficients U(lam, lam+mu, k, l, m) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="89" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="124" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a19293828fca3018cdcdc4f14e9b9ded6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>libecpint::AngularIntegral::AngularIntegral</definition>
+        <argsstring>()</argsstring>
+        <name>AngularIntegral</name>
+        <briefdescription>
+<para>Default constructor creates empty object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="92" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="236" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a81aa19e40bf5eba60811de5bf5e9e714" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>libecpint::AngularIntegral::AngularIntegral</definition>
+        <argsstring>(int LB, int LE)</argsstring>
+        <name>AngularIntegral</name>
+        <param>
+          <type>int</type>
+          <declname>LB</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>LE</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Specified constructor calls init with given arguments <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>LB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the maximum angular momentum of the orbital basis </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>LE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the maximum angular momentum of the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> basis </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="99" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="237" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1aa800d3d2f3edac502daf5e8fc332d710" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::AngularIntegral::init</definition>
+        <argsstring>(int LB, int LE)</argsstring>
+        <name>init</name>
+        <param>
+          <type>int</type>
+          <declname>LB</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>LE</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialises the object, must be called before anything else if default constructor was used. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>LB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the maximum angular momentum of the orbital basis </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>LE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the maximum angular momentum of the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> basis </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="106" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="238" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a2d43cc97a39834a4d398a952396b3ae7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::AngularIntegral::compute</definition>
+        <argsstring>()</argsstring>
+        <name>compute</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Computes the type 1 and 2 angular integrals </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="111" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="246" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a3d515a35b18f2260724fe82adc189757" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::AngularIntegral::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>TODO: Clears the W and omega arrays. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="114" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="252" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a9effa990cf6a6d2b1a760b465e3cd458" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::AngularIntegral::getIntegral</definition>
+        <argsstring>(int k, int l, int m, int lam, int mu) const</argsstring>
+        <name>getIntegral</name>
+        <param>
+          <type>int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lam</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the type 1 angular integral W(k, l, m, lam, mu) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- x index </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- y index </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- z index </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lam</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- angular momentum </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- subshell </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>value of type 1 angular integral </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="125" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="254" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a5adeda40331f10cde2da58cd3e163ffd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::AngularIntegral::getIntegral</definition>
+        <argsstring>(int k, int l, int m, int lam, int mu, int rho, int sigma) const</argsstring>
+        <name>getIntegral</name>
+        <param>
+          <type>int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lam</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mu</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rho</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sigma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the type 2 angular integral Omega(k, l, m, lam, mu, rho, sigma) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- x index </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- y index </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- z index </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lam</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- angular momentum of current <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> shell </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- subshell of lam </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rho</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- angular momentum of current basis shell </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sigma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- subshell of rho </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>value of type 2 angular integral </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="138" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="255" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1abde644b16469b8d74cb84ae987debeb8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int *</type>
+        <definition>int* libecpint::AngularIntegral::getOmegaMults</definition>
+        <argsstring>()</argsstring>
+        <name>getOmegaMults</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="140" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" bodystart="140" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a09e0973f954e6b63388696757ff322d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int *</type>
+        <definition>int* libecpint::AngularIntegral::getOmegaDims</definition>
+        <argsstring>()</argsstring>
+        <name>getOmegaDims</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="141" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" bodystart="141" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a14bc6e72e5c1151c116b4bfa06c7895b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt; &amp;</type>
+        <definition>std::vector&lt;double&gt;&amp; libecpint::AngularIntegral::getOmegaData</definition>
+        <argsstring>()</argsstring>
+        <name>getOmegaData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="142" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" bodystart="142" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a28578c8be3cdec10a6a65e2966a96e94" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool libecpint::AngularIntegral::isZero</definition>
+        <argsstring>(int k, int l, int m, int lam, int mu, double tolerance) const</argsstring>
+        <name>isZero</name>
+        <param>
+          <type>int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lam</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mu</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tolerance</declname>
+        </param>
+        <briefdescription>
+<para>is W(k, l, m, lam, mu) zero to within a given tolerance? </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="146" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="257" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_angular_integral_1a3e60281cb1e69e01d2c79bd29ade70f9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool libecpint::AngularIntegral::isZero</definition>
+        <argsstring>(int k, int l, int m, int lam, int mu, int rho, int sigma, double tolerance) const</argsstring>
+        <name>isZero</name>
+        <param>
+          <type>int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lam</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mu</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rho</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sigma</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tolerance</declname>
+        </param>
+        <briefdescription>
+<para>is Omega(k, l, m, lam, mu, rho, sigma) zero to within a given tolerance? </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="149" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp" bodystart="261" bodyend="264"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Calculates and stores the angular integrals needed for <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integration. </para>    </briefdescription>
+    <detaileddescription>
+<para>This should not usually be created directly, it is instead owned by an <ref refid="classlibecpint_1_1_e_c_p_integral" kindref="compound">ECPIntegral</ref> object, so that integrals can be performed over multiple <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> centers without duplicating work. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>std::vector&lt; double &gt;</label>
+      </node>
+      <node id="4">
+        <label>libecpint::FiveIndex&lt; double &gt;</label>
+        <link refid="structlibecpint_1_1_five_index"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libecpint::AngularIntegral</label>
+        <link refid="classlibecpint_1_1_angular_integral"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>omega</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>W</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libecpint::SevenIndex&lt; double &gt;</label>
+        <link refid="structlibecpint_1_1_seven_index"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" line="41" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp" bodystart="40" bodyend="150"/>
+    <listofallmembers>
+      <member refid="classlibecpint_1_1_angular_integral_1a19293828fca3018cdcdc4f14e9b9ded6" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>AngularIntegral</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a81aa19e40bf5eba60811de5bf5e9e714" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>AngularIntegral</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a15bbecae0c6c9db570f07c06f7581841" prot="private" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>calcG</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1abfe9a899ab68d7edba0a1e4ea313a4ab" prot="private" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>calcH1</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a607358498adb165ebb9412fa094232af" prot="private" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>calcH2</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a3d515a35b18f2260724fe82adc189757" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>clear</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a2d43cc97a39834a4d398a952396b3ae7" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>compute</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a9effa990cf6a6d2b1a760b465e3cd458" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>getIntegral</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a5adeda40331f10cde2da58cd3e163ffd" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>getIntegral</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a14bc6e72e5c1151c116b4bfa06c7895b" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>getOmegaData</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a09e0973f954e6b63388696757ff322d6" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>getOmegaDims</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1abde644b16469b8d74cb84ae987debeb8" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>getOmegaMults</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1aa800d3d2f3edac502daf5e8fc332d710" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>init</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a28578c8be3cdec10a6a65e2966a96e94" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>isZero</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a3e60281cb1e69e01d2c79bd29ade70f9" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>isZero</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a3513c16ca75d1951fc22f511da917834" prot="private" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>LB</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a41c35cd22346cbd20a6f886ab3123f29" prot="private" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>LE</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a4d71a79be812fdf54ce923e6005f821c" prot="private" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>makeOmega</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a7dbfd0ec17dc53dd2f316394fc77186c" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>makeU</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a0ca75310132e0849b0a0d696e8d4c43a" prot="private" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>makeW</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1aee2aa0fdc71769a6a34d9582c2d1dc8a" prot="private" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>maxL</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a71b79b6db25a13af4333b355d4eac05e" prot="private" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>omega</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1ada7167723e1fba654c0efe2bcac419f8" prot="private" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>Pijk</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a15586cc96d2809db4db875558b89e082" prot="public" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>uklm</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a3d5eb4048daee7f411bf36e64f6a839d" prot="private" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>W</name></member>
+      <member refid="classlibecpint_1_1_angular_integral_1a4ccd7f1e5c6f5cab80cf659a2e5b8e7d" prot="private" virt="non-virtual"><scope>libecpint::AngularIntegral</scope><name>wDim</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

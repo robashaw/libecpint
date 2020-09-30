@@ -6,8 +6,6 @@ project( libecpint
          VERSION 1.0
          LANGUAGES C CXX)
 
-# we need at least C++11
-set (CMAKE_CXX_STANDARD 11)
 set (CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 # code generator variables
@@ -16,29 +14,30 @@ set (LIBECPINT_MAX_UNROL "1" CACHE STRING "Maximum L for unrolling")
 
 # configure the config header to pass the above variables to the program
 configure_file (
-	      "${PROJECT_SOURCE_DIR}/include/libecpint/config.hpp.in"
-	      "${PROJECT_BINARY_DIR}/include/libecpint/config.hpp"
+  "${PROJECT_SOURCE_DIR}/include/libecpint/config.hpp.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp"
 )
 
-include(CTest)
 include(ExternalProject)
-include(external/external.cmake)
-
-include_directories(${PROJECT_BINARY_DIR}/include/libecpint)
-
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/libecpint)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/Faddeeva)
-include_directories(${PUGIXML_INCLUDE_DIR})
+include(external/ImportPugiXML.cmake)
 message(${PUGIXML_INCLUDE_DIR})
 
+add_subdirectory(external)
 add_subdirectory(src)
 
-enable_testing()
-add_subdirectory(tests)
-add_subdirectory(doc)
+option(LIBECPINT_BUILD_TESTS "Enables Libecpint tests." ON)
+if (LIBECPINT_BUILD_TESTS)
+  include(CTest)
+  include(external/ImportGTest.cmake)
+  enable_testing()
+  add_subdirectory(tests)
+endif()
+option(LIBECPINT_BUILD_DOCS "Enables Libecpint documentation." ON)
+if (LIBECPINT_BUILD_DOCS)
+  add_subdirectory(doc)
+endif()
 
 install (DIRECTORY include/libecpint DESTINATION include)
 install (FILES include/libecpint.hpp DESTINATION include)
-install (FILES "${PROJECT_BINARY_DIR}/include/libecpint/config.hpp" DESTINATION include/libecpint)
+install (FILES "${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp" DESTINATION include/libecpint)
 install (DIRECTORY share/libecpint DESTINATION share)

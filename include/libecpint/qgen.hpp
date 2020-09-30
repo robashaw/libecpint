@@ -184,20 +184,3 @@ namespace libecpint {
 	void Q3_5_2(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
 	void Q3_5_3(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
 	void Q3_5_4(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-	void Q3_5_5(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-	void Q4_5_0(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-	void Q4_5_1(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-	void Q4_5_2(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-	void Q4_5_3(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-	void Q4_5_4(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-	void Q4_5_5(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-	void Q5_5_0(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-	void Q5_5_1(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-	void Q5_5_2(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-	void Q5_5_3(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-	void Q5_5_4(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-	void Q5_5_5(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
-
-}
-}
-#endif

@@ -18,16 +18,17 @@ configure_file (
   "${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp"
 )
 
-include(CTest)
 include(ExternalProject)
-include(external/external.cmake)
-
+include(external/ImportPugiXML.cmake)
 message(${PUGIXML_INCLUDE_DIR})
 
+add_subdirectory(external)
 add_subdirectory(src)
 
 option(LIBECPINT_BUILD_TESTS "Enables Libecpint tests." ON)
 if (LIBECPINT_BUILD_TESTS)
+  include(CTest)
+  include(external/ImportGTest.cmake)
   enable_testing()
   add_subdirectory(tests)
 endif()

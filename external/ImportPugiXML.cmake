@@ -23,6 +23,7 @@ if((NOT PUGIXML_LIBRARY) OR (NOT PUGIXML_INCLUDE_DIR))
   set(PUGIXML_INCLUDE_DIR ${EXTERNAL_BUILD_DIR}/pugixml/src/pugixml_external/src)
 
   add_library(libpugixml STATIC IMPORTED)
+  add_dependencies(libpugixml pugixml_external)
   set_target_properties(libpugixml PROPERTIES IMPORTED_LOCATION ${PUGIXML_LIBRARY})
 
 else()

@@ -53,7 +53,7 @@ if((NOT GTEST_LIBRARY) OR (NOT GTEST_INCLUDE_DIR))
 	message("Unable to find google test, cloning...")
 	
 	# Download and unpack googletest at configure time
-	configure_file(${CMAKE_SOURCE_DIR}/external/CMakeLists.txt.in googletest-download/CMakeLists.txt)
+	configure_file(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt.in googletest-download/CMakeLists.txt)
 	execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
 	  RESULT_VARIABLE result
 	  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download )

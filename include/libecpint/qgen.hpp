@@ -196,3 +196,8 @@ namespace libecpint {
 	void Q5_5_2(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
 	void Q5_5_3(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
 	void Q5_5_4(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
+	void Q5_5_5(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
+
+}
+}
+#endif

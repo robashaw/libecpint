@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -25,7 +25,6 @@
 #ifndef LIBECPINT_HEAD
 #define LIBECPINT_HEAD
 
-// Change this to an API header when written
-#include "libecpint/ecpint.hpp"
+#include "libecpint/api.hpp"
 
 #endif LIBECPINT_HEAD

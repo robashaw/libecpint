@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -31,21 +31,60 @@
   */
 
 #include <vector>
+#include <numeric>
+#include <cmath>
 #include "multiarr.hpp"
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif
 
-#define MAX_FAC 100
-#define MAX_DFAC 200
+#ifndef M_EULER
+#define M_EULER 2.71828182845904523536
+#endif
+
+#define MAX_FAC 100 ///< the maximum factorial needed
+#define MAX_DFAC 200 ///< the maximum double factorial needed
 
 namespace libecpint {
 	
-	const double ROOT_PI = 1.772453850905516;
+	const double ROOT_PI = 1.772453850905516; ///< square root of PI
+	const double SINH_1 = 1.1752011936;
+	const int MAX_POW = 20;
 
 	extern double FAC[MAX_FAC];		///< Array of factorials
 	extern double DFAC[MAX_DFAC]; 	///< Array of double factorials
+	
+	double pow_m2(double);
+	double pow_m1(double);
+	double pow_0(double);
+	double pow_1(double);
+	double pow_2(double);
+	double pow_3(double);
+	double pow_4(double);
+	double pow_5(double);
+	double pow_6(double);
+	double pow_7(double);
+	double pow_8(double);
+	double pow_9(double);
+	double pow_10(double);
+	double pow_11(double);
+	double pow_12(double);
+	double pow_13(double);
+	double pow_14(double);
+	double pow_15(double);
+	double pow_16(double);
+	double pow_17(double);
+	double pow_18(double);
+	double pow_19(double);
+	double pow_20(double);
+	
+	/// Array of function pointers to hand-coded x**n routines
+	static double (*FAST_POW[23])(double) {pow_0, pow_1, pow_2, pow_3, pow_4, pow_5,
+									  pow_6, pow_7, pow_8, pow_9, pow_10, pow_11,
+								  	  pow_12, pow_13, pow_14, pow_15, pow_16, pow_17,
+								  	  pow_18, pow_19, pow_20, pow_m1, pow_m2};
+	
 	
 	/**
 	  * Gamma function tabulation, where GAMMA[i] = Gamma((i+1)/2)
@@ -92,7 +131,17 @@ namespace libecpint {
 	* @return a matrix S(l, l+m) of the spherical harmonic values
 	*/
 	TwoIndex<double> realSphericalHarmonics(int lmax, double x, double phi);  
-
+	
+	/**
+	  * @param mat - a reference to a TwoIndex array
+	  * @return the Frobenius norm of mat
+	  */
+	double frobenius_norm(TwoIndex<double>& mat);
+	
+	/**
+	 * Initialises the global factorial and double factorial arrays
+	 */
+	void initFactorials(); 
 }
 
 #endif

@@ -1,0 +1,409 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structlibecpint_1_1_gaussian_shell" kind="struct" language="C++" prot="public">
+    <compoundname>libecpint::GaussianShell</compoundname>
+    <includes refid="gshell_8hpp" local="no">gshell.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structlibecpint_1_1_gaussian_shell_1ac05c0305dc8422cbdc94e668a5e9a09e" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; libecpint::GaussianShell::exps</definition>
+        <argsstring></argsstring>
+        <name>exps</name>
+        <briefdescription>
+<para>Exponents of primitives. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="38" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlibecpint_1_1_gaussian_shell_1a1a12d01b4556196b36b8df746fac403d" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; libecpint::GaussianShell::coeffs</definition>
+        <argsstring></argsstring>
+        <name>coeffs</name>
+        <briefdescription>
+<para>Coefficients in contraction of primitives. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="39" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlibecpint_1_1_gaussian_shell_1abc5ea045734ff2cc0b09330786904e6b" prot="public" static="no" mutable="no">
+        <type>double *</type>
+        <definition>double* libecpint::GaussianShell::centerVec</definition>
+        <argsstring></argsstring>
+        <name>centerVec</name>
+        <briefdescription>
+<para>Pointer to xyz coordinates of basis function (pointer so as to update if geometry changes) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="42" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlibecpint_1_1_gaussian_shell_1a03985413f48acd6ded1e21bcfd7d361b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool libecpint::GaussianShell::local_ptr</definition>
+        <argsstring></argsstring>
+        <name>local_ptr</name>
+        <briefdescription>
+<para>true if the centerVec is a reference to localCenter, false otherwise </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="43" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double libecpint::GaussianShell::localCenter[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>localCenter</name>
+        <briefdescription>
+<para>Local copy of coords if there is nothing else to point to. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="46" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlibecpint_1_1_gaussian_shell_1aa6aa70752f7dd2317a67327522971b87" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double libecpint::GaussianShell::min_exp</definition>
+        <argsstring></argsstring>
+        <name>min_exp</name>
+        <briefdescription>
+<para>the minimum exponent in the shell </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="48" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::GaussianShell::l</definition>
+        <argsstring></argsstring>
+        <name>l</name>
+        <briefdescription>
+<para>Angular momentum of shell. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="50" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlibecpint_1_1_gaussian_shell_1a68d5d174f719fc851e68022a225bcf21" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::GaussianShell::atom_id</definition>
+        <argsstring></argsstring>
+        <name>atom_id</name>
+        <briefdescription>
+<para>internal id of the atom the shell is on </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="51" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>libecpint::GaussianShell::GaussianShell</definition>
+        <argsstring>(double *A, int l)</argsstring>
+        <name>GaussianShell</name>
+        <param>
+          <type>double *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a <ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> with pointer to coords <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- xyz coordinates of shell </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- angular momentum of shell </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="58" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/gshell.cpp" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibecpint_1_1_gaussian_shell_1affe07224c00aef9442262d3eecae5feb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>libecpint::GaussianShell::GaussianShell</definition>
+        <argsstring>(std::array&lt; double, 3 &gt; A, int l)</argsstring>
+        <name>GaussianShell</name>
+        <param>
+          <type>std::array&lt; double, 3 &gt;</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a <ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> with a local copy of coords <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- xyz coordinates of shell </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- angular momentum of shell </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="65" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/gshell.cpp" bodystart="30" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibecpint_1_1_gaussian_shell_1a53e3854e0243272183ff783d5443aedd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>libecpint::GaussianShell::GaussianShell</definition>
+        <argsstring>(const GaussianShell &amp;other)</argsstring>
+        <name>GaussianShell</name>
+        <param>
+          <type>const <ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Copy constructor for a <ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to the <ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> to be copied </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="71" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="71" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibecpint_1_1_gaussian_shell_1ad270e1f8bc33397b080644fceb6f4755" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::GaussianShell::addPrim</definition>
+        <argsstring>(double exp, double c)</argsstring>
+        <name>addPrim</name>
+        <param>
+          <type>double</type>
+          <declname>exp</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a Gaussian primitive to the shell <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>exp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the exponent </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the contraction coefficient </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="92" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/gshell.cpp" bodystart="39" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibecpint_1_1_gaussian_shell_1ad9e3f82004442f284beac5b246ae3f82" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int libecpint::GaussianShell::nprimitive</definition>
+        <argsstring>() const</argsstring>
+        <name>nprimitive</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the number of primitives </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="95" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibecpint_1_1_gaussian_shell_1ad2f43aaecabbb28ac93ccb327b6b181d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int libecpint::GaussianShell::ncartesian</definition>
+        <argsstring>() const</argsstring>
+        <name>ncartesian</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the number of cartesian basis functions in a shell with this angular momentum </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="98" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibecpint_1_1_gaussian_shell_1a4516bca17cc123b121cc058052b56984" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double *</type>
+        <definition>double* libecpint::GaussianShell::center</definition>
+        <argsstring>() const</argsstring>
+        <name>center</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the xyz coordinates of the shell </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="101" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="101" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibecpint_1_1_gaussian_shell_1a738b66cf3e241c179829616e400b845e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::GaussianShell::exp</definition>
+        <argsstring>(int i) const</argsstring>
+        <name>exp</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the index of the primitive of interest </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the exponent of the ith primitive </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="107" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibecpint_1_1_gaussian_shell_1aa05357293d4bdb6d482dbd55ac80a592" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::GaussianShell::coef</definition>
+        <argsstring>(int i) const</argsstring>
+        <name>coef</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the index of the primitive of interest </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the contraction coefficient of the ith primitive </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="113" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibecpint_1_1_gaussian_shell_1a1b813a78cfad1112ac6dd4a18243f1e2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int libecpint::GaussianShell::am</definition>
+        <argsstring>() const</argsstring>
+        <name>am</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the angular momentum of the shell </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="116" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="116" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibecpint_1_1_gaussian_shell_1ab1e7930b32e4ba26ee00e9747f19dca2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref></type>
+        <definition>GaussianShell libecpint::GaussianShell::copy</definition>
+        <argsstring>() const</argsstring>
+        <name>copy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a copy of this <ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="119" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="119" bodyend="132"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Lightweight container for contracted shell of Gaussian basis functions. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="52">
+        <label>std::vector&lt; double &gt;</label>
+      </node>
+      <node id="51">
+        <label>libecpint::GaussianShell</label>
+        <link refid="structlibecpint_1_1_gaussian_shell"/>
+        <childnode refid="52" relation="usage">
+          <edgelabel>exps</edgelabel>
+          <edgelabel>coeffs</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="37" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="37" bodyend="133"/>
+    <listofallmembers>
+      <member refid="structlibecpint_1_1_gaussian_shell_1ad270e1f8bc33397b080644fceb6f4755" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>addPrim</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1a1b813a78cfad1112ac6dd4a18243f1e2" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>am</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1a68d5d174f719fc851e68022a225bcf21" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>atom_id</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1a4516bca17cc123b121cc058052b56984" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>center</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1abc5ea045734ff2cc0b09330786904e6b" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>centerVec</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1aa05357293d4bdb6d482dbd55ac80a592" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>coef</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1a1a12d01b4556196b36b8df746fac403d" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>coeffs</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1ab1e7930b32e4ba26ee00e9747f19dca2" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>copy</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1a738b66cf3e241c179829616e400b845e" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>exp</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1ac05c0305dc8422cbdc94e668a5e9a09e" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>exps</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>GaussianShell</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1affe07224c00aef9442262d3eecae5feb" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>GaussianShell</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1a53e3854e0243272183ff783d5443aedd" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>GaussianShell</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>l</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1a03985413f48acd6ded1e21bcfd7d361b" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>local_ptr</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>localCenter</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1aa6aa70752f7dd2317a67327522971b87" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>min_exp</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1ad2f43aaecabbb28ac93ccb327b6b181d" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>ncartesian</name></member>
+      <member refid="structlibecpint_1_1_gaussian_shell_1ad9e3f82004442f284beac5b246ae3f82" prot="public" virt="non-virtual"><scope>libecpint::GaussianShell</scope><name>nprimitive</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classlibecpint_1_1_bessel_function" kind="class" language="C++" prot="public">
+    <compoundname>libecpint::BesselFunction</compoundname>
+    <includes refid="bessel_8hpp" local="no">bessel.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlibecpint_1_1_bessel_function_1a9887b57c73d7e29abb8c008b26780cf8" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::BesselFunction::lMax</definition>
+        <argsstring></argsstring>
+        <name>lMax</name>
+        <briefdescription>
+<para>Maximum angular momentum. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="49" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_bessel_function_1a32363daa6c7b9a594e455034c9fab0ae" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::BesselFunction::N</definition>
+        <argsstring></argsstring>
+        <name>N</name>
+        <briefdescription>
+<para>Number of abscissae. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="50" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_bessel_function_1a7ec46212dae92d4bc86da2d611185ded" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::BesselFunction::order</definition>
+        <argsstring></argsstring>
+        <name>order</name>
+        <briefdescription>
+<para>Order to which the Bessel series is expanded. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="51" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_bessel_function_1a2b326d82d0cf8aea6f265c3e715eabe2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double libecpint::BesselFunction::scale</definition>
+        <argsstring></argsstring>
+        <name>scale</name>
+        <briefdescription>
+<para>N/16.0. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="52" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_bessel_function_1a3569aa7989502d0eeb089ddde1bf9f56" prot="private" static="no" mutable="no">
+        <type>double **</type>
+        <definition>double** libecpint::BesselFunction::K</definition>
+        <argsstring></argsstring>
+        <name>K</name>
+        <briefdescription>
+<para>Bessel function values. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="54" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_bessel_function_1a247a8a255ffbdffaccea63536ebb64b5" prot="private" static="no" mutable="no">
+        <type>double ***</type>
+        <definition>double*** libecpint::BesselFunction::dK</definition>
+        <argsstring></argsstring>
+        <name>dK</name>
+        <briefdescription>
+<para>Bessel function derivatives. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="55" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_bessel_function_1a5dcbfec899e1ed7fcba183b28b112538" prot="private" static="no" mutable="no">
+        <type>double *</type>
+        <definition>double* libecpint::BesselFunction::C</definition>
+        <argsstring></argsstring>
+        <name>C</name>
+        <briefdescription>
+<para>Coefficients of derivatives of the Bessel function. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="56" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlibecpint_1_1_bessel_function_1abdc78ae534dadfaba74dcfe3cfb54091" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int libecpint::BesselFunction::tabulate</definition>
+        <argsstring>(const double accuracy)</argsstring>
+        <name>tabulate</name>
+        <param>
+          <type>const double</type>
+          <declname>accuracy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pretabulates the Bessel function (and derivs) to a given accuracy. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>accuracy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the tolerance at which a value is considered converged </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>zero if successful, -1 if not converged </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="63" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/bessel.cpp" bodystart="69" bodyend="136"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlibecpint_1_1_bessel_function_1af0e545daf8a60389bd010b2ab43a9375" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>libecpint::BesselFunction::BesselFunction</definition>
+        <argsstring>()</argsstring>
+        <name>BesselFunction</name>
+        <briefdescription>
+<para>Default constructor. Creates a blank object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="67" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/bessel.cpp" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_bessel_function_1a099afffa30983a7d0aef859fc119044f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>libecpint::BesselFunction::BesselFunction</definition>
+        <argsstring>(int lMax, int N, int order, const double accuracy)</argsstring>
+        <name>BesselFunction</name>
+        <param>
+          <type>int</type>
+          <declname>lMax</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>order</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>accuracy</declname>
+        </param>
+        <briefdescription>
+<para>Specified constructor. Will call init with given arguments. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="70" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/bessel.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_bessel_function_1af42c649bd46884942a9737e8cffaa78d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>libecpint::BesselFunction::~BesselFunction</definition>
+        <argsstring>()</argsstring>
+        <name>~BesselFunction</name>
+        <briefdescription>
+<para>Destructor, cleans up K and C. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="73" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/bessel.cpp" bodystart="62" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_bessel_function_1a6e688a911c24b88c93caa7f9e87c5965" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::BesselFunction::init</definition>
+        <argsstring>(int lMax, int N, int order, const double accuracy)</argsstring>
+        <name>init</name>
+        <param>
+          <type>int</type>
+          <declname>lMax</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>order</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>accuracy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialises and pretabulates the <ref refid="classlibecpint_1_1_bessel_function" kindref="compound">BesselFunction</ref> up to the given angular momentum. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lMax</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the maximum angular momentum needed </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>N</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the maximum number of points to be used in pretabulation, suggested 1600 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>order</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the order at which the expansion is cut off, suggested 200 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>accuracy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the tolerance below which a value is considered converged </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="82" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/bessel.cpp" bodystart="40" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_bessel_function_1ab568362995b5edd4ef0461116d6c0d59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::BesselFunction::calculate</definition>
+        <argsstring>(const double z, int maxL, std::vector&lt; double &gt; &amp;values)</argsstring>
+        <name>calculate</name>
+        <param>
+          <type>const double</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maxL</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the Bessel function values at a given point up to a given angular momentum <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- point at which to evaluate </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- maximum angular momentum needed; must be &lt;= lMax for object </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>values</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- reference to vector in which to put the values for l = 0 to maxL </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="90" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/bessel.cpp" bodystart="150" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_bessel_function_1a64c7767fd8e7509802ea2579b186f152" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::BesselFunction::calculate</definition>
+        <argsstring>(const double z, int L)</argsstring>
+        <name>calculate</name>
+        <param>
+          <type>const double</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the Bessel function value at a given point for a single angular momentum <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- point at which to evaluate </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- angular momentum needed; must be &lt;= lMax for object </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="97" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/bessel.cpp" bodystart="214" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_bessel_function_1a9cabc29e126f053dc96904f4ca4e1425" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::BesselFunction::upper_bound</definition>
+        <argsstring>(const double z, int L)</argsstring>
+        <name>upper_bound</name>
+        <param>
+          <type>const double</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates an upper bound to the Bessel function value at a given point for a given angular momentum <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- point at which to evaluate </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- angular momentum needed; must be &lt;= lMax for object </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="104" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/bessel.cpp" bodystart="139" bodyend="146"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Computes a modified spherical Bessel function of the first kind. </para>    </briefdescription>
+    <detaileddescription>
+<para>Uses pretabulation to calculate the Bessel function up to a given maximum angular momentum. Values are interpolated using local Taylor series.</para><para>REFERENCES: R. Flores-Moreno et al., J. Comput. Chem. 27 (2006), 1009 L.E. McMurchie, E. Davidson, J. Comput. Phys. 44 (1981), 289 </para>    </detaileddescription>
+    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" line="47" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/bessel.hpp" bodystart="46" bodyend="105"/>
+    <listofallmembers>
+      <member refid="classlibecpint_1_1_bessel_function_1af0e545daf8a60389bd010b2ab43a9375" prot="public" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>BesselFunction</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1a099afffa30983a7d0aef859fc119044f" prot="public" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>BesselFunction</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1a5dcbfec899e1ed7fcba183b28b112538" prot="private" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>C</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1ab568362995b5edd4ef0461116d6c0d59" prot="public" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>calculate</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1a64c7767fd8e7509802ea2579b186f152" prot="public" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>calculate</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1a247a8a255ffbdffaccea63536ebb64b5" prot="private" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>dK</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1a6e688a911c24b88c93caa7f9e87c5965" prot="public" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>init</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1a3569aa7989502d0eeb089ddde1bf9f56" prot="private" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>K</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1a9887b57c73d7e29abb8c008b26780cf8" prot="private" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>lMax</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1a32363daa6c7b9a594e455034c9fab0ae" prot="private" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>N</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1a7ec46212dae92d4bc86da2d611185ded" prot="private" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>order</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1a2b326d82d0cf8aea6f265c3e715eabe2" prot="private" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>scale</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1abdc78ae534dadfaba74dcfe3cfb54091" prot="private" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>tabulate</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1a9cabc29e126f053dc96904f4ca4e1425" prot="public" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>upper_bound</name></member>
+      <member refid="classlibecpint_1_1_bessel_function_1af42c649bd46884942a9737e8cffaa78d" prot="public" virt="non-virtual"><scope>libecpint::BesselFunction</scope><name>~BesselFunction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

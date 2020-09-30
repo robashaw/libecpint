@@ -1,0 +1,362 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classunrol__radial_1_1_qijk" kind="class" language="Python" prot="public">
+    <compoundname>unrol_radial::Qijk</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classunrol__radial_1_1_qijk_1a13c97ec2c24cebb9837e489d529e506d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>unrol_radial.Qijk::i</definition>
+        <argsstring></argsstring>
+        <name>i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="9" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classunrol__radial_1_1_qijk_1a8b2b786c8c0a40954fa43e3acd9932ad" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>unrol_radial.Qijk::j</definition>
+        <argsstring></argsstring>
+        <name>j</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="10" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classunrol__radial_1_1_qijk_1aee510945a68eeeda4358f845fb9c5f8b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>unrol_radial.Qijk::k</definition>
+        <argsstring></argsstring>
+        <name>k</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="11" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classunrol__radial_1_1_qijk_1a09a48c7f163297b004a701ec253beb9c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>unrol_radial.Qijk::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="12" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classunrol__radial_1_1_qijk_1aa953c0bf67f31bb2a42a428b3d75a67f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>unrol_radial.Qijk::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="13" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classunrol__radial_1_1_qijk_1a9c6f9f85074c20f0a1490b91d96363e7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>unrol_radial.Qijk::end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="14" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classunrol__radial_1_1_qijk_1a875fec8f932c72df77e532e38ff31f23" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>unrol_radial.Qijk::subq</definition>
+        <argsstring></argsstring>
+        <name>subq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="15" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classunrol__radial_1_1_qijk_1ae01082682037997e67455c44290fda74" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>unrol_radial.Qijk::terms</definition>
+        <argsstring></argsstring>
+        <name>terms</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="16" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classunrol__radial_1_1_qijk_1a9afa1224c15304b1de7a5155829ef20f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>unrol_radial.Qijk::bases</definition>
+        <argsstring></argsstring>
+        <name>bases</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="17" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classunrol__radial_1_1_qijk_1aa7c08cc37af033e46fcb07cf4ff636d8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>unrol_radial.Qijk::f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="18" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classunrol__radial_1_1_qijk_1a1673d45d057b9948beb17b4fb380f43e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>unrol_radial.Qijk::ga</definition>
+        <argsstring></argsstring>
+        <name>ga</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="19" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classunrol__radial_1_1_qijk_1a2531027222ac28a85ccc67d9bb1e97ab" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>unrol_radial.Qijk::gb</definition>
+        <argsstring></argsstring>
+        <name>gb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="20" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classunrol__radial_1_1_qijk_1aadecf334f051c42482f1c47b05dc7694" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>unrol_radial.Qijk::h</definition>
+        <argsstring></argsstring>
+        <name>h</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="21" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classunrol__radial_1_1_qijk_1a75b41f20d3f81ca3d7c5d6c322ca1239" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def unrol_radial.Qijk.__init__</definition>
+        <argsstring>(self, Ival=0, Jval=0, Kval=0)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Ival</type>
+          <defname>Ival</defname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>Jval</type>
+          <defname>Jval</defname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>Kval</type>
+          <defname>Kval</defname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="8" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="8" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classunrol__radial_1_1_qijk_1abdf73c1a9fc867f4996ff2ad285d1d8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def unrol_radial.Qijk.print</definition>
+        <argsstring>(self)</argsstring>
+        <name>print</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="25" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="25" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classunrol__radial_1_1_qijk_1a2151c6b5f04181ebd1a2fe126098ae81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def unrol_radial.Qijk.print_simple</definition>
+        <argsstring>(self)</argsstring>
+        <name>print_simple</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="32" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="32" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classunrol__radial_1_1_qijk_1aabbd2439261a6e298a0f4ec02a2d6340" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def unrol_radial.Qijk.print_fgh</definition>
+        <argsstring>(self)</argsstring>
+        <name>print_fgh</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="37" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="37" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classunrol__radial_1_1_qijk_1ad3d2dead58aa2dfb6e5c1aae0b97d9d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def unrol_radial.Qijk.write_code</definition>
+        <argsstring>(self, f)</argsstring>
+        <name>write_code</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type><ref refid="classunrol__radial_1_1_qijk_1aa7c08cc37af033e46fcb07cf4ff636d8" kindref="member">f</ref></type>
+          <defname>f</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="56" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="56" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classunrol__radial_1_1_qijk_1a1085072adb017feb8d9f8d13afd98448" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def unrol_radial.Qijk.simplify</definition>
+        <argsstring>(self)</argsstring>
+        <name>simplify</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="98" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="98" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classunrol__radial_1_1_qijk_1a4daf5ba9c398f8a5fcaf7f1fc1d02a0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def unrol_radial.Qijk.sort</definition>
+        <argsstring>(self)</argsstring>
+        <name>sort</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="110" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="110" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classunrol__radial_1_1_qijk_1a2d6b98b81c59ea2d80ad318c28c72116" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def unrol_radial.Qijk.eliminate</definition>
+        <argsstring>(self)</argsstring>
+        <name>eliminate</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="117" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="117" bodyend="196"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" line="7" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/unrol_radial.py" bodystart="7" bodyend="197"/>
+    <listofallmembers>
+      <member refid="classunrol__radial_1_1_qijk_1a75b41f20d3f81ca3d7c5d6c322ca1239" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>__init__</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1a9afa1224c15304b1de7a5155829ef20f" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>bases</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1a2d6b98b81c59ea2d80ad318c28c72116" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>eliminate</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1a9c6f9f85074c20f0a1490b91d96363e7" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>end</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1aa7c08cc37af033e46fcb07cf4ff636d8" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>f</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1a1673d45d057b9948beb17b4fb380f43e" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>ga</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1a2531027222ac28a85ccc67d9bb1e97ab" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>gb</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1aadecf334f051c42482f1c47b05dc7694" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>h</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1a13c97ec2c24cebb9837e489d529e506d" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>i</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1a8b2b786c8c0a40954fa43e3acd9932ad" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>j</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1aee510945a68eeeda4358f845fb9c5f8b" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>k</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1abdf73c1a9fc867f4996ff2ad285d1d8e" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>print</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1aabbd2439261a6e298a0f4ec02a2d6340" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>print_fgh</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1a2151c6b5f04181ebd1a2fe126098ae81" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>print_simple</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1a1085072adb017feb8d9f8d13afd98448" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>simplify</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1a09a48c7f163297b004a701ec253beb9c" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>size</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1a4daf5ba9c398f8a5fcaf7f1fc1d02a0c" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>sort</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1aa953c0bf67f31bb2a42a428b3d75a67f" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>start</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1a875fec8f932c72df77e532e38ff31f23" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>subq</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1ae01082682037997e67455c44290fda74" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>terms</name></member>
+      <member refid="classunrol__radial_1_1_qijk_1ad3d2dead58aa2dfb6e5c1aae0b97d9d7" prot="public" virt="non-virtual"><scope>unrol_radial::Qijk</scope><name>write_code</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

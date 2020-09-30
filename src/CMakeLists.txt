@@ -1,16 +1,25 @@
-execute_process(COMMAND python "${CMAKE_CURRENT_SOURCE_DIR}/makelist.py" "${LIBECPINT_MAX_L}" "${CMAKE_CURRENT_BINARY_DIR}")
 
-file(READ "${CMAKE_CURRENT_BINARY_DIR}/qlist.txt" GENERATED_SOURCES)
-STRING(REGEX REPLACE "\n" ";" GENERATED_SOURCES "${GENERATED_SOURCES}")
+# ==================
+#  Target: generate
+# ==================
 
 add_executable(generate generate.cpp
 			lib/mathutil.cpp
 			lib/angular.cpp)
 set_property(TARGET generate PROPERTY CXX_STANDARD 11)
+target_include_directories(generate
+  PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/include/libecpint
+    ${CMAKE_CURRENT_BINARY_DIR}/../include/libecpint
+)
 
 execute_process(COMMAND mkdir -p "${CMAKE_CURRENT_BINARY_DIR}/generated")
 execute_process(COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.part" "${CMAKE_CURRENT_BINARY_DIR}/generated")
 execute_process(COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/generated/qgen.part" "${CMAKE_CURRENT_BINARY_DIR}/generated")
+execute_process(COMMAND python "${CMAKE_CURRENT_SOURCE_DIR}/makelist.py" "${LIBECPINT_MAX_L}" "${CMAKE_CURRENT_BINARY_DIR}")
+file(READ "${CMAKE_CURRENT_BINARY_DIR}/qlist.txt" GENERATED_SOURCES)
+STRING(REGEX REPLACE "\n" ";" GENERATED_SOURCES "${GENERATED_SOURCES}")
 add_custom_command(
 	OUTPUT ${GENERATED_SOURCES}
 	COMMAND generate "${PROJECT_SOURCE_DIR}/include/libecpint/"
@@ -18,12 +27,17 @@ add_custom_command(
 	COMMENT "Generating and unrolling integral code."
 )
 
-file(GLOB_RECURSE LIB_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/lib/*.cpp")
+# ================
+#  Target: ecpint
+# ================
 
+file(GLOB_RECURSE LIB_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/lib/*.cpp")
 add_library(ecpint ${LIB_SOURCES} ${GENERATED_SOURCES})
+
 if(NOT BUILD_SHARED_LIBS)
   set_property(TARGET ecpint PROPERTY POSITION_INDEPENDENT_CODE ON)
 endif()
+
 set_property(TARGET ecpint PROPERTY CXX_STANDARD 11)
 target_include_directories(ecpint
   PUBLIC
@@ -32,11 +46,19 @@ target_include_directories(ecpint
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include/libecpint>
     $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include/libecpint>
     $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>
+  PRIVATE
+    ${PUGIXML_INCLUDE_DIR}
+)
+target_link_libraries(ecpint
+ PRIVATE
+  Faddeeva
+  libpugixml
 )
 
 # =========
 #  Install
 # =========
+
 install(TARGETS ecpint EXPORT ecpintTargets DESTINATION lib)
 include(CMakePackageConfigHelpers)
 # Version file
@@ -68,3 +90,4 @@ install(
   DESTINATION lib/cmake/ecpint
 )
 
+install(TARGETS ecpint DESTINATION lib)

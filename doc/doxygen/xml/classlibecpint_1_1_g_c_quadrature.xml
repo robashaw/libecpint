@@ -1,0 +1,417 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classlibecpint_1_1_g_c_quadrature" kind="class" language="C++" prot="public">
+    <compoundname>libecpint::GCQuadrature</compoundname>
+    <includes refid="gaussquad_8hpp" local="no">gaussquad.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlibecpint_1_1_g_c_quadrature_1ae0bacb92b24e1ad6916f0d24aec69a7a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::GCQuadrature::maxN</definition>
+        <argsstring></argsstring>
+        <name>maxN</name>
+        <briefdescription>
+<para>Maximum number of points to use in quadrature. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="54" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_g_c_quadrature_1ab1d484bbe747fcb54097eb087ae1f1fd" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::GCQuadrature::M</definition>
+        <argsstring></argsstring>
+        <name>M</name>
+        <briefdescription>
+<para>Index of midpoint. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="55" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_g_c_quadrature_1a2db3cb9548003ddb02baaa533651479e" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; libecpint::GCQuadrature::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+<para>Weights. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="57" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_g_c_quadrature_1ac784cc6c177d4c461dbb12a43e515778" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; libecpint::GCQuadrature::w</definition>
+        <argsstring></argsstring>
+        <name>w</name>
+        <briefdescription>
+<para>Abscissae. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="58" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_g_c_quadrature_1a7aa031524de2fd28eef7910c8cc78aba" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double libecpint::GCQuadrature::I</definition>
+        <argsstring></argsstring>
+        <name>I</name>
+        <briefdescription>
+<para>Integral value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="60" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_g_c_quadrature_1a02321bf542c18ca347e8e3b086b6f0ea" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3f" kindref="member">GCTYPE</ref></type>
+        <definition>GCTYPE libecpint::GCQuadrature::t</definition>
+        <argsstring></argsstring>
+        <name>t</name>
+        <briefdescription>
+<para>Algorithm type to be used. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="62" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classlibecpint_1_1_g_c_quadrature_1a5ee85ae821da90c88d808175168942f2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::GCQuadrature::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <briefdescription>
+<para>Starting index of integration. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="69" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibecpint_1_1_g_c_quadrature_1a661234923d00bfbf2dff3c88a5f4953e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int libecpint::GCQuadrature::end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <briefdescription>
+<para>End index of integration. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="70" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1ac53998dfe6f4c6f59dd4cac8ee1f8701" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::GCQuadrature::sumTerms</definition>
+        <argsstring>(std::function&lt; double(double, double *, int)&gt; &amp;f, double *p, int limit, int shift, int skip)</argsstring>
+        <name>sumTerms</name>
+        <param>
+          <type>std::function&lt; double(double, double *, int)&gt; &amp;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>limit</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>shift</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>skip</declname>
+        </param>
+        <briefdescription>
+<para>Worker function for integration routines, should not be called directly. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="65" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/gaussquad.cpp" bodystart="220" bodyend="233"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1a563235d3d5d9a19a5e4a77aec13f5dfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>libecpint::GCQuadrature::GCQuadrature</definition>
+        <argsstring>()</argsstring>
+        <name>GCQuadrature</name>
+        <briefdescription>
+<para>Default constructor, creates empty object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="73" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/gaussquad.cpp" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1abb70ca948ba7f768a59c74d9f93a471a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>libecpint::GCQuadrature::GCQuadrature</definition>
+        <argsstring>(const GCQuadrature &amp;other)</argsstring>
+        <name>GCQuadrature</name>
+        <param>
+          <type>const <ref refid="classlibecpint_1_1_g_c_quadrature" kindref="compound">GCQuadrature</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor, carbon copies all members. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="76" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/gaussquad.cpp" bodystart="37" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1a2757549e5f47cfb8ae142a60db947ae3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::GCQuadrature::initGrid</definition>
+        <argsstring>(int points, GCTYPE t)</argsstring>
+        <name>initGrid</name>
+        <param>
+          <type>int</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacelibecpint_1a61c66c38649b648ca25caaff9ebc6c3f" kindref="member">GCTYPE</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Intialises the integration grid to the given number of points, and integration type. ONEPOINT will choose N = 2^n - 1 closest to the given number of points, whilst TWOPOINT will choose N= 3*2^n - 1 in the same way.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- maximum number of quadrature points to be used </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the algorithm to be used (ONEPOINT / TWOPOINT) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="86" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/gaussquad.cpp" bodystart="50" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1aaf02c22b41f79b4bfc91a3c258458466" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool libecpint::GCQuadrature::integrate</definition>
+        <argsstring>(std::function&lt; double(double, double *, int)&gt; &amp;f, double *params, const double tolerance)</argsstring>
+        <name>integrate</name>
+        <param>
+          <type>std::function&lt; double(double, double *, int)&gt; &amp;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>params</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>tolerance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Integrates the given function (over [-1, 1] by default) to within the given tolerance. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the function to be integrated </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- array of parameters for the function to be integrated </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tolerance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- change below which convergenced is considered to be achieved </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if integration converged, false otherwise </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="95" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/gaussquad.cpp" bodystart="118" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1a4353914587c53237d1b7e0dc7bf0c920" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::GCQuadrature::transformZeroInf</definition>
+        <argsstring>()</argsstring>
+        <name>transformZeroInf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Transforms the region of integration to [0, inf) using the logarithmic transformation of Krack98 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="100" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/gaussquad.cpp" bodystart="238" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1ab17203b568cea63fbfc897a404583e1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::GCQuadrature::transformRMinMax</definition>
+        <argsstring>(double z, double p)</argsstring>
+        <name>transformRMinMax</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Transforms region of integration to [rmin, rmax] using the linear transformation from Flores06, assuming a Gaussian envelope. rmin/rmax are the distances from the centre of the envelope such that the integrand is effectively zero. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the exponent of the Gaussian envelope </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the centre of the Gaussian envelope </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="108" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/gaussquad.cpp" bodystart="249" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1a18e1de0f63bc3eebe8518de1a700ff65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void libecpint::GCQuadrature::untransformRMinMax</definition>
+        <argsstring>(double z, double p)</argsstring>
+        <name>untransformRMinMax</name>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="109" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/gaussquad.cpp" bodystart="269" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1a62d81712867e1bc24426ec5a89a4e0ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double libecpint::GCQuadrature::getI</definition>
+        <argsstring>() const</argsstring>
+        <name>getI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the calculated integral value - must have called integrate first </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="112" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" bodystart="112" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1a8981b038cd9f49404b979b64be33d19e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int libecpint::GCQuadrature::getN</definition>
+        <argsstring>() const</argsstring>
+        <name>getN</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the maximum number of quadrature points </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="115" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1ac21349eccf4e32896f4bbf096c71edfc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt; &amp;</type>
+        <definition>std::vector&lt;double&gt;&amp; libecpint::GCQuadrature::getX</definition>
+        <argsstring>()</argsstring>
+        <name>getX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a reference to the abscissae </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="118" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" bodystart="118" bodyend="118"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Performs adaptive Gauss-Chebyshev quadrature of the second kind for any given function. </para>    </briefdescription>
+    <detaileddescription>
+<para>Stores the weights and abscissae for the quadrature, and provides two different methods to integrate on [-1, 1] Also contains means to transform the region of integration to [0, infinity) and [rmin, rmax]</para><para>REFERENCES: (Perez92) J.M. Perez-Jorda et al., Comput. Phys. Comm. 70 (1992), 271-284 (Perez93) J.M. Perez-Jorda et al., Comput. Phys. Comm. 77 (1993), 46-56 (Krack98) M. Krack, A.M. Koster, J. Chem. Phys. 108 (1998), 3226 - 3234 (Flores06) R. Flores-Moreno et al., J. Comput. Chem. 27 (2006), 1009-1019 </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="55">
+        <label>std::vector&lt; double &gt;</label>
+      </node>
+      <node id="54">
+        <label>libecpint::GCQuadrature</label>
+        <link refid="classlibecpint_1_1_g_c_quadrature"/>
+        <childnode refid="55" relation="usage">
+          <edgelabel>w</edgelabel>
+          <edgelabel>x</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" line="52" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gaussquad.hpp" bodystart="52" bodyend="119"/>
+    <listofallmembers>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1a661234923d00bfbf2dff3c88a5f4953e" prot="public" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>end</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1a563235d3d5d9a19a5e4a77aec13f5dfd" prot="public" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>GCQuadrature</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1abb70ca948ba7f768a59c74d9f93a471a" prot="public" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>GCQuadrature</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1a62d81712867e1bc24426ec5a89a4e0ed" prot="public" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>getI</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1a8981b038cd9f49404b979b64be33d19e" prot="public" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>getN</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1ac21349eccf4e32896f4bbf096c71edfc" prot="public" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>getX</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1a7aa031524de2fd28eef7910c8cc78aba" prot="private" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>I</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1a2757549e5f47cfb8ae142a60db947ae3" prot="public" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>initGrid</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1aaf02c22b41f79b4bfc91a3c258458466" prot="public" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>integrate</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1ab1d484bbe747fcb54097eb087ae1f1fd" prot="private" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>M</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1ae0bacb92b24e1ad6916f0d24aec69a7a" prot="private" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>maxN</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1a5ee85ae821da90c88d808175168942f2" prot="public" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>start</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1ac53998dfe6f4c6f59dd4cac8ee1f8701" prot="private" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>sumTerms</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1a02321bf542c18ca347e8e3b086b6f0ea" prot="private" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>t</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1ab17203b568cea63fbfc897a404583e1a" prot="public" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>transformRMinMax</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1a4353914587c53237d1b7e0dc7bf0c920" prot="public" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>transformZeroInf</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1a18e1de0f63bc3eebe8518de1a700ff65" prot="public" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>untransformRMinMax</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1ac784cc6c177d4c461dbb12a43e515778" prot="private" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>w</name></member>
+      <member refid="classlibecpint_1_1_g_c_quadrature_1a2db3cb9548003ddb02baaa533651479e" prot="private" virt="non-virtual"><scope>libecpint::GCQuadrature</scope><name>x</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

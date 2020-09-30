@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="makelist_8py" kind="file" language="Python">
+    <compoundname>makelist.py</compoundname>
+    <innernamespace refid="namespacemakelist">makelist</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacemakelist" refkind="compound"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>sys</highlight></codeline>
+<codeline lineno="2" refid="namespacemakelist_1a92f763e70ec614d7cc630b6b3afc201e" refkind="member"><highlight class="normal">max_am<sp/>=<sp/>int(sys.argv[1])</highlight></codeline>
+<codeline lineno="3" refid="namespacemakelist_1ae1a361014e097535367c775cc83758fd" refkind="member"><highlight class="normal">prefix<sp/>=<sp/>str(sys.argv[2])</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="namespacemakelist_1a7a96fbd7cb2ac37090089795370aedb7" refkind="member"><highlight class="normal">file<sp/>=<sp/>open(prefix<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/qlist.txt&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">file.write(prefix<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/generated/ecpint_gen.cpp\n&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>j<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>range(max_am+1):</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>i<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>range(j+1):</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>k<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>range(max_am+1):</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>j<sp/>==<sp/>i<sp/>==<sp/>k<sp/>==<sp/>max_am:</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file.write(prefix<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/generated/Q&quot;</highlight><highlight class="normal"><sp/>+<sp/>str(i)<sp/>+<sp/>str(j)<sp/>+<sp/>str(k)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.cpp&quot;</highlight><highlight class="normal">)<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file.write(prefix<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/generated/Q&quot;</highlight><highlight class="normal"><sp/>+<sp/>str(i)<sp/>+<sp/>str(j)<sp/>+<sp/>str(k)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.cpp\n&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">file.close()</highlight></codeline>
+    </programlisting>
+    <location file="/Users/robertshaw/devfiles/libecpint_new/src/makelist.py"/>
+  </compounddef>
+</doxygen>

@@ -1,5 +1,5 @@
 /* 
- *      Copyright (c) 2017 Robert Shaw
+ *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
  *      Permission is hereby granted, free of charge, to any person obtaining
@@ -136,6 +136,11 @@ namespace libecpint {
 		* @return value of type 2 angular integral
 		*/
 		double getIntegral(int k, int l, int m, int lam, int mu, int rho, int sigma) const;
+		
+		int* getOmegaMults() { return omega.mults; }
+		int* getOmegaDims() { return omega.dims; }
+		std::vector<double>& getOmegaData() { return omega.data; }
+		
 		
 		/// is W(k, l, m, lam, mu) zero to within a given tolerance?
 		bool isZero(int k, int l, int m, int lam, int mu, double tolerance) const;

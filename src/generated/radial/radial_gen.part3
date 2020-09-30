@@ -1,13 +1,17 @@
 									default: {
-										std::pair<double, bool> quadval = integrate_small(k, i, j, u.a, a, b, A, B);
-										result = quadval.first; 
-										if (!quadval.second) std::cout << "Quadrature failed" << std::endl; 
+										if (estimate_type2(k, i, j, u.a, a, b, A, B) > tolerance){ 
+											std::pair<double, bool> quadval = integrate_small(k, i, j, u.a, a, b, A, B);
+											result = quadval.first; 
+											if (!quadval.second) std::cout << "Quadrature failed" << std::endl; 
+										}
 									}
 								}
 							} else {
-								std::pair<double, bool> quadval = integrate_small(k, i, j, u.a, a, b, A, B);
-								result = quadval.first; 
-								if (!quadval.second) std::cout << "Quadrature failed" << std::endl; 
+								if (estimate_type2(k, i, j, u.a, a, b, A, B) > tolerance){ 
+									std::pair<double, bool> quadval = integrate_small(k, i, j, u.a, a, b, A, B);
+									result = quadval.first; 
+									if (!quadval.second) std::cout << "Quadrature failed" << std::endl; 
+								} 
 							} 
 							
 							radials(k-2-u.n, i, j) += da * db * u.d * result;

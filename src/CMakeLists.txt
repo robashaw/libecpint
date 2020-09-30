@@ -49,6 +49,8 @@ target_include_directories(ecpint
   PRIVATE
     ${PUGIXML_INCLUDE_DIR}
 )
+add_dependencies(ecpint libpugixml)
+
 target_link_libraries(ecpint
  PRIVATE
   Faddeeva

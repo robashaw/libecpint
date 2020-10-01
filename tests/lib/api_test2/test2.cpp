@@ -240,7 +240,9 @@ int main(int argc, char* argv[]) {
 					  << " " << std::setw(12) << diff << std::endl;
 	}*/
 	
-	//for (auto& v : flat_result) std::cout << std::setprecision(15) << v << std::endl;
+#ifdef WRITE_NEW_BENCHMARK
+	for (auto& v : flat_result) std::cout << std::setprecision(15) << v << std::endl;
+#endif
 	
 	return check_file<double>("api_test2.output", flat_result, 1e-5, 1e-8);
 }

@@ -61,7 +61,9 @@ int main(int argc, char* argv[]) {
 	for (int i = 0; i < ints->size(); i++) 
 		flat_result.push_back((*ints)[i]);
 	
-	//for (auto& v : flat_result) std::cout << std::setprecision(15) << v << std::endl;
+#ifdef WRITE_NEW_BENCHMARK
+	for (auto& v : flat_result) std::cout << std::setprecision(15) << v << std::endl;
+#endif
 	
 	return check_file<double>("type1_test.output", flat_result);
 }

@@ -381,17 +381,8 @@ namespace libecpint {
 			type1(U, shellA, shellB, data, CA, CB, values);
 		
 		std::vector<int> l_list; 
-		if (data.A_on_ecp && data.B_on_ecp) {
-			if (data.LA == data.LB && screens[data.LA] > tolerance && data.LA < U.getL())
-				 l_list.push_back(data.LA);
-		} else if (data.A_on_ecp && screens[data.LA] > tolerance && data.LA < U.getL()) {
-			l_list.push_back(data.LA); 
-		} else if (data.B_on_ecp && screens[data.LB] > tolerance && data.LB < U.getL()) {
-			l_list.push_back(data.LB); 
-		} else {
-			for (int l = 0; l < U.getL(); l++) 
-				if (screens[l] > tolerance) l_list.push_back(l); 
-		}
+		for (int l = 0; l < U.getL(); l++) 
+			if (screens[l] > tolerance) l_list.push_back(l); 
 		
 		// Now all the type2 integrals
 		ThreeIndex<double> t2vals(data.ncartA, data.ncartB, 2*U.getL() + 1);

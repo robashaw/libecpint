@@ -52,7 +52,9 @@ int main(int argc, char* argv[]) {
 			flat_result.push_back(v); 
 	}
 	
-	//for (auto& v : flat_result) std::cout << std::setprecision(15) << v << std::endl;
+#ifdef WRITE_NEW_BENCHMARK
+	for (auto& v : flat_result) std::cout << std::setprecision(15) << v << std::endl;
+#endif
 	
 	return check_file<double>("hess_test2.output", flat_result, 1e-4, 1e-8);
 }

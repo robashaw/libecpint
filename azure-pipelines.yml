@@ -60,7 +60,7 @@ jobs:
   - bash: |
       cmake -Bbuild -H. \
         -DCMAKE_INSTALL_PREFIX=$(Agent.BuildDirectory)/Install \
-        -DCMAKE_CXX_FLAGS=${CXX_FLAGS} \
+        -DCMAKE_CXX_FLAGS="${CXX_FLAGS}" \
         -DLIBECPINT_MAX_UNROL=1 \
         -DLIBECPINT_MAX_L=4
     displayName: 'Configure Build'
@@ -74,5 +74,4 @@ jobs:
     displayName: 'Tests'
   - bash:
       bash <(curl -s https://codecov.io/bash)
-    condition:  eq(strategy.name, 'gcc_latest')
     displayName: 'Upload to codecov.io'

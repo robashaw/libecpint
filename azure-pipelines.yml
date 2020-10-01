@@ -74,5 +74,5 @@ jobs:
     displayName: 'Tests'
   - bash:
       bash <(curl -s https://codecov.io/bash)
-    condition:  eq(strategy.name, 'gcc_latest')
+    condition:  eq(${CXX_COMPILER}, 'g++')
     displayName: 'Upload to codecov.io'

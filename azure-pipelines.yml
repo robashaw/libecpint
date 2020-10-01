@@ -6,7 +6,7 @@ jobs:
 - job: 'linux_build'
   displayName: 'Linux Builds'
   pool:
-    vmImage: 'ubuntu-18.04'
+    vmImage: 'ubuntu-20.04'
   timeoutInMinutes: 10
   variables:
     CTEST_OUTPUT_ON_FAILURE: 1
@@ -14,10 +14,19 @@ jobs:
     matrix:
       gcc_latest:
         CXX_COMPILER: 'g++'
+        CXX_FLAGS: "-O3 -fprofile-arcs -ftest-coverage"
         C_COMPILER: 'gcc'
         F_COMPILER: 'gfortran'
         BUILD_TYPE: 'release'
         APT_INSTALL: 'gfortran'
+
+      clang_latest:
+        CXX_COMPILER: 'clang++'
+        CXX_FLAGS: "-O3 -std=c++14"
+        C_COMPILER: 'clang'
+        F_COMPILER: 'gfortran'
+        BUILD_TYPE: 'release'
+        APT_INSTALL: 'gfortran clang-10'
 
   steps:
   - checkout: self
@@ -51,7 +60,7 @@ jobs:
   - bash: |
       cmake -Bbuild -H. \
         -DCMAKE_INSTALL_PREFIX=$(Agent.BuildDirectory)/Install \
-        -DCMAKE_CXX_FLAGS="-O3 -fprofile-arcs -ftest-coverage" \
+        -DCMAKE_CXX_FLAGS="${CXX_FLAGS}" \
         -DLIBECPINT_MAX_UNROL=1 \
         -DLIBECPINT_MAX_L=4
     displayName: 'Configure Build'

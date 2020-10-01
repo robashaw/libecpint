@@ -1,4 +1,4 @@
-## Libecpint 1.0.0
+## Libecpint 1.0.1
 
 [![Build Status](https://dev.azure.com/robertshaw383/libecpint/_apis/build/status/robashaw.libecpint?branchName=master)](https://dev.azure.com/robertshaw383/libecpint/_build/latest?definitionId=2&branchName=master)
 [![codecov](https://codecov.io/gh/robashaw/libecpint/branch/master/graph/badge.svg)](https://codecov.io/gh/robashaw/libecpint)
@@ -13,10 +13,18 @@ Libecpint is a C++ library for the efficient evaluation of integrals over ab ini
 - New, high level API, with ECP library;
 - Automated testing suite.
 
+### Patch 1
+
+- Bug fix in screening of on-ECP type 2 integrals
+- Improvements in CMake build steps, thanks to nabbelbabbel/moritzBens
+
 ## Dependencies
 
-- A modern C++ compiler, at least C++11 standard library is required. This has currently only been tested with GCC (6.3.0 and above, but will in theory work with any > 4.9) and clang (9.0.0 and above). Intel compilers have been known to cause issues.
-- CMake/CTest build tools
+- A modern C++ compiler, at least C++11 standard library is required. This has been tested with:
+  * gcc (v6.3.0 and above)
+  * clang (v10.0.0 and above), you may need the CXX flag "-std=c++14"
+  * icpc (v20.2.1), may also need the CXX flag "-std=c++14"
+- CMake/CTest build tools (v3.12 and higher)
 - Python (2.7 or above, including 3 and higher)
 
 Additionally, if you wish to regenerate the radial code (see below),  Python >=3.6 is required with numpy and sympy.

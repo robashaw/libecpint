@@ -6,6 +6,7 @@ project( libecpint
          VERSION 1.0
          LANGUAGES C CXX)
 
+set(API_VERSION 1)
 set (CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 # code generator variables

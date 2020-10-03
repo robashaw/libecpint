@@ -429,14 +429,15 @@ namespace libecpint {
 					int m = LA - k - l;
 						
 					for (int nB = 0; nB < ncartB; nB++) {
-						nA_minus = nA_plus = N_INDEX(l, m);
+						nA_plus = N_INDEX(l, m);
+						nA_minus = std::min(nA_plus, Q_minus.dims[0]-1);
 						results[0](nA, nB) = -k*Q_minus(nA_minus, nB) + 2.0*Q_plus(nA_plus, nB);
 						
-						nA_minus = std::max(0, N_INDEX(l-1, m));
+						nA_minus = l > 0 ? N_INDEX(l-1, m) : 0;
 						nA_plus  = N_INDEX(l+1, m);
 						results[1](nA, nB) = -l*Q_minus(nA_minus, nB) + 2.0*Q_plus(nA_plus, nB);
 						
-						nA_minus = std::max(0, N_INDEX(l, m-1));
+						nA_minus = m > 0 ? N_INDEX(l, m-1) : 0;
 						nA_plus  = N_INDEX(l, m+1);
 						results[2](nA, nB) = -m*Q_minus(nA_minus, nB) + 2.0*Q_plus(nA_plus, nB);
 					}
@@ -487,34 +488,39 @@ namespace libecpint {
 				int m = LA - k - l;
 					
 				for (int nB = 0; nB < ncartB; nB++) {
-					nA_mm = nA_mp = nA_pp = N_INDEX(l, m); //dxx
+					nA_mp = nA_pp = N_INDEX(l, m); //dxx
+					nA_mm = std::min(nA_mp, Q_minus.dims[0]-1);
 					results[0](nA, nB) = k*(k-1)*Q_minus(nA_mm, nB) - 2.0*(2*k+1)*Q_0(nA_mp, nB)
 										+4.0*Q_plus(nA_pp, nB);
 					
-					nA_mm = std::max(0, N_INDEX(l-1, m)); //dxy
-					nA_pp  = N_INDEX(l+1, m);
-					results[1](nA, nB) = k*l*Q_minus(nA_mm, nB) - 2.0*k*Q_0(nA_pp, nB)
-										- 2.0*l*Q_0(nA_mm, nB) + 4.0*Q_plus(nA_pp, nB);
+					nA_pm = l > 0 ? N_INDEX(l-1, m) : 0;
+					nA_mm = k > 0 ? nA_pm : 0; //dxy
+					nA_pp = N_INDEX(l+1, m); 
+					nA_mp  = k > 0 ? nA_pp : 0;
+					results[1](nA, nB) = k*l*Q_minus(nA_mm, nB) - 2.0*k*Q_0(nA_mp, nB)
+										- 2.0*l*Q_0(nA_pm, nB) + 4.0*Q_plus(nA_pp, nB);
 
-					nA_mm = std::max(0, N_INDEX(l, m-1)); //dxz
-					nA_pp  = N_INDEX(l, m+1);
-					results[2](nA, nB) = k*m*Q_minus(nA_mm, nB) - 2.0*k*Q_0(nA_pp, nB)
-										- 2.0*m*Q_0(nA_mm, nB) + 4.0*Q_plus(nA_pp, nB);
+					nA_pm = m > 0 ? N_INDEX(l, m-1) : 0;
+					nA_mm = k > 0 ? nA_pm : 0; //dxz
+					nA_pp = N_INDEX(l, m+1);
+					nA_mp  = k > 0 ? nA_pp : 0;
+					results[2](nA, nB) = k*m*Q_minus(nA_mm, nB) - 2.0*k*Q_0(nA_mp, nB)
+										- 2.0*m*Q_0(nA_pm, nB) + 4.0*Q_plus(nA_pp, nB);
 
-					nA_mm = std::max(0, N_INDEX(l-2, m)); //dyy
+					nA_mm = l > 1 ? N_INDEX(l-2, m) : 0; //dyy
 					nA_mp = N_INDEX(l, m);
 					nA_pp  = N_INDEX(l+2,m);
 					results[3](nA, nB) = l*(l-1)*Q_minus(nA_mm, nB) - 2.0*(2*l+1)*Q_0(nA_mp, nB)
 										+4.0*Q_plus(nA_pp, nB);
 
-					nA_mm = std::max(0, N_INDEX(l-1, m-1)); //dyz
-					nA_mp = std::max(0, N_INDEX(l-1, m+1));
-					nA_pm = std::max(0, N_INDEX(l+1, m-1));	
+					nA_mm = l*m > 0 ? N_INDEX(l-1, m-1) : 0; //dyz
+					nA_mp = l > 0 ? N_INDEX(l-1, m+1) : 0; 
+					nA_pm = m > 0 ? N_INDEX(l+1, m-1) : 0; 
 					nA_pp  = N_INDEX(l+1, m+1);
 					results[4](nA, nB) = l*m*Q_minus(nA_mm, nB) - 2.0*l*Q_0(nA_mp, nB)
 										- 2.0*m*Q_0(nA_pm, nB) + 4.0*Q_plus(nA_pp, nB);
 
-					nA_mm = std::max(0, N_INDEX(l, m-2)); //dzz
+					nA_mm =  m > 1 ? N_INDEX(l, m-2) : 0; //dzz
 					nA_mp = N_INDEX(l, m);
 					nA_pp  = N_INDEX(l,m+2);
 					results[5](nA, nB) = m*(m-1)*Q_minus(nA_mm, nB) - 2.0*(2*m+1)*Q_0(nA_mp, nB)
@@ -575,9 +581,10 @@ namespace libecpint {
 			for (int la=LA-ka; la>=0; la--) {
 				int ma = LA - ka - la;
 				AL[0]=ka; AL[1]=la; AL[2]=ma;
-				nA_m[0] = nA_p[0] = N_INDEX(la, ma);
-				nA_m[1] = std::max(0, N_INDEX(la-1, ma));
-				nA_m[2] = std::max(0, N_INDEX(la, ma-1));
+				nA_p[0] = N_INDEX(la, ma);
+				nA_m[0] = std::min(nA_p[0], Q_mm.dims[0]-1);
+				nA_m[1] = la > 0 ? N_INDEX(la-1, ma) : 0; 
+				nA_m[2] = ma > 0 ? N_INDEX(la, ma-1) : 0;
 				nA_p[1] = N_INDEX(la+1,ma);
 				nA_p[2] = N_INDEX(la, ma+1);
 				
@@ -585,9 +592,10 @@ namespace libecpint {
 				for (int kb=LB; kb >= 0; kb--) {
 					for (int lb=LB-kb; lb>=0; lb--) {
 						int mb = LB - kb - lb;
-						nB_m[0] = nB_p[0] = N_INDEX(lb, mb);
-						nB_m[1] = std::max(0, N_INDEX(lb-1, mb));
-						nB_m[2] = std::max(0, N_INDEX(lb, mb-1));
+						nB_p[0] = N_INDEX(lb, mb);
+						nB_m[0] = std::min(nB_p[0], Q_mm.dims[1]-1);
+						nB_m[1] = lb > 0 ? N_INDEX(lb-1, mb) : 0; 
+						nB_m[2] = mb > 0 ? N_INDEX(lb, mb-1) : 0;
 						nB_p[1] = N_INDEX(lb+1,mb);
 						nB_p[2] = N_INDEX(lb, mb+1);
 						BL[0]=kb; BL[1]=lb; BL[2]=mb;

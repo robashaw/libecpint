@@ -18,6 +18,7 @@ configure_file (
   "${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp"
 )
 
+include(GNUInstallDirs)
 include(ExternalProject)
 include(external/ImportPugiXML.cmake)
 message(${PUGIXML_INCLUDE_DIR})

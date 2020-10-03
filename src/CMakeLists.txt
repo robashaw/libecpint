@@ -60,7 +60,7 @@ target_link_libraries(ecpint
 #  Install
 # =========
 
-install(TARGETS ecpint EXPORT ecpintTargets DESTINATION lib)
+install(TARGETS ecpint EXPORT ecpintTargets DESTINATION ${CMAKE_INSTALL_LIBDIR})
 include(CMakePackageConfigHelpers)
 # Version file
 write_basic_package_version_file(
@@ -72,7 +72,7 @@ write_basic_package_version_file(
 configure_package_config_file(
   ${CMAKE_CURRENT_SOURCE_DIR}/config.cmake.in
   ${CMAKE_CURRENT_BINARY_DIR}/ecpint-config.cmake
-  INSTALL_DESTINATION lib/cmake/ecpint
+  INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ecpint
 )
 # Targets files
 export(
@@ -82,13 +82,13 @@ export(
 install(
   EXPORT ecpintTargets
   FILE ecpint-targets.cmake
-  DESTINATION lib/cmake/ecpint
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ecpint
 )
 install(
   FILES
     ${CMAKE_CURRENT_BINARY_DIR}/ecpint-config.cmake
     ${CMAKE_CURRENT_BINARY_DIR}/ecpint-config-version.cmake
-  DESTINATION lib/cmake/ecpint
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ecpint
 )
 
-install(TARGETS ecpint DESTINATION lib)
+install(TARGETS ecpint DESTINATION ${CMAKE_INSTALL_LIBDIR})

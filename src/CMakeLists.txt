@@ -40,6 +40,7 @@ if(NOT BUILD_SHARED_LIBS)
 endif()
 
 set_property(TARGET ecpint PROPERTY CXX_STANDARD 11)
+set_target_properties(ecpint PROPERTIES SOVERSION ${API_VERSION})
 target_include_directories(ecpint
   PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/libecpint>

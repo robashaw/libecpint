@@ -1,4 +1,4 @@
-## Libecpint 1.0.1
+## Libecpint 1.0.2
 
 [![Build Status](https://dev.azure.com/robertshaw383/libecpint/_apis/build/status/robashaw.libecpint?branchName=master)](https://dev.azure.com/robertshaw383/libecpint/_build/latest?definitionId=2&branchName=master)
 [![codecov](https://codecov.io/gh/robashaw/libecpint/branch/master/graph/badge.svg)](https://codecov.io/gh/robashaw/libecpint)
@@ -17,6 +17,11 @@ Libecpint is a C++ library for the efficient evaluation of integrals over ab ini
 
 - Bug fix in screening of on-ECP type 2 integrals
 - Improvements in CMake build steps, thanks to nabbelbabbel/moritzBens
+
+### Patch 2
+
+- Fix for memory leaks in derivative routines
+- Minor changes to CMake files
 
 ## Dependencies
 

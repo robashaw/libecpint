@@ -14,10 +14,11 @@ target_include_directories(generate
     ${CMAKE_CURRENT_BINARY_DIR}/../include/libecpint
 )
 
-execute_process(COMMAND mkdir -p "${CMAKE_CURRENT_BINARY_DIR}/generated")
-execute_process(COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.part" "${CMAKE_CURRENT_BINARY_DIR}/generated")
-execute_process(COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/generated/qgen.part" "${CMAKE_CURRENT_BINARY_DIR}/generated")
-execute_process(COMMAND python "${CMAKE_CURRENT_SOURCE_DIR}/makelist.py" "${LIBECPINT_MAX_L}" "${CMAKE_CURRENT_BINARY_DIR}")
+file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/generated")
+file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.part" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/generated")
+file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/generated/qgen.part" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/generated")
+find_package (Python COMPONENTS Interpreter)
+execute_process(COMMAND ${Python_EXECUTABLE} "${CMAKE_CURRENT_SOURCE_DIR}/makelist.py" "${LIBECPINT_MAX_L}" "${CMAKE_CURRENT_BINARY_DIR}")
 file(READ "${CMAKE_CURRENT_BINARY_DIR}/qlist.txt" GENERATED_SOURCES)
 STRING(REGEX REPLACE "\n" ";" GENERATED_SOURCES "${GENERATED_SOURCES}")
 add_custom_command(
@@ -39,6 +40,7 @@ if(NOT BUILD_SHARED_LIBS)
 endif()
 
 set_property(TARGET ecpint PROPERTY CXX_STANDARD 11)
+set_target_properties(ecpint PROPERTIES SOVERSION ${API_VERSION})
 target_include_directories(ecpint
   PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/libecpint>
@@ -59,7 +61,7 @@ target_link_libraries(ecpint
 #  Install
 # =========
 
-install(TARGETS ecpint EXPORT ecpintTargets DESTINATION lib)
+install(TARGETS ecpint EXPORT ecpintTargets DESTINATION ${CMAKE_INSTALL_LIBDIR})
 include(CMakePackageConfigHelpers)
 # Version file
 write_basic_package_version_file(
@@ -71,7 +73,7 @@ write_basic_package_version_file(
 configure_package_config_file(
   ${CMAKE_CURRENT_SOURCE_DIR}/config.cmake.in
   ${CMAKE_CURRENT_BINARY_DIR}/ecpint-config.cmake
-  INSTALL_DESTINATION lib/cmake/ecpint
+  INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ecpint
 )
 # Targets files
 export(
@@ -81,13 +83,13 @@ export(
 install(
   EXPORT ecpintTargets
   FILE ecpint-targets.cmake
-  DESTINATION lib/cmake/ecpint
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ecpint
 )
 install(
   FILES
     ${CMAKE_CURRENT_BINARY_DIR}/ecpint-config.cmake
     ${CMAKE_CURRENT_BINARY_DIR}/ecpint-config-version.cmake
-  DESTINATION lib/cmake/ecpint
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ecpint
 )
 
-install(TARGETS ecpint DESTINATION lib)
+install(TARGETS ecpint DESTINATION ${CMAKE_INSTALL_LIBDIR})

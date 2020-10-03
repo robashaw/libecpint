@@ -51,7 +51,7 @@ namespace libecpint {
 			K[i] = new double[lMax + TAYLOR_CUT + 1];
 			dK[i] = new double*[TAYLOR_CUT + 1];
 			for (int j = 0; j < TAYLOR_CUT + 1; j++)
-				dK[i][j] = new double[lMax + TAYLOR_CUT];
+				dK[i][j] = new double[lMax + TAYLOR_CUT + 1];
 		}
 		C = new double[lMax+TAYLOR_CUT];
 	
@@ -121,7 +121,7 @@ namespace libecpint {
 		// K_l^(n+1) = C_l K_(l-1)^(n) + (C_l + 1/(2l+1))K_(l+1)^(n) - K_l^(n)
 		for (int ix = 0; ix < N+1; ix++) {
 			// Copy K values into dK
-			for (int l = 0; l < lMax+TAYLOR_CUT; l++)
+			for (int l = 0; l <= lMax+TAYLOR_CUT; l++)
 				dK[ix][0][l] = K[ix][l];
 	    	
 			// Then the rest

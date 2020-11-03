@@ -83,6 +83,7 @@ export(
 install(
   EXPORT ecpintTargets
   FILE ecpint-targets.cmake
+  NAMESPACE ECPINT::
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ecpint
 )
 install(

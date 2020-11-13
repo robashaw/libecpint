@@ -34,6 +34,7 @@ add_custom_command(
 
 file(GLOB_RECURSE LIB_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/lib/*.cpp")
 add_library(ecpint ${LIB_SOURCES} ${GENERATED_SOURCES})
+add_library(ECPINT::ecpint ALIAS ecpint)
 
 if(NOT BUILD_SHARED_LIBS)
   set_property(TARGET ecpint PROPERTY POSITION_INDEPENDENT_CODE ON)
@@ -83,6 +84,7 @@ export(
 install(
   EXPORT ecpintTargets
   FILE ecpint-targets.cmake
+  NAMESPACE ECPINT::
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ecpint
 )
 install(

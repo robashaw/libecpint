@@ -155,8 +155,10 @@ namespace libecpint {
 		return rval; 
 	}
 	
-	void RadialIntegral::type2(std::vector<Triple>& triples, int nbase, int lam, ECP &U, GaussianShell &shellA, GaussianShell &shellB,
-	double A, double B, ThreeIndex<double> &radials)
+	void RadialIntegral::type2(
+	    const std::vector<Triple>& triples, const int nbase, const int lam,
+	    const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+      const double A, const double B, ThreeIndex<double> &radials)
 	{
 		int npA = shellA.nprimitive();
 		int npB = shellB.nprimitive();

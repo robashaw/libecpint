@@ -57,9 +57,9 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 		outfile << "// Generated as part of Libecpint, Copyright 2017 Robert A Shaw" << std::endl; 
 		outfile << "#include \"qgen.hpp\"" << std::endl; 
 		outfile << "namespace libecpint {" << std::endl << "namespace qgen {" << std::endl;
-		outfile << "void Q" << LA << "_" << LB << "_" << lam << "(ECP& U, GaussianShell& shellA, GaussianShell& shellB, "
-			<< "FiveIndex<double> &CA, FiveIndex<double> &CB, TwoIndex<double> &SA, TwoIndex<double> &SB, double Am, double Bm, "
-				<< "RadialIntegral &radint, AngularIntegral& angint, ThreeIndex<double> &values) {" << std::endl << std::endl; 
+		outfile << "void Q" << LA << "_" << LB << "_" << lam << "(const ECP& U, const GaussianShell& shellA, const GaussianShell& shellB, "
+			<< "const FiveIndex<double> &CA, const FiveIndex<double> &CB, const TwoIndex<double> &SA, const TwoIndex<double> &SB, const double Am, const double Bm, "
+				<< "RadialIntegral &radint, const AngularIntegral& angint, ThreeIndex<double> &values) {" << std::endl << std::endl;
 		
 		double prefac = 16.0 * M_PI * M_PI;
 		int na = 0; 
@@ -251,9 +251,9 @@ int main(int argc, char* argv[]) {
 				for (int k = 0; k <= maxL; k++) {
 					generate_lists(i, j, k, angInts); 
 					qgen_head << "\tvoid Q" << i << "_" << j << "_" << k << "("
-								<< "ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, "
-								<< "TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, "
-								<< "AngularIntegral&, ThreeIndex<double>&);" << std::endl; 
+								<< "const ECP&, const GaussianShell&, const GaussianShell&, const FiveIndex<double>&, const FiveIndex<double>&, "
+								<< "const TwoIndex<double>&, const TwoIndex<double>&, double, double, RadialIntegral&, "
+								<< "const AngularIntegral&, ThreeIndex<double>&);" << std::endl;
 				}
 			}
 		}

@@ -70,7 +70,7 @@ namespace libecpint {
         const FiveIndex<double>&, const FiveIndex<double>&,
         const TwoIndex<double>&, const TwoIndex<double>&,
         double, double,
-        const RadialIntegral&, const AngularIntegral&, const ThreeIndex<double>&);
+        RadialIntegral&, const AngularIntegral&, ThreeIndex<double>&);
 
 	public:
 		int skipped, zero, nonzero;

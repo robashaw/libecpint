@@ -219,7 +219,10 @@ namespace libecpint {
 		* @param B - the magnitude of the distance of shellB from the ECP
 		* @param radials - the array to return the integrals in, indexed as (N, l1, l2)
 		*/
-		void type2(std::vector<Triple> &triples, int nbase, int lam, ECP &U, GaussianShell &shellA, GaussianShell &shellB, double A, double B, ThreeIndex<double> &radials); 
+		void type2(
+        const std::vector<Triple> &triples, int nbase, int lam,
+        const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+        double A, double B, ThreeIndex<double> &radials);
 	
 		/**
 		  * Estimates the value of the requested type 2 radial integral for prescreening, as described in ref. Shaw2017.

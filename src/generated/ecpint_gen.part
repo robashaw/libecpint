@@ -27,6 +27,8 @@
 
 namespace libecpint {
 
-	void(*ECPIntegral::QGEN[LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1])(ECP&, GaussianShell&, GaussianShell&,
-	 FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double,
-	 RadialIntegral&, AngularIntegral&, ThreeIndex<double>&) {
+	void(*ECPIntegral::QGEN[LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1])(
+      const ECP&, const GaussianShell&, const GaussianShell&,
+      const FiveIndex<double>&, const FiveIndex<double>&, const TwoIndex<double>&, const TwoIndex<double>&,
+      double, double,
+	    RadialIntegral&, const AngularIntegral&, ThreeIndex<double>&) {

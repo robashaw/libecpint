@@ -22,7 +22,7 @@ GCQuadrature* CreateSmallGrid() {
 	return gc;
 }
 
-double polynomial(double r, double *p, int ix) {
+double polynomial(const double r, const double *p, const int ix) {
 	double result = 0; 
 	int n = int(p[0]); 
 	for (int i = 0; i <= n; i++)
@@ -30,7 +30,7 @@ double polynomial(double r, double *p, int ix) {
 	return result;
 }
 
-double gaussian(double r, double *p, int ix) {
+double gaussian(const double r, const double *p, const int ix) {
 	return p[1] * std::exp(-r*r*p[0]); 
 }
 
@@ -49,7 +49,7 @@ TEST_P(QuadTest, CheckInit) {
 }
 
 TEST_P(QuadTest, IntegratePoly) {
-	std::function<double(double, double*, int)> intgd = polynomial;
+	std::function<double(double, const double*, int)> intgd = polynomial;
 	double params[5] = {3, 1.0, -2.0, 3.0, -4.0};
 	bool test = grid_->integrate(intgd, params, 1e-6);
 	EXPECT_TRUE(test);
@@ -57,7 +57,7 @@ TEST_P(QuadTest, IntegratePoly) {
 }
 
 TEST_P(QuadTest, IntegrateGauss) {
-	std::function<double(double, double*, int)> intgd = gaussian;
+	std::function<double(double, const double*, int)> intgd = gaussian;
 	//integrate on [0, inf) instead of [-1, 1]
 	grid_->transformZeroInf();
 	double params[2] = {0.5, 2.4};
@@ -67,7 +67,7 @@ TEST_P(QuadTest, IntegrateGauss) {
 }
 
 TEST_P(QuadTest, TransformPoly) {
-	std::function<double(double, double*, int)> intgd = polynomial;
+	std::function<double(double, const double*, int)> intgd = polynomial;
 	// integrate on [10, 20] instead of [-1, 1]
 	grid_->transformRMinMax(2.56, 14.375);
 	double params[4] = {2, 0.2, 0.1, -0.003};

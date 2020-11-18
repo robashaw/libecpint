@@ -33,7 +33,7 @@
 
 namespace libecpint {
 
-	ECPIntegral::ECPIntegral(int maxLB, int maxLU, int deriv) { 
+	ECPIntegral::ECPIntegral(const int maxLB, const int maxLU, const int deriv) {
 		// Make sure library can perform requested integrals
 		assert(maxLB+deriv <= LIBECPINT_MAX_L); 
 		assert(maxLU <= LIBECPINT_MAX_L);
@@ -48,14 +48,14 @@ namespace libecpint {
 		radInts.init(2*(maxLB+deriv) + maxLU, 1e-15, 256, 512);
 	};
 
-	double ECPIntegral::calcC(int a, int m, double A) const {
+	double ECPIntegral::calcC(const int a, const int m, const double A) const {
 		double value = 1.0 - 2*((a-m) % 2);
 		value *= std::pow(A, a-m);
 		value *= FAC[a]/(FAC[m] * FAC[a-m]);
 		return value;
 	}
 
-	void ECPIntegral::makeC(FiveIndex<double> &C, int L, double *A) {
+	void ECPIntegral::makeC(FiveIndex<double> &C, const int L, const double *A) const {
 		int z; double Ck, Cl;
 		int na = 0;
 		for (int x = L; x >= 0; x--) {
@@ -74,7 +74,10 @@ namespace libecpint {
 		}
 	}
 
-	void ECPIntegral::type1(ECP &U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, FiveIndex<double> &CA, FiveIndex<double> &CB, TwoIndex<double> &values) { 
+	void ECPIntegral::type1(
+      const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+      const ShellPairData &data, const FiveIndex<double> &CA, const FiveIndex<double> &CB,
+      TwoIndex<double> &values) {
 
 		int LA = data.LA; int LB = data.LB;
 		int maxLBasis = data.maxLBasis;
@@ -153,7 +156,10 @@ namespace libecpint {
 	
 	}
 
-	void ECPIntegral::type2(int lam, ECP& U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, FiveIndex<double> &CA, FiveIndex<double> &CB, ThreeIndex<double> &values) {
+	void ECPIntegral::type2(
+      const int lam, const ECP& U, const GaussianShell &shellA, const GaussianShell &shellB,
+      const ShellPairData &data, const FiveIndex<double> &CA, const FiveIndex<double> &CB,
+      ThreeIndex<double> &values) {
 	
 		// Unpack some data for convenience
 		int LA = data.LA;
@@ -186,7 +192,7 @@ namespace libecpint {
 						
 							double value = 0.0;
 							for (int c = 0; c < npC; c++) {
-								GaussianECP& g = U.getGaussian(c);
+                const GaussianECP& g = U.getGaussian(c);
 								if (g.l == lam) {
 									zC = g.a;
 									dC = g.d;
@@ -290,7 +296,9 @@ namespace libecpint {
 		}
 	}
 
-	void ECPIntegral::estimate_type2(ECP& U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, double* results) {
+	void ECPIntegral::estimate_type2(
+      const ECP& U, const GaussianShell &shellA, const GaussianShell &shellB,
+      const ShellPairData &data, double* results) const {
 		double sigma_a, sigma_b, min_eta, n2, an, bn, a_bound, b_bound, ab_bound;
 		double atilde, btilde, ztilde, Tk, Tk_0, xp;
 		
@@ -322,7 +330,7 @@ namespace libecpint {
 			ab_bound = 0.0;
 			xp = atilde*atilde*data.A2 + btilde*btilde*data.B2;
 			for (int k = U.l_starts[l]; k < U.l_starts[l+1]; k++) {
-				GaussianECP& g = U.getGaussian(k);
+        const GaussianECP& g = U.getGaussian(k);
 				ztilde = atilde + btilde + g.a;
 				Tk = Tk_0 / ztilde;
 				Tk = Tk > 1 ? 0.5 * std::exp(Tk) / Tk : SINH_1;
@@ -333,7 +341,9 @@ namespace libecpint {
 		}
 	}
 
-	void ECPIntegral::compute_shell_pair(ECP &U, GaussianShell &shellA, GaussianShell &shellB, TwoIndex<double> &values, int shiftA, int shiftB) {
+	void ECPIntegral::compute_shell_pair(
+      const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+      TwoIndex<double> &values, const int shiftA, const int shiftB) {
 	
 		ShellPairData data;
 		
@@ -400,7 +410,9 @@ namespace libecpint {
 		}
 	}
 	
-	void ECPIntegral::left_shell_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 3> &results) {
+	void ECPIntegral::left_shell_derivative(
+      const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+      std::array<TwoIndex<double>, 3> &results) {
 		int LA = shellA.am();
 		int LB = shellB.am();
 		
@@ -453,7 +465,9 @@ namespace libecpint {
 		}
 	}
 	
-	void ECPIntegral::left_shell_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 6> &results) {
+	void ECPIntegral::left_shell_second_derivative(
+      const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+      std::array<TwoIndex<double>, 6> &results) {
 		int LA = shellA.am();
 		int LB = shellB.am();
 		
@@ -532,7 +546,9 @@ namespace libecpint {
 		}
 	}
 	
-	void ECPIntegral::mixed_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 9> &results) {
+	void ECPIntegral::mixed_second_derivative(
+      const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+      std::array<TwoIndex<double>, 9> &results) {
 		int LA = shellA.am();
 		int LB = shellB.am();
 		
@@ -615,7 +631,9 @@ namespace libecpint {
 		}
 	}
 	
-	void ECPIntegral::compute_shell_pair_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 9> &results) {		
+	void ECPIntegral::compute_shell_pair_derivative(
+      const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+      std::array<TwoIndex<double>, 9> &results) {
 		// First we check centres
 		double A[3], B[3], C[3];
 		for (int i = 0; i < 3; i++) {
@@ -675,7 +693,9 @@ namespace libecpint {
 		}
 	}
 
-	void ECPIntegral::compute_shell_pair_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 45> &results) {		
+	void ECPIntegral::compute_shell_pair_second_derivative(
+      const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+      std::array<TwoIndex<double>, 45> &results) {
 		// First we check centres
 		double A[3], B[3], C[3];
 		for (int i = 0; i < 3; i++) {

@@ -29,7 +29,7 @@
 
 namespace libecpint {
 	namespace qgen {	
-		void rolled_up(int lam, int LA, int LB, ThreeIndex<double> &radials, FiveIndex<double> &CA, FiveIndex<double> &CB, TwoIndex<double> &SA, TwoIndex<double> &SB, AngularIntegral &angint, ThreeIndex<double> &values)
+		void rolled_up(const int lam, const int LA, const int LB, const ThreeIndex<double> &radials, const FiveIndex<double> &CA, const FiveIndex<double> &CB, const TwoIndex<double> &SA, const TwoIndex<double> &SB, const AngularIntegral &angint, ThreeIndex<double> &values)
 		{
 			double prefac = 16.0 * M_PI * M_PI;
 			int L = LA + LB;	
@@ -38,8 +38,8 @@ namespace libecpint {
 			int w_ax, w_ay, w_az, w_l1; 
 			int w_bx, w_by, w_bz, w_l2; 
 			double C, val;
-			int* mults = angint.getOmegaMults();
-			std::vector<double>& omega = angint.getOmegaData();
+      const int* mults = angint.getOmegaMults();
+      const std::vector<double>& omega = angint.getOmegaData();
 			int w_size = 2*lam+1; 
 			double w1_contr[w_size*(lam+LA+1)];
 			double w2_contr[w_size*(lam+LB+1)];
@@ -133,16 +133,16 @@ namespace libecpint {
 			}
 		}
   
-		void rolled_up_special(int lam, int LA, int LB, ThreeIndex<double>& radials, FiveIndex<double>& CB, TwoIndex<double>& SB, AngularIntegral& angint, ThreeIndex<double>& values) {
+		void rolled_up_special(const int lam, const int LA, const int LB, const ThreeIndex<double>& radials, const FiveIndex<double>& CB, const TwoIndex<double>& SB, const AngularIntegral& angint, ThreeIndex<double>& values) {
 			double prefac = 8.0 * M_PI * std::sqrt(M_PI);
 			int L = LA + LB;	
 	
 			int z1, z2; 
 			double C, val1, val2; 
 
-			int w_bx, w_by, w_bz, w_l2, w_m2, w1, w_m; 
-			int* mults = angint.getOmegaMults();
-			std::vector<double>& omega = angint.getOmegaData();
+			int w_bx, w_by, w_bz, w_l2, w_m2, w1, w_m;
+      const int* mults = angint.getOmegaMults();
+      const std::vector<double>& omega = angint.getOmegaData();
 			int w_lam = lam * mults[3];
 			
 			// Loop over cartesian shell functions in alpha order, e.g. {xx xy, xz, yy, yz, zz} for l=2

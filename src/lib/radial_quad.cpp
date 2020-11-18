@@ -43,7 +43,8 @@ namespace libecpint {
 		tolerance = tol;
 	}
 
-	void RadialIntegral::buildBessel(std::vector<double> &r, int nr, int maxL, TwoIndex<double> &values, double weight) {
+	void RadialIntegral::buildBessel(
+	    const std::vector<double> &r, const int nr, const int maxL, TwoIndex<double> &values, const double weight) {
 		std::vector<double> besselValues(maxL+1, 0.0);
 		if (std::abs(weight) < 1e-15) {
 			for (int i = 0; i < nr; i++) {
@@ -58,17 +59,19 @@ namespace libecpint {
 		}
 	}
 
-	double RadialIntegral::calcKij(double Na, double Nb, double zeta_a, double zeta_b, double R2) const {
+	double RadialIntegral::calcKij(
+	    const double Na, const double Nb, const double zeta_a, const double zeta_b, const double R2) const {
 		double muij = zeta_a * zeta_b / (zeta_a + zeta_b);
 		return Na * Nb * std::exp(-muij * R2);
 	}
 
 	// Assumes that p is the pretabulated integrand at the abscissae
-	double RadialIntegral::integrand(double r, double *p, int ix) {
+	double RadialIntegral::integrand(const double r, const double *p, const int ix) {
 		return p[ix];
 	}
 
-	void RadialIntegral::buildParameters(GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data) {
+	void RadialIntegral::buildParameters(
+	    const GaussianShell &shellA, const GaussianShell &shellB, const ShellPairData &data) {
 		int npA = shellA.nprimitive();
 		int npB = shellB.nprimitive();
 
@@ -97,9 +100,10 @@ namespace libecpint {
 		}
 	}
 
-	void RadialIntegral::buildU(ECP &U, int l, int N, GCQuadrature &grid, double *Utab) {
+	void RadialIntegral::buildU(
+	    const ECP &U, const int l, const int N, const GCQuadrature &grid, double *Utab) {
 		int gridSize = grid.getN();
-		std::vector<double> &gridPoints = grid.getX();
+    const std::vector<double> &gridPoints = grid.getX();
 	
 		// Tabulate weighted ECP values
 		double r;
@@ -109,8 +113,10 @@ namespace libecpint {
 		}
 	}
 
-	int RadialIntegral::integrate(int maxL, int gridSize, TwoIndex<double> &intValues, GCQuadrature &grid, std::vector<double> &values, int offset, int skip) {
-		std::function<double(double, double*, int)> intgd = integrand; 
+	int RadialIntegral::integrate(
+      const int maxL, const int gridSize, const TwoIndex<double> &intValues, GCQuadrature &grid,
+      std::vector<double> &values, const int offset, const int skip) {
+		std::function<double(double, const double*, int)> intgd = integrand;
 		values.assign(maxL+1, 0.0);
 		int test;
 		double params[gridSize];
@@ -125,7 +131,10 @@ namespace libecpint {
 		return test;
 	}
 
-	void RadialIntegral::type1(int maxL, int N, int offset, ECP &U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, TwoIndex<double> &values) {
+	void RadialIntegral::type1(
+      const int maxL, const int N, const int offset,
+      const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+      const ShellPairData &data, TwoIndex<double> &values) {
 		int npA = shellA.nprimitive();
 		int npB = shellB.nprimitive();
 	
@@ -209,7 +218,10 @@ namespace libecpint {
 	}
 
 	// F_a(lam, r) = sum_{i in a} d_i K_{lam}(2 zeta_a A r)*std::exp(-zeta_a(r - A)^2)
-	void RadialIntegral::buildF(GaussianShell &shell, double A, int lstart, int lend, std::vector<double> &r, int nr, int start, int end, TwoIndex<double> &F) {
+	void RadialIntegral::buildF(
+      const GaussianShell &shell, const double A, const int lstart, const int lend,
+      const std::vector<double> &r, const int nr, const int start, const int end,
+      TwoIndex<double> &F) {
 		int np = shell.nprimitive();
 		
 		double weight, zeta, c;
@@ -233,7 +245,9 @@ namespace libecpint {
 		}
 	}
 	
-	double RadialIntegral::estimate_type2(int N, int l1, int l2, double n, double a, double b, double A, double B) {
+	double RadialIntegral::estimate_type2(
+      const int N, const int l1, const int l2, const double n,
+      const double a, const double b, const double A, const double B) {
 		double kA = 2.0*a*A;
 		double kB = 2.0*b*B;
 		double c0 = std::max(N - l1 - l2, 0);
@@ -251,9 +265,12 @@ namespace libecpint {
 		return (0.5 * std::sqrt(M_PI/p) * Fres * (1.0 + Faddeeva::erf(std::sqrt(p)*P)));
 	}
 
-	void RadialIntegral::type2(int l, int l1start, int l1end, int l2start, int l2end, int N, ECP &U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, TwoIndex<double> &values) {
+	void RadialIntegral::type2(
+      const int l, const int l1start, int l1end, const int l2start, int l2end,
+      const int N, const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+      const ShellPairData &data, TwoIndex<double> &values) {
 	
-		std::function<double(double, double*, int)> intgd = integrand; 
+		std::function<double(double, const double*, int)> intgd = integrand;
 
 		int npA = shellA.nprimitive();
 		int npB = shellB.nprimitive();

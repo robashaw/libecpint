@@ -71,14 +71,14 @@ namespace libecpint {
 	struct TwoIndex {
 		int dims[2];
 		std::vector<T> data;
-		T& operator()(int i, int j) { return data[i * dims[1] + j]; }
-		T operator()(int i, int j) const { return data[i * dims[1] + j]; }
+		T& operator()(const int i, const int j) { return data[i * dims[1] + j]; }
+		T operator()(const int i, const int j) const { return data[i * dims[1] + j]; }
 		void assign(int dim1, int dim2, T value) {
 			dims[0] = dim1; dims[1] = dim2;
 			data.resize(dim1 * dim2);
 			std::fill(data.begin(), data.end(), value);
 		}
-		TwoIndex<T> transpose() {
+		TwoIndex<T> transpose() const {
 			TwoIndex<T> result(dims[1], dims[0]);
 			for (int i = 0; i < dims[0]; i++) {
 				for (int j = 0; j < dims[1]; j++)
@@ -94,11 +94,11 @@ namespace libecpint {
 			std::transform(data.begin(), data.end(), data.begin(), [&k](T& c){return c*k;});
 		}
 		TwoIndex() { dims[0] = dims[1] = 0; }
-		TwoIndex(int dim1, int dim2) {
+		TwoIndex(const int dim1, const int dim2) {
 			dims[0] = dim1; dims[1] = dim2;
 			data.resize(dim1 * dim2);
 		}
-		TwoIndex(int dim1, int dim2, T value) { assign(dim1, dim2, value); }
+		TwoIndex(const int dim1, const int dim2, const T value) { assign(dim1, dim2, value); }
 		TwoIndex(const TwoIndex<T> &other) { 
 			data = other.data;
 			dims[0] = other.dims[0]; dims[1] = other.dims[1];
@@ -110,10 +110,10 @@ namespace libecpint {
 	struct ThreeIndex {
 		int dims[3];
 		std::vector<T> data;
-		T& operator()(int i, int j, int k) { return data[i*dims[2]*dims[1] + j*dims[2] + k]; }
-		T operator()(int i, int j, int k) const { return data[i*dims[2]*dims[1] + j*dims[2] + k]; }
+		T& operator()(const int i, const int j, const int k) { return data[i*dims[2]*dims[1] + j*dims[2] + k]; }
+		T operator()(const int i, const int j, const int k) const { return data[i*dims[2]*dims[1] + j*dims[2] + k]; }
 		ThreeIndex(){ dims[0] = 0; dims[1] = 0; dims[2] = 0; }
-		ThreeIndex(int dim1, int dim2, int dim3) {
+		ThreeIndex(const int dim1, const int dim2, const int dim3) {
 			dims[0] = dim1; dims[1] = dim2; dims[2] = dim3;
 			data.resize(dim1 * dim2 * dim3);
 		}
@@ -121,7 +121,7 @@ namespace libecpint {
 			data = other.data;
 			for (int n = 0; n < 3; n++) dims[n] = other.dims[n]; 
 		}
-		void fill(T value) { std::fill(data.begin(), data.end(), value); }
+		void fill(const T value) { std::fill(data.begin(), data.end(), value); }
 	};
 
 	/// Templated skeleton five index array for convenience
@@ -129,14 +129,14 @@ namespace libecpint {
 	struct FiveIndex {
 		int dims[5];
 		std::vector<T> data;
-		T& operator()(int i, int j, int k, int l, int m) { 
+		T& operator()(const int i, const int j, const int k, const int l, const int m) {
 			return data[m + dims[4] * (l + dims[3] * (k + dims[2] * (j + dims[1] * i)))]; 
 		}
-		T operator()(int i, int j, int k, int l, int m) const { 
+		T operator()(const int i, const int j, const int k, const int l, const int m) const {
 			return data[m + dims[4] * (l + dims[3] * (k + dims[2] * (j + dims[1] * i)))];
 		}
 		FiveIndex() { dims[0] = dims[1] = dims[2] = dims[3] = dims[4] = 0; }
-		FiveIndex(int dim1, int dim2, int dim3, int dim4, int dim5) {
+		FiveIndex(const int dim1, const int dim2, const int dim3, const int dim4, const int dim5) {
 			dims[0] = dim1; dims[1] = dim2; dims[2] = dim3; dims[3] = dim4; dims[4] = dim5;
 			data.resize(dim1 * dim2 * dim3 * dim4 * dim5);
 		}
@@ -152,15 +152,15 @@ namespace libecpint {
 		int dims[7];
 		int mults[6];
 		std::vector<T> data;
-		T& operator()(int i, int j, int k, int l, int m, int n, int p) {
+		T& operator()(const int i, const int j, const int k, const int l, const int m, const int n, const int p) {
 			return data[p + mults[5]*n + mults[4]*m + mults[3]*l + mults[2]*k + mults[1]*j + mults[0]*i];
 		}
-		T operator()(int i, int j, int k, int l, int m, int n, int p) const {
+		T operator()(const int i, const int j, const int k, const int l, const int m, const int n, const int p) const {
 			return data[p + mults[5]*n + mults[4]*m + mults[3]*l + mults[2]*k + mults[1]*j + mults[0]*i];
 		}
 		SevenIndex() { dims[0] = dims[1] = dims[2] = dims[3] = dims[4] = dims[5] = dims[6] = 0; 
 					   mults[0] = mults[1] = mults[2] = mults[3] = mults[4] = mults[5] = 0; }
-		SevenIndex(int dim1, int dim2, int dim3, int dim4, int dim5, int dim6, int dim7) {
+		SevenIndex(const int dim1, const int dim2, const int dim3, const int dim4, const int dim5, const int dim6, const int dim7) {
 			dims[0] = dim1; dims[1] = dim2; dims[2] = dim3; dims[3] = dim4; dims[4] = dim5; dims[5] = dim6; dims[6] = dim7;
 			data.resize(dim1 * dim2 * dim3 * dim4 * dim5 * dim6 * dim7);
 			mults[5] = dim7;

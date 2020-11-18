@@ -58,16 +58,19 @@ namespace libecpint {
 	private:
 		RadialIntegral radInts; ///< The interface to the radial integral calculation
 		AngularIntegral angInts; ///< The angular integrals, which can be reused over all ECP centers
-				
-		double tolerance = 1e-12;
+
+    static constexpr double tolerance = 1e-12;
 	
 		/// Worker functions for calculating binomial expansion coefficients
 		double calcC(int a, int m, double A) const;
 		
 		/// Array of function pointers to generated integral evaluators in qgen
-		static void(*QGEN[LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1])(ECP&, GaussianShell&, GaussianShell&,
-		 FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double,
-		 RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
+		static void(*QGEN[LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1])(
+		    const ECP&, const GaussianShell&, const GaussianShell&,
+        const FiveIndex<double>&, const FiveIndex<double>&,
+        const TwoIndex<double>&, const TwoIndex<double>&,
+        double, double,
+        const RadialIntegral&, const AngularIntegral&, const ThreeIndex<double>&);
 
 	public:
 		int skipped, zero, nonzero;
@@ -78,7 +81,7 @@ namespace libecpint {
 		  * @param L - maximum angular momentum to go up to in expansion
 		  * @param A - xyz coordinates for the center to calculate over
 		  */ 
-		void makeC(FiveIndex<double> &C, int L, double *A);
+		void makeC(FiveIndex<double> &C, int L, const double *A) const;
 		
 		/**
 		  * Creates an ECP integrator, initialising the radial and angular parts for subsequent calculations.
@@ -98,7 +101,9 @@ namespace libecpint {
 		  * @param CB - binomial expansion coefficients for shellB, made with makeC
 		  * @param values - array in which results are returned
 		  */
-		void type1(ECP& U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, FiveIndex<double> &CA, FiveIndex<double> &CB, TwoIndex<double> &values);
+		void type1(const ECP& U, const GaussianShell &shellA, const GaussianShell &shellB,
+               const ShellPairData &data, const FiveIndex<double> &CA, const FiveIndex<double> &CB,
+               TwoIndex<double> &values);
 		
 		/**
 		  * Calculates the type 2 integrals for the given ECP center over the given shell pair
@@ -111,9 +116,14 @@ namespace libecpint {
 		  * @param CB - binomial expansion coefficients for shellB, made with makeC
 		  * @param values - array in which results are returned
 		  */
-		void type2(int l, ECP& U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, FiveIndex<double> &CA, FiveIndex<double> &CB, ThreeIndex<double> &values);
+		void type2(int l,
+               const ECP& U, const GaussianShell &shellA, const GaussianShell &shellB,
+               const ShellPairData &data, const FiveIndex<double> &CA, const FiveIndex<double> &CB,
+               ThreeIndex<double> &values);
 		
-		void estimate_type2(ECP& U, GaussianShell &shellA, GaussianShell &shellB, ShellPairData &data, double* results);
+		void estimate_type2(
+        const ECP& U, const GaussianShell &shellA, const GaussianShell &shellB,
+        const ShellPairData &data, double* results) const;
 	
 		/**
 		  * Computes the overall ECP integrals over the given ECP center and shell pair. This is the lower level API, where you want finer control
@@ -126,7 +136,9 @@ namespace libecpint {
 		  * @param shellB - the second basis shell (cols in values)
 		  * @param values - reference to TwoIndex array where the results will be stored
 		  */ 
-		void compute_shell_pair(ECP &U, GaussianShell &shellA, GaussianShell &shellB, TwoIndex<double> &values, int shiftA = 0, int shiftB = 0);
+		void compute_shell_pair(
+        const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+        TwoIndex<double> &values, int shiftA = 0, int shiftB = 0);
 		
 		/**
 	 	  * Computes the overall ECP integral first derivatives over the given ECP center, C, and shell pair (A | B) 
@@ -140,7 +152,9 @@ namespace libecpint {
 	 	  * @param shellB - the second basis shell (cols in values)
 	 	  * @param results - reference to array of 9 TwoIndex arrays where the results will be stored
 	 	  */ 
-		void compute_shell_pair_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 9> &results);
+		void compute_shell_pair_derivative(
+        const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+        std::array<TwoIndex<double>, 9> &results);
 		
 		/**
  		  * Computes the overall ECP integral second derivatives over the given ECP center, C, and shell pair (A | B) 
@@ -156,7 +170,9 @@ namespace libecpint {
  		  * @param shellB - the second basis shell (cols in values)
  		  * @param results - reference to array of 45 TwoIndex arrays where the results will be stored
  		  */ 
-		void compute_shell_pair_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 45> &results);
+		void compute_shell_pair_second_derivative(
+        const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+        std::array<TwoIndex<double>, 45> &results);
 		
 		/** 
 		  * Worker function to calculate the derivative of the integral <A | C | B> with respect to A. 
@@ -168,7 +184,9 @@ namespace libecpint {
  		  * @param shellB - the second basis shell (cols in values)
  		  * @param results - reference to array of 3 TwoIndex arrays for the [x, y, z] derivatives
 		  */
-		void left_shell_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 3> &results); 
+		void left_shell_derivative(
+        const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+        std::array<TwoIndex<double>, 3> &results);
 		
 		/** 
 		  * Worker function to calculate the second derivatives of the integral <A | C | B> with respect to AA. 
@@ -180,7 +198,9 @@ namespace libecpint {
 		  * @param shellB - the second basis shell (cols in values)
 		  * @param results - reference to array of 6 TwoIndex arrays for the [xx, xy, xz, yy, yz, zz] derivatives
 		  */
-		void left_shell_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 6> &results); 
+		void left_shell_second_derivative(
+        const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+        std::array<TwoIndex<double>, 6> &results);
 		
 		/** 
 		  * Worker function to calculate the second derivatives of the integral <A | C | B> with respect to AB. 
@@ -192,7 +212,9 @@ namespace libecpint {
 		  * @param shellB - the second basis shell (cols in values)
 		  * @param results - reference to array of 9 TwoIndex arrays for the [xx, xy, xz, yx, yy, yz, zx, zy, zz] derivatives
 		  */
-		void mixed_second_derivative(ECP &U, GaussianShell &shellA, GaussianShell &shellB, std::array<TwoIndex<double>, 9> &results); 
+		void mixed_second_derivative(
+        const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+        std::array<TwoIndex<double>, 9> &results);
 		
 	};
 

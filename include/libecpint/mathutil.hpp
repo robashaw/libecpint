@@ -48,9 +48,9 @@
 
 namespace libecpint {
 	
-	const double ROOT_PI = 1.772453850905516; ///< square root of PI
-	const double SINH_1 = 1.1752011936;
-	const int MAX_POW = 20;
+	constexpr double ROOT_PI = 1.772453850905516; ///< square root of PI
+	constexpr double SINH_1 = 1.1752011936;
+	constexpr int MAX_POW = 20;
 
 	extern double FAC[MAX_FAC];		///< Array of factorials
 	extern double DFAC[MAX_DFAC]; 	///< Array of double factorials
@@ -136,7 +136,7 @@ namespace libecpint {
 	  * @param mat - a reference to a TwoIndex array
 	  * @return the Frobenius norm of mat
 	  */
-	double frobenius_norm(TwoIndex<double>& mat);
+	double frobenius_norm(const TwoIndex<double>& mat);
 	
 	/**
 	 * Initialises the global factorial and double factorial arrays

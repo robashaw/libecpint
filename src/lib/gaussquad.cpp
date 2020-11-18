@@ -47,7 +47,7 @@ namespace libecpint {
 
 	// Initialise the quadrature grid
 	// As described in both Perez92 and Perez93
-	void GCQuadrature::initGrid(int points, GCTYPE _t) {
+	void GCQuadrature::initGrid(const int points, const GCTYPE _t) {
 		t = _t;
 	
 		// Initialise parameters for grid
@@ -115,7 +115,8 @@ namespace libecpint {
 	}
 
 	// Perform the GC integration on the function f
-	bool GCQuadrature::integrate(std::function<double(double, double*, int)> &f, double *params, const double tolerance) {
+	bool GCQuadrature::integrate(
+	    std::function<double(double, const double*, int)> &f, const double *params, const double tolerance) {
 		bool converged = false; // 0 for converged, -1 for not converged
 	
 		if (t == ONEPOINT) {
@@ -217,7 +218,9 @@ namespace libecpint {
 	}
 
 	// Worker function to do the additional sum terms when going from I_n to I_{2n+1}
-	double GCQuadrature::sumTerms(std::function<double(double, double*, int)> &f, double *p, int limit, int shift, int skip) {
+	double GCQuadrature::sumTerms(
+	    const std::function<double(double, const double*, int)> &f,
+	    const double *p, const int limit, const int shift, const int skip) const {
 		double value = 0.0;
 		int ix; 
 		for (int i = 0; i <= limit; i+=2) {	
@@ -246,7 +249,7 @@ namespace libecpint {
 		}
 	}
 
-	void GCQuadrature::transformRMinMax(double z, double p) {
+	void GCQuadrature::transformRMinMax(const double z, const double p) {
 		double osz = 1.0 / sqrt(z);
 	
 		// Determine interval
@@ -266,7 +269,7 @@ namespace libecpint {
 		}
 	}
 	
-	void GCQuadrature::untransformRMinMax(double z, double p) {
+	void GCQuadrature::untransformRMinMax(const double z, const double p) {
 		double osz = 1.0 / sqrt(z);
 	
 		// Determine interval

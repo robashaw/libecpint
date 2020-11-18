@@ -54,7 +54,7 @@ namespace libecpint {
 		*  @param angints - object containing the angular integrals
 		*  @param values - the array in which the results are returned
 		*/
-		void rolled_up(int lam, int LA, int LB, ThreeIndex<double>& radials, FiveIndex<double>& CA, FiveIndex<double>& CB, TwoIndex<double>& SA, TwoIndex<double>& SB, AngularIntegral& angints, ThreeIndex<double>& values);
+		void rolled_up(int lam, int LA, int LB, const ThreeIndex<double>& radials, const FiveIndex<double>& CA, const FiveIndex<double>& CB, const TwoIndex<double>& SA, const TwoIndex<double>& SB, const AngularIntegral& angints, ThreeIndex<double>& values);
 
 		/** 
 		*  As per rolled_up, but for the special case where shell A is located on the ECP (see Shaw2017 supp. info.)
@@ -69,7 +69,7 @@ namespace libecpint {
 		*  @param angints - object containing the angular integrals
 		*  @param values - the array in which the results are returned
 		*/
-		void rolled_up_special(int lam, int LA, int LB, ThreeIndex<double>& radials, FiveIndex<double>& CB, TwoIndex<double>& SB, AngularIntegral& angints, ThreeIndex<double>& values);
+		void rolled_up_special(int lam, int LA, int LB, const ThreeIndex<double>& radials, const FiveIndex<double>& CB, const TwoIndex<double>& SB, const AngularIntegral& angints, ThreeIndex<double>& values);
 		
 	void Q0_0_0(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);
 	void Q0_0_1(ECP&, GaussianShell&, GaussianShell&, FiveIndex<double>&, FiveIndex<double>&, TwoIndex<double>&, TwoIndex<double>&, double, double, RadialIntegral&, AngularIntegral&, ThreeIndex<double>&);

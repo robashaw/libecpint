@@ -29,8 +29,8 @@
 
 namespace libecpint {
 
-	const double SMALL = 1.0E-7; ///< Numerical tolerance of z below which K_n(z) = { 1 (n=0), 0 otherwise }
-	const int TAYLOR_CUT = 5; ///< Order of local Taylor series to be used in Bessel function expansion
+	constexpr double SMALL = 1.0E-7; ///< Numerical tolerance of z below which K_n(z) = { 1 (n=0), 0 otherwise }
+	constexpr int TAYLOR_CUT = 5; ///< Order of local Taylor series to be used in Bessel function expansion
 
 	/**
 	 *  \class BesselFunction
@@ -60,14 +60,14 @@ namespace libecpint {
 		* @param accuracy - the tolerance at which a value is considered converged
 		* @return zero if successful, -1 if not converged
 		*/
-		int tabulate(const double accuracy);
+		int tabulate(double accuracy);
 	
 	public:
 		/// Default constructor. Creates a blank object.
 		BesselFunction();
 		
 		/// Specified constructor. Will call init with given arguments.
-		BesselFunction(int lMax, int N, int order, const double accuracy);
+		BesselFunction(int lMax, int N, int order, double accuracy);
 		
 		/// Destructor, cleans up K and C
 		~BesselFunction();
@@ -79,7 +79,7 @@ namespace libecpint {
 		* @param order - the order at which the expansion is cut off, suggested 200
 		* @param accuracy - the tolerance below which a value is considered converged
 		*/
-		void init(int lMax, int N, int order, const double accuracy);
+		void init(int lMax, int N, int order, double accuracy);
 	
 		/**
 		* Calculates the Bessel function values at a given point up to a given angular momentum
@@ -87,21 +87,21 @@ namespace libecpint {
 		* @param maxL - maximum angular momentum needed; must be <= lMax for object
 		* @param values - reference to vector in which to put the values for l = 0 to maxL
 		*/
-		void calculate(const double z, int maxL, std::vector<double> &values);
+		void calculate(double z, int maxL, std::vector<double> &values);
 		
 		/**
 		* Calculates the Bessel function value at a given point for a single angular momentum
 		* @param z - point at which to evaluate
 		* @param L - angular momentum needed; must be <= lMax for object
 		*/
-		double calculate(const double z, int L);
+		double calculate(double z, int L);
 		
 		/**
 		* Calculates an upper bound to the Bessel function value at a given point for a given angular momentum
 		* @param z - point at which to evaluate
 		* @param L - angular momentum needed; must be <= lMax for object
 		*/
-		double upper_bound(const double z, int L);
+		double upper_bound(double z, int L);
 	};
 
 }

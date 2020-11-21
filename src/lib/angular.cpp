@@ -29,7 +29,7 @@
 
 namespace libecpint {
 
-	double AngularIntegral::calcG(int l, int m) const {
+	double AngularIntegral::calcG(const int l, const int m) const {
 		double value = 0.0;
 		double value1 = FAST_POW[l](2.0) * FAC[l];
 		value1 = 1.0 / value1; 
@@ -39,7 +39,8 @@ namespace libecpint {
 		return value;
 	} 
 
-	double AngularIntegral::calcH1(int i, int j, int l, int m) const {
+	double AngularIntegral::calcH1(
+      const int i, const int j, const int l, const int m) const {
 		double value = 0.0; 
 
 		value = FAC[l]/(FAC[j]*FAC[l - i]*FAC[i-j]);
@@ -48,7 +49,8 @@ namespace libecpint {
 		return value;
 	}
 
-	double AngularIntegral::calcH2(int i, int j, int k, int m) const {
+	double AngularIntegral::calcH2(
+      const int i, const int j, const int k, const int m) const {
 		double value = 0.0; 
 		int ki2 = k - 2*i;
 		if ( m >= ki2 && ki2 >= 0 ) {
@@ -60,7 +62,8 @@ namespace libecpint {
 	}
 
 
-	ThreeIndex<double> AngularIntegral::uklm(int lam, int mu) const {
+	ThreeIndex<double> AngularIntegral::uklm(
+      const int lam, const int mu) const {
 		ThreeIndex<double> values(lam+1, lam+1, 2);
 	 
 		double or2 = 1.0/std::sqrt(2.0);
@@ -101,7 +104,7 @@ namespace libecpint {
 	}
 
 
-	ThreeIndex<double> AngularIntegral::Pijk(int maxI) const {
+	ThreeIndex<double> AngularIntegral::Pijk(const int maxI) const {
 		int dim = maxI+1;
 		ThreeIndex<double> values(dim, dim, dim);
 		double pi4 = 4.0*M_PI;
@@ -121,7 +124,7 @@ namespace libecpint {
 		return values;
 	}
 
-	FiveIndex<double> AngularIntegral::makeU() {
+	FiveIndex<double> AngularIntegral::makeU() const {
 		int dim = maxL + 1;
 
 		FiveIndex<double> values(dim, dim, dim, dim, 2);
@@ -140,7 +143,7 @@ namespace libecpint {
 		return values;
 	}
 
-	void AngularIntegral::makeW(FiveIndex<double> &U) {
+	void AngularIntegral::makeW(const FiveIndex<double> &U) {
 		int LB2 = 2*LB;
 		int dim = wDim;
 		int maxI = (maxL + dim)/2;
@@ -187,7 +190,7 @@ namespace libecpint {
 		W = values;
 	}
 
-	void AngularIntegral::makeOmega(FiveIndex<double> &U) {
+	void AngularIntegral::makeOmega(const FiveIndex<double> &U) {
 	
 		int lamDim = LE + LB; 
 		int muDim = 2*lamDim + 1;
@@ -234,8 +237,8 @@ namespace libecpint {
 	}
 
 	AngularIntegral::AngularIntegral() { init(0, 0); }
-	AngularIntegral::AngularIntegral(int _LB, int _LE) { init(_LB, _LE); }
-	void AngularIntegral::init(int _LB, int _LE ) {
+	AngularIntegral::AngularIntegral(const int _LB, const int _LE) { init(_LB, _LE); }
+	void AngularIntegral::init(const int _LB, const int _LE ) {
 		LB = _LB;
 		LE = _LE;
 		wDim = 4*LB > 3*LB + LE ? 4*LB : 3*LB + LE;
@@ -251,14 +254,22 @@ namespace libecpint {
 
 	void AngularIntegral::clear() {}
 
-	double AngularIntegral::getIntegral(int k, int l, int m, int lam, int mu) const { return W(k, l, m, lam, lam+mu); }
-	double AngularIntegral::getIntegral(int k, int l, int m, int lam, int mu, int rho, int sigma) const { return omega(k, l, m, lam, lam+mu, rho, rho+sigma); }
+	double AngularIntegral::getIntegral(
+      const int k, const int l, const int m, const int lam, const int mu) const {
+    return W(k, l, m, lam, lam+mu);
+	}
+	double AngularIntegral::getIntegral(
+      const int k, const int l, const int m, const int lam, const int mu, const int rho, const int sigma) const {
+	  return omega(k, l, m, lam, lam+mu, rho, rho+sigma);
+	}
 
-	bool AngularIntegral::isZero(int k, int l, int m, int lam, int mu, double tolerance) const {
+	bool AngularIntegral::isZero(
+      const int k, const int l, const int m, const int lam, const int mu, const double tolerance) const {
 		if (wDim > 0) return std::fabs(W(k, l, m, lam, lam+mu)) < tolerance;
 		else return true;
 	}
-	bool AngularIntegral::isZero(int k, int l, int m, int lam, int mu, int rho, int sigma, double tolerance) const {
+	bool AngularIntegral::isZero(
+      const int k, const int l, const int m, const int lam, const int mu, const int rho, const int sigma, const double tolerance) const {
 		if (wDim > 0) return std::fabs(omega(k, l, m, lam, lam+mu, rho, rho+sigma)) < tolerance;
 		else return true;
 	}

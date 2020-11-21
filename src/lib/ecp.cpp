@@ -34,7 +34,8 @@ namespace libecpint {
 
 	// GaussianECP constructor and copy constructor
 	GaussianECP::GaussianECP() : n(0), l(0), a(0), d(0) {}
-	GaussianECP::GaussianECP(int _n, int _l, double _a, double _d) : n(_n-2), l(_l), a(_a), d(_d) {}
+	GaussianECP::GaussianECP(
+	    const int _n, const int _l, const double _a, const double _d) : n(_n-2), l(_l), a(_a), d(_d) {}
 	GaussianECP::GaussianECP(const GaussianECP& other) : n(other.n), l(other.l), a(other.a), d(other.d) {}
 
 
@@ -75,7 +76,8 @@ namespace libecpint {
 		center_ = other.center_;
 	}
 
-	void ECP::addPrimitive(int n, int l, double a, double d, bool needSort) {
+	void ECP::addPrimitive(
+      const int n, const int l, const double a, const double d, const bool needSort) {
 		GaussianECP newEcp(n, l, a, d);
 		gaussians.push_back(newEcp);
 		N++;
@@ -100,7 +102,7 @@ namespace libecpint {
 	}
 
 	// Evaluate U_l(r), assuming that gaussians sorted by angular momentum
-	double ECP::evaluate(double r, int l) {
+	double ECP::evaluate(const double r, const int l) const {
 		double value = 0.0;
 		double r2 = r*r;
 		int p;
@@ -111,29 +113,31 @@ namespace libecpint {
 		return value; 
 	}
 
-	void ECP::setPos(double x, double y, double z) {
+	void ECP::setPos(const double x, const double y, const double z) {
 		center_[0] = x; center_[1] = y; center_[2] = z;
 	}
 
 	ECPBasis::ECPBasis() : N(0), maxL(-1) {}
 
-	void ECPBasis::addECP(ECP &U, int atom) {
+	void ECPBasis::addECP(const ECP &U, const int atom) {
 		basis.push_back(U);
 		atomList.push_back(atom);
 		N++;
 		maxL = U.getL() > maxL ? U.getL() : maxL;
 	}
 
-	ECP& ECPBasis::getECP(int i) { return basis[i]; }
+  ECP& ECPBasis::getECP(const int i) { return basis[i]; }
+  const ECP& ECPBasis::getECP(const int i) const { return basis[i]; }
 
-	int ECPBasis::getECPCore(int q) {
+	int ECPBasis::getECPCore(const int q) const {
 		int core = 0;
 		auto it = core_electrons.find(q);
 		if (it != core_electrons.end()) core = it->second;
 		return core;
 	}
 	
-	void ECPBasis::addECP_from_file(int q, std::array<double, 3> coords, std::string filename) {
+	void ECPBasis::addECP_from_file(
+      const int q, const std::array<double, 3> & coords, const std::string & filename) {
 		ECP newECP;
 		newECP.center_ = coords;
 

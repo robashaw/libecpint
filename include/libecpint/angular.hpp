@@ -65,12 +65,12 @@ namespace libecpint {
 		* Builds the type 1 angular integrals
 		* @param U - the USP to spherical transformation coefficients
 		*/
-		void makeW( FiveIndex<double> &U);
+		void makeW(const FiveIndex<double> &U);
 		/** 
 		* Builds the type 2 angular integrals
 		* @param U - the USP to spherical transformation coefficients
 		*/
-		void makeOmega(FiveIndex<double> &U);
+		void makeOmega(const FiveIndex<double> &U);
 	
 	public:
 	
@@ -86,7 +86,7 @@ namespace libecpint {
 		* Builds the USP to spherical transformation coefficients for use in calculating the type 1 and 2 integrals
 		* @return FiveIndex of the coefficients U(lam, lam+mu, k, l, m)
 		*/
-		FiveIndex<double> makeU();
+		FiveIndex<double> makeU() const;
 	
 		/// Default constructor creates empty object
 		AngularIntegral(); 
@@ -138,9 +138,12 @@ namespace libecpint {
 		double getIntegral(int k, int l, int m, int lam, int mu, int rho, int sigma) const;
 		
 		int* getOmegaMults() { return omega.mults; }
+    const int* getOmegaMults() const { return omega.mults; }
 		int* getOmegaDims() { return omega.dims; }
+    const int* getOmegaDims() const { return omega.dims; }
 		std::vector<double>& getOmegaData() { return omega.data; }
-		
+    const std::vector<double>& getOmegaData() const { return omega.data; }
+
 		
 		/// is W(k, l, m, lam, mu) zero to within a given tolerance?
 		bool isZero(int k, int l, int m, int lam, int mu, double tolerance) const;

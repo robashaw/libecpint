@@ -119,14 +119,17 @@ namespace libecpint {
 		/**
 		  * @param i - the index of GaussianECP required
 		  * @return a reference to the ith GaussianECP
+		  * @{
 		  */ 
 		GaussianECP& getGaussian(int i) { return gaussians[i]; }
-		
+    const GaussianECP& getGaussian(int i) const { return gaussians[i]; }
+    /** @} */
+
 		/// @return the number of primitives in ECP
 		int getN() const { return N; }
 		
 		/// @return true if the highest angular momentum functions have zero coefficients (e.g. Stuttgart-Dresden ECPs)
-	    bool noType1() const; 
+    bool noType1() const;
 	
 		/** 
 		  * Evaluates the ECP at a given distance for a given angular momentum shell.
@@ -134,7 +137,7 @@ namespace libecpint {
 		  * @param l - the angular momentum shell to evaluate over
 		  * @return the value of the l-th angular momentum shell of the ECP at radius r
 		  */ 
-		double evaluate(double r, int l);
+		double evaluate(double r, int l) const;
   
 		/// @return the maximum angular momentum in the ECP
 		int getL() const { return L; }
@@ -163,25 +166,28 @@ namespace libecpint {
 		  * @param U - the ECP to be added
 		  * @param atom - the index of that atom on which U is located
 		  */
-		void addECP(ECP &U, int atom);
+		void addECP(const ECP &U, int atom);
 		
 		/** 
 		  * @param i - index of ECP required
 		  * @return a reference to the ith ECP in basis
+		  * @{
 		  */ 
 		ECP& getECP(int i);
-		
+    const ECP& getECP(int i) const;
+    /** @} */
+
 		/**
 		  * @param q - an atomic number 
 		  * @return the number of electrons in core of ECP for the atom with atomic number q, if defined, otherwise zero
 		  */
-		int getECPCore(int q); 
+		int getECPCore(int q) const;
 		
 		/**
 		  * @param i - the index of ECP of interest
 		  * @return the index of the atom on which the ith ECP is located
 		  */
-		int getAtom(int i) { return atomList[i]; }
+		int getAtom(int i) const { return atomList[i]; }
 		
 		/// @return the maximum angular momentum GaussianECP in the entire ECP basis
 		int getMaxL() const { return maxL; }
@@ -194,7 +200,8 @@ namespace libecpint {
 		  * @param coords - the [x, y, z] coordinates (in bohr) of the ECP
 		  * @param filename - path to the XML file containing the basis specification 
 		  */
-		void addECP_from_file(int q, std::array<double, 3> coords, std::string filename);
+		void addECP_from_file(
+		    int q, const std::array<double, 3> & coords, const std::string & filename);
 	};
 
 }

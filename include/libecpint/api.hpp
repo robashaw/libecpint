@@ -37,7 +37,7 @@ namespace libecpint {
 /// returns the index for the ij-th second derivative for a system with N atoms
 #define H_START(i, j, N) (9*j + 3*(3*N-1)*i - (9*i*(i+1))/2 - 3)
 	
-	const double TWO_C_TOLERANCE = 1E-12;
+	constexpr double TWO_C_TOLERANCE = 1E-12;
 	
 	/** \struct ECPIntegrator
 	  * \brief API object that stores and handles all data for computing ECP integrals and their derivatives.
@@ -102,7 +102,7 @@ namespace libecpint {
 		  *  @param ams - the angular momentum of each shell (size should be nshells)
 		  *	 @param shell_lengths - the number of primitives in each shell (size should be nshells)
 		  */
-		void set_gaussian_basis(int nshells, double* coords, double* exponents, double* coefs, int* ams, int* shell_lengths);
+		void set_gaussian_basis(int nshells, const double* coords, const double* exponents, const double* coefs, const int* ams, const int* shell_lengths);
 		
 		/**  Constructs an ECPBasis with ECP objects for each ECP from streams of data. Determines maxLU. 
 		  *  The order of the atoms doesn't matter, and ids will be matched to the order from set_gaussian_basis.
@@ -115,7 +115,7 @@ namespace libecpint {
 		  *  @param ns  - the order of r multiplying each primitive - we follow the convention where 2 is the default            
 		  *	 @param shell_lengths - the number of primitives in each ECP (size should be necps)
 		  */
-		void set_ecp_basis(int necps, double* coords, double* exponents, double* coefs, int* ams, int* ns, int* shell_lengths);
+		void set_ecp_basis(int necps, const double* coords, const double* exponents, const double* coefs, const int* ams, const int* ns, const int* shell_lengths);
 		
 		/**  Constructs an ECPBasis with ECP objects for each ECP, from the built-in ECP library.
 		  *  The order of the atoms doesn't matter, and ids will be matched to the order from set_gaussian_basis.
@@ -127,7 +127,7 @@ namespace libecpint {
 		  *  @param names - the name of each ECP, in same order as charges, e.g. "ecp10mdf" (size necps)
 		  *  @param share_dir - the location of the share directory with the ecp library (typically "PATH/share/libecpint/xml")
 		  */
-		void set_ecp_basis_from_library(int necps, double* coords, int* charges, std::vector<std::string> names, std::string share_dir);
+		void set_ecp_basis_from_library(int necps, const double* coords, const int* charges, const std::vector<std::string> & names, const std::string & share_dir);
 		
 		/**  Updates the positions of the GaussianShells.
 		  *  The order of the coordinates must match that when originally specified in set_gaussian_basis.
@@ -135,7 +135,7 @@ namespace libecpint {
 		  *  @param nshells - the number of angular momentum shells in the basis - must match nshells from set_gaussian_basis
 		  *  @param coords  - a stream of cartesian coordinates (in bohr) in xyz order for each shell (size should be 3*nshells)
 		  */
-		void update_gaussian_basis_coords(int nshells, double* coords);
+		void update_gaussian_basis_coords(int nshells, const double* coords);
 		
 		/**  Updates the positions of the ECPs
 		  *  The order of the coordinates must match that when originally specified in set_ecp_basis/set_ecp_basis_from_library
@@ -143,7 +143,7 @@ namespace libecpint {
 		  *  @param necps - the number of ECPs
 		  *  @param coords - a stream of cartesian coordinates (in bohr) in xyz order for each ECP (size should be 3*necps)
 		  */
-		void update_ecp_basis_coords(int necps, double* coords);
+		void update_ecp_basis_coords(int necps, const double* coords);
 		
 		/** Initialises the ECPIntegral object, and determines the atom ids for each GaussianShell and ECP. 
 		  * This must be called AFTER the ECP/Gaussian bases are set, but BEFORE calling any of the compute functions.

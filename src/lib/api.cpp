@@ -30,7 +30,8 @@
 
 namespace libecpint {
 	
-	void ECPIntegrator::set_gaussian_basis (int nshells, double* coords, double* exponents, double* coefs, int* ams, int* shell_lengths) {
+	void ECPIntegrator::set_gaussian_basis (
+      const int nshells, const double* coords, const double* exponents, const double* coefs, const int* ams, const int* shell_lengths) {
 		int ctr = 0;
 		min_alpha = 100.0;
 		for (int i = 0; i < nshells; i++) {
@@ -48,7 +49,8 @@ namespace libecpint {
 		basis_is_set = true;
 	}
 	
-	void ECPIntegrator::set_ecp_basis(int necps, double* coords, double* exponents, double* coefs, int* ams, int* ns, int* shell_lengths) {
+	void ECPIntegrator::set_ecp_basis(
+      const int necps, const double* coords, const double* exponents, const double* coefs, const int* ams, const int* ns, const int* shell_lengths) {
 		int ctr = 0;
 		for (int i = 0; i < necps; i++) {
 			ECP newU(&coords[3*i]);
@@ -62,7 +64,8 @@ namespace libecpint {
 		ecp_is_set = true;
 	}
 	
-	void ECPIntegrator::set_ecp_basis_from_library(int necps, double* coords, int* charges, std::vector<std::string> names, std::string share_dir) {
+	void ECPIntegrator::set_ecp_basis_from_library(
+      const int necps, const double* coords, const int* charges, const std::vector<std::string> & names, const std::string & share_dir) {
 		for (int i = 0; i < necps; i++) {
 			std::array<double, 3> center = {coords[3*i], coords[3*i+1], coords[3*i+2]};
 			int q = charges[i];
@@ -72,8 +75,8 @@ namespace libecpint {
 		ecp_is_set = true;
 	}
 	
-	void ECPIntegrator::update_gaussian_basis_coords(int nshells, double* coords) {
-		assert(nshells = shells.size());
+	void ECPIntegrator::update_gaussian_basis_coords(const int nshells, const double* coords) {
+		assert(nshells == shells.size());
 		
 		for (int i = 0; i < nshells; i++){
 			shells[i].localCenter[0] = coords[3*i];
@@ -82,14 +85,14 @@ namespace libecpint {
 		}
 	}
 	
-	void ECPIntegrator::update_ecp_basis_coords(int necps, double* coords) {
-		assert(necps = ecps.getN());
+	void ECPIntegrator::update_ecp_basis_coords(const int necps, const double* coords) {
+		assert(necps == ecps.getN());
 		
 		for (int i = 0; i < necps; i++) 
 			ecps.getECP(i).setPos(coords[3*i], coords[3*i+1], coords[3*i+2]);
 	}
 	
-	void ECPIntegrator::init(int deriv_) {
+	void ECPIntegrator::init(const int deriv_) {
 		assert(ecp_is_set);
 		assert(basis_is_set);
 		deriv = std::max(0, std::min(2, deriv_));
@@ -140,7 +143,7 @@ namespace libecpint {
 		}
 	}
 	
-	double shell_bound(int la, double alpha, double A2, double eta) {
+	double shell_bound(const int la, const double alpha, const double A2, const double eta) {
 		double sigma;
 		if (A2 < 1e-6) {
 			sigma = 0.5 * (1.0 + eta/alpha);

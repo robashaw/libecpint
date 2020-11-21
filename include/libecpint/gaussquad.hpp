@@ -62,7 +62,7 @@ namespace libecpint {
 		GCTYPE t; ///< Algorithm type to be used
 	
 		/// Worker function for integration routines, should not be called directly.	
-		double sumTerms(std::function<double(double, double*, int)> &f, double *p, int limit, int shift, int skip);
+		double sumTerms(const std::function<double(double, const double*, int)> &f, const double *p, int limit, int shift, int skip) const;
 
 	public:
 		
@@ -92,7 +92,8 @@ namespace libecpint {
 		* @param tolerance - change below which convergenced is considered to be achieved
 		* @return true if integration converged, false otherwise
 		*/
-		bool integrate(std::function<double(double, double*, int)> &f, double *params, const double tolerance);
+		bool integrate(
+		    std::function<double(double, const double*, int)> &f, const double *params, const double tolerance);
 	
 		/**
 		* Transforms the region of integration to [0, inf) using the logarithmic transformation of Krack98
@@ -115,7 +116,8 @@ namespace libecpint {
 		int getN() const { return maxN; }
 	
 		/// @return a reference to the abscissae
-		std::vector<double>& getX() { return x; }
+    std::vector<double>& getX() { return x; }
+    const std::vector<double>& getX() const { return x; }
 	};
 }
 

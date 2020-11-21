@@ -30,29 +30,29 @@ namespace libecpint {
 	double FAC[MAX_FAC];
 	double DFAC[MAX_DFAC];
 	
-	double pow_m2(double z) { return 1.0/(z*z); }
-	double pow_m1(double z) { return 1.0/z; }
-	double pow_0(double z) { return 1.0; }
-	double pow_1(double z) { return z; }
-	double pow_2(double z) { return z*z; }
-	double pow_3(double z) { return z*z*z; } 
-	double pow_4(double z) { double z2 = z*z; return z2*z2; }
-	double pow_5(double z) { double z2 = z*z; double z3 = z2*z; return z2*z3; };
-	double pow_6(double z) { double z2 = z*z; return z2*z2*z2; }
-	double pow_7(double z) { double z2 = z*z; double z3 = z*z2; return z3*z2*z2; }
-	double pow_8(double z) { double z2 = z*z; double z4 = z2*z2; return z4*z4; }
-	double pow_9(double z) { double z3 = z*z*z; return z3*z3*z3; }
-	double pow_10(double z) { double z2 = z*z; double z3 = z*z2; double z5= z2*z3; return z5*z5; }
-	double pow_11(double z) { double z2 = z*z; double z3 = z*z2; return z3*z3*z3*z2; }
-	double pow_12(double z) { double z3 = z*z*z; double z6 = z3*z3; return z6*z6; }
-	double pow_13(double z) { double z3 = z*z*z; double z6 = z3*z3; return z6*z6*z; }
-	double pow_14(double z) { double z2 = z*z; double z3 = z*z2; double z7 = z2*z2*z3; return z7*z7; }
-	double pow_15(double z) { double z2 = z*z; double z3 = z*z2; double z5 = z2*z3; return z5*z5*z5; }
-	double pow_16(double z) { double z2 = z*z; double z4 = z2*z2; double z8 = z4*z4; return z8*z8; }
-	double pow_17(double z) { double z2 = z*z; double z4 = z2*z2; double z8 = z4*z4; return z8*z8*z;}
-	double pow_18(double z) { double z3 = z*z*z; double z9 = z3*z3*z3; return z9*z9; }
-	double pow_19(double z) { double z3 = z*z*z; double z9 = z3*z3*z3; return z9*z9*z; }
-	double pow_20(double z) { double z2 = z*z; double z4 = z2*z2; double z8 = z4*z4; return z8*z8*z4; }
+	double pow_m2(const double z) { return 1.0/(z*z); }
+	double pow_m1(const double z) { return 1.0/z; }
+	double pow_0(const double z) { return 1.0; }
+	double pow_1(const double z) { return z; }
+	double pow_2(const double z) { return z*z; }
+	double pow_3(const double z) { return z*z*z; }
+	double pow_4(const double z) { double z2 = z*z; return z2*z2; }
+	double pow_5(const double z) { double z2 = z*z; double z3 = z2*z; return z2*z3; };
+	double pow_6(const double z) { double z2 = z*z; return z2*z2*z2; }
+	double pow_7(const double z) { double z2 = z*z; double z3 = z*z2; return z3*z2*z2; }
+	double pow_8(const double z) { double z2 = z*z; double z4 = z2*z2; return z4*z4; }
+	double pow_9(const double z) { double z3 = z*z*z; return z3*z3*z3; }
+	double pow_10(const double z) { double z2 = z*z; double z3 = z*z2; double z5= z2*z3; return z5*z5; }
+	double pow_11(const double z) { double z2 = z*z; double z3 = z*z2; return z3*z3*z3*z2; }
+	double pow_12(const double z) { double z3 = z*z*z; double z6 = z3*z3; return z6*z6; }
+	double pow_13(const double z) { double z3 = z*z*z; double z6 = z3*z3; return z6*z6*z; }
+	double pow_14(const double z) { double z2 = z*z; double z3 = z*z2; double z7 = z2*z2*z3; return z7*z7; }
+	double pow_15(const double z) { double z2 = z*z; double z3 = z*z2; double z5 = z2*z3; return z5*z5*z5; }
+	double pow_16(const double z) { double z2 = z*z; double z4 = z2*z2; double z8 = z4*z4; return z8*z8; }
+	double pow_17(const double z) { double z2 = z*z; double z4 = z2*z2; double z8 = z4*z4; return z8*z8*z;}
+	double pow_18(const double z) { double z3 = z*z*z; double z9 = z3*z3*z3; return z9*z9; }
+	double pow_19(const double z) { double z3 = z*z*z; double z9 = z3*z3*z3; return z9*z9*z; }
+	double pow_20(const double z) { double z2 = z*z; double z4 = z2*z2; double z8 = z4*z4; return z8*z8*z4; }
 	
 	void initFactorials() {
 	#ifndef FAC_INIT
@@ -68,7 +68,7 @@ namespace libecpint {
 	
 	// Compute all the real spherical harmonics Slm(theta, phi) for l,m up to lmax
 	// x = std::cos (theta)
-	TwoIndex<double> realSphericalHarmonics(int lmax, double x, double phi){
+	TwoIndex<double> realSphericalHarmonics(const int lmax, const double x, const double phi){
 		TwoIndex<double> rshValues(lmax+1, 2*lmax+1, 0.0);
 
 		if (lmax > 0) {
@@ -125,7 +125,7 @@ namespace libecpint {
 		return rshValues;
 	}
 	
-	double frobenius_norm(TwoIndex<double>& mat) {
+	double frobenius_norm(const TwoIndex<double>& mat) {
 		return std::sqrt(std::inner_product(mat.data.begin(), mat.data.end(), mat.data.begin(), 0.0));
 	}
 	

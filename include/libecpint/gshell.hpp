@@ -62,7 +62,7 @@ namespace libecpint {
 	     * @param A - xyz coordinates of shell
 	     * @param l - angular momentum of shell
 	     */ 
-		GaussianShell(std::array<double, 3> A, int l);
+		GaussianShell(const std::array<double, 3> & A, int l);
 		
 		/**
 		  * Copy constructor for a GaussianShell

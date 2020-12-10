@@ -157,7 +157,7 @@ namespace libecpint {
 	 	  */ 
 		void compute_shell_pair_derivative(
         const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
-        std::array<TwoIndex<double>, 9> &results);
+        std::array<TwoIndex<double>, 9> &results) const;
 		
 		/**
  		  * Computes the overall ECP integral second derivatives over the given ECP center, C, and shell pair (A | B) 
@@ -175,7 +175,7 @@ namespace libecpint {
  		  */ 
 		void compute_shell_pair_second_derivative(
         const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
-        std::array<TwoIndex<double>, 45> &results);
+        std::array<TwoIndex<double>, 45> &results) const;
 		
 		/** 
 		  * Worker function to calculate the derivative of the integral <A | C | B> with respect to A. 
@@ -189,7 +189,7 @@ namespace libecpint {
 		  */
 		void left_shell_derivative(
         const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
-        std::array<TwoIndex<double>, 3> &results);
+        std::array<TwoIndex<double>, 3> &results) const;
 		
 		/** 
 		  * Worker function to calculate the second derivatives of the integral <A | C | B> with respect to AA. 
@@ -203,7 +203,7 @@ namespace libecpint {
 		  */
 		void left_shell_second_derivative(
         const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
-        std::array<TwoIndex<double>, 6> &results);
+        std::array<TwoIndex<double>, 6> &results) const;
 		
 		/** 
 		  * Worker function to calculate the second derivatives of the integral <A | C | B> with respect to AB. 
@@ -217,7 +217,7 @@ namespace libecpint {
 		  */
 		void mixed_second_derivative(
         const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
-        std::array<TwoIndex<double>, 9> &results);
+        std::array<TwoIndex<double>, 9> &results) const;
 		
 	};
 

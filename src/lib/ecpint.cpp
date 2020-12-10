@@ -412,7 +412,7 @@ namespace libecpint {
 	
 	void ECPIntegral::left_shell_derivative(
       const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
-      std::array<TwoIndex<double>, 3> &results) {
+      std::array<TwoIndex<double>, 3> &results) const {
 		int LA = shellA.am();
 		int LB = shellB.am();
 		
@@ -467,7 +467,7 @@ namespace libecpint {
 	
 	void ECPIntegral::left_shell_second_derivative(
       const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
-      std::array<TwoIndex<double>, 6> &results) {
+      std::array<TwoIndex<double>, 6> &results) const {
 		int LA = shellA.am();
 		int LB = shellB.am();
 		
@@ -548,7 +548,7 @@ namespace libecpint {
 	
 	void ECPIntegral::mixed_second_derivative(
       const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
-      std::array<TwoIndex<double>, 9> &results) {
+      std::array<TwoIndex<double>, 9> &results) const {
 		int LA = shellA.am();
 		int LB = shellB.am();
 		
@@ -633,7 +633,7 @@ namespace libecpint {
 	
 	void ECPIntegral::compute_shell_pair_derivative(
       const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
-      std::array<TwoIndex<double>, 9> &results) {
+      std::array<TwoIndex<double>, 9> &results) const {
 		// First we check centres
 		double A[3], B[3], C[3];
 		for (int i = 0; i < 3; i++) {
@@ -695,7 +695,7 @@ namespace libecpint {
 
 	void ECPIntegral::compute_shell_pair_second_derivative(
       const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
-      std::array<TwoIndex<double>, 45> &results) {
+      std::array<TwoIndex<double>, 45> &results) const {
 		// First we check centres
 		double A[3], B[3], C[3];
 		for (int i = 0; i < 3; i++) {

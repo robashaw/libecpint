@@ -70,7 +70,8 @@ namespace libecpint {
         const FiveIndex<double>&, const FiveIndex<double>&,
         const TwoIndex<double>&, const TwoIndex<double>&,
         double, double,
-        RadialIntegral&, const AngularIntegral&, ThreeIndex<double>&);
+        const RadialIntegral&, const AngularIntegral&, const RadialIntegral::Parameters&,
+        ThreeIndex<double>&);
 
 	public:
 		int skipped, zero, nonzero;
@@ -99,11 +100,12 @@ namespace libecpint {
 		  * @param data - wrapper for data about shell pair
 		  * @param CA - binomial expansion coefficients for shellA, made with makeC
 		  * @param CB - binomial expansion coefficients for shellB, made with makeC
+      * @param parameters - pre-calculated parameters for the radial integral
 		  * @param values - array in which results are returned
 		  */
 		void type1(const ECP& U, const GaussianShell &shellA, const GaussianShell &shellB,
                const ShellPairData &data, const FiveIndex<double> &CA, const FiveIndex<double> &CB,
-               TwoIndex<double> &values);
+               const RadialIntegral::Parameters & parameters, TwoIndex<double> &values) const;
 		
 		/**
 		  * Calculates the type 2 integrals for the given ECP center over the given shell pair
@@ -114,12 +116,13 @@ namespace libecpint {
 		  * @param data - wrapper for data about shell pair
 		  * @param CA - binomial expansion coefficients for shellA, made with makeC
 		  * @param CB - binomial expansion coefficients for shellB, made with makeC
+      * @param parameters - pre-calculated parameters for the radial integral
 		  * @param values - array in which results are returned
 		  */
 		void type2(int l,
                const ECP& U, const GaussianShell &shellA, const GaussianShell &shellB,
                const ShellPairData &data, const FiveIndex<double> &CA, const FiveIndex<double> &CB,
-               ThreeIndex<double> &values);
+               const RadialIntegral::Parameters & parameters, ThreeIndex<double> &values) const;
 		
 		void estimate_type2(
         const ECP& U, const GaussianShell &shellA, const GaussianShell &shellB,
@@ -138,7 +141,7 @@ namespace libecpint {
 		  */ 
 		void compute_shell_pair(
         const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
-        TwoIndex<double> &values, int shiftA = 0, int shiftB = 0);
+        TwoIndex<double> &values, int shiftA = 0, int shiftB = 0) const;
 		
 		/**
 	 	  * Computes the overall ECP integral first derivatives over the given ECP center, C, and shell pair (A | B) 

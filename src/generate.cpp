@@ -59,7 +59,7 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 		outfile << "namespace libecpint {" << std::endl << "namespace qgen {" << std::endl;
 		outfile << "void Q" << LA << "_" << LB << "_" << lam << "(const ECP& U, const GaussianShell& shellA, const GaussianShell& shellB, "
 			<< "const FiveIndex<double> &CA, const FiveIndex<double> &CB, const TwoIndex<double> &SA, const TwoIndex<double> &SB, const double Am, const double Bm, "
-				<< "RadialIntegral &radint, const AngularIntegral& angint, ThreeIndex<double> &values) {" << std::endl << std::endl;
+				<< "const RadialIntegral &radint, const AngularIntegral& angint, const RadialIntegral::Parameters& parameters, ThreeIndex<double> &values) {" << std::endl << std::endl;
 		
 		double prefac = 16.0 * M_PI * M_PI;
 		int na = 0; 
@@ -172,7 +172,7 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 		bool first = true; 
 		for (Triple& t : radial_A) {
 			if (!first) outfile << "," << std::endl; 
-			else first = false; 
+			else first = false;
 			outfile << "\t\t{" + std::to_string(std::get<0>(t)) + ", "
 				+ std::to_string(std::get<1>(t)) + ", " 
 					+ std::to_string(std::get<2>(t)) + "}"; 
@@ -180,7 +180,7 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 		outfile << "\t};" << std::endl << std::endl;  
 		
 		outfile << "\tThreeIndex<double> radials(" << lam+LA+LB+1 << ", " << lam+LA+1 << ", " << lam+LB+1 << ");" << std::endl; 
-		outfile << "\tradint.type2(radial_triples_A, " << nbase << ", " << lam << ", U, shellA, shellB, Am, Bm, radials);" << std::endl << std::endl; 
+		outfile << "\tradint.type2(radial_triples_A, " << nbase << ", " << lam << ", U, shellA, shellB, Am, Bm, radials);" << std::endl << std::endl;
 		
 		// Now compute the reverse-ordered radials
 		outfile << "\tstd::vector<Triple> radial_triples_B = {" << std::endl; 
@@ -252,8 +252,8 @@ int main(int argc, char* argv[]) {
 					generate_lists(i, j, k, angInts); 
 					qgen_head << "\tvoid Q" << i << "_" << j << "_" << k << "("
 								<< "const ECP&, const GaussianShell&, const GaussianShell&, const FiveIndex<double>&, const FiveIndex<double>&, "
-								<< "const TwoIndex<double>&, const TwoIndex<double>&, double, double, RadialIntegral&, "
-								<< "const AngularIntegral&, ThreeIndex<double>&);" << std::endl;
+								<< "const TwoIndex<double>&, const TwoIndex<double>&, double, double, const RadialIntegral&, "
+								<< "const AngularIntegral&, const RadialIntegral::Parameters&, ThreeIndex<double>&);" << std::endl;
 				}
 			}
 		}

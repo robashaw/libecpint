@@ -62,13 +62,11 @@ namespace libecpint {
 		GCTYPE t; ///< Algorithm type to be used
 	
 		/// Worker function for integration routines, should not be called directly.	
-		double sumTerms(const std::function<double(double, const double*, int)> &f, const double *p, int limit, int shift, int skip) const;
+		double sumTerms(const std::function<double(double, const double*, int)> &f,
+                  const double *p, int limit, int start, int end, int shift, int skip) const;
 
 	public:
 		
-		int start; ///< Starting index of integration
-		int end;   ///< End index of integration
-	
 		/// Default constructor, creates empty object
 		GCQuadrature();
 		
@@ -90,10 +88,13 @@ namespace libecpint {
 		* @param f - the function to be integrated
 		* @param params - array of parameters for the function to be integrated
 		* @param tolerance - change below which convergenced is considered to be achieved
-		* @return true if integration converged, false otherwise
+    * @param start - the index of the first point used in the integration
+    * @param end - the index of the last point used in the integration
+		* @returns the integral (first) and true if integration converged, false otherwise (second)
 		*/
-		bool integrate(
-		    std::function<double(double, const double*, int)> &f, const double *params, const double tolerance);
+		std::pair<double, bool> integrate(
+		    std::function<double(double, const double*, int)> &f,
+		    const double *params, double tolerance, int start, int end) const;
 	
 		/**
 		* Transforms the region of integration to [0, inf) using the logarithmic transformation of Krack98
@@ -108,9 +109,6 @@ namespace libecpint {
 		*/
 		void transformRMinMax(double z, double p);  // Transfromation from [-1, 1] to [rmin, rmax] from Flores06
 		void untransformRMinMax(double z, double p);
-	
-		/// @return the calculated integral value - must have called integrate first
-		double getI() const { return I; }
 	
 		/// @return the maximum number of quadrature points
 		int getN() const { return maxN; }

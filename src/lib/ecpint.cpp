@@ -77,7 +77,7 @@ namespace libecpint {
 	void ECPIntegral::type1(
       const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
       const ShellPairData &data, const FiveIndex<double> &CA, const FiveIndex<double> &CB,
-      TwoIndex<double> &values) {
+      const RadialIntegral::Parameters & parameters, TwoIndex<double> &values) const {
 
 		int LA = data.LA; int LB = data.LB;
 		int maxLBasis = data.maxLBasis;
@@ -87,7 +87,7 @@ namespace libecpint {
 		TwoIndex<double> temp;
 		ThreeIndex<double> radials(L+1, L+1, 2*L+1);
 		for (int ix = 0; ix <= L; ix++) {
-			radInts.type1(ix, ix, ix % 2, U, shellA, shellB, data, temp);
+			radInts.type1(ix, ix, ix % 2, U, shellA, shellB, data, parameters, temp);
 			for(int l = 0; l <= ix; l++) {
 				for (int m = -l; m <= l; m++) radials(ix, l, l+m) = temp(l, l+m);
 			}
@@ -159,7 +159,7 @@ namespace libecpint {
 	void ECPIntegral::type2(
       const int lam, const ECP& U, const GaussianShell &shellA, const GaussianShell &shellB,
       const ShellPairData &data, const FiveIndex<double> &CA, const FiveIndex<double> &CB,
-      ThreeIndex<double> &values) {
+      const RadialIntegral::Parameters & parameters, ThreeIndex<double> &values) const {
 	
 		// Unpack some data for convenience
 		int LA = data.LA;
@@ -247,7 +247,7 @@ namespace libecpint {
 				std::fill(values.data.begin(), values.data.end(), 0.0);
 
 				for (int N = 0; N < L+1; N++) {
-					radInts.type2(lam, 0, lam + LA, 0, lam + LB, N, U, shellA, shellB, data, temp); 
+					radInts.type2(lam, 0, lam + LA, 0, lam + LB, N, U, shellA, shellB, data, parameters, temp);
 					for (int l1 = 0; l1 < lam + LA + 1; l1++)
 						for (int l2 = 0; l2 < lam + LB + 1; l2++)
 							radials(N, l1, l2) = temp(l1, l2);
@@ -264,7 +264,7 @@ namespace libecpint {
 				TwoIndex<double> temp;
 
 				for (int N = 0; N < L+1; N++) {
-					radInts.type2(lam, 0, lam + LA, 0, lam + LB, N, U, shellA, shellB, data, temp); 
+					radInts.type2(lam, 0, lam + LA, 0, lam + LB, N, U, shellA, shellB, data, parameters, temp);
 					for (int l1 = 0; l1 < lam + LB + 1; l1++)
 						for (int l2 = 0; l2 < lam + LA + 1; l2++)
 							radials(N, l1, l2) = temp(l2, l1);
@@ -282,10 +282,10 @@ namespace libecpint {
 				// Neither is on the ECP, the full recursive scheme with generated integrals can be used
 				// Need LA <= LB, but symmetry means we can just swap the arguments if LB > LA. 
 				if (LA <= LB) 
-					QGEN[LA][LB][lam](U, shellA, shellB, CA, CB, SA, SB, Am, Bm, radInts, angInts, values);
+					QGEN[LA][LB][lam](U, shellA, shellB, CA, CB, SA, SB, Am, Bm, radInts, angInts, parameters, values);
 				else {
 					ThreeIndex<double> temp_values(data.ncartB, data.ncartA, 2*U.getL() + 1); 
-					QGEN[LB][LA][lam](U, shellB, shellA, CB, CA, SB, SA, Bm, Am, radInts, angInts, temp_values);
+					QGEN[LB][LA][lam](U, shellB, shellA, CB, CA, SB, SA, Bm, Am, radInts, angInts, parameters, temp_values);
 					for (int na = 0; na < data.ncartA; na++)
 						for (int nb = 0; nb < data.ncartB; nb++)
 							for (int nu = 0; nu < 2*U.getL() + 1; nu++)
@@ -343,7 +343,7 @@ namespace libecpint {
 
 	void ECPIntegral::compute_shell_pair(
       const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
-      TwoIndex<double> &values, const int shiftA, const int shiftB) {
+      TwoIndex<double> &values, const int shiftA, const int shiftB) const {
 	
 		ShellPairData data;
 		
@@ -374,7 +374,7 @@ namespace libecpint {
 		data.RABm = sqrt(data.RAB2);
 		
 		// Prepare the radial integrator
-		radInts.buildParameters(shellA, shellB, data);
+		const auto radIntParameters = radInts.buildParameters(shellA, shellB, data);
 	
 		// Construct coefficients 
 		FiveIndex<double> CA(1, data.ncartA, data.LA+1, data.LA+1, data.LA+1);
@@ -388,7 +388,7 @@ namespace libecpint {
 		// Calculate type1 integrals, if necessary
 		values.assign(data.ncartA, data.ncartB, 0.0);
 		if (!U.noType1() && screens[U.getL()] > tolerance)
-			type1(U, shellA, shellB, data, CA, CB, values);
+			type1(U, shellA, shellB, data, CA, CB, radIntParameters, values);
 		
 		std::vector<int> l_list; 
 		for (int l = 0; l < U.getL(); l++) 
@@ -398,7 +398,7 @@ namespace libecpint {
 		ThreeIndex<double> t2vals(data.ncartA, data.ncartB, 2*U.getL() + 1);
 		for (int l : l_list) {
 			t2vals.fill(0.0);
-			type2(l, U, shellA, shellB, data, CA, CB, t2vals);
+			type2(l, U, shellA, shellB, data, CA, CB, radIntParameters, t2vals);
 
 			for (int m = -l; m <= l; m++) {
 				for(int na = 0; na < data.ncartA; na++) {

@@ -220,9 +220,9 @@ namespace libecpint {
 	    const std::function<double(double, const double*, int)> &f,
 	    const double *p, const int limit, const int start, const int end,
 	    const int shift, const int skip) const {
-	  assert(start >= 0 && start < maxN);
-    assert(end >= 0 && end < maxN);
-    assert(end >= start);
+		assert(start >= 0 && start < maxN);
+		assert(end >= 0 && end < maxN);
+		assert(end >= start);
 
 		double value = 0.0;
 		int ix; 

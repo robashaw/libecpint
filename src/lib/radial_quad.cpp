@@ -293,10 +293,10 @@ namespace libecpint {
 		double A = data.Am;
 		double B = data.Bm;
 
-    const auto & p = parameters.p;
-    const auto & P = parameters.P;
-    const auto & P2 = parameters.P2;
-    const auto & K = parameters.K;
+		const auto & p = parameters.p;
+		const auto & P = parameters.P;
+		const auto & P2 = parameters.P2;
+		const auto & K = parameters.K;
 
 		// Start with the small grid
 		// Pretabulate U
@@ -331,8 +331,8 @@ namespace libecpint {
 				
 				for (int i = 0; i < gridSize; i++) params[i] = Utab[i] * Fa(l1, i) * Fb(l2, i);
 				const auto this_integral_and_test = smallGrid.integrate(intgd, params, tolerance, start, end);
-        tests[ix] = this_integral_and_test.second;
-        failed = failed || (tests[ix] == 0);
+				tests[ix] = this_integral_and_test.second;
+				failed = failed || (tests[ix] == 0);
 				values(l1, l2) = tests[ix] == 0 ? 0.0 : this_integral_and_test.first;
 				ix++;
 			}

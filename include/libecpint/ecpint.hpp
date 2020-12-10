@@ -100,7 +100,7 @@ namespace libecpint {
 		  * @param data - wrapper for data about shell pair
 		  * @param CA - binomial expansion coefficients for shellA, made with makeC
 		  * @param CB - binomial expansion coefficients for shellB, made with makeC
-      * @param parameters - pre-calculated parameters for the radial integral
+		  * @param parameters - pre-calculated parameters for the radial integral
 		  * @param values - array in which results are returned
 		  */
 		void type1(const ECP& U, const GaussianShell &shellA, const GaussianShell &shellB,
@@ -116,7 +116,7 @@ namespace libecpint {
 		  * @param data - wrapper for data about shell pair
 		  * @param CA - binomial expansion coefficients for shellA, made with makeC
 		  * @param CB - binomial expansion coefficients for shellB, made with makeC
-      * @param parameters - pre-calculated parameters for the radial integral
+		  * @param parameters - pre-calculated parameters for the radial integral
 		  * @param values - array in which results are returned
 		  */
 		void type2(int l,

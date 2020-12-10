@@ -88,8 +88,8 @@ namespace libecpint {
 		* @param f - the function to be integrated
 		* @param params - array of parameters for the function to be integrated
 		* @param tolerance - change below which convergenced is considered to be achieved
-    * @param start - the index of the first point used in the integration
-    * @param end - the index of the last point used in the integration
+		* @param start - the index of the first point used in the integration
+		* @param end - the index of the last point used in the integration
 		* @returns the integral (first) and true if integration converged, false otherwise (second)
 		*/
 		std::pair<double, bool> integrate(

@@ -111,7 +111,7 @@ namespace libecpint {
 		double zt = n+a+b;
 		double pt = (a*A + b*B)/zt;
 		auto transformedGrid = primGrid;
-    transformedGrid.transformRMinMax(zt, pt);
+		transformedGrid.transformRMinMax(zt, pt);
 		std::vector<double> &gridPoints = transformedGrid.getX();
 	
 		double Ftab[gridSize]; 

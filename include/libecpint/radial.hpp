@@ -205,7 +205,7 @@ namespace libecpint {
 		* @param shellA - the first GaussianShell
 		* @param shellB - the second GaussianShell
 		* @param data - the data container for the shell pair
-    * @param parameters - pre-calculated parameters for the radial integral
+		* @param parameters - pre-calculated parameters for the radial integral
 		* @param values - the matrix to return the integrals in
 		*/
 		void type2(int lam, int l1start, int l1end, int l2start, int l2end, int N,

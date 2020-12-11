@@ -23,6 +23,7 @@
  */
 
 #include "gaussquad.hpp"
+#include <cassert>
 #include <cmath>
 #include <cassert>
 #include <iostream>

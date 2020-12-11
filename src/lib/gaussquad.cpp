@@ -24,6 +24,7 @@
 
 #include "gaussquad.hpp"
 #include <cmath>
+#include <cassert>
 #include <iostream>
 
 namespace libecpint {

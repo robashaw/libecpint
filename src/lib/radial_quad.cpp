@@ -168,7 +168,6 @@ namespace libecpint {
 	
 		// Tabulate integrand
 		double x, phi, Px, Py;
-		double weightedTolerance = tolerance / gridSize;
 		for (int a = 0; a < npA; a++) {
 			da = shellA.coef(a);
 			za = shellA.exp(a);
@@ -194,7 +193,7 @@ namespace libecpint {
 				for (int i = 0; i < gridSize; i++) {
 					for (int l = offset; l <= maxL; l+=2) {
 						intValues(l, i) = Utab[i] * besselValues(l, i); 
-						tooSmall = intValues(l, i) < tolerance;
+						tooSmall = tooSmall || (intValues(l, i) < tolerance);
 					}
 					if (!tooSmall && !foundStart) {
 						foundStart = true; 
@@ -214,7 +213,8 @@ namespace libecpint {
 				}
 
 				int test = integrate(maxL, gridSize, intValues, newGrid, tempValues, start, end, offset, 2);
-				if (test == 0) std::cerr << "Failed to converge: \n";
+				if (test == 0)
+					std::cerr << "Failed to converge: " << U.atom_id << std::endl;
 				
 				// Calculate real spherical harmonic
 				x = std::abs(P(a, b)) < 1e-12 ? 0.0 : (za * data.A[2] + zb * data.B[2]) / (p(a, b) * P(a, b));

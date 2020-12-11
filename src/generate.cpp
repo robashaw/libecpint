@@ -167,7 +167,7 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 		// Determine the maximum number of base integrals needed across the set of all radial integrals
 		int nbase = 0; 
 		if (!radial_triples.empty()) {
-			const Triple& tmax = *radial_triples.rbegin();
+			const Triple& tmax = *radial_triples.crbegin();
 			nbase = std::get<0>(tmax) + std::get<1>(tmax) - 1; 
 			nbase = nbase < 0 ? 0 : nbase; 
 		}

@@ -1,142 +1,142 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="mathutil_8hpp" kind="file" language="C++">
     <compoundname>mathutil.hpp</compoundname>
     <includes local="no">vector</includes>
     <includes local="no">numeric</includes>
     <includes local="no">cmath</includes>
     <includes refid="multiarr_8hpp" local="yes">multiarr.hpp</includes>
-    <includedby refid="generated_2radial_2radial__gen_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/radial_gen.cpp</includedby>
-    <includedby refid="angular_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp</includedby>
-    <includedby refid="api_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp</includedby>
-    <includedby refid="bessel_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/bessel.cpp</includedby>
-    <includedby refid="ecp_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp</includedby>
-    <includedby refid="ecpint_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp</includedby>
-    <includedby refid="mathutil_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp</includedby>
-    <includedby refid="qgen_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/qgen.cpp</includedby>
-    <includedby refid="lib_2radial__gen_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_gen.cpp</includedby>
-    <includedby refid="radial__quad_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_quad.cpp</includedby>
-    <includedby refid="generate_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp</includedby>
+    <includedby refid="generated_2radial_2radial__gen_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/generated/radial/radial_gen.cpp</includedby>
+    <includedby refid="angular_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/lib/angular.cpp</includedby>
+    <includedby refid="api_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp</includedby>
+    <includedby refid="bessel_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/lib/bessel.cpp</includedby>
+    <includedby refid="ecp_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp</includedby>
+    <includedby refid="ecpint_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/lib/ecpint.cpp</includedby>
+    <includedby refid="mathutil_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/lib/mathutil.cpp</includedby>
+    <includedby refid="qgen_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/lib/qgen.cpp</includedby>
+    <includedby refid="lib_2radial__gen_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/lib/radial_gen.cpp</includedby>
+    <includedby refid="radial__quad_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp</includedby>
+    <includedby refid="generate_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/generate.hpp</includedby>
     <incdepgraph>
-      <node id="168">
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/mathutil.hpp</label>
+        <link refid="mathutil_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
         <label>cmath</label>
       </node>
-      <node id="167">
+      <node id="3">
         <label>numeric</label>
       </node>
-      <node id="169">
-        <label>multiarr.hpp</label>
-        <link refid="multiarr_8hpp"/>
-        <childnode refid="166" relation="include">
-        </childnode>
-        <childnode refid="170" relation="include">
-        </childnode>
-        <childnode refid="171" relation="include">
-        </childnode>
-        <childnode refid="172" relation="include">
-        </childnode>
-      </node>
-      <node id="170">
+      <node id="6">
         <label>tuple</label>
       </node>
-      <node id="166">
+      <node id="2">
         <label>vector</label>
       </node>
-      <node id="172">
+      <node id="8">
         <label>sstream</label>
       </node>
-      <node id="165">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp</label>
-        <link refid="mathutil_8hpp"/>
-        <childnode refid="166" relation="include">
+      <node id="5">
+        <label>multiarr.hpp</label>
+        <link refid="multiarr_8hpp"/>
+        <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="167" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="168" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="169" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="171">
+      <node id="7">
         <label>algorithm</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="174">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/radial_gen.cpp</label>
+      <node id="12">
+        <label>/Users/robertshaw/devfiles/libecpint/include/generate.hpp</label>
+        <link refid="generate_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/mathutil.hpp</label>
+        <link refid="mathutil_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/Users/robertshaw/devfiles/libecpint/src/generated/radial/radial_gen.cpp</label>
         <link refid="generated_2radial_2radial__gen_8cpp"/>
       </node>
-      <node id="183">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_quad.cpp</label>
-        <link refid="radial__quad_8cpp"/>
-      </node>
-      <node id="178">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp</label>
-        <link refid="ecp_8cpp"/>
-      </node>
-      <node id="177">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/bessel.cpp</label>
-        <link refid="bessel_8cpp"/>
-      </node>
-      <node id="175">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp</label>
-        <link refid="angular_8cpp"/>
-      </node>
-      <node id="180">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp</label>
-        <link refid="mathutil_8cpp"/>
-      </node>
-      <node id="184">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp</label>
-        <link refid="generate_8hpp"/>
-        <childnode refid="185" relation="include">
-        </childnode>
-      </node>
-      <node id="176">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp</label>
-        <link refid="api_8cpp"/>
-      </node>
-      <node id="179">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp</label>
-        <link refid="ecpint_8cpp"/>
-      </node>
-      <node id="182">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_gen.cpp</label>
-        <link refid="lib_2radial__gen_8cpp"/>
-      </node>
-      <node id="185">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/generate.cpp</label>
+      <node id="13">
+        <label>/Users/robertshaw/devfiles/libecpint/src/generate.cpp</label>
         <link refid="generate_8cpp"/>
       </node>
-      <node id="173">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp</label>
-        <link refid="mathutil_8hpp"/>
-        <childnode refid="174" relation="include">
-        </childnode>
-        <childnode refid="175" relation="include">
-        </childnode>
-        <childnode refid="176" relation="include">
-        </childnode>
-        <childnode refid="177" relation="include">
-        </childnode>
-        <childnode refid="178" relation="include">
-        </childnode>
-        <childnode refid="179" relation="include">
-        </childnode>
-        <childnode refid="180" relation="include">
-        </childnode>
-        <childnode refid="181" relation="include">
-        </childnode>
-        <childnode refid="182" relation="include">
-        </childnode>
-        <childnode refid="183" relation="include">
-        </childnode>
-        <childnode refid="184" relation="include">
-        </childnode>
+      <node id="11">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp</label>
+        <link refid="radial__quad_8cpp"/>
       </node>
-      <node id="181">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/qgen.cpp</label>
+      <node id="4">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp</label>
+        <link refid="api_8cpp"/>
+      </node>
+      <node id="5">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/bessel.cpp</label>
+        <link refid="bessel_8cpp"/>
+      </node>
+      <node id="7">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/ecpint.cpp</label>
+        <link refid="ecpint_8cpp"/>
+      </node>
+      <node id="10">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/radial_gen.cpp</label>
+        <link refid="lib_2radial__gen_8cpp"/>
+      </node>
+      <node id="3">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/angular.cpp</label>
+        <link refid="angular_8cpp"/>
+      </node>
+      <node id="6">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp</label>
+        <link refid="ecp_8cpp"/>
+      </node>
+      <node id="9">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/qgen.cpp</label>
         <link refid="qgen_8cpp"/>
+      </node>
+      <node id="8">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/mathutil.cpp</label>
+        <link refid="mathutil_8cpp"/>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespacelibecpint">libecpint</innernamespace>
@@ -150,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" line="39" column="9" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" bodystart="39" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/mathutil.hpp" line="39" column="9" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/mathutil.hpp" bodystart="39" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="mathutil_8hpp_1a620539bb392918432be69023bb266dfb" prot="public" static="no">
         <name>M_EULER</name>
@@ -161,33 +161,36 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" line="43" column="9" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" bodystart="43" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/mathutil.hpp" line="43" column="9" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/mathutil.hpp" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="mathutil_8hpp_1aaf00c7de57af68f4e9d7acc87adb8d87" prot="public" static="no">
         <name>MAX_FAC</name>
         <initializer>100</initializer>
         <briefdescription>
-<para>the maximum factorial needed </para>        </briefdescription>
+<para>the maximum factorial needed </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" line="46" column="9" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" bodystart="46" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/mathutil.hpp" line="46" column="9" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/mathutil.hpp" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="mathutil_8hpp_1a30bbac291639d5f7d964a92fa8742b94" prot="public" static="no">
         <name>MAX_DFAC</name>
         <initializer>200</initializer>
         <briefdescription>
-<para>the maximum double factorial needed </para>        </briefdescription>
+<para>the maximum double factorial needed </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" line="47" column="9" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp" bodystart="47" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/mathutil.hpp" line="47" column="9" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/mathutil.hpp" bodystart="47" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Mathematical constants, special function tables, and utility functions. </para>    </briefdescription>
+<para>Mathematical constants, special function tables, and utility functions. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <programlisting>
@@ -236,41 +239,41 @@
 <codeline lineno="48"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacelibecpint" kindref="compound">libecpint</ref><sp/>{</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="51" refid="namespacelibecpint_1a451c1c2142ac7d2cbf57f3fcba419373" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a451c1c2142ac7d2cbf57f3fcba419373" kindref="member">ROOT_PI</ref><sp/>=<sp/>1.772453850905516;<sp/></highlight></codeline>
-<codeline lineno="52" refid="namespacelibecpint_1a6305f5251f77037717df018fd2e56700" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a6305f5251f77037717df018fd2e56700" kindref="member">SINH_1</ref><sp/>=<sp/>1.1752011936;</highlight></codeline>
-<codeline lineno="53" refid="namespacelibecpint_1a35fea7df6515abbb84fc029150055a28" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a35fea7df6515abbb84fc029150055a28" kindref="member">MAX_POW</ref><sp/>=<sp/>20;</highlight></codeline>
+<codeline lineno="51" refid="namespacelibecpint_1a32d2ef087e028b702c316bd2875036ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a32d2ef087e028b702c316bd2875036ec" kindref="member">ROOT_PI</ref><sp/>=<sp/>1.772453850905516;<sp/></highlight></codeline>
+<codeline lineno="52" refid="namespacelibecpint_1ae8056358eb2736d93b3a78dd1428555c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1ae8056358eb2736d93b3a78dd1428555c" kindref="member">SINH_1</ref><sp/>=<sp/>1.1752011936;</highlight></codeline>
+<codeline lineno="53" refid="namespacelibecpint_1a5f751be5271cc840a3025f0e0ee026f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a5f751be5271cc840a3025f0e0ee026f2" kindref="member">MAX_POW</ref><sp/>=<sp/>20;</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a975e7b9e0f57709418adede308d80405" kindref="member">FAC</ref>[<ref refid="mathutil_8hpp_1aaf00c7de57af68f4e9d7acc87adb8d87" kindref="member">MAX_FAC</ref>];<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a4ecb557cc8bf8d94cfa80855985007bf" kindref="member">DFAC</ref>[<ref refid="mathutil_8hpp_1a30bbac291639d5f7d964a92fa8742b94" kindref="member">MAX_DFAC</ref>];<sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a11466fdaf07952a659fe9ab5cd634743" kindref="member">pow_m2</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a36d15d50e1c9979ab73acf66f1019304" kindref="member">pow_m1</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a34d3b9ccb2d69e977f74ff88524cf856" kindref="member">pow_0</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a1addfbe82d0601ae0f2392e952e58dda" kindref="member">pow_1</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a7b6040a6e46c20d2e23b692e0fbffdf7" kindref="member">pow_2</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a61d1d1633673052f4bdf09074343672c" kindref="member">pow_3</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1abda78a2e83d967ee3da8b2fa7bff6ad0" kindref="member">pow_4</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a86323740854f95e4faa929dc192aea06" kindref="member">pow_5</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a7ecd27cd3ddff36e2a2e0ebeffa3d303" kindref="member">pow_6</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a5bd73223ef2829c4d4e8f1fb68b7bcbb" kindref="member">pow_7</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a2419326594e0adba8c22660003cee2ce" kindref="member">pow_8</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1ac6cc42cb342d04a07173673b14e59b5c" kindref="member">pow_9</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a8d415487a348138eae566f7b8ee4ce24" kindref="member">pow_10</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1aea1a1b36dedb45829a2cdb5ee133b6ca" kindref="member">pow_11</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a38e7f34b9f4f6181178d70e2d1ebb7df" kindref="member">pow_12</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1afd6b073b13a5cc8ddb89a4d331dae638" kindref="member">pow_13</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1ad62d70ca1e4137214af96b66ba9e50f8" kindref="member">pow_14</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1aad2f9701f24b74e7db5f8d1098b48cf5" kindref="member">pow_15</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a250f67b7a3f611c4b8acdd8d90e0bec6" kindref="member">pow_16</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1aa93c5edc1ed250d59cfb1687865c7af3" kindref="member">pow_17</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a15cb24b7b0a3530c911ff0c782ef3378" kindref="member">pow_18</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a02aadabb1b7fceb975aa42706bb2be8d" kindref="member">pow_19</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a5d0157ab6282709bcec5e37a841e8fbf" kindref="member">pow_20</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a3d3ec1164653607a1a2a66e71c160905" kindref="member">pow_m2</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1af586e0d10f4e89ae23350208eae35381" kindref="member">pow_m1</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a321e63264d2ee5ec80e5aa98ab5f2a31" kindref="member">pow_0</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1ab8d8f23abac900581a1b074df5151bfa" kindref="member">pow_1</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1aeea8f0398e91f9c4c0abc5087c68208a" kindref="member">pow_2</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1adb6835f6678e044793635ea74137610c" kindref="member">pow_3</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1af1b4030182805b2b87939f0be0bb1f68" kindref="member">pow_4</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1ae8e9cac2c5167fee6077b8d5b38c879d" kindref="member">pow_5</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a691287591ae556167f12eef21d9605d3" kindref="member">pow_6</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1afc2d0fbd27b79b1cfb7a933a4f8f86af" kindref="member">pow_7</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1aceff25bd00ac616a0c1679c43c757c25" kindref="member">pow_8</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a125307aa5575e22d32bc381c0ddb598d" kindref="member">pow_9</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a764f6b0f657d4b76cd030593a81f8161" kindref="member">pow_10</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a17491fad5ad55b86c80bccd068067373" kindref="member">pow_11</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a274e6578163d01f8c1bd6b24f0f1e061" kindref="member">pow_12</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1adf95d3c9da1c27fbbbe785fb7d4c3419" kindref="member">pow_13</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a12c8c970bff9ab1318e774a4637059fb" kindref="member">pow_14</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a5ebc6e4869b8a3dab9286895629c19fc" kindref="member">pow_15</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a697a408875eb033819881bc8d5fd3cec" kindref="member">pow_16</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a60980f8f3c0f2ce3bfa35d1ab1ffe612" kindref="member">pow_17</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a44095a8d0f5ab3e8bf4770a0ecd39a49" kindref="member">pow_18</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1ad7792ee9315576df3c805d0d0bbb6144" kindref="member">pow_19</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1aa2a7bd43b3c7267b69a5a3faa3adf313" kindref="member">pow_20</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>double<sp/>(*FAST_POW[23])(double)<sp/>{<ref refid="namespacelibecpint_1a34d3b9ccb2d69e977f74ff88524cf856" kindref="member">pow_0</ref>,<sp/><ref refid="namespacelibecpint_1a1addfbe82d0601ae0f2392e952e58dda" kindref="member">pow_1</ref>,<sp/><ref refid="namespacelibecpint_1a7b6040a6e46c20d2e23b692e0fbffdf7" kindref="member">pow_2</ref>,<sp/><ref refid="namespacelibecpint_1a61d1d1633673052f4bdf09074343672c" kindref="member">pow_3</ref>,<sp/><ref refid="namespacelibecpint_1abda78a2e83d967ee3da8b2fa7bff6ad0" kindref="member">pow_4</ref>,<sp/><ref refid="namespacelibecpint_1a86323740854f95e4faa929dc192aea06" kindref="member">pow_5</ref>,</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacelibecpint_1a7ecd27cd3ddff36e2a2e0ebeffa3d303" kindref="member">pow_6</ref>,<sp/><ref refid="namespacelibecpint_1a5bd73223ef2829c4d4e8f1fb68b7bcbb" kindref="member">pow_7</ref>,<sp/><ref refid="namespacelibecpint_1a2419326594e0adba8c22660003cee2ce" kindref="member">pow_8</ref>,<sp/><ref refid="namespacelibecpint_1ac6cc42cb342d04a07173673b14e59b5c" kindref="member">pow_9</ref>,<sp/><ref refid="namespacelibecpint_1a8d415487a348138eae566f7b8ee4ce24" kindref="member">pow_10</ref>,<sp/><ref refid="namespacelibecpint_1aea1a1b36dedb45829a2cdb5ee133b6ca" kindref="member">pow_11</ref>,</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacelibecpint_1a38e7f34b9f4f6181178d70e2d1ebb7df" kindref="member">pow_12</ref>,<sp/><ref refid="namespacelibecpint_1afd6b073b13a5cc8ddb89a4d331dae638" kindref="member">pow_13</ref>,<sp/><ref refid="namespacelibecpint_1ad62d70ca1e4137214af96b66ba9e50f8" kindref="member">pow_14</ref>,<sp/><ref refid="namespacelibecpint_1aad2f9701f24b74e7db5f8d1098b48cf5" kindref="member">pow_15</ref>,<sp/><ref refid="namespacelibecpint_1a250f67b7a3f611c4b8acdd8d90e0bec6" kindref="member">pow_16</ref>,<sp/><ref refid="namespacelibecpint_1aa93c5edc1ed250d59cfb1687865c7af3" kindref="member">pow_17</ref>,</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacelibecpint_1a15cb24b7b0a3530c911ff0c782ef3378" kindref="member">pow_18</ref>,<sp/><ref refid="namespacelibecpint_1a02aadabb1b7fceb975aa42706bb2be8d" kindref="member">pow_19</ref>,<sp/><ref refid="namespacelibecpint_1a5d0157ab6282709bcec5e37a841e8fbf" kindref="member">pow_20</ref>,<sp/><ref refid="namespacelibecpint_1a36d15d50e1c9979ab73acf66f1019304" kindref="member">pow_m1</ref>,<sp/><ref refid="namespacelibecpint_1a11466fdaf07952a659fe9ab5cd634743" kindref="member">pow_m2</ref>};</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>double<sp/>(*FAST_POW[23])(double)<sp/>{<ref refid="namespacelibecpint_1a321e63264d2ee5ec80e5aa98ab5f2a31" kindref="member">pow_0</ref>,<sp/><ref refid="namespacelibecpint_1ab8d8f23abac900581a1b074df5151bfa" kindref="member">pow_1</ref>,<sp/><ref refid="namespacelibecpint_1aeea8f0398e91f9c4c0abc5087c68208a" kindref="member">pow_2</ref>,<sp/><ref refid="namespacelibecpint_1adb6835f6678e044793635ea74137610c" kindref="member">pow_3</ref>,<sp/><ref refid="namespacelibecpint_1af1b4030182805b2b87939f0be0bb1f68" kindref="member">pow_4</ref>,<sp/><ref refid="namespacelibecpint_1ae8e9cac2c5167fee6077b8d5b38c879d" kindref="member">pow_5</ref>,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacelibecpint_1a691287591ae556167f12eef21d9605d3" kindref="member">pow_6</ref>,<sp/><ref refid="namespacelibecpint_1afc2d0fbd27b79b1cfb7a933a4f8f86af" kindref="member">pow_7</ref>,<sp/><ref refid="namespacelibecpint_1aceff25bd00ac616a0c1679c43c757c25" kindref="member">pow_8</ref>,<sp/><ref refid="namespacelibecpint_1a125307aa5575e22d32bc381c0ddb598d" kindref="member">pow_9</ref>,<sp/><ref refid="namespacelibecpint_1a764f6b0f657d4b76cd030593a81f8161" kindref="member">pow_10</ref>,<sp/><ref refid="namespacelibecpint_1a17491fad5ad55b86c80bccd068067373" kindref="member">pow_11</ref>,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacelibecpint_1a274e6578163d01f8c1bd6b24f0f1e061" kindref="member">pow_12</ref>,<sp/><ref refid="namespacelibecpint_1adf95d3c9da1c27fbbbe785fb7d4c3419" kindref="member">pow_13</ref>,<sp/><ref refid="namespacelibecpint_1a12c8c970bff9ab1318e774a4637059fb" kindref="member">pow_14</ref>,<sp/><ref refid="namespacelibecpint_1a5ebc6e4869b8a3dab9286895629c19fc" kindref="member">pow_15</ref>,<sp/><ref refid="namespacelibecpint_1a697a408875eb033819881bc8d5fd3cec" kindref="member">pow_16</ref>,<sp/><ref refid="namespacelibecpint_1a60980f8f3c0f2ce3bfa35d1ab1ffe612" kindref="member">pow_17</ref>,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacelibecpint_1a44095a8d0f5ab3e8bf4770a0ecd39a49" kindref="member">pow_18</ref>,<sp/><ref refid="namespacelibecpint_1ad7792ee9315576df3c805d0d0bbb6144" kindref="member">pow_19</ref>,<sp/><ref refid="namespacelibecpint_1aa2a7bd43b3c7267b69a5a3faa3adf313" kindref="member">pow_20</ref>,<sp/><ref refid="namespacelibecpint_1af586e0d10f4e89ae23350208eae35381" kindref="member">pow_m1</ref>,<sp/><ref refid="namespacelibecpint_1a3d3ec1164653607a1a2a66e71c160905" kindref="member">pow_m2</ref>};</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="93" refid="namespacelibecpint_1a4fc3cf89f4b0b1787baabc364a16e377" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a4fc3cf89f4b0b1787baabc364a16e377" kindref="member">GAMMA</ref>[30]<sp/>=<sp/>{</highlight></codeline>
@@ -306,15 +309,15 @@
 <codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>8.7178291200e10</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>TwoIndex&lt;double&gt;<sp/><ref refid="namespacelibecpint_1af2fa15848e7d9cfe1e61fc579a94080d" kindref="member">realSphericalHarmonics</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lmax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>phi);<sp/><sp/></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>TwoIndex&lt;double&gt;<sp/><ref refid="namespacelibecpint_1ac8004320c2b47b1ce75ab1ccfff376e4" kindref="member">realSphericalHarmonics</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lmax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>phi);<sp/><sp/></highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a4c0dd5f75d6fc9b5329c97195b0b5e6c" kindref="member">frobenius_norm</ref>(TwoIndex&lt;double&gt;&amp;<sp/>mat);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a16e0a77a3022ff74a1fbb6eccba88c4c" kindref="member">frobenius_norm</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TwoIndex&lt;double&gt;&amp;<sp/>mat);</highlight></codeline>
 <codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a0d3d7448d52abd739d6d100afa6d4e8a" kindref="member">initFactorials</ref>();<sp/></highlight></codeline>
 <codeline lineno="145"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="146"><highlight class="normal"></highlight></codeline>
 <codeline lineno="147"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/mathutil.hpp"/>
   </compounddef>
 </doxygen>

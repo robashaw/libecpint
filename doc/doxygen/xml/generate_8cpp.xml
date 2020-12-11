@@ -1,95 +1,95 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="generate_8cpp" kind="file" language="C++">
     <compoundname>generate.cpp</compoundname>
     <includes refid="generate_8hpp" local="yes">generate.hpp</includes>
     <incdepgraph>
-      <node id="281">
-        <label>cmath</label>
-      </node>
-      <node id="280">
-        <label>numeric</label>
-      </node>
-      <node id="275">
-        <label>multiarr.hpp</label>
-        <link refid="multiarr_8hpp"/>
-        <childnode refid="274" relation="include">
-        </childnode>
-        <childnode refid="276" relation="include">
-        </childnode>
-        <childnode refid="277" relation="include">
-        </childnode>
-        <childnode refid="278" relation="include">
-        </childnode>
-      </node>
-      <node id="272">
-        <label>string</label>
-      </node>
-      <node id="271">
-        <label>fstream</label>
-      </node>
-      <node id="282">
-        <label>config.hpp</label>
-      </node>
-      <node id="276">
-        <label>tuple</label>
-      </node>
-      <node id="269">
+      <node id="2">
         <label>generate.hpp</label>
         <link refid="generate_8hpp"/>
-        <childnode refid="270" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="271" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="272" relation="include">
+        <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="273" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="279" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="275" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="282" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="281" relation="include">
-        </childnode>
-      </node>
-      <node id="274">
-        <label>vector</label>
-      </node>
-      <node id="278">
-        <label>sstream</label>
-      </node>
-      <node id="268">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/generate.cpp</label>
-        <link refid="generate_8cpp"/>
-        <childnode refid="269" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
-      <node id="279">
+      <node id="12">
         <label>mathutil.hpp</label>
         <link refid="mathutil_8hpp"/>
-        <childnode refid="274" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="280" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="281" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="275" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="270">
-        <label>iostream</label>
+      <node id="14">
+        <label>cmath</label>
       </node>
-      <node id="273">
+      <node id="13">
+        <label>numeric</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/src/generate.cpp</label>
+        <link refid="generate_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>fstream</label>
+      </node>
+      <node id="6">
         <label>angular.hpp</label>
         <link refid="angular_8hpp"/>
-        <childnode refid="274" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="275" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="277">
+      <node id="15">
+        <label>config.hpp</label>
+      </node>
+      <node id="9">
+        <label>tuple</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="11">
+        <label>sstream</label>
+      </node>
+      <node id="8">
+        <label>multiarr.hpp</label>
+        <link refid="multiarr_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+      <node id="10">
         <label>algorithm</label>
       </node>
     </incdepgraph>
@@ -118,39 +118,45 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>For a given ECP integral, Q(LA, LB, lam), generates the integral code. This determines which radial integrals are necessary, based on angular integral screening. If LA, LB &lt;= maxUnrol and (LA + LB + lam) &lt;= 3*maxUnrol, then it unrols the angular integration as well.</para><para><parameterlist kind="param"><parameteritem>
+<para>For a given ECP integral, Q(LA, LB, lam), generates the integral code. This determines which radial integrals are necessary, based on angular integral screening. If LA, LB &lt;= maxUnrol and (LA + LB + lam) &lt;= 3*maxUnrol, then it unrols the angular integration as well.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>LA</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the shellA angular momentum </para></parameterdescription>
+<para>- the shellA angular momentum </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>LB</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the shellB angular momentum </para></parameterdescription>
+<para>- the shellB angular momentum </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>lam</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the ECP angular momentum </para></parameterdescription>
+<para>- the ECP angular momentum </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>angInts</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the angular integrals </para></parameterdescription>
+<para>- the angular integrals </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generate.cpp" line="43" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generate.cpp" bodystart="43" bodyend="215"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/src/generate.cpp" line="43" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/generate.cpp" bodystart="43" bodyend="215"/>
       </memberdef>
       <memberdef kind="function" id="generate_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -172,11 +178,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/src/generate.cpp" line="217" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/generate.cpp" bodystart="217" bodyend="304"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/src/generate.cpp" line="217" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/src/generate.cpp" bodystart="217" bodyend="304"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>ECP integral code generator. </para>    </briefdescription>
+<para>ECP integral code generator. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <programlisting>
@@ -224,9 +231,9 @@
 <codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outfile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;//<sp/>Generated<sp/>as<sp/>part<sp/>of<sp/>Libecpint,<sp/>Copyright<sp/>2017<sp/>Robert<sp/>A<sp/>Shaw&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;<sp/></highlight></codeline>
 <codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outfile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;#include<sp/>\&quot;qgen.hpp\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;<sp/></highlight></codeline>
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outfile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;namespace<sp/>libecpint<sp/>{&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;namespace<sp/>qgen<sp/>{&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outfile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;void<sp/>Q&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>LA<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>LB<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>lam<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;(ECP&amp;<sp/>U,<sp/>GaussianShell&amp;<sp/>shellA,<sp/>GaussianShell&amp;<sp/>shellB,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;FiveIndex&lt;double&gt;<sp/>&amp;CA,<sp/>FiveIndex&lt;double&gt;<sp/>&amp;CB,<sp/>TwoIndex&lt;double&gt;<sp/>&amp;SA,<sp/>TwoIndex&lt;double&gt;<sp/>&amp;SB,<sp/>double<sp/>Am,<sp/>double<sp/>Bm,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;RadialIntegral<sp/>&amp;radint,<sp/>AngularIntegral&amp;<sp/>angint,<sp/>ThreeIndex&lt;double&gt;<sp/>&amp;values)<sp/>{&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl<sp/>&lt;&lt;<sp/>std::endl;<sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outfile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;void<sp/>Q&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>LA<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>LB<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>lam<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;(const<sp/>ECP&amp;<sp/>U,<sp/>const<sp/>GaussianShell&amp;<sp/>shellA,<sp/>const<sp/>GaussianShell&amp;<sp/>shellB,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;const<sp/>FiveIndex&lt;double&gt;<sp/>&amp;CA,<sp/>const<sp/>FiveIndex&lt;double&gt;<sp/>&amp;CB,<sp/>const<sp/>TwoIndex&lt;double&gt;<sp/>&amp;SA,<sp/>const<sp/>TwoIndex&lt;double&gt;<sp/>&amp;SB,<sp/>const<sp/>double<sp/>Am,<sp/>const<sp/>double<sp/>Bm,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;const<sp/>RadialIntegral<sp/>&amp;radint,<sp/>const<sp/>AngularIntegral&amp;<sp/>angint,<sp/>const<sp/>RadialIntegral::Parameters&amp;<sp/>parameters,<sp/>ThreeIndex&lt;double&gt;<sp/>&amp;values)<sp/>{&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>prefac<sp/>=<sp/>16.0<sp/>*<sp/><ref refid="mathutil_8hpp_1ae71449b1cc6e6250b91f539153a7a0d3" kindref="member">M_PI</ref><sp/>*<sp/><ref refid="mathutil_8hpp_1ae71449b1cc6e6250b91f539153a7a0d3" kindref="member">M_PI</ref>;</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>na<sp/>=<sp/>0;<sp/></highlight></codeline>
@@ -339,7 +346,7 @@
 <codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>first<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/></highlight></codeline>
 <codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacelibecpint_1af2651847fa01dec731554db1e7b273fd" kindref="member">Triple</ref>&amp;<sp/>t<sp/>:<sp/>radial_A)<sp/>{</highlight></codeline>
 <codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!first)<sp/>outfile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;<sp/></highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>first<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>first<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outfile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t\t{&quot;</highlight><highlight class="normal"><sp/>+<sp/>std::to_string(std::get&lt;0&gt;(t))<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>std::to_string(std::get&lt;1&gt;(t))<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/></highlight></codeline>
 <codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>std::to_string(std::get&lt;2&gt;(t))<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;}&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
@@ -347,7 +354,7 @@
 <codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outfile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t};&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl<sp/>&lt;&lt;<sp/>std::endl;<sp/><sp/></highlight></codeline>
 <codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outfile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\tThreeIndex&lt;double&gt;<sp/>radials(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>lam+LA+LB+1<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>lam+LA+1<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>lam+LB+1<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;);&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;<sp/></highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outfile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\tradint.type2(radial_triples_A,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>nbase<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>lam<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>U,<sp/>shellA,<sp/>shellB,<sp/>Am,<sp/>Bm,<sp/>radials);&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl<sp/>&lt;&lt;<sp/>std::endl;<sp/></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outfile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\tradint.type2(radial_triples_A,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>nbase<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>lam<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>U,<sp/>shellA,<sp/>shellB,<sp/>Am,<sp/>Bm,<sp/>radials);&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Now<sp/>compute<sp/>the<sp/>reverse-ordered<sp/>radials</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outfile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\tstd::vector&lt;Triple&gt;<sp/>radial_triples_B<sp/>=<sp/>{&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;<sp/></highlight></codeline>
@@ -387,7 +394,7 @@
 <codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacelibecpint_1a0d3d7448d52abd739d6d100afa6d4e8a" kindref="member">libecpint::initFactorials</ref>();</highlight></codeline>
 <codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref><sp/>=<sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">libecpint::maxL</ref>;</highlight></codeline>
 <codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classlibecpint_1_1_angular_integral" kindref="compound">libecpint::AngularIntegral</ref><sp/>angInts(maxL,<sp/>maxL);<sp/></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classlibecpint_1_1_angular_integral" kindref="compound">libecpint::AngularIntegral</ref><sp/>angInts(<ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>,<sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>);<sp/></highlight></codeline>
 <codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>angInts.<ref refid="classlibecpint_1_1_angular_integral_1a2d43cc97a39834a4d398a952396b3ae7" kindref="member">compute</ref>();<sp/></highlight></codeline>
 <codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Generate<sp/>the<sp/>qgen.hpp<sp/>header<sp/>file</highlight><highlight class="normal"></highlight></codeline>
@@ -418,9 +425,9 @@
 <codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>0;<sp/>k<sp/>&lt;=<sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>;<sp/>k++)<sp/>{</highlight></codeline>
 <codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="generate_8cpp_1a45aa3f4947203d38d9cb52b96d002cea" kindref="member">generate_lists</ref>(i,<sp/>j,<sp/>k,<sp/>angInts);<sp/></highlight></codeline>
 <codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qgen_head<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\tvoid<sp/>Q&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>j<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>k<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ECP&amp;,<sp/>GaussianShell&amp;,<sp/>GaussianShell&amp;,<sp/>FiveIndex&lt;double&gt;&amp;,<sp/>FiveIndex&lt;double&gt;&amp;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;TwoIndex&lt;double&gt;&amp;,<sp/>TwoIndex&lt;double&gt;&amp;,<sp/>double,<sp/>double,<sp/>RadialIntegral&amp;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;AngularIntegral&amp;,<sp/>ThreeIndex&lt;double&gt;&amp;);&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;<sp/></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;const<sp/>ECP&amp;,<sp/>const<sp/>GaussianShell&amp;,<sp/>const<sp/>GaussianShell&amp;,<sp/>const<sp/>FiveIndex&lt;double&gt;&amp;,<sp/>const<sp/>FiveIndex&lt;double&gt;&amp;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;const<sp/>TwoIndex&lt;double&gt;&amp;,<sp/>const<sp/>TwoIndex&lt;double&gt;&amp;,<sp/>double,<sp/>double,<sp/>const<sp/>RadialIntegral&amp;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;const<sp/>AngularIntegral&amp;,<sp/>const<sp/>RadialIntegral::Parameters&amp;,<sp/>ThreeIndex&lt;double&gt;&amp;);&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -453,13 +460,13 @@
 <codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>0;<sp/>k&lt;<sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>;<sp/>k++)<sp/></highlight></codeline>
 <codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ecpgen_head<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;qgen::Q&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>I<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>J<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>k<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ecpgen_head<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;qgen::Q&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>I<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>J<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>maxL<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;}&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(j<sp/>!=<sp/>maxL)<sp/>ecpgen_head<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ecpgen_head<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;qgen::Q&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>I<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>J<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;}&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(j<sp/>!=<sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>)<sp/>ecpgen_head<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
 <codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ecpgen_head<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ecpgen_head<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t\t}&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>!=<sp/>maxL)<sp/>ecpgen_head<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>!=<sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>)<sp/>ecpgen_head<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
 <codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ecpgen_head<sp/>&lt;&lt;<sp/>std::endl;<sp/></highlight></codeline>
 <codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
@@ -470,6 +477,6 @@
 <codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/></highlight></codeline>
 <codeline lineno="304"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/src/generate.cpp"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/src/generate.cpp"/>
   </compounddef>
 </doxygen>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="structlibecpint_1_1_sum_term" kind="struct" language="C++" prot="public">
     <compoundname>libecpint::SumTerm</compoundname>
     <includes refid="generate_8hpp" local="no">generate.hpp</includes>
@@ -10,12 +10,13 @@
         <argsstring></argsstring>
         <name>SA</name>
         <briefdescription>
-<para>(l, m) for spherical harmonic on shellA </para>        </briefdescription>
+<para>(l, m) for spherical harmonic on shellA </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="52" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="52" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="52" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_sum_term_1af2d202b641fb69368b7521cbc5fcfb5a" prot="public" static="no" mutable="no">
         <type><ref refid="namespacelibecpint_1a7676a778fedc78dfdc0495c3319a2730" kindref="member">Pair</ref></type>
@@ -23,12 +24,13 @@
         <argsstring></argsstring>
         <name>SB</name>
         <briefdescription>
-<para>(l, m) for spherical harmonic on shellB </para>        </briefdescription>
+<para>(l, m) for spherical harmonic on shellB </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="53" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="53" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="53" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_sum_term_1af395fd40d2608eda353e51724a49fce6" prot="public" static="no" mutable="no">
         <type><ref refid="namespacelibecpint_1af2651847fa01dec731554db1e7b273fd" kindref="member">Triple</ref></type>
@@ -36,12 +38,13 @@
         <argsstring></argsstring>
         <name>radial</name>
         <briefdescription>
-<para>(N, l1, l2) radial integral required </para>        </briefdescription>
+<para>(N, l1, l2) radial integral required </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="54" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="54" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="54" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_sum_term_1a3ac85f8e05f73bec6eae5927be8bdefe" prot="public" static="no" mutable="no">
         <type><ref refid="namespacelibecpint_1a4dc36ca1c5a9247d8bfaac304a7df40f" kindref="member">Quintuple</ref></type>
@@ -49,12 +52,13 @@
         <argsstring></argsstring>
         <name>CA</name>
         <briefdescription>
-<para>(0, cartesian index, x, y, z) for binomial coefficient on shellA </para>        </briefdescription>
+<para>(0, cartesian index, x, y, z) for binomial coefficient on shellA </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="55" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="55" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="55" column="11" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_sum_term_1ae290762e1ba4fd9551a660240305ff92" prot="public" static="no" mutable="no">
         <type><ref refid="namespacelibecpint_1a4dc36ca1c5a9247d8bfaac304a7df40f" kindref="member">Quintuple</ref></type>
@@ -62,12 +66,13 @@
         <argsstring></argsstring>
         <name>CB</name>
         <briefdescription>
-<para>(0, cartesian index, x, y, z) for binomial coefficient on shellB </para>        </briefdescription>
+<para>(0, cartesian index, x, y, z) for binomial coefficient on shellB </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="56" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="56" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="56" column="11" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="56" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_sum_term_1a9b9d5414d83dc3ec8661056d3185ebac" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -75,12 +80,13 @@
         <argsstring></argsstring>
         <name>ang</name>
         <briefdescription>
-<para>Value of product of angular integrals. </para>        </briefdescription>
+<para>Value of product of angular integrals. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="57" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="57" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="57" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="57" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_sum_term_1ac62b5da10ab084cc182ef8c3d4a93aec" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -88,12 +94,13 @@
         <argsstring></argsstring>
         <name>mu</name>
         <briefdescription>
-<para>Value of mu, where the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> ang. momentum is lam, and mu can range from -lam .. lam. </para>        </briefdescription>
+<para>Value of mu, where the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> ang. momentum is lam, and mu can range from -lam .. lam. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="58" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="58" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="58" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_sum_term_1a3fd014bcda389aedea86bf1a5a9b4e27" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -101,12 +108,13 @@
         <argsstring></argsstring>
         <name>na</name>
         <briefdescription>
-<para>Index of cartesian function on shellA, in alpha order. </para>        </briefdescription>
+<para>Index of cartesian function on shellA, in alpha order. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="59" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="59" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="59" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_sum_term_1ab415fd3701f506f0bac1df48ba5376e2" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -114,12 +122,13 @@
         <argsstring></argsstring>
         <name>nb</name>
         <briefdescription>
-<para>Index of cartesian function on shellB, in alpha order. </para>        </briefdescription>
+<para>Index of cartesian function on shellB, in alpha order. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="60" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="60" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="60" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="60" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -140,14 +149,17 @@
 <parametername>s</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- term to compare with </para></parameterdescription>
+<para>- term to compare with </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>true if this term is less than the given term </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>true if this term is less than the given term </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="67" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="67" bodyend="75"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="67" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="67" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_sum_term_1a8df4a27f67009537d91520791e6452ac" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -161,11 +173,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>true if this term is less than or equal to the given term </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>true if this term is less than or equal to the given term </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="78" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="78" bodyend="80"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="78" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="78" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_sum_term_1a08c92f841d6a0c41cfb224201d2e6a81" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -179,11 +193,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>true if the mu and radial indices are equal </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>true if the mu and radial indices are equal </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="83" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="83" bodyend="85"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="83" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="83" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_sum_term_1a18fd43d8e6246cc3d05200375af7a2d6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -193,11 +209,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>the compressed index of CA </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>the compressed index of CA </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="88" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="88" bodyend="91"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="88" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="88" bodyend="91"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_sum_term_1a64a6eadd1b210f7721089243c3db2284" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -207,11 +225,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>the compressed index of CB </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>the compressed index of CB </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="94" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="94" bodyend="97"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="94" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="94" bodyend="97"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_sum_term_1a783add2e2755ddd587cedc0b3baa36cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>
@@ -224,12 +244,13 @@
           <defval>true</defval>
         </param>
         <briefdescription>
-<para>Converts term to string with compressed indices. </para>        </briefdescription>
+<para>Converts term to string with compressed indices. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="100" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="100" bodyend="112"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="100" column="13" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="100" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_sum_term_1a0ec4efd18783c328e8baaa243748c417" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacelibecpint_1a48b53f3b6bfb449ec300ab57fc03763c" kindref="member">Heptuple</ref></type>
@@ -248,14 +269,17 @@
 <parametername>s</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the <ref refid="structlibecpint_1_1_sum_term" kindref="compound">SumTerm</ref> to compare with </para></parameterdescription>
+<para>- the <ref refid="structlibecpint_1_1_sum_term" kindref="compound">SumTerm</ref> to compare with </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>a tuple of equalities (0 = false, 1 = true) in the order {mu, radial, SA, SB, ang, CA, CB} </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>a tuple of equalities (0 = false, 1 = true) in the order {mu, radial, SA, SB, ang, CA, CB} </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="119" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="119" bodyend="129"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="119" column="10" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="119" bodyend="129"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
@@ -273,19 +297,21 @@
           <declname>s</declname>
         </param>
         <briefdescription>
-<para>Prints out a <ref refid="structlibecpint_1_1_sum_term" kindref="compound">SumTerm</ref> without compressing the indices - currently preferred. </para>        </briefdescription>
+<para>Prints out a <ref refid="structlibecpint_1_1_sum_term" kindref="compound">SumTerm</ref> without compressing the indices - currently preferred. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="132" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="136" bodyend="141"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="132" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="136" bodyend="141"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Stores details of terms in <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integral expansion. </para>    </briefdescription>
+<para>Stores details of terms in <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integral expansion. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" line="50" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp" bodystart="50" bodyend="134"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" line="50" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/generate.hpp" bodystart="50" bodyend="134"/>
     <listofallmembers>
       <member refid="structlibecpint_1_1_sum_term_1a9b9d5414d83dc3ec8661056d3185ebac" prot="public" virt="non-virtual"><scope>libecpint::SumTerm</scope><name>ang</name></member>
       <member refid="structlibecpint_1_1_sum_term_1a3ac85f8e05f73bec6eae5927be8bdefe" prot="public" virt="non-virtual"><scope>libecpint::SumTerm</scope><name>CA</name></member>

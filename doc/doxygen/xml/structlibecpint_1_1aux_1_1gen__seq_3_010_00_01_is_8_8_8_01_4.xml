@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="structlibecpint_1_1aux_1_1gen__seq_3_010_00_01_is_8_8_8_01_4" kind="struct" language="C++" prot="public">
     <compoundname>libecpint::aux::gen_seq&lt; 0, Is... &gt;</compoundname>
     <basecompoundref refid="structlibecpint_1_1aux_1_1seq" prot="public" virt="non-virtual">libecpint::aux::seq&lt; Is... &gt;</basecompoundref>
@@ -16,30 +16,30 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="59">
+      <node id="2">
         <label>libecpint::aux::seq&lt; Is... &gt;</label>
         <link refid="structlibecpint_1_1aux_1_1seq"/>
       </node>
-      <node id="58">
+      <node id="1">
         <label>libecpint::aux::gen_seq&lt; 0, Is... &gt;</label>
         <link refid="structlibecpint_1_1aux_1_1gen__seq_3_010_00_01_is_8_8_8_01_4"/>
-        <childnode refid="59" relation="public-inheritance">
+        <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="61">
+      <node id="2">
         <label>libecpint::aux::seq&lt; Is... &gt;</label>
         <link refid="structlibecpint_1_1aux_1_1seq"/>
       </node>
-      <node id="60">
+      <node id="1">
         <label>libecpint::aux::gen_seq&lt; 0, Is... &gt;</label>
         <link refid="structlibecpint_1_1aux_1_1gen__seq_3_010_00_01_is_8_8_8_01_4"/>
-        <childnode refid="61" relation="public-inheritance">
+        <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="52" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="52" bodyend="52"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" line="52" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" bodystart="52" bodyend="52"/>
     <listofallmembers>
     </listofallmembers>
   </compounddef>

@@ -3,7 +3,7 @@
 Function libecpint::initFactorials
 ==================================
 
-- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_lib_mathutil.cpp`
+- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_src_lib_mathutil.cpp`
 
 
 Function Documentation

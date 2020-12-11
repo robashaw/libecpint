@@ -1,192 +1,192 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="multiarr_8hpp" kind="file" language="C++">
     <compoundname>multiarr.hpp</compoundname>
     <includes local="no">vector</includes>
     <includes local="no">tuple</includes>
     <includes local="no">algorithm</includes>
     <includes local="no">sstream</includes>
-    <includedby refid="generate_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp</includedby>
-    <includedby refid="angular_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp</includedby>
-    <includedby refid="ecpint_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp</includedby>
-    <includedby refid="radial_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp</includedby>
-    <includedby refid="api_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp</includedby>
-    <includedby refid="mathutil_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp</includedby>
-    <includedby refid="qgen_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/qgen.hpp</includedby>
+    <includedby refid="generate_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/generate.hpp</includedby>
+    <includedby refid="angular_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/angular.hpp</includedby>
+    <includedby refid="api_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp</includedby>
+    <includedby refid="ecpint_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/ecpint.hpp</includedby>
+    <includedby refid="mathutil_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/mathutil.hpp</includedby>
+    <includedby refid="qgen_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/qgen.hpp</includedby>
+    <includedby refid="radial_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp</includedby>
     <incdepgraph>
-      <node id="186">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp</label>
-        <link refid="multiarr_8hpp"/>
-        <childnode refid="187" relation="include">
-        </childnode>
-        <childnode refid="188" relation="include">
-        </childnode>
-        <childnode refid="189" relation="include">
-        </childnode>
-        <childnode refid="190" relation="include">
-        </childnode>
-      </node>
-      <node id="188">
+      <node id="3">
         <label>tuple</label>
       </node>
-      <node id="187">
+      <node id="2">
         <label>vector</label>
       </node>
-      <node id="190">
+      <node id="5">
         <label>sstream</label>
       </node>
-      <node id="189">
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp</label>
+        <link refid="multiarr_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
         <label>algorithm</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="196">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp</label>
-        <link refid="ecpint_8hpp"/>
-        <childnode refid="197" relation="include">
-        </childnode>
-        <childnode refid="198" relation="include">
+      <node id="2">
+        <label>/Users/robertshaw/devfiles/libecpint/include/generate.hpp</label>
+        <link refid="generate_8hpp"/>
+        <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="204">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/radial_gen.cpp</label>
+      <node id="11">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/qgen.hpp</label>
+        <link refid="qgen_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/mathutil.hpp</label>
+        <link refid="mathutil_8hpp"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/ecpint.hpp</label>
+        <link refid="ecpint_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>/Users/robertshaw/devfiles/libecpint/src/generated/radial/radial_gen.cpp</label>
         <link refid="generated_2radial_2radial__gen_8cpp"/>
       </node>
-      <node id="203">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp</label>
-        <link refid="radial_8hpp"/>
-        <childnode refid="204" relation="include">
-        </childnode>
-        <childnode refid="205" relation="include">
-        </childnode>
-        <childnode refid="206" relation="include">
-        </childnode>
-        <childnode refid="196" relation="include">
-        </childnode>
-        <childnode refid="201" relation="include">
-        </childnode>
-      </node>
-      <node id="206">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_quad.cpp</label>
-        <link refid="radial__quad_8cpp"/>
-      </node>
-      <node id="191">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp</label>
-        <link refid="multiarr_8hpp"/>
-        <childnode refid="192" relation="include">
-        </childnode>
-        <childnode refid="194" relation="include">
-        </childnode>
-        <childnode refid="196" relation="include">
-        </childnode>
-        <childnode refid="203" relation="include">
-        </childnode>
-        <childnode refid="198" relation="include">
-        </childnode>
-        <childnode refid="207" relation="include">
-        </childnode>
-        <childnode refid="201" relation="include">
-        </childnode>
-      </node>
-      <node id="200">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint.hpp</label>
-        <link refid="libecpint_8hpp"/>
-      </node>
-      <node id="198">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp</label>
-        <link refid="api_8hpp"/>
-        <childnode refid="199" relation="include">
-        </childnode>
-        <childnode refid="200" relation="include">
-        </childnode>
-      </node>
-      <node id="209">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp</label>
-        <link refid="ecp_8cpp"/>
-      </node>
-      <node id="208">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/bessel.cpp</label>
-        <link refid="bessel_8cpp"/>
-      </node>
-      <node id="195">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/angular.cpp</label>
-        <link refid="angular_8cpp"/>
-      </node>
-      <node id="210">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/mathutil.cpp</label>
-        <link refid="mathutil_8cpp"/>
-      </node>
-      <node id="192">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/generate.hpp</label>
-        <link refid="generate_8hpp"/>
-        <childnode refid="193" relation="include">
-        </childnode>
-      </node>
-      <node id="199">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp</label>
-        <link refid="api_8cpp"/>
-      </node>
-      <node id="201">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/qgen.hpp</label>
-        <link refid="qgen_8hpp"/>
-        <childnode refid="197" relation="include">
-        </childnode>
-        <childnode refid="202" relation="include">
-        </childnode>
-      </node>
-      <node id="197">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp</label>
-        <link refid="ecpint_8cpp"/>
-      </node>
-      <node id="205">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_gen.cpp</label>
-        <link refid="lib_2radial__gen_8cpp"/>
-      </node>
-      <node id="193">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/generate.cpp</label>
+      <node id="3">
+        <label>/Users/robertshaw/devfiles/libecpint/src/generate.cpp</label>
         <link refid="generate_8cpp"/>
       </node>
-      <node id="207">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/mathutil.hpp</label>
-        <link refid="mathutil_8hpp"/>
-        <childnode refid="204" relation="include">
-        </childnode>
-        <childnode refid="195" relation="include">
-        </childnode>
-        <childnode refid="199" relation="include">
-        </childnode>
-        <childnode refid="208" relation="include">
-        </childnode>
-        <childnode refid="209" relation="include">
-        </childnode>
-        <childnode refid="197" relation="include">
-        </childnode>
-        <childnode refid="210" relation="include">
-        </childnode>
-        <childnode refid="202" relation="include">
-        </childnode>
-        <childnode refid="205" relation="include">
-        </childnode>
-        <childnode refid="206" relation="include">
-        </childnode>
-        <childnode refid="192" relation="include">
-        </childnode>
+      <node id="19">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp</label>
+        <link refid="radial__quad_8cpp"/>
       </node>
-      <node id="194">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/angular.hpp</label>
+      <node id="10">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint.hpp</label>
+        <link refid="libecpint_8hpp"/>
+      </node>
+      <node id="9">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp</label>
+        <link refid="api_8cpp"/>
+      </node>
+      <node id="15">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/bessel.cpp</label>
+        <link refid="bessel_8cpp"/>
+      </node>
+      <node id="4">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/angular.hpp</label>
         <link refid="angular_8hpp"/>
-        <childnode refid="195" relation="include">
+        <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="192" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="196" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="201" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="202">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/qgen.cpp</label>
+      <node id="7">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/ecpint.cpp</label>
+        <link refid="ecpint_8cpp"/>
+      </node>
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp</label>
+        <link refid="multiarr_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/radial_gen.cpp</label>
+        <link refid="lib_2radial__gen_8cpp"/>
+      </node>
+      <node id="5">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/angular.cpp</label>
+        <link refid="angular_8cpp"/>
+      </node>
+      <node id="20">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp</label>
+        <link refid="radial_8hpp"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp</label>
+        <link refid="ecp_8cpp"/>
+      </node>
+      <node id="12">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/qgen.cpp</label>
         <link refid="qgen_8cpp"/>
+      </node>
+      <node id="8">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp</label>
+        <link refid="api_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/mathutil.cpp</label>
+        <link refid="mathutil_8cpp"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structlibecpint_1_1aux_1_1seq" prot="public">libecpint::aux::seq</innerclass>
@@ -199,9 +199,11 @@
     <innernamespace refid="namespacelibecpint">libecpint</innernamespace>
     <innernamespace refid="namespacelibecpint_1_1aux">libecpint::aux</innernamespace>
     <briefdescription>
-<para>Helpful lightweight multi-index arrays and tuples to make the code easier to write and test. </para>    </briefdescription>
+<para>Helpful lightweight multi-index arrays and tuples to make the code easier to write and test. </para>
+    </briefdescription>
     <detaileddescription>
-<para>TODO: It is possible these are slowing things down a bit, need to run benchmarks. </para>    </detaileddescription>
+<para>TODO: It is possible these are slowing things down a bit, need to run benchmarks. </para>
+    </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="comment">/*<sp/></highlight></codeline>
 <codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2020<sp/>Robert<sp/>Shaw</highlight></codeline>
@@ -256,7 +258,7 @@
 <codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Ch,<sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Tr,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal">...<sp/>Args&gt;</highlight></codeline>
-<codeline lineno="61" refid="namespacelibecpint_1a23ce2cda098d601b0fddfb10b971e33f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>operator&lt;&lt;(std::basic_ostream&lt;Ch,<sp/>Tr&gt;&amp;<sp/>os,<sp/>std::tuple&lt;Args...&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">&amp;<sp/>t)</highlight></codeline>
+<codeline lineno="61" refid="namespacelibecpint_1a23ce2cda098d601b0fddfb10b971e33f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a3a4ed9b49d76dd6974d2dbc6bb181ab8" kindref="member">operator&lt;&lt;</ref>(std::basic_ostream&lt;Ch,<sp/>Tr&gt;&amp;<sp/>os,<sp/>std::tuple&lt;Args...&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">&amp;<sp/>t)</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;<sp/>std::basic_ostream&lt;Ch,<sp/>Tr&gt;&amp;</highlight></codeline>
 <codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>os<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal">;</highlight></codeline>
@@ -268,37 +270,37 @@
 <codeline lineno="71" refid="structlibecpint_1_1_two_index" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref><sp/>{</highlight></codeline>
 <codeline lineno="72" refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[2];</highlight></codeline>
 <codeline lineno="73" refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;T&gt;<sp/><ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>;</highlight></codeline>
-<codeline lineno="74" refid="structlibecpint_1_1_two_index_1a7e8a865f087c1c207300c35cbaec2cd4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T&amp;<sp/><ref refid="structlibecpint_1_1_two_index_1a7e8a865f087c1c207300c35cbaec2cd4" kindref="member">operator()</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data[i<sp/>*<sp/>dims[1]<sp/>+<sp/>j];<sp/>}</highlight></codeline>
-<codeline lineno="75" refid="structlibecpint_1_1_two_index_1aa7c4691a9cd0064001345a0011481a93" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T<sp/><ref refid="structlibecpint_1_1_two_index_1aa7c4691a9cd0064001345a0011481a93" kindref="member">operator()</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data[i<sp/>*<sp/>dims[1]<sp/>+<sp/>j];<sp/>}</highlight></codeline>
+<codeline lineno="74" refid="structlibecpint_1_1_two_index_1a4a8ea8a8bdf343e4e6dca54aef5fd386" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T&amp;<sp/><ref refid="structlibecpint_1_1_two_index_1a4a8ea8a8bdf343e4e6dca54aef5fd386" kindref="member">operator()</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>[i<sp/>*<sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[1]<sp/>+<sp/>j];<sp/>}</highlight></codeline>
+<codeline lineno="75" refid="structlibecpint_1_1_two_index_1a2de4c64f4153de084eb74bd504748f25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T<sp/><ref refid="structlibecpint_1_1_two_index_1a2de4c64f4153de084eb74bd504748f25" kindref="member">operator()</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>[i<sp/>*<sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[1]<sp/>+<sp/>j];<sp/>}</highlight></codeline>
 <codeline lineno="76" refid="structlibecpint_1_1_two_index_1a44b5fe46251bc63db296a718d4f47506" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_two_index_1a44b5fe46251bc63db296a718d4f47506" kindref="member">assign</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim2,<sp/>T<sp/>value)<sp/>{</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dims[0]<sp/>=<sp/>dim1;<sp/>dims[1]<sp/>=<sp/>dim2;</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.resize(dim1<sp/>*<sp/>dim2);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::fill(data.begin(),<sp/>data.end(),<sp/>value);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[0]<sp/>=<sp/>dim1;<sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[1]<sp/>=<sp/>dim2;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>.resize(dim1<sp/>*<sp/>dim2);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::fill(<ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>.begin(),<sp/><ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>.end(),<sp/>value);</highlight></codeline>
 <codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="81" refid="structlibecpint_1_1_two_index_1af9dec10df263e5438733ea4e79a45049" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;T&gt;</ref><sp/><ref refid="structlibecpint_1_1_two_index_1af9dec10df263e5438733ea4e79a45049" kindref="member">transpose</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;T&gt;</ref><sp/>result(dims[1],<sp/>dims[0]);</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>dims[0];<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>dims[1];<sp/>j++)</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.<ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>[j<sp/>*<sp/>dims[0]<sp/>+<sp/>i]<sp/>=<sp/>data[i<sp/>*<sp/>dims[1]<sp/>+<sp/>j];</highlight></codeline>
+<codeline lineno="81" refid="structlibecpint_1_1_two_index_1a7c0757766491628524599152602afb2a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;T&gt;</ref><sp/><ref refid="structlibecpint_1_1_two_index_1a7c0757766491628524599152602afb2a" kindref="member">transpose</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;T&gt;</ref><sp/>result(<ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[1],<sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[0]);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[0];<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[1];<sp/>j++)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.<ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>[j<sp/>*<sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[0]<sp/>+<sp/>i]<sp/>=<sp/><ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>[i<sp/>*<sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[1]<sp/>+<sp/>j];</highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="89" refid="structlibecpint_1_1_two_index_1a695ab1652f3d10e10fb0ff24fea73ff5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_two_index_1a695ab1652f3d10e10fb0ff24fea73ff5" kindref="member">add</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;T&gt;</ref>&amp;<sp/>other)<sp/>{</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::transform<sp/>(data.begin(),<sp/>data.end(),<sp/>other.<ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>.begin(),<sp/>data.begin(),<sp/>std::plus&lt;T&gt;());</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::transform<sp/>(<ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>.begin(),<sp/><ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>.end(),<sp/>other.<ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>.begin(),<sp/><ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>.begin(),<sp/>std::plus&lt;T&gt;());</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="93" refid="structlibecpint_1_1_two_index_1a0a5720cd6f2359f67763770838763cca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_two_index_1a0a5720cd6f2359f67763770838763cca" kindref="member">multiply</ref>(T<sp/>k)<sp/>{</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::transform(data.begin(),<sp/>data.end(),<sp/>data.begin(),<sp/>[&amp;k](T&amp;<sp/>c){</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>c*k;});</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::transform(<ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>.begin(),<sp/><ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>.end(),<sp/><ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>.begin(),<sp/>[&amp;k](T&amp;<sp/>c){return<sp/>c*k;});</highlight></codeline>
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="96" refid="structlibecpint_1_1_two_index_1ad667a1f8799d28687061bd15f4bb7b4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index_1ad667a1f8799d28687061bd15f4bb7b4b" kindref="member">TwoIndex</ref>()<sp/>{<sp/>dims[0]<sp/>=<sp/>dims[1]<sp/>=<sp/>0;<sp/>}</highlight></codeline>
-<codeline lineno="97" refid="structlibecpint_1_1_two_index_1a52c49884c0e3039e00c454622b18674d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index_1a52c49884c0e3039e00c454622b18674d" kindref="member">TwoIndex</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim2)<sp/>{</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dims[0]<sp/>=<sp/>dim1;<sp/>dims[1]<sp/>=<sp/>dim2;</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.resize(dim1<sp/>*<sp/>dim2);</highlight></codeline>
+<codeline lineno="96" refid="structlibecpint_1_1_two_index_1ad667a1f8799d28687061bd15f4bb7b4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index_1ad667a1f8799d28687061bd15f4bb7b4b" kindref="member">TwoIndex</ref>()<sp/>{<sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[0]<sp/>=<sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[1]<sp/>=<sp/>0;<sp/>}</highlight></codeline>
+<codeline lineno="97" refid="structlibecpint_1_1_two_index_1a4bdf5550c71999c0140248205c5ec7ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index_1a4bdf5550c71999c0140248205c5ec7ae" kindref="member">TwoIndex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim2)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[0]<sp/>=<sp/>dim1;<sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[1]<sp/>=<sp/>dim2;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>.resize(dim1<sp/>*<sp/>dim2);</highlight></codeline>
 <codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="101" refid="structlibecpint_1_1_two_index_1a8f8e7c63baad71925c70838b0313c750" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index_1a8f8e7c63baad71925c70838b0313c750" kindref="member">TwoIndex</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim2,<sp/>T<sp/>value)<sp/>{<sp/><ref refid="structlibecpint_1_1_two_index_1a44b5fe46251bc63db296a718d4f47506" kindref="member">assign</ref>(dim1,<sp/>dim2,<sp/>value);<sp/>}</highlight></codeline>
+<codeline lineno="101" refid="structlibecpint_1_1_two_index_1af5166b79c67fc7356c15e7335a2c24cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index_1af5166b79c67fc7356c15e7335a2c24cd" kindref="member">TwoIndex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim2,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T<sp/>value)<sp/>{<sp/><ref refid="structlibecpint_1_1_two_index_1a44b5fe46251bc63db296a718d4f47506" kindref="member">assign</ref>(dim1,<sp/>dim2,<sp/>value);<sp/>}</highlight></codeline>
 <codeline lineno="102" refid="structlibecpint_1_1_two_index_1ad713c361649d3d45091e64f2865afb64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index_1ad713c361649d3d45091e64f2865afb64" kindref="member">TwoIndex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;T&gt;</ref><sp/>&amp;other)<sp/>{<sp/></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>;</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dims[0]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[0];<sp/>dims[1]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[1];</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref><sp/>=<sp/>other.<ref refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[0]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[0];<sp/><ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[1]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kindref="member">dims</ref>[1];</highlight></codeline>
 <codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="107"><highlight class="normal"></highlight></codeline>
@@ -306,38 +308,38 @@
 <codeline lineno="110" refid="structlibecpint_1_1_three_index" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex</ref><sp/>{</highlight></codeline>
 <codeline lineno="111" refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[3];</highlight></codeline>
 <codeline lineno="112" refid="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;T&gt;<sp/><ref refid="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" kindref="member">data</ref>;</highlight></codeline>
-<codeline lineno="113" refid="structlibecpint_1_1_three_index_1ac78d498238d110a85ec1ea388e6e0ccc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T&amp;<sp/><ref refid="structlibecpint_1_1_three_index_1ac78d498238d110a85ec1ea388e6e0ccc" kindref="member">operator()</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data[i*dims[2]*dims[1]<sp/>+<sp/>j*dims[2]<sp/>+<sp/>k];<sp/>}</highlight></codeline>
-<codeline lineno="114" refid="structlibecpint_1_1_three_index_1a70e34002fa6d61a6c2ae0db5d357e95b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T<sp/><ref refid="structlibecpint_1_1_three_index_1a70e34002fa6d61a6c2ae0db5d357e95b" kindref="member">operator()</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data[i*dims[2]*dims[1]<sp/>+<sp/>j*dims[2]<sp/>+<sp/>k];<sp/>}</highlight></codeline>
-<codeline lineno="115" refid="structlibecpint_1_1_three_index_1ad2750b03c39d4da327e3c2416a3053fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_three_index_1ad2750b03c39d4da327e3c2416a3053fa" kindref="member">ThreeIndex</ref>(){<sp/>dims[0]<sp/>=<sp/>0;<sp/>dims[1]<sp/>=<sp/>0;<sp/>dims[2]<sp/>=<sp/>0;<sp/>}</highlight></codeline>
-<codeline lineno="116" refid="structlibecpint_1_1_three_index_1a2733c35720de560972cfec04172d190a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_three_index_1a2733c35720de560972cfec04172d190a" kindref="member">ThreeIndex</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim2,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim3)<sp/>{</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dims[0]<sp/>=<sp/>dim1;<sp/>dims[1]<sp/>=<sp/>dim2;<sp/>dims[2]<sp/>=<sp/>dim3;</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.resize(dim1<sp/>*<sp/>dim2<sp/>*<sp/>dim3);</highlight></codeline>
+<codeline lineno="113" refid="structlibecpint_1_1_three_index_1a0e77ad92386d2ba77d4f18647eb7c333" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T&amp;<sp/><ref refid="structlibecpint_1_1_three_index_1a0e77ad92386d2ba77d4f18647eb7c333" kindref="member">operator()</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" kindref="member">data</ref>[i*<ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[2]*<ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[1]<sp/>+<sp/>j*<ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[2]<sp/>+<sp/>k];<sp/>}</highlight></codeline>
+<codeline lineno="114" refid="structlibecpint_1_1_three_index_1a6b389e41d78648076eab0e42e2c350d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T<sp/><ref refid="structlibecpint_1_1_three_index_1a6b389e41d78648076eab0e42e2c350d9" kindref="member">operator()</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" kindref="member">data</ref>[i*<ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[2]*<ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[1]<sp/>+<sp/>j*<ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[2]<sp/>+<sp/>k];<sp/>}</highlight></codeline>
+<codeline lineno="115" refid="structlibecpint_1_1_three_index_1ad2750b03c39d4da327e3c2416a3053fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_three_index_1ad2750b03c39d4da327e3c2416a3053fa" kindref="member">ThreeIndex</ref>(){<sp/><ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[0]<sp/>=<sp/>0;<sp/><ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[1]<sp/>=<sp/>0;<sp/><ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[2]<sp/>=<sp/>0;<sp/>}</highlight></codeline>
+<codeline lineno="116" refid="structlibecpint_1_1_three_index_1a2cbb7c3a30e332e7e315d5c564581b00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_three_index_1a2cbb7c3a30e332e7e315d5c564581b00" kindref="member">ThreeIndex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim2,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim3)<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[0]<sp/>=<sp/>dim1;<sp/><ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[1]<sp/>=<sp/>dim2;<sp/><ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[2]<sp/>=<sp/>dim3;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" kindref="member">data</ref>.resize(dim1<sp/>*<sp/>dim2<sp/>*<sp/>dim3);</highlight></codeline>
 <codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="120" refid="structlibecpint_1_1_three_index_1af40f104dbb8fe8ec87c97e6a34209f7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_three_index_1af40f104dbb8fe8ec87c97e6a34209f7f" kindref="member">ThreeIndex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex&lt;T&gt;</ref><sp/>&amp;other)<sp/><sp/>{<sp/></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" kindref="member">data</ref>;</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>0;<sp/>n<sp/>&lt;<sp/>3;<sp/>n++)<sp/>dims[n]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[n];<sp/></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" kindref="member">data</ref><sp/>=<sp/>other.<ref refid="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>0;<sp/>n<sp/>&lt;<sp/>3;<sp/>n++)<sp/><ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[n]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kindref="member">dims</ref>[n];<sp/></highlight></codeline>
 <codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="124" refid="structlibecpint_1_1_three_index_1ab19242bc7a3110e238bba364b6c3ff36" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_three_index_1ab19242bc7a3110e238bba364b6c3ff36" kindref="member">fill</ref>(T<sp/>value)<sp/>{<sp/>std::fill(data.begin(),<sp/>data.end(),<sp/>value);<sp/>}</highlight></codeline>
+<codeline lineno="124" refid="structlibecpint_1_1_three_index_1a94f949d2e6508d7ddade76ca665dafb8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_three_index_1a94f949d2e6508d7ddade76ca665dafb8" kindref="member">fill</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T<sp/>value)<sp/>{<sp/>std::fill(<ref refid="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" kindref="member">data</ref>.begin(),<sp/><ref refid="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" kindref="member">data</ref>.end(),<sp/>value);<sp/>}</highlight></codeline>
 <codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="126"><highlight class="normal"></highlight></codeline>
 <codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
 <codeline lineno="129" refid="structlibecpint_1_1_five_index" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex</ref><sp/>{</highlight></codeline>
 <codeline lineno="130" refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[5];</highlight></codeline>
 <codeline lineno="131" refid="structlibecpint_1_1_five_index_1a810af0ad1e45e32d80528e9524b6f511" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;T&gt;<sp/><ref refid="structlibecpint_1_1_five_index_1a810af0ad1e45e32d80528e9524b6f511" kindref="member">data</ref>;</highlight></codeline>
-<codeline lineno="132" refid="structlibecpint_1_1_five_index_1a841b590ccc71fe1f6a56e59d3f1c59b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T&amp;<sp/><ref refid="structlibecpint_1_1_five_index_1a841b590ccc71fe1f6a56e59d3f1c59b5" kindref="member">operator()</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m)<sp/>{<sp/></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data[m<sp/>+<sp/>dims[4]<sp/>*<sp/>(l<sp/>+<sp/>dims[3]<sp/>*<sp/>(k<sp/>+<sp/>dims[2]<sp/>*<sp/>(j<sp/>+<sp/>dims[1]<sp/>*<sp/>i)))];<sp/></highlight></codeline>
+<codeline lineno="132" refid="structlibecpint_1_1_five_index_1a814f65acaba40a40ab2c5b95bf74726a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T&amp;<sp/><ref refid="structlibecpint_1_1_five_index_1a814f65acaba40a40ab2c5b95bf74726a" kindref="member">operator()</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_five_index_1a810af0ad1e45e32d80528e9524b6f511" kindref="member">data</ref>[m<sp/>+<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[4]<sp/>*<sp/>(l<sp/>+<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[3]<sp/>*<sp/>(k<sp/>+<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[2]<sp/>*<sp/>(j<sp/>+<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[1]<sp/>*<sp/>i)))];<sp/></highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="135" refid="structlibecpint_1_1_five_index_1a1c8335b729432ad8b47db4b309caf05c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T<sp/><ref refid="structlibecpint_1_1_five_index_1a1c8335b729432ad8b47db4b309caf05c" kindref="member">operator()</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data[m<sp/>+<sp/>dims[4]<sp/>*<sp/>(l<sp/>+<sp/>dims[3]<sp/>*<sp/>(k<sp/>+<sp/>dims[2]<sp/>*<sp/>(j<sp/>+<sp/>dims[1]<sp/>*<sp/>i)))];</highlight></codeline>
+<codeline lineno="135" refid="structlibecpint_1_1_five_index_1a052c3dc7fa86c75eea61cbdaa84e5e25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T<sp/><ref refid="structlibecpint_1_1_five_index_1a052c3dc7fa86c75eea61cbdaa84e5e25" kindref="member">operator()</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_five_index_1a810af0ad1e45e32d80528e9524b6f511" kindref="member">data</ref>[m<sp/>+<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[4]<sp/>*<sp/>(l<sp/>+<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[3]<sp/>*<sp/>(k<sp/>+<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[2]<sp/>*<sp/>(j<sp/>+<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[1]<sp/>*<sp/>i)))];</highlight></codeline>
 <codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="138" refid="structlibecpint_1_1_five_index_1a4592156484c1d5b258f18ff14ba8f2b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_five_index_1a4592156484c1d5b258f18ff14ba8f2b9" kindref="member">FiveIndex</ref>()<sp/>{<sp/>dims[0]<sp/>=<sp/>dims[1]<sp/>=<sp/>dims[2]<sp/>=<sp/>dims[3]<sp/>=<sp/>dims[4]<sp/>=<sp/>0;<sp/>}</highlight></codeline>
-<codeline lineno="139" refid="structlibecpint_1_1_five_index_1a0e2eea20839a78b59e9cfbe88ae4dc64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_five_index_1a0e2eea20839a78b59e9cfbe88ae4dc64" kindref="member">FiveIndex</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim2,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim3,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim4,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim5)<sp/>{</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dims[0]<sp/>=<sp/>dim1;<sp/>dims[1]<sp/>=<sp/>dim2;<sp/>dims[2]<sp/>=<sp/>dim3;<sp/>dims[3]<sp/>=<sp/>dim4;<sp/>dims[4]<sp/>=<sp/>dim5;</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.resize(dim1<sp/>*<sp/>dim2<sp/>*<sp/>dim3<sp/>*<sp/>dim4<sp/>*<sp/>dim5);</highlight></codeline>
+<codeline lineno="138" refid="structlibecpint_1_1_five_index_1a4592156484c1d5b258f18ff14ba8f2b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_five_index_1a4592156484c1d5b258f18ff14ba8f2b9" kindref="member">FiveIndex</ref>()<sp/>{<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[0]<sp/>=<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[1]<sp/>=<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[2]<sp/>=<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[3]<sp/>=<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[4]<sp/>=<sp/>0;<sp/>}</highlight></codeline>
+<codeline lineno="139" refid="structlibecpint_1_1_five_index_1a55a6025cf4e6902e83600dea87609815" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_five_index_1a55a6025cf4e6902e83600dea87609815" kindref="member">FiveIndex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim2,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim3,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim4,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim5)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[0]<sp/>=<sp/>dim1;<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[1]<sp/>=<sp/>dim2;<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[2]<sp/>=<sp/>dim3;<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[3]<sp/>=<sp/>dim4;<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[4]<sp/>=<sp/>dim5;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_five_index_1a810af0ad1e45e32d80528e9524b6f511" kindref="member">data</ref>.resize(dim1<sp/>*<sp/>dim2<sp/>*<sp/>dim3<sp/>*<sp/>dim4<sp/>*<sp/>dim5);</highlight></codeline>
 <codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="143" refid="structlibecpint_1_1_five_index_1a65eb21140dfb8d6addfc26ae38e4a2d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_five_index_1a65eb21140dfb8d6addfc26ae38e4a2d4" kindref="member">FiveIndex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex&lt;T&gt;</ref><sp/>&amp;other)<sp/>{<sp/></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_five_index_1a810af0ad1e45e32d80528e9524b6f511" kindref="member">data</ref>;</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>0;<sp/>n<sp/>&lt;<sp/>5;<sp/>n++)<sp/>dims[n]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[n];<sp/></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_five_index_1a810af0ad1e45e32d80528e9524b6f511" kindref="member">data</ref><sp/>=<sp/>other.<ref refid="structlibecpint_1_1_five_index_1a810af0ad1e45e32d80528e9524b6f511" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>0;<sp/>n<sp/>&lt;<sp/>5;<sp/>n++)<sp/><ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[n]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kindref="member">dims</ref>[n];<sp/></highlight></codeline>
 <codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="148"><highlight class="normal"></highlight></codeline>
@@ -346,37 +348,37 @@
 <codeline lineno="152" refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[7];</highlight></codeline>
 <codeline lineno="153" refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[6];</highlight></codeline>
 <codeline lineno="154" refid="structlibecpint_1_1_seven_index_1a0920724697f71d0ebc04cbd0576ba8de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;T&gt;<sp/><ref refid="structlibecpint_1_1_seven_index_1a0920724697f71d0ebc04cbd0576ba8de" kindref="member">data</ref>;</highlight></codeline>
-<codeline lineno="155" refid="structlibecpint_1_1_seven_index_1aeb2542f4929daed6093f744a7d0fd33a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T&amp;<sp/><ref refid="structlibecpint_1_1_seven_index_1aeb2542f4929daed6093f744a7d0fd33a" kindref="member">operator()</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>p)<sp/>{</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data[p<sp/>+<sp/>mults[5]*n<sp/>+<sp/>mults[4]*m<sp/>+<sp/>mults[3]*l<sp/>+<sp/>mults[2]*k<sp/>+<sp/>mults[1]*j<sp/>+<sp/>mults[0]*i];</highlight></codeline>
+<codeline lineno="155" refid="structlibecpint_1_1_seven_index_1a77e3037e1c197505a0a0207750edf272" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T&amp;<sp/><ref refid="structlibecpint_1_1_seven_index_1a77e3037e1c197505a0a0207750edf272" kindref="member">operator()</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>p)<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_seven_index_1a0920724697f71d0ebc04cbd0576ba8de" kindref="member">data</ref>[p<sp/>+<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[5]*n<sp/>+<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[4]*m<sp/>+<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[3]*l<sp/>+<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[2]*k<sp/>+<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[1]*j<sp/>+<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[0]*i];</highlight></codeline>
 <codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="158" refid="structlibecpint_1_1_seven_index_1a3771f25558c7140b94f4dc5d1d3cd94f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T<sp/><ref refid="structlibecpint_1_1_seven_index_1a3771f25558c7140b94f4dc5d1d3cd94f" kindref="member">operator()</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>p)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data[p<sp/>+<sp/>mults[5]*n<sp/>+<sp/>mults[4]*m<sp/>+<sp/>mults[3]*l<sp/>+<sp/>mults[2]*k<sp/>+<sp/>mults[1]*j<sp/>+<sp/>mults[0]*i];</highlight></codeline>
+<codeline lineno="158" refid="structlibecpint_1_1_seven_index_1a0551b17069a51da54314c47ba703e7af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T<sp/><ref refid="structlibecpint_1_1_seven_index_1a0551b17069a51da54314c47ba703e7af" kindref="member">operator()</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>p)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_seven_index_1a0920724697f71d0ebc04cbd0576ba8de" kindref="member">data</ref>[p<sp/>+<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[5]*n<sp/>+<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[4]*m<sp/>+<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[3]*l<sp/>+<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[2]*k<sp/>+<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[1]*j<sp/>+<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[0]*i];</highlight></codeline>
 <codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="161" refid="structlibecpint_1_1_seven_index_1aed182d7a962881685173839c0097da37" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1aed182d7a962881685173839c0097da37" kindref="member">SevenIndex</ref>()<sp/>{<sp/>dims[0]<sp/>=<sp/>dims[1]<sp/>=<sp/>dims[2]<sp/>=<sp/>dims[3]<sp/>=<sp/>dims[4]<sp/>=<sp/>dims[5]<sp/>=<sp/>dims[6]<sp/>=<sp/>0;<sp/></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mults[0]<sp/>=<sp/>mults[1]<sp/>=<sp/>mults[2]<sp/>=<sp/>mults[3]<sp/>=<sp/>mults[4]<sp/>=<sp/>mults[5]<sp/>=<sp/>0;<sp/>}</highlight></codeline>
-<codeline lineno="163" refid="structlibecpint_1_1_seven_index_1ad53c130dda8907f1e0f24bec14d00932" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1ad53c130dda8907f1e0f24bec14d00932" kindref="member">SevenIndex</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim2,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim3,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim4,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim5,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim6,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim7)<sp/>{</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dims[0]<sp/>=<sp/>dim1;<sp/>dims[1]<sp/>=<sp/>dim2;<sp/>dims[2]<sp/>=<sp/>dim3;<sp/>dims[3]<sp/>=<sp/>dim4;<sp/>dims[4]<sp/>=<sp/>dim5;<sp/>dims[5]<sp/>=<sp/>dim6;<sp/>dims[6]<sp/>=<sp/>dim7;</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.resize(dim1<sp/>*<sp/>dim2<sp/>*<sp/>dim3<sp/>*<sp/>dim4<sp/>*<sp/>dim5<sp/>*<sp/>dim6<sp/>*<sp/>dim7);</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mults[5]<sp/>=<sp/>dim7;</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mults[4]<sp/>=<sp/>dim7*dim6;</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mults[3]<sp/>=<sp/>mults[4]*dim5;</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mults[2]<sp/>=<sp/>mults[3]*dim4;</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mults[1]<sp/>=<sp/>mults[2]*dim3;</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mults[0]<sp/>=<sp/>mults[1]*dim2;</highlight></codeline>
+<codeline lineno="161" refid="structlibecpint_1_1_seven_index_1aed182d7a962881685173839c0097da37" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1aed182d7a962881685173839c0097da37" kindref="member">SevenIndex</ref>()<sp/>{<sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[0]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[1]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[2]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[3]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[4]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[5]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[6]<sp/>=<sp/>0;<sp/></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[0]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[1]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[2]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[3]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[4]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[5]<sp/>=<sp/>0;<sp/>}</highlight></codeline>
+<codeline lineno="163" refid="structlibecpint_1_1_seven_index_1a99c4adec06051a9ea7fd44616f2a70ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1a99c4adec06051a9ea7fd44616f2a70ea" kindref="member">SevenIndex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim2,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim3,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim4,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim5,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim6,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim7)<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[0]<sp/>=<sp/>dim1;<sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[1]<sp/>=<sp/>dim2;<sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[2]<sp/>=<sp/>dim3;<sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[3]<sp/>=<sp/>dim4;<sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[4]<sp/>=<sp/>dim5;<sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[5]<sp/>=<sp/>dim6;<sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[6]<sp/>=<sp/>dim7;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1a0920724697f71d0ebc04cbd0576ba8de" kindref="member">data</ref>.resize(dim1<sp/>*<sp/>dim2<sp/>*<sp/>dim3<sp/>*<sp/>dim4<sp/>*<sp/>dim5<sp/>*<sp/>dim6<sp/>*<sp/>dim7);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[5]<sp/>=<sp/>dim7;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[4]<sp/>=<sp/>dim7*dim6;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[3]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[4]*dim5;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[2]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[3]*dim4;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[1]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[2]*dim3;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[0]<sp/>=<sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[1]*dim2;</highlight></codeline>
 <codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="173" refid="structlibecpint_1_1_seven_index_1acf668e56ebbe8735b9cd34880f1b96b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1acf668e56ebbe8735b9cd34880f1b96b4" kindref="member">SevenIndex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_seven_index" kindref="compound">SevenIndex&lt;T&gt;</ref><sp/>&amp;other)<sp/>{</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_seven_index_1a0920724697f71d0ebc04cbd0576ba8de" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1a0920724697f71d0ebc04cbd0576ba8de" kindref="member">data</ref><sp/>=<sp/>other.<ref refid="structlibecpint_1_1_seven_index_1a0920724697f71d0ebc04cbd0576ba8de" kindref="member">data</ref>;</highlight></codeline>
 <codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>0;<sp/>n<sp/>&lt;<sp/>6;<sp/>n++)<sp/>{</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dims[n]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[n];</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mults[n]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[n];</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[n]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[n];</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[n]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kindref="member">mults</ref>[n];</highlight></codeline>
 <codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dims[6]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[6];</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[6]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kindref="member">dims</ref>[6];</highlight></codeline>
 <codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="182"><highlight class="normal"></highlight></codeline>
 <codeline lineno="183"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="184"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp"/>
   </compounddef>
 </doxygen>

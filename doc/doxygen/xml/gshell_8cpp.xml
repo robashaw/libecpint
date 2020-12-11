@@ -1,28 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="gshell_8cpp" kind="file" language="C++">
     <compoundname>gshell.cpp</compoundname>
     <includes refid="gshell_8hpp" local="yes">gshell.hpp</includes>
     <incdepgraph>
-      <node id="431">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/gshell.cpp</label>
-        <link refid="gshell_8cpp"/>
-        <childnode refid="432" relation="include">
-        </childnode>
-      </node>
-      <node id="433">
-        <label>vector</label>
-      </node>
-      <node id="432">
+      <node id="2">
         <label>gshell.hpp</label>
         <link refid="gshell_8hpp"/>
-        <childnode refid="433" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="434" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="434">
+      <node id="3">
+        <label>vector</label>
+      </node>
+      <node id="4">
         <label>array</label>
+      </node>
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/gshell.cpp</label>
+        <link refid="gshell_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
     <innernamespace refid="namespacelibecpint">libecpint</innernamespace>
@@ -59,8 +59,8 @@
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacelibecpint" kindref="compound">libecpint</ref><sp/>{</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29" refid="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" kindref="member">GaussianShell::GaussianShell</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*A,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_l)<sp/>:<sp/>centerVec(A),<sp/>l(_l),<sp/>local_ptr(false),<sp/>min_exp(100.0)<sp/>{}</highlight></codeline>
-<codeline lineno="30" refid="structlibecpint_1_1_gaussian_shell_1affe07224c00aef9442262d3eecae5feb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" kindref="member">GaussianShell::GaussianShell</ref>(std::array&lt;double,<sp/>3&gt;<sp/>A,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_l)<sp/>:<sp/>l(_l)<sp/>{</highlight></codeline>
+<codeline lineno="29" refid="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" kindref="member">GaussianShell::GaussianShell</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*A,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_l)<sp/>:<sp/>centerVec(A),<sp/>l(_l),<sp/>local_ptr(false),<sp/>min_exp(100.0)<sp/>{}</highlight></codeline>
+<codeline lineno="30" refid="structlibecpint_1_1_gaussian_shell_1a0d0cdfb554bab380d017d834d1f8fd71" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" kindref="member">GaussianShell::GaussianShell</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;double,<sp/>3&gt;<sp/>&amp;<sp/>A,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_l)<sp/>:<sp/>l(_l)<sp/>{</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1abc5ea045734ff2cc0b09330786904e6b" kindref="member">centerVec</ref><sp/>=<sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>;</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a03985413f48acd6ded1e21bcfd7d361b" kindref="member">local_ptr</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[0]<sp/>=<sp/>A[0];</highlight></codeline>
@@ -69,7 +69,7 @@
 <codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1aa6aa70752f7dd2317a67327522971b87" kindref="member">min_exp</ref><sp/>=<sp/>100.0;</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39" refid="structlibecpint_1_1_gaussian_shell_1ad270e1f8bc33397b080644fceb6f4755" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1ad270e1f8bc33397b080644fceb6f4755" kindref="member">GaussianShell::addPrim</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="39" refid="structlibecpint_1_1_gaussian_shell_1ad270e1f8bc33397b080644fceb6f4755" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1ad270e1f8bc33397b080644fceb6f4755" kindref="member">GaussianShell::addPrim</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>c)<sp/>{</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1ac05c0305dc8422cbdc94e668a5e9a09e" kindref="member">exps</ref>.push_back(e);</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a1a12d01b4556196b36b8df746fac403d" kindref="member">coeffs</ref>.push_back(c);</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1aa6aa70752f7dd2317a67327522971b87" kindref="member">min_exp</ref><sp/>=<sp/>e<sp/>&lt;<sp/><ref refid="structlibecpint_1_1_gaussian_shell_1aa6aa70752f7dd2317a67327522971b87" kindref="member">min_exp</ref><sp/>?<sp/>e<sp/>:<sp/><ref refid="structlibecpint_1_1_gaussian_shell_1aa6aa70752f7dd2317a67327522971b87" kindref="member">min_exp</ref>;</highlight></codeline>
@@ -77,6 +77,6 @@
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
 <codeline lineno="45"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/gshell.cpp"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/src/lib/gshell.cpp"/>
   </compounddef>
 </doxygen>

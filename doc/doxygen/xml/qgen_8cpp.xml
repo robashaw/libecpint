@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="qgen_8cpp" kind="file" language="C++">
     <compoundname>qgen.cpp</compoundname>
     <includes refid="qgen_8hpp" local="yes">qgen.hpp</includes>
@@ -7,150 +7,150 @@
     <includes refid="mathutil_8hpp" local="yes">mathutil.hpp</includes>
     <includes local="no">iostream</includes>
     <incdepgraph>
-      <node id="457">
-        <label>ecp.hpp</label>
-        <link refid="ecp_8hpp"/>
-        <childnode refid="450" relation="include">
-        </childnode>
-        <childnode refid="458" relation="include">
-        </childnode>
-        <childnode refid="459" relation="include">
-        </childnode>
-        <childnode refid="460" relation="include">
-        </childnode>
-        <childnode refid="461" relation="include">
-        </childnode>
-      </node>
-      <node id="456">
+      <node id="10">
         <label>functional</label>
       </node>
-      <node id="454">
-        <label>radial.hpp</label>
-        <link refid="radial_8hpp"/>
-        <childnode refid="450" relation="include">
+      <node id="11">
+        <label>ecp.hpp</label>
+        <link refid="ecp_8hpp"/>
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="449" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="455" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="457" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="462" relation="include">
-        </childnode>
-        <childnode refid="463" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="465">
-        <label>cmath</label>
-      </node>
-      <node id="467">
-        <label>numeric</label>
-      </node>
-      <node id="449">
-        <label>multiarr.hpp</label>
-        <link refid="multiarr_8hpp"/>
-        <childnode refid="450" relation="include">
-        </childnode>
-        <childnode refid="451" relation="include">
-        </childnode>
-        <childnode refid="452" relation="include">
-        </childnode>
-        <childnode refid="453" relation="include">
-        </childnode>
-      </node>
-      <node id="460">
-        <label>string</label>
-      </node>
-      <node id="459">
-        <label>map</label>
-      </node>
-      <node id="455">
-        <label>gaussquad.hpp</label>
-        <link refid="gaussquad_8hpp"/>
-        <childnode refid="456" relation="include">
-        </childnode>
-        <childnode refid="450" relation="include">
-        </childnode>
-      </node>
-      <node id="461">
-        <label>config.hpp</label>
-      </node>
-      <node id="451">
-        <label>tuple</label>
-      </node>
-      <node id="450">
-        <label>vector</label>
-      </node>
-      <node id="448">
+      <node id="2">
         <label>qgen.hpp</label>
         <link refid="qgen_8hpp"/>
-        <childnode refid="449" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="454" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="464" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
-        <childnode refid="463" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="457" relation="include">
-        </childnode>
-      </node>
-      <node id="463">
-        <label>gshell.hpp</label>
-        <link refid="gshell_8hpp"/>
-        <childnode refid="450" relation="include">
-        </childnode>
-        <childnode refid="458" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="458">
-        <label>array</label>
-      </node>
-      <node id="453">
-        <label>sstream</label>
-      </node>
-      <node id="466">
+      <node id="20">
         <label>mathutil.hpp</label>
         <link refid="mathutil_8hpp"/>
-        <childnode refid="450" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="467" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
-        <childnode refid="465" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="449" relation="include">
-        </childnode>
-      </node>
-      <node id="468">
-        <label>iostream</label>
-      </node>
-      <node id="464">
-        <label>angular.hpp</label>
-        <link refid="angular_8hpp"/>
-        <childnode refid="450" relation="include">
-        </childnode>
-        <childnode refid="449" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="462">
+      <node id="16">
         <label>bessel.hpp</label>
         <link refid="bessel_8hpp"/>
-        <childnode refid="450" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="452">
+      <node id="19">
+        <label>cmath</label>
+      </node>
+      <node id="21">
+        <label>numeric</label>
+      </node>
+      <node id="14">
+        <label>string</label>
+      </node>
+      <node id="13">
+        <label>map</label>
+      </node>
+      <node id="17">
+        <label>gshell.hpp</label>
+        <link refid="gshell_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>angular.hpp</label>
+        <link refid="angular_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>config.hpp</label>
+      </node>
+      <node id="5">
+        <label>tuple</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+      <node id="12">
+        <label>array</label>
+      </node>
+      <node id="7">
+        <label>sstream</label>
+      </node>
+      <node id="3">
+        <label>multiarr.hpp</label>
+        <link refid="multiarr_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>iostream</label>
+      </node>
+      <node id="9">
+        <label>gaussquad.hpp</label>
+        <link refid="gaussquad_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>radial.hpp</label>
+        <link refid="radial_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
         <label>algorithm</label>
       </node>
-      <node id="447">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/qgen.cpp</label>
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/qgen.cpp</label>
         <link refid="qgen_8cpp"/>
-        <childnode refid="448" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="465" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="466" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
-        <childnode refid="468" relation="include">
+        <childnode refid="22" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -192,7 +192,7 @@
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacelibecpint" kindref="compound">libecpint</ref><sp/>{</highlight></codeline>
 <codeline lineno="31" refid="namespacelibecpint_1_1qgen" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">qgen<sp/>{<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="32" refid="namespacelibecpint_1_1qgen_1aa957a79b70df8879d0abbfb12a2ce49b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1_1qgen_1aa957a79b70df8879d0abbfb12a2ce49b" kindref="member">rolled_up</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lam,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>LA,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>LB,<sp/><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex&lt;double&gt;</ref><sp/>&amp;radials,<sp/><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex&lt;double&gt;</ref><sp/>&amp;CA,<sp/><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex&lt;double&gt;</ref><sp/>&amp;CB,<sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;SA,<sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;SB,<sp/><ref refid="classlibecpint_1_1_angular_integral" kindref="compound">AngularIntegral</ref><sp/>&amp;angint,<sp/><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex&lt;double&gt;</ref><sp/>&amp;values)</highlight></codeline>
+<codeline lineno="32" refid="namespacelibecpint_1_1qgen_1af1816608e31f73731cb510619099400e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1_1qgen_1af1816608e31f73731cb510619099400e" kindref="member">rolled_up</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lam,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>LA,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>LB,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex&lt;double&gt;</ref><sp/>&amp;radials,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex&lt;double&gt;</ref><sp/>&amp;CA,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex&lt;double&gt;</ref><sp/>&amp;CB,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;SA,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;SB,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_angular_integral" kindref="compound">AngularIntegral</ref><sp/>&amp;angint,<sp/><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex&lt;double&gt;</ref><sp/>&amp;values)</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>prefac<sp/>=<sp/>16.0<sp/>*<sp/><ref refid="mathutil_8hpp_1ae71449b1cc6e6250b91f539153a7a0d3" kindref="member">M_PI</ref><sp/>*<sp/><ref refid="mathutil_8hpp_1ae71449b1cc6e6250b91f539153a7a0d3" kindref="member">M_PI</ref>;</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>L<sp/>=<sp/>LA<sp/>+<sp/>LB;<sp/><sp/><sp/><sp/></highlight></codeline>
@@ -201,8 +201,8 @@
 <codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w_ax,<sp/>w_ay,<sp/>w_az,<sp/>w_l1;<sp/></highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w_bx,<sp/>w_by,<sp/>w_bz,<sp/>w_l2;<sp/></highlight></codeline>
 <codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>C,<sp/>val;</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>mults<sp/>=<sp/>angint.<ref refid="classlibecpint_1_1_angular_integral_1abde644b16469b8d74cb84ae987debeb8" kindref="member">getOmegaMults</ref>();</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;&amp;<sp/>omega<sp/>=<sp/>angint.<ref refid="classlibecpint_1_1_angular_integral_1a14bc6e72e5c1151c116b4bfa06c7895b" kindref="member">getOmegaData</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>mults<sp/>=<sp/>angint.<ref refid="classlibecpint_1_1_angular_integral_1abde644b16469b8d74cb84ae987debeb8" kindref="member">getOmegaMults</ref>();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>omega<sp/>=<sp/>angint.<ref refid="classlibecpint_1_1_angular_integral_1a14bc6e72e5c1151c116b4bfa06c7895b" kindref="member">getOmegaData</ref>();</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w_size<sp/>=<sp/>2*lam+1;<sp/></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w1_contr[w_size*(lam+LA+1)];</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w2_contr[w_size*(lam+LB+1)];</highlight></codeline>
@@ -296,16 +296,16 @@
 <codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="136" refid="namespacelibecpint_1_1qgen_1a2746fee105d370ee314fe22e752affeb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1_1qgen_1a2746fee105d370ee314fe22e752affeb" kindref="member">rolled_up_special</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lam,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>LA,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>LB,<sp/><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex&lt;double&gt;</ref>&amp;<sp/>radials,<sp/><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex&lt;double&gt;</ref>&amp;<sp/>CB,<sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref>&amp;<sp/>SB,<sp/><ref refid="classlibecpint_1_1_angular_integral" kindref="compound">AngularIntegral</ref>&amp;<sp/>angint,<sp/><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex&lt;double&gt;</ref>&amp;<sp/>values)<sp/>{</highlight></codeline>
+<codeline lineno="136" refid="namespacelibecpint_1_1qgen_1ab020c384dfc8c0f23cf165448b10216e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1_1qgen_1ab020c384dfc8c0f23cf165448b10216e" kindref="member">rolled_up_special</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lam,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>LA,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>LB,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex&lt;double&gt;</ref>&amp;<sp/>radials,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_five_index" kindref="compound">FiveIndex&lt;double&gt;</ref>&amp;<sp/>CB,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref>&amp;<sp/>SB,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_angular_integral" kindref="compound">AngularIntegral</ref>&amp;<sp/>angint,<sp/><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex&lt;double&gt;</ref>&amp;<sp/>values)<sp/>{</highlight></codeline>
 <codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>prefac<sp/>=<sp/>8.0<sp/>*<sp/><ref refid="mathutil_8hpp_1ae71449b1cc6e6250b91f539153a7a0d3" kindref="member">M_PI</ref><sp/>*<sp/>std::sqrt(<ref refid="mathutil_8hpp_1ae71449b1cc6e6250b91f539153a7a0d3" kindref="member">M_PI</ref>);</highlight></codeline>
 <codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>L<sp/>=<sp/>LA<sp/>+<sp/>LB;<sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>z1,<sp/>z2;<sp/></highlight></codeline>
 <codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>C,<sp/>val1,<sp/>val2;<sp/></highlight></codeline>
 <codeline lineno="142"><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w_bx,<sp/>w_by,<sp/>w_bz,<sp/>w_l2,<sp/>w_m2,<sp/>w1,<sp/>w_m;<sp/></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>mults<sp/>=<sp/>angint.<ref refid="classlibecpint_1_1_angular_integral_1abde644b16469b8d74cb84ae987debeb8" kindref="member">getOmegaMults</ref>();</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;&amp;<sp/>omega<sp/>=<sp/>angint.<ref refid="classlibecpint_1_1_angular_integral_1a14bc6e72e5c1151c116b4bfa06c7895b" kindref="member">getOmegaData</ref>();</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w_bx,<sp/>w_by,<sp/>w_bz,<sp/>w_l2,<sp/>w_m2,<sp/>w1,<sp/>w_m;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>mults<sp/>=<sp/>angint.<ref refid="classlibecpint_1_1_angular_integral_1abde644b16469b8d74cb84ae987debeb8" kindref="member">getOmegaMults</ref>();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>omega<sp/>=<sp/>angint.<ref refid="classlibecpint_1_1_angular_integral_1a14bc6e72e5c1151c116b4bfa06c7895b" kindref="member">getOmegaData</ref>();</highlight></codeline>
 <codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w_lam<sp/>=<sp/>lam<sp/>*<sp/>mults[3];</highlight></codeline>
 <codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Loop<sp/>over<sp/>cartesian<sp/>shell<sp/>functions<sp/>in<sp/>alpha<sp/>order,<sp/>e.g.<sp/>{xx<sp/>xy,<sp/>xz,<sp/>yy,<sp/>yz,<sp/>zz}<sp/>for<sp/>l=2</highlight><highlight class="normal"></highlight></codeline>
@@ -365,6 +365,6 @@
 <codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="203"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/src/lib/qgen.cpp"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/src/lib/qgen.cpp"/>
   </compounddef>
 </doxygen>

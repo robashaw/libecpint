@@ -1,155 +1,155 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="libecpint_8hpp" kind="file" language="C++">
     <compoundname>libecpint.hpp</compoundname>
     <includes refid="api_8hpp" local="yes">libecpint/api.hpp</includes>
     <incdepgraph>
-      <node id="29">
-        <label>ecp.hpp</label>
-        <link refid="ecp_8hpp"/>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-      </node>
-      <node id="28">
+      <node id="13">
         <label>functional</label>
       </node>
-      <node id="22">
+      <node id="14">
+        <label>ecp.hpp</label>
+        <link refid="ecp_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
         <label>ecpint.hpp</label>
         <link refid="ecpint_8hpp"/>
-        <childnode refid="18" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="27" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="29" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-        <childnode refid="33" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-      </node>
-      <node id="33">
-        <label>radial.hpp</label>
-        <link refid="radial_8hpp"/>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-      </node>
-      <node id="23">
-        <label>multiarr.hpp</label>
-        <link refid="multiarr_8hpp"/>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-      </node>
-      <node id="20">
-        <label>string</label>
-      </node>
-      <node id="16">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint.hpp</label>
-        <link refid="libecpint_8hpp"/>
         <childnode refid="17" relation="include">
         </childnode>
-      </node>
-      <node id="30">
-        <label>map</label>
-      </node>
-      <node id="17">
-        <label>libecpint/api.hpp</label>
-        <link refid="api_8hpp"/>
         <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
         </childnode>
         <childnode refid="20" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-      </node>
-      <node id="27">
-        <label>gaussquad.hpp</label>
-        <link refid="gaussquad_8hpp"/>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-      </node>
-      <node id="31">
-        <label>config.hpp</label>
-      </node>
-      <node id="24">
-        <label>tuple</label>
-      </node>
-      <node id="18">
-        <label>vector</label>
-      </node>
-      <node id="34">
-        <label>gshell.hpp</label>
-        <link refid="gshell_8hpp"/>
-        <childnode refid="18" relation="include">
-        </childnode>
         <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>bessel.hpp</label>
+        <link refid="bessel_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="15">
+        <label>map</label>
+      </node>
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint.hpp</label>
+        <link refid="libecpint_8hpp"/>
+        <childnode refid="2" relation="include">
         </childnode>
       </node>
       <node id="19">
-        <label>array</label>
+        <label>gshell.hpp</label>
+        <link refid="gshell_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
       </node>
-      <node id="26">
-        <label>sstream</label>
-      </node>
-      <node id="35">
+      <node id="20">
         <label>angular.hpp</label>
         <link refid="angular_8hpp"/>
-        <childnode refid="18" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-      </node>
-      <node id="32">
-        <label>bessel.hpp</label>
-        <link refid="bessel_8hpp"/>
-        <childnode refid="18" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="25">
+      <node id="16">
+        <label>config.hpp</label>
+      </node>
+      <node id="9">
+        <label>tuple</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+      <node id="4">
+        <label>array</label>
+      </node>
+      <node id="11">
+        <label>sstream</label>
+      </node>
+      <node id="8">
+        <label>multiarr.hpp</label>
+        <link refid="multiarr_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>gaussquad.hpp</label>
+        <link refid="gaussquad_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>radial.hpp</label>
+        <link refid="radial_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
         <label>algorithm</label>
       </node>
-      <node id="21">
+      <node id="2">
+        <label>libecpint/api.hpp</label>
+        <link refid="api_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
         <label>memory</label>
       </node>
     </incdepgraph>
@@ -189,6 +189,6 @@
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>LIBECPINT_HEAD</highlight></codeline>
     </programlisting>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint.hpp"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint.hpp"/>
   </compounddef>
 </doxygen>

@@ -1,13 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="structlibecpint_1_1_three_index" kind="struct" language="C++" prot="public">
     <compoundname>libecpint::ThreeIndex</compoundname>
     <includes refid="multiarr_8hpp" local="no">multiarr.hpp</includes>
     <templateparamlist>
       <param>
-        <type>typename</type>
-        <declname>T</declname>
-        <defname>T</defname>
+        <type>typename T</type>
       </param>
     </templateparamlist>
       <sectiondef kind="public-attrib">
@@ -22,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="111" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="111" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" line="111" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" bodystart="111" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" prot="public" static="no" mutable="no">
         <type>std::vector&lt; T &gt;</type>
@@ -35,25 +33,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="112" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="112" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" line="112" column="13" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" bodystart="112" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structlibecpint_1_1_three_index_1ac78d498238d110a85ec1ea388e6e0ccc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structlibecpint_1_1_three_index_1a0e77ad92386d2ba77d4f18647eb7c333" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>T &amp;</type>
         <definition>T&amp; libecpint::ThreeIndex&lt; T &gt;::operator()</definition>
-        <argsstring>(int i, int j, int k)</argsstring>
+        <argsstring>(const int i, const int j, const int k)</argsstring>
         <name>operator()</name>
         <param>
-          <type>int</type>
+          <type>const int</type>
           <declname>i</declname>
         </param>
         <param>
-          <type>int</type>
+          <type>const int</type>
           <declname>j</declname>
         </param>
         <param>
-          <type>int</type>
+          <type>const int</type>
           <declname>k</declname>
         </param>
         <briefdescription>
@@ -62,23 +60,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="113" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="113" bodyend="113"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" line="113" column="3" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" bodystart="113" bodyend="113"/>
       </memberdef>
-      <memberdef kind="function" id="structlibecpint_1_1_three_index_1a70e34002fa6d61a6c2ae0db5d357e95b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structlibecpint_1_1_three_index_1a6b389e41d78648076eab0e42e2c350d9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>T</type>
         <definition>T libecpint::ThreeIndex&lt; T &gt;::operator()</definition>
-        <argsstring>(int i, int j, int k) const</argsstring>
+        <argsstring>(const int i, const int j, const int k) const</argsstring>
         <name>operator()</name>
         <param>
-          <type>int</type>
+          <type>const int</type>
           <declname>i</declname>
         </param>
         <param>
-          <type>int</type>
+          <type>const int</type>
           <declname>j</declname>
         </param>
         <param>
-          <type>int</type>
+          <type>const int</type>
           <declname>k</declname>
         </param>
         <briefdescription>
@@ -87,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="114" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="114" bodyend="114"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" line="114" column="3" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" bodystart="114" bodyend="114"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_three_index_1ad2750b03c39d4da327e3c2416a3053fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -100,23 +98,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="115" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="115" bodyend="115"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" line="115" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" bodystart="115" bodyend="115"/>
       </memberdef>
-      <memberdef kind="function" id="structlibecpint_1_1_three_index_1a2733c35720de560972cfec04172d190a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structlibecpint_1_1_three_index_1a2cbb7c3a30e332e7e315d5c564581b00" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>libecpint::ThreeIndex&lt; T &gt;::ThreeIndex</definition>
-        <argsstring>(int dim1, int dim2, int dim3)</argsstring>
+        <argsstring>(const int dim1, const int dim2, const int dim3)</argsstring>
         <name>ThreeIndex</name>
         <param>
-          <type>int</type>
+          <type>const int</type>
           <declname>dim1</declname>
         </param>
         <param>
-          <type>int</type>
+          <type>const int</type>
           <declname>dim2</declname>
         </param>
         <param>
-          <type>int</type>
+          <type>const int</type>
           <declname>dim3</declname>
         </param>
         <briefdescription>
@@ -125,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="116" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="116" bodyend="119"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" line="116" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" bodystart="116" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_three_index_1af40f104dbb8fe8ec87c97e6a34209f7f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -142,15 +140,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="120" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="120" bodyend="123"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" line="120" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" bodystart="120" bodyend="123"/>
       </memberdef>
-      <memberdef kind="function" id="structlibecpint_1_1_three_index_1ab19242bc7a3110e238bba364b6c3ff36" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structlibecpint_1_1_three_index_1a94f949d2e6508d7ddade76ca665dafb8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void libecpint::ThreeIndex&lt; T &gt;::fill</definition>
-        <argsstring>(T value)</argsstring>
+        <argsstring>(const T value)</argsstring>
         <name>fill</name>
         <param>
-          <type>T</type>
+          <type>const T</type>
           <declname>value</declname>
         </param>
         <briefdescription>
@@ -159,22 +157,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="124" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="124" bodyend="124"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" line="124" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" bodystart="124" bodyend="124"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Templated skeleton three index array for convenience. </para>    </briefdescription>
+<para>Templated skeleton three index array for convenience. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" line="110" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/multiarr.hpp" bodystart="110" bodyend="125"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" line="110" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/multiarr.hpp" bodystart="110" bodyend="125"/>
     <listofallmembers>
       <member refid="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" prot="public" virt="non-virtual"><scope>libecpint::ThreeIndex</scope><name>data</name></member>
       <member refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" prot="public" virt="non-virtual"><scope>libecpint::ThreeIndex</scope><name>dims</name></member>
-      <member refid="structlibecpint_1_1_three_index_1ab19242bc7a3110e238bba364b6c3ff36" prot="public" virt="non-virtual"><scope>libecpint::ThreeIndex</scope><name>fill</name></member>
-      <member refid="structlibecpint_1_1_three_index_1ac78d498238d110a85ec1ea388e6e0ccc" prot="public" virt="non-virtual"><scope>libecpint::ThreeIndex</scope><name>operator()</name></member>
-      <member refid="structlibecpint_1_1_three_index_1a70e34002fa6d61a6c2ae0db5d357e95b" prot="public" virt="non-virtual"><scope>libecpint::ThreeIndex</scope><name>operator()</name></member>
+      <member refid="structlibecpint_1_1_three_index_1a94f949d2e6508d7ddade76ca665dafb8" prot="public" virt="non-virtual"><scope>libecpint::ThreeIndex</scope><name>fill</name></member>
+      <member refid="structlibecpint_1_1_three_index_1a0e77ad92386d2ba77d4f18647eb7c333" prot="public" virt="non-virtual"><scope>libecpint::ThreeIndex</scope><name>operator()</name></member>
+      <member refid="structlibecpint_1_1_three_index_1a6b389e41d78648076eab0e42e2c350d9" prot="public" virt="non-virtual"><scope>libecpint::ThreeIndex</scope><name>operator()</name></member>
       <member refid="structlibecpint_1_1_three_index_1ad2750b03c39d4da327e3c2416a3053fa" prot="public" virt="non-virtual"><scope>libecpint::ThreeIndex</scope><name>ThreeIndex</name></member>
-      <member refid="structlibecpint_1_1_three_index_1a2733c35720de560972cfec04172d190a" prot="public" virt="non-virtual"><scope>libecpint::ThreeIndex</scope><name>ThreeIndex</name></member>
+      <member refid="structlibecpint_1_1_three_index_1a2cbb7c3a30e332e7e315d5c564581b00" prot="public" virt="non-virtual"><scope>libecpint::ThreeIndex</scope><name>ThreeIndex</name></member>
       <member refid="structlibecpint_1_1_three_index_1af40f104dbb8fe8ec87c97e6a34209f7f" prot="public" virt="non-virtual"><scope>libecpint::ThreeIndex</scope><name>ThreeIndex</name></member>
     </listofallmembers>
   </compounddef>

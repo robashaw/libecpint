@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="dir_2a4bd5cb231436a2565b9ec017c8f12b" kind="dir">
-    <compoundname>/Users/robertshaw/devfiles/libecpint_new/include/libecpint</compoundname>
+    <compoundname>/Users/robertshaw/devfiles/libecpint/include/libecpint</compoundname>
     <innerfile refid="angular_8hpp">angular.hpp</innerfile>
     <innerfile refid="api_8hpp">api.hpp</innerfile>
     <innerfile refid="bessel_8hpp">bessel.hpp</innerfile>
@@ -17,6 +17,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/"/>
   </compounddef>
 </doxygen>

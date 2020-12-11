@@ -1,111 +1,111 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="gshell_8hpp" kind="file" language="C++">
     <compoundname>gshell.hpp</compoundname>
     <includes local="no">vector</includes>
     <includes local="no">array</includes>
-    <includedby refid="gshell_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/gshell.cpp</includedby>
-    <includedby refid="radial_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp</includedby>
-    <includedby refid="ecpint_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp</includedby>
-    <includedby refid="qgen_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/qgen.hpp</includedby>
+    <includedby refid="gshell_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/lib/gshell.cpp</includedby>
+    <includedby refid="ecpint_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/ecpint.hpp</includedby>
+    <includedby refid="qgen_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/qgen.hpp</includedby>
+    <includedby refid="radial_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp</includedby>
     <incdepgraph>
-      <node id="150">
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp</label>
+        <link refid="gshell_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
         <label>vector</label>
       </node>
-      <node id="149">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp</label>
-        <link refid="gshell_8hpp"/>
-        <childnode refid="150" relation="include">
-        </childnode>
-        <childnode refid="151" relation="include">
-        </childnode>
-      </node>
-      <node id="151">
+      <node id="3">
         <label>array</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="153">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/gshell.cpp</label>
-        <link refid="gshell_8cpp"/>
+      <node id="8">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/qgen.hpp</label>
+        <link refid="qgen_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
-      <node id="158">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp</label>
+      <node id="3">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/ecpint.hpp</label>
         <link refid="ecpint_8hpp"/>
-        <childnode refid="159" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="160" relation="include">
+        <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="155">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/radial_gen.cpp</label>
+      <node id="11">
+        <label>/Users/robertshaw/devfiles/libecpint/src/generated/radial/radial_gen.cpp</label>
         <link refid="generated_2radial_2radial__gen_8cpp"/>
       </node>
-      <node id="154">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp</label>
-        <link refid="radial_8hpp"/>
-        <childnode refid="155" relation="include">
-        </childnode>
-        <childnode refid="156" relation="include">
-        </childnode>
-        <childnode refid="157" relation="include">
-        </childnode>
-        <childnode refid="158" relation="include">
-        </childnode>
-        <childnode refid="163" relation="include">
-        </childnode>
-      </node>
-      <node id="157">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_quad.cpp</label>
+      <node id="13">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp</label>
         <link refid="radial__quad_8cpp"/>
       </node>
-      <node id="162">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint.hpp</label>
+      <node id="7">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint.hpp</label>
         <link refid="libecpint_8hpp"/>
       </node>
-      <node id="160">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp</label>
-        <link refid="api_8hpp"/>
-        <childnode refid="161" relation="include">
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp</label>
+        <link refid="gshell_8hpp"/>
+        <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="162" relation="include">
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="161">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp</label>
+      <node id="6">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp</label>
         <link refid="api_8cpp"/>
       </node>
-      <node id="163">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/qgen.hpp</label>
-        <link refid="qgen_8hpp"/>
-        <childnode refid="159" relation="include">
-        </childnode>
-        <childnode refid="164" relation="include">
-        </childnode>
-      </node>
-      <node id="159">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp</label>
+      <node id="4">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/ecpint.cpp</label>
         <link refid="ecpint_8cpp"/>
       </node>
-      <node id="152">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp</label>
-        <link refid="gshell_8hpp"/>
-        <childnode refid="153" relation="include">
-        </childnode>
-        <childnode refid="154" relation="include">
-        </childnode>
-        <childnode refid="158" relation="include">
-        </childnode>
-        <childnode refid="163" relation="include">
-        </childnode>
+      <node id="2">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/gshell.cpp</label>
+        <link refid="gshell_8cpp"/>
       </node>
-      <node id="156">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_gen.cpp</label>
+      <node id="12">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/radial_gen.cpp</label>
         <link refid="lib_2radial__gen_8cpp"/>
       </node>
-      <node id="164">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/qgen.cpp</label>
+      <node id="10">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp</label>
+        <link refid="radial_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/qgen.cpp</label>
         <link refid="qgen_8cpp"/>
+      </node>
+      <node id="5">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp</label>
+        <link refid="api_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="structlibecpint_1_1_gaussian_shell" prot="public">libecpint::GaussianShell</innerclass>
@@ -162,48 +162,48 @@
 <codeline lineno="50" refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" kindref="member">l</ref>;<sp/></highlight></codeline>
 <codeline lineno="51" refid="structlibecpint_1_1_gaussian_shell_1a68d5d174f719fc851e68022a225bcf21" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a68d5d174f719fc851e68022a225bcf21" kindref="member">atom_id</ref>;<sp/></highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" kindref="member">GaussianShell</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>A,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" kindref="member">GaussianShell</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>A,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" kindref="member">l</ref>);</highlight></codeline>
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" kindref="member">GaussianShell</ref>(std::array&lt;double,<sp/>3&gt;<sp/>A,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" kindref="member">GaussianShell</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;double,<sp/>3&gt;<sp/>&amp;<sp/>A,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" kindref="member">l</ref>);</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="71" refid="structlibecpint_1_1_gaussian_shell_1a53e3854e0243272183ff783d5443aedd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a53e3854e0243272183ff783d5443aedd" kindref="member">GaussianShell</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref>&amp;<sp/>other)<sp/>{<sp/></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exps<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1ac05c0305dc8422cbdc94e668a5e9a09e" kindref="member">exps</ref>;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coeffs<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1a1a12d01b4556196b36b8df746fac403d" kindref="member">coeffs</ref>;</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>centerVec<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1abc5ea045734ff2cc0b09330786904e6b" kindref="member">centerVec</ref>;</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" kindref="member">l</ref>;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>min_exp<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1aa6aa70752f7dd2317a67327522971b87" kindref="member">min_exp</ref>;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1ac05c0305dc8422cbdc94e668a5e9a09e" kindref="member">exps</ref><sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1ac05c0305dc8422cbdc94e668a5e9a09e" kindref="member">exps</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a1a12d01b4556196b36b8df746fac403d" kindref="member">coeffs</ref><sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1a1a12d01b4556196b36b8df746fac403d" kindref="member">coeffs</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1abc5ea045734ff2cc0b09330786904e6b" kindref="member">centerVec</ref><sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1abc5ea045734ff2cc0b09330786904e6b" kindref="member">centerVec</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" kindref="member">l</ref><sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" kindref="member">l</ref>;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1aa6aa70752f7dd2317a67327522971b87" kindref="member">min_exp</ref><sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1aa6aa70752f7dd2317a67327522971b87" kindref="member">min_exp</ref>;</highlight></codeline>
 <codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>local_ptr<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1a03985413f48acd6ded1e21bcfd7d361b" kindref="member">local_ptr</ref>;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(local_ptr)<sp/>{</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>localCenter[0]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[0];</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>localCenter[1]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[1];</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>localCenter[2]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[2];</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>centerVec<sp/>=<sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a03985413f48acd6ded1e21bcfd7d361b" kindref="member">local_ptr</ref><sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1a03985413f48acd6ded1e21bcfd7d361b" kindref="member">local_ptr</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structlibecpint_1_1_gaussian_shell_1a03985413f48acd6ded1e21bcfd7d361b" kindref="member">local_ptr</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[0]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[0];</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[1]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[1];</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[2]<sp/>=<sp/>other.<ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[2];</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1abc5ea045734ff2cc0b09330786904e6b" kindref="member">centerVec</ref><sp/>=<sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>;</highlight></codeline>
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1ad270e1f8bc33397b080644fceb6f4755" kindref="member">addPrim</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a738b66cf3e241c179829616e400b845e" kindref="member">exp</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>c);</highlight></codeline>
 <codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="95" refid="structlibecpint_1_1_gaussian_shell_1ad9e3f82004442f284beac5b246ae3f82" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1ad9e3f82004442f284beac5b246ae3f82" kindref="member">nprimitive</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>exps.size();<sp/>}</highlight></codeline>
+<codeline lineno="95" refid="structlibecpint_1_1_gaussian_shell_1ad9e3f82004442f284beac5b246ae3f82" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1ad9e3f82004442f284beac5b246ae3f82" kindref="member">nprimitive</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1ac05c0305dc8422cbdc94e668a5e9a09e" kindref="member">exps</ref>.size();<sp/>}</highlight></codeline>
 <codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="98" refid="structlibecpint_1_1_gaussian_shell_1ad2f43aaecabbb28ac93ccb327b6b181d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1ad2f43aaecabbb28ac93ccb327b6b181d" kindref="member">ncartesian</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>((l+1)*(l+2))/2;<sp/>}</highlight></codeline>
+<codeline lineno="98" refid="structlibecpint_1_1_gaussian_shell_1ad2f43aaecabbb28ac93ccb327b6b181d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1ad2f43aaecabbb28ac93ccb327b6b181d" kindref="member">ncartesian</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>((<ref refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" kindref="member">l</ref>+1)*(<ref refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" kindref="member">l</ref>+2))/2;<sp/>}</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="101" refid="structlibecpint_1_1_gaussian_shell_1a4516bca17cc123b121cc058052b56984" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a4516bca17cc123b121cc058052b56984" kindref="member">center</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1abc5ea045734ff2cc0b09330786904e6b" kindref="member">centerVec</ref>;<sp/>};</highlight></codeline>
 <codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="107" refid="structlibecpint_1_1_gaussian_shell_1a738b66cf3e241c179829616e400b845e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a738b66cf3e241c179829616e400b845e" kindref="member">exp</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>exps[i];<sp/>}</highlight></codeline>
+<codeline lineno="107" refid="structlibecpint_1_1_gaussian_shell_1a738b66cf3e241c179829616e400b845e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a738b66cf3e241c179829616e400b845e" kindref="member">exp</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1ac05c0305dc8422cbdc94e668a5e9a09e" kindref="member">exps</ref>[i];<sp/>}</highlight></codeline>
 <codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="113" refid="structlibecpint_1_1_gaussian_shell_1aa05357293d4bdb6d482dbd55ac80a592" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1aa05357293d4bdb6d482dbd55ac80a592" kindref="member">coef</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>coeffs[i];<sp/>}</highlight></codeline>
+<codeline lineno="113" refid="structlibecpint_1_1_gaussian_shell_1aa05357293d4bdb6d482dbd55ac80a592" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1aa05357293d4bdb6d482dbd55ac80a592" kindref="member">coef</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a1a12d01b4556196b36b8df746fac403d" kindref="member">coeffs</ref>[i];<sp/>}</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="116" refid="structlibecpint_1_1_gaussian_shell_1a1b813a78cfad1112ac6dd4a18243f1e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a1b813a78cfad1112ac6dd4a18243f1e2" kindref="member">am</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" kindref="member">l</ref>;<sp/>}</highlight></codeline>
 <codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="119" refid="structlibecpint_1_1_gaussian_shell_1ab1e7930b32e4ba26ee00e9747f19dca2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/><ref refid="structlibecpint_1_1_gaussian_shell_1ab1e7930b32e4ba26ee00e9747f19dca2" kindref="member">copy</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>result(centerVec,<sp/>l);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>result(<ref refid="structlibecpint_1_1_gaussian_shell_1abc5ea045734ff2cc0b09330786904e6b" kindref="member">centerVec</ref>,<sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" kindref="member">l</ref>);</highlight></codeline>
 <codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.<ref refid="structlibecpint_1_1_gaussian_shell_1aa6aa70752f7dd2317a67327522971b87" kindref="member">min_exp</ref><sp/>=<sp/><ref refid="structlibecpint_1_1_gaussian_shell_1aa6aa70752f7dd2317a67327522971b87" kindref="member">min_exp</ref>;</highlight></codeline>
 <codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.<ref refid="structlibecpint_1_1_gaussian_shell_1a03985413f48acd6ded1e21bcfd7d361b" kindref="member">local_ptr</ref><sp/>=<sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a03985413f48acd6ded1e21bcfd7d361b" kindref="member">local_ptr</ref>;</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(local_ptr)<sp/>{</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.<ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[0]<sp/>=<sp/>localCenter[0];</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.<ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[1]<sp/>=<sp/>localCenter[1];</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.<ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[2]<sp/>=<sp/>localCenter[2];</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structlibecpint_1_1_gaussian_shell_1a03985413f48acd6ded1e21bcfd7d361b" kindref="member">local_ptr</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.<ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[0]<sp/>=<sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[0];</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.<ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[1]<sp/>=<sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[1];</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.<ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[2]<sp/>=<sp/><ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>[2];</highlight></codeline>
 <codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.<ref refid="structlibecpint_1_1_gaussian_shell_1abc5ea045734ff2cc0b09330786904e6b" kindref="member">centerVec</ref><sp/>=<sp/>result.<ref refid="structlibecpint_1_1_gaussian_shell_1a07263b49e7a05fec696c523e5816e554" kindref="member">localCenter</ref>;</highlight></codeline>
 <codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.<ref refid="structlibecpint_1_1_gaussian_shell_1ac05c0305dc8422cbdc94e668a5e9a09e" kindref="member">exps</ref><sp/>=<sp/><ref refid="structlibecpint_1_1_gaussian_shell_1ac05c0305dc8422cbdc94e668a5e9a09e" kindref="member">exps</ref>;</highlight></codeline>
@@ -234,6 +234,6 @@
 <codeline lineno="158"><highlight class="normal"></highlight></codeline>
 <codeline lineno="159"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp"/>
   </compounddef>
 </doxygen>

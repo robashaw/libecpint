@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="ecp_8hpp" kind="file" language="C++">
     <compoundname>ecp.hpp</compoundname>
     <includes local="no">vector</includes>
@@ -7,123 +7,123 @@
     <includes local="no">map</includes>
     <includes local="no">string</includes>
     <includes local="yes">config.hpp</includes>
-    <includedby refid="ecp_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp</includedby>
-    <includedby refid="ecpint_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp</includedby>
-    <includedby refid="radial_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp</includedby>
-    <includedby refid="qgen_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/qgen.hpp</includedby>
+    <includedby refid="ecp_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp</includedby>
+    <includedby refid="ecpint_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/ecpint.hpp</includedby>
+    <includedby refid="qgen_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/qgen.hpp</includedby>
+    <includedby refid="radial_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp</includedby>
     <incdepgraph>
-      <node id="92">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp</label>
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp</label>
         <link refid="ecp_8hpp"/>
-        <childnode refid="93" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="94" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="95" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="96" relation="include">
+        <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="97" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="96">
+      <node id="5">
         <label>string</label>
       </node>
-      <node id="95">
+      <node id="4">
         <label>map</label>
       </node>
-      <node id="97">
+      <node id="6">
         <label>config.hpp</label>
       </node>
-      <node id="93">
+      <node id="2">
         <label>vector</label>
       </node>
-      <node id="94">
+      <node id="3">
         <label>array</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="98">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp</label>
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp</label>
         <link refid="ecp_8hpp"/>
-        <childnode refid="99" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="100" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="105" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="109" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="100">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp</label>
+      <node id="8">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/qgen.hpp</label>
+        <link refid="qgen_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/ecpint.hpp</label>
         <link refid="ecpint_8hpp"/>
-        <childnode refid="101" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="102" relation="include">
+        <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="106">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/radial_gen.cpp</label>
+      <node id="11">
+        <label>/Users/robertshaw/devfiles/libecpint/src/generated/radial/radial_gen.cpp</label>
         <link refid="generated_2radial_2radial__gen_8cpp"/>
       </node>
-      <node id="105">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp</label>
-        <link refid="radial_8hpp"/>
-        <childnode refid="106" relation="include">
-        </childnode>
-        <childnode refid="107" relation="include">
-        </childnode>
-        <childnode refid="108" relation="include">
-        </childnode>
-        <childnode refid="100" relation="include">
-        </childnode>
-        <childnode refid="109" relation="include">
-        </childnode>
-      </node>
-      <node id="108">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_quad.cpp</label>
+      <node id="13">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp</label>
         <link refid="radial__quad_8cpp"/>
       </node>
-      <node id="104">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint.hpp</label>
+      <node id="7">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint.hpp</label>
         <link refid="libecpint_8hpp"/>
       </node>
-      <node id="102">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp</label>
-        <link refid="api_8hpp"/>
-        <childnode refid="103" relation="include">
-        </childnode>
-        <childnode refid="104" relation="include">
-        </childnode>
-      </node>
-      <node id="99">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp</label>
-        <link refid="ecp_8cpp"/>
-      </node>
-      <node id="103">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp</label>
+      <node id="6">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp</label>
         <link refid="api_8cpp"/>
       </node>
-      <node id="109">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/qgen.hpp</label>
-        <link refid="qgen_8hpp"/>
-        <childnode refid="101" relation="include">
-        </childnode>
-        <childnode refid="110" relation="include">
-        </childnode>
-      </node>
-      <node id="101">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp</label>
+      <node id="4">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/ecpint.cpp</label>
         <link refid="ecpint_8cpp"/>
       </node>
-      <node id="107">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_gen.cpp</label>
+      <node id="12">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/radial_gen.cpp</label>
         <link refid="lib_2radial__gen_8cpp"/>
       </node>
-      <node id="110">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/qgen.cpp</label>
+      <node id="10">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp</label>
+        <link refid="radial_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp</label>
+        <link refid="ecp_8cpp"/>
+      </node>
+      <node id="9">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/qgen.cpp</label>
         <link refid="qgen_8cpp"/>
+      </node>
+      <node id="5">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp</label>
+        <link refid="api_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="structlibecpint_1_1_gaussian_e_c_p" prot="public">libecpint::GaussianECP</innerclass>
@@ -190,7 +190,7 @@
 <codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a03dbff0cd12d8f70f04cfd509c3c8bdd" kindref="member">GaussianECP</ref>();<sp/></highlight></codeline>
 <codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a03dbff0cd12d8f70f04cfd509c3c8bdd" kindref="member">GaussianECP</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>d);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a03dbff0cd12d8f70f04cfd509c3c8bdd" kindref="member">GaussianECP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a75255bfcde88a8f3b3e56c316ec7a99c" kindref="member">n</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a9933bcb032148c4152160a0b70521189" kindref="member">l</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a89433d98899bfcf9e11c40590b9a585e" kindref="member">a</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a4899fa6262f84344b3d0f8c304c8e9f5" kindref="member">d</ref>);</highlight></codeline>
 <codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p_1a03dbff0cd12d8f70f04cfd509c3c8bdd" kindref="member">GaussianECP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref>&amp;<sp/>other);</highlight></codeline>
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
@@ -212,57 +212,58 @@
 <codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_e_c_p_1af4dca32df3ef9f0b16c9942aebaa30b9" kindref="member">ECP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>&amp;other);</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a0722152e417ce3cc1934fab12018a2fa" kindref="member">addPrimitive</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>d,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>needSort<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1ad2260227632e534423cbeb0bbd448ec9" kindref="member">addPrimitive</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>d,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>needSort<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="111" refid="structlibecpint_1_1_e_c_p_1a67b0097de7275b589d8fb104559c85f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/><ref refid="structlibecpint_1_1_e_c_p_1a67b0097de7275b589d8fb104559c85f2" kindref="member">center</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;center_[0];<sp/>}</highlight></codeline>
+<codeline lineno="111" refid="structlibecpint_1_1_e_c_p_1a67b0097de7275b589d8fb104559c85f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/><ref refid="structlibecpint_1_1_e_c_p_1a67b0097de7275b589d8fb104559c85f2" kindref="member">center</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;<ref refid="structlibecpint_1_1_e_c_p_1a180a9879527c372a58155240adf2c158" kindref="member">center_</ref>[0];<sp/>}</highlight></codeline>
 <codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a062cbfaa2fefcc7e4ca0de014a791b6a" kindref="member">setPos</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a8806b1257ab2bcc65171c98e155293d7" kindref="member">setPos</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z);</highlight></codeline>
 <codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a033d4d18c168f3052a298b1d32035dde" kindref="member">sort</ref>();<sp/></highlight></codeline>
 <codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="123" refid="structlibecpint_1_1_e_c_p_1a9b17e65c73b6671205b3295e2d2c52f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref>&amp;<sp/><ref refid="structlibecpint_1_1_e_c_p_1a9b17e65c73b6671205b3295e2d2c52f8" kindref="member">getGaussian</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>gaussians[i];<sp/>}</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="126" refid="structlibecpint_1_1_e_c_p_1a1eb8f3a9515a591efc9e3da28ba0a9c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a1eb8f3a9515a591efc9e3da28ba0a9c2" kindref="member">getN</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a36dfdf88f34a7840e7cbfd57046571ad" kindref="member">N</ref>;<sp/>}</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a6f3c3cbf7401f8559be5c0616f21cb2b" kindref="member">noType1</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;<sp/></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a5b4a28bfac7de0329e0a84f10bb6531f" kindref="member">evaluate</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l);</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="140" refid="structlibecpint_1_1_e_c_p_1a8c9d96f791a742fe18616c8361d6ad0b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a8c9d96f791a742fe18616c8361d6ad0b" kindref="member">getL</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a1ca581f31fc7ac7a59dc9fe699caa9a7" kindref="member">L</ref>;<sp/>}</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"></highlight></codeline>
-<codeline lineno="147" refid="classlibecpint_1_1_e_c_p_basis" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlibecpint_1_1_e_c_p_basis" kindref="compound">ECPBasis</ref><sp/>{</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="149" refid="classlibecpint_1_1_e_c_p_basis_1ace1af0a6c1ca994b54d877c32d47cec6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;ECP&gt;<sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1ace1af0a6c1ca994b54d877c32d47cec6" kindref="member">basis</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="150" refid="classlibecpint_1_1_e_c_p_basis_1a70460015e701f21f3736188d7fdfff54" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a70460015e701f21f3736188d7fdfff54" kindref="member">atomList</ref>;<sp/></highlight></codeline>
-<codeline lineno="151" refid="classlibecpint_1_1_e_c_p_basis_1a17a416202956ac683308a54816b9b0a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a17a416202956ac683308a54816b9b0a7" kindref="member">N</ref>;<sp/></highlight></codeline>
-<codeline lineno="152" refid="classlibecpint_1_1_e_c_p_basis_1abeabb84d5402d144b288a9c17d8b1bf2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1abeabb84d5402d144b288a9c17d8b1bf2" kindref="member">maxL</ref>;<sp/></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1ae8a0aec737135fbc3cb04db819f90d11" kindref="member">ECPBasis</ref>();<sp/></highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="159" refid="classlibecpint_1_1_e_c_p_basis_1a14e29c3855ad997b10c8e512bc63bdbc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::map&lt;int,<sp/>int&gt;<sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a14e29c3855ad997b10c8e512bc63bdbc" kindref="member">core_electrons</ref>;</highlight></codeline>
+<codeline lineno="124" refid="structlibecpint_1_1_e_c_p_1a9b17e65c73b6671205b3295e2d2c52f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref>&amp;<sp/><ref refid="structlibecpint_1_1_e_c_p_1a9b17e65c73b6671205b3295e2d2c52f8" kindref="member">getGaussian</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a3934e012fdd055afbcb14d46174861c6" kindref="member">gaussians</ref>[i];<sp/>}</highlight></codeline>
+<codeline lineno="125" refid="structlibecpint_1_1_e_c_p_1a0f63ed68d975c8c4cbe782f6fea3dbed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref>&amp;<sp/><ref refid="structlibecpint_1_1_e_c_p_1a0f63ed68d975c8c4cbe782f6fea3dbed" kindref="member">getGaussian</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a3934e012fdd055afbcb14d46174861c6" kindref="member">gaussians</ref>[i];<sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a1eb8f3a9515a591efc9e3da28ba0a9c2" kindref="member">getN</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a36dfdf88f34a7840e7cbfd57046571ad" kindref="member">N</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a6f3c3cbf7401f8559be5c0616f21cb2b" kindref="member">noType1</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1ab39cb4ebd35a98586065f84271ac01aa" kindref="member">evaluate</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="143" refid="structlibecpint_1_1_e_c_p_1a8c9d96f791a742fe18616c8361d6ad0b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a8c9d96f791a742fe18616c8361d6ad0b" kindref="member">getL</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p_1a1ca581f31fc7ac7a59dc9fe699caa9a7" kindref="member">L</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="classlibecpint_1_1_e_c_p_basis" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlibecpint_1_1_e_c_p_basis" kindref="compound">ECPBasis</ref><sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="152" refid="classlibecpint_1_1_e_c_p_basis_1ace1af0a6c1ca994b54d877c32d47cec6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;ECP&gt;<sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1ace1af0a6c1ca994b54d877c32d47cec6" kindref="member">basis</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="153" refid="classlibecpint_1_1_e_c_p_basis_1a70460015e701f21f3736188d7fdfff54" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a70460015e701f21f3736188d7fdfff54" kindref="member">atomList</ref>;<sp/></highlight></codeline>
+<codeline lineno="154" refid="classlibecpint_1_1_e_c_p_basis_1a17a416202956ac683308a54816b9b0a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a17a416202956ac683308a54816b9b0a7" kindref="member">N</ref>;<sp/></highlight></codeline>
+<codeline lineno="155" refid="classlibecpint_1_1_e_c_p_basis_1abeabb84d5402d144b288a9c17d8b1bf2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1abeabb84d5402d144b288a9c17d8b1bf2" kindref="member">maxL</ref>;<sp/></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1ae8a0aec737135fbc3cb04db819f90d11" kindref="member">ECPBasis</ref>();<sp/></highlight></codeline>
 <codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a30849fe03fcb5af55277f5c9cf3cb029" kindref="member">addECP</ref>(<ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>&amp;U,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>atom);</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref>&amp;<sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1adc48a2df7d92a7e796d50f704b80d819" kindref="member">getECP</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i);</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a6693bdf5b110fa4fcec07b5e2d7bcaef" kindref="member">getECPCore</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespaceunrol__radial_1a032ec358895dd239986cf46342a0de86" kindref="member">q</ref>);<sp/></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="184" refid="classlibecpint_1_1_e_c_p_basis_1a79335f55db2a60b87da4d0b401249d06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a79335f55db2a60b87da4d0b401249d06" kindref="member">getAtom</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>atomList[i];<sp/>}</highlight></codeline>
+<codeline lineno="162" refid="classlibecpint_1_1_e_c_p_basis_1a14e29c3855ad997b10c8e512bc63bdbc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::map&lt;int,<sp/>int&gt;<sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a14e29c3855ad997b10c8e512bc63bdbc" kindref="member">core_electrons</ref>;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a291a8c9b89978f5ef18e13950ba0005e" kindref="member">addECP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>&amp;U,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>atom);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref>&amp;<sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a4c1f64e6931407d02e3a4732e83c65b9" kindref="member">getECP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref>&amp;<sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a4c1f64e6931407d02e3a4732e83c65b9" kindref="member">getECP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a55e30460bed3e1de7c04b7b6a8089c2e" kindref="member">getECPCore</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespaceunrol__radial_1a032ec358895dd239986cf46342a0de86" kindref="member">q</ref>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="187" refid="classlibecpint_1_1_e_c_p_basis_1af44efe193f718cef4986fccde8045c8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1af44efe193f718cef4986fccde8045c8a" kindref="member">getMaxL</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1abeabb84d5402d144b288a9c17d8b1bf2" kindref="member">maxL</ref>;<sp/>}</highlight></codeline>
-<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="190" refid="classlibecpint_1_1_e_c_p_basis_1aa98f477ed0dee4a97de5f0178ade6409" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1aa98f477ed0dee4a97de5f0178ade6409" kindref="member">getN</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a17a416202956ac683308a54816b9b0a7" kindref="member">N</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="190" refid="classlibecpint_1_1_e_c_p_basis_1a35a2fa42d1d1fd9b9418aa88c3fe6a4d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a35a2fa42d1d1fd9b9418aa88c3fe6a4d" kindref="member">getAtom</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a70460015e701f21f3736188d7fdfff54" kindref="member">atomList</ref>[i];<sp/>}</highlight></codeline>
 <codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1adeb08aee90fc97e9365503f14e7717db" kindref="member">addECP_from_file</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespaceunrol__radial_1a032ec358895dd239986cf46342a0de86" kindref="member">q</ref>,<sp/>std::array&lt;double,<sp/>3&gt;<sp/>coords,<sp/>std::string<sp/>filename);</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"></highlight></codeline>
-<codeline lineno="200"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="201"><highlight class="normal"></highlight></codeline>
-<codeline lineno="202"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="193" refid="classlibecpint_1_1_e_c_p_basis_1af44efe193f718cef4986fccde8045c8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1af44efe193f718cef4986fccde8045c8a" kindref="member">getMaxL</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1abeabb84d5402d144b288a9c17d8b1bf2" kindref="member">maxL</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="196" refid="classlibecpint_1_1_e_c_p_basis_1aa98f477ed0dee4a97de5f0178ade6409" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1aa98f477ed0dee4a97de5f0178ade6409" kindref="member">getN</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1a17a416202956ac683308a54816b9b0a7" kindref="member">N</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_e_c_p_basis_1ae92974143d21b4cc19ef6afde7e54163" kindref="member">addECP_from_file</ref>(</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespaceunrol__radial_1a032ec358895dd239986cf46342a0de86" kindref="member">q</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;double,<sp/>3&gt;<sp/>&amp;<sp/>coords,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;<sp/>filename);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp"/>
   </compounddef>
 </doxygen>

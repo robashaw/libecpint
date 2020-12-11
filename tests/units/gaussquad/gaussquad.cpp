@@ -51,9 +51,10 @@ TEST_P(QuadTest, CheckInit) {
 TEST_P(QuadTest, IntegratePoly) {
 	std::function<double(double, const double*, int)> intgd = polynomial;
 	double params[5] = {3, 1.0, -2.0, 3.0, -4.0};
-	bool test = grid_->integrate(intgd, params, 1e-6);
-	EXPECT_TRUE(test);
-	EXPECT_NEAR(grid_->getI(), 4.0, 1e-6);
+	const auto integral_and_test =
+	    grid_->integrate(intgd, params, 1e-6, 0, grid_->getN() - 1);
+	EXPECT_TRUE(integral_and_test.second);
+	EXPECT_NEAR(integral_and_test.first, 4.0, 1e-6);
 }
 
 TEST_P(QuadTest, IntegrateGauss) {
@@ -61,9 +62,10 @@ TEST_P(QuadTest, IntegrateGauss) {
 	//integrate on [0, inf) instead of [-1, 1]
 	grid_->transformZeroInf();
 	double params[2] = {0.5, 2.4};
-	bool test = grid_->integrate(intgd, params, 1e-6);
-	EXPECT_TRUE(test);
-	EXPECT_NEAR(grid_->getI(), 1.2*std::sqrt(2.0*M_PI), 1e-6);
+	const auto integral_and_test =
+	    grid_->integrate(intgd, params, 1e-6, 0, grid_->getN() - 1);
+	EXPECT_TRUE(integral_and_test.second);
+	EXPECT_NEAR(integral_and_test.first, 1.2*std::sqrt(2.0*M_PI), 1e-6);
 }
 
 TEST_P(QuadTest, TransformPoly) {
@@ -71,9 +73,10 @@ TEST_P(QuadTest, TransformPoly) {
 	// integrate on [10, 20] instead of [-1, 1]
 	grid_->transformRMinMax(2.56, 14.375);
 	double params[4] = {2, 0.2, 0.1, -0.003};
-	bool test = grid_->integrate(intgd, params, 1e-6);
-	EXPECT_TRUE(test);
-	EXPECT_NEAR(grid_->getI(), 10.0, 1e-6);
+	const auto integral_and_test =
+	    grid_->integrate(intgd, params, 1e-6, 0, grid_->getN() - 1);
+	EXPECT_TRUE(integral_and_test.second);
+	EXPECT_NEAR(integral_and_test.first, 10.0, 1e-6);
 }
 
 

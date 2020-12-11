@@ -31,4 +31,4 @@ namespace libecpint {
       const ECP&, const GaussianShell&, const GaussianShell&,
       const FiveIndex<double>&, const FiveIndex<double>&, const TwoIndex<double>&, const TwoIndex<double>&,
       double, double,
-	    RadialIntegral&, const AngularIntegral&, ThreeIndex<double>&) {
+	    const RadialIntegral&, const AngularIntegral&, const RadialIntegral::Parameters&, ThreeIndex<double>&) {

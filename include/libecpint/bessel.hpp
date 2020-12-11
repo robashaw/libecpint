@@ -87,21 +87,21 @@ namespace libecpint {
 		* @param maxL - maximum angular momentum needed; must be <= lMax for object
 		* @param values - reference to vector in which to put the values for l = 0 to maxL
 		*/
-		void calculate(double z, int maxL, std::vector<double> &values);
+		void calculate(double z, int maxL, std::vector<double> &values) const;
 		
 		/**
 		* Calculates the Bessel function value at a given point for a single angular momentum
 		* @param z - point at which to evaluate
 		* @param L - angular momentum needed; must be <= lMax for object
 		*/
-		double calculate(double z, int L);
+		double calculate(double z, int L) const;
 		
 		/**
 		* Calculates an upper bound to the Bessel function value at a given point for a given angular momentum
 		* @param z - point at which to evaluate
 		* @param L - angular momentum needed; must be <= lMax for object
 		*/
-		double upper_bound(double z, int L);
+		double upper_bound(double z, int L) const;
 	};
 
 }

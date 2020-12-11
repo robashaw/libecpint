@@ -99,7 +99,7 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 												for (int lam1 = 0; lam1 <= lam + alpha; lam1++) {
 													int lam2start = (lam1 + N) % 2; 
 													for (int lam2 = lam2start; lam2 <= lam + beta; lam2+=2) {
-														if(!unrolling && std::find(radial_triples.begin(), radial_triples.end(), Triple{N, lam1, lam2}) != radial_triples.end()) {
+														if(!unrolling && radial_triples.find(Triple{N, lam1, lam2}) != radial_triples.end()) {
 															continue;
 														}
 														bool N_lam1_lam2_found = false;
@@ -132,7 +132,10 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 																			N_lam1_lam2_found = true;
 																		}
 																		radial_triples.insert(Triple{N, lam1, lam2}); 
-																	} 
+																	}
+                                  if(N_lam1_lam2_found) {
+                                    break;
+                                  }
 																}
 																if(N_lam1_lam2_found) {
 																	break;
@@ -163,8 +166,8 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 		
 		// Determine the maximum number of base integrals needed across the set of all radial integrals
 		int nbase = 0; 
-		if (radial_triples.size() > 0) {
-			const Triple& tmax = *radial_triples.cend();
+		if (!radial_triples.empty()) {
+			const Triple& tmax = *radial_triples.rbegin();
 			nbase = std::get<0>(tmax) + std::get<1>(tmax) - 1; 
 			nbase = nbase < 0 ? 0 : nbase; 
 		}

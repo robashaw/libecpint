@@ -3,7 +3,7 @@
 Variable libecpint::maxN
 ========================
 
-- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_new_include_generate.hpp`
+- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_include_generate.hpp`
 
 
 Variable Documentation

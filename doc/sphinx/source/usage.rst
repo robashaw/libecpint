@@ -8,6 +8,11 @@ Usage
 
 There are two main ways to use the libecpint library. In the high-level API, you pass details of the system (basis set, coordinates, ECPs) to libecpint, and it handles the computation of all the integrals and/or derivatives automatically, returning arrays of the (Cartesian) integrals. In the low-level API, you control the calculation of the integrals yourself, calling the relevant routines as and when you need them. We envisage that for most purposes, the high-level API will be more appropriate, and is easier to use. 
 
+Important note about ECP definitions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ECP powers (``u_ns``) are assumed to be including the ``r^2`` from the spherical Jacobian, as is the convention followed with the Stuttgart-Dresden ECPs. In the code, we subtract two from this (see the ECP constructor) as integration is done in Cartesian coordinates. In general, the inputted ``n`` should only ever be 0, 1, or (most commonly) 2. If your ECP definitions are instead -2 or -1, or predominantly 0, that suggests you are following the other convention of not including the Jacobian, so you should add 2. Yes, this is annoying; if in doubt check the built-in ECP library for examples.
+
 High Level API
 ==============
 

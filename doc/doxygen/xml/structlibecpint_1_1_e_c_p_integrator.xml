@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="structlibecpint_1_1_e_c_p_integrator" kind="struct" language="C++" prot="public">
     <compoundname>libecpint::ECPIntegrator</compoundname>
     <includes refid="api_8hpp" local="no">api.hpp</includes>
@@ -10,12 +10,13 @@
         <argsstring></argsstring>
         <name>shells</name>
         <briefdescription>
-<para>a container of the Gaussian basis shells </para>        </briefdescription>
+<para>a container of the Gaussian basis shells </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="58" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="58" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="58" column="13" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_integrator_1a3a6607e0994d29857b8cf9f1976cdde5" prot="public" static="no" mutable="no">
         <type><ref refid="classlibecpint_1_1_e_c_p_basis" kindref="compound">ECPBasis</ref></type>
@@ -23,12 +24,13 @@
         <argsstring></argsstring>
         <name>ecps</name>
         <briefdescription>
-<para>a container for the ECPs </para>        </briefdescription>
+<para>a container for the ECPs </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="59" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="59" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="59" column="10" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_integrator_1ae2533f7a48f4dcb1623d0714848caa91" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="classlibecpint_1_1_e_c_p_integral" kindref="compound">ECPIntegral</ref> &gt;</type>
@@ -36,12 +38,13 @@
         <argsstring></argsstring>
         <name>ecpint</name>
         <briefdescription>
-<para>pointer to the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integral engine </para>        </briefdescription>
+<para>pointer to the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integral engine </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="60" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="60" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="60" column="17" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_integrator_1a808c40100c33f9c6697d3ecbd8932073" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -49,12 +52,13 @@
         <argsstring></argsstring>
         <name>maxLB</name>
         <briefdescription>
-<para>the maximum angular momentum in the gaussian basis, determined by set_gaussian_basis </para>        </briefdescription>
+<para>the maximum angular momentum in the gaussian basis, determined by set_gaussian_basis </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="61" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="61" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="61" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_integrator_1aa44fa6cfb8034ccad41ce1c78bbe924d" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -62,12 +66,13 @@
         <argsstring></argsstring>
         <name>deriv</name>
         <briefdescription>
-<para>maximum derivative order to be calculated (defaults to 0) </para>        </briefdescription>
+<para>maximum derivative order to be calculated (defaults to 0) </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="62" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="62" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="62" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_integrator_1a6ef18fd2dd9e4a4b6990256b4d8a0898" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -75,12 +80,13 @@
         <argsstring></argsstring>
         <name>ncart</name>
         <briefdescription>
-<para>total number of cartesian gaussians in the gaussian basis, determined by set_gaussian_basis </para>        </briefdescription>
+<para>total number of cartesian gaussians in the gaussian basis, determined by set_gaussian_basis </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="63" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="63" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="63" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_integrator_1ad1cd25c9adcb9eddb287337823410229" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -88,12 +94,13 @@
         <argsstring></argsstring>
         <name>natoms</name>
         <briefdescription>
-<para>total number of distinct atoms, determined during init </para>        </briefdescription>
+<para>total number of distinct atoms, determined during init </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="64" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="64" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="64" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="64" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_integrator_1af6de4a68a41bfc279353720ef65391d3" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -101,12 +108,13 @@
         <argsstring></argsstring>
         <name>min_alpha</name>
         <briefdescription>
-<para>the minimum exponent in the gaussian basis </para>        </briefdescription>
+<para>the minimum exponent in the gaussian basis </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="65" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="65" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="65" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_integrator_1ae97cfac274e3cf027fee4c400be4a135" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -114,12 +122,13 @@
         <argsstring></argsstring>
         <name>ecp_is_set</name>
         <briefdescription>
-<para>true if the ecp basis has been set, false by default </para>        </briefdescription>
+<para>true if the ecp basis has been set, false by default </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="67" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="67" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="67" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="67" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_integrator_1a0d3ba3a248daee1e500b5904e1e97884" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -127,12 +136,13 @@
         <argsstring></argsstring>
         <name>basis_is_set</name>
         <briefdescription>
-<para>true if the gaussian basis has been set, false by default </para>        </briefdescription>
+<para>true if the gaussian basis has been set, false by default </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="68" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="68" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="68" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="68" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_integrator_1aae57803f1ae262344dcce39efd824a0f" prot="public" static="no" mutable="no">
         <type><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref>&lt; double &gt;</type>
@@ -142,10 +152,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Container for the calculated <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrals, in canonical Cartesian order i.e. for L=2 : {x^2, xy, xz, y^2, yz, z^2} </para>        </detaileddescription>
+<para>Container for the calculated <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrals, in canonical Cartesian order i.e. for L=2 : {x^2, xy, xz, y^2, yz, z^2} </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="73" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="73" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="73" column="10" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_integrator_1a8ea15ec1778be6d751557260c7140e9d" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref>&lt; double &gt; &gt;</type>
@@ -155,10 +166,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Container for the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> 1st derivatives, matrices are in same order as integrals, order in the vector is {Ax, Ay, Az, Bx, By, Bz, ... } where atom order {A, B, C, ...} is the same as provided when calling set_gaussian_basis. Total length is 3*natoms </para>        </detaileddescription>
+<para>Container for the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> 1st derivatives, matrices are in same order as integrals, order in the vector is {Ax, Ay, Az, Bx, By, Bz, ... } where atom order {A, B, C, ...} is the same as provided when calling set_gaussian_basis. Total length is 3*natoms </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="79" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="79" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="79" column="13" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="79" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_integrator_1a9774436a43b703d14a06dfb03b87c387" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex</ref>&lt; double &gt; &gt;</type>
@@ -168,10 +180,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Container for the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> 2nd derivatives, matrices are in same order as integrals, order in the vector is {AA, AB, AC, ..., BB, BC, ..., CC, ...} where atom order {A, B, C, ...} is the same as provided when calling set_gaussian_basis. The coordinate order within this is {xx, xy, xz, yy, yz, zz} for AA, BB, CC, etc. and {xx, xy, xz, yx, yy, yz, zx, zy, zz} for AB, AC, BC, etc. Total length is therefore: 3*natoms*(3*natoms+1)/2 </para>        </detaileddescription>
+<para>Container for the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> 2nd derivatives, matrices are in same order as integrals, order in the vector is {AA, AB, AC, ..., BB, BC, ..., CC, ...} where atom order {A, B, C, ...} is the same as provided when calling set_gaussian_basis. The coordinate order within this is {xx, xy, xz, yy, yz, zz} for AA, BB, CC, etc. and {xx, xy, xz, yx, yy, yz, zx, zy, zz} for AB, AC, BC, etc. Total length is therefore: 3*natoms*(3*natoms+1)/2 </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="88" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="88" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="88" column="13" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="88" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -183,322 +196,357 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default constructor, sets default values </para>        </detaileddescription>
+<para>Default constructor, sets default values </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="92" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="92" bodyend="92"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="92" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="92" bodyend="92"/>
       </memberdef>
-      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a8443f995b5cd9fe78d4411ec1a856a51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1afe65e333e1269977c51b9e6a0bea7504" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void libecpint::ECPIntegrator::set_gaussian_basis</definition>
-        <argsstring>(int nshells, double *coords, double *exponents, double *coefs, int *ams, int *shell_lengths)</argsstring>
+        <argsstring>(int nshells, const double *coords, const double *exponents, const double *coefs, const int *ams, const int *shell_lengths)</argsstring>
         <name>set_gaussian_basis</name>
         <param>
           <type>int</type>
           <declname>nshells</declname>
         </param>
         <param>
-          <type>double *</type>
+          <type>const double *</type>
           <declname>coords</declname>
         </param>
         <param>
-          <type>double *</type>
+          <type>const double *</type>
           <declname>exponents</declname>
         </param>
         <param>
-          <type>double *</type>
+          <type>const double *</type>
           <declname>coefs</declname>
         </param>
         <param>
-          <type>int *</type>
+          <type>const int *</type>
           <declname>ams</declname>
         </param>
         <param>
-          <type>int *</type>
+          <type>const int *</type>
           <declname>shell_lengths</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructs a basis set of <ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> objects from a stream of coordinates, exponents, coefficients, and angular momenta. Determines maxLB and ncart, and sets basis_is_set to true. The order of the atoms in coords determines the order of atoms in computed derivatives.</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructs a basis set of <ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> objects from a stream of coordinates, exponents, coefficients, and angular momenta. Determines maxLB and ncart, and sets basis_is_set to true. The order of the atoms in coords determines the order of atoms in computed derivatives.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>nshells</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the number of angular momentum shells in the basis </para></parameterdescription>
+<para>- the number of angular momentum shells in the basis </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>coords</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- a stream of cartesian coordinates (in bohr) in xyz order for each shell (size should be 3*nshells) </para></parameterdescription>
+<para>- a stream of cartesian coordinates (in bohr) in xyz order for each shell (size should be 3*nshells) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>exponents</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- a stream of primitive exponents for each shell (size should be sum of shell_lengths) </para></parameterdescription>
+<para>- a stream of primitive exponents for each shell (size should be sum of shell_lengths) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>coefs</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- a stream of coefficients corresponding to each exponent in exponents </para></parameterdescription>
+<para>- a stream of coefficients corresponding to each exponent in exponents </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>ams</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the angular momentum of each shell (size should be nshells) </para></parameterdescription>
+<para>- the angular momentum of each shell (size should be nshells) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>shell_lengths</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the number of primitives in each shell (size should be nshells) </para></parameterdescription>
+<para>- the number of primitives in each shell (size should be nshells) </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="105" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp" bodystart="33" bodyend="49"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="105" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="33" bodyend="50"/>
       </memberdef>
-      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1ad896e1d1a7b10241101cd9821ec0941a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1aae5464183e60a6d900080c901a9d5b7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void libecpint::ECPIntegrator::set_ecp_basis</definition>
-        <argsstring>(int necps, double *coords, double *exponents, double *coefs, int *ams, int *ns, int *shell_lengths)</argsstring>
+        <argsstring>(int necps, const double *coords, const double *exponents, const double *coefs, const int *ams, const int *ns, const int *shell_lengths)</argsstring>
         <name>set_ecp_basis</name>
         <param>
           <type>int</type>
           <declname>necps</declname>
         </param>
         <param>
-          <type>double *</type>
+          <type>const double *</type>
           <declname>coords</declname>
         </param>
         <param>
-          <type>double *</type>
+          <type>const double *</type>
           <declname>exponents</declname>
         </param>
         <param>
-          <type>double *</type>
+          <type>const double *</type>
           <declname>coefs</declname>
         </param>
         <param>
-          <type>int *</type>
+          <type>const int *</type>
           <declname>ams</declname>
         </param>
         <param>
-          <type>int *</type>
+          <type>const int *</type>
           <declname>ns</declname>
         </param>
         <param>
-          <type>int *</type>
+          <type>const int *</type>
           <declname>shell_lengths</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructs an <ref refid="classlibecpint_1_1_e_c_p_basis" kindref="compound">ECPBasis</ref> with <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> objects for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> from streams of data. Determines maxLU. The order of the atoms doesn&apos;t matter, and ids will be matched to the order from set_gaussian_basis.</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructs an <ref refid="classlibecpint_1_1_e_c_p_basis" kindref="compound">ECPBasis</ref> with <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> objects for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> from streams of data. Determines maxLU. The order of the atoms doesn&apos;t matter, and ids will be matched to the order from set_gaussian_basis.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>necps</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the number of ECPs </para></parameterdescription>
+<para>- the number of ECPs </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>coords</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- a stream of cartesian coordinates (in bohr) in xyz order for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> (size should be 3*necps) </para></parameterdescription>
+<para>- a stream of cartesian coordinates (in bohr) in xyz order for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> (size should be 3*necps) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>exponents</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- a stream of primitive exponents for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> (size should be sum of shell_lengths) </para></parameterdescription>
+<para>- a stream of primitive exponents for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> (size should be sum of shell_lengths) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>coefs</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- a stream of coefficients corresponding to each exponent in exponents </para></parameterdescription>
+<para>- a stream of coefficients corresponding to each exponent in exponents </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>ams</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the angular momentum of each primitive in exponents/coefs </para></parameterdescription>
+<para>- the angular momentum of each primitive in exponents/coefs </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>ns</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the order of r multiplying each primitive - we follow the convention where 2 is the default </para></parameterdescription>
+<para>- the order of r multiplying each primitive - we follow the convention where 2 is the default <linebreak/>
+ </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>shell_lengths</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the number of primitives in each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> (size should be necps) </para></parameterdescription>
+<para>- the number of primitives in each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> (size should be necps) </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="118" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp" bodystart="51" bodyend="63"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="118" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="52" bodyend="65"/>
       </memberdef>
-      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1aecd808f33158c201e5ff5632eba11788" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a3e7ab8064d532345d5b2f2c5ae14b85a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void libecpint::ECPIntegrator::set_ecp_basis_from_library</definition>
-        <argsstring>(int necps, double *coords, int *charges, std::vector&lt; std::string &gt; names, std::string share_dir)</argsstring>
+        <argsstring>(int necps, const double *coords, const int *charges, const std::vector&lt; std::string &gt; &amp;names, const std::string &amp;share_dir)</argsstring>
         <name>set_ecp_basis_from_library</name>
         <param>
           <type>int</type>
           <declname>necps</declname>
         </param>
         <param>
-          <type>double *</type>
+          <type>const double *</type>
           <declname>coords</declname>
         </param>
         <param>
-          <type>int *</type>
+          <type>const int *</type>
           <declname>charges</declname>
         </param>
         <param>
-          <type>std::vector&lt; std::string &gt;</type>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
           <declname>names</declname>
         </param>
         <param>
-          <type>std::string</type>
+          <type>const std::string &amp;</type>
           <declname>share_dir</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructs an <ref refid="classlibecpint_1_1_e_c_p_basis" kindref="compound">ECPBasis</ref> with <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> objects for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref>, from the built-in <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> library. The order of the atoms doesn&apos;t matter, and ids will be matched to the order from set_gaussian_basis. It will search for the file &quot;share_dir + / + name + .xml&quot;</para><para><parameterlist kind="param"><parameteritem>
+<para>Constructs an <ref refid="classlibecpint_1_1_e_c_p_basis" kindref="compound">ECPBasis</ref> with <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> objects for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref>, from the built-in <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> library. The order of the atoms doesn&apos;t matter, and ids will be matched to the order from set_gaussian_basis. It will search for the file &quot;share_dir + / + name + .xml&quot; <linebreak/>
+</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>necps</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the number of ECPs </para></parameterdescription>
+<para>- the number of ECPs </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>coords</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- a stream of cartesian coordinates (in bohr) in xyz order for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> (size should be 3*necps) </para></parameterdescription>
+<para>- a stream of cartesian coordinates (in bohr) in xyz order for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> (size should be 3*necps) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>charges</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the atomic numbers of each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> atom (in same order as coords, size necps) </para></parameterdescription>
+<para>- the atomic numbers of each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> atom (in same order as coords, size necps) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>names</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the name of each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref>, in same order as charges, e.g. &quot;ecp10mdf&quot; (size necps) </para></parameterdescription>
+<para>- the name of each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref>, in same order as charges, e.g. &quot;ecp10mdf&quot; (size necps) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>share_dir</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the location of the share directory with the ecp library (typically &quot;PATH/share/libecpint/xml&quot;) </para></parameterdescription>
+<para>- the location of the share directory with the ecp library (typically &quot;PATH/share/libecpint/xml&quot;) </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="130" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp" bodystart="65" bodyend="73"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="130" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="67" bodyend="76"/>
       </memberdef>
-      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a24b0fd76ee4d00d26335360e3fb7934b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a24c4f1a1c4edb03d7cc6ffa46cc8bb83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void libecpint::ECPIntegrator::update_gaussian_basis_coords</definition>
-        <argsstring>(int nshells, double *coords)</argsstring>
+        <argsstring>(int nshells, const double *coords)</argsstring>
         <name>update_gaussian_basis_coords</name>
         <param>
           <type>int</type>
           <declname>nshells</declname>
         </param>
         <param>
-          <type>double *</type>
+          <type>const double *</type>
           <declname>coords</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Updates the positions of the GaussianShells. The order of the coordinates must match that when originally specified in set_gaussian_basis.</para><para><parameterlist kind="param"><parameteritem>
+<para>Updates the positions of the GaussianShells. The order of the coordinates must match that when originally specified in set_gaussian_basis.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>nshells</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the number of angular momentum shells in the basis - must match nshells from set_gaussian_basis </para></parameterdescription>
+<para>- the number of angular momentum shells in the basis - must match nshells from set_gaussian_basis </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>coords</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- a stream of cartesian coordinates (in bohr) in xyz order for each shell (size should be 3*nshells) </para></parameterdescription>
+<para>- a stream of cartesian coordinates (in bohr) in xyz order for each shell (size should be 3*nshells) </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="138" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp" bodystart="75" bodyend="83"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="138" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="78" bodyend="86"/>
       </memberdef>
-      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1aa5b74859aabb89898bda4dc8065cae54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a87f44a065e7522b385c1486d618f7d6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void libecpint::ECPIntegrator::update_ecp_basis_coords</definition>
-        <argsstring>(int necps, double *coords)</argsstring>
+        <argsstring>(int necps, const double *coords)</argsstring>
         <name>update_ecp_basis_coords</name>
         <param>
           <type>int</type>
           <declname>necps</declname>
         </param>
         <param>
-          <type>double *</type>
+          <type>const double *</type>
           <declname>coords</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Updates the positions of the ECPs The order of the coordinates must match that when originally specified in set_ecp_basis/set_ecp_basis_from_library</para><para><parameterlist kind="param"><parameteritem>
+<para>Updates the positions of the ECPs The order of the coordinates must match that when originally specified in set_ecp_basis/set_ecp_basis_from_library</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>necps</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the number of ECPs </para></parameterdescription>
+<para>- the number of ECPs </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>coords</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- a stream of cartesian coordinates (in bohr) in xyz order for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> (size should be 3*necps) </para></parameterdescription>
+<para>- a stream of cartesian coordinates (in bohr) in xyz order for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> (size should be 3*necps) </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="146" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp" bodystart="85" bodyend="90"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="146" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="88" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1af1c1b928e3ec5835f77fb45dc763a6ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -513,18 +561,21 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Initialises the <ref refid="classlibecpint_1_1_e_c_p_integral" kindref="compound">ECPIntegral</ref> object, and determines the atom ids for each <ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> and <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref>. This must be called AFTER the ECP/Gaussian bases are set, but BEFORE calling any of the compute functions.</para><para><parameterlist kind="param"><parameteritem>
+<para>Initialises the <ref refid="classlibecpint_1_1_e_c_p_integral" kindref="compound">ECPIntegral</ref> object, and determines the atom ids for each <ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref> and <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref>. This must be called AFTER the ECP/Gaussian bases are set, but BEFORE calling any of the compute functions.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>deriv_</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the maximum derivative order to be computed; affects whether compute_first/second_derivs can be called; default 0 </para></parameterdescription>
+<para>- the maximum derivative order to be computed; affects whether compute_first/second_derivs can be called; default 0 </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="153" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp" bodystart="92" bodyend="141"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="153" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="95" bodyend="144"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a976359474d2e8e171f47a8fc7cf7cd79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -534,10 +585,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Computes the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrals across all shell pairs, returning the results into the integrals matrix. The order of the shells is canonical cartesian order, and matches the order in which the shells were specified in set_gaussian_basis. </para>        </detaileddescription>
+<para>Computes the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrals across all shell pairs, returning the results into the integrals matrix. The order of the shells is canonical cartesian order, and matches the order in which the shells were specified in set_gaussian_basis. </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="159" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp" bodystart="160" bodyend="222"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="159" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="163" bodyend="225"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a21c6c8925b7e17761f2960e1145c8589" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -547,10 +599,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Computes the first derivative of the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrals with respect to each atomic coordinate, placing the results in first_derivs. The atom order matches that specified in set_gaussian_basis, in xyz order. </para>        </detaileddescription>
+<para>Computes the first derivative of the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrals with respect to each atomic coordinate, placing the results in first_derivs. The atom order matches that specified in set_gaussian_basis, in xyz order. </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="164" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp" bodystart="224" bodyend="276"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="164" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="227" bodyend="279"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a305804a9bbc02bedfe95b7557c4b0b8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -560,10 +613,12 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Computes the second derivative of the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrals with respect to each pair of atomic coordinates, but taking into account symmetry of second derivatives. The atom order matches that specified in set_gaussian_basis. See the docs for second_derivs for detailed description of the order. </para>        </detaileddescription>
+<para>Computes the second derivative of the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrals with respect to each pair of atomic coordinates, <linebreak/>
+ but taking into account symmetry of second derivatives. The atom order matches that specified in set_gaussian_basis. See the docs for second_derivs for detailed description of the order. </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="170" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp" bodystart="278" bodyend="446"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="170" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="281" bodyend="449"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a13c17ee1abc0f2a235d7d105ceea90a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::shared_ptr&lt; std::vector&lt; double &gt; &gt;</type>
@@ -573,11 +628,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>a shared pointer to the underlying data for integrals The packing is such that M(i, j) = i*ncart + j. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>a shared pointer to the underlying data for integrals The packing is such that M(i, j) = i*ncart + j. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="175" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="175" bodyend="175"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="175" column="17" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="175" bodyend="175"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a5e2237df9afff5f3c897afd64a2b7817" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::vector&lt; std::shared_ptr&lt; std::vector&lt; double &gt; &gt; &gt;</type>
@@ -587,11 +644,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>a vector (size 3*natoms) of shared pointers to the data for first_derivs the packing is the same as for get_integrals, and the order is Ax,Ay,Az,Bx,By,Bz, etc. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>a vector (size 3*natoms) of shared pointers to the data for first_derivs the packing is the same as for get_integrals, and the order is Ax,Ay,Az,Bx,By,Bz, etc. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="180" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="180" bodyend="184"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="180" column="13" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="180" bodyend="184"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a6f48f98e09ce42b688d68a02f660f1ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::vector&lt; std::shared_ptr&lt; std::vector&lt; double &gt; &gt; &gt;</type>
@@ -601,115 +660,187 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>a vector (size 3*natoms*(3*natoms+1)/2) of shared pointers to the data for second_derivs the packing is the same as for get_integrals, and the order is that specified in the docs for second_derivs </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>a vector (size 3*natoms*(3*natoms+1)/2) of shared pointers to the data for second_derivs the packing is the same as for get_integrals, and the order is that specified in the docs for second_derivs </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="189" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="189" bodyend="193"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="189" column="13" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="189" bodyend="193"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>API object that stores and handles all data for computing <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrals and their derivatives. </para>    </briefdescription>
+<para>API object that stores and handles all data for computing <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> integrals and their derivatives. </para>
+    </briefdescription>
     <detaileddescription>
-<para>This is a higher level interface than directly using the <ref refid="classlibecpint_1_1_e_c_p_integral" kindref="compound">ECPIntegral</ref> objects to calculate individual integrals. To use it, you follow these steps: 1) specify the gaussian basis 2) specify the ecp basis (either as a stream or from the library) 3) initialise the integrator, specifying derivative order 4) compute the desired quantities</para><para>The order of results follows the order of the atoms/basis functions as you specify them in steps 1 and 2. If you update the positions of your atoms at any point you must update them through this interface. Results are obtained as a pointer to a stream of data. </para>    </detaileddescription>
+<para>This is a higher level interface than directly using the <ref refid="classlibecpint_1_1_e_c_p_integral" kindref="compound">ECPIntegral</ref> objects to calculate individual integrals. To use it, you follow these steps: 1) specify the gaussian basis 2) specify the ecp basis (either as a stream or from the library) 3) initialise the integrator, specifying derivative order 4) compute the desired quantities</para>
+<para>The order of results follows the order of the atoms/basis functions as you specify them in steps 1 and 2. If you update the positions of your atoms at any point you must update them through this interface. Results are obtained as a pointer to a stream of data. </para>
+    </detaileddescription>
     <collaborationgraph>
-      <node id="33">
+      <node id="2">
         <label>libecpint::TwoIndex&lt; double &gt;</label>
         <link refid="structlibecpint_1_1_two_index"/>
-        <childnode refid="34" relation="usage">
+        <childnode refid="3" relation="usage">
           <edgelabel>data</edgelabel>
         </childnode>
       </node>
-      <node id="39">
+      <node id="16">
         <label>libecpint::ECP</label>
         <link refid="structlibecpint_1_1_e_c_p"/>
-        <childnode refid="40" relation="usage">
+        <childnode refid="17" relation="usage">
           <edgelabel>center_</edgelabel>
         </childnode>
-        <childnode refid="41" relation="usage">
+        <childnode refid="18" relation="usage">
           <edgelabel>gaussians</edgelabel>
         </childnode>
       </node>
-      <node id="34">
+      <node id="3">
         <label>std::vector&lt; double &gt;</label>
       </node>
-      <node id="45">
+      <node id="22">
         <label>libecpint::GaussianShell</label>
         <link refid="structlibecpint_1_1_gaussian_shell"/>
-        <childnode refid="34" relation="usage">
-          <edgelabel>exps</edgelabel>
+        <childnode refid="3" relation="usage">
           <edgelabel>coeffs</edgelabel>
+          <edgelabel>exps</edgelabel>
         </childnode>
       </node>
-      <node id="32">
+      <node id="11">
+        <label>libecpint::BesselFunction</label>
+        <link refid="classlibecpint_1_1_bessel_function"/>
+      </node>
+      <node id="9">
+        <label>libecpint::FiveIndex&lt; double &gt;</label>
+        <link refid="structlibecpint_1_1_five_index"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
         <label>libecpint::ECPIntegrator</label>
         <link refid="structlibecpint_1_1_e_c_p_integrator"/>
-        <childnode refid="33" relation="usage">
+        <childnode refid="2" relation="usage">
           <edgelabel>integrals</edgelabel>
         </childnode>
-        <childnode refid="35" relation="usage">
-          <edgelabel>second_derivs</edgelabel>
+        <childnode refid="4" relation="usage">
           <edgelabel>first_derivs</edgelabel>
+          <edgelabel>second_derivs</edgelabel>
         </childnode>
-        <childnode refid="36" relation="usage">
+        <childnode refid="5" relation="usage">
+          <edgelabel>ecpint</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
           <edgelabel>ecps</edgelabel>
         </childnode>
-        <childnode refid="44" relation="usage">
+        <childnode refid="21" relation="usage">
           <edgelabel>shells</edgelabel>
         </childnode>
       </node>
-      <node id="37">
+      <node id="14">
         <label>std::map&lt; int, int &gt;</label>
       </node>
-      <node id="41">
+      <node id="18">
         <label>std::vector&lt; libecpint::GaussianECP &gt;</label>
-        <childnode refid="42" relation="usage">
+        <childnode refid="19" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="40">
+      <node id="10">
+        <label>libecpint::RadialIntegral</label>
+        <link refid="classlibecpint_1_1_radial_integral"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>bessie</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>bigGrid</edgelabel>
+          <edgelabel>primGrid</edgelabel>
+          <edgelabel>smallGrid</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
         <label>std::array&lt; double, 3 &gt;</label>
       </node>
-      <node id="35">
+      <node id="4">
         <label>std::vector&lt; libecpint::TwoIndex&lt; double &gt; &gt;</label>
-        <childnode refid="33" relation="usage">
+        <childnode refid="2" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="42">
+      <node id="5">
+        <label>std::shared_ptr&lt; libecpint::ECPIntegral &gt;</label>
+        <childnode refid="6" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>libecpint::AngularIntegral</label>
+        <link refid="classlibecpint_1_1_angular_integral"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>omega</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>W</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
         <label>libecpint::GaussianECP</label>
         <link refid="structlibecpint_1_1_gaussian_e_c_p"/>
       </node>
-      <node id="36">
+      <node id="13">
         <label>libecpint::ECPBasis</label>
         <link refid="classlibecpint_1_1_e_c_p_basis"/>
-        <childnode refid="37" relation="usage">
+        <childnode refid="14" relation="usage">
           <edgelabel>core_electrons</edgelabel>
         </childnode>
-        <childnode refid="38" relation="usage">
+        <childnode refid="15" relation="usage">
           <edgelabel>basis</edgelabel>
         </childnode>
-        <childnode refid="43" relation="usage">
+        <childnode refid="20" relation="usage">
           <edgelabel>atomList</edgelabel>
         </childnode>
       </node>
-      <node id="44">
+      <node id="6">
+        <label>libecpint::ECPIntegral</label>
+        <link refid="classlibecpint_1_1_e_c_p_integral"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>angInts</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>radInts</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
         <label>std::vector&lt; libecpint::GaussianShell &gt;</label>
-        <childnode refid="45" relation="usage">
+        <childnode refid="22" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="43">
+      <node id="8">
+        <label>libecpint::SevenIndex&lt; double &gt;</label>
+        <link refid="structlibecpint_1_1_seven_index"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="20">
         <label>std::vector&lt; int &gt;</label>
       </node>
-      <node id="38">
+      <node id="15">
         <label>std::vector&lt; libecpint::ECP &gt;</label>
-        <childnode refid="39" relation="usage">
+        <childnode refid="16" relation="usage">
           <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>libecpint::GCQuadrature</label>
+        <link refid="classlibecpint_1_1_g_c_quadrature"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>w</edgelabel>
+          <edgelabel>x</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" line="57" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp" bodystart="57" bodyend="194"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="57" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="57" bodyend="194"/>
     <listofallmembers>
       <member refid="structlibecpint_1_1_e_c_p_integrator_1a0d3ba3a248daee1e500b5904e1e97884" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>basis_is_set</name></member>
       <member refid="structlibecpint_1_1_e_c_p_integrator_1a21c6c8925b7e17761f2960e1145c8589" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>compute_first_derivs</name></member>
@@ -731,12 +862,12 @@
       <member refid="structlibecpint_1_1_e_c_p_integrator_1ad1cd25c9adcb9eddb287337823410229" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>natoms</name></member>
       <member refid="structlibecpint_1_1_e_c_p_integrator_1a6ef18fd2dd9e4a4b6990256b4d8a0898" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>ncart</name></member>
       <member refid="structlibecpint_1_1_e_c_p_integrator_1a9774436a43b703d14a06dfb03b87c387" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>second_derivs</name></member>
-      <member refid="structlibecpint_1_1_e_c_p_integrator_1ad896e1d1a7b10241101cd9821ec0941a" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>set_ecp_basis</name></member>
-      <member refid="structlibecpint_1_1_e_c_p_integrator_1aecd808f33158c201e5ff5632eba11788" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>set_ecp_basis_from_library</name></member>
-      <member refid="structlibecpint_1_1_e_c_p_integrator_1a8443f995b5cd9fe78d4411ec1a856a51" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>set_gaussian_basis</name></member>
+      <member refid="structlibecpint_1_1_e_c_p_integrator_1aae5464183e60a6d900080c901a9d5b7c" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>set_ecp_basis</name></member>
+      <member refid="structlibecpint_1_1_e_c_p_integrator_1a3e7ab8064d532345d5b2f2c5ae14b85a" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>set_ecp_basis_from_library</name></member>
+      <member refid="structlibecpint_1_1_e_c_p_integrator_1afe65e333e1269977c51b9e6a0bea7504" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>set_gaussian_basis</name></member>
       <member refid="structlibecpint_1_1_e_c_p_integrator_1ac02c7727c7d543075c20c01a700a2013" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>shells</name></member>
-      <member refid="structlibecpint_1_1_e_c_p_integrator_1aa5b74859aabb89898bda4dc8065cae54" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>update_ecp_basis_coords</name></member>
-      <member refid="structlibecpint_1_1_e_c_p_integrator_1a24b0fd76ee4d00d26335360e3fb7934b" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>update_gaussian_basis_coords</name></member>
+      <member refid="structlibecpint_1_1_e_c_p_integrator_1a87f44a065e7522b385c1486d618f7d6d" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>update_ecp_basis_coords</name></member>
+      <member refid="structlibecpint_1_1_e_c_p_integrator_1a24c4f1a1c4edb03d7cc6ffa46cc8bb83" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>update_gaussian_basis_coords</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

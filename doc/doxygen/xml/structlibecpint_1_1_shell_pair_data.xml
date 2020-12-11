@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="structlibecpint_1_1_shell_pair_data" kind="class" language="C++" prot="public">
     <compoundname>libecpint::ShellPairData</compoundname>
     <includes refid="gshell_8hpp" local="no">gshell.hpp</includes>
@@ -10,12 +10,13 @@
         <argsstring></argsstring>
         <name>LA</name>
         <briefdescription>
-<para>Angular momentum of shellA, shifted if deriv &gt; 0. </para>        </briefdescription>
+<para>Angular momentum of shellA, shifted if deriv &gt; 0. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="140" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="140" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="140" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="140" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1ac5e107efbf69f950bb7e0bf70df1e1fc" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -23,12 +24,13 @@
         <argsstring></argsstring>
         <name>LB</name>
         <briefdescription>
-<para>Angular momentum of shellB, shifted if deriv &gt; 0. </para>        </briefdescription>
+<para>Angular momentum of shellB, shifted if deriv &gt; 0. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="141" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="141" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="141" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="141" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1ab98896b5598353c208092f517f500fc9" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -36,12 +38,13 @@
         <argsstring></argsstring>
         <name>maxLBasis</name>
         <briefdescription>
-<para>Maximum angular momentum in the orbital basis. </para>        </briefdescription>
+<para>Maximum angular momentum in the orbital basis. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="142" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="142" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="142" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="142" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1a94ebbd7fee35f60f77492663e13e715f" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -49,12 +52,13 @@
         <argsstring></argsstring>
         <name>ncartA</name>
         <briefdescription>
-<para>No. of cartesian BFs in shellA. </para>        </briefdescription>
+<para>No. of cartesian BFs in shellA. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="143" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="143" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="143" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="143" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1a7375bb4a1a452df895172f9731c8fa32" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -62,12 +66,14 @@
         <argsstring></argsstring>
         <name>ncartB</name>
         <briefdescription>
-<para>No. of cartesian BFs in shellB. </para>        </briefdescription>
+<para>No. of cartesian BFs in shellB <linebreak/>
+ </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="144" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="144" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="144" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="144" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1ac43603240b081b43b4f512d1b1acc31a" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -75,12 +81,13 @@
         <argsstring>[3]</argsstring>
         <name>A</name>
         <briefdescription>
-<para>xyz coords of shellA relative to <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para>        </briefdescription>
+<para>xyz coords of shellA relative to <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="145" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="145" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="145" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="145" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1a20bca75c83dc42e380791903c829afce" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -88,12 +95,13 @@
         <argsstring>[3]</argsstring>
         <name>B</name>
         <briefdescription>
-<para>xyz coords of shellB relative to <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para>        </briefdescription>
+<para>xyz coords of shellB relative to <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="146" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="146" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="146" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="146" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1a84c698aa2367eabcef0b4317c69f5a42" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -101,12 +109,13 @@
         <argsstring></argsstring>
         <name>A2</name>
         <briefdescription>
-<para>Square of distance from <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> to shellA. </para>        </briefdescription>
+<para>Square of distance from <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> to shellA. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="147" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="147" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="147" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="147" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1a1fc38f370c8ff674e6cfeefeaf975088" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -114,12 +123,13 @@
         <argsstring></argsstring>
         <name>Am</name>
         <briefdescription>
-<para>Magnitude of distance from <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> to shellA. </para>        </briefdescription>
+<para>Magnitude of distance from <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> to shellA. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="148" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="148" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="148" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="148" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1a9600ebca9c4bcc09c6fdae223ec9fb09" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -127,12 +137,13 @@
         <argsstring></argsstring>
         <name>B2</name>
         <briefdescription>
-<para>Square of distance from <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> to shellB. </para>        </briefdescription>
+<para>Square of distance from <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> to shellB. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="149" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="149" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="149" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="149" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1ac062ca4fde545f74f14601cb6cac1587" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -140,12 +151,13 @@
         <argsstring></argsstring>
         <name>Bm</name>
         <briefdescription>
-<para>Magnitude of distance from <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> to shellB. </para>        </briefdescription>
+<para>Magnitude of distance from <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> to shellB. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="150" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="150" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="150" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="150" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1a3f78ab3a033791dbd8a6cd676c2a904d" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -153,12 +165,13 @@
         <argsstring></argsstring>
         <name>RAB2</name>
         <briefdescription>
-<para>Square of distance between shells A and B. </para>        </briefdescription>
+<para>Square of distance between shells A and B. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="151" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="151" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="151" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="151" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1ab2f6be977b253b7726a8082af3ed00e8" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -166,12 +179,13 @@
         <argsstring></argsstring>
         <name>RABm</name>
         <briefdescription>
-<para>Magnitude of distance between shells A and B. </para>        </briefdescription>
+<para>Magnitude of distance between shells A and B. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="152" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="152" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="152" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="152" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1aac24de62e12b6daa7c5f7280c50c26f0" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -179,12 +193,13 @@
         <argsstring></argsstring>
         <name>A_on_ecp</name>
         <briefdescription>
-<para>True if Am == 0. </para>        </briefdescription>
+<para>True if Am == 0. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="153" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="153" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="153" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="153" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_shell_pair_data_1ad1041f05603bf28fcb8e29074702be18" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -192,19 +207,21 @@
         <argsstring></argsstring>
         <name>B_on_ecp</name>
         <briefdescription>
-<para>True if Bm == 0. </para>        </briefdescription>
+<para>True if Bm == 0. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="154" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="154" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="154" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="154" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Stores the (shifted, for derivs) angular momenta, number of cartesians in a shell pair, and shifted centers. </para>    </briefdescription>
+<para>Stores the (shifted, for derivs) angular momenta, number of cartesians in a shell pair, and shifted centers. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" line="139" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/gshell.hpp" bodystart="139" bodyend="155"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" line="139" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/gshell.hpp" bodystart="139" bodyend="155"/>
     <listofallmembers>
       <member refid="structlibecpint_1_1_shell_pair_data_1ac43603240b081b43b4f512d1b1acc31a" prot="public" virt="non-virtual"><scope>libecpint::ShellPairData</scope><name>A</name></member>
       <member refid="structlibecpint_1_1_shell_pair_data_1a84c698aa2367eabcef0b4317c69f5a42" prot="public" virt="non-virtual"><scope>libecpint::ShellPairData</scope><name>A2</name></member>

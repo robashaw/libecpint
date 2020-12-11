@@ -38,6 +38,8 @@ Classes
 
 - :ref:`exhale_struct_structlibecpint_1_1_gaussian_shell`
 
+- :ref:`exhale_struct_structlibecpint_1_1_radial_integral_1_1_parameters`
+
 - :ref:`exhale_struct_structlibecpint_1_1_seven_index`
 
 - :ref:`exhale_struct_structlibecpint_1_1_sum_term`
@@ -72,7 +74,7 @@ Functions
 
 - :ref:`exhale_function_namespacelibecpint_1a2c6257f0f39de7233558e384908f1526`
 
-- :ref:`exhale_function_namespacelibecpint_1a4c0dd5f75d6fc9b5329c97195b0b5e6c`
+- :ref:`exhale_function_namespacelibecpint_1a16e0a77a3022ff74a1fbb6eccba88c4c`
 
 - :ref:`exhale_function_namespacelibecpint_1a0d3d7448d52abd739d6d100afa6d4e8a`
 
@@ -80,55 +82,55 @@ Functions
 
 - :ref:`exhale_function_namespacelibecpint_1a23ce2cda098d601b0fddfb10b971e33f`
 
-- :ref:`exhale_function_namespacelibecpint_1a34d3b9ccb2d69e977f74ff88524cf856`
+- :ref:`exhale_function_namespacelibecpint_1a321e63264d2ee5ec80e5aa98ab5f2a31`
 
-- :ref:`exhale_function_namespacelibecpint_1a1addfbe82d0601ae0f2392e952e58dda`
+- :ref:`exhale_function_namespacelibecpint_1ab8d8f23abac900581a1b074df5151bfa`
 
-- :ref:`exhale_function_namespacelibecpint_1a8d415487a348138eae566f7b8ee4ce24`
+- :ref:`exhale_function_namespacelibecpint_1a764f6b0f657d4b76cd030593a81f8161`
 
-- :ref:`exhale_function_namespacelibecpint_1aea1a1b36dedb45829a2cdb5ee133b6ca`
+- :ref:`exhale_function_namespacelibecpint_1a17491fad5ad55b86c80bccd068067373`
 
-- :ref:`exhale_function_namespacelibecpint_1a38e7f34b9f4f6181178d70e2d1ebb7df`
+- :ref:`exhale_function_namespacelibecpint_1a274e6578163d01f8c1bd6b24f0f1e061`
 
-- :ref:`exhale_function_namespacelibecpint_1afd6b073b13a5cc8ddb89a4d331dae638`
+- :ref:`exhale_function_namespacelibecpint_1adf95d3c9da1c27fbbbe785fb7d4c3419`
 
-- :ref:`exhale_function_namespacelibecpint_1ad62d70ca1e4137214af96b66ba9e50f8`
+- :ref:`exhale_function_namespacelibecpint_1a12c8c970bff9ab1318e774a4637059fb`
 
-- :ref:`exhale_function_namespacelibecpint_1aad2f9701f24b74e7db5f8d1098b48cf5`
+- :ref:`exhale_function_namespacelibecpint_1a5ebc6e4869b8a3dab9286895629c19fc`
 
-- :ref:`exhale_function_namespacelibecpint_1a250f67b7a3f611c4b8acdd8d90e0bec6`
+- :ref:`exhale_function_namespacelibecpint_1a697a408875eb033819881bc8d5fd3cec`
 
-- :ref:`exhale_function_namespacelibecpint_1aa93c5edc1ed250d59cfb1687865c7af3`
+- :ref:`exhale_function_namespacelibecpint_1a60980f8f3c0f2ce3bfa35d1ab1ffe612`
 
-- :ref:`exhale_function_namespacelibecpint_1a15cb24b7b0a3530c911ff0c782ef3378`
+- :ref:`exhale_function_namespacelibecpint_1a44095a8d0f5ab3e8bf4770a0ecd39a49`
 
-- :ref:`exhale_function_namespacelibecpint_1a02aadabb1b7fceb975aa42706bb2be8d`
+- :ref:`exhale_function_namespacelibecpint_1ad7792ee9315576df3c805d0d0bbb6144`
 
-- :ref:`exhale_function_namespacelibecpint_1a7b6040a6e46c20d2e23b692e0fbffdf7`
+- :ref:`exhale_function_namespacelibecpint_1aeea8f0398e91f9c4c0abc5087c68208a`
 
-- :ref:`exhale_function_namespacelibecpint_1a5d0157ab6282709bcec5e37a841e8fbf`
+- :ref:`exhale_function_namespacelibecpint_1aa2a7bd43b3c7267b69a5a3faa3adf313`
 
-- :ref:`exhale_function_namespacelibecpint_1a61d1d1633673052f4bdf09074343672c`
+- :ref:`exhale_function_namespacelibecpint_1adb6835f6678e044793635ea74137610c`
 
-- :ref:`exhale_function_namespacelibecpint_1abda78a2e83d967ee3da8b2fa7bff6ad0`
+- :ref:`exhale_function_namespacelibecpint_1af1b4030182805b2b87939f0be0bb1f68`
 
-- :ref:`exhale_function_namespacelibecpint_1a86323740854f95e4faa929dc192aea06`
+- :ref:`exhale_function_namespacelibecpint_1ae8e9cac2c5167fee6077b8d5b38c879d`
 
-- :ref:`exhale_function_namespacelibecpint_1a7ecd27cd3ddff36e2a2e0ebeffa3d303`
+- :ref:`exhale_function_namespacelibecpint_1a691287591ae556167f12eef21d9605d3`
 
-- :ref:`exhale_function_namespacelibecpint_1a5bd73223ef2829c4d4e8f1fb68b7bcbb`
+- :ref:`exhale_function_namespacelibecpint_1afc2d0fbd27b79b1cfb7a933a4f8f86af`
 
-- :ref:`exhale_function_namespacelibecpint_1a2419326594e0adba8c22660003cee2ce`
+- :ref:`exhale_function_namespacelibecpint_1aceff25bd00ac616a0c1679c43c757c25`
 
-- :ref:`exhale_function_namespacelibecpint_1ac6cc42cb342d04a07173673b14e59b5c`
+- :ref:`exhale_function_namespacelibecpint_1a125307aa5575e22d32bc381c0ddb598d`
 
-- :ref:`exhale_function_namespacelibecpint_1a36d15d50e1c9979ab73acf66f1019304`
+- :ref:`exhale_function_namespacelibecpint_1af586e0d10f4e89ae23350208eae35381`
 
-- :ref:`exhale_function_namespacelibecpint_1a11466fdaf07952a659fe9ab5cd634743`
+- :ref:`exhale_function_namespacelibecpint_1a3d3ec1164653607a1a2a66e71c160905`
 
-- :ref:`exhale_function_namespacelibecpint_1af2fa15848e7d9cfe1e61fc579a94080d`
+- :ref:`exhale_function_namespacelibecpint_1ac8004320c2b47b1ce75ab1ccfff376e4`
 
-- :ref:`exhale_function_namespacelibecpint_1a544c252dcf08f3ce5560b8066730601c`
+- :ref:`exhale_function_namespacelibecpint_1ad93011f81c46d555725bff0a0fc5aaf6`
 
 
 Typedefs
@@ -164,7 +166,7 @@ Variables
 
 - :ref:`exhale_variable_namespacelibecpint_1a4fc3cf89f4b0b1787baabc364a16e377`
 
-- :ref:`exhale_variable_namespacelibecpint_1a35fea7df6515abbb84fc029150055a28`
+- :ref:`exhale_variable_namespacelibecpint_1a5f751be5271cc840a3025f0e0ee026f2`
 
 - :ref:`exhale_variable_namespacelibecpint_1a190a564f849660c170e298aba2181d0a`
 
@@ -172,14 +174,14 @@ Variables
 
 - :ref:`exhale_variable_namespacelibecpint_1a20c4903045164881b8dedf0d6a6ed0fb`
 
-- :ref:`exhale_variable_namespacelibecpint_1a0084068573b7163775f478479de24255`
+- :ref:`exhale_variable_namespacelibecpint_1a92d5ae635e6e5d78682fd89ce537a7a3`
 
-- :ref:`exhale_variable_namespacelibecpint_1a451c1c2142ac7d2cbf57f3fcba419373`
+- :ref:`exhale_variable_namespacelibecpint_1a32d2ef087e028b702c316bd2875036ec`
 
-- :ref:`exhale_variable_namespacelibecpint_1a6305f5251f77037717df018fd2e56700`
+- :ref:`exhale_variable_namespacelibecpint_1ae8056358eb2736d93b3a78dd1428555c`
 
-- :ref:`exhale_variable_namespacelibecpint_1ae671d7a17c7b2fc7ebf29b27fa266421`
+- :ref:`exhale_variable_namespacelibecpint_1a007003a219fbc1cce6980a389b1013bc`
 
-- :ref:`exhale_variable_namespacelibecpint_1a6d710d758ea6c068b95c21ce439ecb21`
+- :ref:`exhale_variable_namespacelibecpint_1a069479eb4b49ece5f8f9651b5f87c777`
 
-- :ref:`exhale_variable_namespacelibecpint_1a2a771df5ca42d30ffdf70033fbc94770`
+- :ref:`exhale_variable_namespacelibecpint_1a37d6807785ad49c55bbe8b56deab2be8`

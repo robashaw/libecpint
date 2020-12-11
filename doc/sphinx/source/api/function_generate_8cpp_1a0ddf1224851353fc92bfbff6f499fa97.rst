@@ -3,7 +3,7 @@
 Function main
 =============
 
-- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_new_src_generate.cpp`
+- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_src_generate.cpp`
 
 
 Function Documentation

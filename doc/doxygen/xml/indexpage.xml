@@ -1,48 +1,62 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="indexpage" kind="page">
     <compoundname>index</compoundname>
-    <title>Libecpint</title>
+    <title>Libecpint 1.0.2</title>
+    <briefdescription>
+    </briefdescription>
     <detaileddescription>
-<para><ulink url="https://dev.azure.com/robertshaw383/libecpint/_build/latest?definitionId=2&amp;branchName=readecp"></ulink> <ulink url="https://codecov.io/gh/robashaw/libecpint"></ulink></para><para>Libecpint is a C++ library for the efficient evaluation of integrals over ab initio effective core potentials, using a mixture of generated, recursive code and Gauss-Chebyshev quadrature. It is designed to be standalone and generic, but is currently in development and may not be completely stable. If you experience any problems please raise an issue here; contributions and suggestions are also welcome.</para><para><heading level="3">Applications</heading>
-</para><para>This assumes ECPs and basis sets of the form usually seen in electronic structure calculations, namely those expanded in terms of Gaussian functions. The angular momentum of function that can be treated is in theory arbitrary, but is limited by your choice of maximum when the library is built.</para><para><heading level="2">Building and testing</heading>
-</para><para><heading level="3">Dependencies</heading>
-</para><para><itemizedlist>
-<listitem><para>A modern C++ compiler, at least C++11 standard library is required. This has currently only been tested with GCC (6.3.0 and above, but will in theory work with any &gt; 4.9) and clang (9.0.0 and above). Intel compilers have been known to cause issues.</para></listitem><listitem><para>CMake/CTest build tools</para></listitem><listitem><para>Python (2.7 or above, including 3 and higher)</para></listitem></itemizedlist>
-</para><para>Additionally, if you wish to regenerate the radial code (see below), Python3 is required with numpy and sympy.</para><para><heading level="3">Build instructions</heading>
-</para><para>To build the library, fork the repo locally and do the following in the top of the source tree (out-of-source build is required!):</para><para><programlisting><codeline><highlight class="normal">mkdir<sp/>build</highlight></codeline>
-<codeline><highlight class="normal">cd<sp/>build</highlight></codeline>
-<codeline><highlight class="normal">cmake<sp/>[options]<sp/>..</highlight></codeline>
-<codeline><highlight class="normal">make<sp/>[-jn]</highlight></codeline>
-</programlisting></para><para>The <computeroutput>-jn</computeroutput> flag tells make to use <computeroutput>n</computeroutput> threads while compiling (e.g. <computeroutput>-j4</computeroutput> would use four threads), and is highly recommended if your computer can cope, as the generated code files can all be compiled independently of one another.</para><para>The options after cmake above can be included using the syntax <computeroutput>-DOPTION=value</computeroutput>. The pertinent options are as follows:<itemizedlist>
-<listitem><para><computeroutput>LIBECPINT_MAX_L</computeroutput> = the maximum angular momentum (in both orbital and ECP basis) required. The default is 5 (i.e. h-type functions), but this can easily be increased. Note that the higher this value, the longer the code generation will take (especially if optimization flags have not been added - see below), but it will not greatly affect compilation time.</para></listitem><listitem><para><computeroutput>CMAKE_CXX_FLAGS</computeroutput> = any additional flags to be passed to the compiler. It is <emphasis>strongly recommended</emphasis> that you provide optimization flags, e.g. at least <computeroutput>-O2</computeroutput> if not <computeroutput>-O3</computeroutput> for gcc/clang.</para></listitem><listitem><para><computeroutput>LIBECPINT_MAX_UNROL</computeroutput> = the maximum angular momentum for which the whole integral is unrolled. The default is 2. It is <emphasis>strongly recommended</emphasis> that you do not increase this past 4, as the compilation time and file sizes increase significantly. For reference, the following table gives compilation times and max. file sizes with <computeroutput>-O3</computeroutput> optimization flags and GCC 6.3.0:</para></listitem></itemizedlist>
-</para><para><table rows="5" cols="3"><row>
-<entry thead="yes"><para>LIBECPINT_MAX_UNROL </para></entry><entry thead="yes"><para>Compilation time (minutes) </para></entry><entry thead="yes"><para>Max. file size (MB)  </para></entry></row>
-<row>
-<entry thead="no"><para>1 </para></entry><entry thead="no"><para>2 </para></entry><entry thead="no"><para>0.02 </para></entry></row>
-<row>
-<entry thead="no"><para>2 </para></entry><entry thead="no"><para>10 </para></entry><entry thead="no"><para>1.0 </para></entry></row>
-<row>
-<entry thead="no"><para>3 </para></entry><entry thead="no"><para>54 </para></entry><entry thead="no"><para>24.1 </para></entry></row>
-<row>
-<entry thead="no"><para>4 </para></entry><entry thead="no"><para>191 </para></entry><entry thead="no"><para>556.2 </para></entry></row>
-</table>
-</para><para><heading level="3">Testing and installation</heading>
-</para><para>To test and install the build, do <programlisting><codeline><highlight class="normal">make<sp/>test</highlight></codeline>
-<codeline><highlight class="normal">make<sp/>install</highlight></codeline>
-</programlisting></para><para><heading level="2">Documentation</heading>
-</para><para>Code documentation can be generated using doxygen in the folder <computeroutput>doc/doxygen</computeroutput>. Examples of how to use the library can be found in the <computeroutput>tests</computeroutput> directory.</para><para>The usage documentation is currently spare and under development - apologies, we hope to rectify this soon, along with providing a better API!</para><para><heading level="2">Performance</heading>
-</para><para>The angular momenta that have been fully unrolled will evaluate very rapidly, but the higher angular momenta will be noticeably slower. We are currently looking at ways to reduce this cost, but as these only make up a very small amount of the total number of integrals (which in turn are only a fraction of the total computation time in an actual calculation), it is very unlikely the ECP integrals will ever become a bottleneck.</para><para><heading level="2">Acknowledging usage</heading>
-</para><para>If you use this library in your program and find it helpful, that&apos;s great! Any feedback would be much appreciated. If you publish results using this library, please consider citing the following paper detailing the implementation:</para><para>R. A. Shaw, J. G. Hill, J. Chem. Phys. 147, 074108 (2017); doi: <ulink url="http://dx.doi.org/10.1063/1.4986887">10.1063/1.4986887</ulink></para><para>A full bibtex citation can be found in CITATION in the main directory.</para><para><heading level="2">Work in progress</heading>
-</para><para><heading level="3">Currently in the development version but not yet stable</heading>
-</para><para><itemizedlist>
-<listitem><para>First and second derivatives</para></listitem><listitem><para>GoogleTest unit testing suite, to work with continuous integration</para></listitem></itemizedlist>
-</para><para><heading level="3">In the near future</heading>
-</para><para><itemizedlist>
-<listitem><para>An improved API</para></listitem><listitem><para>A built in ECP library</para></listitem></itemizedlist>
-</para><para><heading level="2">Regenerating the radial code</heading>
-</para><para>The recursive radial integral code has been pre-generated, as the current setting has been calibrated to balance accuracy and efficiency. If you would like to experiment (warning: after reading the paper cited above), go into the directory <computeroutput>src/generated/radial</computeroutput>. Edit the top line of <computeroutput><ref refid="unrol__radial_8py" kindref="compound">unrol_radial.py</ref></computeroutput> to change <computeroutput>MAX_UNROL_AM</computeroutput>, the maximum angular momentum to be unrolled. Then do the following:</para><para><programlisting><codeline><highlight class="normal">python3<sp/>unrol_radial.py</highlight></codeline>
-<codeline><highlight class="normal">./generate.sh</highlight></codeline>
-</programlisting></para><para>This will generate the simplified recursive integrals and then piece together the <computeroutput>radial_gen.cpp</computeroutput> file and place it in the correct location. It should be very safe (but not very efficient) to decrease <computeroutput>MAX_UNROL_AM</computeroutput>, but be prepared for things to break if you increase it too much. </para>    </detaileddescription>
+<para><anchor id="index_1md__Users_robertshaw_devfiles_libecpint_README"/> <ulink url="https://dev.azure.com/robertshaw383/libecpint/_build/latest?definitionId=2&amp;branchName=master"><image type="html" name="https://dev.azure.com/robertshaw383/libecpint/_apis/build/status/robashaw.libecpint?branchName=master" inline="yes"></image>
+</ulink> <ulink url="https://codecov.io/gh/robashaw/libecpint"><image type="html" name="https://codecov.io/gh/robashaw/libecpint/branch/master/graph/badge.svg" inline="yes"></image>
+</ulink> <ulink url="https://libecpint.readthedocs.io/en/latest/index.html"><image type="html" name="https://readthedocs.org/projects/libecpint/badge/?version=latest" inline="yes"></image>
+</ulink> [<image type="html" name="https://www.code-inspector.com/project/15206/status/svg" inline="yes"></image>
+]()</para>
+<para>Libecpint is a C++ library for the efficient evaluation of integrals over ab initio effective core potentials, using a mixture of generated, recursive code and Gauss-Chebyshev quadrature. It is designed to be standalone and generic, and is now in its first stable release. If you experience any problems please raise an issue here; contributions and suggestions are also welcome.</para>
+<para><heading level="1">New in first full release</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>Analytical 1st and 2nd derivatives;</para>
+</listitem><listitem><para>Integration now &gt;10x faster;</para>
+</listitem><listitem><para>New, high level API, with ECP library;</para>
+</listitem><listitem><para>Automated testing suite.</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">Patch 1</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>Bug fix in screening of on-ECP type 2 integrals</para>
+</listitem><listitem><para>Improvements in CMake build steps, thanks to nabbelbabbel/moritzBens</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="2">Patch 2</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>Fix for memory leaks in derivative routines</para>
+</listitem><listitem><para>Minor changes to CMake files</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">Dependencies</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>A modern C++ compiler, at least C++11 standard library is required. This has been tested with:<itemizedlist>
+<listitem><para>gcc (v6.3.0 and above)</para>
+</listitem><listitem><para>clang (v10.0.0 and above), you may need the CXX flag &quot;-std=c++14&quot;</para>
+</listitem><listitem><para>icpc (v20.2.1), may also need the CXX flag &quot;-std=c++14&quot;</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>CMake/CTest build tools (v3.12 and higher)</para>
+</listitem><listitem><para>Python (2.7 or above, including 3 and higher)</para>
+</listitem></itemizedlist>
+</para>
+<para>Additionally, if you wish to regenerate the radial code (see below), Python &gt;=3.6 is required with numpy and sympy.</para>
+<para><heading level="1">Documentation</heading>
+</para>
+<para>Please refer to the main documentation <ulink url="https://libecpint.readthedocs.io/en/latest/index.html">here</ulink>.</para>
+<para><heading level="1">Acknowledging usage</heading>
+</para>
+<para>If you use this library in your program and find it helpful, that&apos;s great! Any feedback would be much appreciated. If you publish results using this library, please consider citing the following paper detailing the implementation:</para>
+<para>R. A. Shaw, J. G. Hill, J. Chem. Phys. 147, 074108 (2017); doi: <ulink url="http://dx.doi.org/10.1063/1.4986887">10.1063/1.4986887</ulink></para>
+<para>A full bibtex citation can be found in CITATION in the main directory. </para>
+    </detaileddescription>
   </compounddef>
 </doxygen>

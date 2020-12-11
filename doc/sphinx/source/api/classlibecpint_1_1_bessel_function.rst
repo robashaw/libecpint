@@ -3,7 +3,7 @@
 Class BesselFunction
 ====================
 
-- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_new_include_libecpint_bessel.hpp`
+- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_include_libecpint_bessel.hpp`
 
 
 Class Documentation

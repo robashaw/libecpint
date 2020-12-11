@@ -3,7 +3,7 @@
 Variable libecpint::atom_names
 ==============================
 
-- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_new_include_libecpint_ecp.hpp`
+- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_include_libecpint_ecp.hpp`
 
 
 Variable Documentation

@@ -3,7 +3,7 @@
 Define MAX_FAC
 ==============
 
-- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_new_include_libecpint_mathutil.hpp`
+- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_include_libecpint_mathutil.hpp`
 
 
 Define Documentation

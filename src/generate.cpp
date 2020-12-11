@@ -22,6 +22,8 @@
  *      WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#include <algorithm>
+#include <set>
 
 #include "generate.hpp"
 
@@ -71,7 +73,7 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 		
 		// Store the terms and radials if unrolling, just radial indices if not
 		std::vector<SumTerm> terms; 
-		std::vector<Triple> radial_triples; 
+		std::set<Triple> radial_triples; 
 		
 		// Loop over cartesian functions in alpha order
 		for (int x1 = LA; x1 >= 0; x1--) {
@@ -97,6 +99,10 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 												for (int lam1 = 0; lam1 <= lam + alpha; lam1++) {
 													int lam2start = (lam1 + N) % 2; 
 													for (int lam2 = lam2start; lam2 <= lam + beta; lam2+=2) {
+														if(!unrolling && std::find(radial_triples.begin(), radial_triples.end(), Triple{N, lam1, lam2}) != radial_triples.end()) {
+															continue;
+														}
+														bool N_lam1_lam2_found = false;
 												
 														for (int mu1 = -lam1; mu1 <= lam1; mu1++) {
 															for (int mu2 = -lam2; mu2 <= lam2; mu2++) {
@@ -122,10 +128,18 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 																
 																			terms.push_back(newTerm); 
 																		}
-																		radial_triples.push_back({N, lam1, lam2}); 
+																		if (!unrolling) {
+																			N_lam1_lam2_found = true;
+																		}
+																		radial_triples.insert(Triple{N, lam1, lam2}); 
 																	} 
 																}
-																
+																if(N_lam1_lam2_found) {
+																	break;
+																}
+															}
+															if(N_lam1_lam2_found) {
+																break;
 															}
 														}
 													}
@@ -147,14 +161,10 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 			}
 		}
 		
-		// Sort the radial triples and eliminate repeats
-		std::sort(radial_triples.begin(), radial_triples.end()); 
-		radial_triples.erase(std::unique(radial_triples.begin(), radial_triples.end()), radial_triples.end()); 
-		
 		// Determine the maximum number of base integrals needed across the set of all radial integrals
 		int nbase = 0; 
 		if (radial_triples.size() > 0) {
-			Triple& tmax = radial_triples[radial_triples.size()-1]; 
+			const Triple& tmax = *radial_triples.cend();
 			nbase = std::get<0>(tmax) + std::get<1>(tmax) - 1; 
 			nbase = nbase < 0 ? 0 : nbase; 
 		}
@@ -162,7 +172,7 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 		// Sort the radials into two lists, depending on whether l1 <= l2 (radial_A), or l2 > l1 (radial_B)
 		// swapping the order of l1/l2 in the latter case
 		std::vector<Triple> radial_A, radial_B; 
-		for (Triple& t : radial_triples) {
+		for (const Triple& t : radial_triples) {
 			if (std::get<1>(t) <= std::get<2>(t)) radial_A.push_back(t);  
 			else radial_B.push_back({std::get<0>(t), std::get<2>(t), std::get<1>(t)});
 		}

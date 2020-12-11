@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.20" xml:lang="en-US">
   <compound refid="classlibecpint_1_1_angular_integral" kind="class"><name>libecpint::AngularIntegral</name>
     <member refid="classlibecpint_1_1_angular_integral_1a3513c16ca75d1951fc22f511da917834" kind="variable"><name>LB</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1a41c35cd22346cbd20a6f886ab3123f29" kind="variable"><name>LE</name></member>
@@ -11,10 +11,10 @@
     <member refid="classlibecpint_1_1_angular_integral_1abfe9a899ab68d7edba0a1e4ea313a4ab" kind="function"><name>calcH1</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1a607358498adb165ebb9412fa094232af" kind="function"><name>calcH2</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1ada7167723e1fba654c0efe2bcac419f8" kind="function"><name>Pijk</name></member>
-    <member refid="classlibecpint_1_1_angular_integral_1a0ca75310132e0849b0a0d696e8d4c43a" kind="function"><name>makeW</name></member>
-    <member refid="classlibecpint_1_1_angular_integral_1a4d71a79be812fdf54ce923e6005f821c" kind="function"><name>makeOmega</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a4cbacdbedab20343502f9ce0a1fe5ae1" kind="function"><name>makeW</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1ae1ea71fa8294985e95aad0ef5bb39806" kind="function"><name>makeOmega</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1a15586cc96d2809db4db875558b89e082" kind="function"><name>uklm</name></member>
-    <member refid="classlibecpint_1_1_angular_integral_1a7dbfd0ec17dc53dd2f316394fc77186c" kind="function"><name>makeU</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1aa2f65229d079cfc1664c320a80d29ef7" kind="function"><name>makeU</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1a19293828fca3018cdcdc4f14e9b9ded6" kind="function"><name>AngularIntegral</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1a81aa19e40bf5eba60811de5bf5e9e714" kind="function"><name>AngularIntegral</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1aa800d3d2f3edac502daf5e8fc332d710" kind="function"><name>init</name></member>
@@ -23,8 +23,11 @@
     <member refid="classlibecpint_1_1_angular_integral_1a9effa990cf6a6d2b1a760b465e3cd458" kind="function"><name>getIntegral</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1a5adeda40331f10cde2da58cd3e163ffd" kind="function"><name>getIntegral</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1abde644b16469b8d74cb84ae987debeb8" kind="function"><name>getOmegaMults</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1adbdc25faf58aa0aeb29f83fab8b4bf25" kind="function"><name>getOmegaMults</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1a09e0973f954e6b63388696757ff322d6" kind="function"><name>getOmegaDims</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a21fb5c82c10b2dcc306ffc5b4d978624" kind="function"><name>getOmegaDims</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1a14bc6e72e5c1151c116b4bfa06c7895b" kind="function"><name>getOmegaData</name></member>
+    <member refid="classlibecpint_1_1_angular_integral_1a84b39b1be0c877f8cdfa231a0dded139" kind="function"><name>getOmegaData</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1a28578c8be3cdec10a6a65e2966a96e94" kind="function"><name>isZero</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1a3e60281cb1e69e01d2c79bd29ade70f9" kind="function"><name>isZero</name></member>
   </compound>
@@ -36,16 +39,18 @@
     <member refid="classlibecpint_1_1_bessel_function_1a3569aa7989502d0eeb089ddde1bf9f56" kind="variable"><name>K</name></member>
     <member refid="classlibecpint_1_1_bessel_function_1a247a8a255ffbdffaccea63536ebb64b5" kind="variable"><name>dK</name></member>
     <member refid="classlibecpint_1_1_bessel_function_1a5dcbfec899e1ed7fcba183b28b112538" kind="variable"><name>C</name></member>
-    <member refid="classlibecpint_1_1_bessel_function_1abdc78ae534dadfaba74dcfe3cfb54091" kind="function"><name>tabulate</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1ac89e404f3ee28a6cce430311473f6283" kind="function"><name>tabulate</name></member>
     <member refid="classlibecpint_1_1_bessel_function_1af0e545daf8a60389bd010b2ab43a9375" kind="function"><name>BesselFunction</name></member>
-    <member refid="classlibecpint_1_1_bessel_function_1a099afffa30983a7d0aef859fc119044f" kind="function"><name>BesselFunction</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1a5ee6ffc320f7a2c09024640c6379ba35" kind="function"><name>BesselFunction</name></member>
     <member refid="classlibecpint_1_1_bessel_function_1af42c649bd46884942a9737e8cffaa78d" kind="function"><name>~BesselFunction</name></member>
-    <member refid="classlibecpint_1_1_bessel_function_1a6e688a911c24b88c93caa7f9e87c5965" kind="function"><name>init</name></member>
-    <member refid="classlibecpint_1_1_bessel_function_1ab568362995b5edd4ef0461116d6c0d59" kind="function"><name>calculate</name></member>
-    <member refid="classlibecpint_1_1_bessel_function_1a64c7767fd8e7509802ea2579b186f152" kind="function"><name>calculate</name></member>
-    <member refid="classlibecpint_1_1_bessel_function_1a9cabc29e126f053dc96904f4ca4e1425" kind="function"><name>upper_bound</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1a3d48005863dfd0a4334ec0cf0caa38f7" kind="function"><name>init</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1aee4c5856a1cfb6b8d0a2a7bdd82611cf" kind="function"><name>calculate</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1af57fdb4f579bc758bf97d156ce5e9dfa" kind="function"><name>calculate</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1a97e20ff7a5f9cf1f23cb6b07572344d9" kind="function"><name>upper_bound</name></member>
   </compound>
   <compound refid="structlibecpint_1_1_e_c_p" kind="struct"><name>libecpint::ECP</name>
+    <member refid="structlibecpint_1_1_e_c_p_1a9b17e65c73b6671205b3295e2d2c52f8" kind="function"><name>getGaussian</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a0f63ed68d975c8c4cbe782f6fea3dbed" kind="function"><name>getGaussian</name></member>
     <member refid="structlibecpint_1_1_e_c_p_1a3934e012fdd055afbcb14d46174861c6" kind="variable"><name>gaussians</name></member>
     <member refid="structlibecpint_1_1_e_c_p_1a36dfdf88f34a7840e7cbfd57046571ad" kind="variable"><name>N</name></member>
     <member refid="structlibecpint_1_1_e_c_p_1a1ca581f31fc7ac7a59dc9fe699caa9a7" kind="variable"><name>L</name></member>
@@ -57,51 +62,51 @@
     <member refid="structlibecpint_1_1_e_c_p_1af4dca32df3ef9f0b16c9942aebaa30b9" kind="function"><name>ECP</name></member>
     <member refid="structlibecpint_1_1_e_c_p_1a00fd5d048332aea9ac5ae51611998170" kind="function"><name>ECP</name></member>
     <member refid="structlibecpint_1_1_e_c_p_1a783c7247cf671e3eeeca19319f2005dd" kind="function"><name>ECP</name></member>
-    <member refid="structlibecpint_1_1_e_c_p_1a0722152e417ce3cc1934fab12018a2fa" kind="function"><name>addPrimitive</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1ad2260227632e534423cbeb0bbd448ec9" kind="function"><name>addPrimitive</name></member>
     <member refid="structlibecpint_1_1_e_c_p_1a67b0097de7275b589d8fb104559c85f2" kind="function"><name>center</name></member>
-    <member refid="structlibecpint_1_1_e_c_p_1a062cbfaa2fefcc7e4ca0de014a791b6a" kind="function"><name>setPos</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1a8806b1257ab2bcc65171c98e155293d7" kind="function"><name>setPos</name></member>
     <member refid="structlibecpint_1_1_e_c_p_1a033d4d18c168f3052a298b1d32035dde" kind="function"><name>sort</name></member>
-    <member refid="structlibecpint_1_1_e_c_p_1a9b17e65c73b6671205b3295e2d2c52f8" kind="function"><name>getGaussian</name></member>
     <member refid="structlibecpint_1_1_e_c_p_1a1eb8f3a9515a591efc9e3da28ba0a9c2" kind="function"><name>getN</name></member>
     <member refid="structlibecpint_1_1_e_c_p_1a6f3c3cbf7401f8559be5c0616f21cb2b" kind="function"><name>noType1</name></member>
-    <member refid="structlibecpint_1_1_e_c_p_1a5b4a28bfac7de0329e0a84f10bb6531f" kind="function"><name>evaluate</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_1ab39cb4ebd35a98586065f84271ac01aa" kind="function"><name>evaluate</name></member>
     <member refid="structlibecpint_1_1_e_c_p_1a8c9d96f791a742fe18616c8361d6ad0b" kind="function"><name>getL</name></member>
   </compound>
   <compound refid="classlibecpint_1_1_e_c_p_basis" kind="struct"><name>libecpint::ECPBasis</name>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1a4c1f64e6931407d02e3a4732e83c65b9" kind="function"><name>getECP</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1a1b9bd648591cc5b3b1083b5bdc7ed197" kind="function"><name>getECP</name></member>
     <member refid="classlibecpint_1_1_e_c_p_basis_1ace1af0a6c1ca994b54d877c32d47cec6" kind="variable"><name>basis</name></member>
     <member refid="classlibecpint_1_1_e_c_p_basis_1a70460015e701f21f3736188d7fdfff54" kind="variable"><name>atomList</name></member>
     <member refid="classlibecpint_1_1_e_c_p_basis_1a17a416202956ac683308a54816b9b0a7" kind="variable"><name>N</name></member>
     <member refid="classlibecpint_1_1_e_c_p_basis_1abeabb84d5402d144b288a9c17d8b1bf2" kind="variable"><name>maxL</name></member>
     <member refid="classlibecpint_1_1_e_c_p_basis_1a14e29c3855ad997b10c8e512bc63bdbc" kind="variable"><name>core_electrons</name></member>
     <member refid="classlibecpint_1_1_e_c_p_basis_1ae8a0aec737135fbc3cb04db819f90d11" kind="function"><name>ECPBasis</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_basis_1a30849fe03fcb5af55277f5c9cf3cb029" kind="function"><name>addECP</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_basis_1adc48a2df7d92a7e796d50f704b80d819" kind="function"><name>getECP</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_basis_1a6693bdf5b110fa4fcec07b5e2d7bcaef" kind="function"><name>getECPCore</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_basis_1a79335f55db2a60b87da4d0b401249d06" kind="function"><name>getAtom</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1a291a8c9b89978f5ef18e13950ba0005e" kind="function"><name>addECP</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1a55e30460bed3e1de7c04b7b6a8089c2e" kind="function"><name>getECPCore</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1a35a2fa42d1d1fd9b9418aa88c3fe6a4d" kind="function"><name>getAtom</name></member>
     <member refid="classlibecpint_1_1_e_c_p_basis_1af44efe193f718cef4986fccde8045c8a" kind="function"><name>getMaxL</name></member>
     <member refid="classlibecpint_1_1_e_c_p_basis_1aa98f477ed0dee4a97de5f0178ade6409" kind="function"><name>getN</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_basis_1adeb08aee90fc97e9365503f14e7717db" kind="function"><name>addECP_from_file</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_basis_1ae92974143d21b4cc19ef6afde7e54163" kind="function"><name>addECP_from_file</name></member>
   </compound>
   <compound refid="classlibecpint_1_1_e_c_p_integral" kind="class"><name>libecpint::ECPIntegral</name>
     <member refid="classlibecpint_1_1_e_c_p_integral_1af9cee7a7a59bfa3ae1645d77b3fec7d6" kind="variable"><name>radInts</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1a1d53a9bf47dfc66607950856e0f8f8b1" kind="variable"><name>angInts</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1adf1cf428039ead3bcf749f534454077c" kind="variable"><name>tolerance</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1a4dd23f2102d981526a2e01c4a9818bff" kind="variable"><name>QGEN</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a604134684da59d3654bd081db9e3be55" kind="variable"><name>tolerance</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1affb51c06d517d5fb762b486c572cfeca" kind="variable"><name>QGEN</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1aba908eb13b8af1c8e75985689e261b52" kind="variable"><name>skipped</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1aae5da3068b091751bb508d88aed0fe01" kind="variable"><name>zero</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1ad5e0dad126b9c0631dd3afe137c58d64" kind="variable"><name>nonzero</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1a4659eadbdeaf45a872facaf1f88c5664" kind="function"><name>calcC</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1aed281dde8a69e07610c31308044580b7" kind="function"><name>makeC</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1ac87491d54072488ef0862d9e2d0b0853" kind="function"><name>makeC</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1ae5871ce6997e2893ff6a8bd24fe236b0" kind="function"><name>ECPIntegral</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1afe5cd2c1f007508a1fcae65e9a26e36e" kind="function"><name>type1</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1a628cffa5e8e3e4fa2abecd446a13eae9" kind="function"><name>type2</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1a37a53e640e2d09202d7ce6925fbbcaff" kind="function"><name>estimate_type2</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1a983fc271cb866676fe88fe46634906d8" kind="function"><name>compute_shell_pair</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1abdb90e30f2181179ef45211e680cca0f" kind="function"><name>compute_shell_pair_derivative</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1a12fda657835a586afbfda05e2a8660c2" kind="function"><name>compute_shell_pair_second_derivative</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1ab6ac47f8d0b0f203eac83a4ddc758d74" kind="function"><name>left_shell_derivative</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1aa7fbc2190ff870e8047ffc48d191981e" kind="function"><name>left_shell_second_derivative</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1add9d02bf57d835f6bdc9389c920b527c" kind="function"><name>mixed_second_derivative</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a06dd2e29925e83c5fe29b5d14eadf66b" kind="function"><name>type1</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a5cc59f53c27c3e7c195afadf102cd394" kind="function"><name>type2</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a8f3537112c03c75e4745f57977b4e6ee" kind="function"><name>estimate_type2</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1aefe90ea26c932064396e5b1cafecdc7c" kind="function"><name>compute_shell_pair</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1aed236dd4e66196f85bc11a398897602a" kind="function"><name>compute_shell_pair_derivative</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a7c15127045f4a6ea84d2440664ab659b" kind="function"><name>compute_shell_pair_second_derivative</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a6ec52d533d7359b4d5e824977ef4097e" kind="function"><name>left_shell_derivative</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1aaa4a5ba77942b3f26e965ba3db90348f" kind="function"><name>left_shell_second_derivative</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a46cb1305f88bae416a513852fcfd0a9f" kind="function"><name>mixed_second_derivative</name></member>
   </compound>
   <compound refid="structlibecpint_1_1_e_c_p_integrator" kind="struct"><name>libecpint::ECPIntegrator</name>
     <member refid="structlibecpint_1_1_e_c_p_integrator_1ac02c7727c7d543075c20c01a700a2013" kind="variable"><name>shells</name></member>
@@ -118,11 +123,11 @@
     <member refid="structlibecpint_1_1_e_c_p_integrator_1a8ea15ec1778be6d751557260c7140e9d" kind="variable"><name>first_derivs</name></member>
     <member refid="structlibecpint_1_1_e_c_p_integrator_1a9774436a43b703d14a06dfb03b87c387" kind="variable"><name>second_derivs</name></member>
     <member refid="structlibecpint_1_1_e_c_p_integrator_1af6e771cf61b3df41aa66ed9442f5ba39" kind="function"><name>ECPIntegrator</name></member>
-    <member refid="structlibecpint_1_1_e_c_p_integrator_1a8443f995b5cd9fe78d4411ec1a856a51" kind="function"><name>set_gaussian_basis</name></member>
-    <member refid="structlibecpint_1_1_e_c_p_integrator_1ad896e1d1a7b10241101cd9821ec0941a" kind="function"><name>set_ecp_basis</name></member>
-    <member refid="structlibecpint_1_1_e_c_p_integrator_1aecd808f33158c201e5ff5632eba11788" kind="function"><name>set_ecp_basis_from_library</name></member>
-    <member refid="structlibecpint_1_1_e_c_p_integrator_1a24b0fd76ee4d00d26335360e3fb7934b" kind="function"><name>update_gaussian_basis_coords</name></member>
-    <member refid="structlibecpint_1_1_e_c_p_integrator_1aa5b74859aabb89898bda4dc8065cae54" kind="function"><name>update_ecp_basis_coords</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1afe65e333e1269977c51b9e6a0bea7504" kind="function"><name>set_gaussian_basis</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1aae5464183e60a6d900080c901a9d5b7c" kind="function"><name>set_ecp_basis</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a3e7ab8064d532345d5b2f2c5ae14b85a" kind="function"><name>set_ecp_basis_from_library</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a24c4f1a1c4edb03d7cc6ffa46cc8bb83" kind="function"><name>update_gaussian_basis_coords</name></member>
+    <member refid="structlibecpint_1_1_e_c_p_integrator_1a87f44a065e7522b385c1486d618f7d6d" kind="function"><name>update_ecp_basis_coords</name></member>
     <member refid="structlibecpint_1_1_e_c_p_integrator_1af1c1b928e3ec5835f77fb45dc763a6ed" kind="function"><name>init</name></member>
     <member refid="structlibecpint_1_1_e_c_p_integrator_1a976359474d2e8e171f47a8fc7cf7cd79" kind="function"><name>compute_integrals</name></member>
     <member refid="structlibecpint_1_1_e_c_p_integrator_1a21c6c8925b7e17761f2960e1145c8589" kind="function"><name>compute_first_derivs</name></member>
@@ -134,10 +139,10 @@
   <compound refid="structlibecpint_1_1_five_index" kind="struct"><name>libecpint::FiveIndex</name>
     <member refid="structlibecpint_1_1_five_index_1a5da742318bcfaef3ea492c56826b06f0" kind="variable"><name>dims</name></member>
     <member refid="structlibecpint_1_1_five_index_1a810af0ad1e45e32d80528e9524b6f511" kind="variable"><name>data</name></member>
-    <member refid="structlibecpint_1_1_five_index_1a841b590ccc71fe1f6a56e59d3f1c59b5" kind="function"><name>operator()</name></member>
-    <member refid="structlibecpint_1_1_five_index_1a1c8335b729432ad8b47db4b309caf05c" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_five_index_1a814f65acaba40a40ab2c5b95bf74726a" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_five_index_1a052c3dc7fa86c75eea61cbdaa84e5e25" kind="function"><name>operator()</name></member>
     <member refid="structlibecpint_1_1_five_index_1a4592156484c1d5b258f18ff14ba8f2b9" kind="function"><name>FiveIndex</name></member>
-    <member refid="structlibecpint_1_1_five_index_1a0e2eea20839a78b59e9cfbe88ae4dc64" kind="function"><name>FiveIndex</name></member>
+    <member refid="structlibecpint_1_1_five_index_1a55a6025cf4e6902e83600dea87609815" kind="function"><name>FiveIndex</name></member>
     <member refid="structlibecpint_1_1_five_index_1a65eb21140dfb8d6addfc26ae38e4a2d4" kind="function"><name>FiveIndex</name></member>
   </compound>
   <compound refid="structlibecpint_1_1_gaussian_e_c_p" kind="struct"><name>libecpint::GaussianECP</name>
@@ -146,7 +151,7 @@
     <member refid="structlibecpint_1_1_gaussian_e_c_p_1a89433d98899bfcf9e11c40590b9a585e" kind="variable"><name>a</name></member>
     <member refid="structlibecpint_1_1_gaussian_e_c_p_1a4899fa6262f84344b3d0f8c304c8e9f5" kind="variable"><name>d</name></member>
     <member refid="structlibecpint_1_1_gaussian_e_c_p_1a03dbff0cd12d8f70f04cfd509c3c8bdd" kind="function"><name>GaussianECP</name></member>
-    <member refid="structlibecpint_1_1_gaussian_e_c_p_1aaa1bd52c82d1615b887d7f981271f615" kind="function"><name>GaussianECP</name></member>
+    <member refid="structlibecpint_1_1_gaussian_e_c_p_1a52a4524ad9a64910c1fe721b7dda3f98" kind="function"><name>GaussianECP</name></member>
     <member refid="structlibecpint_1_1_gaussian_e_c_p_1ae21d0c4a2808b622f87621cb2b3d68cb" kind="function"><name>GaussianECP</name></member>
   </compound>
   <compound refid="structlibecpint_1_1_gaussian_shell" kind="struct"><name>libecpint::GaussianShell</name>
@@ -159,7 +164,7 @@
     <member refid="structlibecpint_1_1_gaussian_shell_1a562f34e1b1b992e0cffe3a1a0bcf69fc" kind="variable"><name>l</name></member>
     <member refid="structlibecpint_1_1_gaussian_shell_1a68d5d174f719fc851e68022a225bcf21" kind="variable"><name>atom_id</name></member>
     <member refid="structlibecpint_1_1_gaussian_shell_1af65866f31703254b7733bbf9243dc62c" kind="function"><name>GaussianShell</name></member>
-    <member refid="structlibecpint_1_1_gaussian_shell_1affe07224c00aef9442262d3eecae5feb" kind="function"><name>GaussianShell</name></member>
+    <member refid="structlibecpint_1_1_gaussian_shell_1a0d0cdfb554bab380d017d834d1f8fd71" kind="function"><name>GaussianShell</name></member>
     <member refid="structlibecpint_1_1_gaussian_shell_1a53e3854e0243272183ff783d5443aedd" kind="function"><name>GaussianShell</name></member>
     <member refid="structlibecpint_1_1_gaussian_shell_1ad270e1f8bc33397b080644fceb6f4755" kind="function"><name>addPrim</name></member>
     <member refid="structlibecpint_1_1_gaussian_shell_1ad9e3f82004442f284beac5b246ae3f82" kind="function"><name>nprimitive</name></member>
@@ -177,23 +182,27 @@
     <member refid="classlibecpint_1_1_g_c_quadrature_1ac784cc6c177d4c461dbb12a43e515778" kind="variable"><name>w</name></member>
     <member refid="classlibecpint_1_1_g_c_quadrature_1a7aa031524de2fd28eef7910c8cc78aba" kind="variable"><name>I</name></member>
     <member refid="classlibecpint_1_1_g_c_quadrature_1a02321bf542c18ca347e8e3b086b6f0ea" kind="variable"><name>t</name></member>
-    <member refid="classlibecpint_1_1_g_c_quadrature_1a5ee85ae821da90c88d808175168942f2" kind="variable"><name>start</name></member>
-    <member refid="classlibecpint_1_1_g_c_quadrature_1a661234923d00bfbf2dff3c88a5f4953e" kind="variable"><name>end</name></member>
-    <member refid="classlibecpint_1_1_g_c_quadrature_1ac53998dfe6f4c6f59dd4cac8ee1f8701" kind="function"><name>sumTerms</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1a71cf9df0ba68012d38f46529d68c3115" kind="function"><name>sumTerms</name></member>
     <member refid="classlibecpint_1_1_g_c_quadrature_1a563235d3d5d9a19a5e4a77aec13f5dfd" kind="function"><name>GCQuadrature</name></member>
     <member refid="classlibecpint_1_1_g_c_quadrature_1abb70ca948ba7f768a59c74d9f93a471a" kind="function"><name>GCQuadrature</name></member>
     <member refid="classlibecpint_1_1_g_c_quadrature_1a2757549e5f47cfb8ae142a60db947ae3" kind="function"><name>initGrid</name></member>
-    <member refid="classlibecpint_1_1_g_c_quadrature_1aaf02c22b41f79b4bfc91a3c258458466" kind="function"><name>integrate</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1addc19b8f39a675e834cded78eb0f7668" kind="function"><name>integrate</name></member>
     <member refid="classlibecpint_1_1_g_c_quadrature_1a4353914587c53237d1b7e0dc7bf0c920" kind="function"><name>transformZeroInf</name></member>
     <member refid="classlibecpint_1_1_g_c_quadrature_1ab17203b568cea63fbfc897a404583e1a" kind="function"><name>transformRMinMax</name></member>
     <member refid="classlibecpint_1_1_g_c_quadrature_1a18e1de0f63bc3eebe8518de1a700ff65" kind="function"><name>untransformRMinMax</name></member>
-    <member refid="classlibecpint_1_1_g_c_quadrature_1a62d81712867e1bc24426ec5a89a4e0ed" kind="function"><name>getI</name></member>
     <member refid="classlibecpint_1_1_g_c_quadrature_1a8981b038cd9f49404b979b64be33d19e" kind="function"><name>getN</name></member>
     <member refid="classlibecpint_1_1_g_c_quadrature_1ac21349eccf4e32896f4bbf096c71edfc" kind="function"><name>getX</name></member>
+    <member refid="classlibecpint_1_1_g_c_quadrature_1a18d423d0fe06c93346f9f1a516efcf2d" kind="function"><name>getX</name></member>
   </compound>
   <compound refid="structlibecpint_1_1aux_1_1gen__seq" kind="struct"><name>libecpint::aux::gen_seq</name>
   </compound>
   <compound refid="structlibecpint_1_1aux_1_1gen__seq_3_010_00_01_is_8_8_8_01_4" kind="struct"><name>libecpint::aux::gen_seq&lt; 0, Is... &gt;</name>
+  </compound>
+  <compound refid="structlibecpint_1_1_radial_integral_1_1_parameters" kind="struct"><name>libecpint::RadialIntegral::Parameters</name>
+    <member refid="structlibecpint_1_1_radial_integral_1_1_parameters_1a92a4ce190719b590bfe3612293fd189d" kind="variable"><name>p</name></member>
+    <member refid="structlibecpint_1_1_radial_integral_1_1_parameters_1a0e16df411eeef41ec169ed340d38917f" kind="variable"><name>P</name></member>
+    <member refid="structlibecpint_1_1_radial_integral_1_1_parameters_1abe892fda65f6d5e45eb325bef6de9dae" kind="variable"><name>P2</name></member>
+    <member refid="structlibecpint_1_1_radial_integral_1_1_parameters_1af8e60b2591c97c02c54270c112c8b9b6" kind="variable"><name>K</name></member>
   </compound>
   <compound refid="classunrol__radial_1_1_qijk" kind="class"><name>unrol_radial::Qijk</name>
     <member refid="classunrol__radial_1_1_qijk_1a13c97ec2c24cebb9837e489d529e506d" kind="variable"><name>i</name></member>
@@ -223,26 +232,22 @@
     <member refid="classlibecpint_1_1_radial_integral_1a8fd9dc20f11777d70a4717bcd6e42695" kind="variable"><name>smallGrid</name></member>
     <member refid="classlibecpint_1_1_radial_integral_1a0ecab0ef4febcbbde502dd2d8d0e3232" kind="variable"><name>primGrid</name></member>
     <member refid="classlibecpint_1_1_radial_integral_1a02377eb5c6fa6e3e8bc7a9adab9d54ce" kind="variable"><name>bessie</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1a026d0f8ac22dfa7f59cea55ca9822813" kind="variable"><name>p</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1ad043e0f39e49dfe5ad8d24ceb794f358" kind="variable"><name>P</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1a005be0590e9859b8a5a1895c33f44816" kind="variable"><name>P2</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1a266948c524f26078eda4cc03a38e4c38" kind="variable"><name>K</name></member>
     <member refid="classlibecpint_1_1_radial_integral_1aec0cebbcc385b095d3cddaca1535bfc6" kind="variable"><name>tolerance</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1a74e8d553abd0eaa05895b5c4de5dffd7" kind="function"><name>integrand</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1a18d110b928ca635af98f6d77af39eb30" kind="function"><name>buildBessel</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1ac44fed4a3ddd6f4070a059fae618825c" kind="function"><name>integrand</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a162467ec2a4b9561b53215ea3f6ac835" kind="function"><name>buildBessel</name></member>
     <member refid="classlibecpint_1_1_radial_integral_1a3d24ad5249cce6f7d2c756b35838b420" kind="function"><name>calcKij</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1a824424155d47851669936c7718b3659e" kind="function"><name>buildU</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1a6cfc8c4b8d54763dbe5e4eacaa1d4d0c" kind="function"><name>buildF</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1a70783f9cf618a9fbff0fc9320a5b7821" kind="function"><name>integrate</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1aaeaace744506f7c8249bce2f52c475fc" kind="function"><name>compute_base_integrals</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1a1fd2768bf978c057e363f6d4ae12a9e7" kind="function"><name>integrate_small</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1aeadf896902754c614f12b4dfd7d12397" kind="function"><name>buildU</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1afb4ba9e73581249f9854212c08fe5fe2" kind="function"><name>buildF</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a0aab6879e20837964bbb6370e5e97602" kind="function"><name>integrate</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a54959dd73caf19610aaf64ef92dc38bd" kind="function"><name>compute_base_integrals</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a60c518824374379acf78f7d2b646e96f" kind="function"><name>integrate_small</name></member>
     <member refid="classlibecpint_1_1_radial_integral_1af36637d464da95bf4eef4397021bed72" kind="function"><name>RadialIntegral</name></member>
     <member refid="classlibecpint_1_1_radial_integral_1ab393e4e63a410d922c4b8fa1bee7df3f" kind="function"><name>init</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1ab6c465a300ab19cf5897e1b5fa48bf62" kind="function"><name>buildParameters</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1a3453cf0fef8eae7ebbc44e5cd858d2cd" kind="function"><name>type1</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1ad62b2f824706436658d4fc19ee2891f9" kind="function"><name>type2</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1ac4ef3a09fc2f159cdf1a4da92c69a1d1" kind="function"><name>type2</name></member>
-    <member refid="classlibecpint_1_1_radial_integral_1aaeddbbddf255ed19c200a8b98120897f" kind="function"><name>estimate_type2</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a8fbfa7ff4f2147f12e532bb8c1091e2a" kind="function"><name>buildParameters</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a7fde45f9ebebc6b50cfd98bd93545daa" kind="function"><name>type1</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1a0781fd9b60144e1312d547471148c05b" kind="function"><name>type2</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1ac2027e7283ccb2a3d32d55f858d05102" kind="function"><name>type2</name></member>
+    <member refid="classlibecpint_1_1_radial_integral_1af12d9b2d0943bde72d6d106044423705" kind="function"><name>estimate_type2</name></member>
   </compound>
   <compound refid="structlibecpint_1_1aux_1_1seq" kind="struct"><name>libecpint::aux::seq</name>
   </compound>
@@ -250,10 +255,10 @@
     <member refid="structlibecpint_1_1_seven_index_1a5591fe2d6689ac3d2112bacd9fe2285b" kind="variable"><name>dims</name></member>
     <member refid="structlibecpint_1_1_seven_index_1af9f524489c373227adf68bc9731567a8" kind="variable"><name>mults</name></member>
     <member refid="structlibecpint_1_1_seven_index_1a0920724697f71d0ebc04cbd0576ba8de" kind="variable"><name>data</name></member>
-    <member refid="structlibecpint_1_1_seven_index_1aeb2542f4929daed6093f744a7d0fd33a" kind="function"><name>operator()</name></member>
-    <member refid="structlibecpint_1_1_seven_index_1a3771f25558c7140b94f4dc5d1d3cd94f" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_seven_index_1a77e3037e1c197505a0a0207750edf272" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_seven_index_1a0551b17069a51da54314c47ba703e7af" kind="function"><name>operator()</name></member>
     <member refid="structlibecpint_1_1_seven_index_1aed182d7a962881685173839c0097da37" kind="function"><name>SevenIndex</name></member>
-    <member refid="structlibecpint_1_1_seven_index_1ad53c130dda8907f1e0f24bec14d00932" kind="function"><name>SevenIndex</name></member>
+    <member refid="structlibecpint_1_1_seven_index_1a99c4adec06051a9ea7fd44616f2a70ea" kind="function"><name>SevenIndex</name></member>
     <member refid="structlibecpint_1_1_seven_index_1acf668e56ebbe8735b9cd34880f1b96b4" kind="function"><name>SevenIndex</name></member>
   </compound>
   <compound refid="structlibecpint_1_1_shell_pair_data" kind="class"><name>libecpint::ShellPairData</name>
@@ -295,25 +300,25 @@
   <compound refid="structlibecpint_1_1_three_index" kind="struct"><name>libecpint::ThreeIndex</name>
     <member refid="structlibecpint_1_1_three_index_1ad1e6c311bcac26aa69fd610004527dbe" kind="variable"><name>dims</name></member>
     <member refid="structlibecpint_1_1_three_index_1a4a403cb73ae1bed2e869ec212ccdf9b7" kind="variable"><name>data</name></member>
-    <member refid="structlibecpint_1_1_three_index_1ac78d498238d110a85ec1ea388e6e0ccc" kind="function"><name>operator()</name></member>
-    <member refid="structlibecpint_1_1_three_index_1a70e34002fa6d61a6c2ae0db5d357e95b" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_three_index_1a0e77ad92386d2ba77d4f18647eb7c333" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_three_index_1a6b389e41d78648076eab0e42e2c350d9" kind="function"><name>operator()</name></member>
     <member refid="structlibecpint_1_1_three_index_1ad2750b03c39d4da327e3c2416a3053fa" kind="function"><name>ThreeIndex</name></member>
-    <member refid="structlibecpint_1_1_three_index_1a2733c35720de560972cfec04172d190a" kind="function"><name>ThreeIndex</name></member>
+    <member refid="structlibecpint_1_1_three_index_1a2cbb7c3a30e332e7e315d5c564581b00" kind="function"><name>ThreeIndex</name></member>
     <member refid="structlibecpint_1_1_three_index_1af40f104dbb8fe8ec87c97e6a34209f7f" kind="function"><name>ThreeIndex</name></member>
-    <member refid="structlibecpint_1_1_three_index_1ab19242bc7a3110e238bba364b6c3ff36" kind="function"><name>fill</name></member>
+    <member refid="structlibecpint_1_1_three_index_1a94f949d2e6508d7ddade76ca665dafb8" kind="function"><name>fill</name></member>
   </compound>
   <compound refid="structlibecpint_1_1_two_index" kind="struct"><name>libecpint::TwoIndex</name>
     <member refid="structlibecpint_1_1_two_index_1a713cd82eaf61abc07a21c0bc07547121" kind="variable"><name>dims</name></member>
     <member refid="structlibecpint_1_1_two_index_1aeac1fc5f3983b9741fa4c7e5d8f6a7da" kind="variable"><name>data</name></member>
-    <member refid="structlibecpint_1_1_two_index_1a7e8a865f087c1c207300c35cbaec2cd4" kind="function"><name>operator()</name></member>
-    <member refid="structlibecpint_1_1_two_index_1aa7c4691a9cd0064001345a0011481a93" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_two_index_1a4a8ea8a8bdf343e4e6dca54aef5fd386" kind="function"><name>operator()</name></member>
+    <member refid="structlibecpint_1_1_two_index_1a2de4c64f4153de084eb74bd504748f25" kind="function"><name>operator()</name></member>
     <member refid="structlibecpint_1_1_two_index_1a44b5fe46251bc63db296a718d4f47506" kind="function"><name>assign</name></member>
-    <member refid="structlibecpint_1_1_two_index_1af9dec10df263e5438733ea4e79a45049" kind="function"><name>transpose</name></member>
+    <member refid="structlibecpint_1_1_two_index_1a7c0757766491628524599152602afb2a" kind="function"><name>transpose</name></member>
     <member refid="structlibecpint_1_1_two_index_1a695ab1652f3d10e10fb0ff24fea73ff5" kind="function"><name>add</name></member>
     <member refid="structlibecpint_1_1_two_index_1a0a5720cd6f2359f67763770838763cca" kind="function"><name>multiply</name></member>
     <member refid="structlibecpint_1_1_two_index_1ad667a1f8799d28687061bd15f4bb7b4b" kind="function"><name>TwoIndex</name></member>
-    <member refid="structlibecpint_1_1_two_index_1a52c49884c0e3039e00c454622b18674d" kind="function"><name>TwoIndex</name></member>
-    <member refid="structlibecpint_1_1_two_index_1a8f8e7c63baad71925c70838b0313c750" kind="function"><name>TwoIndex</name></member>
+    <member refid="structlibecpint_1_1_two_index_1a4bdf5550c71999c0140248205c5ec7ae" kind="function"><name>TwoIndex</name></member>
+    <member refid="structlibecpint_1_1_two_index_1af5166b79c67fc7356c15e7335a2c24cd" kind="function"><name>TwoIndex</name></member>
     <member refid="structlibecpint_1_1_two_index_1ad713c361649d3d45091e64f2865afb64" kind="function"><name>TwoIndex</name></member>
   </compound>
   <compound refid="namespacelibecpint" kind="namespace"><name>libecpint</name>
@@ -332,43 +337,43 @@
     <member refid="namespacelibecpint_1a02017a941eee202982bab7731ead620d" kind="variable"><name>CAX1</name></member>
     <member refid="namespacelibecpint_1ae0ba3cdb903f3057f168bfaa5495bba0" kind="variable"><name>CAX2</name></member>
     <member refid="namespacelibecpint_1acdba31532082cde9ce50b5c6ecd2b442" kind="variable"><name>CAX3</name></member>
-    <member refid="namespacelibecpint_1a2a771df5ca42d30ffdf70033fbc94770" kind="variable"><name>TWO_C_TOLERANCE</name></member>
-    <member refid="namespacelibecpint_1ae671d7a17c7b2fc7ebf29b27fa266421" kind="variable"><name>SMALL</name></member>
-    <member refid="namespacelibecpint_1a6d710d758ea6c068b95c21ce439ecb21" kind="variable"><name>TAYLOR_CUT</name></member>
+    <member refid="namespacelibecpint_1a37d6807785ad49c55bbe8b56deab2be8" kind="variable"><name>TWO_C_TOLERANCE</name></member>
+    <member refid="namespacelibecpint_1a007003a219fbc1cce6980a389b1013bc" kind="variable"><name>SMALL</name></member>
+    <member refid="namespacelibecpint_1a069479eb4b49ece5f8f9651b5f87c777" kind="variable"><name>TAYLOR_CUT</name></member>
     <member refid="namespacelibecpint_1a076d4d1e17ab2a37661480ba095329d7" kind="variable"><name>atom_names</name></member>
-    <member refid="namespacelibecpint_1a451c1c2142ac7d2cbf57f3fcba419373" kind="variable"><name>ROOT_PI</name></member>
-    <member refid="namespacelibecpint_1a6305f5251f77037717df018fd2e56700" kind="variable"><name>SINH_1</name></member>
-    <member refid="namespacelibecpint_1a35fea7df6515abbb84fc029150055a28" kind="variable"><name>MAX_POW</name></member>
+    <member refid="namespacelibecpint_1a32d2ef087e028b702c316bd2875036ec" kind="variable"><name>ROOT_PI</name></member>
+    <member refid="namespacelibecpint_1ae8056358eb2736d93b3a78dd1428555c" kind="variable"><name>SINH_1</name></member>
+    <member refid="namespacelibecpint_1a5f751be5271cc840a3025f0e0ee026f2" kind="variable"><name>MAX_POW</name></member>
     <member refid="namespacelibecpint_1a683275f366eb38bfcc526bf5264d9376" kind="variable"><name>FAST_POW</name></member>
     <member refid="namespacelibecpint_1a4fc3cf89f4b0b1787baabc364a16e377" kind="variable"><name>GAMMA</name></member>
-    <member refid="namespacelibecpint_1a0084068573b7163775f478479de24255" kind="variable"><name>MIN_EXP</name></member>
-    <member refid="namespacelibecpint_1a544c252dcf08f3ce5560b8066730601c" kind="function"><name>shell_bound</name></member>
-    <member refid="namespacelibecpint_1a11466fdaf07952a659fe9ab5cd634743" kind="function"><name>pow_m2</name></member>
-    <member refid="namespacelibecpint_1a36d15d50e1c9979ab73acf66f1019304" kind="function"><name>pow_m1</name></member>
-    <member refid="namespacelibecpint_1a34d3b9ccb2d69e977f74ff88524cf856" kind="function"><name>pow_0</name></member>
-    <member refid="namespacelibecpint_1a1addfbe82d0601ae0f2392e952e58dda" kind="function"><name>pow_1</name></member>
-    <member refid="namespacelibecpint_1a7b6040a6e46c20d2e23b692e0fbffdf7" kind="function"><name>pow_2</name></member>
-    <member refid="namespacelibecpint_1a61d1d1633673052f4bdf09074343672c" kind="function"><name>pow_3</name></member>
-    <member refid="namespacelibecpint_1abda78a2e83d967ee3da8b2fa7bff6ad0" kind="function"><name>pow_4</name></member>
-    <member refid="namespacelibecpint_1a86323740854f95e4faa929dc192aea06" kind="function"><name>pow_5</name></member>
-    <member refid="namespacelibecpint_1a7ecd27cd3ddff36e2a2e0ebeffa3d303" kind="function"><name>pow_6</name></member>
-    <member refid="namespacelibecpint_1a5bd73223ef2829c4d4e8f1fb68b7bcbb" kind="function"><name>pow_7</name></member>
-    <member refid="namespacelibecpint_1a2419326594e0adba8c22660003cee2ce" kind="function"><name>pow_8</name></member>
-    <member refid="namespacelibecpint_1ac6cc42cb342d04a07173673b14e59b5c" kind="function"><name>pow_9</name></member>
-    <member refid="namespacelibecpint_1a8d415487a348138eae566f7b8ee4ce24" kind="function"><name>pow_10</name></member>
-    <member refid="namespacelibecpint_1aea1a1b36dedb45829a2cdb5ee133b6ca" kind="function"><name>pow_11</name></member>
-    <member refid="namespacelibecpint_1a38e7f34b9f4f6181178d70e2d1ebb7df" kind="function"><name>pow_12</name></member>
-    <member refid="namespacelibecpint_1afd6b073b13a5cc8ddb89a4d331dae638" kind="function"><name>pow_13</name></member>
-    <member refid="namespacelibecpint_1ad62d70ca1e4137214af96b66ba9e50f8" kind="function"><name>pow_14</name></member>
-    <member refid="namespacelibecpint_1aad2f9701f24b74e7db5f8d1098b48cf5" kind="function"><name>pow_15</name></member>
-    <member refid="namespacelibecpint_1a250f67b7a3f611c4b8acdd8d90e0bec6" kind="function"><name>pow_16</name></member>
-    <member refid="namespacelibecpint_1aa93c5edc1ed250d59cfb1687865c7af3" kind="function"><name>pow_17</name></member>
-    <member refid="namespacelibecpint_1a15cb24b7b0a3530c911ff0c782ef3378" kind="function"><name>pow_18</name></member>
-    <member refid="namespacelibecpint_1a02aadabb1b7fceb975aa42706bb2be8d" kind="function"><name>pow_19</name></member>
-    <member refid="namespacelibecpint_1a5d0157ab6282709bcec5e37a841e8fbf" kind="function"><name>pow_20</name></member>
+    <member refid="namespacelibecpint_1a92d5ae635e6e5d78682fd89ce537a7a3" kind="variable"><name>MIN_EXP</name></member>
+    <member refid="namespacelibecpint_1ad93011f81c46d555725bff0a0fc5aaf6" kind="function"><name>shell_bound</name></member>
+    <member refid="namespacelibecpint_1a3d3ec1164653607a1a2a66e71c160905" kind="function"><name>pow_m2</name></member>
+    <member refid="namespacelibecpint_1af586e0d10f4e89ae23350208eae35381" kind="function"><name>pow_m1</name></member>
+    <member refid="namespacelibecpint_1a321e63264d2ee5ec80e5aa98ab5f2a31" kind="function"><name>pow_0</name></member>
+    <member refid="namespacelibecpint_1ab8d8f23abac900581a1b074df5151bfa" kind="function"><name>pow_1</name></member>
+    <member refid="namespacelibecpint_1aeea8f0398e91f9c4c0abc5087c68208a" kind="function"><name>pow_2</name></member>
+    <member refid="namespacelibecpint_1adb6835f6678e044793635ea74137610c" kind="function"><name>pow_3</name></member>
+    <member refid="namespacelibecpint_1af1b4030182805b2b87939f0be0bb1f68" kind="function"><name>pow_4</name></member>
+    <member refid="namespacelibecpint_1ae8e9cac2c5167fee6077b8d5b38c879d" kind="function"><name>pow_5</name></member>
+    <member refid="namespacelibecpint_1a691287591ae556167f12eef21d9605d3" kind="function"><name>pow_6</name></member>
+    <member refid="namespacelibecpint_1afc2d0fbd27b79b1cfb7a933a4f8f86af" kind="function"><name>pow_7</name></member>
+    <member refid="namespacelibecpint_1aceff25bd00ac616a0c1679c43c757c25" kind="function"><name>pow_8</name></member>
+    <member refid="namespacelibecpint_1a125307aa5575e22d32bc381c0ddb598d" kind="function"><name>pow_9</name></member>
+    <member refid="namespacelibecpint_1a764f6b0f657d4b76cd030593a81f8161" kind="function"><name>pow_10</name></member>
+    <member refid="namespacelibecpint_1a17491fad5ad55b86c80bccd068067373" kind="function"><name>pow_11</name></member>
+    <member refid="namespacelibecpint_1a274e6578163d01f8c1bd6b24f0f1e061" kind="function"><name>pow_12</name></member>
+    <member refid="namespacelibecpint_1adf95d3c9da1c27fbbbe785fb7d4c3419" kind="function"><name>pow_13</name></member>
+    <member refid="namespacelibecpint_1a12c8c970bff9ab1318e774a4637059fb" kind="function"><name>pow_14</name></member>
+    <member refid="namespacelibecpint_1a5ebc6e4869b8a3dab9286895629c19fc" kind="function"><name>pow_15</name></member>
+    <member refid="namespacelibecpint_1a697a408875eb033819881bc8d5fd3cec" kind="function"><name>pow_16</name></member>
+    <member refid="namespacelibecpint_1a60980f8f3c0f2ce3bfa35d1ab1ffe612" kind="function"><name>pow_17</name></member>
+    <member refid="namespacelibecpint_1a44095a8d0f5ab3e8bf4770a0ecd39a49" kind="function"><name>pow_18</name></member>
+    <member refid="namespacelibecpint_1ad7792ee9315576df3c805d0d0bbb6144" kind="function"><name>pow_19</name></member>
+    <member refid="namespacelibecpint_1aa2a7bd43b3c7267b69a5a3faa3adf313" kind="function"><name>pow_20</name></member>
     <member refid="namespacelibecpint_1a0d3d7448d52abd739d6d100afa6d4e8a" kind="function"><name>initFactorials</name></member>
-    <member refid="namespacelibecpint_1af2fa15848e7d9cfe1e61fc579a94080d" kind="function"><name>realSphericalHarmonics</name></member>
-    <member refid="namespacelibecpint_1a4c0dd5f75d6fc9b5329c97195b0b5e6c" kind="function"><name>frobenius_norm</name></member>
+    <member refid="namespacelibecpint_1ac8004320c2b47b1ce75ab1ccfff376e4" kind="function"><name>realSphericalHarmonics</name></member>
+    <member refid="namespacelibecpint_1a16e0a77a3022ff74a1fbb6eccba88c4c" kind="function"><name>frobenius_norm</name></member>
     <member refid="namespacelibecpint_1a3a4ed9b49d76dd6974d2dbc6bb181ab8" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacelibecpint_1a23ce2cda098d601b0fddfb10b971e33f" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacelibecpint_1a2c6257f0f39de7233558e384908f1526" kind="function"><name>check_file</name></member>
@@ -377,134 +382,134 @@
     <member refid="namespacelibecpint_1_1aux_1a8e2ec9ac4e466e11814c592a83efb66f" kind="function"><name>print_tuple</name></member>
   </compound>
   <compound refid="namespacelibecpint_1_1qgen" kind="namespace"><name>libecpint::qgen</name>
-    <member refid="namespacelibecpint_1_1qgen_1aa957a79b70df8879d0abbfb12a2ce49b" kind="function"><name>rolled_up</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a2746fee105d370ee314fe22e752affeb" kind="function"><name>rolled_up_special</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a93436d53d6ef5500eb458ef11e8043ac" kind="function"><name>Q0_0_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ad0ca8d8424656a9535a6feadae469fab" kind="function"><name>Q0_0_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a54295e912bd54f3f8c4e67c9d8497b6d" kind="function"><name>Q0_0_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1af524f71fe882318cfb0204f01004e173" kind="function"><name>Q0_0_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a460b4be26220556a7fab6c56fd0798ca" kind="function"><name>Q0_0_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1aa968da184da74332ebb64840fca37563" kind="function"><name>Q0_0_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1af85290fe10772c77a0e271ef9a294439" kind="function"><name>Q0_1_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a2cacc14c8239c3f202631e089a75bf8f" kind="function"><name>Q0_1_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a119daa634903dbecf64d19eb5ba15d08" kind="function"><name>Q0_1_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a4102cedccaa2b99ae690e9b8c69551c2" kind="function"><name>Q0_1_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1af27c1bf759fb1fcdd066d4631339342f" kind="function"><name>Q0_1_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a15199caa67de1996017f60b214ad3d14" kind="function"><name>Q0_1_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a29754bb55ad841e326de3c986f8e2848" kind="function"><name>Q1_1_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a58617819fd10d1083afc396fbc79e387" kind="function"><name>Q1_1_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1afb34239e6c998eae905ec5d398d4b184" kind="function"><name>Q1_1_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a769451399d6f3ecc4f51f12d01e80449" kind="function"><name>Q1_1_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ae04fe02eb63130146d27b9b21029f7a0" kind="function"><name>Q1_1_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ab8fa7b1e013dfc11d1db5095fa31b1f4" kind="function"><name>Q1_1_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a151b9ededca4173cafa6df8d87d96fd5" kind="function"><name>Q0_2_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1af85e85322bbdc11c456c2e6cf87e1f03" kind="function"><name>Q0_2_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ae06aaa3298e7e07f2a3ac58799292f5a" kind="function"><name>Q0_2_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ab42100cc0c65d9f9cd2e667cc81bc808" kind="function"><name>Q0_2_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ac8041349c5e5382f5589ab5556c82060" kind="function"><name>Q0_2_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a7330c93ccc3ee07d2e17264c2f418527" kind="function"><name>Q0_2_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a382cf81c48b6fae7aeba3be5ae6e457b" kind="function"><name>Q1_2_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ac539befd8e56f73c61f5a32909e357da" kind="function"><name>Q1_2_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1afd292aa3e56e39b254622448c50b1c66" kind="function"><name>Q1_2_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1aa362053769b5edcb1ec8552f10d52be6" kind="function"><name>Q1_2_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a013e0cc0f5b8223acc2c0f4877d450b8" kind="function"><name>Q1_2_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a129a37d497b2f5a3a1c3819edbe479df" kind="function"><name>Q1_2_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ac6caab55a19cf3268cf3c56d3575034b" kind="function"><name>Q2_2_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ae25acfbdd96fea07bf14a59e02fc7d54" kind="function"><name>Q2_2_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a1d4e032617fe380182fe6046722aff4a" kind="function"><name>Q2_2_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ae1ab26e9c37e6099370e5eac81e387bb" kind="function"><name>Q2_2_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a67e080a65877ef94a995b6375c8f813a" kind="function"><name>Q2_2_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a2861e6d26d3067ac962e777a165cf432" kind="function"><name>Q2_2_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ac47c5efbc05973541703abc8265d2dc6" kind="function"><name>Q0_3_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1aa4d41ca8cc3ec21577526011329df084" kind="function"><name>Q0_3_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a61a0d2a085bc8553dd2c9bffc8ad5abf" kind="function"><name>Q0_3_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a999bc28a5d80787f03cc1a3ff1a8c39b" kind="function"><name>Q0_3_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a71c8b6f8381698df16df610a6ef84e72" kind="function"><name>Q0_3_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a5f05d08a900405de7047d06a22e5ba2f" kind="function"><name>Q0_3_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a924e19764d9f679e62ae85fc6cac2410" kind="function"><name>Q1_3_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a9893d98cd4ed014e325e9d6392f40ac8" kind="function"><name>Q1_3_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a483926fa6186bbe5c39fdc797ea816b2" kind="function"><name>Q1_3_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a73b671bedf8c4d6dd679961436290720" kind="function"><name>Q1_3_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a3ed03cc7f1a6e5af9a85708f81d80f8a" kind="function"><name>Q1_3_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ae9258caecf0017cc7782591e0f75b61e" kind="function"><name>Q1_3_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a1d96905f9de2c9caaba87c3790f6d30b" kind="function"><name>Q2_3_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1af14b5de42b087d7ed2768844928538c2" kind="function"><name>Q2_3_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a0415776547539e74b707bb57a725a26e" kind="function"><name>Q2_3_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a21be6a1d89b69da23eb7b760e4beabd3" kind="function"><name>Q2_3_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a65d824b28264272e12f6b2487b639711" kind="function"><name>Q2_3_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ade873e867bdb6757b88643c0958ab880" kind="function"><name>Q2_3_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a0c98c29930ffdb324f6df35cc1f9544c" kind="function"><name>Q3_3_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ac0c591b25ebe3779266e40f02e37125c" kind="function"><name>Q3_3_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a4fb015300d593d8ee8166eb84afacb32" kind="function"><name>Q3_3_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a7e4b20f55e6c486cca3d72e08d159b97" kind="function"><name>Q3_3_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1aaa40ba470be53681e75b124354b40c2c" kind="function"><name>Q3_3_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a9e2847158ffcacd0a6fc12a455e63309" kind="function"><name>Q3_3_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a5fc2c9a204e7c97db133573731819a2a" kind="function"><name>Q0_4_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ab91f04eece262074221b150ca5e0e62a" kind="function"><name>Q0_4_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ab3e29d310b8765ca9dc9ae7e881b42bb" kind="function"><name>Q0_4_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1aacd750e55133a09211f6abfe0ea4ea3b" kind="function"><name>Q0_4_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1acc501264ac82792276fdb06aa2e68d28" kind="function"><name>Q0_4_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a18ae7c31a4c8120fcd149296f8544064" kind="function"><name>Q0_4_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1af7a7b5fedc7e77a0a124d2d8d94caef1" kind="function"><name>Q1_4_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a4e660a607aefaeda5a7b0aff0921c062" kind="function"><name>Q1_4_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a90ba6aa515ccce14c9f5e63b24be86aa" kind="function"><name>Q1_4_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ae6cb9ae3d166614d151089947c8eb841" kind="function"><name>Q1_4_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a4fe80a30975e5d5c8af497fd15a760e4" kind="function"><name>Q1_4_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1acf2f1092a3b6f0098de49c3da234df38" kind="function"><name>Q1_4_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a2c596f5f83378630677beef4ae8f43cf" kind="function"><name>Q2_4_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a463f70942e5de5172504d92ec6cc9616" kind="function"><name>Q2_4_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ae71431041dc69e2d429acbf54f03464d" kind="function"><name>Q2_4_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a7e6a3a6f82a7b50654fd980987749345" kind="function"><name>Q2_4_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a88f6bba85f7bbfccf8a9ccd31a229c54" kind="function"><name>Q2_4_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1af087e0cdf5de3780ae754e9c6f657198" kind="function"><name>Q2_4_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a704923aff02da8fec8e6586d2023f8b2" kind="function"><name>Q3_4_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a2752f2e9ae667bd4ce018630be1e9c13" kind="function"><name>Q3_4_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a5e894ba7de331a41aaa57f9136024631" kind="function"><name>Q3_4_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ab8ec2d5a9021a4daaf5ad8b94db84cf2" kind="function"><name>Q3_4_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a8b1013e12370dc883604a9d26f8d7155" kind="function"><name>Q3_4_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a5a713efe907c5b99f9149dd14b2c749b" kind="function"><name>Q3_4_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a5febb3c055ce4769bc1a750f98758aab" kind="function"><name>Q4_4_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1aa3d5947febd6747a1936eb7228e486e5" kind="function"><name>Q4_4_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a4f3562bdf89c17a5fcd755bc68268194" kind="function"><name>Q4_4_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a785079edd6208c7b4f42d9bbed24b8a6" kind="function"><name>Q4_4_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a5d4d33e9ee0c2a5d2c70296a32ad3eb8" kind="function"><name>Q4_4_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1aae455a07b0f1ce8adcd58402bea39b9a" kind="function"><name>Q4_4_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a0e99841554fc02fa5d534f6314e28134" kind="function"><name>Q0_5_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a38cc09dd01fd2186761a9b42df9e4bb3" kind="function"><name>Q0_5_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1afd5e9e8fbfdce4c6713251e1f147e5d6" kind="function"><name>Q0_5_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a713950e1242796aa631a0d0aab602a42" kind="function"><name>Q0_5_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a2dd9ddbb3213eea5af524a6ff34ecd73" kind="function"><name>Q0_5_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a37f5258284037a0bf3bd897cf2aaf637" kind="function"><name>Q0_5_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a700b1c6b4c5327e2f395e38c0cac99ba" kind="function"><name>Q1_5_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a1af44e43779236559458dd5ef1f683ce" kind="function"><name>Q1_5_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a5f8d53e84a9fc1a22075e13987d9608e" kind="function"><name>Q1_5_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ae4734bbfb388d811ede625b79a188e62" kind="function"><name>Q1_5_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1acac155055f27ee3111437ed638b1c600" kind="function"><name>Q1_5_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a3e60d04afe7a4e07551c971a040eeaba" kind="function"><name>Q1_5_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1abba30dd871f615eb80d23752522d6de1" kind="function"><name>Q2_5_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a42f16a690d170eb768ff7d5dd750c063" kind="function"><name>Q2_5_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a72f978eff7e1d723f1107a637a6b580b" kind="function"><name>Q2_5_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a0bcc591d16e3a934158e56cd0ded726d" kind="function"><name>Q2_5_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a3608b27342d00fa484af93de4a9e146d" kind="function"><name>Q2_5_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1af7feca81393dc22989d13c41975ae8b3" kind="function"><name>Q2_5_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a11ea2c964fa710815e0bb651095b978b" kind="function"><name>Q3_5_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a09e068e7ce72609cffab0a5aaf998137" kind="function"><name>Q3_5_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a804aaa1e22a0d6ad6da870c708054007" kind="function"><name>Q3_5_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1abf0f13ffec33887ba20dfde547d1acaa" kind="function"><name>Q3_5_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a1df8ea2e2fe35050d24bd0541119fa29" kind="function"><name>Q3_5_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a85275daf2de3182417a0f5a3ffac47c5" kind="function"><name>Q3_5_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a966d79e1526e747a20f26196ed2bd2bc" kind="function"><name>Q4_5_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a17ab9d6e76588a000009bd6140f80914" kind="function"><name>Q4_5_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ab67f57b4dcbf7d27e721e40909390e0c" kind="function"><name>Q4_5_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1aba194c04414f2de09dbb83bc7a528dfe" kind="function"><name>Q4_5_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ac9d4bb955ad433fe833a829b93a77792" kind="function"><name>Q4_5_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a0c072abf561409c52e122563986c170b" kind="function"><name>Q4_5_5</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a3cf2623a8ae1e20ff29a8bc1b11b9565" kind="function"><name>Q5_5_0</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ac1323c46145017941ea6c3937d114742" kind="function"><name>Q5_5_1</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1ae9d2f56806b38c9ea0b1c3d8af64c9f4" kind="function"><name>Q5_5_2</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a85e0f26686e72471e0f9eacffb1c75c9" kind="function"><name>Q5_5_3</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a76b4f2b3f83e17a3f3b81962f2061e4b" kind="function"><name>Q5_5_4</name></member>
-    <member refid="namespacelibecpint_1_1qgen_1a34b21851b77f09f49aea3c0ca550f9b2" kind="function"><name>Q5_5_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1af1816608e31f73731cb510619099400e" kind="function"><name>rolled_up</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab020c384dfc8c0f23cf165448b10216e" kind="function"><name>rolled_up_special</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ac50f25410860af3e1c8203648ed6c8ae" kind="function"><name>Q0_0_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a747ea3f093bdc2c16930a9e1573bd396" kind="function"><name>Q0_0_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a36960c9e50c9fce6a6c57aa8792eba3d" kind="function"><name>Q0_0_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab6099b7e4ee5c323c4ec2c6e939ae699" kind="function"><name>Q0_0_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a02e67630bc3cc6771a283b931a0d0652" kind="function"><name>Q0_0_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a109fc4cf994a6ef27bc8377bb1221a6e" kind="function"><name>Q0_0_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a89f11f190b2770ba1a6cd3bb0e252038" kind="function"><name>Q0_1_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a7f4b88955a96847da3ebc5c50d56e6d1" kind="function"><name>Q0_1_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab75f9a0fe020cc5eac1855af0311a1e9" kind="function"><name>Q0_1_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a5582b3de3f3f06a0dd219525f45efb3b" kind="function"><name>Q0_1_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a3bdb99b42efd94923116ddaf39352437" kind="function"><name>Q0_1_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a70ec2d64c8c090e8a736825df8ac69d2" kind="function"><name>Q0_1_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a01be990e258c413c9db8dd5624f0e071" kind="function"><name>Q1_1_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a7a27208dca8f6953fd31e913e2fff149" kind="function"><name>Q1_1_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a31e6957c9ced525cbbdba4a9c443c260" kind="function"><name>Q1_1_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ac9d76855b9f0e07c466603e836fc55cf" kind="function"><name>Q1_1_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a5aa67d887d7014b406df808637d97331" kind="function"><name>Q1_1_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a24a7957907649a616a90be7093af0a1e" kind="function"><name>Q1_1_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a04ddf7b46cb449284fe3577036c66685" kind="function"><name>Q0_2_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab6b41ee8966c9f271f301c75a167fc9a" kind="function"><name>Q0_2_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a09ff49cc3eeef8f281974772d5dffc0f" kind="function"><name>Q0_2_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a70a5cf8de05207c9704d69acbfb5c2dd" kind="function"><name>Q0_2_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a6179b5819e8e7e2f0335cfa6f36eb478" kind="function"><name>Q0_2_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a3be412799b3edfe3eda545484b300a43" kind="function"><name>Q0_2_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a5b65c0e188633d68627478d6dd43a613" kind="function"><name>Q1_2_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a23265e6ef8db8355d123e8ef88049d01" kind="function"><name>Q1_2_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ae761a79d75fd6b29c1d7460c5032a2b1" kind="function"><name>Q1_2_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a47eb555b220e5464d0533a99a06fec5f" kind="function"><name>Q1_2_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a57c8f6c91db56996a928592cd15643d7" kind="function"><name>Q1_2_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab1fb4b6ce6020d16a6214a109b2f37d9" kind="function"><name>Q1_2_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1aba431d549c947101b9d20b8ae5cb521a" kind="function"><name>Q2_2_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1af9a4da1d53cb16463d2d1144809f55c7" kind="function"><name>Q2_2_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab9eaa8ccb9792d3efb90ed7143af727a" kind="function"><name>Q2_2_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a153993173e1a3f56f30abea2b345db76" kind="function"><name>Q2_2_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a04b44167d55d965bd4f0b5fca498a4f9" kind="function"><name>Q2_2_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1abe81347b5a52f811b3bac69af1f8f9bb" kind="function"><name>Q2_2_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1acd0676a7915b0a5e72926d61e3827eae" kind="function"><name>Q0_3_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1abdcc453ff2d05d577ea9cf4bce03402f" kind="function"><name>Q0_3_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a832916799425771d4a829de5f488c7ab" kind="function"><name>Q0_3_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1af87f236fd427c9a80540e4117091be15" kind="function"><name>Q0_3_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a29fd2aafe4d193454e73909dd36e4969" kind="function"><name>Q0_3_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a1f2fae93db97564c6223f7ab0b3a1345" kind="function"><name>Q0_3_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1af900a11994d6f09f0d83cdbc01a6cf3d" kind="function"><name>Q1_3_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a030ab3019b1098321972e7f2aa3654bc" kind="function"><name>Q1_3_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a141f8229acaf6ffcc69bbf5f25fde085" kind="function"><name>Q1_3_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a581417956b752bd71c1a66450c2c13a7" kind="function"><name>Q1_3_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a6c9e60c9ff500fb4223a19fa56721bc3" kind="function"><name>Q1_3_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a9fad4906bd3daa6941148f903ac156df" kind="function"><name>Q1_3_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a2f1b593fe7a6e4e2810e6b989f0e5e0f" kind="function"><name>Q2_3_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a1e41f79e7d2cae760fbb9efe656d79a6" kind="function"><name>Q2_3_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab5c03c9c7a30f526f0ea06560fef3724" kind="function"><name>Q2_3_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a0b77eccd5538829e047ae612b66b76a4" kind="function"><name>Q2_3_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ad7b9a182da83d7b4f3db01182093b967" kind="function"><name>Q2_3_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ac3aed6a829f009e3b82e84a90dc492c3" kind="function"><name>Q2_3_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a2b53172b5b4103d7742ccf83fdb6e5b6" kind="function"><name>Q3_3_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a15e49a02b122486b1eba9c47193a9a7f" kind="function"><name>Q3_3_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1afa1e5d62f4439f243a382d7a8cf09ce8" kind="function"><name>Q3_3_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ae94ff95331b2a7d7582d833e57e1a730" kind="function"><name>Q3_3_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a4b956df3f1004dc6c367398fa3881724" kind="function"><name>Q3_3_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a2d08887dbffc07eb48888c65399b1df9" kind="function"><name>Q3_3_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a379f0d0f5d764bf07e31a8e3e8156bce" kind="function"><name>Q0_4_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a299bb6bb7a5287c2773d9f4189a26d69" kind="function"><name>Q0_4_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a6cd9cb22f70aaa25147c43511e335d41" kind="function"><name>Q0_4_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a93772fb9447d2664d73d8a3902fe1b54" kind="function"><name>Q0_4_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a99f72ea2f7322f8232307384bd228f5a" kind="function"><name>Q0_4_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a8aa5fff0f4772cffde29ece307abe014" kind="function"><name>Q0_4_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ae9a7959c4fbc71226a3cd2a7c4cd1aa8" kind="function"><name>Q1_4_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a9634adfd5bb091641ec927cb13898103" kind="function"><name>Q1_4_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a69e412cf2def6bc140846356256e9aec" kind="function"><name>Q1_4_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a302b0e3066e69adac6e37c16bc223a36" kind="function"><name>Q1_4_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a10cf00d4a3d89367f96e19216396af68" kind="function"><name>Q1_4_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a0e4355fdf3c94a702625fb08123cfffb" kind="function"><name>Q1_4_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a418b910c14f22c51f09224b0b5b8897d" kind="function"><name>Q2_4_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a6db93ab24ebed670cd2a039350906744" kind="function"><name>Q2_4_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1aad2b22ead6cc4dd2326b1e07fbd9a0e4" kind="function"><name>Q2_4_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1adf8d2ab801d7cabb617ef95fe2346772" kind="function"><name>Q2_4_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a08659d03f2d3c193a4a29ad64ed5b2ab" kind="function"><name>Q2_4_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a055cd957f9eeece918efd6aeac46e55b" kind="function"><name>Q2_4_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1aa351f08e3c67aaf89372bb6458977b7b" kind="function"><name>Q3_4_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a9a1b0cff031b0138fad4fba5dd78fb28" kind="function"><name>Q3_4_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a668ee5dc9c5ceb4e2012bd86327c3f82" kind="function"><name>Q3_4_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ac022ef72b9ce182dc98297e3046bcf35" kind="function"><name>Q3_4_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a93d5d63f4cd6b286b87140d0c3cd84ae" kind="function"><name>Q3_4_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1aefd1940621859b33b496f59439b9a629" kind="function"><name>Q3_4_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a29d4cca2d7ad9972c8ae888f309ef52c" kind="function"><name>Q4_4_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a1c0f647f35ab7fd10a1a228f19df83a2" kind="function"><name>Q4_4_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a2bea2d6240c5f253e14587ab83a5d9dd" kind="function"><name>Q4_4_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a97e6fa3e95914a16d365a38fad6bf168" kind="function"><name>Q4_4_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1aa4e13d53a459d93019650b9bf0f64a58" kind="function"><name>Q4_4_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1aea3e2f38c359b9861ebc8e6f8efc0292" kind="function"><name>Q4_4_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a3de0194aa3913e0e14a9eedb28f9ef99" kind="function"><name>Q0_5_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a261faecbcc2aaa80a07749ef804594d9" kind="function"><name>Q0_5_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ad83d47512070305306433992d08d692a" kind="function"><name>Q0_5_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1afa8279cc29fea475b60c95ea30fbcf2a" kind="function"><name>Q0_5_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab1fcb35c6f2cda3a171a75ae36f634d7" kind="function"><name>Q0_5_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a0d0c8cc09c76e3efd8f1cf130bd7264d" kind="function"><name>Q0_5_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a029bfa957a1438d6be8340a178fa668d" kind="function"><name>Q1_5_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a6ca3f4990879d69f0947dc320cff7512" kind="function"><name>Q1_5_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a30db4a3e0d94645ef1061ebe49fdf79d" kind="function"><name>Q1_5_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab0da4c56916b9b9ef3a1e82176429161" kind="function"><name>Q1_5_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab76bee96421fb775cd2fd16ff036664f" kind="function"><name>Q1_5_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a179f27d18c3e44e4d6d77a0713ffbe2d" kind="function"><name>Q1_5_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a0b468cc9891219de7934784a9c925e23" kind="function"><name>Q2_5_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1aa01fb986261df6407432d76739134ee1" kind="function"><name>Q2_5_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ab399ac3be9a089e30a15502bf58c38b9" kind="function"><name>Q2_5_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a00da41091abc4253b7f7c50816157f4a" kind="function"><name>Q2_5_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a9a8592e8a00c0d7a195be80fb3bbd0ea" kind="function"><name>Q2_5_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a1ff5364df2c3ea0e40d06a096bfde511" kind="function"><name>Q2_5_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a7a397803096c0fa76aa8db724640a33e" kind="function"><name>Q3_5_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1af6aed704c528f33d41a3c8974f73933d" kind="function"><name>Q3_5_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a6a80fb42ebc7edfd76662bee54b73717" kind="function"><name>Q3_5_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a6210949d0c67ed65d2eeaea4ae8591b5" kind="function"><name>Q3_5_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a2d54034749c5ef29fa9d9902540aa1bf" kind="function"><name>Q3_5_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1afbeec27b9ba065ae00e4491b856e151a" kind="function"><name>Q3_5_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a43fc7ab5cf543daec745b0f6d033ffc5" kind="function"><name>Q4_5_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1af5ae441ae60111ff2860513ccf26148c" kind="function"><name>Q4_5_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a4ba269ea8b6a2e9c61df0785448a5778" kind="function"><name>Q4_5_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a3c7bf43770a6435564e402ede936b8a8" kind="function"><name>Q4_5_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a2f3ffdd94d2b604fbffc55d77b944ef5" kind="function"><name>Q4_5_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ae76853a759ec019120382cd19a0e2d29" kind="function"><name>Q4_5_5</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a42856d19949953db8b9963a32fec27dc" kind="function"><name>Q5_5_0</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a2d3f70e323ad33a72441e7bc597491c2" kind="function"><name>Q5_5_1</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a6e1056154af784737309be994c116ca0" kind="function"><name>Q5_5_2</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1a766e3dfc45273f3b325b7b47d83c8fa3" kind="function"><name>Q5_5_3</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1ac6b5b1c66dc83827b0cc8971c0a89c5b" kind="function"><name>Q5_5_4</name></member>
+    <member refid="namespacelibecpint_1_1qgen_1aa3390aa653fcf192610379faf4cbadb8" kind="function"><name>Q5_5_5</name></member>
   </compound>
   <compound refid="namespacemakelist" kind="namespace"><name>makelist</name>
     <member refid="namespacemakelist_1a92f763e70ec614d7cc630b6b3afc201e" kind="variable"><name>max_am</name></member>
@@ -594,17 +599,17 @@
   </compound>
   <compound refid="makelist_8py" kind="file"><name>makelist.py</name>
   </compound>
-  <compound refid="dir_c6b3506109318da869165b36926fcb30" kind="dir"><name>/Users/robertshaw/devfiles/libecpint_new/src/generated</name>
+  <compound refid="dir_c6b3506109318da869165b36926fcb30" kind="dir"><name>/Users/robertshaw/devfiles/libecpint/src/generated</name>
   </compound>
-  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>/Users/robertshaw/devfiles/libecpint_new/include</name>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>/Users/robertshaw/devfiles/libecpint/include</name>
   </compound>
-  <compound refid="dir_c85d3e3c5052e9ad9ce18c6863244a25" kind="dir"><name>/Users/robertshaw/devfiles/libecpint_new/src/lib</name>
+  <compound refid="dir_c85d3e3c5052e9ad9ce18c6863244a25" kind="dir"><name>/Users/robertshaw/devfiles/libecpint/src/lib</name>
   </compound>
-  <compound refid="dir_2a4bd5cb231436a2565b9ec017c8f12b" kind="dir"><name>/Users/robertshaw/devfiles/libecpint_new/include/libecpint</name>
+  <compound refid="dir_2a4bd5cb231436a2565b9ec017c8f12b" kind="dir"><name>/Users/robertshaw/devfiles/libecpint/include/libecpint</name>
   </compound>
-  <compound refid="dir_52981df39a7c57b8ef961c18e6f88235" kind="dir"><name>/Users/robertshaw/devfiles/libecpint_new/src/generated/radial</name>
+  <compound refid="dir_52981df39a7c57b8ef961c18e6f88235" kind="dir"><name>/Users/robertshaw/devfiles/libecpint/src/generated/radial</name>
   </compound>
-  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>/Users/robertshaw/devfiles/libecpint_new/src</name>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>/Users/robertshaw/devfiles/libecpint/src</name>
   </compound>
   <compound refid="indexpage" kind="page"><name>index</name>
   </compound>

@@ -1,8 +1,56 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="structlibecpint_1_1_e_c_p" kind="struct" language="C++" prot="public">
     <compoundname>libecpint::ECP</compoundname>
     <includes refid="ecp_8hpp" local="no">ecp.hpp</includes>
+      <sectiondef kind="user-defined">
+      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a9b17e65c73b6671205b3295e2d2c52f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref> &amp;</type>
+        <definition>GaussianECP&amp; libecpint::ECP::getGaussian</definition>
+        <argsstring>(int i)</argsstring>
+        <name>getGaussian</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the index of <ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref> required </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a reference to the ith <ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="124" column="13" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="124" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a0f63ed68d975c8c4cbe782f6fea3dbed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref> &amp;</type>
+        <definition>const GaussianECP&amp; libecpint::ECP::getGaussian</definition>
+        <argsstring>(int i) const</argsstring>
+        <name>getGaussian</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="125" column="23" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="125" bodyend="125"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_1a3934e012fdd055afbcb14d46174861c6" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref> &gt;</type>
@@ -10,12 +58,13 @@
         <argsstring></argsstring>
         <name>gaussians</name>
         <briefdescription>
-<para>All the primitives in the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> expansion. </para>        </briefdescription>
+<para>All the primitives in the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> expansion. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="78" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="78" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="78" column="13" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="78" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_1a36dfdf88f34a7840e7cbfd57046571ad" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -23,12 +72,13 @@
         <argsstring></argsstring>
         <name>N</name>
         <briefdescription>
-<para>Number of Gaussians. </para>        </briefdescription>
+<para>Number of Gaussians. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="79" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="79" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="79" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="79" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_1a1ca581f31fc7ac7a59dc9fe699caa9a7" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -36,12 +86,13 @@
         <argsstring></argsstring>
         <name>L</name>
         <briefdescription>
-<para>Maximum angular momentum. </para>        </briefdescription>
+<para>Maximum angular momentum. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="80" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="80" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="80" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="80" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_1a8fedd3e5bacafd322282a00804448232" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -49,12 +100,13 @@
         <argsstring></argsstring>
         <name>atom_id</name>
         <briefdescription>
-<para>Internal id of the atom the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> is on. </para>        </briefdescription>
+<para>Internal id of the atom the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> is on. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="81" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="81" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="81" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="81" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_1a8072e7e01ac6f76d8b1a704581fcefd1" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -62,12 +114,13 @@
         <argsstring></argsstring>
         <name>min_exp</name>
         <briefdescription>
-<para>minimum exponent in the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para>        </briefdescription>
+<para>minimum exponent in the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="82" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="82" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="82" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="82" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_1a265c9db1f48ad60398265d29ac915457" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -75,12 +128,13 @@
         <argsstring>[LIBECPINT_MAX_L+1]</argsstring>
         <name>min_exp_l</name>
         <briefdescription>
-<para>minimum exponent in each l-shell </para>        </briefdescription>
+<para>minimum exponent in each l-shell </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="83" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="83" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="83" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_1ad2dd3b092c83374688c51093d824e6af" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -88,12 +142,13 @@
         <argsstring>[LIBECPINT_MAX_L+2]</argsstring>
         <name>l_starts</name>
         <briefdescription>
-<para>starting index of each l-shell </para>        </briefdescription>
+<para>starting index of each l-shell </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="84" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="84" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="84" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="84" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structlibecpint_1_1_e_c_p_1a180a9879527c372a58155240adf2c158" prot="public" static="no" mutable="no">
         <type>std::array&lt; double, 3 &gt;</type>
@@ -101,12 +156,13 @@
         <argsstring></argsstring>
         <name>center_</name>
         <briefdescription>
-<para>xyz coordinates of the atom on which the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> is located </para>        </briefdescription>
+<para>xyz coordinates of the atom on which the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> is located </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="86" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="86" bodyend="-1"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="86" column="12" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="86" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -116,12 +172,13 @@
         <argsstring>()</argsstring>
         <name>ECP</name>
         <briefdescription>
-<para>Constructs an empty <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> (N = 0, L=-1, center_ = {0, 0, 0}) </para>        </briefdescription>
+<para>Constructs an empty <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> (N = 0, L=-1, center_ = {0, 0, 0}) </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="89" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp" bodystart="43" bodyend="51"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="89" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="44" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a00fd5d048332aea9ac5ae51611998170" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -140,13 +197,15 @@
 <parametername>_center</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- xyz coordinates of the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para></parameterdescription>
+<para>- xyz coordinates of the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="95" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp" bodystart="53" bodyend="63"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="95" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="54" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a783c7247cf671e3eeeca19319f2005dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -158,36 +217,37 @@
           <declname>other</declname>
         </param>
         <briefdescription>
-<para>Copy constructor. </para>        </briefdescription>
+<para>Copy constructor. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="98" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp" bodystart="65" bodyend="76"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="98" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="66" bodyend="77"/>
       </memberdef>
-      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a0722152e417ce3cc1934fab12018a2fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1ad2260227632e534423cbeb0bbd448ec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void libecpint::ECP::addPrimitive</definition>
-        <argsstring>(int n, int l, double a, double d, bool needSort=true)</argsstring>
+        <argsstring>(const int n, const int l, const double a, const double d, const bool needSort=true)</argsstring>
         <name>addPrimitive</name>
         <param>
-          <type>int</type>
+          <type>const int</type>
           <declname>n</declname>
         </param>
         <param>
-          <type>int</type>
+          <type>const int</type>
           <declname>l</declname>
         </param>
         <param>
-          <type>double</type>
+          <type>const double</type>
           <declname>a</declname>
         </param>
         <param>
-          <type>double</type>
+          <type>const double</type>
           <declname>d</declname>
         </param>
         <param>
-          <type>bool</type>
+          <type>const bool</type>
           <declname>needSort</declname>
           <defval>true</defval>
         </param>
@@ -199,41 +259,47 @@
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- power of r </para></parameterdescription>
+<para>- power of r </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>l</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- angular momentum </para></parameterdescription>
+<para>- angular momentum </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>a</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- exponent </para></parameterdescription>
+<para>- exponent </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>d</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- coefficient </para></parameterdescription>
+<para>- coefficient </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>needSort</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- true = the GaussianECPs are sorted (if done once at the end, speeds up evaluation) </para></parameterdescription>
+<para>- true = the GaussianECPs are sorted (if done once at the end, speeds up evaluation) </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="108" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp" bodystart="78" bodyend="88"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="108" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="79" bodyend="90"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a67b0097de7275b589d8fb104559c85f2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const double *</type>
@@ -243,27 +309,29 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>the xyz coordinates of the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>the xyz coordinates of the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="111" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="111" bodyend="111"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="111" column="14" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="111" bodyend="111"/>
       </memberdef>
-      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a062cbfaa2fefcc7e4ca0de014a791b6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a8806b1257ab2bcc65171c98e155293d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void libecpint::ECP::setPos</definition>
-        <argsstring>(double x, double y, double z)</argsstring>
+        <argsstring>(const double x, const double y, const double z)</argsstring>
         <name>setPos</name>
         <param>
-          <type>double</type>
+          <type>const double</type>
           <declname>x</declname>
         </param>
         <param>
-          <type>double</type>
+          <type>const double</type>
           <declname>y</declname>
         </param>
         <param>
-          <type>double</type>
+          <type>const double</type>
           <declname>z</declname>
         </param>
         <briefdescription>
@@ -272,7 +340,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="114" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp" bodystart="114" bodyend="116"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="114" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="116" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a033d4d18c168f3052a298b1d32035dde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -280,38 +348,13 @@
         <argsstring>()</argsstring>
         <name>sort</name>
         <briefdescription>
-<para>Sort primitives according to angular momentum. </para>        </briefdescription>
+<para>Sort primitives according to angular momentum. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="117" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp" bodystart="90" bodyend="93"/>
-      </memberdef>
-      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a9b17e65c73b6671205b3295e2d2c52f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref> &amp;</type>
-        <definition>GaussianECP&amp; libecpint::ECP::getGaussian</definition>
-        <argsstring>(int i)</argsstring>
-        <name>getGaussian</name>
-        <param>
-          <type>int</type>
-          <declname>i</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>i</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- the index of <ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref> required </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>a reference to the ith <ref refid="structlibecpint_1_1_gaussian_e_c_p" kindref="compound">GaussianECP</ref> </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="123" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="123" bodyend="123"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="117" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="92" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a1eb8f3a9515a591efc9e3da28ba0a9c2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -321,11 +364,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>the number of primitives in <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>the number of primitives in <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="126" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="126" bodyend="126"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="129" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="129" bodyend="129"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a6f3c3cbf7401f8559be5c0616f21cb2b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -335,23 +380,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>true if the highest angular momentum functions have zero coefficients (e.g. Stuttgart-Dresden ECPs) </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>true if the highest angular momentum functions have zero coefficients (e.g. Stuttgart-Dresden ECPs) </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="129" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp" bodystart="95" bodyend="100"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="132" column="10" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="97" bodyend="102"/>
       </memberdef>
-      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a5b4a28bfac7de0329e0a84f10bb6531f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1ab39cb4ebd35a98586065f84271ac01aa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
         <definition>double libecpint::ECP::evaluate</definition>
-        <argsstring>(double r, int l)</argsstring>
+        <argsstring>(const double r, const int l) const</argsstring>
         <name>evaluate</name>
         <param>
-          <type>double</type>
+          <type>const double</type>
           <declname>r</declname>
         </param>
         <param>
-          <type>int</type>
+          <type>const int</type>
           <declname>l</declname>
         </param>
         <briefdescription>
@@ -362,21 +409,25 @@
 <parametername>r</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the radius at which to evaluate </para></parameterdescription>
+<para>- the radius at which to evaluate </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>l</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>- the angular momentum shell to evaluate over </para></parameterdescription>
+<para>- the angular momentum shell to evaluate over </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>the value of the l-th angular momentum shell of the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> at radius r </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>the value of the l-th angular momentum shell of the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> at radius r </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="137" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/src/lib/ecp.cpp" bodystart="103" bodyend="112"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="140" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="105" bodyend="114"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a8c9d96f791a742fe18616c8361d6ad0b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -386,54 +437,58 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>the maximum angular momentum in the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>the maximum angular momentum in the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="140" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="140" bodyend="140"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="143" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="143" bodyend="143"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Stores the details of an <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> expanded in terms of Gaussians and spherical harmonics. </para>    </briefdescription>
+<para>Stores the details of an <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> expanded in terms of Gaussians and spherical harmonics. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="8">
+      <node id="1">
         <label>libecpint::ECP</label>
         <link refid="structlibecpint_1_1_e_c_p"/>
-        <childnode refid="9" relation="usage">
+        <childnode refid="2" relation="usage">
           <edgelabel>center_</edgelabel>
         </childnode>
-        <childnode refid="10" relation="usage">
+        <childnode refid="3" relation="usage">
           <edgelabel>gaussians</edgelabel>
         </childnode>
       </node>
-      <node id="10">
+      <node id="3">
         <label>std::vector&lt; libecpint::GaussianECP &gt;</label>
-        <childnode refid="11" relation="usage">
+        <childnode refid="4" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="9">
+      <node id="2">
         <label>std::array&lt; double, 3 &gt;</label>
       </node>
-      <node id="11">
+      <node id="4">
         <label>libecpint::GaussianECP</label>
         <link refid="structlibecpint_1_1_gaussian_e_c_p"/>
       </node>
     </collaborationgraph>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" line="77" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecp.hpp" bodystart="77" bodyend="142"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="77" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="77" bodyend="145"/>
     <listofallmembers>
-      <member refid="structlibecpint_1_1_e_c_p_1a0722152e417ce3cc1934fab12018a2fa" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>addPrimitive</name></member>
+      <member refid="structlibecpint_1_1_e_c_p_1ad2260227632e534423cbeb0bbd448ec9" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>addPrimitive</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1a8fedd3e5bacafd322282a00804448232" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>atom_id</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1a67b0097de7275b589d8fb104559c85f2" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>center</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1a180a9879527c372a58155240adf2c158" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>center_</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1af4dca32df3ef9f0b16c9942aebaa30b9" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>ECP</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1a00fd5d048332aea9ac5ae51611998170" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>ECP</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1a783c7247cf671e3eeeca19319f2005dd" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>ECP</name></member>
-      <member refid="structlibecpint_1_1_e_c_p_1a5b4a28bfac7de0329e0a84f10bb6531f" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>evaluate</name></member>
+      <member refid="structlibecpint_1_1_e_c_p_1ab39cb4ebd35a98586065f84271ac01aa" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>evaluate</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1a3934e012fdd055afbcb14d46174861c6" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>gaussians</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1a9b17e65c73b6671205b3295e2d2c52f8" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>getGaussian</name></member>
+      <member refid="structlibecpint_1_1_e_c_p_1a0f63ed68d975c8c4cbe782f6fea3dbed" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>getGaussian</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1a8c9d96f791a742fe18616c8361d6ad0b" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>getL</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1a1eb8f3a9515a591efc9e3da28ba0a9c2" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>getN</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1a1ca581f31fc7ac7a59dc9fe699caa9a7" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>L</name></member>
@@ -442,7 +497,7 @@
       <member refid="structlibecpint_1_1_e_c_p_1a265c9db1f48ad60398265d29ac915457" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>min_exp_l</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1a36dfdf88f34a7840e7cbfd57046571ad" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>N</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1a6f3c3cbf7401f8559be5c0616f21cb2b" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>noType1</name></member>
-      <member refid="structlibecpint_1_1_e_c_p_1a062cbfaa2fefcc7e4ca0de014a791b6a" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>setPos</name></member>
+      <member refid="structlibecpint_1_1_e_c_p_1a8806b1257ab2bcc65171c98e155293d7" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>setPos</name></member>
       <member refid="structlibecpint_1_1_e_c_p_1a033d4d18c168f3052a298b1d32035dde" prot="public" virt="non-virtual"><scope>libecpint::ECP</scope><name>sort</name></member>
     </listofallmembers>
   </compounddef>

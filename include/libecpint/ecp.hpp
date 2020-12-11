@@ -65,7 +65,7 @@ namespace libecpint {
 		  * @param a - exponent
 		  * @param d - coefficient
 		  */ 
-		GaussianECP(int n, int l, double a, double d);
+		GaussianECP(const int n, const int l, const double a, const double d);
 		
 		/// Copy constructor
 		GaussianECP(const GaussianECP& other);
@@ -105,13 +105,13 @@ namespace libecpint {
 		  * @param d - coefficient
 		  * @param needSort - true = the GaussianECPs are sorted (if done once at the end, speeds up evaluation)
 		  */ 
-		void addPrimitive(int n, int l, double a, double d, bool needSort = true);
+		void addPrimitive(const int n, const int l, const double a, const double d, const bool needSort = true);
 		
 		/// @return the xyz coordinates of the ECP
 		const double* center() const { return &center_[0]; }
 		
 		//// Sets the xyz coordinates of the ECP
-		void setPos(double x, double y, double z);
+		void setPos(const double x, const double y, const double z);
 		
 		/// Sort primitives according to angular momentum
 		void sort(); 
@@ -137,7 +137,7 @@ namespace libecpint {
 		  * @param l - the angular momentum shell to evaluate over
 		  * @return the value of the l-th angular momentum shell of the ECP at radius r
 		  */ 
-		double evaluate(double r, int l) const;
+		double evaluate(const double r, const int l) const;
   
 		/// @return the maximum angular momentum in the ECP
 		int getL() const { return L; }
@@ -166,22 +166,22 @@ namespace libecpint {
 		  * @param U - the ECP to be added
 		  * @param atom - the index of that atom on which U is located
 		  */
-		void addECP(const ECP &U, int atom);
+		void addECP(const ECP &U, const int atom);
 		
 		/** 
 		  * @param i - index of ECP required
 		  * @return a reference to the ith ECP in basis
 		  * @{
 		  */ 
-		ECP& getECP(int i);
-    const ECP& getECP(int i) const;
+		ECP& getECP(const int i);
+    const ECP& getECP(const int i) const;
     /** @} */
 
 		/**
 		  * @param q - an atomic number 
 		  * @return the number of electrons in core of ECP for the atom with atomic number q, if defined, otherwise zero
 		  */
-		int getECPCore(int q) const;
+		int getECPCore(const int q) const;
 		
 		/**
 		  * @param i - the index of ECP of interest
@@ -201,7 +201,7 @@ namespace libecpint {
 		  * @param filename - path to the XML file containing the basis specification 
 		  */
 		void addECP_from_file(
-		    int q, const std::array<double, 3> & coords, const std::string & filename);
+		    const int q, const std::array<double, 3> & coords, const std::string & filename);
 	};
 
 }

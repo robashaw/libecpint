@@ -65,5 +65,5 @@ int main(int argc, char* argv[]) {
 	for (auto& v : flat_result) std::cout << std::setprecision(15) << v << std::endl;
 #endif
 	
-	return check_file<double>("type1_test.output", flat_result);
+	return check_file<double>("type1_test1.output", flat_result);
 }

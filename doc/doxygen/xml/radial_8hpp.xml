@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
   <compounddef id="radial_8hpp" kind="file" language="C++">
     <compoundname>radial.hpp</compoundname>
     <includes local="no">vector</includes>
@@ -8,173 +8,174 @@
     <includes refid="ecp_8hpp" local="yes">ecp.hpp</includes>
     <includes refid="bessel_8hpp" local="yes">bessel.hpp</includes>
     <includes refid="gshell_8hpp" local="yes">gshell.hpp</includes>
-    <includedby refid="generated_2radial_2radial__gen_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/radial_gen.cpp</includedby>
-    <includedby refid="lib_2radial__gen_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_gen.cpp</includedby>
-    <includedby refid="radial__quad_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_quad.cpp</includedby>
-    <includedby refid="ecpint_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp</includedby>
-    <includedby refid="qgen_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint_new/include/libecpint/qgen.hpp</includedby>
+    <includedby refid="generated_2radial_2radial__gen_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/generated/radial/radial_gen.cpp</includedby>
+    <includedby refid="lib_2radial__gen_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/lib/radial_gen.cpp</includedby>
+    <includedby refid="radial__quad_8cpp" local="yes">/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp</includedby>
+    <includedby refid="ecpint_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/ecpint.hpp</includedby>
+    <includedby refid="qgen_8hpp" local="yes">/Users/robertshaw/devfiles/libecpint/include/libecpint/qgen.hpp</includedby>
     <incdepgraph>
-      <node id="239">
-        <label>ecp.hpp</label>
-        <link refid="ecp_8hpp"/>
-        <childnode refid="232" relation="include">
-        </childnode>
-        <childnode refid="240" relation="include">
-        </childnode>
-        <childnode refid="241" relation="include">
-        </childnode>
-        <childnode refid="242" relation="include">
-        </childnode>
-        <childnode refid="243" relation="include">
-        </childnode>
-      </node>
-      <node id="238">
+      <node id="8">
         <label>functional</label>
       </node>
-      <node id="231">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp</label>
-        <link refid="radial_8hpp"/>
-        <childnode refid="232" relation="include">
+      <node id="9">
+        <label>ecp.hpp</label>
+        <link refid="ecp_8hpp"/>
+        <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="233" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="237" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="239" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="244" relation="include">
-        </childnode>
-        <childnode refid="245" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="233">
-        <label>multiarr.hpp</label>
-        <link refid="multiarr_8hpp"/>
-        <childnode refid="232" relation="include">
-        </childnode>
-        <childnode refid="234" relation="include">
-        </childnode>
-        <childnode refid="235" relation="include">
-        </childnode>
-        <childnode refid="236" relation="include">
-        </childnode>
-      </node>
-      <node id="242">
-        <label>string</label>
-      </node>
-      <node id="241">
-        <label>map</label>
-      </node>
-      <node id="237">
-        <label>gaussquad.hpp</label>
-        <link refid="gaussquad_8hpp"/>
-        <childnode refid="238" relation="include">
-        </childnode>
-        <childnode refid="232" relation="include">
-        </childnode>
-      </node>
-      <node id="243">
-        <label>config.hpp</label>
-      </node>
-      <node id="234">
-        <label>tuple</label>
-      </node>
-      <node id="232">
-        <label>vector</label>
-      </node>
-      <node id="245">
-        <label>gshell.hpp</label>
-        <link refid="gshell_8hpp"/>
-        <childnode refid="232" relation="include">
-        </childnode>
-        <childnode refid="240" relation="include">
-        </childnode>
-      </node>
-      <node id="240">
-        <label>array</label>
-      </node>
-      <node id="236">
-        <label>sstream</label>
-      </node>
-      <node id="244">
+      <node id="14">
         <label>bessel.hpp</label>
         <link refid="bessel_8hpp"/>
-        <childnode refid="232" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="235">
+      <node id="12">
+        <label>string</label>
+      </node>
+      <node id="11">
+        <label>map</label>
+      </node>
+      <node id="15">
+        <label>gshell.hpp</label>
+        <link refid="gshell_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>config.hpp</label>
+      </node>
+      <node id="4">
+        <label>tuple</label>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+      <node id="10">
+        <label>array</label>
+      </node>
+      <node id="6">
+        <label>sstream</label>
+      </node>
+      <node id="3">
+        <label>multiarr.hpp</label>
+        <link refid="multiarr_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>gaussquad.hpp</label>
+        <link refid="gaussquad_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp</label>
+        <link refid="radial_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
         <label>algorithm</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="250">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/ecpint.hpp</label>
-        <link refid="ecpint_8hpp"/>
-        <childnode refid="251" relation="include">
+      <node id="10">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/qgen.hpp</label>
+        <link refid="qgen_8hpp"/>
+        <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="252" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="247">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/generated/radial/radial_gen.cpp</label>
+      <node id="5">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/ecpint.hpp</label>
+        <link refid="ecpint_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/Users/robertshaw/devfiles/libecpint/src/generated/radial/radial_gen.cpp</label>
         <link refid="generated_2radial_2radial__gen_8cpp"/>
       </node>
-      <node id="246">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp</label>
-        <link refid="radial_8hpp"/>
-        <childnode refid="247" relation="include">
-        </childnode>
-        <childnode refid="248" relation="include">
-        </childnode>
-        <childnode refid="249" relation="include">
-        </childnode>
-        <childnode refid="250" relation="include">
-        </childnode>
-        <childnode refid="255" relation="include">
-        </childnode>
-      </node>
-      <node id="249">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_quad.cpp</label>
+      <node id="4">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp</label>
         <link refid="radial__quad_8cpp"/>
       </node>
-      <node id="254">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint.hpp</label>
+      <node id="9">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint.hpp</label>
         <link refid="libecpint_8hpp"/>
       </node>
-      <node id="252">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/api.hpp</label>
-        <link refid="api_8hpp"/>
-        <childnode refid="253" relation="include">
-        </childnode>
-        <childnode refid="254" relation="include">
-        </childnode>
-      </node>
-      <node id="253">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/api.cpp</label>
+      <node id="8">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp</label>
         <link refid="api_8cpp"/>
       </node>
-      <node id="255">
-        <label>/Users/robertshaw/devfiles/libecpint_new/include/libecpint/qgen.hpp</label>
-        <link refid="qgen_8hpp"/>
-        <childnode refid="251" relation="include">
-        </childnode>
-        <childnode refid="256" relation="include">
-        </childnode>
-      </node>
-      <node id="251">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/ecpint.cpp</label>
+      <node id="6">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/ecpint.cpp</label>
         <link refid="ecpint_8cpp"/>
       </node>
-      <node id="248">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/radial_gen.cpp</label>
+      <node id="3">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/radial_gen.cpp</label>
         <link refid="lib_2radial__gen_8cpp"/>
       </node>
-      <node id="256">
-        <label>/Users/robertshaw/devfiles/libecpint_new/src/lib/qgen.cpp</label>
+      <node id="1">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp</label>
+        <link refid="radial_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>/Users/robertshaw/devfiles/libecpint/src/lib/qgen.cpp</label>
         <link refid="qgen_8cpp"/>
+      </node>
+      <node id="7">
+        <label>/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp</label>
+        <link refid="api_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="classlibecpint_1_1_radial_integral" prot="public">libecpint::RadialIntegral</innerclass>
+    <innerclass refid="structlibecpint_1_1_radial_integral_1_1_parameters" prot="public">libecpint::RadialIntegral::Parameters</innerclass>
     <innernamespace refid="namespacelibecpint">libecpint</innernamespace>
     <briefdescription>
     </briefdescription>
@@ -217,7 +218,7 @@
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacelibecpint" kindref="compound">libecpint</ref><sp/>{</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37" refid="namespacelibecpint_1a0084068573b7163775f478479de24255" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a0084068573b7163775f478479de24255" kindref="member">MIN_EXP</ref><sp/>=<sp/>0.002;</highlight></codeline>
+<codeline lineno="37" refid="namespacelibecpint_1a92d5ae635e6e5d78682fd89ce537a7a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a92d5ae635e6e5d78682fd89ce537a7a3" kindref="member">MIN_EXP</ref><sp/>=<sp/>0.002;</highlight></codeline>
 <codeline lineno="46" refid="classlibecpint_1_1_radial_integral" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlibecpint_1_1_radial_integral" kindref="compound">RadialIntegral</ref></highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
@@ -225,49 +226,63 @@
 <codeline lineno="52" refid="classlibecpint_1_1_radial_integral_1a8fd9dc20f11777d70a4717bcd6e42695" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibecpint_1_1_g_c_quadrature" kindref="compound">GCQuadrature</ref><sp/><ref refid="classlibecpint_1_1_radial_integral_1a8fd9dc20f11777d70a4717bcd6e42695" kindref="member">smallGrid</ref>;</highlight></codeline>
 <codeline lineno="54" refid="classlibecpint_1_1_radial_integral_1a0ecab0ef4febcbbde502dd2d8d0e3232" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibecpint_1_1_g_c_quadrature" kindref="compound">GCQuadrature</ref><sp/><ref refid="classlibecpint_1_1_radial_integral_1a0ecab0ef4febcbbde502dd2d8d0e3232" kindref="member">primGrid</ref>;<sp/></highlight></codeline>
 <codeline lineno="56" refid="classlibecpint_1_1_radial_integral_1a02377eb5c6fa6e3e8bc7a9adab9d54ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibecpint_1_1_bessel_function" kindref="compound">BesselFunction</ref><sp/><ref refid="classlibecpint_1_1_radial_integral_1a02377eb5c6fa6e3e8bc7a9adab9d54ce" kindref="member">bessie</ref>;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="59" refid="classlibecpint_1_1_radial_integral_1a005be0590e9859b8a5a1895c33f44816" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/><ref refid="classlibecpint_1_1_radial_integral_1a026d0f8ac22dfa7f59cea55ca9822813" kindref="member">p</ref>,<sp/><ref refid="classlibecpint_1_1_radial_integral_1ad043e0f39e49dfe5ad8d24ceb794f358" kindref="member">P</ref>,<sp/><ref refid="classlibecpint_1_1_radial_integral_1a005be0590e9859b8a5a1895c33f44816" kindref="member">P2</ref>,<sp/><ref refid="classlibecpint_1_1_radial_integral_1a266948c524f26078eda4cc03a38e4c38" kindref="member">K</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="classlibecpint_1_1_radial_integral_1aec0cebbcc385b095d3cddaca1535bfc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1aec0cebbcc385b095d3cddaca1535bfc6" kindref="member">tolerance</ref>;</highlight></codeline>
 <codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="62" refid="classlibecpint_1_1_radial_integral_1aec0cebbcc385b095d3cddaca1535bfc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1aec0cebbcc385b095d3cddaca1535bfc6" kindref="member">tolerance</ref>;</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a74e8d553abd0eaa05895b5c4de5dffd7" kindref="member">integrand</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*p,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ix);</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a18d110b928ca635af98f6d77af39eb30" kindref="member">buildBessel</ref>(std::vector&lt;double&gt;<sp/>&amp;r,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nr,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>,<sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;values,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>weight<sp/>=<sp/>1.0);</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a3d24ad5249cce6f7d2c756b35838b420" kindref="member">calcKij</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Na,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Nb,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zeta_a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zeta_b,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>R2)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a824424155d47851669936c7718b3659e" kindref="member">buildU</ref>(<ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>&amp;U,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N,<sp/><ref refid="classlibecpint_1_1_g_c_quadrature" kindref="compound">GCQuadrature</ref><sp/>&amp;grid,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*Utab);</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a6cfc8c4b8d54763dbe5e4eacaa1d4d0c" kindref="member">buildF</ref>(<ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shell,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>A,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lstart,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lend,<sp/>std::vector&lt;double&gt;<sp/>&amp;r,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nr,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>end,<sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;F);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1ac44fed4a3ddd6f4070a059fae618825c" kindref="member">integrand</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*p,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ix);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a162467ec2a4b9561b53215ea3f6ac835" kindref="member">buildBessel</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/>&amp;r,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nr,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>,<sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;values,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>weight<sp/>=<sp/>1.0)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a3d24ad5249cce6f7d2c756b35838b420" kindref="member">calcKij</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Na,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Nb,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zeta_a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zeta_b,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>R2)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1aeadf896902754c614f12b4dfd7d12397" kindref="member">buildU</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>&amp;U,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_g_c_quadrature" kindref="compound">GCQuadrature</ref><sp/>&amp;grid,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*Utab)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1afb4ba9e73581249f9854212c08fe5fe2" kindref="member">buildF</ref>(</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shell,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>A,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lstart,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lend,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/>&amp;r,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nr,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>end,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;F)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a70783f9cf618a9fbff0fc9320a5b7821" kindref="member">integrate</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>gridSize,<sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;intValues,<sp/><ref refid="classlibecpint_1_1_g_c_quadrature" kindref="compound">GCQuadrature</ref><sp/>&amp;grid,<sp/>std::vector&lt;double&gt;<sp/>&amp;values,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset<sp/>=<sp/>0,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>skip<sp/>=<sp/>1);</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1aaeaace744506f7c8249bce2f52c475fc" kindref="member">compute_base_integrals</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N_min,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N_max,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>p,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>o_root_p,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>P1,</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>P2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>P1_2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>P2_2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>X1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>X2,</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>oP1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>oP2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>values);<sp/></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pair&lt;double,<sp/>bool&gt;<sp/><ref refid="classlibecpint_1_1_radial_integral_1a1fd2768bf978c057e363f6d4ae12a9e7" kindref="member">integrate_small</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>A,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>B);</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibecpint_1_1_radial_integral_1af36637d464da95bf4eef4397021bed72" kindref="member">RadialIntegral</ref>();</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1ab393e4e63a410d922c4b8fa1bee7df3f" kindref="member">init</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tol<sp/>=<sp/>1e-15,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>small<sp/>=<sp/>256,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>large<sp/>=<sp/>1024);</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1ab6c465a300ab19cf5897e1b5fa48bf62" kindref="member">buildParameters</ref>(<ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellA,<sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellB,<sp/><ref refid="structlibecpint_1_1_shell_pair_data" kindref="compound">ShellPairData</ref><sp/>&amp;data);</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a3453cf0fef8eae7ebbc44e5cd858d2cd" kindref="member">type1</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset,<sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>&amp;U,<sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellA,<sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellB,<sp/><ref refid="structlibecpint_1_1_shell_pair_data" kindref="compound">ShellPairData</ref><sp/>&amp;data,<sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;values);</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1ad62b2f824706436658d4fc19ee2891f9" kindref="member">type2</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lam,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l1start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l1end,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l2start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l2end,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N,<sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>&amp;U,<sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellA,<sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellB,<sp/><ref refid="structlibecpint_1_1_shell_pair_data" kindref="compound">ShellPairData</ref><sp/>&amp;data,<sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;values);<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="197"><highlight class="normal"></highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1ad62b2f824706436658d4fc19ee2891f9" kindref="member">type2</ref>(std::vector&lt;Triple&gt;<sp/>&amp;triples,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nbase,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lam,<sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>&amp;U,<sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellA,<sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellB,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>A,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>B,<sp/><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex&lt;double&gt;</ref><sp/>&amp;radials);<sp/></highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1aaeddbbddf255ed19c200a8b98120897f" kindref="member">estimate_type2</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>A,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>B);</highlight></codeline>
-<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="232"><highlight class="normal"></highlight></codeline>
-<codeline lineno="233"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="234"><highlight class="normal"></highlight></codeline>
-<codeline lineno="235"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a0aab6879e20837964bbb6370e5e97602" kindref="member">integrate</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>gridSize,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;intValues,<sp/><ref refid="classlibecpint_1_1_g_c_quadrature" kindref="compound">GCQuadrature</ref><sp/>&amp;grid,<sp/>std::vector&lt;double&gt;<sp/>&amp;values,</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>end,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset<sp/>=<sp/>0,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>skip<sp/>=<sp/>1)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a54959dd73caf19610aaf64ef92dc38bd" kindref="member">compute_base_integrals</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N_min,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N_max,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>p,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>o_root_p,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>P1,</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>P2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>P1_2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>P2_2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>X1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>X2,</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>oP1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>oP2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>values)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pair&lt;double,<sp/>bool&gt;<sp/><ref refid="classlibecpint_1_1_radial_integral_1a60c518824374379acf78f7d2b646e96f" kindref="member">integrate_small</ref>(</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>A,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>B)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibecpint_1_1_radial_integral_1af36637d464da95bf4eef4397021bed72" kindref="member">RadialIntegral</ref>();</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1ab393e4e63a410d922c4b8fa1bee7df3f" kindref="member">init</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tol<sp/>=<sp/>1e-15,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>small<sp/>=<sp/>256,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>large<sp/>=<sp/>1024);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166" refid="structlibecpint_1_1_radial_integral_1_1_parameters" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structlibecpint_1_1_radial_integral_1_1_parameters" kindref="compound">Parameters</ref><sp/>{</highlight></codeline>
+<codeline lineno="168" refid="structlibecpint_1_1_radial_integral_1_1_parameters_1abe892fda65f6d5e45eb325bef6de9dae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/><ref refid="structlibecpint_1_1_radial_integral_1_1_parameters_1a92a4ce190719b590bfe3612293fd189d" kindref="member">p</ref>,<sp/><ref refid="structlibecpint_1_1_radial_integral_1_1_parameters_1a0e16df411eeef41ec169ed340d38917f" kindref="member">P</ref>,<sp/><ref refid="structlibecpint_1_1_radial_integral_1_1_parameters_1abe892fda65f6d5e45eb325bef6de9dae" kindref="member">P2</ref>,<sp/><ref refid="structlibecpint_1_1_radial_integral_1_1_parameters_1af8e60b2591c97c02c54270c112c8b9b6" kindref="member">K</ref>;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlibecpint_1_1_radial_integral_1_1_parameters" kindref="compound">Parameters</ref><sp/><ref refid="classlibecpint_1_1_radial_integral_1a8fbfa7ff4f2147f12e532bb8c1091e2a" kindref="member">buildParameters</ref>(</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellA,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellB,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_shell_pair_data" kindref="compound">ShellPairData</ref><sp/>&amp;data)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a7fde45f9ebebc6b50cfd98bd93545daa" kindref="member">type1</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespacelibecpint_1a190a564f849660c170e298aba2181d0a" kindref="member">maxL</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset,</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>&amp;U,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellA,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellB,</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_shell_pair_data" kindref="compound">ShellPairData</ref><sp/>&amp;data,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_radial_integral_1_1_parameters" kindref="compound">Parameters</ref><sp/>&amp;<sp/>parameters,<sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;values)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a0781fd9b60144e1312d547471148c05b" kindref="member">type2</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lam,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l1start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l1end,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l2start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l2end,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N,</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>&amp;U,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellA,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellB,</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_shell_pair_data" kindref="compound">ShellPairData</ref><sp/>&amp;data,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_radial_integral_1_1_parameters" kindref="compound">Parameters</ref><sp/>&amp;<sp/>parameters,<sp/><ref refid="structlibecpint_1_1_two_index" kindref="compound">TwoIndex&lt;double&gt;</ref><sp/>&amp;values)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1a0781fd9b60144e1312d547471148c05b" kindref="member">type2</ref>(</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Triple&gt;<sp/>&amp;triples,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nbase,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lam,</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref><sp/>&amp;U,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellA,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlibecpint_1_1_gaussian_shell" kindref="compound">GaussianShell</ref><sp/>&amp;shellB,</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>A,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>B,<sp/><ref refid="structlibecpint_1_1_three_index" kindref="compound">ThreeIndex&lt;double&gt;</ref><sp/>&amp;radials)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classlibecpint_1_1_radial_integral_1af12d9b2d0943bde72d6d106044423705" kindref="member">estimate_type2</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>A,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>B)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/Users/robertshaw/devfiles/libecpint_new/include/libecpint/radial.hpp"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp"/>
   </compounddef>
 </doxygen>

@@ -3,7 +3,7 @@
 Class ECPIntegral
 =================
 
-- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_new_include_libecpint_ecpint.hpp`
+- Defined in :ref:`file__Users_robertshaw_devfiles_libecpint_include_libecpint_ecpint.hpp`
 
 
 Class Documentation

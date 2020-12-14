@@ -5,6 +5,7 @@
 .DS_Store
 build/*
 build_debug/*
+build_highl/*
 doc/doxygen/html/*
 doc/doxygen/latex/*
 doc/sphinx/build/*

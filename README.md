@@ -30,6 +30,11 @@ Libecpint is a C++ library for the efficient evaluation of integrals over ab ini
 - Const correctness throughout, should allow for parallelisation
 - Minor updates to docs
 
+### Patch 4
+
+- Code generation now takes considerably less time and memory; MAX_L=8 takes ~35 seconds, peaking at 1.5GB of memory (joint effort with Thomas Dresselhaus and Peter Bygrave)
+- This will be the final patch before v1.1
+
 ## Dependencies
 
 - A modern C++ compiler, at least C++11 standard library is required. This has been tested with:

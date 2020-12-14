@@ -213,8 +213,7 @@ namespace libecpint {
 				}
 
 				int test = integrate(maxL, gridSize, intValues, newGrid, tempValues, start, end, offset, 2);
-				if (test == 0)
-					std::cerr << "Failed to converge: " << U.atom_id << std::endl;
+				if (test == 0) std::cerr << "Failed to converge" << std::endl;
 				
 				// Calculate real spherical harmonic
 				x = std::abs(P(a, b)) < 1e-12 ? 0.0 : (za * data.A[2] + zb * data.B[2]) / (p(a, b) * P(a, b));

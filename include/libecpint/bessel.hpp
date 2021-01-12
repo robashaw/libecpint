@@ -51,9 +51,9 @@ namespace libecpint {
 		int order; ///< Order to which the Bessel series is expanded
 		double scale; ///< N/16.0
 	
-		double **K; ///< Bessel function values
-		double ***dK; ///< Bessel function derivatives
-		double *C; ///< Coefficients of derivatives of the Bessel function
+		std::vector<std::vector<double>> K; ///< Bessel function values
+		std::vector<std::vector<std::vector<double>>> dK; ///< Bessel function derivatives
+		std::vector<double> C; ///< Coefficients of derivatives of the Bessel function
 	
 		/**
 		* Pretabulates the Bessel function (and derivs) to a given accuracy.
@@ -69,8 +69,6 @@ namespace libecpint {
 		/// Specified constructor. Will call init with given arguments.
 		BesselFunction(int lMax, int N, int order, double accuracy);
 		
-		/// Destructor, cleans up K and C
-		~BesselFunction();
 	
 		/**
 		* Initialises and pretabulates the BesselFunction up to the given angular momentum. 

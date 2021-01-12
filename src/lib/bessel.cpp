@@ -45,25 +45,15 @@ namespace libecpint {
 		scale = N/16.0;
 	
 		// Allocate arrays
-		K = new double*[N+1];
-		dK = new double**[N+1];
-		for (int i = 0; i < N+1; i++) {
-			K[i] = new double[lMax + TAYLOR_CUT + 1];
-			dK[i] = new double*[TAYLOR_CUT + 1];
-			for (int j = 0; j < TAYLOR_CUT + 1; j++)
-				dK[i][j] = new double[lMax + TAYLOR_CUT + 1];
-		}
-		C = new double[lMax+TAYLOR_CUT];
-	
+
+		K=std::vector<std::vector<double>>(N+1,std::vector<double>(lMax + TAYLOR_CUT + 1,0.0));
+		C=std::vector<double>(lMax+TAYLOR_CUT,0.0);
+		dK=std::vector<std::vector<std::vector<double>>>(N+1,std::vector<std::vector<double>>(lMax + TAYLOR_CUT + 1,std::vector<double>(lMax + TAYLOR_CUT + 1,0.0)));
 		// Tabulate values
 		tabulate(accuracy);
 	}
 
-	BesselFunction::~BesselFunction() {
-		free(K);
-		free(dK);
-		free(C);
-	}
+
 
 	// Tabulate the bessel function values
 	int BesselFunction::tabulate(const double accuracy) {

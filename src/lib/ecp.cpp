@@ -67,6 +67,7 @@ namespace libecpint {
 		gaussians = other.gaussians;
 		N = other.N;
 		L = other.L;
+		atom_id=other.atom_id;
 		min_exp = other.min_exp;
 		for (int i = 0; i < LIBECPINT_MAX_L + 1; i++) {
 			min_exp_l[i] = other.min_exp_l[i];

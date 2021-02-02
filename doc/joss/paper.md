@@ -11,9 +11,9 @@ authors:
     orcid: 0000-0002-6457-5837
     affiliation: 1
 affiliations:
- - name: Department of Chemistry, University of Sheffield, Sheffield, S3 7HF
+ - name: Department of Chemistry, University of Sheffield, Sheffield S3 7HF, UK
    index: 1
-date: January 26th, 2020
+date: February 2, 2021
 bibliography: paper.bib
 ---
 
@@ -26,7 +26,7 @@ The introduction of an ECP results in an additional term in the core  Hamiltonia
 
 Effective core potentials are an essential part of modern computational chemistry. However, existing implementations are typically unavailable or inaccessible for free use by the open source community. Commonly used proprietary software, such as Gaussian [@Gaussian16] or Molpro [@MOLPRO], do not make details of their implementations available, while the few open-source computational chemistry packages either do not include ECP functionality or use outdated implementations that would not be compatible with modern codebases. A notable example of this is the widely-used Psi4 package [@Psi4], in which a rudimentary version of `libecpint` was originally implemented. Prior to this, the inclusion of ECPs was one of the most requested features by the user base.
 
-Additionally, there has been a recent reconnaissance in the development of efficient algorithms for evaluating ECP integrals. In particular, multiple research groups have outlined new approaches to prescreening integrals,[@Song2015; @Shaw2017; @McKenzie2018] greatly reducing the computational expense. The `libecpint` library implements many of these new algorithms, combining the recursive methods and fine-grained screening of Shaw et al. [@Shaw2017] with the higher-level screening of other recent work [@Song2015; @McKenzie2018]. The only known implementations of the latter papers are otherwise only available in proprietary software. Therefore `libecpint` represents a necessary contribution to the wider open-source computational chemistry community. It has already been adopted by multiple packages, including Entos QCore and QCSerenity, and will be part of a future release of Psi4.
+Additionally, there has been a recent renaissance in the development of efficient algorithms for evaluating ECP integrals. In particular, multiple research groups have outlined new approaches to prescreening integrals,[@Song2015; @Shaw2017; @McKenzie2018] greatly reducing the computational expense. The `libecpint` library implements many of these new algorithms, combining the recursive methods and fine-grained screening of Shaw et al. [@Shaw2017] with the higher-level screening of other recent work [@Song2015; @McKenzie2018]. The only known implementations of the latter papers are otherwise only available in proprietary software. Therefore `libecpint` represents a necessary contribution to the wider open-source computational chemistry community. It has already been adopted by multiple packages, including Entos QCore and Serenity [@Serenity], and will be part of a future release of Psi4 [@Psi4].
 
 # Functionalities
 

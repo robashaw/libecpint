@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 
 # define project
 project( libecpint
-         VERSION 1.0
+         VERSION 1.0.5
          LANGUAGES C CXX)
 
 set(API_VERSION 1)

@@ -9,6 +9,13 @@ project( libecpint
 set(API_VERSION 1)
 set (CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
+#build type
+if(NOT CMAKE_BUILD_TYPE)
+  message(STATUS "No build type specified. Will build Release")
+  set(CMAKE_BUILD_TYPE "RELEASE")
+endif(NOT CMAKE_BUILD_TYPE)
+
+
 # code generator variables
 set (LIBECPINT_MAX_L "5" CACHE STRING "Maximum angular momentum")
 set (LIBECPINT_MAX_UNROL "1" CACHE STRING "Maximum L for unrolling")

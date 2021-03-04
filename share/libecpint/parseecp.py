@@ -50,8 +50,8 @@ def tokenize(line, sep=','):
     """Given a line of input, cleans up and returns tokens,
        split by the separator (sep)
     """
-    # strip out whitespace and split by comma
-    line = lines[linenumber].strip()
+    # strip out whitespace and split by separator
+    line = line.strip()
     tokens = line.split(sep)
     # get rid of additional whitespace
     for token in tokens: 
@@ -104,7 +104,7 @@ def parse_ecp(file):
                             l = new_atom.maxl
                         
                         # create a container for the shell
-                        new_shell = Shell(lval=l, nexp=nprims1)
+                        new_shell = Shell(lval=l, nexp=nprims)
                         # fill in the details of the shell as described above
                         for token in tokens[1:]:
                             subtokens = token.split(',')

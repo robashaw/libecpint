@@ -1,3 +1,7 @@
+# takes the arguments of max angular momentum
+# and file prefix, then generates a list of all the 
+# CPP files that will be generateds
+
 import sys
 max_am = int(sys.argv[1])
 prefix = str(sys.argv[2])

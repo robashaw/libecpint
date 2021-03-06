@@ -9,7 +9,7 @@ Libecpint is a C++ library for the efficient evaluation of integrals over ab ini
 
 ## Contributing
 
-Contributions are welcomed, either in the form of raising issues or pull requests on this repo. Please take a look at the Code of Conduct before interacting, which includes instructions for reporting any violations. 
+Contributions are welcomed, either in the form of raising issues or pull requests on this repo. Please take a look at the Code of Conduct before interacting, which includes instructions for reporting any violations.
 
 ## New in first full release
 
@@ -53,6 +53,10 @@ Additionally, if you wish to regenerate the radial code (see below),  Python >=3
 ## Documentation
 
 Please refer to the main documentation [here](https://libecpint.readthedocs.io/en/latest/index.html).
+
+## Examples
+
+There is also a working example in the example folder, with instructions of how to build and link against the library. Please also the API tests in tests/lib/
 
 ## Acknowledging usage
 

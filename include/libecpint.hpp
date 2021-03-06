@@ -27,4 +27,4 @@
 
 #include "libecpint/api.hpp"
 
-#endif LIBECPINT_HEAD
+#endif

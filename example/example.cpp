@@ -19,6 +19,8 @@
 #include <string>
 #include <vector>
 #include <array>
+#include <algorithm>
+#include <iterator>
 
 using DVec = std::vector<double>;
 using IVec = std::vector<int>;
@@ -145,8 +147,7 @@ void read_basis_file(std::string filename, DVec& exps, DVec& coeffs, DVec& coord
 				// non-empty shell found
 				ams.push_back(am);
 				lens.push_back(len);
-				for (auto& v : atom)
-					coords.push_back(v);
+				std::copy(atom.begin(), atom.end(), std::back_inserter(coords));
 			}
 		}
 	}

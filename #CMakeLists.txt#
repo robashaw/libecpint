@@ -1,11 +1,27 @@
 # minimum version of CMake is 3.12
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 
-#build type
-if(NOT CMAKE_BUILD_TYPE)
-  message(STATUS "No build type specified. Will build Release")
-  set (CMAKE_BUILD_TYPE Release CACHE STRING "Build type (Release/Debug/RelWithDebInfo)")
-endif(NOT CMAKE_BUILD_TYPE)
+ // Make LibECP ECP objects
+    for (int ecp_shell = 0; ecp_shell < bs1->n_ecp_shell(); ++ecp_shell){
+        const GaussianShell &psi_ecp_shell = bs1->ecp_shell(ecp_shell);
+        libecpint::ECP ecp(psi_ecp_shell.center());
+        int nprim = psi_ecp_shell.nprimitive();
+        for (int prim = 0; prim < nprim; ++prim) {
+            ecp.addPrimitive(psi_ecp_shell.nval(prim), psi_ecp_shell.am()+2, psi_ecp_shell.exp(prim), psi_ecp_shell.coef(prim), prim==nprim-1);
+        }
+        libecp_ecps_.push_back(ecp);
+    }
+
+ // Make LibECP ECP objects
+    for (int ecp_shell = 0; ecp_shell < bs1->n_ecp_shell(); ++ecp_shell){
+        const GaussianShell &psi_ecp_shell = bs1->ecp_shell(ecp_shell);
+        libecpint::ECP ecp(psi_ecp_shell.center());
+        int nprim = psi_ecp_shell.nprimitive();
+        for (int prim = 0; prim < nprim; ++prim) {
+            ecp.addPrimitive(psi_ecp_shell.nval(prim), psi_ecp_shell.am()+2, psi_ecp_shell.exp(prim), psi_ecp_shell.coef(prim), prim==nprim-1);
+        }
+        libecp_ecps_.push_back(ecp);
+    }
 
 # define project
 project( libecpint
@@ -14,6 +30,8 @@ project( libecpint
 
 set(API_VERSION 1)
 set (CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
+
+message(STATUS ${CMAKE_BUILD_TYPE})
 
 # code generator variables
 set (LIBECPINT_MAX_L "5" CACHE STRING "Maximum angular momentum")

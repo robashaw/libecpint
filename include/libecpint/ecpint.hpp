@@ -59,7 +59,7 @@ namespace libecpint {
 		RadialIntegral radInts; ///< The interface to the radial integral calculation
 		AngularIntegral angInts; ///< The angular integrals, which can be reused over all ECP centers
 
-    static constexpr double tolerance = 1e-12;
+    	static constexpr double tolerance = 1e-12;
 	
 		/// Worker functions for calculating binomial expansion coefficients
 		double calcC(int a, int m, double A) const;

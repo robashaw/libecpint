@@ -4,6 +4,7 @@
 *.x
 .DS_Store
 build/*
+_example2/*
 build_debug/*
 build_highl/*
 doc/doxygen/html/*

@@ -64,6 +64,7 @@ namespace libecpint {
 		ecp_is_set = true;
 	}
 	
+#ifdef HAS_PUGIXML
 	void ECPIntegrator::set_ecp_basis_from_library(
       const int necps, const double* coords, const int* charges, const std::vector<std::string> & names, const std::string & share_dir) {
 		for (int i = 0; i < necps; i++) {
@@ -74,6 +75,7 @@ namespace libecpint {
 		}
 		ecp_is_set = true;
 	}
+#endif
 	
 	void ECPIntegrator::update_gaussian_basis_coords(const int nshells, const double* coords) {
 		assert(nshells == shells.size());

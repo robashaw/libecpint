@@ -27,8 +27,13 @@ configure_file (
 
 include(GNUInstallDirs)
 include(ExternalProject)
-include(external/ImportPugiXML.cmake)
-message(${PUGIXML_INCLUDE_DIR})
+option(LIBECPINT_USE_PUGIXML "Use pugixml and build file reading routines." ON)
+if (LIBECPINT_USE_PUGIXML)
+  include(external/ImportPugiXML.cmake)
+  add_compile_definitions(HAS_PUGIXML)
+else()
+  message(STATUS "pugixml not configured; reading ECP definitions from files is disabled.")
+endif()
 
 add_subdirectory(external)
 add_subdirectory(src)

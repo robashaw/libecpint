@@ -194,7 +194,8 @@ namespace libecpint {
 		
 		/// @return the number of ECPs in basis
 		int getN() const { return N; }
-		
+
+#ifdef HAS_PUGIXML
 		/** Creates and adds an ECP object to the basis by reading from the ECP library
 		  * @param q - the atomic number of the atom
 		  * @param coords - the [x, y, z] coordinates (in bohr) of the ECP
@@ -202,6 +203,7 @@ namespace libecpint {
 		  */
 		void addECP_from_file(
 		    const int q, const std::array<double, 3> & coords, const std::string & filename);
+#endif
 	};
 
 }

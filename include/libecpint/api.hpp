@@ -117,6 +117,7 @@ namespace libecpint {
 		  */
 		void set_ecp_basis(int necps, const double* coords, const double* exponents, const double* coefs, const int* ams, const int* ns, const int* shell_lengths);
 		
+#ifdef HAS_PUGIXML
 		/**  Constructs an ECPBasis with ECP objects for each ECP, from the built-in ECP library.
 		  *  The order of the atoms doesn't matter, and ids will be matched to the order from set_gaussian_basis.
 		  *  It will search for the file  "share_dir + / + name + .xml"     
@@ -128,6 +129,7 @@ namespace libecpint {
 		  *  @param share_dir - the location of the share directory with the ecp library (typically "PATH/share/libecpint/xml")
 		  */
 		void set_ecp_basis_from_library(int necps, const double* coords, const int* charges, const std::vector<std::string> & names, const std::string & share_dir);
+#endif
 		
 		/**  Updates the positions of the GaussianShells.
 		  *  The order of the coordinates must match that when originally specified in set_gaussian_basis.

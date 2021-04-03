@@ -5,6 +5,11 @@ cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 if(NOT CMAKE_BUILD_TYPE)
   message(STATUS "No build type specified. Will build Release")
   set (CMAKE_BUILD_TYPE Release CACHE STRING "Build type (Release/Debug/RelWithDebInfo)")
+else()
+  string(TOUPPER "${CMAKE_BUILD_TYPE}" _upper_build_type)
+  if("${_upper_build_type}" STREQUAL "DEBUG")
+    add_compile_definitions(DEBUG)
+  endif()
 endif(NOT CMAKE_BUILD_TYPE)
 
 # define project

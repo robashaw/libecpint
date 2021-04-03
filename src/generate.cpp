@@ -202,7 +202,7 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 		std::vector<Triple> radial_A, radial_B; 
 		for (const Triple& t : radial_triples) {
 			if (std::get<1>(t) <= std::get<2>(t)) radial_A.push_back(t);  
-			else radial_B.push_back({std::get<0>(t), std::get<2>(t), std::get<1>(t)});
+			else radial_B.push_back(Triple{std::get<0>(t), std::get<2>(t), std::get<1>(t)});
 		}
 		
 		// Compute the correctly ordered radials first
@@ -211,7 +211,7 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 		for (Triple& t : radial_A) {
 			if (!first) outfile << "," << std::endl; 
 			else first = false;
-			outfile << "\t\t{" + std::to_string(std::get<0>(t)) + ", "
+			outfile << "\t\tTriple{" + std::to_string(std::get<0>(t)) + ", "
 				+ std::to_string(std::get<1>(t)) + ", " 
 					+ std::to_string(std::get<2>(t)) + "}"; 
 		}
@@ -226,7 +226,7 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 		for (Triple& t : radial_B) {
 			if (!first) outfile << "," << std::endl; 
 			else first = false; 
-			outfile << "\t\t{" + std::to_string(std::get<0>(t)) + ", "
+			outfile << "\t\tTriple{" + std::to_string(std::get<0>(t)) + ", "
 				+ std::to_string(std::get<1>(t)) + ", " 
 					+ std::to_string(std::get<2>(t)) + "}"; 
 		}

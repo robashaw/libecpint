@@ -27,8 +27,10 @@
 #include <cmath>
 #include <iostream>
 #include <algorithm>
-#include "pugixml.hpp"
 #include "mathutil.hpp"
+#ifdef HAS_PUGIXML
+#include "pugixml.hpp"
+#endif
 
 namespace libecpint {
 
@@ -136,7 +138,8 @@ namespace libecpint {
 		if (it != core_electrons.end()) core = it->second;
 		return core;
 	}
-	
+
+#ifdef HAS_PUGIXML
 	void ECPBasis::addECP_from_file(
       const int q, const std::array<double, 3> & coords, const std::string & filename) {
 		ECP newECP;
@@ -168,4 +171,5 @@ namespace libecpint {
 		newECP.sort();
 		addECP(newECP, 0);
 	}
+#endif
 }

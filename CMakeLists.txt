@@ -5,6 +5,11 @@ cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 if(NOT CMAKE_BUILD_TYPE)
   message(STATUS "No build type specified. Will build Release")
   set (CMAKE_BUILD_TYPE Release CACHE STRING "Build type (Release/Debug/RelWithDebInfo)")
+else()
+  string(TOUPPER "${CMAKE_BUILD_TYPE}" _upper_build_type)
+  if("${_upper_build_type}" STREQUAL "DEBUG")
+    add_compile_definitions(DEBUG)
+  endif()
 endif(NOT CMAKE_BUILD_TYPE)
 
 # define project
@@ -27,8 +32,13 @@ configure_file (
 
 include(GNUInstallDirs)
 include(ExternalProject)
-include(external/ImportPugiXML.cmake)
-message(${PUGIXML_INCLUDE_DIR})
+option(LIBECPINT_USE_PUGIXML "Use pugixml and build file reading routines." ON)
+if (LIBECPINT_USE_PUGIXML)
+  include(external/ImportPugiXML.cmake)
+  add_compile_definitions(HAS_PUGIXML)
+else()
+  message(STATUS "pugixml not configured; reading ECP definitions from files is disabled.")
+endif()
 
 add_subdirectory(external)
 add_subdirectory(src)

@@ -9,7 +9,7 @@ find_path(PUGIXML_INCLUDE_DIR pugixml.hpp
 )
 
 if((NOT PUGIXML_LIBRARY) OR (NOT PUGIXML_INCLUDE_DIR))
-  message("Unable to find pugixml, cloning...")
+  message(STATUS "Unable to find pugixml, cloning...")
 
   ExternalProject_Add(pugixml_external
     PREFIX ${EXTERNAL_BUILD_DIR}/pugixml
@@ -28,7 +28,7 @@ if((NOT PUGIXML_LIBRARY) OR (NOT PUGIXML_INCLUDE_DIR))
   set_target_properties(libpugixml PROPERTIES IMPORTED_LOCATION ${PUGIXML_LIBRARY})
 
 else()
-  message("Found pugixml")
+  message(STATUS "Found pugixml: ${PUGIXML_INCLUDE_DIR} ${PUGIXML_LIBRARY}")
   add_library(libpugixml INTERFACE)
   target_include_directories(libpugixml INTERFACE ${PUGIXML_INCLUDE_DIR})
   target_link_libraries(libpugixml INTERFACE ${PUGIXML_LIBRARY})

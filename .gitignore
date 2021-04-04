@@ -2,6 +2,8 @@
 *~
 *.out
 *.x
+.ccls-cache/
+.clangd/
 .DS_Store
 build/*
 _example2/*
@@ -11,3 +13,4 @@ build_highl/*
 doc/doxygen/html/*
 doc/doxygen/latex/*
 doc/sphinx/build/*
+compile_commands.json

@@ -6,7 +6,7 @@ find_path(GTEST_INCLUDE_DIR gtest/gtest.h
 )
 
 if((NOT GTEST_LIBRARY) OR (NOT GTEST_INCLUDE_DIR))
-  message("Unable to find google test, cloning...")
+  message(STATUS "Unable to find google test, cloning...")
 
   # Download and unpack googletest at configure time
   configure_file(${CMAKE_CURRENT_SOURCE_DIR}/external/CMakeLists.txt.in googletest-download/CMakeLists.txt)
@@ -36,7 +36,7 @@ if((NOT GTEST_LIBRARY) OR (NOT GTEST_INCLUDE_DIR))
 
   set(GTEST_INCLUDE_DIR ${gtest_SOURCE_DIR}/include)
 else()
-  message("Found googletest")
+  message(STATUS "Found googletest: ${GTEST_INCLUDE_DIR} ${GTEST_LIBRARY}")
   add_library(gtest INTERFACE)
   target_include_directories(gtest INTERFACE ${GTEST_INCLUDE_DIR})
   target_link_libraries(gtest INTERFACE ${GTEST_LIBRARY})

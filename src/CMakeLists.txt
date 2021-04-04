@@ -49,14 +49,15 @@ target_include_directories(ecpint
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include/libecpint>
     $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include/libecpint>
     $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>
-  PRIVATE
-    ${PUGIXML_INCLUDE_DIR}
 )
 target_link_libraries(ecpint
  PRIVATE
   Faddeeva
-  libpugixml
 )
+if(LIBECPINT_USE_PUGIXML)
+  target_include_directories(ecpint PRIVATE ${PUGIXML_INCLUDE_DIR})
+  target_link_libraries(ecpint PRIVATE libpugixml)
+endif()
 
 # =========
 #  Install

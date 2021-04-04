@@ -52,9 +52,9 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 	if (!outfile.is_open())
 		std::cerr << "Problems writing to file!" << std::endl; 
 	else {
-		
+#ifdef DEBUG
 		std::cout << "Generating Q(" << LA << ", " << LB << ", " << lam << ")... " << std::flush; 
-		
+#endif
 		// Top matter
 		outfile << "// Generated as part of Libecpint, Copyright 2017 Robert A Shaw" << std::endl; 
 		outfile << "#include \"qgen.hpp\"" << std::endl; 
@@ -239,15 +239,18 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 		
 		if (unrolling) {
 			// Print out the unrolled angular integral code if needed
-			std::cout << "unrolling... " << std::flush; 
+#ifdef DEBUG
+			std::cout << "unrolling... " << std::flush;
+#endif
 			for (auto& term : terms) outfile << "\t" << term << std::endl; 
 		} else {
 			// Just use the generic rolled-up angular integral code
 			outfile << "\trolled_up(" << lam << ", " << LA << ", " << LB << ", radials, CA, CB, SA, SB, angint, values);" << std::endl; 
 		}
 		outfile << "}" << std::endl << "}" << std::endl << "}" << std::endl; 
-		
-		std::cout << "done." << std::endl; 
+#ifdef DEBUG
+		std::cout << "done." << std::endl;
+#endif
 		outfile.close();
 	}
 }
@@ -341,4 +344,3 @@ int main(int argc, char* argv[]) {
 	}
 	return 0; 
 }
-	

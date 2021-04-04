@@ -89,8 +89,12 @@ namespace libecpint {
 		  * @param maxLB - the maximum angular momentum in the orbital basis
 		  * @param maxLU - the maximum angular momentum in the ECP basis
 		  * @param deriv - the maximum order of derivative to be calculated (TODO: derivs currently being implemented)
+		  * @param tol - the tolerance for convergence of radial integrals (defaults to 1e-15)
+		  * @param small - the maximum number of quadrature points for the small radial integration grid (default 256, minimum recommended)
+		  * @param large - the maximum number of quadrature points for the large radial integration grid (default 1024, minimum recommended)
 		  */ 
-		ECPIntegral(int maxLB, int maxLU, int deriv=0);
+		ECPIntegral(int maxLB, int maxLU, int deriv=0,
+					double thresh = 1e-15, unsigned smallGrid = 256, unsigned bigGrid = 1024);
 	
 		/**
 		  * Calculates the type 1 integrals for the given ECP center over the given shell pair, using quadrature

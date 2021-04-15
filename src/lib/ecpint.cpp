@@ -33,7 +33,8 @@
 
 namespace libecpint {
 
-	ECPIntegral::ECPIntegral(const int maxLB, const int maxLU, const int deriv) {
+	ECPIntegral::ECPIntegral(int maxLB, int maxLU, int deriv,
+							 double thresh, unsigned smallGrid, unsigned bigGrid) {
 		// Make sure library can perform requested integrals
 		assert(maxLB+deriv <= LIBECPINT_MAX_L); 
 		assert(maxLU <= LIBECPINT_MAX_L);
@@ -45,7 +46,11 @@ namespace libecpint {
 		// Initialise angular and radial integrators
 		angInts.init(maxLB + deriv, maxLU);
 		angInts.compute();
-		radInts.init(2*(maxLB+deriv) + maxLU, 1e-15, 256, 512);
+#ifdef DEBUG
+		std::cout << "Initializing ECP radial integrator: thresh = " << thresh << "  grids: "
+				<< smallGrid << "/" << bigGrid << std::endl;
+#endif
+		radInts.init(2*(maxLB+deriv) + maxLU, thresh, smallGrid, bigGrid);
 	};
 
 	double ECPIntegral::calcC(const int a, const int m, const double A) const {

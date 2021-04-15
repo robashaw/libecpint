@@ -3,7 +3,7 @@
 #include <iostream>
 
 using namespace libecpint;
-
+#ifdef HAS_PUGIXML
 
 class ECPBasisTest : public testing::Test {
 protected:
@@ -31,3 +31,5 @@ TEST_F(ECPBasisTest, AddFromFile) {
 	EXPECT_EQ(basis.getN(), 2);
 	EXPECT_EQ(basis.getECPCore(33), 28);
 }
+
+#endif

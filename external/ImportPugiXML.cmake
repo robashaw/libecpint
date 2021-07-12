@@ -9,7 +9,7 @@ find_path(PUGIXML_INCLUDE_DIR pugixml.hpp
 )
 
 if((NOT PUGIXML_LIBRARY) OR (NOT PUGIXML_INCLUDE_DIR))
-  message(STATUS "Unable to find pugixml, cloning...")
+  message(STATUS "Unable to find pugixml, cloning and building ...")
 
   ExternalProject_Add(pugixml_external
     PREFIX ${EXTERNAL_BUILD_DIR}/pugixml

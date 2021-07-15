@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 
 # define project
-project( LibecpintExample 
+project( LibecpintExample
          VERSION 1.0
          LANGUAGES CXX)
 

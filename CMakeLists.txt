@@ -6,10 +6,10 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF) #...without compiler extensions like gnu++11
 
-#build type
+# build type
 if(NOT CMAKE_BUILD_TYPE)
-  message(STATUS "No build type specified. Will build Release")
-  set (CMAKE_BUILD_TYPE Release CACHE STRING "Build type (Release/Debug/RelWithDebInfo)")
+  message(STATUS "No build type specified. Will build Release.")
+  set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type (Release/Debug/RelWithDebInfo)")
 else()
   string(TOUPPER "${CMAKE_BUILD_TYPE}" _upper_build_type)
   if("${_upper_build_type}" STREQUAL "DEBUG")
@@ -23,11 +23,11 @@ project( libecpint
          LANGUAGES C CXX)
 
 set(API_VERSION 1)
-set (CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 # code generator variables
-set (LIBECPINT_MAX_L "5" CACHE STRING "Maximum angular momentum")
-set (LIBECPINT_MAX_UNROL "1" CACHE STRING "Maximum L for unrolling")
+set(LIBECPINT_MAX_L "5" CACHE STRING "Maximum angular momentum")
+set(LIBECPINT_MAX_UNROL "1" CACHE STRING "Maximum L for unrolling")
 
 # configure the config header to pass the above variables to the program
 configure_file (
@@ -37,6 +37,7 @@ configure_file (
 
 include(GNUInstallDirs)
 include(ExternalProject)
+
 option(LIBECPINT_USE_PUGIXML "Use pugixml and build file reading routines." ON)
 if (LIBECPINT_USE_PUGIXML)
   include(external/ImportPugiXML.cmake)
@@ -50,17 +51,26 @@ add_subdirectory(src)
 
 option(LIBECPINT_BUILD_TESTS "Enables Libecpint tests." ON)
 if (LIBECPINT_BUILD_TESTS)
+  message(STATUS "Will build libecpint tests.")
   include(CTest)
   include(external/ImportGTest.cmake)
   enable_testing()
   add_subdirectory(tests)
 endif()
+
 option(LIBECPINT_BUILD_DOCS "Enables Libecpint documentation." ON)
 if (LIBECPINT_BUILD_DOCS)
   add_subdirectory(doc)
 endif()
 
-install (DIRECTORY include/libecpint DESTINATION include)
-install (FILES include/libecpint.hpp DESTINATION include)
-install (FILES "${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp" DESTINATION include/libecpint)
-install (DIRECTORY share/libecpint DESTINATION share)
+install(DIRECTORY include/libecpint DESTINATION include)
+install(FILES include/libecpint.hpp DESTINATION include)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp" DESTINATION include/libecpint)
+install(DIRECTORY share/libecpint DESTINATION share)
+
+message("\nSummary:")
+message("--------")
+message(STATUS "Maximum angular momentum           : ${LIBECPINT_MAX_L}")
+message(STATUS "Maximum angular momentum unrolling : ${LIBECPINT_MAX_UNROL}")
+message(STATUS "Build tests                        : ${LIBECPINT_BUILD_TESTS}")
+message("")

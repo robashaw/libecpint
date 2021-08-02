@@ -26,6 +26,7 @@ if((NOT PUGIXML_LIBRARY) OR (NOT PUGIXML_INCLUDE_DIR))
   add_library(libpugixml STATIC IMPORTED)
   add_dependencies(libpugixml pugixml_external)
   set_target_properties(libpugixml PROPERTIES IMPORTED_LOCATION ${PUGIXML_LIBRARY})
+  install(FILES ${PUGIXML_LIBRARY} DESTINATION lib)
 
 else()
   message(STATUS "Found pugixml: ${PUGIXML_INCLUDE_DIR} ${PUGIXML_LIBRARY}")

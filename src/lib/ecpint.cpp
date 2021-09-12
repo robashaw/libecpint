@@ -30,6 +30,7 @@
 #include "mathutil.hpp"
 #include "qgen.hpp"
 #include <cassert>
+#include <algorithm>
 
 namespace libecpint {
 
@@ -335,7 +336,7 @@ namespace libecpint {
 			ab_bound = 0.0;
 			xp = atilde*atilde*data.A2 + btilde*btilde*data.B2;
 			for (int k = U.l_starts[l]; k < U.l_starts[l+1]; k++) {
-        const GaussianECP& g = U.getGaussian(k);
+        		const GaussianECP& g = U.getGaussian(k);
 				ztilde = atilde + btilde + g.a;
 				Tk = Tk_0 / ztilde;
 				Tk = Tk > 1 ? 0.5 * std::exp(Tk) / Tk : SINH_1;
@@ -392,13 +393,13 @@ namespace libecpint {
 	
 		// Calculate type1 integrals, if necessary
 		values.assign(data.ncartA, data.ncartB, 0.0);
-		if (!U.noType1() && screens[U.getL()] > tolerance)
+		if (!U.noType1() && screens[U.getL()] > shell_pair_thresh)
 			type1(U, shellA, shellB, data, CA, CB, radIntParameters, values);
 		
 		std::vector<int> l_list; 
-		for (int l = 0; l < U.getL(); l++) 
-			if (screens[l] > tolerance) l_list.push_back(l); 
-		
+		for (int l = 0; l < U.getL(); l++)
+			if (screens[l] > shell_pair_thresh) l_list.push_back(l);
+
 		// Now all the type2 integrals
 		ThreeIndex<double> t2vals(data.ncartA, data.ncartB, 2*U.getL() + 1);
 		for (int l : l_list) {

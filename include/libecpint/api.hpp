@@ -37,7 +37,7 @@ namespace libecpint {
 /// returns the index for the ij-th second derivative for a system with N atoms
 #define H_START(i, j, N) (9*j + 3*(3*N-1)*i - (9*i*(i+1))/2 - 3)
 	
-	constexpr double TWO_C_TOLERANCE = 1E-12;
+	constexpr double TWO_C_TOLERANCE = 1E-10;
 	
 	/** \struct ECPIntegrator
 	  * \brief API object that stores and handles all data for computing ECP integrals and their derivatives.

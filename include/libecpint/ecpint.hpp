@@ -59,7 +59,7 @@ namespace libecpint {
 		RadialIntegral radInts; ///< The interface to the radial integral calculation
 		AngularIntegral angInts; ///< The angular integrals, which can be reused over all ECP centers
 
-    	static constexpr double tolerance = 1e-12;
+		static constexpr double shell_pair_thresh = 1e-8;
 	
 		/// Worker functions for calculating binomial expansion coefficients
 		double calcC(int a, int m, double A) const;
@@ -89,7 +89,7 @@ namespace libecpint {
 		  * @param maxLB - the maximum angular momentum in the orbital basis
 		  * @param maxLU - the maximum angular momentum in the ECP basis
 		  * @param deriv - the maximum order of derivative to be calculated (TODO: derivs currently being implemented)
-		  * @param tol - the tolerance for convergence of radial integrals (defaults to 1e-15)
+		  * @param thresh - the tolerance for convergence of radial integrals (defaults to 1e-15)
 		  * @param small - the maximum number of quadrature points for the small radial integration grid (default 256, minimum recommended)
 		  * @param large - the maximum number of quadrature points for the large radial integration grid (default 1024, minimum recommended)
 		  */ 

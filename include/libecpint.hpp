@@ -1,4 +1,4 @@
-/* 
+/*
  *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *

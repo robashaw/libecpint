@@ -60,6 +60,23 @@ if (LIBECPINT_BUILD_DOCS)
   add_subdirectory(doc)
 endif()
 
+find_package(CLANG_FORMAT 11)
+if(CLANG_FORMAT_FOUND)
+set(FORMAT_SOURCES)
+list(APPEND FORMAT_SUBDIRS tests "include/libecpint" src)
+foreach(DIR ${FORMAT_SUBDIRS})
+    set(ABS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${DIR})
+    file(GLOB_RECURSE ${DIR}_SOURCES ${ABS_DIR}/*.cpp ${ABS_DIR}/*.hpp)
+    list(APPEND FORMAT_SOURCES ${${DIR}_SOURCES})
+  endforeach()
+    file(GLOB FORMAT_INCLUDES LIST_DIRECTORIES false ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp)
+    list (APPEND FORMAT_SOURCES ${FORMAT_INCLUDES})
+    add_custom_target(format
+    COMMAND ${CLANG_FORMAT_EXECUTABLE} -i -style=file ${FORMAT_SOURCES}
+    DEPENDS ${FORMAT_SOURCES})
+endif()
+
+
 install (DIRECTORY include/libecpint DESTINATION include)
 install (FILES include/libecpint.hpp DESTINATION include)
 install (FILES "${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp" DESTINATION include/libecpint)

@@ -34,7 +34,11 @@ Includes
 --------
 
 
+- ``algorithm``
+
 - ``generate.hpp`` (:ref:`file__Users_robertshaw_devfiles_libecpint_include_generate.hpp`)
+
+- ``set``
 
 
 

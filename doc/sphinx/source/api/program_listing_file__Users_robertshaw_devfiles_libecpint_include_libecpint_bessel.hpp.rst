@@ -52,9 +52,9 @@ Program Listing for File bessel.hpp
            int order; 
            double scale; 
        
-           double **K; 
-           double ***dK; 
-           double *C; 
+           std::vector<std::vector<double>> K; 
+           std::vector<std::vector<std::vector<double>>> dK; 
+           std::vector<double> C; 
        
            int tabulate(double accuracy);
        
@@ -63,7 +63,6 @@ Program Listing for File bessel.hpp
            
            BesselFunction(int lMax, int N, int order, double accuracy);
            
-           ~BesselFunction();
        
            void init(int lMax, int N, int order, double accuracy);
        

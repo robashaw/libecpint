@@ -130,9 +130,11 @@ Program Listing for File ecp.hpp
            int getMaxL() const { return maxL; }
            
            int getN() const { return N; }
-           
+   
+   #ifdef HAS_PUGIXML
            void addECP_from_file(
                const int q, const std::array<double, 3> & coords, const std::string & filename);
+   #endif
        };
    
    }

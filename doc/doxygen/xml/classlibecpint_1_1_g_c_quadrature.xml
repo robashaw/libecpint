@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classlibecpint_1_1_g_c_quadrature" kind="class" language="C++" prot="public">
     <compoundname>libecpint::GCQuadrature</compoundname>
     <includes refid="gaussquad_8hpp" local="no">gaussquad.hpp</includes>
@@ -131,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="65" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="220" bodyend="240"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="65" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="221" bodyend="241"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -147,7 +147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="71" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="33" bodyend="35"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="71" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="34" bodyend="36"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1abb70ca948ba7f768a59c74d9f93a471a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -165,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="74" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="38" bodyend="45"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="74" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="39" bodyend="46"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1a2757549e5f47cfb8ae142a60db947ae3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -205,7 +205,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="84" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="49" bodyend="112"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="84" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="50" bodyend="113"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1addc19b8f39a675e834cded78eb0f7668" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::pair&lt; double, bool &gt;</type>
@@ -282,7 +282,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="95" column="11" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="115" bodyend="217"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="95" column="11" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="116" bodyend="218"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1a4353914587c53237d1b7e0dc7bf0c920" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -296,7 +296,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="102" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="245" bodyend="254"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="102" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="246" bodyend="255"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1ab17203b568cea63fbfc897a404583e1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -335,7 +335,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="110" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="256" bodyend="274"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="110" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="257" bodyend="275"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1a18e1de0f63bc3eebe8518de1a700ff65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -356,7 +356,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="111" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="276" bodyend="294"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/gaussquad.hpp" line="111" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/gaussquad.cpp" bodystart="277" bodyend="295"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_g_c_quadrature_1a8981b038cd9f49404b979b64be33d19e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>

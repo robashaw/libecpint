@@ -39,8 +39,10 @@ Program Listing for File ecp.cpp
    #include <cmath>
    #include <iostream>
    #include <algorithm>
-   #include "pugixml.hpp"
    #include "mathutil.hpp"
+   #ifdef HAS_PUGIXML
+   #include "pugixml.hpp"
+   #endif
    
    namespace libecpint {
    
@@ -79,6 +81,7 @@ Program Listing for File ecp.cpp
            gaussians = other.gaussians;
            N = other.N;
            L = other.L;
+           atom_id=other.atom_id;
            min_exp = other.min_exp;
            for (int i = 0; i < LIBECPINT_MAX_L + 1; i++) {
                min_exp_l[i] = other.min_exp_l[i];
@@ -147,7 +150,8 @@ Program Listing for File ecp.cpp
            if (it != core_electrons.end()) core = it->second;
            return core;
        }
-       
+   
+   #ifdef HAS_PUGIXML
        void ECPBasis::addECP_from_file(
          const int q, const std::array<double, 3> & coords, const std::string & filename) {
            ECP newECP;
@@ -179,4 +183,5 @@ Program Listing for File ecp.cpp
            newECP.sort();
            addECP(newECP, 0);
        }
+   #endif
    }

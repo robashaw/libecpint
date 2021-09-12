@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structlibecpint_1_1aux_1_1gen__seq_3_010_00_01_is_8_8_8_01_4" kind="struct" language="C++" prot="public">
     <compoundname>libecpint::aux::gen_seq&lt; 0, Is... &gt;</compoundname>
     <basecompoundref refid="structlibecpint_1_1aux_1_1seq" prot="public" virt="non-virtual">libecpint::aux::seq&lt; Is... &gt;</basecompoundref>

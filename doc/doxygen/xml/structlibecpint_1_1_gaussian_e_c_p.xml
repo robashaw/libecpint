@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structlibecpint_1_1_gaussian_e_c_p" kind="struct" language="C++" prot="public">
     <compoundname>libecpint::GaussianECP</compoundname>
     <includes refid="ecp_8hpp" local="no">ecp.hpp</includes>
@@ -74,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="59" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="36" bodyend="36"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="59" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="38" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_gaussian_e_c_p_1a52a4524ad9a64910c1fe721b7dda3f98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -137,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="68" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="37" bodyend="38"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="68" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="39" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_gaussian_e_c_p_1ae21d0c4a2808b622f87621cb2b3d68cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -155,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="71" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="39" bodyend="39"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="71" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="41" bodyend="41"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

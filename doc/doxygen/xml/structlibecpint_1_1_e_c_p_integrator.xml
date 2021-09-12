@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structlibecpint_1_1_e_c_p_integrator" kind="struct" language="C++" prot="public">
     <compoundname>libecpint::ECPIntegrator</compoundname>
     <includes refid="api_8hpp" local="no">api.hpp</includes>
@@ -391,83 +391,6 @@
         </inbodydescription>
         <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="118" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="52" bodyend="65"/>
       </memberdef>
-      <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a3e7ab8064d532345d5b2f2c5ae14b85a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void libecpint::ECPIntegrator::set_ecp_basis_from_library</definition>
-        <argsstring>(int necps, const double *coords, const int *charges, const std::vector&lt; std::string &gt; &amp;names, const std::string &amp;share_dir)</argsstring>
-        <name>set_ecp_basis_from_library</name>
-        <param>
-          <type>int</type>
-          <declname>necps</declname>
-        </param>
-        <param>
-          <type>const double *</type>
-          <declname>coords</declname>
-        </param>
-        <param>
-          <type>const int *</type>
-          <declname>charges</declname>
-        </param>
-        <param>
-          <type>const std::vector&lt; std::string &gt; &amp;</type>
-          <declname>names</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>share_dir</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Constructs an <ref refid="classlibecpint_1_1_e_c_p_basis" kindref="compound">ECPBasis</ref> with <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> objects for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref>, from the built-in <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> library. The order of the atoms doesn&apos;t matter, and ids will be matched to the order from set_gaussian_basis. It will search for the file &quot;share_dir + / + name + .xml&quot; <linebreak/>
-</para>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>necps</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- the number of ECPs </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>coords</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- a stream of cartesian coordinates (in bohr) in xyz order for each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> (size should be 3*necps) </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>charges</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- the atomic numbers of each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> atom (in same order as coords, size necps) </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>names</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- the name of each <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref>, in same order as charges, e.g. &quot;ecp10mdf&quot; (size necps) </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>share_dir</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- the location of the share directory with the ecp library (typically &quot;PATH/share/libecpint/xml&quot;) </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="130" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="67" bodyend="76"/>
-      </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a24c4f1a1c4edb03d7cc6ffa46cc8bb83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void libecpint::ECPIntegrator::update_gaussian_basis_coords</definition>
@@ -506,7 +429,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="138" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="78" bodyend="86"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="140" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="80" bodyend="88"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a87f44a065e7522b385c1486d618f7d6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -546,7 +469,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="146" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="88" bodyend="93"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="148" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="90" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1af1c1b928e3ec5835f77fb45dc763a6ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -575,7 +498,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="153" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="95" bodyend="144"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="155" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="97" bodyend="146"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a976359474d2e8e171f47a8fc7cf7cd79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -589,7 +512,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="159" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="163" bodyend="225"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="161" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="165" bodyend="227"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a21c6c8925b7e17761f2960e1145c8589" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -603,7 +526,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="164" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="227" bodyend="279"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="166" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="229" bodyend="281"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a305804a9bbc02bedfe95b7557c4b0b8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -618,7 +541,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="170" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="281" bodyend="449"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="172" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="283" bodyend="451"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a13c17ee1abc0f2a235d7d105ceea90a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::shared_ptr&lt; std::vector&lt; double &gt; &gt;</type>
@@ -634,7 +557,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="175" column="17" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="175" bodyend="175"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="177" column="17" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="177" bodyend="177"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a5e2237df9afff5f3c897afd64a2b7817" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::vector&lt; std::shared_ptr&lt; std::vector&lt; double &gt; &gt; &gt;</type>
@@ -650,7 +573,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="180" column="13" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="180" bodyend="184"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="182" column="13" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="182" bodyend="186"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_integrator_1a6f48f98e09ce42b688d68a02f660f1ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::vector&lt; std::shared_ptr&lt; std::vector&lt; double &gt; &gt; &gt;</type>
@@ -666,7 +589,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="189" column="13" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="189" bodyend="193"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="191" column="13" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="191" bodyend="195"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -680,40 +603,26 @@
       <node id="2">
         <label>libecpint::TwoIndex&lt; double &gt;</label>
         <link refid="structlibecpint_1_1_two_index"/>
-        <childnode refid="3" relation="usage">
-          <edgelabel>data</edgelabel>
-        </childnode>
       </node>
-      <node id="16">
+      <node id="8">
         <label>libecpint::ECP</label>
         <link refid="structlibecpint_1_1_e_c_p"/>
-        <childnode refid="17" relation="usage">
+        <childnode refid="9" relation="usage">
           <edgelabel>center_</edgelabel>
         </childnode>
-        <childnode refid="18" relation="usage">
+        <childnode refid="10" relation="usage">
           <edgelabel>gaussians</edgelabel>
         </childnode>
       </node>
-      <node id="3">
+      <node id="15">
         <label>std::vector&lt; double &gt;</label>
       </node>
-      <node id="22">
+      <node id="14">
         <label>libecpint::GaussianShell</label>
         <link refid="structlibecpint_1_1_gaussian_shell"/>
-        <childnode refid="3" relation="usage">
+        <childnode refid="15" relation="usage">
           <edgelabel>coeffs</edgelabel>
           <edgelabel>exps</edgelabel>
-        </childnode>
-      </node>
-      <node id="11">
-        <label>libecpint::BesselFunction</label>
-        <link refid="classlibecpint_1_1_bessel_function"/>
-      </node>
-      <node id="9">
-        <label>libecpint::FiveIndex&lt; double &gt;</label>
-        <link refid="structlibecpint_1_1_five_index"/>
-        <childnode refid="3" relation="usage">
-          <edgelabel>data</edgelabel>
         </childnode>
       </node>
       <node id="1">
@@ -722,125 +631,75 @@
         <childnode refid="2" relation="usage">
           <edgelabel>integrals</edgelabel>
         </childnode>
-        <childnode refid="4" relation="usage">
+        <childnode refid="3" relation="usage">
           <edgelabel>first_derivs</edgelabel>
           <edgelabel>second_derivs</edgelabel>
         </childnode>
-        <childnode refid="5" relation="usage">
+        <childnode refid="4" relation="usage">
           <edgelabel>ecpint</edgelabel>
         </childnode>
-        <childnode refid="13" relation="usage">
+        <childnode refid="5" relation="usage">
           <edgelabel>ecps</edgelabel>
         </childnode>
-        <childnode refid="21" relation="usage">
+        <childnode refid="13" relation="usage">
           <edgelabel>shells</edgelabel>
         </childnode>
       </node>
-      <node id="14">
+      <node id="6">
         <label>std::map&lt; int, int &gt;</label>
       </node>
-      <node id="18">
+      <node id="10">
         <label>std::vector&lt; libecpint::GaussianECP &gt;</label>
-        <childnode refid="19" relation="usage">
+        <childnode refid="11" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="10">
-        <label>libecpint::RadialIntegral</label>
-        <link refid="classlibecpint_1_1_radial_integral"/>
-        <childnode refid="11" relation="usage">
-          <edgelabel>bessie</edgelabel>
-        </childnode>
-        <childnode refid="12" relation="usage">
-          <edgelabel>bigGrid</edgelabel>
-          <edgelabel>primGrid</edgelabel>
-          <edgelabel>smallGrid</edgelabel>
-        </childnode>
-      </node>
-      <node id="17">
+      <node id="9">
         <label>std::array&lt; double, 3 &gt;</label>
       </node>
-      <node id="4">
+      <node id="3">
         <label>std::vector&lt; libecpint::TwoIndex&lt; double &gt; &gt;</label>
         <childnode refid="2" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="5">
+      <node id="4">
         <label>std::shared_ptr&lt; libecpint::ECPIntegral &gt;</label>
-        <childnode refid="6" relation="usage">
-          <edgelabel>ptr</edgelabel>
-        </childnode>
       </node>
-      <node id="7">
-        <label>libecpint::AngularIntegral</label>
-        <link refid="classlibecpint_1_1_angular_integral"/>
-        <childnode refid="8" relation="usage">
-          <edgelabel>omega</edgelabel>
-        </childnode>
-        <childnode refid="9" relation="usage">
-          <edgelabel>W</edgelabel>
-        </childnode>
-      </node>
-      <node id="19">
+      <node id="11">
         <label>libecpint::GaussianECP</label>
         <link refid="structlibecpint_1_1_gaussian_e_c_p"/>
       </node>
-      <node id="13">
+      <node id="5">
         <label>libecpint::ECPBasis</label>
         <link refid="classlibecpint_1_1_e_c_p_basis"/>
-        <childnode refid="14" relation="usage">
+        <childnode refid="6" relation="usage">
           <edgelabel>core_electrons</edgelabel>
         </childnode>
-        <childnode refid="15" relation="usage">
+        <childnode refid="7" relation="usage">
           <edgelabel>basis</edgelabel>
         </childnode>
-        <childnode refid="20" relation="usage">
+        <childnode refid="12" relation="usage">
           <edgelabel>atomList</edgelabel>
         </childnode>
       </node>
-      <node id="6">
-        <label>libecpint::ECPIntegral</label>
-        <link refid="classlibecpint_1_1_e_c_p_integral"/>
-        <childnode refid="7" relation="usage">
-          <edgelabel>angInts</edgelabel>
-        </childnode>
-        <childnode refid="10" relation="usage">
-          <edgelabel>radInts</edgelabel>
-        </childnode>
-      </node>
-      <node id="21">
+      <node id="13">
         <label>std::vector&lt; libecpint::GaussianShell &gt;</label>
-        <childnode refid="22" relation="usage">
-          <edgelabel>elements</edgelabel>
-        </childnode>
-      </node>
-      <node id="8">
-        <label>libecpint::SevenIndex&lt; double &gt;</label>
-        <link refid="structlibecpint_1_1_seven_index"/>
-        <childnode refid="3" relation="usage">
-          <edgelabel>data</edgelabel>
-        </childnode>
-      </node>
-      <node id="20">
-        <label>std::vector&lt; int &gt;</label>
-      </node>
-      <node id="15">
-        <label>std::vector&lt; libecpint::ECP &gt;</label>
-        <childnode refid="16" relation="usage">
+        <childnode refid="14" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
       <node id="12">
-        <label>libecpint::GCQuadrature</label>
-        <link refid="classlibecpint_1_1_g_c_quadrature"/>
-        <childnode refid="3" relation="usage">
-          <edgelabel>w</edgelabel>
-          <edgelabel>x</edgelabel>
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+      <node id="7">
+        <label>std::vector&lt; libecpint::ECP &gt;</label>
+        <childnode refid="8" relation="usage">
+          <edgelabel>elements</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="57" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="57" bodyend="194"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" line="57" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" bodystart="57" bodyend="196"/>
     <listofallmembers>
       <member refid="structlibecpint_1_1_e_c_p_integrator_1a0d3ba3a248daee1e500b5904e1e97884" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>basis_is_set</name></member>
       <member refid="structlibecpint_1_1_e_c_p_integrator_1a21c6c8925b7e17761f2960e1145c8589" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>compute_first_derivs</name></member>
@@ -863,7 +722,6 @@
       <member refid="structlibecpint_1_1_e_c_p_integrator_1a6ef18fd2dd9e4a4b6990256b4d8a0898" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>ncart</name></member>
       <member refid="structlibecpint_1_1_e_c_p_integrator_1a9774436a43b703d14a06dfb03b87c387" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>second_derivs</name></member>
       <member refid="structlibecpint_1_1_e_c_p_integrator_1aae5464183e60a6d900080c901a9d5b7c" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>set_ecp_basis</name></member>
-      <member refid="structlibecpint_1_1_e_c_p_integrator_1a3e7ab8064d532345d5b2f2c5ae14b85a" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>set_ecp_basis_from_library</name></member>
       <member refid="structlibecpint_1_1_e_c_p_integrator_1afe65e333e1269977c51b9e6a0bea7504" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>set_gaussian_basis</name></member>
       <member refid="structlibecpint_1_1_e_c_p_integrator_1ac02c7727c7d543075c20c01a700a2013" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>shells</name></member>
       <member refid="structlibecpint_1_1_e_c_p_integrator_1a87f44a065e7522b385c1486d618f7d6d" prot="public" virt="non-virtual"><scope>libecpint::ECPIntegrator</scope><name>update_ecp_basis_coords</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structlibecpint_1_1_e_c_p" kind="struct" language="C++" prot="public">
     <compoundname>libecpint::ECP</compoundname>
     <includes refid="ecp_8hpp" local="no">ecp.hpp</includes>
@@ -178,7 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="89" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="44" bodyend="52"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="89" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="46" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a00fd5d048332aea9ac5ae51611998170" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -205,7 +205,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="95" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="54" bodyend="64"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="95" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="56" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a783c7247cf671e3eeeca19319f2005dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -223,7 +223,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="98" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="66" bodyend="77"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="98" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="68" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1ad2260227632e534423cbeb0bbd448ec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -299,7 +299,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="108" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="79" bodyend="90"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="108" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="82" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a67b0097de7275b589d8fb104559c85f2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const double *</type>
@@ -340,7 +340,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="114" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="116" bodyend="118"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="114" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="119" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a033d4d18c168f3052a298b1d32035dde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -354,7 +354,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="117" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="92" bodyend="95"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="117" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="95" bodyend="98"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a1eb8f3a9515a591efc9e3da28ba0a9c2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -386,7 +386,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="132" column="10" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="97" bodyend="102"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="132" column="10" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="100" bodyend="105"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1ab39cb4ebd35a98586065f84271ac01aa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -427,7 +427,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="140" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="105" bodyend="114"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="140" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="108" bodyend="117"/>
       </memberdef>
       <memberdef kind="function" id="structlibecpint_1_1_e_c_p_1a8c9d96f791a742fe18616c8361d6ad0b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>

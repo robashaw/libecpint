@@ -31,6 +31,8 @@ Includes
 
 - ``Faddeeva.hpp``
 
+- ``algorithm``
+
 - ``cassert``
 
 - ``cmath``

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="dir_c85d3e3c5052e9ad9ce18c6863244a25" kind="dir">
     <compoundname>/Users/robertshaw/devfiles/libecpint/src/lib</compoundname>
     <innerfile refid="angular_8cpp">angular.cpp</innerfile>

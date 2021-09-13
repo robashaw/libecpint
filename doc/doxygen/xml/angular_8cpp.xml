@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="angular_8cpp" kind="file" language="C++">
     <compoundname>angular.cpp</compoundname>
     <includes refid="angular_8hpp" local="yes">angular.hpp</includes>
@@ -198,10 +198,10 @@
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>values(i,<sp/>0,<sp/>0)<sp/>=<sp/>pi4<sp/>/<sp/>((double)<sp/>(2*i+1));</highlight></codeline>
 <codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>1;<sp/>j<sp/>&lt;=<sp/>i;<sp/>j++)<sp/>{</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>values(i,<sp/>j,<sp/>0)<sp/>=<sp/>values(i,<sp/>j-1,<sp/>0)<sp/>*<sp/>(2.0*j<sp/>-<sp/>1.0)<sp/>/<sp/>(2.0<sp/>*<sp/>((double)(i<sp/>+<sp/>j))<sp/>+<sp/>1.0);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>values(i,<sp/>j,<sp/>0)<sp/>=<sp/>values(i,<sp/>j-1,<sp/>0)<sp/>*<sp/>(2.0*j<sp/>-<sp/>1.0)<sp/>/<sp/>(2.0<sp/>*<sp/>((</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)(i<sp/>+<sp/>j))<sp/>+<sp/>1.0);</highlight></codeline>
 <codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>1;<sp/>k<sp/>&lt;=<sp/>j;<sp/>k++)</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>values(i,<sp/>j,<sp/>k)<sp/>=<sp/>values(i,<sp/>j,<sp/>k-1)<sp/>*<sp/>(2.0*k<sp/>-<sp/>1.0)<sp/>/<sp/>(2.0<sp/>*<sp/>((double)(i<sp/>+<sp/>j<sp/>+<sp/>k))<sp/>+<sp/>1.0);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>values(i,<sp/>j,<sp/>k)<sp/>=<sp/>values(i,<sp/>j,<sp/>k-1)<sp/>*<sp/>(2.0*k<sp/>-<sp/>1.0)<sp/>/<sp/>(2.0<sp/>*<sp/>((</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)(i<sp/>+<sp/>j<sp/>+<sp/>k))<sp/>+<sp/>1.0);</highlight></codeline>
 <codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>

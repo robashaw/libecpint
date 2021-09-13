@@ -1,38 +1,60 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="indexpage" kind="page">
     <compoundname>index</compoundname>
-    <title>Libecpint 1.0.2</title>
+    <title>Libecpint 1.1.0</title>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><anchor id="index_1md__Users_robertshaw_devfiles_libecpint_README"/> <ulink url="https://dev.azure.com/robertshaw383/libecpint/_build/latest?definitionId=2&amp;branchName=master"><image type="html" name="https://dev.azure.com/robertshaw383/libecpint/_apis/build/status/robashaw.libecpint?branchName=master" inline="yes"></image>
-</ulink> <ulink url="https://codecov.io/gh/robashaw/libecpint"><image type="html" name="https://codecov.io/gh/robashaw/libecpint/branch/master/graph/badge.svg" inline="yes"></image>
-</ulink> <ulink url="https://libecpint.readthedocs.io/en/latest/index.html"><image type="html" name="https://readthedocs.org/projects/libecpint/badge/?version=latest" inline="yes"></image>
-</ulink> [<image type="html" name="https://www.code-inspector.com/project/15206/status/svg" inline="yes"></image>
-]()</para>
+<para><anchor id="index_1md__Users_robertshaw_devfiles_libecpint_README"/> <ulink url="https://dev.azure.com/robertshaw383/libecpint/_build/latest?definitionId=2&amp;branchName=master"><image type="html" name="https://dev.azure.com/robertshaw383/libecpint/_apis/build/status/robashaw.libecpint?branchName=master" alt="Build Status" inline="yes"></image>
+</ulink> <ulink url="https://codecov.io/gh/robashaw/libecpint"><image type="html" name="https://codecov.io/gh/robashaw/libecpint/branch/master/graph/badge.svg" alt="codecov" inline="yes"></image>
+</ulink> <ulink url="https://libecpint.readthedocs.io/en/latest/index.html"><image type="html" name="https://readthedocs.org/projects/libecpint/badge/?version=latest" alt="Documentation Status" inline="yes"></image>
+</ulink> [<image type="html" name="https://www.code-inspector.com/project/15206/status/svg" alt="Code Quality" inline="yes"></image>
+]() <ulink url="https://doi.org/10.5281/zenodo.4694353"><image type="html" name="https://zenodo.org/badge/DOI/10.5281/zenodo.4694353.svg" alt="DOI" inline="yes"></image>
+</ulink></para>
 <para>Libecpint is a C++ library for the efficient evaluation of integrals over ab initio effective core potentials, using a mixture of generated, recursive code and Gauss-Chebyshev quadrature. It is designed to be standalone and generic, and is now in its first stable release. If you experience any problems please raise an issue here; contributions and suggestions are also welcome.</para>
-<para><heading level="1">New in first full release</heading>
+<para><heading level="1">Contributing</heading>
 </para>
-<para><itemizedlist>
+<para>Contributions are welcomed, either in the form of raising issues or pull requests on this repo. Please take a look at the Code of Conduct before interacting, which includes instructions for reporting any violations.</para>
+<para><heading level="1">New in version 1.1</heading>
+</para>
+<para>TBC</para>
+<para><heading level="1">Previous patch notes:</heading>
+</para>
+<para>1.0.0<itemizedlist>
 <listitem><para>Analytical 1st and 2nd derivatives;</para>
 </listitem><listitem><para>Integration now &gt;10x faster;</para>
 </listitem><listitem><para>New, high level API, with ECP library;</para>
 </listitem><listitem><para>Automated testing suite.</para>
 </listitem></itemizedlist>
 </para>
-<para><heading level="2">Patch 1</heading>
-</para>
-<para><itemizedlist>
+<para>1.0.1<itemizedlist>
 <listitem><para>Bug fix in screening of on-ECP type 2 integrals</para>
 </listitem><listitem><para>Improvements in CMake build steps, thanks to nabbelbabbel/moritzBens</para>
 </listitem></itemizedlist>
 </para>
-<para><heading level="2">Patch 2</heading>
-</para>
-<para><itemizedlist>
+<para>1.0.2<itemizedlist>
 <listitem><para>Fix for memory leaks in derivative routines</para>
 </listitem><listitem><para>Minor changes to CMake files</para>
+</listitem></itemizedlist>
+</para>
+<para>1.0.3<itemizedlist>
+<listitem><para>Fix bug in radial type 1 integrals where quadrature could fail to converge</para>
+</listitem><listitem><para>Const correctness throughout, should allow for parallelisation</para>
+</listitem><listitem><para>Minor updates to docs</para>
+</listitem></itemizedlist>
+</para>
+<para>1.0.4<itemizedlist>
+<listitem><para>Code generation now takes considerably less time and memory; MAX_L=8 takes ~35 seconds, peaking at 1.5GB of memory (joint effort with Thomas Dresselhaus and Peter Bygrave)</para>
+</listitem></itemizedlist>
+</para>
+<para>1.0.5<itemizedlist>
+<listitem><para>Replaces C-style arrays with STL containers in Bessel functions</para>
+</listitem></itemizedlist>
+</para>
+<para>1.0.6<itemizedlist>
+<listitem><para>Updates to CMake build, can avoid needing pugixml</para>
+</listitem><listitem><para>JOSS documentation</para>
 </listitem></itemizedlist>
 </para>
 <para><heading level="1">Dependencies</heading>
@@ -52,11 +74,15 @@
 <para><heading level="1">Documentation</heading>
 </para>
 <para>Please refer to the main documentation <ulink url="https://libecpint.readthedocs.io/en/latest/index.html">here</ulink>.</para>
+<para><heading level="1">Examples</heading>
+</para>
+<para>There is also a working example in the example folder, with instructions of how to build and link against the library. Please also the API tests in tests/lib/</para>
 <para><heading level="1">Acknowledging usage</heading>
 </para>
 <para>If you use this library in your program and find it helpful, that&apos;s great! Any feedback would be much appreciated. If you publish results using this library, please consider citing the following paper detailing the implementation:</para>
 <para>R. A. Shaw, J. G. Hill, J. Chem. Phys. 147, 074108 (2017); doi: <ulink url="http://dx.doi.org/10.1063/1.4986887">10.1063/1.4986887</ulink></para>
 <para>A full bibtex citation can be found in CITATION in the main directory. </para>
     </detaileddescription>
+    <location file="/Users/robertshaw/devfiles/libecpint/README.md"/>
   </compounddef>
 </doxygen>

@@ -1,23 +1,23 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="namespacelibecpint" kind="namespace" language="C++">
     <compoundname>libecpint</compoundname>
+    <innerclass refid="structlibecpint_1_1_sum_term" prot="public">libecpint::SumTerm</innerclass>
     <innerclass refid="classlibecpint_1_1_angular_integral" prot="public">libecpint::AngularIntegral</innerclass>
+    <innerclass refid="structlibecpint_1_1_e_c_p_integrator" prot="public">libecpint::ECPIntegrator</innerclass>
     <innerclass refid="classlibecpint_1_1_bessel_function" prot="public">libecpint::BesselFunction</innerclass>
+    <innerclass refid="structlibecpint_1_1_gaussian_e_c_p" prot="public">libecpint::GaussianECP</innerclass>
     <innerclass refid="structlibecpint_1_1_e_c_p" prot="public">libecpint::ECP</innerclass>
     <innerclass refid="classlibecpint_1_1_e_c_p_basis" prot="public">libecpint::ECPBasis</innerclass>
     <innerclass refid="classlibecpint_1_1_e_c_p_integral" prot="public">libecpint::ECPIntegral</innerclass>
-    <innerclass refid="structlibecpint_1_1_e_c_p_integrator" prot="public">libecpint::ECPIntegrator</innerclass>
-    <innerclass refid="structlibecpint_1_1_five_index" prot="public">libecpint::FiveIndex</innerclass>
-    <innerclass refid="structlibecpint_1_1_gaussian_e_c_p" prot="public">libecpint::GaussianECP</innerclass>
-    <innerclass refid="structlibecpint_1_1_gaussian_shell" prot="public">libecpint::GaussianShell</innerclass>
     <innerclass refid="classlibecpint_1_1_g_c_quadrature" prot="public">libecpint::GCQuadrature</innerclass>
-    <innerclass refid="classlibecpint_1_1_radial_integral" prot="public">libecpint::RadialIntegral</innerclass>
-    <innerclass refid="structlibecpint_1_1_seven_index" prot="public">libecpint::SevenIndex</innerclass>
+    <innerclass refid="structlibecpint_1_1_gaussian_shell" prot="public">libecpint::GaussianShell</innerclass>
     <innerclass refid="structlibecpint_1_1_shell_pair_data" prot="public">libecpint::ShellPairData</innerclass>
-    <innerclass refid="structlibecpint_1_1_sum_term" prot="public">libecpint::SumTerm</innerclass>
-    <innerclass refid="structlibecpint_1_1_three_index" prot="public">libecpint::ThreeIndex</innerclass>
     <innerclass refid="structlibecpint_1_1_two_index" prot="public">libecpint::TwoIndex</innerclass>
+    <innerclass refid="structlibecpint_1_1_three_index" prot="public">libecpint::ThreeIndex</innerclass>
+    <innerclass refid="structlibecpint_1_1_five_index" prot="public">libecpint::FiveIndex</innerclass>
+    <innerclass refid="structlibecpint_1_1_seven_index" prot="public">libecpint::SevenIndex</innerclass>
+    <innerclass refid="classlibecpint_1_1_radial_integral" prot="public">libecpint::RadialIntegral</innerclass>
     <innernamespace refid="namespacelibecpint_1_1aux">libecpint::aux</innernamespace>
     <innernamespace refid="namespacelibecpint_1_1qgen">libecpint::qgen</innernamespace>
       <sectiondef kind="enum">
@@ -222,7 +222,7 @@
         <definition>constexpr double libecpint::TWO_C_TOLERANCE</definition>
         <argsstring></argsstring>
         <name>TWO_C_TOLERANCE</name>
-        <initializer>= 1E-12</initializer>
+        <initializer>= 1E-10</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -400,7 +400,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" line="146" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="146" bodyend="161" declfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" declline="196" declcolumn="8"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" line="148" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/api.cpp" bodystart="148" bodyend="163" declfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/api.hpp" declline="198" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespacelibecpint_1a3d3ec1164653607a1a2a66e71c160905" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>

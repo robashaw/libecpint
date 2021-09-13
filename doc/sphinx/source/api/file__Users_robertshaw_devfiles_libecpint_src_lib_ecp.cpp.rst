@@ -39,8 +39,6 @@ Includes
 
 - ``mathutil.hpp`` (:ref:`file__Users_robertshaw_devfiles_libecpint_include_libecpint_mathutil.hpp`)
 
-- ``pugixml.hpp``
-
 
 
 

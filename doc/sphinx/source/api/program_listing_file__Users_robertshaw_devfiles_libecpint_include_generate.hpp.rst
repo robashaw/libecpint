@@ -118,7 +118,7 @@ Program Listing for File generate.hpp
                int f6 = CA == s.CA ? 1 : 0;
                int f7 = CB == s.CB ? 1 : 0; 
            
-               return {f1, f2, f3, f4, f5, f6, f7};  
+               return Heptuple{f1, f2, f3, f4, f5, f6, f7};  
            }
        
            friend std::ostream& operator<<(std::ostream& os, const SumTerm& s); 

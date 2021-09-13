@@ -59,7 +59,7 @@ Program Listing for File ecpint.hpp
            RadialIntegral radInts; 
            AngularIntegral angInts; 
    
-       static constexpr double tolerance = 1e-12;
+           static constexpr double shell_pair_thresh = 1e-8;
        
            double calcC(int a, int m, double A) const;
            
@@ -76,7 +76,8 @@ Program Listing for File ecpint.hpp
            
            void makeC(FiveIndex<double> &C, int L, const double *A) const;
            
-           ECPIntegral(int maxLB, int maxLU, int deriv=0);
+           ECPIntegral(int maxLB, int maxLU, int deriv=0,
+                       double thresh = 1e-15, unsigned smallGrid = 256, unsigned bigGrid = 1024);
        
            void type1(const ECP& U, const GaussianShell &shellA, const GaussianShell &shellB,
                   const ShellPairData &data, const FiveIndex<double> &CA, const FiveIndex<double> &CB,

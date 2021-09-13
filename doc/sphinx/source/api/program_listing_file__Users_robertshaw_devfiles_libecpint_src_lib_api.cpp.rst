@@ -76,6 +76,7 @@ Program Listing for File api.cpp
            ecp_is_set = true;
        }
        
+   #ifdef HAS_PUGIXML
        void ECPIntegrator::set_ecp_basis_from_library(
          const int necps, const double* coords, const int* charges, const std::vector<std::string> & names, const std::string & share_dir) {
            for (int i = 0; i < necps; i++) {
@@ -86,6 +87,7 @@ Program Listing for File api.cpp
            }
            ecp_is_set = true;
        }
+   #endif
        
        void ECPIntegrator::update_gaussian_basis_coords(const int nshells, const double* coords) {
            assert(nshells == shells.size());
@@ -183,7 +185,7 @@ Program Listing for File api.cpp
            double thresh = FAST_POW[maxLB+3]((maxLB+3.0)/min_alpha)*FAST_POW[3](M_PI/(2*maxLB+3.0));
            thresh /= FAST_POW[maxLB](2.0*M_EULER);
            thresh = TWO_C_TOLERANCE / std::sqrt(thresh);
-           
+   
            int n1 = 0;
            double acx, acy, acz, A2, sb;
            for(auto s1=0; s1<nshells; ++s1) {
@@ -193,13 +195,13 @@ Program Listing for File api.cpp
                
                for (int i = 0; i < ecps.getN(); i++) {
                    ECP& U = ecps.getECP(i);    
-                   
                    acx = shellA.center()[0] - U.center_[0]; 
                    acy = shellA.center()[1] - U.center_[1];
                    acz = shellA.center()[2] - U.center_[2];
                    A2 = acx*acx + acy*acy + acz*acz;
                    sb = shell_bound(shellA.l, shellA.min_exp, A2, U.min_exp);
-                   if (sb > thresh) ns.push_back(i);
+                   if (sb > thresh) 
+                       ns.push_back(i);
                }
                
                if (ns.size() > 0) {
@@ -228,9 +230,9 @@ Program Listing for File api.cpp
                }
                n1 += ncartA;
            } 
-           
-           //std::cout << "Total: " << ecpint->skipped + ecpint->zero + ecpint->nonzero << std::endl;
-           //std::cout << "Skipped: " << ecpint->skipped << std::endl;
+   
+           //std::cout << "Total: " << ecpint->zero + ecpint->nonzero << std::endl;
+           //std::cout << "Skipped: " << ecpint->zero << std::endl;
            //std::cout << "Zero: " << ecpint->zero << std::endl;
            //std::cout << "Non-zero: " << ecpint->nonzero << std::endl;
            

@@ -42,10 +42,12 @@ Program Listing for File ecpint.cpp
    #include "mathutil.hpp"
    #include "qgen.hpp"
    #include <cassert>
+   #include <algorithm>
    
    namespace libecpint {
    
-       ECPIntegral::ECPIntegral(const int maxLB, const int maxLU, const int deriv) {
+       ECPIntegral::ECPIntegral(int maxLB, int maxLU, int deriv,
+                                double thresh, unsigned smallGrid, unsigned bigGrid) {
            // Make sure library can perform requested integrals
            assert(maxLB+deriv <= LIBECPINT_MAX_L); 
            assert(maxLU <= LIBECPINT_MAX_L);
@@ -57,7 +59,11 @@ Program Listing for File ecpint.cpp
            // Initialise angular and radial integrators
            angInts.init(maxLB + deriv, maxLU);
            angInts.compute();
-           radInts.init(2*(maxLB+deriv) + maxLU, 1e-15, 256, 512);
+   #ifdef DEBUG
+           std::cout << "Initializing ECP radial integrator: thresh = " << thresh << "  grids: "
+                   << smallGrid << "/" << bigGrid << std::endl;
+   #endif
+           radInts.init(2*(maxLB+deriv) + maxLU, thresh, smallGrid, bigGrid);
        };
    
        double ECPIntegral::calcC(const int a, const int m, const double A) const {
@@ -342,7 +348,7 @@ Program Listing for File ecpint.cpp
                ab_bound = 0.0;
                xp = atilde*atilde*data.A2 + btilde*btilde*data.B2;
                for (int k = U.l_starts[l]; k < U.l_starts[l+1]; k++) {
-           const GaussianECP& g = U.getGaussian(k);
+                   const GaussianECP& g = U.getGaussian(k);
                    ztilde = atilde + btilde + g.a;
                    Tk = Tk_0 / ztilde;
                    Tk = Tk > 1 ? 0.5 * std::exp(Tk) / Tk : SINH_1;
@@ -399,13 +405,13 @@ Program Listing for File ecpint.cpp
        
            // Calculate type1 integrals, if necessary
            values.assign(data.ncartA, data.ncartB, 0.0);
-           if (!U.noType1() && screens[U.getL()] > tolerance)
+           if (!U.noType1() && screens[U.getL()] > shell_pair_thresh)
                type1(U, shellA, shellB, data, CA, CB, radIntParameters, values);
            
            std::vector<int> l_list; 
-           for (int l = 0; l < U.getL(); l++) 
-               if (screens[l] > tolerance) l_list.push_back(l); 
-           
+           for (int l = 0; l < U.getL(); l++)
+               if (screens[l] > shell_pair_thresh) l_list.push_back(l);
+   
            // Now all the type2 integrals
            ThreeIndex<double> t2vals(data.ncartA, data.ncartB, 2*U.getL() + 1);
            for (int l : l_list) {

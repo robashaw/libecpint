@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classlibecpint_1_1_e_c_p_basis" kind="struct" language="C++" prot="public">
     <compoundname>libecpint::ECPBasis</compoundname>
     <includes refid="ecp_8hpp" local="no">ecp.hpp</includes>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="176" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="129" bodyend="129"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="176" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="132" bodyend="132"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_e_c_p_basis_1a1b9bd648591cc5b3b1083b5bdc7ed197" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> &amp;</type>
@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="177" column="15" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="130" bodyend="130"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="177" column="15" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="133" bodyend="133"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -138,7 +138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="159" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="120" bodyend="120"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="159" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="123" bodyend="123"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_e_c_p_basis_1a291a8c9b89978f5ef18e13950ba0005e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -177,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="169" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="122" bodyend="127"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="169" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="125" bodyend="130"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_e_c_p_basis_1a55e30460bed3e1de7c04b7b6a8089c2e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -206,7 +206,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="184" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="132" bodyend="137"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="184" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="135" bodyend="140"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_e_c_p_basis_1a35a2fa42d1d1fd9b9418aa88c3fe6a4d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -269,57 +269,6 @@
         </inbodydescription>
         <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="196" column="5" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="196" bodyend="196"/>
       </memberdef>
-      <memberdef kind="function" id="classlibecpint_1_1_e_c_p_basis_1ae92974143d21b4cc19ef6afde7e54163" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void libecpint::ECPBasis::addECP_from_file</definition>
-        <argsstring>(const int q, const std::array&lt; double, 3 &gt; &amp;coords, const std::string &amp;filename)</argsstring>
-        <name>addECP_from_file</name>
-        <param>
-          <type>const int</type>
-          <declname>q</declname>
-        </param>
-        <param>
-          <type>const std::array&lt; double, 3 &gt; &amp;</type>
-          <declname>coords</declname>
-        </param>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>filename</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Creates and adds an <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> object to the basis by reading from the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> library <parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>q</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- the atomic number of the atom </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>coords</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- the [x, y, z] coordinates (in bohr) of the <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>filename</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>- path to the XML file containing the basis specification </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="203" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/ecp.cpp" bodystart="139" bodyend="169"/>
-      </memberdef>
       </sectiondef>
     <briefdescription>
 <para>A lightweight container for a basis set of <ref refid="structlibecpint_1_1_e_c_p" kindref="compound">ECP</ref> objects. </para>
@@ -376,10 +325,9 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="150" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="150" bodyend="205"/>
+    <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" line="150" column="1" bodyfile="/Users/robertshaw/devfiles/libecpint/include/libecpint/ecp.hpp" bodystart="150" bodyend="207"/>
     <listofallmembers>
       <member refid="classlibecpint_1_1_e_c_p_basis_1a291a8c9b89978f5ef18e13950ba0005e" prot="public" virt="non-virtual"><scope>libecpint::ECPBasis</scope><name>addECP</name></member>
-      <member refid="classlibecpint_1_1_e_c_p_basis_1ae92974143d21b4cc19ef6afde7e54163" prot="public" virt="non-virtual"><scope>libecpint::ECPBasis</scope><name>addECP_from_file</name></member>
       <member refid="classlibecpint_1_1_e_c_p_basis_1a70460015e701f21f3736188d7fdfff54" prot="private" virt="non-virtual"><scope>libecpint::ECPBasis</scope><name>atomList</name></member>
       <member refid="classlibecpint_1_1_e_c_p_basis_1ace1af0a6c1ca994b54d877c32d47cec6" prot="private" virt="non-virtual"><scope>libecpint::ECPBasis</scope><name>basis</name></member>
       <member refid="classlibecpint_1_1_e_c_p_basis_1a14e29c3855ad997b10c8e512bc63bdbc" prot="public" virt="non-virtual"><scope>libecpint::ECPBasis</scope><name>core_electrons</name></member>

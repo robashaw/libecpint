@@ -48,7 +48,7 @@ Program Listing for File api.hpp
    
    #define H_START(i, j, N) (9*j + 3*(3*N-1)*i - (9*i*(i+1))/2 - 3)
        
-       constexpr double TWO_C_TOLERANCE = 1E-12;
+       constexpr double TWO_C_TOLERANCE = 1E-10;
        
        struct ECPIntegrator {
            std::vector<GaussianShell> shells; 
@@ -75,7 +75,9 @@ Program Listing for File api.hpp
            
            void set_ecp_basis(int necps, const double* coords, const double* exponents, const double* coefs, const int* ams, const int* ns, const int* shell_lengths);
            
+   #ifdef HAS_PUGIXML
            void set_ecp_basis_from_library(int necps, const double* coords, const int* charges, const std::vector<std::string> & names, const std::string & share_dir);
+   #endif
            
            void update_gaussian_basis_coords(int nshells, const double* coords);
            

@@ -1,4 +1,4 @@
-/* 
+/*
  *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
@@ -26,20 +26,22 @@
 
 namespace libecpint {
 
-	GaussianShell::GaussianShell(double *A, const int _l) : centerVec(A), l(_l), local_ptr(false), min_exp(100.0) {}
-	GaussianShell::GaussianShell(const std::array<double, 3> & A, const int _l) : l(_l) {
-		centerVec = localCenter;
-		local_ptr = true;
-		localCenter[0] = A[0];
-		localCenter[1] = A[1];
-		localCenter[2] = A[2];
-		min_exp = 100.0;
-	}
-
-	void GaussianShell::addPrim(const double e, const double c) {
-		exps.push_back(e);
-		coeffs.push_back(c);
-		min_exp = e < min_exp ? e : min_exp;
-	}
-
+GaussianShell::GaussianShell(double *A, const int _l)
+    : centerVec(A), l(_l), local_ptr(false), min_exp(100.0) {}
+GaussianShell::GaussianShell(const std::array<double, 3> &A, const int _l)
+    : l(_l) {
+  centerVec = localCenter;
+  local_ptr = true;
+  localCenter[0] = A[0];
+  localCenter[1] = A[1];
+  localCenter[2] = A[2];
+  min_exp = 100.0;
 }
+
+void GaussianShell::addPrim(const double e, const double c) {
+  exps.push_back(e);
+  coeffs.push_back(c);
+  min_exp = e < min_exp ? e : min_exp;
+}
+
+}  // namespace libecpint

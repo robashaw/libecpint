@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classlibecpint_1_1_radial_integral" kind="class" language="C++" prot="public">
     <compoundname>libecpint::RadialIntegral</compoundname>
     <includes refid="radial_8hpp" local="no">radial.hpp</includes>
@@ -402,7 +402,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp" line="97" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp" bodystart="236" bodyend="261"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp" line="97" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp" bodystart="235" bodyend="260"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_radial_integral_1a0aab6879e20837964bbb6370e5e97602" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1069,7 +1069,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp" line="192" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp" bodystart="144" bodyend="233"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp" line="192" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp" bodystart="144" bodyend="232"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_radial_integral_1a0781fd9b60144e1312d547471148c05b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1228,7 +1228,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp" line="211" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp" bodystart="283" bodyend="401"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp" line="211" column="6" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp" bodystart="282" bodyend="400"/>
       </memberdef>
       <memberdef kind="function" id="classlibecpint_1_1_radial_integral_1ac2027e7283ccb2a3d32d55f858d05102" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1466,7 +1466,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp" line="250" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp" bodystart="263" bodyend="281"/>
+        <location file="/Users/robertshaw/devfiles/libecpint/include/libecpint/radial.hpp" line="250" column="8" bodyfile="/Users/robertshaw/devfiles/libecpint/src/lib/radial_quad.cpp" bodystart="262" bodyend="280"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1476,12 +1476,24 @@
 <para>This should not be used directly, and is owned by <ref refid="classlibecpint_1_1_e_c_p_integral" kindref="compound">ECPIntegral</ref>. It provides the interface to the adaptive quadrature algorithms used to calculate the type 1 and 2 radial integrals, and the unrolled recursive scheme for type 2 radial integrals. </para>
     </detaileddescription>
     <collaborationgraph>
-      <node id="4">
+      <node id="5">
         <label>std::vector&lt; double &gt;</label>
       </node>
       <node id="2">
         <label>libecpint::BesselFunction</label>
         <link refid="classlibecpint_1_1_bessel_function"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>K</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>dK</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>C</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>std::vector&lt; std::vector&lt; double &gt; &gt;</label>
       </node>
       <node id="1">
         <label>libecpint::RadialIntegral</label>
@@ -1489,16 +1501,22 @@
         <childnode refid="2" relation="usage">
           <edgelabel>bessie</edgelabel>
         </childnode>
-        <childnode refid="3" relation="usage">
+        <childnode refid="6" relation="usage">
           <edgelabel>bigGrid</edgelabel>
           <edgelabel>primGrid</edgelabel>
           <edgelabel>smallGrid</edgelabel>
         </childnode>
       </node>
-      <node id="3">
+      <node id="4">
+        <label>std::vector&lt; std::vector&lt; std::vector&lt; double &gt; &gt; &gt;</label>
+        <childnode refid="3" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
         <label>libecpint::GCQuadrature</label>
         <link refid="classlibecpint_1_1_g_c_quadrature"/>
-        <childnode refid="4" relation="usage">
+        <childnode refid="5" relation="usage">
           <edgelabel>w</edgelabel>
           <edgelabel>x</edgelabel>
         </childnode>

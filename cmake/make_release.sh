@@ -1,6 +1,5 @@
 #!/bin/bash -e
 
-
 die () {
   echo -e "$*"
   exit 1

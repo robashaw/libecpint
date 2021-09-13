@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.20" xml:lang="en-US">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
   <compound refid="classlibecpint_1_1_angular_integral" kind="class"><name>libecpint::AngularIntegral</name>
     <member refid="classlibecpint_1_1_angular_integral_1a3513c16ca75d1951fc22f511da917834" kind="variable"><name>LB</name></member>
     <member refid="classlibecpint_1_1_angular_integral_1a41c35cd22346cbd20a6f886ab3123f29" kind="variable"><name>LE</name></member>
@@ -36,13 +36,12 @@
     <member refid="classlibecpint_1_1_bessel_function_1a32363daa6c7b9a594e455034c9fab0ae" kind="variable"><name>N</name></member>
     <member refid="classlibecpint_1_1_bessel_function_1a7ec46212dae92d4bc86da2d611185ded" kind="variable"><name>order</name></member>
     <member refid="classlibecpint_1_1_bessel_function_1a2b326d82d0cf8aea6f265c3e715eabe2" kind="variable"><name>scale</name></member>
-    <member refid="classlibecpint_1_1_bessel_function_1a3569aa7989502d0eeb089ddde1bf9f56" kind="variable"><name>K</name></member>
-    <member refid="classlibecpint_1_1_bessel_function_1a247a8a255ffbdffaccea63536ebb64b5" kind="variable"><name>dK</name></member>
-    <member refid="classlibecpint_1_1_bessel_function_1a5dcbfec899e1ed7fcba183b28b112538" kind="variable"><name>C</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1af28c2884c49f9a39adc5a9ec0d71b050" kind="variable"><name>K</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1a5dfce76d4cbef38821c6af646316ad98" kind="variable"><name>dK</name></member>
+    <member refid="classlibecpint_1_1_bessel_function_1a61b53031b06c9fe5d837bdaa56095be7" kind="variable"><name>C</name></member>
     <member refid="classlibecpint_1_1_bessel_function_1ac89e404f3ee28a6cce430311473f6283" kind="function"><name>tabulate</name></member>
     <member refid="classlibecpint_1_1_bessel_function_1af0e545daf8a60389bd010b2ab43a9375" kind="function"><name>BesselFunction</name></member>
     <member refid="classlibecpint_1_1_bessel_function_1a5ee6ffc320f7a2c09024640c6379ba35" kind="function"><name>BesselFunction</name></member>
-    <member refid="classlibecpint_1_1_bessel_function_1af42c649bd46884942a9737e8cffaa78d" kind="function"><name>~BesselFunction</name></member>
     <member refid="classlibecpint_1_1_bessel_function_1a3d48005863dfd0a4334ec0cf0caa38f7" kind="function"><name>init</name></member>
     <member refid="classlibecpint_1_1_bessel_function_1aee4c5856a1cfb6b8d0a2a7bdd82611cf" kind="function"><name>calculate</name></member>
     <member refid="classlibecpint_1_1_bessel_function_1af57fdb4f579bc758bf97d156ce5e9dfa" kind="function"><name>calculate</name></member>
@@ -85,19 +84,18 @@
     <member refid="classlibecpint_1_1_e_c_p_basis_1a35a2fa42d1d1fd9b9418aa88c3fe6a4d" kind="function"><name>getAtom</name></member>
     <member refid="classlibecpint_1_1_e_c_p_basis_1af44efe193f718cef4986fccde8045c8a" kind="function"><name>getMaxL</name></member>
     <member refid="classlibecpint_1_1_e_c_p_basis_1aa98f477ed0dee4a97de5f0178ade6409" kind="function"><name>getN</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_basis_1ae92974143d21b4cc19ef6afde7e54163" kind="function"><name>addECP_from_file</name></member>
   </compound>
   <compound refid="classlibecpint_1_1_e_c_p_integral" kind="class"><name>libecpint::ECPIntegral</name>
     <member refid="classlibecpint_1_1_e_c_p_integral_1af9cee7a7a59bfa3ae1645d77b3fec7d6" kind="variable"><name>radInts</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1a1d53a9bf47dfc66607950856e0f8f8b1" kind="variable"><name>angInts</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1a604134684da59d3654bd081db9e3be55" kind="variable"><name>tolerance</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a89d4eb94cc695d4e88b8720385b3b8fb" kind="variable"><name>shell_pair_thresh</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1affb51c06d517d5fb762b486c572cfeca" kind="variable"><name>QGEN</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1aba908eb13b8af1c8e75985689e261b52" kind="variable"><name>skipped</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1aae5da3068b091751bb508d88aed0fe01" kind="variable"><name>zero</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1ad5e0dad126b9c0631dd3afe137c58d64" kind="variable"><name>nonzero</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1a4659eadbdeaf45a872facaf1f88c5664" kind="function"><name>calcC</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1ac87491d54072488ef0862d9e2d0b0853" kind="function"><name>makeC</name></member>
-    <member refid="classlibecpint_1_1_e_c_p_integral_1ae5871ce6997e2893ff6a8bd24fe236b0" kind="function"><name>ECPIntegral</name></member>
+    <member refid="classlibecpint_1_1_e_c_p_integral_1a880216c43b6b1c0c6328875f43b63a81" kind="function"><name>ECPIntegral</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1a06dd2e29925e83c5fe29b5d14eadf66b" kind="function"><name>type1</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1a5cc59f53c27c3e7c195afadf102cd394" kind="function"><name>type2</name></member>
     <member refid="classlibecpint_1_1_e_c_p_integral_1a8f3537112c03c75e4745f57977b4e6ee" kind="function"><name>estimate_type2</name></member>
@@ -125,7 +123,6 @@
     <member refid="structlibecpint_1_1_e_c_p_integrator_1af6e771cf61b3df41aa66ed9442f5ba39" kind="function"><name>ECPIntegrator</name></member>
     <member refid="structlibecpint_1_1_e_c_p_integrator_1afe65e333e1269977c51b9e6a0bea7504" kind="function"><name>set_gaussian_basis</name></member>
     <member refid="structlibecpint_1_1_e_c_p_integrator_1aae5464183e60a6d900080c901a9d5b7c" kind="function"><name>set_ecp_basis</name></member>
-    <member refid="structlibecpint_1_1_e_c_p_integrator_1a3e7ab8064d532345d5b2f2c5ae14b85a" kind="function"><name>set_ecp_basis_from_library</name></member>
     <member refid="structlibecpint_1_1_e_c_p_integrator_1a24c4f1a1c4edb03d7cc6ffa46cc8bb83" kind="function"><name>update_gaussian_basis_coords</name></member>
     <member refid="structlibecpint_1_1_e_c_p_integrator_1a87f44a065e7522b385c1486d618f7d6d" kind="function"><name>update_ecp_basis_coords</name></member>
     <member refid="structlibecpint_1_1_e_c_p_integrator_1af1c1b928e3ec5835f77fb45dc763a6ed" kind="function"><name>init</name></member>

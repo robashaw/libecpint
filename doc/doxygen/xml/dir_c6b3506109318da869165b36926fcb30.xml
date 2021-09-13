@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="dir_c6b3506109318da869165b36926fcb30" kind="dir">
     <compoundname>/Users/robertshaw/devfiles/libecpint/src/generated</compoundname>
     <innerdir refid="dir_52981df39a7c57b8ef961c18e6f88235">/Users/robertshaw/devfiles/libecpint/src/generated/radial</innerdir>

@@ -39,4 +39,4 @@ Program Listing for File libecpint.hpp
    
    #include "libecpint/api.hpp"
    
-   #endif LIBECPINT_HEAD
+   #endif

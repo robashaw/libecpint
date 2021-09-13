@@ -442,7 +442,20 @@ void ECPIntegral::compute_shell_pair(const ECP &U, const GaussianShell &shellA,
     type1(U, shellA, shellB, data, CA, CB, radIntParameters, values);
 
   std::vector<int> l_list;
-  for (int l = 0; l < U.getL(); l++)
+  unsigned int A_par = data.LA % 2;
+  unsigned int B_par = data.LB % 2;
+  unsigned int skip = 1;
+  unsigned int start = 0;
+  if (data.A_on_ecp) {
+	  start = A_par;
+	  skip = 2;
+	  if (data.B_on_ecp && A_par != B_par)
+		  start = U.getL();
+  } else if (data.B_on_ecp) {
+	  start = B_par;
+	  skip = 2;
+  }
+  for (int l = start; l < U.getL(); l+=skip)
     if (screens[l] > shell_pair_thresh) l_list.push_back(l);
 
   // Now all the type2 integrals
@@ -455,7 +468,7 @@ void ECPIntegral::compute_shell_pair(const ECP &U, const GaussianShell &shellA,
       for (int na = 0; na < data.ncartA; na++) {
         for (int nb = 0; nb < data.ncartB; nb++) {
           values(na, nb) += t2vals(na, nb, l + m);
-        }
+       }
       }
     }
   }

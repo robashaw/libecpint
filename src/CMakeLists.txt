@@ -3,9 +3,11 @@
 #  Target: generate
 # ==================
 
-add_executable(generate generate.cpp
-			lib/mathutil.cpp
-			lib/angular.cpp)
+add_executable(generate
+               generate.cpp
+               lib/mathutil.cpp
+               lib/angular.cpp)
+
 set_property(TARGET generate PROPERTY CXX_STANDARD 11)
 target_include_directories(generate
   PRIVATE
@@ -50,10 +52,12 @@ target_include_directories(ecpint
     $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include/libecpint>
     $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>
 )
+
 target_link_libraries(ecpint
  PRIVATE
   Faddeeva
 )
+
 if(LIBECPINT_USE_PUGIXML)
   target_include_directories(ecpint PRIVATE ${PUGIXML_INCLUDE_DIR})
   target_link_libraries(ecpint PRIVATE libpugixml)

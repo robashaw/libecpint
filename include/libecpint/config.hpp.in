@@ -29,6 +29,6 @@
 #cmakedefine LIBECPINT_MAX_L @LIBECPINT_MAX_L@
 
 // Angular momentum below which integrals are unrolled
-#cmakedefine LIBECPINT_MAX_UNROL @LIBECPINT_MAX_UNROL@
+#define LIBECPINT_MAX_UNROL @LIBECPINT_MAX_UNROL@
 
 #endif

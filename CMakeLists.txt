@@ -63,7 +63,7 @@ if (LIBECPINT_BUILD_DOCS)
   add_subdirectory(doc)
 endif()
 
-install(DIRECTORY include/libecpint DESTINATION include)
+install(DIRECTORY include/libecpint DESTINATION include PATTERN "*.in" EXCLUDE)
 install(FILES include/libecpint.hpp DESTINATION include)
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp" DESTINATION include/libecpint)
 install(DIRECTORY share/libecpint DESTINATION share)

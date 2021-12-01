@@ -24,7 +24,11 @@
 
 #include "radial.hpp"
 #include "mathutil.hpp"
+#ifdef USING_CERF
+#include "cerf.h"
+#else
 #include "Faddeeva.hpp"
+#endif
 #include <iostream>
 
 namespace libecpint {
@@ -199,8 +203,13 @@ namespace libecpint {
 						double result = 0.0;
 						
 						// G1A, G1B may not be required, but it seems to be quicker to calculate than to check if needed
+#ifdef USING_CERF
+						double daw1 = X1 * dawson(root_p * P1);
+						double daw2 = X2 * dawson(root_p * P2);
+#else
 						double daw1 = X1 * Faddeeva::Dawson(root_p * P1);
 						double daw2 = X2 * Faddeeva::Dawson(root_p * P2); 	
+#endif
 						double G1B = 2.0 * ROOT_PI * (daw1 - daw2);
 						double G1A = 2.0 * ROOT_PI * (daw1 + daw2);
 						double H2 =  ROOT_PI * ( X1 + X2 ) * o_root_p; 

@@ -26,7 +26,6 @@
 #include <iostream>
 #include <cmath>
 #include <cassert>
-#include "Faddeeva.hpp"
 #include "mathutil.hpp"
 #include "qgen.hpp"
 #include <cassert>

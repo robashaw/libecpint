@@ -46,6 +46,8 @@ else()
   message(STATUS "pugixml not configured; reading ECP definitions from files is disabled.")
 endif()
 
+option(LIBECPINT_USE_CERF "Detect pre-built Cerf library for complex error functions. OFF builds internal Faddeeva library." OFF)
+
 if(MSVC)
     # MSVC does not include <cmath> constants, unless _USE_MATH_DEFINES is defined.
     add_definitions("/D_USE_MATH_DEFINES")

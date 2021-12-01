@@ -53,10 +53,30 @@ target_include_directories(ecpint
     $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>
 )
 
-target_link_libraries(ecpint
- PRIVATE
-  Faddeeva
-)
+if (LIBECPINT_USE_CERF)
+    find_package(cerf CONFIG REQUIRED) # QUIET)  # COMPONENTS C)
+
+    if(${cerf_FOUND})
+        get_property(_loc TARGET cerf::cerf PROPERTY LOCATION)
+        message(STATUS "${Cyan}Found cerf${ColourReset}: ${_loc}")
+    else()
+        if(${CMAKE_INSIST_FIND_PACKAGE_cerf})
+            message(FATAL_ERROR "Suitable cerf could not be externally located as user insists")
+        endif()
+    endif()
+    target_compile_definitions(ecpint PRIVATE USING_CERF=1)
+    target_link_libraries(ecpint
+     PRIVATE
+      cerf::cerf
+    )
+else()
+    get_property(_loc TARGET Faddeeva PROPERTY LOCATION)
+    message(STATUS "${Cyan}Using Faddeeva${ColourReset}: ${_loc}")
+    target_link_libraries(ecpint
+     PRIVATE
+      Faddeeva
+    )
+endif()
 
 if(LIBECPINT_USE_PUGIXML)
   target_include_directories(ecpint PRIVATE ${PUGIXML_INCLUDE_DIR})

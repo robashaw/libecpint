@@ -46,6 +46,13 @@ else()
   message(STATUS "pugixml not configured; reading ECP definitions from files is disabled.")
 endif()
 
+if(MSVC)
+    # MSVC does not include <cmath> constants, unless _USE_MATH_DEFINES is defined.
+    add_definitions("/D_USE_MATH_DEFINES")
+    # Set the exception handling model
+    add_definitions("/EHsc")
+endif()
+
 add_subdirectory(external)
 add_subdirectory(src)
 

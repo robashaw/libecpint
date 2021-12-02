@@ -70,8 +70,7 @@ if (LIBECPINT_USE_CERF)
       cerf::cerf
     )
 else()
-    get_property(_loc TARGET Faddeeva PROPERTY LOCATION)
-    message(STATUS "${Cyan}Using Faddeeva${ColourReset}: ${_loc}")
+    message(STATUS "${Cyan}Using Faddeeva${ColourReset}: internal")
     target_link_libraries(ecpint
      PRIVATE
       Faddeeva

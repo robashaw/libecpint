@@ -46,6 +46,13 @@ else()
   message(STATUS "pugixml not configured; reading ECP definitions from files is disabled.")
 endif()
 
+if(MSVC)
+    # MSVC does not include <cmath> constants, unless _USE_MATH_DEFINES is defined.
+    add_definitions("/D_USE_MATH_DEFINES")
+    # Set the exception handling model
+    add_definitions("/EHsc")
+endif()
+
 add_subdirectory(external)
 add_subdirectory(src)
 
@@ -63,7 +70,7 @@ if (LIBECPINT_BUILD_DOCS)
   add_subdirectory(doc)
 endif()
 
-install(DIRECTORY include/libecpint DESTINATION include)
+install(DIRECTORY include/libecpint DESTINATION include PATTERN "*.in" EXCLUDE)
 install(FILES include/libecpint.hpp DESTINATION include)
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp" DESTINATION include/libecpint)
 install(DIRECTORY share/libecpint DESTINATION share)

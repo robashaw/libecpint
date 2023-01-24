@@ -697,6 +697,67 @@ namespace libecpint {
 		}
 	}
 
+	void ECPIntegral::compute_shell_pair_derivative_Bfield(
+                                    const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+                                    std::array<TwoIndex<double>, 3> &results) const {
+		// First we check centres
+		double A[3], B[3], C[3], AmB[3];
+		for (int i = 0; i < 3; i++) {
+			A[i] = shellA.center()[i];
+			B[i] = shellB.center()[i];
+			C[i] = U.center()[i];
+                        AmB[i] = A[i] - B[i];
+		}
+
+                int lqnA = shellA.am();
+                int lqnB = shellB.am();
+
+		int ncartA = (lqnA+1) * (lqnA+2) / 2;
+		int ncartB = (lqnB+1) * (lqnB+2) / 2;
+
+		results[0].assign(ncartA, ncartB, 0.0);
+		results[1].assign(ncartA, ncartB, 0.0);
+		results[2].assign(ncartA, ncartB, 0.0);
+
+		if ((std::abs(A[0] - B[0]) + std::abs(A[1] - B[1]) + std::abs(A[2] - B[2])) < 1e-5){ // same centers, integrals are zero...
+                  return;
+                }
+
+		int ncartAp1 = (lqnA+2) * (lqnA+3) / 2;
+
+		double AxB[3];
+		AxB[0] = A[1]*B[2] - A[2]*B[1];
+		AxB[1] = A[2]*B[0] - A[0]*B[2];
+		AxB[2] = A[0]*B[1] - A[1]*B[0];
+
+		// Calculate shell derivatives
+		TwoIndex<double> ABints, ApBints;
+	        compute_shell_pair(U,shellA,shellB,ABints);      // regular ints
+	        compute_shell_pair(U,shellA,shellB,ApBints,1,0); // A-shell increased l-qn by 1
+
+                for(int iB=0;iB<ncartB;iB++){
+                  int iA = 0;
+                  for(int Lx=lqnA;Lx>=0;Lx--){
+                    for(int Ly=lqnA-Lx;Ly>=0;Ly--){
+                      const int Lz = lqnA-Lx-Ly;
+
+                      const int pos0 = ncartB*iA + iB;
+
+                      const int posx = ncartB*iA                               + iB; // Lx+1
+                      const int posy = ncartB*(Lz   + ((Ly+Lz+2)*(Ly+Lz+1))/2) + iB; // Ly+1
+                      const int posz = posy + ncartB;                                // Lz+1
+
+                      results[0].data[pos0] = AxB[0] * ABints.data[pos0] + AmB[1] * ApBints.data[posz] - AmB[2] * ApBints.data[posy];
+                      results[1].data[pos0] = AxB[1] * ABints.data[pos0] + AmB[2] * ApBints.data[posx] - AmB[0] * ApBints.data[posz];
+                      results[2].data[pos0] = AxB[2] * ABints.data[pos0] + AmB[0] * ApBints.data[posy] - AmB[1] * ApBints.data[posx];
+
+                      iA++;
+                    }
+                  }
+                }
+	}
+
+
 	void ECPIntegral::compute_shell_pair_second_derivative(
       const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
       std::array<TwoIndex<double>, 45> &results) const {

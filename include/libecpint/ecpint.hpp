@@ -148,20 +148,37 @@ namespace libecpint {
         TwoIndex<double> &values, int shiftA = 0, int shiftB = 0) const;
 		
 		/**
-	 	  * Computes the overall ECP integral first derivatives over the given ECP center, C, and shell pair (A | B) 
+		  * Computes the overall ECP integral first derivatives over the given ECP center, C, and shell pair (A | B)
 		  * The results are placed in order [Ax, Ay, Az, Bx, By, Bz, Cx, Cy, Cz] and are calculated so that each component
 		  * can always be added to the relevant total derivative. E.g. if A = B, then the contribution to the total derivative
 		  * for that coordinate on the x axis will be Ax + Bx. 
 		  * The order for each derivative matrices matches that specified in compute_shell_pair
-	 	  * 
-	 	  * @param U - reference to the ECP
-	 	  * @param shellA - the first basis shell (rows in values) 
-	 	  * @param shellB - the second basis shell (cols in values)
-	 	  * @param results - reference to array of 9 TwoIndex arrays where the results will be stored
-	 	  */ 
+		  *
+		  * @param U - reference to the ECP
+		  * @param shellA - the first basis shell (rows in values)
+		  * @param shellB - the second basis shell (cols in values)
+		  * @param results - reference to array of 9 TwoIndex arrays where the results will be stored
+		  */
 		void compute_shell_pair_derivative(
         const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
         std::array<TwoIndex<double>, 9> &results) const;
+
+		/**
+		  * Computes the overall ECP integral first derivatives wrt an external magnetic field over the
+		  * given ECP center, C, and GIAO shell pair (A | B).
+		  * The results are placed in order [Bx, By, Bz].
+		  * The order for each derivative matrices matches that specified in compute_shell_pair
+		  *
+		  * Note that the resulting integrals are imaginary, i.e., the user has to take care of skew-symmetry.
+		  *
+		  * @param U - reference to the ECP
+		  * @param shellA - the first basis shell (rows in values)
+		  * @param shellB - the second basis shell (cols in values)
+		  * @param results - reference to array of 9 TwoIndex arrays where the results will be stored
+		  */
+		void compute_shell_pair_derivative_Bfield(
+        const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
+        std::array<TwoIndex<double>, 3> &results) const;
 		
 		/**
  		  * Computes the overall ECP integral second derivatives over the given ECP center, C, and shell pair (A | B) 
@@ -171,7 +188,7 @@ namespace libecpint {
 		  * especially in the instance where A=B. It's recommended to look at the compute_second_derivatives interface in api.cpp for how
 		  * to handle this. 
 		  * The order for each derivative matrices matches that specified in compute_shell_pair
- 		  * 
+ 		  *
  		  * @param U - reference to the ECP
  		  * @param shellA - the first basis shell (rows in values) 
  		  * @param shellB - the second basis shell (cols in values)
@@ -185,7 +202,7 @@ namespace libecpint {
 		  * Worker function to calculate the derivative of the integral <A | C | B> with respect to A. 
 		  * This is given as <d_q A(l_q) | C | B> = l_q*<A(l_q-1) | C | B> - 2*mu*<A(l_q + 1) | C | B>
 		  * where l_q is the angular momentum component of A in the q coordinate, and mu is the exponent of A.
-		  * 
+		  *
 		  * @param U - reference to the ECP	
  		  * @param shellA - the first basis shell (rows in values) 
  		  * @param shellB - the second basis shell (cols in values)

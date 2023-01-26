@@ -166,7 +166,7 @@ namespace libecpint {
 		/**
 		  * Computes the overall ECP integral first derivatives wrt an external magnetic field over the
 		  * given ECP center, C, and GIAO shell pair (A | B).
-		  * The results are placed in order [Bx, By, Bz].
+		  * The results are placed in order [dECP/dBx, dECP/dBy, dECP/dBz].
 		  * The order for each derivative matrices matches that specified in compute_shell_pair
 		  *
 		  * Note that the resulting integrals are imaginary, i.e., the user has to take care of skew-symmetry.

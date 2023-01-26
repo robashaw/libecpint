@@ -724,9 +724,6 @@ namespace libecpint {
                   return;
                 }
 
-                /*
-                 <chi_mu | [V^U, L_U - ]_
-                */
 		int ncartAp1 = (lqnA+2) * (lqnA+3) / 2;
 		int ncartBp1 = (lqnB+2) * (lqnB+3) / 2;
 

@@ -1,6 +1,6 @@
 if (NOT LIBECPINT_USE_CERF)
 add_library(Faddeeva Faddeeva.cpp)
-set_property(TARGET Faddeeva PROPERTY CXX_STANDARD 11)
+target_compile_features(Faddeeva PUBLIC cxx_std_11)
 set_target_properties(Faddeeva PROPERTIES SOVERSION ${API_VERSION})
 target_include_directories(Faddeeva
   PUBLIC

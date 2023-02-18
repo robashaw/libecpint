@@ -8,7 +8,7 @@ add_executable(generate
                lib/mathutil.cpp
                lib/angular.cpp)
 
-set_property(TARGET generate PROPERTY CXX_STANDARD 11)
+target_compile_features(generate PUBLIC cxx_std_11)
 target_include_directories(generate
   PRIVATE
     ${PROJECT_SOURCE_DIR}/include
@@ -42,7 +42,7 @@ if(NOT BUILD_SHARED_LIBS)
   set_property(TARGET ecpint PROPERTY POSITION_INDEPENDENT_CODE ON)
 endif()
 
-set_property(TARGET ecpint PROPERTY CXX_STANDARD 11)
+target_compile_features(ecpint PUBLIC cxx_std_11)
 set_target_properties(ecpint PROPERTIES SOVERSION ${API_VERSION})
 target_include_directories(ecpint
   PUBLIC

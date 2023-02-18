@@ -92,7 +92,7 @@ namespace libecpint {
 		void addPrim(double exp, double c);
 		
 		/// @return the number of primitives
-		int nprimitive() const { return exps.size(); }
+		int nprimitive() const { return (int)exps.size(); }
 		
 		/// @return the number of cartesian basis functions in a shell with this angular momentum 
 		int ncartesian() const { return ((l+1)*(l+2))/2; }

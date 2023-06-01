@@ -6,9 +6,12 @@ project( LibecpintExample
          LANGUAGES CXX)
 
 add_executable(example example.cpp)
-target_link_libraries(example PRIVATE ecpint Faddeeva pugixml)
+target_link_libraries(example PRIVATE ecpint)
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/iodine.bas
      DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/hydrogen.bas
      DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
+add_test(NAME example
+	 COMMAND example
+	 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})

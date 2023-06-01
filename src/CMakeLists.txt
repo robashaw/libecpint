@@ -87,6 +87,10 @@ endif()
 # =========
 
 install(TARGETS ecpint EXPORT ecpintTargets DESTINATION ${CMAKE_INSTALL_LIBDIR})
+if (LIBECPINT_USE_PUGIXML)
+  # used in api.h
+  target_compile_definitions(ecpint PUBLIC HAS_PUGIXML)
+endif()
 include(CMakePackageConfigHelpers)
 # Version file
 write_basic_package_version_file(

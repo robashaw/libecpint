@@ -21,4 +21,17 @@ year = {2017}
 }
 
 
-Please also remember to include citations for the methods and basis sets you use!
+@article{Shaw2021, 
+author = {Robert A. Shaw and J. Grant Hill}, 
+doi = {10.21105/joss.03039},
+journal = {Journal of Open Source Software},
+publisher = {The Open Journal}, 
+number = {60}, 
+pages = {3039},
+title = {libecpint: A C++ library for the efficient evaluation of integrals over effective core potentials}, 
+url = {https://doi.org/10.21105/joss.03039}, 
+volume = {6}, 
+year = {2021}
+}
+
+Please also remember to include citations for the methods, basis sets and ECPs you use!

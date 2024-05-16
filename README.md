@@ -63,8 +63,9 @@ There is also a working example in the example folder, with instructions of how 
 
 ## Acknowledging usage
 
-If you use this library in your program and find it helpful, that's great! Any feedback would be much appreciated. If you publish results using this library, please consider citing the following paper detailing the implementation:
+If you use this library in your program and find it helpful, that's great! Any feedback would be much appreciated. If you publish results using this library, please consider citing the following papers detailing the implementation and the library, respectively:
 
 R. A. Shaw, J. G. Hill, J. Chem. Phys. 147, 074108 (2017); doi: [10.1063/1.4986887](http://dx.doi.org/10.1063/1.4986887)
+R. A. Shaw, J. G. Hill, J. Open Source Softw. 6, 3039 (2021); doi: [10.21105/joss.03039](https://doi.org/10.21105/joss.03039)
 
-A full bibtex citation can be found in CITATION in the main directory.
+Full bibtex citations can be found in CITATION in the main directory.

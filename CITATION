@@ -20,6 +20,9 @@ volume = {147},
 year = {2017}
 }
 
+The following JOSS paper formally presents the library:
+
+R. A. Shaw, J. G. Hill, J. Open Source Softw. 6, 3039 (2021)
 
 @article{Shaw2021, 
 author = {Robert A. Shaw and J. Grant Hill}, 

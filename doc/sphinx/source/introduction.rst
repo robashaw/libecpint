@@ -20,7 +20,11 @@ If you use this library in your program and find it helpful, that's great! Any f
 
 R. A. Shaw, J. G. Hill, J. Chem. Phys. 147, 074108 (2017); doi: [10.1063/1.4986887](http://dx.doi.org/10.1063/1.4986887)
 
-A full bibtex citation can be found in CITATION in the main directory.
+and the JOSS paper that presents the library:
+
+R. A. Shaw, J. G. Hill, J. Open Source Softw. 6, 3039 (2021); doi: [10.21105/joss.03039](https://doi.org/10.21105/joss.03039)
+
+Full bibtex citations can be found in CITATION in the main directory.
 
 Please also cite the ECPs and basis sets you use. 
 

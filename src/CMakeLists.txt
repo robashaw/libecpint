@@ -3,22 +3,37 @@
 #  Target: generate
 # ==================
 
-add_executable(generate
-               generate.cpp
-               lib/mathutil.cpp
-               lib/angular.cpp)
+if(CMAKE_CROSSCOMPILING)
+    find_package(genecpint)
+else()
+    add_executable(generate
+                   generate.cpp
+                   lib/mathutil.cpp
+                   lib/angular.cpp)
 
-target_compile_features(generate PUBLIC cxx_std_11)
-target_include_directories(generate
-  PRIVATE
-    ${PROJECT_SOURCE_DIR}/include
-    ${PROJECT_SOURCE_DIR}/include/libecpint
-    ${CMAKE_CURRENT_BINARY_DIR}/../include/libecpint
-)
+    target_compile_features(generate PUBLIC cxx_std_11)
+    target_include_directories(generate
+      PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+        ${PROJECT_SOURCE_DIR}/include/libecpint
+        ${CMAKE_CURRENT_BINARY_DIR}/../include/libecpint
+      )
+    export(
+      TARGETS
+        generate
+      FILE
+        "${CMAKE_BINARY_DIR}/genecpintConfig.cmake"
+      )
+endif()
 
 file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/generated")
-file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.part" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/generated")
-file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/generated/qgen.part" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/generated")
+file(
+  COPY
+    "${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.part"
+    "${CMAKE_CURRENT_SOURCE_DIR}/generated/qgen.part"
+  DESTINATION
+    "${CMAKE_CURRENT_BINARY_DIR}/generated"
+  )
 find_package (Python COMPONENTS Interpreter)
 execute_process(COMMAND ${Python_EXECUTABLE} "${CMAKE_CURRENT_SOURCE_DIR}/makelist.py" "${LIBECPINT_MAX_L}" "${CMAKE_CURRENT_BINARY_DIR}")
 file(READ "${CMAKE_CURRENT_BINARY_DIR}/qlist.txt" GENERATED_SOURCES)
@@ -49,8 +64,8 @@ target_include_directories(ecpint
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/libecpint>
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include/libecpint>
-    $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include/libecpint>
-    $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/libecpint>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
 if (LIBECPINT_USE_CERF)
@@ -86,7 +101,20 @@ endif()
 #  Install
 # =========
 
-install(TARGETS ecpint EXPORT ecpintTargets DESTINATION ${CMAKE_INSTALL_LIBDIR})
+install(
+  TARGETS
+    ecpint
+  EXPORT
+    ecpintTargets
+  RUNTIME DESTINATION
+    ${CMAKE_INSTALL_BINDIR}
+  ARCHIVE DESTINATION
+    ${CMAKE_INSTALL_LIBDIR}
+  LIBRARY DESTINATION
+    ${CMAKE_INSTALL_LIBDIR}
+  PUBLIC_HEADER DESTINATION
+    ${CMAKE_INSTALL_INCLUDEDIR}
+  )
 include(CMakePackageConfigHelpers)
 # Version file
 write_basic_package_version_file(
@@ -118,4 +146,3 @@ install(
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ecpint
 )
 
-install(TARGETS ecpint DESTINATION ${CMAKE_INSTALL_LIBDIR})

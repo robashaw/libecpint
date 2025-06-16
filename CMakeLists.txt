@@ -2,9 +2,6 @@
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 
 include(CheckCXXCompilerFlag)
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF) #...without compiler extensions like gnu++11
 
 # build type
 if(NOT CMAKE_BUILD_TYPE)
@@ -72,10 +69,10 @@ if (LIBECPINT_BUILD_DOCS)
   add_subdirectory(doc)
 endif()
 
-install(DIRECTORY include/libecpint DESTINATION include PATTERN "*.in" EXCLUDE)
-install(FILES include/libecpint.hpp DESTINATION include)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp" DESTINATION include/libecpint)
-install(DIRECTORY share/libecpint DESTINATION share)
+install(DIRECTORY include/libecpint DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} PATTERN "*.in" EXCLUDE)
+install(FILES include/libecpint.hpp DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/include/libecpint/config.hpp" DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libecpint)
+install(DIRECTORY share/libecpint DESTINATION ${CMAKE_INSTALL_DATADIR})
 
 message("\nSummary:")
 message("--------")

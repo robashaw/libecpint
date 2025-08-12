@@ -80,10 +80,17 @@ if (LIBECPINT_USE_CERF)
         endif()
     endif()
     target_compile_definitions(ecpint PRIVATE USING_CERF=1)
-    target_link_libraries(ecpint
-     PRIVATE
-      cerf::cerf
-    )
+    if(cerf_VERSION VERSION_GREATER_EQUAL "3")
+        target_link_libraries(ecpint
+         PRIVATE
+          cerf::cerfcpp
+        )
+    else()
+        target_link_libraries(ecpint
+         PRIVATE
+          cerf::cerf
+        )
+    endif()
 else()
     message(STATUS "${Cyan}Using Faddeeva${ColourReset}: internal")
     target_link_libraries(ecpint

@@ -54,24 +54,27 @@ namespace libecpint {
 		int maxN; ///< Maximum number of points to use in quadrature
 		int M; 	///< Index of midpoint
 	
-		std::vector<double> x; ///< Weights
-		std::vector<double> w; ///< Abscissae
- 
+		std::vector<double> x; ///< Abscissae
+		std::vector<double> w; ///< Weights
+
 		double I; ///< Integral value
-	
+
 		GCTYPE t; ///< Algorithm type to be used
-	
+
 		/// Worker function for integration routines, should not be called directly.
 		/// p holds the pretabulated integrand values at the abscissae.
 		double sumTerms(const double *p, int limit, int start, int end, int shift, int skip) const;
 
 	public:
-		
+
 		/// Default constructor, creates empty object
 		GCQuadrature();
-		
+
 		/// Copy constructor, carbon copies all members
 		GCQuadrature(const GCQuadrature &other);
+
+		/// Copy-assignment, carbon copies all members (reusing existing buffers where possible)
+		GCQuadrature& operator=(const GCQuadrature &other);
 	
 		/**
 		* Intialises the integration grid to the given number of points, and integration type. 

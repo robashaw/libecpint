@@ -16,8 +16,6 @@
 							
 							radials(k-2-u.n, i, j) += da * db * u.d * result;
 						}
-						
-						delete[] values; 
 					}
 				}
 			}

@@ -235,7 +235,8 @@ namespace libecpint {
 				Px = (za * data.A[0] + zb * data.B[0]) / p(a, b);
 				phi = std::atan2(Py, Px);
 
-				TwoIndex<double> harmonics = realSphericalHarmonics(maxL, x, phi);
+				TwoIndex<double> harmonics;
+				realSphericalHarmonics(maxL, x, phi, harmonics);
 				for (int l = offset; l <= maxL; l+=2) {
 					for (int mu = -l; mu <= l; mu++)
 						values(l, l+mu) += da * db * harmonics(l, l+mu) * K(a, b) * tempValues[l];

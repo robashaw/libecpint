@@ -26,6 +26,7 @@
 #include "mathutil.hpp"
 #include <iostream>
 #include <cmath>
+#include <limits>
 
 namespace libecpint {
 
@@ -164,7 +165,24 @@ namespace libecpint {
 		double B = data.Bm;
 		std::vector<double> tempValues;
 		values.assign(maxL+1, 2*maxL + 1, 0.0);
-	
+
+		// The radial integrand decays on the COMBINED scale of the AO pair and the ECP, as
+		// exp(-(p + g) r^2). Scaling the grid by the AO exponent p alone leaves it a factor
+		// sqrt((p+g)/p) too wide, so when the ECP is much steeper than the AO pair (g >> p)
+		// every abscissa falls in the exp(-g r^2) underflow tail: the integral then collapses
+		// to ~zero independently of the number of grid points. Build the grid on the combined
+		// scale instead, using the smallest local-channel ECP exponent (the widest term, so no
+		// contribution is truncated) and the corresponding combined Gaussian centre.
+		// NB: this is computed directly here rather than via U.min_exp_l[], whose sentinel
+		// initialisation (1000.0) silently caps it for ECP exponents above 1000.
+		const int Lloc = U.getL();
+		double g_loc = std::numeric_limits<double>::max();
+		for (int k = 0; k < U.getN(); k++) {
+			const GaussianECP& gec = U.getGaussian(k);
+			if (gec.l == Lloc) g_loc = std::min(g_loc, gec.a);
+		}
+		if (g_loc == std::numeric_limits<double>::max()) g_loc = 0.0;
+
 		// Tabulate integrand
 		double x, phi, Px, Py;
 		for (int a = 0; a < npA; a++) {
@@ -175,9 +193,11 @@ namespace libecpint {
 				db = shellB.coef(b);
 				zb = shellB.exp(b);
 			
-				// Reset grid starting points
+				// Reset grid, mapped to the combined (AO + ECP) radial scale
+				double z_eff = p(a, b) + g_loc;
+				double center = (za * A + zb * B) / z_eff; // = p * P_AO / (p + g)
 				GCQuadrature newGrid = bigGrid;
-				newGrid.transformRMinMax(p(a, b), (za * A + zb * B)/p(a, b));
+				newGrid.transformRMinMax(z_eff, center);
 				std::vector<double> &gridPoints = newGrid.getX();
 				int start = 0;
 				int end = gridSize - 1;

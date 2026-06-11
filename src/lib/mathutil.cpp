@@ -55,15 +55,18 @@ namespace libecpint {
 	double pow_20(const double z) { double z2 = z*z; double z4 = z2*z2; double z8 = z4*z4; return z8*z8*z4; }
 	
 	void initFactorials() {
-	#ifndef FAC_INIT
-	#define FAC_INIT
+		// Guard with a thread-safe local static so the tables are populated exactly once,
+		// even if several integrators are constructed concurrently.
+		static const bool initialised = [] () {
 			FAC[0] = 1.0;
 			DFAC[0] = 1.0;
 			DFAC[1] = 1.0;
-		
-			for (int i = 1; i < MAX_FAC; i++)  FAC[i] = double(i) * FAC[i-1]; 
+
+			for (int i = 1; i < MAX_FAC; i++)  FAC[i] = double(i) * FAC[i-1];
 			for (int i = 2; i < MAX_DFAC; i++) DFAC[i] = double(i) * DFAC[i-2];
-	#endif
+			return true;
+		} ();
+		(void) initialised;
 	}
 	
 	// Compute all the real spherical harmonics Slm(theta, phi) for l,m up to lmax

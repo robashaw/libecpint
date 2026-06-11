@@ -59,7 +59,10 @@ namespace libecpint {
 		RadialIntegral radInts; ///< The interface to the radial integral calculation
 		AngularIntegral angInts; ///< The angular integrals, which can be reused over all ECP centers
 
-    	static constexpr double tolerance = 1e-12;
+    	/// Screening tolerance: shell-pair/channel contributions whose upper-bound estimate
+    	/// falls below this are skipped. Set from the constructor `thresh` so the caller can
+    	/// tighten it; a fixed value here would silently drop small but genuine l>0 integrals.
+    	double tolerance;
 	
 		/// Worker functions for calculating binomial expansion coefficients
 		double calcC(int a, int m, double A) const;

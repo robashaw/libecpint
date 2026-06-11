@@ -206,9 +206,10 @@ namespace libecpint {
 		
 		if (z <= 0) value = 1.0;
 		else if (z < SMALL) {
+			// K_L(z) ~ (1 - z) z^L / (2L+1)!! = (1 - z) prod_{k=1}^{L} z/(2k+1)
 			value = 1.0 - z;
 			for (int k = 1; k < L+1; k++)
-				value *= z/(2.0*L+1.0);
+				value *= z/(2.0*k+1.0);
 		} else if (z > 16.0) {
 			double v0 = 0.5/z;
 			value = 1.0;

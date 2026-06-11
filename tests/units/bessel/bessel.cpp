@@ -40,6 +40,23 @@ TEST_F(BesselTest, CalculateSmallZ) {
 	EXPECT_NEAR(values[2], v2, 1e-12);
 }
 
+TEST_F(BesselTest, SingleVsMultiSmallZ) {
+	// Regression test: the single-L small-z branch must follow K_L(z) ~ (1-z) z^L / (2L+1)!!,
+	// i.e. agree (in relative terms) with the multi-L routine and the analytic value, even though
+	// the magnitudes are tiny. A previous bug used (z/(2L+1))^L, wrong for L >= 2.
+	double z = 1e-8;
+	std::vector<double> v(3, 0.0);
+	bessie.calculate(z, 2, v);
+
+	double analytic2 = (1.0 - z) * z * z / 15.0; // (2*2+1)!! = 15
+	EXPECT_NEAR(v[2] / analytic2, 1.0, 1e-6);
+	EXPECT_NEAR(bessie.calculate(z, 2) / analytic2, 1.0, 1e-6);
+	EXPECT_NEAR(bessie.calculate(z, 2) / v[2], 1.0, 1e-9);
+
+	double analytic1 = (1.0 - z) * z / 3.0; // (2*1+1)!! = 3
+	EXPECT_NEAR(bessie.calculate(z, 1) / analytic1, 1.0, 1e-6);
+}
+
 TEST_F(BesselTest, CalculateBigZ) {
 	std::vector<double> values(2, 0.0);
 	bessie.calculate(17.0, 1, values);

@@ -40,9 +40,9 @@ namespace libecpint {
 			double C, val;
       const int* mults = angint.getOmegaMults();
       const std::vector<double>& omega = angint.getOmegaData();
-			int w_size = 2*lam+1; 
-			double w1_contr[w_size*(lam+LA+1)];
-			double w2_contr[w_size*(lam+LB+1)];
+			int w_size = 2*lam+1;
+			std::vector<double> w1_contr(w_size*(lam+LA+1));
+			std::vector<double> w2_contr(w_size*(lam+LB+1));
 			
 			int w_lam = lam * mults[3];
 			// Loop over cartesian shell functions in alpha order, e.g. {xx xy, xz, yy, yz, zz} for l=2

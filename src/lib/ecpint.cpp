@@ -396,8 +396,8 @@ namespace libecpint {
 		makeC(CA, data.LA, data.A);
 		makeC(CB, data.LB, data.B);
 		
-		double screens[U.getL() + 1];
-		estimate_type2(U, shellA, shellB, data, screens);
+		std::vector<double> screens(U.getL() + 1);
+		estimate_type2(U, shellA, shellB, data, screens.data());
 	
 		// Calculate type1 integrals, if necessary
 		values.assign(data.ncartA, data.ncartB, 0.0);

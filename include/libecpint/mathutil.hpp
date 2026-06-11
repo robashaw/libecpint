@@ -51,6 +51,8 @@ namespace libecpint {
 	constexpr double ROOT_PI = 1.772453850905516; ///< square root of PI
 	constexpr double SINH_1 = 1.1752011936;
 	constexpr int MAX_POW = 20;
+	/// Largest positive exponent n for which FAST_POW[n] is a valid power routine (entries above are 1/z, 1/z^2)
+	constexpr int FAST_POW_MAX_EXPONENT = 20;
 
 	extern double FAC[MAX_FAC];		///< Array of factorials
 	extern double DFAC[MAX_DFAC]; 	///< Array of double factorials

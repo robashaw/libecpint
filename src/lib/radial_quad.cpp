@@ -179,30 +179,31 @@ namespace libecpint {
 				GCQuadrature newGrid = bigGrid;
 				newGrid.transformRMinMax(p(a, b), (za * A + zb * B)/p(a, b));
 				std::vector<double> &gridPoints = newGrid.getX();
-				auto start = 0;
-				auto end = gridSize - 1;
-			
+				int start = 0;
+				int end = gridSize - 1;
+
 				// Build U and bessel tabs
 				double Utab[gridSize];
 				buildU(U, U.getL(), N, newGrid, Utab);
 				buildBessel(gridPoints, gridSize, maxL, besselValues, 2.0*p(a,b)*P(a,b));
-			
-				// Start building intvalues, and prescreen
-				bool foundStart = false, tooSmall = false;
+
+				// Build the (pre-envelope) integrand and find the window [start, end] of points that
+				// contribute. We take the first and last significant points independently rather than
+				// breaking at the first interior dip, so a sign change in U_l(r) (mixed-sign ECP
+				// coefficients) cannot truncate the integration region prematurely.
+				bool foundStart = false;
 				for (int i = 0; i < gridSize; i++) {
+					bool significant = false;
 					for (int l = offset; l <= maxL; l+=2) {
-						intValues(l, i) = Utab[i] * besselValues(l, i); 
-						tooSmall = tooSmall || (intValues(l, i) < tolerance);
+						intValues(l, i) = Utab[i] * besselValues(l, i);
+						significant = significant || (std::abs(intValues(l, i)) >= tolerance);
 					}
-					if (!tooSmall && !foundStart) {
-						foundStart = true; 
-						start = i;
-					}
-					if (tooSmall && foundStart) {
-						end = i-1;
-						break;
+					if (significant) {
+						if (!foundStart) { start = i; foundStart = true; }
+						end = i;
 					}
 				}
+				if (!foundStart) { start = 0; end = gridSize - 1; }
 			
 				for (int i = start; i <= end; i++) {
 					val = -p(a, b) * (gridPoints[i]*(gridPoints[i] - 2*P(a, b)) + P2(a, b));

@@ -48,33 +48,42 @@ TEST_P(QuadTest, CheckInit) {
 	EXPECT_EQ(grid_->getN(), grid_->getX().size());
 }
 
+// Tabulate a function f(x[i], coef) at every abscissa of the grid, as the integrate API now expects
+static std::vector<double> tabulate(GCQuadrature* grid,
+		double (*f)(double, const double*, int), const double* coef) {
+	const std::vector<double>& x = grid->getX();
+	std::vector<double> params(grid->getN());
+	for (int i = 0; i < grid->getN(); i++) params[i] = f(x[i], coef, i);
+	return params;
+}
+
 TEST_P(QuadTest, IntegratePoly) {
-	std::function<double(double, const double*, int)> intgd = polynomial;
-	double params[5] = {3, 1.0, -2.0, 3.0, -4.0};
+	double coef[5] = {3, 1.0, -2.0, 3.0, -4.0};
+	std::vector<double> params = tabulate(grid_, polynomial, coef);
 	const auto integral_and_test =
-	    grid_->integrate(intgd, params, 1e-6, 0, grid_->getN() - 1);
+	    grid_->integrate(params.data(), 1e-6, 0, grid_->getN() - 1);
 	EXPECT_TRUE(integral_and_test.second);
 	EXPECT_NEAR(integral_and_test.first, 4.0, 1e-6);
 }
 
 TEST_P(QuadTest, IntegrateGauss) {
-	std::function<double(double, const double*, int)> intgd = gaussian;
 	//integrate on [0, inf) instead of [-1, 1]
 	grid_->transformZeroInf();
-	double params[2] = {0.5, 2.4};
+	double coef[2] = {0.5, 2.4};
+	std::vector<double> params = tabulate(grid_, gaussian, coef);
 	const auto integral_and_test =
-	    grid_->integrate(intgd, params, 1e-6, 0, grid_->getN() - 1);
+	    grid_->integrate(params.data(), 1e-6, 0, grid_->getN() - 1);
 	EXPECT_TRUE(integral_and_test.second);
 	EXPECT_NEAR(integral_and_test.first, 1.2*std::sqrt(2.0*M_PI), 1e-6);
 }
 
 TEST_P(QuadTest, TransformPoly) {
-	std::function<double(double, const double*, int)> intgd = polynomial;
 	// integrate on [10, 20] instead of [-1, 1]
 	grid_->transformRMinMax(2.56, 14.375);
-	double params[4] = {2, 0.2, 0.1, -0.003};
+	double coef[4] = {2, 0.2, 0.1, -0.003};
+	std::vector<double> params = tabulate(grid_, polynomial, coef);
 	const auto integral_and_test =
-	    grid_->integrate(intgd, params, 1e-6, 0, grid_->getN() - 1);
+	    grid_->integrate(params.data(), 1e-6, 0, grid_->getN() - 1);
 	EXPECT_TRUE(integral_and_test.second);
 	EXPECT_NEAR(integral_and_test.first, 10.0, 1e-6);
 }

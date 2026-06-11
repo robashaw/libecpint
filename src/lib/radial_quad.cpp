@@ -65,11 +65,6 @@ namespace libecpint {
 		return Na * Nb * std::exp(-muij * R2);
 	}
 
-	// Assumes that p is the pretabulated integrand at the abscissae
-	double RadialIntegral::integrand(const double r, const double *p, const int ix) {
-		return p[ix];
-	}
-
 	RadialIntegral::Parameters RadialIntegral::buildParameters(
 	    const GaussianShell &shellA, const GaussianShell &shellB, const ShellPairData &data) const {
 		int npA = shellA.nprimitive();
@@ -124,7 +119,6 @@ namespace libecpint {
 	int RadialIntegral::integrate(
       const int maxL, const int gridSize, const TwoIndex<double> &intValues, GCQuadrature &grid,
       std::vector<double> &values, const int start, const int end, const int offset, const int skip) const {
-		std::function<double(double, const double*, int)> intgd = integrand;
 		values.assign(maxL+1, 0.0);
 		int test;
 		double params[gridSize];
@@ -133,7 +127,7 @@ namespace libecpint {
 		for (int l = offset; l <= maxL; l+=skip) {
 			for (int i = start; i <= end; i++) params[i] = intValues(l, i);
 			const auto integral_and_test =
-			    grid.integrate(intgd, params, tolerance, start, end);
+			    grid.integrate(params, tolerance, start, end);
 			values[l] = integral_and_test.first;
 			test = integral_and_test.second;
 			if (test == 0) break;
@@ -304,8 +298,6 @@ namespace libecpint {
       const int N, const ECP &U, const GaussianShell &shellA, const GaussianShell &shellB,
       const ShellPairData &data, const Parameters & parameters, TwoIndex<double> &values) const {
 	
-		std::function<double(double, const double*, int)> intgd = integrand;
-
 		int npA = shellA.nprimitive();
 		int npB = shellB.nprimitive();
 	
@@ -349,7 +341,7 @@ namespace libecpint {
 			for (int l2 = l2start; l2 <= l2end; l2+=2) {
 				
 				for (int i = 0; i < gridSize; i++) params[i] = Utab[i] * Fa(l1, i) * Fb(l2, i);
-				const auto this_integral_and_test = smallGrid.integrate(intgd, params, tolerance, start, end);
+				const auto this_integral_and_test = smallGrid.integrate(params, tolerance, start, end);
 				tests[ix] = this_integral_and_test.second;
 				failed = failed || (tests[ix] == 0);
 				values(l1, l2) = tests[ix] == 0 ? 0.0 : this_integral_and_test.first;
@@ -404,7 +396,7 @@ namespace libecpint {
 								for (int i = 0; i < gridSize; i++)
 									params2[i] = Xvals[i] * Fa(l1, i) * Fb(l2, i);
 								const auto integral_and_test =
-								    newGrid.integrate(intgd, params2, tolerance, start, end);
+								    newGrid.integrate(params2, tolerance, start, end);
 								if (!integral_and_test.second) std::cerr << "Failed at second attempt" << std::endl;
 								values(l1, l2) += c_a * c_b * integral_and_test.first;
 							}

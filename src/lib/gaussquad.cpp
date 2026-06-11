@@ -114,8 +114,7 @@ namespace libecpint {
 
 	// Perform the GC integration on the function f
 	std::pair<double, bool> GCQuadrature::integrate(
-	    std::function<double(double, const double*, int)> &f, const double *params,
-	    const double tolerance, const int start, const int end) const {
+	    const double *params, const double tolerance, const int start, const int end) const {
 		bool converged = false; // 0 for converged, -1 for not converged
 
 		double I = 0;
@@ -132,7 +131,7 @@ namespace libecpint {
 		
 			// Initialise values, 
 			// Single point integration would use midpoint, M
-			Tn = w[M]*f(x[M], params, M);
+			Tn = w[M]*params[M];
 			Tn12 = 2.0 * Tn;
 		
 			// Main loop
@@ -142,7 +141,7 @@ namespace libecpint {
 			int p = (M+1) / 2; // M / 2^n 
 			while (n < maxN && !converged) {
 				// Compute T_{2n+1}
-				T2n1 = Tn + sumTerms(f, params, n, start, end, p, 2);
+				T2n1 = Tn + sumTerms(params, n, start, end, p, 2);
 			
 				// Check convergence
 				dT = T2n1 - 2.0*Tn;
@@ -173,9 +172,9 @@ namespace libecpint {
 		
 			// Initialise values
 			Tn12 = 0.0; 
-			Tn = w[M]*f(x[M], params, M);
+			Tn = w[M]*params[M];
 			int M2 = (maxN - 2)/3; //Index of first point in twopoint sequence
-			Tm = w[M2]*f(x[M2], params, M2) + w[maxN - M2 - 1]*f(x[maxN - M2 - 1], params, maxN - M2 - 1);
+			Tm = w[M2]*params[M2] + w[maxN - M2 - 1]*params[maxN - M2 - 1];
 			int p = (M+1) / 2; // as before
 			M2 = (M2 + 1)/2; 
 			int ix; 
@@ -184,13 +183,13 @@ namespace libecpint {
 		 
 			while(m < maxN && !converged) {
 				// Propagate the two-point sequence first 
-				T2m1 = Tm + Tn - Tn12 + sumTerms(f, params, (2*m - 1)/3, start, end, M2, 3);
+				T2m1 = Tm + Tn - Tn12 + sumTerms(params, (2*m - 1)/3, start, end, M2, 3);
 			
 				// Check convergence
 				error = 16.0 * fabs(0.5*T2m1 - Tm) / (3.0 * (m + 1)); 
 				if (error > tolerance) {
 					// Propagate the one-point sequence
-					T2n1 = Tn + sumTerms(f, params, n, start, end, p, 2);
+					T2n1 = Tn + sumTerms(params, n, start, end, p, 2);
 				
 					// Check convergence again
 					error = 16.0 * fabs(2.0*T2m1 - 3.0*T2n1) / (18.0 * (n+1) );
@@ -219,7 +218,6 @@ namespace libecpint {
 
 	// Worker function to do the additional sum terms when going from I_n to I_{2n+1}
 	double GCQuadrature::sumTerms(
-	    const std::function<double(double, const double*, int)> &f,
 	    const double *p, const int limit, const int start, const int end,
 	    const int shift, const int skip) const {
 		assert(start >= 0 && start < maxN);
@@ -231,11 +229,11 @@ namespace libecpint {
 		for (int i = 0; i <= limit; i+=2) {	
 			ix = (skip*i + 1)*shift - 1;
 			if (ix >= start)
-				value += w[ix] * f(x[ix], p, ix);
+				value += w[ix] * p[ix];
 		
 			ix = maxN - ix - 1; 
 			if (ix <= end)
-				value += w[ix] * f(x[ix], p, ix);
+				value += w[ix] * p[ix];
 		}
 		return value;
 	}

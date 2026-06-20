@@ -183,6 +183,8 @@ void RadialIntegral::type2(const std::vector<Triple>& triples, const int nbase, 
           double b = shellB.exp(nb);
           double db = shellB.coef(nb);
 
+          if (std::abs(da * db * u.d) < tolerance) continue;
+
           // Construct values that will be reused across all radial integrals
           double p = u.a + a + b;
           double x = a * A;

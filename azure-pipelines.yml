@@ -1,4 +1,13 @@
+parameters:
+- name: fullRun
+  displayName: Run full build and tests
+  type: boolean
+  default: false
+
 trigger:
+- master
+
+pr:
 - master
 
 jobs:
@@ -34,7 +43,7 @@ jobs:
     displayName: "Checkout repos"
   - bash: |
       set -euo pipefail
-      [[ "${APT_REPOSITORY}" ]] && echo "Add Repo ${APT_REPOSITORY}" && sudo add-apt-repository "${APT_REPOSITORY}"
+      [[ -n "${APT_REPOSITORY:-}" ]] && echo "Add Repo ${APT_REPOSITORY}" && sudo add-apt-repository "${APT_REPOSITORY}"
       sudo apt-get update
       sudo apt-get install -y ${APT_INSTALL}
     displayName: "Apt-Get Packages"
@@ -43,6 +52,8 @@ jobs:
       command -v ${CXX_COMPILER}
       command -v ${C_COMPILER}
       command -v ${F_COMPILER}
+      echo "Full run requested: ${{ parameters.fullRun }}"
+      echo "Build reason: $(Build.Reason)"
       echo "" && echo "Ubuntu"
       lsb_release -a
       echo "" && echo "Uname:"
@@ -77,9 +88,12 @@ jobs:
       set -euo pipefail
       cmake --build build --parallel
     displayName: 'Build'
+    condition: and(succeeded(), or(ne(variables['Build.Reason'], 'PullRequest'), ${{ eq(parameters.fullRun, true) }}))
   - bash: |
       set -euo pipefail
       ctest --test-dir build --output-on-failure
     displayName: 'Tests'
+    condition: and(succeeded(), or(ne(variables['Build.Reason'], 'PullRequest'), ${{ eq(parameters.fullRun, true) }}))
   - bash: bash <(curl -s https://codecov.io/bash)
     displayName: 'Upload to codecov.io'
+    condition: and(succeeded(), or(ne(variables['Build.Reason'], 'PullRequest'), ${{ eq(parameters.fullRun, true) }}))

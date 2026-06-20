@@ -1,4 +1,4 @@
-/* 
+/*
  *      Copyright (c) 2020 Robert Shaw
  *		This file is a part of Libecpint.
  *
@@ -30,95 +30,99 @@
 
 namespace libecpint {
 
-	/// Different choices of integration algorithm, see references
-	enum GCTYPE {
-		ONEPOINT, ///< Described in Perez92
-		TWOPOINT  ///< Described in Perez93
-	};
+/// Different choices of integration algorithm, see references
+enum GCTYPE {
+  ONEPOINT,  ///< Described in Perez92
+  TWOPOINT   ///< Described in Perez93
+};
 
-	/** 
-	* \class GCQuadrature
-	* \brief Performs adaptive Gauss-Chebyshev quadrature of the second kind for any given function.
-	* 
-	* Stores the weights and abscissae for the quadrature, and provides two different methods to integrate on [-1, 1] 
-	* Also contains means to transform the region of integration to [0, infinity) and [rmin, rmax]
-	*
-	* REFERENCES:
-	* (Perez92) J.M. Perez-Jorda et al., Comput. Phys. Comm. 70 (1992), 271-284
-	* (Perez93) J.M. Perez-Jorda et al., Comput. Phys. Comm. 77 (1993), 46-56
-	* (Krack98) M. Krack, A.M. Koster, J. Chem. Phys. 108 (1998), 3226 - 3234
-	* (Flores06) R. Flores-Moreno et al., J. Comput. Chem. 27 (2006), 1009-1019
-	*/
-	class GCQuadrature {
-	private:
-		int maxN; ///< Maximum number of points to use in quadrature
-		int M; 	///< Index of midpoint
-	
-		std::vector<double> x; ///< Abscissae
-		std::vector<double> w; ///< Weights
+/**
+ * \class GCQuadrature
+ * \brief Performs adaptive Gauss-Chebyshev quadrature of the second kind for any given function.
+ *
+ * Stores the weights and abscissae for the quadrature, and provides two different methods to
+ * integrate on [-1, 1] Also contains means to transform the region of integration to [0, infinity)
+ * and [rmin, rmax]
+ *
+ * REFERENCES:
+ * (Perez92) J.M. Perez-Jorda et al., Comput. Phys. Comm. 70 (1992), 271-284
+ * (Perez93) J.M. Perez-Jorda et al., Comput. Phys. Comm. 77 (1993), 46-56
+ * (Krack98) M. Krack, A.M. Koster, J. Chem. Phys. 108 (1998), 3226 - 3234
+ * (Flores06) R. Flores-Moreno et al., J. Comput. Chem. 27 (2006), 1009-1019
+ */
+class GCQuadrature {
+ private:
+  int maxN;  ///< Maximum number of points to use in quadrature
+  int M;     ///< Index of midpoint
 
-		double I; ///< Integral value
+  std::vector<double> x;  ///< Abscissae
+  std::vector<double> w;  ///< Weights
 
-		GCTYPE t; ///< Algorithm type to be used
+  double I;  ///< Integral value
 
-		/// Worker function for integration routines, should not be called directly.
-		/// p holds the pretabulated integrand values at the abscissae.
-		double sumTerms(const double *p, int limit, int start, int end, int shift, int skip) const;
+  GCTYPE t;  ///< Algorithm type to be used
 
-	public:
+  /// Worker function for integration routines, should not be called directly.
+  /// p holds the pretabulated integrand values at the abscissae.
+  double sumTerms(const double* p, int limit, int start, int end, int shift, int skip) const;
 
-		/// Default constructor, creates empty object
-		GCQuadrature();
+ public:
+  /// Default constructor, creates empty object
+  GCQuadrature();
 
-		/// Copy constructor, carbon copies all members
-		GCQuadrature(const GCQuadrature &other);
+  /// Copy constructor, carbon copies all members
+  GCQuadrature(const GCQuadrature& other);
 
-		/// Copy-assignment, carbon copies all members (reusing existing buffers where possible)
-		GCQuadrature& operator=(const GCQuadrature &other);
-	
-		/**
-		* Intialises the integration grid to the given number of points, and integration type. 
-		* ONEPOINT will choose N = 2^n - 1 closest to the given number of points, whilst
-		* TWOPOINT will choose N= 3*2^n - 1 in the same way.
-		*
-		* @param points - maximum number of quadrature points to be used
-		* @param t - the algorithm to be used (ONEPOINT / TWOPOINT)
-		*/
-		void initGrid(int points, GCTYPE t);
-	
-		/**
-		* Integrates a pretabulated integrand (over [-1, 1] by default) to within the given tolerance.
-		* The integrand must already be evaluated at each abscissa and stored in params, indexed by grid point.
-		* @param params - the pretabulated integrand values, one per quadrature abscissa
-		* @param tolerance - change below which convergenced is considered to be achieved
-		* @param start - the index of the first point used in the integration
-		* @param end - the index of the last point used in the integration
-		* @returns the integral (first) and true if integration converged, false otherwise (second)
-		*/
-		std::pair<double, bool> integrate(
-		    const double *params, double tolerance, int start, int end) const;
-	
-		/**
-		* Transforms the region of integration to [0, inf) using the logarithmic transformation of Krack98
-		*/
-		void transformZeroInf();
-		
-		/**
-		* Transforms region of integration to [rmin, rmax] using the linear transformation from Flores06, assuming 
-		* a Gaussian envelope. rmin/rmax are the distances from the centre of the envelope such that the integrand is effectively zero.
-		* @param z - the exponent of the Gaussian envelope
-		* @param p - the centre of the Gaussian envelope
-		*/
-		void transformRMinMax(double z, double p);  // Transfromation from [-1, 1] to [rmin, rmax] from Flores06
-		void untransformRMinMax(double z, double p);
-	
-		/// @return the maximum number of quadrature points
-		int getN() const { return maxN; }
-	
-		/// @return a reference to the abscissae
-    std::vector<double>& getX() { return x; }
-    const std::vector<double>& getX() const { return x; }
-	};
-}
+  /// Copy-assignment, carbon copies all members (reusing existing buffers where possible)
+  GCQuadrature& operator=(const GCQuadrature& other);
+
+  /**
+   * Intialises the integration grid to the given number of points, and integration type.
+   * ONEPOINT will choose N = 2^n - 1 closest to the given number of points, whilst
+   * TWOPOINT will choose N= 3*2^n - 1 in the same way.
+   *
+   * @param points - maximum number of quadrature points to be used
+   * @param t - the algorithm to be used (ONEPOINT / TWOPOINT)
+   */
+  void initGrid(int points, GCTYPE t);
+
+  /**
+   * Integrates a pretabulated integrand (over [-1, 1] by default) to within the given tolerance.
+   * The integrand must already be evaluated at each abscissa and stored in params, indexed by grid
+   * point.
+   * @param params - the pretabulated integrand values, one per quadrature abscissa
+   * @param tolerance - change below which convergenced is considered to be achieved
+   * @param start - the index of the first point used in the integration
+   * @param end - the index of the last point used in the integration
+   * @returns the integral (first) and true if integration converged, false otherwise (second)
+   */
+  std::pair<double, bool> integrate(const double* params, double tolerance, int start,
+                                    int end) const;
+
+  /**
+   * Transforms the region of integration to [0, inf) using the logarithmic transformation of
+   * Krack98
+   */
+  void transformZeroInf();
+
+  /**
+   * Transforms region of integration to [rmin, rmax] using the linear transformation from Flores06,
+   * assuming a Gaussian envelope. rmin/rmax are the distances from the centre of the envelope such
+   * that the integrand is effectively zero.
+   * @param z - the exponent of the Gaussian envelope
+   * @param p - the centre of the Gaussian envelope
+   */
+  void transformRMinMax(double z,
+                        double p);  // Transfromation from [-1, 1] to [rmin, rmax] from Flores06
+  void untransformRMinMax(double z, double p);
+
+  /// @return the maximum number of quadrature points
+  int getN() const { return maxN; }
+
+  /// @return a reference to the abscissae
+  std::vector<double>& getX() { return x; }
+  const std::vector<double>& getX() const { return x; }
+};
+}  // namespace libecpint
 
 #endif

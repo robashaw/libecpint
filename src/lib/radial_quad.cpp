@@ -158,14 +158,11 @@ namespace libecpint {
 		std::vector<double> tempValues;
 		values.assign(maxL+1, 2*maxL + 1, 0.0);
 
-<<<<<<< HEAD
 		// Scratch buffers reused across the primitive loop to avoid per-pair allocation
 		GCQuadrature newGrid;
 		std::vector<double> Utab(gridSize);
 		TwoIndex<double> harmonics;
 
-=======
->>>>>>> master
 		// The radial integrand decays on the COMBINED scale of the AO pair and the ECP, as
 		// exp(-(p + g) r^2). Scaling the grid by the AO exponent p alone leaves it a factor
 		// sqrt((p+g)/p) too wide, so when the ECP is much steeper than the AO pair (g >> p)
@@ -192,19 +189,11 @@ namespace libecpint {
 			for (int b = 0; b < npB; b++) {
 				db = shellB.coef(b);
 				zb = shellB.exp(b);
-<<<<<<< HEAD
 
 				// Reset grid, mapped to the combined (AO + ECP) radial scale
 				double z_eff = p(a, b) + g_loc;
 				double center = (za * A + zb * B) / z_eff; // = p * P_AO / (p + g)
 				newGrid = bigGrid;
-=======
-			
-				// Reset grid, mapped to the combined (AO + ECP) radial scale
-				double z_eff = p(a, b) + g_loc;
-				double center = (za * A + zb * B) / z_eff; // = p * P_AO / (p + g)
-				GCQuadrature newGrid = bigGrid;
->>>>>>> master
 				newGrid.transformRMinMax(z_eff, center);
 				std::vector<double> &gridPoints = newGrid.getX();
 				int start = 0;
@@ -231,11 +220,7 @@ namespace libecpint {
 					}
 				}
 				if (!foundStart) { start = 0; end = gridSize - 1; }
-<<<<<<< HEAD
-
-=======
 			
->>>>>>> master
 				for (int i = start; i <= end; i++) {
 					val = -p(a, b) * (gridPoints[i]*(gridPoints[i] - 2*P(a, b)) + P2(a, b));
 					val = std::exp(val);

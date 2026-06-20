@@ -46,14 +46,15 @@ void BesselFunction::init(const int _lMax, const int _N, const int _order, const
   order = _order > 0 ? _order : 1;
   scale = N / 16.0;
 
-  // Allocate arrays
+  int lDim = lMax + TAYLOR_CUT + 1;
+  K_stride = lDim;
+  dK_stride1 = lDim;
+  dK_stride0 = (TAYLOR_CUT + 1) * lDim;
 
-  K = std::vector<std::vector<double>>(N + 1, std::vector<double>(lMax + TAYLOR_CUT + 1, 0.0));
-  C = std::vector<double>(lMax + TAYLOR_CUT, 0.0);
-  dK = std::vector<std::vector<std::vector<double>>>(
-      N + 1, std::vector<std::vector<double>>(lMax + TAYLOR_CUT + 1,
-                                              std::vector<double>(lMax + TAYLOR_CUT + 1, 0.0)));
-  // Tabulate values
+  K.assign((N + 1) * lDim, 0.0);
+  C.assign(lMax + TAYLOR_CUT, 0.0);
+  dK.assign((N + 1) * (TAYLOR_CUT + 1) * lDim, 0.0);
+
   tabulate(accuracy);
 }
 
@@ -67,7 +68,7 @@ int BesselFunction::tabulate(const double accuracy) {
 
   std::vector<double> F(order + 1);  // F_j above
 
-  K[0][0] = 1.0;
+  K[0] = 1.0;
   double z, z2;  // z and z^2 / 2
   double ratio;  // F_j(z) / (2j+1)!!
   for (int i = 0; i <= N; i++) {
@@ -77,7 +78,7 @@ int BesselFunction::tabulate(const double accuracy) {
 
     F[0] = exp(-z);
     ratio = F[0] / DFAC[0];
-    K[i][0] = ratio;
+    K[i * K_stride + 0] = ratio;
 
     // Series expansion for K_0(z)
     int l = order;
@@ -90,7 +91,7 @@ int BesselFunction::tabulate(const double accuracy) {
 
       F[j] = F[j - 1] * z2 / ((double)j);
       ratio = F[j] / DFAC[2 * j + 1];
-      K[i][0] += ratio;
+      K[i * K_stride + 0] += ratio;
     }
     // if ( ratio > accuracy ) { retval = -1; break; } // Not converged
 
@@ -99,7 +100,7 @@ int BesselFunction::tabulate(const double accuracy) {
     for (l = 1; l <= lmax; l++) {
       ratio = 0;
       for (int m = 0; m < j; m++) ratio += F[m] / DFAC[2 * l + 2 * m + 1];
-      K[i][l] = z2 * ratio;
+      K[i * K_stride + l] = z2 * ratio;
       z2 *= z;
     }
   }
@@ -110,15 +111,19 @@ int BesselFunction::tabulate(const double accuracy) {
   // Determine the necessary derivatives from
   // K_l^(n+1) = C_l K_(l-1)^(n) + (C_l + 1/(2l+1))K_(l+1)^(n) - K_l^(n)
   for (int ix = 0; ix < N + 1; ix++) {
+    int dK_ix = ix * dK_stride0;
     // Copy K values into dK
-    for (int l = 0; l <= lMax + TAYLOR_CUT; l++) dK[ix][0][l] = K[ix][l];
+    for (int l = 0; l <= lMax + TAYLOR_CUT; l++) dK[dK_ix + l] = K[ix * K_stride + l];
 
     // Then the rest
     for (int n = 1; n < TAYLOR_CUT + 1; n++) {
-      dK[ix][n][0] = dK[ix][n - 1][1] - dK[ix][n - 1][0];
+      int dK_ix_n = dK_ix + n * dK_stride1;
+      int dK_ix_nm1 = dK_ix + (n - 1) * dK_stride1;
+      dK[dK_ix_n + 0] = dK[dK_ix_nm1 + 1] - dK[dK_ix_nm1 + 0];
       for (int l = 1; l <= lMax + TAYLOR_CUT - n; l++)
-        dK[ix][n][l] = C[l] * dK[ix][n - 1][l - 1] +
-                       (C[l] + 1.0 / (2.0 * l + 1.0)) * dK[ix][n - 1][l + 1] - dK[ix][n - 1][l];
+        dK[dK_ix_n + l] = C[l] * dK[dK_ix_nm1 + l - 1] +
+                          (C[l] + 1.0 / (2.0 * l + 1.0)) * dK[dK_ix_nm1 + l + 1] -
+                          dK[dK_ix_nm1 + l];
     }
   }
 
@@ -132,7 +137,7 @@ double BesselFunction::upper_bound(const double z, const int L) const {
   int minix = L > 0 ? 1 : 0;
   ix = std::min(N, std::max(minix, ix));
   int lx = std::min(L, lMax);
-  return K[ix][lx];
+  return K[ix * K_stride + lx];
 }
 
 // Calculate modified spherical Bessel function K_l(z), weighted with an exponential factor e^(-z)
@@ -179,18 +184,21 @@ void BesselFunction::calculate(const double z, int maxL, std::vector<double>& va
     double dz = z - ix / scale;  // z - z0
 
     if (fabs(dz) < 1e-12) {  // z is one of the tabulated points
-      for (int l = 0; l <= maxL; l++) values[l] = K[ix][l];
+      int K_ix = ix * K_stride;
+      for (int l = 0; l <= maxL; l++) values[l] = K[K_ix + l];
     } else {
       // Calculate (dz)^n/n! terms just once
       double dzn[TAYLOR_CUT + 1];
       dzn[0] = 1.0;
       for (int n = 1; n < TAYLOR_CUT + 1; n++) dzn[n] = dzn[n - 1] * dz / ((double)n);
 
-      // Now tabulate the values through Taylor seris
+      // Now tabulate the values through Taylor series
       // K(z) ~ sum_{n=0 to 5} K^(n)(z0)(z-z0)^n / n!
+      int dK_ix = ix * dK_stride0;
       for (int l = 0; l <= maxL; l++) {
         values[l] = 0.0;
-        for (int n = 0; n < TAYLOR_CUT + 1; n++) values[l] += dzn[n] * dK[ix][n][l];
+        for (int n = 0; n < TAYLOR_CUT + 1; n++)
+          values[l] += dzn[n] * dK[dK_ix + n * dK_stride1 + l];
       }
     }
   }
@@ -219,9 +227,10 @@ double BesselFunction::calculate(const double z, const int L) const {
   } else {
     int ix = std::floor(z * scale + 0.5);
     double dz = z - ix / scale;  // z - z0
+    int dK_ix = ix * dK_stride0;
     double dzn = 1.0;
     for (int n = 0; n < TAYLOR_CUT + 1; n++) {
-      value += dzn * dK[ix][n][L];
+      value += dzn * dK[dK_ix + n * dK_stride1 + L];
       dzn *= dz / (n + 1);
     }
   }

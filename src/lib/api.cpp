@@ -100,11 +100,21 @@ void ECPIntegrator::update_ecp_basis_coords(const int necps, const double* coord
     ecps.getECP(i).setPos(coords[3 * i], coords[3 * i + 1], coords[3 * i + 2]);
 }
 
-void ECPIntegrator::init(const int deriv_) {
+void ECPIntegrator::init(const int deriv_, const double tol, const double radial_tol,
+                         const unsigned smallGrid, const unsigned bigGrid) {
   assert(ecp_is_set);
   assert(basis_is_set);
   deriv = std::max(0, std::min(2, deriv_));
-  ecpint = std::make_shared<ECPIntegral>(maxLB, ecps.getMaxL(), deriv);
+
+  // Set the screening tolerance for shells and shell pairs
+  tolerance = tol;
+  double denominator =
+      FAST_POW[maxLB + 3]((maxLB + 3.0) / min_alpha) * FAST_POW[3](M_PI / (2 * maxLB + 3.0));
+  denominator /= FAST_POW[maxLB](2.0 * M_EULER);
+  shell_tolerance = tolerance / std::sqrt(denominator);
+
+  ecpint =
+      std::make_shared<ECPIntegral>(maxLB, ecps.getMaxL(), deriv, radial_tol, smallGrid, bigGrid);
 
   // Determine the internal atom ids
   natoms = 0;
@@ -168,6 +178,32 @@ double shell_bound(const int la, const double alpha, const double A2, const doub
   return result;
 }
 
+inline double shell_ecp_distance2(const GaussianShell& shell, const ECP& U) {
+  double dx = shell.center()[0] - U.center_[0];
+  double dy = shell.center()[1] - U.center_[1];
+  double dz = shell.center()[2] - U.center_[2];
+  return dx * dx + dy * dy + dz * dz;
+}
+
+inline std::vector<std::pair<int, double>> screen_shell_ecps(const GaussianShell& shell,
+                                                             ECPBasis& ecps, double thresh) {
+  std::vector<std::pair<int, double>> result;
+  for (int i = 0; i < ecps.getN(); i++) {
+    ECP& U = ecps.getECP(i);
+    double A2 = shell_ecp_distance2(shell, U);
+    double sb = shell_bound(shell.l, shell.min_exp, A2, U.min_exp);
+    if (sb > thresh) result.push_back({i, sb});
+  }
+  return result;
+}
+
+inline bool passes_product_screen(const GaussianShell& shell, const ECP& U, double sbA,
+                                  double product_thresh) {
+  double B2 = shell_ecp_distance2(shell, U);
+  double sbB = shell_bound(shell.l, shell.min_exp, B2, U.min_exp);
+  return sbA * sbB > product_thresh;
+}
+
 void ECPIntegrator::compute_integrals() {
   // initialise all to zero
   integrals.assign(ncart, ncart, 0.0);
@@ -176,28 +212,11 @@ void ECPIntegrator::compute_integrals() {
   TwoIndex<double> tempValues;
   int nshells = shells.size();
 
-  double thresh =
-      FAST_POW[maxLB + 3]((maxLB + 3.0) / min_alpha) * FAST_POW[3](M_PI / (2 * maxLB + 3.0));
-  thresh /= FAST_POW[maxLB](2.0 * M_EULER);
-  thresh = TWO_C_TOLERANCE / std::sqrt(thresh);
-
   int n1 = 0;
-  double acx, acy, acz, A2, sb;
   for (auto s1 = 0; s1 < nshells; ++s1) {
     GaussianShell& shellA = shells[s1];
     int ncartA = shellA.ncartesian();
-    std::vector<int> ns;
-
-    for (int i = 0; i < ecps.getN(); i++) {
-      ECP& U = ecps.getECP(i);
-
-      acx = shellA.center()[0] - U.center_[0];
-      acy = shellA.center()[1] - U.center_[1];
-      acz = shellA.center()[2] - U.center_[2];
-      A2 = acx * acx + acy * acy + acz * acz;
-      sb = shell_bound(shellA.l, shellA.min_exp, A2, U.min_exp);
-      if (sb > thresh) ns.push_back(i);
-    }
+    auto ns = screen_shell_ecps(shellA, ecps, shell_tolerance);
 
     if (ns.size() > 0) {
       int n2 = 0;
@@ -207,8 +226,10 @@ void ECPIntegrator::compute_integrals() {
 
         TwoIndex<double> shellPairInts(ncartA, ncartB, 0.0);
 
-        for (auto i : ns) {
+        for (auto& [i, sbA] : ns) {
           ECP& U = ecps.getECP(i);
+          if (!passes_product_screen(shellB, U, sbA, tolerance)) continue;
+
           ecpint->compute_shell_pair(U, shellA, shellB, tempValues);
           shellPairInts.add(tempValues);
         }
@@ -248,15 +269,19 @@ void ECPIntegrator::compute_first_derivs() {
     int ncartA = shellA.ncartesian();
     Aix = shellA.atom_id;
 
+    auto ns = screen_shell_ecps(shellA, ecps, shell_tolerance);
+
     int n2 = 0;
     for (auto s2 = 0; s2 <= s1; ++s2) {
       GaussianShell& shellB = shells[s2];
       int ncartB = shellB.ncartesian();
       Bix = shellB.atom_id;
 
-      for (int i = 0; i < ecps.getN(); i++) {
+      for (auto& [i, sbA] : ns) {
         ECP& U = ecps.getECP(i);
         Cix = U.atom_id;
+        if (!passes_product_screen(shellB, U, sbA, tolerance)) continue;
+
         ecpint->compute_shell_pair_derivative(U, shellA, shellB, tempValues);
 
         // work out where to put them
@@ -304,6 +329,7 @@ void ECPIntegrator::compute_second_derivs() {
     GaussianShell& shellA = shells[s1];
     int ncartA = shellA.ncartesian();
     Aix = shellA.atom_id;
+    auto ns = screen_shell_ecps(shellA, ecps, shell_tolerance);
 
     int n2 = 0;
     for (auto s2 = 0; s2 <= s1; ++s2) {
@@ -316,9 +342,11 @@ void ECPIntegrator::compute_second_derivs() {
       sab = H_START(std::min(Aix, Bix), std::max(Aix, Bix), natoms);
       sab = Aix == Bix ? sab + 3 : sab;
 
-      for (int i = 0; i < ecps.getN(); i++) {
+      for (auto& [i, sbA] : ns) {
         ECP& U = ecps.getECP(i);
         Cix = U.atom_id;
+        if (!passes_product_screen(shellB, U, sbA, tolerance)) continue;
+
         ecpint->compute_shell_pair_second_derivative(U, shellA, shellB, tempValues);
 
         // work out where to put them

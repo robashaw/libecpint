@@ -52,8 +52,12 @@ class BesselFunction {
   int order;     ///< Order to which the Bessel series is expanded
   double scale;  ///< N/16.0
 
-  std::vector<std::vector<double>> K;                ///< Bessel function values
-  std::vector<std::vector<std::vector<double>>> dK;  ///< Bessel function derivatives
+  std::vector<double> K;  ///< Bessel function values, flat (N+1) x (lMax+TAYLOR_CUT+1)
+  std::vector<double>
+      dK;        ///< Bessel function derivatives, flat (N+1) x (TAYLOR_CUT+1) x (lMax+TAYLOR_CUT+1)
+  int K_stride;  ///< Row stride for K: lMax+TAYLOR_CUT+1
+  int dK_stride0;         ///< Outer stride for dK: (TAYLOR_CUT+1) * (lMax+TAYLOR_CUT+1)
+  int dK_stride1;         ///< Inner stride for dK: lMax+TAYLOR_CUT+1
   std::vector<double> C;  ///< Coefficients of derivatives of the Bessel function
 
   /**

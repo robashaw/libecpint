@@ -61,6 +61,7 @@ void rolled_up(const int lam, const int LA, const int LB, const ThreeIndex<doubl
           z2 = LB - x2 - y2;
 
           // Begin full ECP integral expansion
+          // w1_contr depends only on alpha indices, so hoist outside beta loops
           for (int alpha_x = 0; alpha_x <= x1; alpha_x++) {
             w_ax = w_lam + alpha_x * mults[0];
             for (int alpha_y = 0; alpha_y <= r1; alpha_y++) {
@@ -68,6 +69,23 @@ void rolled_up(const int lam, const int LA, const int LB, const ThreeIndex<doubl
               for (int alpha_z = 0; alpha_z <= z1; alpha_z++) {
                 w_az = w_ay + alpha_z * mults[2];
                 int alpha = alpha_x + alpha_y + alpha_z;
+
+                double CA_val = CA(0, na, alpha_x, alpha_y, alpha_z);
+                if (std::abs(CA_val) < 1e-15) continue;
+
+                // Compute w1_contr once for this alpha triple
+                for (int lam1 = 0; lam1 <= lam + alpha; lam1++) {
+                  w_l = lam1 * w_size + lam;
+                  w_l1 = w_az + lam1 * (1 + mults[5]);
+                  w_m = w_l1 - mults[4];
+                  for (int mu = -lam; mu <= lam; mu++) {
+                    w_m += mults[4];
+                    w_lm = lam1 * SA.dims[1];
+                    w1_contr[w_l + mu] = 0.0;
+                    for (int mu1 = -lam1; mu1 <= lam1; mu1++)
+                      w1_contr[w_l + mu] += SA.data[w_lm++] * omega[w_m + mu1];
+                  }
+                }
 
                 for (int beta_x = 0; beta_x <= x2; beta_x++) {
                   w_bx = w_lam + beta_x * mults[0];
@@ -77,22 +95,9 @@ void rolled_up(const int lam, const int LA, const int LB, const ThreeIndex<doubl
                       w_bz = w_by + beta_z * mults[2];
                       int beta = beta_x + beta_y + beta_z;
                       int N = alpha + beta;
-                      C = CA(0, na, alpha_x, alpha_y, alpha_z) * CB(0, nb, beta_x, beta_y, beta_z);
+                      C = CA_val * CB(0, nb, beta_x, beta_y, beta_z);
 
                       if (std::abs(C) > 1e-15) {
-                        for (int lam1 = 0; lam1 <= lam + alpha; lam1++) {
-                          w_l = lam1 * w_size + lam;
-                          w_l1 = w_az + lam1 * (1 + mults[5]);
-                          w_m = w_l1 - mults[4];
-                          for (int mu = -lam; mu <= lam; mu++) {
-                            w_m += mults[4];
-                            w_lm = lam1 * SA.dims[1];
-                            w1_contr[w_l + mu] = 0.0;
-                            for (int mu1 = -lam1; mu1 <= lam1; mu1++)
-                              w1_contr[w_l + mu] += SA.data[w_lm++] * omega[w_m + mu1];
-                          }
-                        }
-
                         for (int lam2 = 0; lam2 <= lam + beta; lam2++) {
                           w_l = lam2 * w_size + lam;
                           w_l2 = w_bz + lam2 * (1 + mults[5]);

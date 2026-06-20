@@ -17,7 +17,7 @@ endif(NOT CMAKE_BUILD_TYPE)
 # define project
 project( libecpint
          VERSION 1.0.7
-         LANGUAGES C CXX)
+         LANGUAGES CXX)
 
 set(API_VERSION 1)
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
@@ -62,6 +62,7 @@ if (LIBECPINT_BUILD_TESTS)
   include(external/ImportGTest.cmake)
   enable_testing()
   add_subdirectory(tests)
+  add_subdirectory(example)
 endif()
 
 option(LIBECPINT_BUILD_DOCS "Enables Libecpint documentation." ON)

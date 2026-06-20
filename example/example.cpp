@@ -33,6 +33,10 @@ int main(int argc, char* argv[]) {
 	
 	// this code expects the path to the libecpint/share directory
 	// to be passed as an argument to the executable
+	if (argc < 2 || argv[1] == nullptr) {
+		std::cerr << "Usage: " << argv[0] << " [LIBECPINT_SHARE_DIR_PATH]" << std::endl;
+		return 1;
+	}
 	std::string share_dir = argv[1]; 
 	
 	// Roughly equilibrium position HI molecule

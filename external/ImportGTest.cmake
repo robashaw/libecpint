@@ -30,9 +30,19 @@ if((NOT GTEST_LIBRARY) OR (NOT GTEST_INCLUDE_DIR))
   # settings on Windows
   set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
-  # Set GTEST interface to temporarily installed libgtest.a
+  # Set GTEST interface to temporarily installed libgtest.a.
+  # googletest installs to lib or lib64 depending on the platform (e.g. lib64 on Fedora/RHEL),
+  # so locate the freshly built archive rather than assuming a fixed path.
   set(GTEST_INCLUDE_DIR ${CMAKE_CURRENT_BINARY_DIR}/googletest-build/include)
-  set(GTEST_LIBRARY ${CMAKE_CURRENT_BINARY_DIR}/googletest-build/lib/libgtest.a)
+  find_library(GTEST_LIBRARY
+    NAMES gtest
+    PATHS "${CMAKE_CURRENT_BINARY_DIR}/googletest-build"
+    PATH_SUFFIXES lib lib64
+    NO_DEFAULT_PATH
+  )
+  if(NOT GTEST_LIBRARY)
+    message(FATAL_ERROR "Could not locate the freshly built libgtest under googletest-build/{lib,lib64}")
+  endif()
   add_library(gtest INTERFACE)
   target_include_directories(gtest INTERFACE ${GTEST_INCLUDE_DIR})
   target_link_libraries(gtest INTERFACE ${GTEST_LIBRARY} Threads::Threads)

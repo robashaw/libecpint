@@ -13,5 +13,5 @@ file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/hydrogen.bas
      DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 add_test(NAME example
-	 COMMAND example
+      COMMAND example ${CMAKE_SOURCE_DIR}/share/libecpint
 	 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})

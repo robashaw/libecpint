@@ -1,4 +1,13 @@
+parameters:
+- name: fullRun
+  displayName: Run full build and tests
+  type: boolean
+  default: false
+
 trigger:
+- master
+
+pr:
 - master
 
 jobs:
@@ -6,7 +15,7 @@ jobs:
 - job: 'linux_build'
   displayName: 'Linux Builds'
   pool:
-    vmImage: 'ubuntu-20.04'
+    vmImage: 'ubuntu-latest'
   timeoutInMinutes: 10
   variables:
     CTEST_OUTPUT_ON_FAILURE: 1
@@ -26,18 +35,25 @@ jobs:
         C_COMPILER: 'clang'
         F_COMPILER: 'gfortran'
         BUILD_TYPE: 'release'
-        APT_INSTALL: 'gfortran clang-10'
+        APT_INSTALL: 'gfortran clang'
 
   steps:
   - checkout: self
     submodules: true
     displayName: "Checkout repos"
   - bash: |
-      [[ "${APT_REPOSITORY}" ]] && echo "Add Repo ${APT_REPOSITORY}" && sudo add-apt-repository "${APT_REPOSITORY}"
+      set -euo pipefail
+      [[ -n "${APT_REPOSITORY:-}" ]] && echo "Add Repo ${APT_REPOSITORY}" && sudo add-apt-repository "${APT_REPOSITORY}"
       sudo apt-get update
-      sudo apt-get install ${APT_INSTALL}
+      sudo apt-get install -y ${APT_INSTALL}
     displayName: "Apt-Get Packages"
   - bash: |
+      set -euo pipefail
+      command -v ${CXX_COMPILER}
+      command -v ${C_COMPILER}
+      command -v ${F_COMPILER}
+      echo "Full run requested: ${{ parameters.fullRun }}"
+      echo "Build reason: $(Build.Reason)"
       echo "" && echo "Ubuntu"
       lsb_release -a
       echo "" && echo "Uname:"
@@ -58,20 +74,26 @@ jobs:
       ${C_COMPILER} --version
     displayName: 'Build Environment'
   - bash: |
-      cmake -Bbuild -H. \
+      set -euo pipefail
+      cmake -S . -B build \
+        -DCMAKE_C_COMPILER=${C_COMPILER} \
+        -DCMAKE_CXX_COMPILER=${CXX_COMPILER} \
+        -DCMAKE_BUILD_TYPE=${BUILD_TYPE} \
         -DCMAKE_INSTALL_PREFIX=$(Agent.BuildDirectory)/Install \
         -DCMAKE_CXX_FLAGS="${CXX_FLAGS}" \
         -DLIBECPINT_MAX_UNROL=1 \
         -DLIBECPINT_MAX_L=4
     displayName: 'Configure Build'
   - bash: |
-      cd build
-      make all
+      set -euo pipefail
+      cmake --build build --parallel
     displayName: 'Build'
+    condition: and(succeeded(), or(ne(variables['Build.Reason'], 'PullRequest'), ${{ eq(parameters.fullRun, true) }}))
   - bash: |
-      cd build
-      make test
+      set -euo pipefail
+      ctest --test-dir build --output-on-failure
     displayName: 'Tests'
-  - bash:
-      bash <(curl -s https://codecov.io/bash)
+    condition: and(succeeded(), or(ne(variables['Build.Reason'], 'PullRequest'), ${{ eq(parameters.fullRun, true) }}))
+  - bash: bash <(curl -s https://codecov.io/bash)
     displayName: 'Upload to codecov.io'
+    condition: and(succeeded(), or(ne(variables['Build.Reason'], 'PullRequest'), ${{ eq(parameters.fullRun, true) }}))

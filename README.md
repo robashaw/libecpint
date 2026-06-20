@@ -1,4 +1,4 @@
-# Libecpint 1.0.7
+# Libecpint 1.1.0
 
 [![Build Status](https://dev.azure.com/robertshaw383/libecpint/_apis/build/status/robashaw.libecpint?branchName=master)](https://dev.azure.com/robertshaw383/libecpint/_build/latest?definitionId=2&branchName=master)
 [![codecov](https://codecov.io/gh/robashaw/libecpint/branch/master/graph/badge.svg)](https://codecov.io/gh/robashaw/libecpint)
@@ -14,33 +14,20 @@ Libecpint is a C++ library for the efficient evaluation of integrals over ab ini
 
 Contributions are welcomed, either in the form of raising issues or pull requests on this repo. Please take a look at the Code of Conduct before interacting, which includes instructions for reporting any violations.
 
-## New in first full release
+## New in v1.1
 
-- Analytical 1st and 2nd derivatives;
-- Integration now >10x faster;
-- New, high level API, with ECP library;
-- Automated testing suite.
-
-### Patch 1
-
-- Bug fix in screening of on-ECP type 2 integrals
-- Improvements in CMake build steps, thanks to nabbelbabbel/moritzBens
-
-### Patch 2
-
-- Fix for memory leaks in derivative routines
-- Minor changes to CMake files
-
-### Patch 3
-
-- Fix bug in radial type 1 integrals where quadrature could fail to converge
-- Const correctness throughout, should allow for parallelisation
-- Minor updates to docs
-
-### Patch 4
-
-- Code generation now takes considerably less time and memory; MAX_L=8 takes ~35 seconds, peaking at 1.5GB of memory (joint effort with Thomas Dresselhaus and Peter Bygrave)
-- This will be the final patch before v1.1
+- **Bug fix**: type-1 ECP integrals no longer collapse to zero for steep ECPs
+- **Performance**: shell screening in `compute_integrals` reduces scaling from roughly cubic to quadratic for larger molecules
+- **Performance**: Bessel function evaluation optimised with scratch arrays and improved memory access (~5% speedup)
+- **Performance**: radial quadrature allocation and indirection cleanups
+- **Performance**: contraction weight hoisting out of inner loops in qgen (~3% integrals, ~7% derivatives)
+- **API**: screening tolerances exposed in `ECPIntegralFactory` and propagated to 1st/2nd derivative integrals
+- **Build**: restored CI (Azure image + GoogleTest), fixed GoogleTest lib64 path, fixed clang build on Azure
+- **Build**: C++ standard migrated to targets; minimal Windows install and macOS arm64 cross-compile support
+- **Build**: `cerf::cerfcpp` target support for libcerf 3
+- **Build**: example built as part of tests
+- **Code style**: codebase reformatted with clang-format (Google style)
+- **Correctness**: Bessel small-z guard, FAC guard, FAST_POW assert, VLA removal
 
 ## Dependencies
 

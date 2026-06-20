@@ -62,6 +62,7 @@ if (LIBECPINT_BUILD_TESTS)
   include(external/ImportGTest.cmake)
   enable_testing()
   add_subdirectory(tests)
+  add_subdirectory(example)
 endif()
 
 option(LIBECPINT_BUILD_DOCS "Enables Libecpint documentation." ON)

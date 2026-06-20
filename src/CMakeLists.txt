@@ -101,6 +101,10 @@ endif()
 #  Install
 # =========
 
+if (LIBECPINT_USE_PUGIXML)
+  # used in api.h
+  target_compile_definitions(ecpint PUBLIC HAS_PUGIXML)
+endif()
 install(
   TARGETS
     ecpint

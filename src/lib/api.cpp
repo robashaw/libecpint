@@ -181,12 +181,14 @@ void ECPIntegrator::compute_integrals() {
   thresh /= FAST_POW[maxLB](2.0 * M_EULER);
   thresh = TWO_C_TOLERANCE / std::sqrt(thresh);
 
+  double product_thresh = TWO_C_TOLERANCE;
+
   int n1 = 0;
   double acx, acy, acz, A2, sb;
   for (auto s1 = 0; s1 < nshells; ++s1) {
     GaussianShell& shellA = shells[s1];
     int ncartA = shellA.ncartesian();
-    std::vector<int> ns;
+    std::vector<std::pair<int, double>> ns;
 
     for (int i = 0; i < ecps.getN(); i++) {
       ECP& U = ecps.getECP(i);
@@ -196,7 +198,7 @@ void ECPIntegrator::compute_integrals() {
       acz = shellA.center()[2] - U.center_[2];
       A2 = acx * acx + acy * acy + acz * acz;
       sb = shell_bound(shellA.l, shellA.min_exp, A2, U.min_exp);
-      if (sb > thresh) ns.push_back(i);
+      if (sb > thresh) ns.push_back({i, sb});
     }
 
     if (ns.size() > 0) {
@@ -207,7 +209,7 @@ void ECPIntegrator::compute_integrals() {
 
         TwoIndex<double> shellPairInts(ncartA, ncartB, 0.0);
 
-        for (auto i : ns) {
+        for (auto& [i, sbA] : ns) {
           ECP& U = ecps.getECP(i);
 
           double bcx = shellB.center()[0] - U.center_[0];
@@ -215,7 +217,7 @@ void ECPIntegrator::compute_integrals() {
           double bcz = shellB.center()[2] - U.center_[2];
           double B2 = bcx * bcx + bcy * bcy + bcz * bcz;
           double sbB = shell_bound(shellB.l, shellB.min_exp, B2, U.min_exp);
-          if (sbB <= thresh) continue;
+          if (sbA * sbB <= product_thresh) continue;
 
           ecpint->compute_shell_pair(U, shellA, shellB, tempValues);
           shellPairInts.add(tempValues);

@@ -54,24 +54,27 @@ namespace libecpint {
 		int maxN; ///< Maximum number of points to use in quadrature
 		int M; 	///< Index of midpoint
 	
-		std::vector<double> x; ///< Weights
-		std::vector<double> w; ///< Abscissae
- 
+		std::vector<double> x; ///< Abscissae
+		std::vector<double> w; ///< Weights
+
 		double I; ///< Integral value
-	
+
 		GCTYPE t; ///< Algorithm type to be used
-	
-		/// Worker function for integration routines, should not be called directly.	
-		double sumTerms(const std::function<double(double, const double*, int)> &f,
-                  const double *p, int limit, int start, int end, int shift, int skip) const;
+
+		/// Worker function for integration routines, should not be called directly.
+		/// p holds the pretabulated integrand values at the abscissae.
+		double sumTerms(const double *p, int limit, int start, int end, int shift, int skip) const;
 
 	public:
-		
+
 		/// Default constructor, creates empty object
 		GCQuadrature();
-		
+
 		/// Copy constructor, carbon copies all members
 		GCQuadrature(const GCQuadrature &other);
+
+		/// Copy-assignment, carbon copies all members (reusing existing buffers where possible)
+		GCQuadrature& operator=(const GCQuadrature &other);
 	
 		/**
 		* Intialises the integration grid to the given number of points, and integration type. 
@@ -84,16 +87,15 @@ namespace libecpint {
 		void initGrid(int points, GCTYPE t);
 	
 		/**
-		* Integrates the given function (over [-1, 1] by default) to within the given tolerance. 
-		* @param f - the function to be integrated
-		* @param params - array of parameters for the function to be integrated
+		* Integrates a pretabulated integrand (over [-1, 1] by default) to within the given tolerance.
+		* The integrand must already be evaluated at each abscissa and stored in params, indexed by grid point.
+		* @param params - the pretabulated integrand values, one per quadrature abscissa
 		* @param tolerance - change below which convergenced is considered to be achieved
 		* @param start - the index of the first point used in the integration
 		* @param end - the index of the last point used in the integration
 		* @returns the integral (first) and true if integration converged, false otherwise (second)
 		*/
 		std::pair<double, bool> integrate(
-		    std::function<double(double, const double*, int)> &f,
 		    const double *params, double tolerance, int start, int end) const;
 	
 		/**

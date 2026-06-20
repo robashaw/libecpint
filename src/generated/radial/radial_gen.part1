@@ -110,12 +110,15 @@ namespace libecpint {
 		int gridSize = primGrid.getN();
 		double zt = n+a+b;
 		double pt = (a*A + b*B)/zt;
-		auto transformedGrid = primGrid;
+		// Reused per-thread scratch to avoid reallocating the grid and integrand table on every call
+		thread_local GCQuadrature transformedGrid;
+		transformedGrid = primGrid;
 		transformedGrid.transformRMinMax(zt, pt);
 		std::vector<double> &gridPoints = transformedGrid.getX();
-	
-		double Ftab[gridSize]; 
-	
+
+		thread_local std::vector<double> Ftab;
+		Ftab.resize(gridSize);
+
 		double z, zA, zB, besselValue1, besselValue2;
 		double aA = 2.0 * a * A;
 		double bB = 2.0 * b * B;
@@ -146,11 +149,9 @@ namespace libecpint {
 		
 		for (int j = i; j < gridSize; j++)
 			Ftab[j] = 0.0;
-	
-		std::function<double(double, double*, int)> intgd = RadialIntegral::integrand;
-		
-		// There should be no instances where this fails, so no backup plan to large grid, but return check just in case 
-		return transformedGrid.integrate(intgd, Ftab, 1e-12, 0, transformedGrid.getN() - 1);
+
+		// There should be no instances where this fails, so no backup plan to large grid, but return check just in case
+		return transformedGrid.integrate(Ftab.data(), 1e-12, 0, transformedGrid.getN() - 1);
 	}
 	
 	void RadialIntegral::type2(
@@ -160,9 +161,13 @@ namespace libecpint {
 	{
 		int npA = shellA.nprimitive();
 		int npB = shellB.nprimitive();
-		
+
+		// Base integrals are fully recomputed for each primitive triple, so a single reused
+		// buffer suffices - this avoids a heap allocation in the innermost loop.
+		std::vector<double> base_integrals(nbase + 2);
+
 		// Loop over primitives in ECP, only considering correct ang. momentum
-		for(const auto& u : U.gaussians) { 
+		for(const auto& u : U.gaussians) {
 			if (u.l == lam) {
 				
 				// Loop over primitives in orbital basis shellß
@@ -206,9 +211,9 @@ namespace libecpint {
 						double H2 =  ROOT_PI * ( X1 + X2 ) * o_root_p; 
 
 						// Compute base integrals
-						double *values = new double[nbase+2]; 
-						compute_base_integrals(2, 3+nbase, p, o_root_p, P1, P2, P1_2, P2_2, X1, X2, oP1, oP2, values); 
-						
+						double *values = base_integrals.data();
+						compute_base_integrals(2, 3+nbase, p, o_root_p, P1, P2, P1_2, P2_2, X1, X2, oP1, oP2, values);
+
 						// Loop over all radial integrals required, divert to generated code
 						for (const Triple& triple : triples ) {
 							int i = std::get<1>(triple);

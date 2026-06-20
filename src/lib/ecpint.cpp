@@ -191,45 +191,48 @@ namespace libecpint {
 			int npB = shellB.nprimitive();
 			int npC = U.getN(); 
 		
-			double zA, zB, zC, dA, dB, dC, p; 
+			double zA, zB, zC, dA, dB, dC, p;
 			int nC, z1, z2;
-			
+
+			// The radial factor here depends only on lam (via g.l) and the total angular
+			// momentum LA + LB, not on the individual Cartesian components, so compute it once
+			// rather than redundantly inside the (na, nb) loops.
+			double value = 0.0;
+			for (int c = 0; c < npC; c++) {
+				const GaussianECP& g = U.getGaussian(c);
+				if (g.l == lam) {
+					zC = g.a;
+					dC = g.d;
+					nC = g.n;
+
+					for (int a = 0; a < npA; a++) {
+						zA = shellA.exp(a);
+						dA = shellA.coef(a);
+
+						for (int b = 0; b < npB; b++) {
+							zB = shellB.exp(b);
+							dB = shellB.coef(b);
+
+							p = zA + zB + zC;
+
+							double o_root_p = 1.0 / sqrt(p);
+							int N = 2 + LA + LB + nC;
+							value += 0.5*dA*dB*dC*GAMMA[N]*FAST_POW[N+1](o_root_p);
+						}
+					}
+				}
+			}
+
 			int na = 0;
 			for (int x1 = LA; x1 >= 0; x1--) {
 				for (int r1 = LA-x1; r1 >= 0; r1--) {
-					z1 = LA - x1 - r1; 
-			
+					z1 = LA - x1 - r1;
+
 					int nb = 0;
 					for (int x2 = LB; x2 >= 0; x2--) {
 						for (int y2 = LB - x2; y2 >= 0; y2--) {
-							z2 = LB - x2 - y2; 
-						
-							double value = 0.0;
-							for (int c = 0; c < npC; c++) {
-                const GaussianECP& g = U.getGaussian(c);
-								if (g.l == lam) {
-									zC = g.a;
-									dC = g.d;
-									nC = g.n; 
- 
-									for (int a = 0; a < npA; a++) {
-										zA = shellA.exp(a);
-										dA = shellA.coef(a);
-									
-										for (int b = 0; b < npB; b++) {
-											zB = shellB.exp(b);
-											dB = shellB.coef(b); 
-										
-											p = zA + zB + zC;
-										
-											double o_root_p = 1.0 / sqrt(p);
-											int N = 2 + LA + LB + nC;
-											value += 0.5*dA*dB*dC*GAMMA[N]*FAST_POW[N+1](o_root_p);
-										}
-									}
-								}
-							}
-							
+							z2 = LB - x2 - y2;
+
 							for (int mu = -lam; mu <= lam; mu++) {
 						
 								double angular = prefactor * angInts.getIntegral(x1, r1, z1, lam, mu, 0, 0) * angInts.getIntegral(x2, y2, z2, lam, mu, 0, 0); 

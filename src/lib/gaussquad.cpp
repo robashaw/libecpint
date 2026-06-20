@@ -45,6 +45,18 @@ namespace libecpint {
 		w = other.w;
 	}
 
+	GCQuadrature& GCQuadrature::operator=(const GCQuadrature &other) {
+		if (this != &other) {
+			maxN = other.maxN;
+			M = other.M;
+			I = other.I;
+			t = other.t;
+			x = other.x; // std::vector assignment reuses existing capacity where possible
+			w = other.w;
+		}
+		return *this;
+	}
+
 	// Initialise the quadrature grid
 	// As described in both Perez92 and Perez93
 	void GCQuadrature::initGrid(const int points, const GCTYPE _t) {
@@ -114,8 +126,7 @@ namespace libecpint {
 
 	// Perform the GC integration on the function f
 	std::pair<double, bool> GCQuadrature::integrate(
-	    std::function<double(double, const double*, int)> &f, const double *params,
-	    const double tolerance, const int start, const int end) const {
+	    const double *params, const double tolerance, const int start, const int end) const {
 		bool converged = false; // 0 for converged, -1 for not converged
 
 		double I = 0;
@@ -130,19 +141,19 @@ namespace libecpint {
 			// (T_{2m + 1} - 2T_m)^2 <= |T_{2m+1} - 4T_{(m-1)/2}| x tolerance
 			double Tn, T2n1, Tn12; // T_n, T_{2n+1} and 4T_{(n-1)/2}
 		
-			// Initialise values, 
+			// Initialise values,
 			// Single point integration would use midpoint, M
-			Tn = w[M]*f(x[M], params, M);
+			Tn = w[M]*params[M];
 			Tn12 = 2.0 * Tn;
-		
+
 			// Main loop
 			int n = 1;
 			double dT; // T_{2n+1} - 2T_n
 			int ix; // Index needs to be calculated to know which points to use
-			int p = (M+1) / 2; // M / 2^n 
+			int p = (M+1) / 2; // M / 2^n
 			while (n < maxN && !converged) {
 				// Compute T_{2n+1}
-				T2n1 = Tn + sumTerms(f, params, n, start, end, p, 2);
+				T2n1 = Tn + sumTerms(params, n, start, end, p, 2);
 			
 				// Check convergence
 				dT = T2n1 - 2.0*Tn;
@@ -172,10 +183,10 @@ namespace libecpint {
 			double Tn, Tm, T2n1, T2m1, Tn12;
 		
 			// Initialise values
-			Tn12 = 0.0; 
-			Tn = w[M]*f(x[M], params, M);
+			Tn12 = 0.0;
+			Tn = w[M]*params[M];
 			int M2 = (maxN - 2)/3; //Index of first point in twopoint sequence
-			Tm = w[M2]*f(x[M2], params, M2) + w[maxN - M2 - 1]*f(x[maxN - M2 - 1], params, maxN - M2 - 1);
+			Tm = w[M2]*params[M2] + w[maxN - M2 - 1]*params[maxN - M2 - 1];
 			int p = (M+1) / 2; // as before
 			M2 = (M2 + 1)/2; 
 			int ix; 
@@ -183,14 +194,14 @@ namespace libecpint {
 			double error;
 		 
 			while(m < maxN && !converged) {
-				// Propagate the two-point sequence first 
-				T2m1 = Tm + Tn - Tn12 + sumTerms(f, params, (2*m - 1)/3, start, end, M2, 3);
-			
+				// Propagate the two-point sequence first
+				T2m1 = Tm + Tn - Tn12 + sumTerms(params, (2*m - 1)/3, start, end, M2, 3);
+
 				// Check convergence
-				error = 16.0 * fabs(0.5*T2m1 - Tm) / (3.0 * (m + 1)); 
+				error = 16.0 * fabs(0.5*T2m1 - Tm) / (3.0 * (m + 1));
 				if (error > tolerance) {
 					// Propagate the one-point sequence
-					T2n1 = Tn + sumTerms(f, params, n, start, end, p, 2);
+					T2n1 = Tn + sumTerms(params, n, start, end, p, 2);
 				
 					// Check convergence again
 					error = 16.0 * fabs(2.0*T2m1 - 3.0*T2n1) / (18.0 * (n+1) );
@@ -219,7 +230,6 @@ namespace libecpint {
 
 	// Worker function to do the additional sum terms when going from I_n to I_{2n+1}
 	double GCQuadrature::sumTerms(
-	    const std::function<double(double, const double*, int)> &f,
 	    const double *p, const int limit, const int start, const int end,
 	    const int shift, const int skip) const {
 		assert(start >= 0 && start < maxN);
@@ -227,15 +237,15 @@ namespace libecpint {
 		assert(end >= start);
 
 		double value = 0.0;
-		int ix; 
-		for (int i = 0; i <= limit; i+=2) {	
+		int ix;
+		for (int i = 0; i <= limit; i+=2) {
 			ix = (skip*i + 1)*shift - 1;
 			if (ix >= start)
-				value += w[ix] * f(x[ix], p, ix);
-		
-			ix = maxN - ix - 1; 
+				value += w[ix] * p[ix];
+
+			ix = maxN - ix - 1;
 			if (ix <= end)
-				value += w[ix] * f(x[ix], p, ix);
+				value += w[ix] * p[ix];
 		}
 		return value;
 	}

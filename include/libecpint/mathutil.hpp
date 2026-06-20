@@ -125,14 +125,24 @@ namespace libecpint {
 		8.7178291200e10
 	};
 	
-	/** 
+	/**
+	* Calculates real spherical harmonics S_lm(theta, phi) for all l, m up to lmax, writing them
+	* into a caller-provided buffer (resized as needed) to avoid per-call allocation in hot loops.
+	* @param lmax - the maximum angular momentum needed
+	* @param x - cos(theta), where theta is the polar angle in spherical coordinates
+	* @param phi - the azimuth angle in spherical coordinates
+	* @param values - matrix S(l, l+m) of the spherical harmonic values, filled on return
+	*/
+	void realSphericalHarmonics(int lmax, double x, double phi, TwoIndex<double>& values);
+
+	/**
 	* Calculates real spherical harmonics S_lm(theta, phi) for all l, m up to lmax
 	* @param lmax - the maximum angular momentum needed
 	* @param x - cos(theta), where theta is the polar angle in spherical coordinates
 	* @param phi - the azimuth angle in spherical coordinates
 	* @return a matrix S(l, l+m) of the spherical harmonic values
 	*/
-	TwoIndex<double> realSphericalHarmonics(int lmax, double x, double phi);  
+	TwoIndex<double> realSphericalHarmonics(int lmax, double x, double phi);
 	
 	/**
 	  * @param mat - a reference to a TwoIndex array

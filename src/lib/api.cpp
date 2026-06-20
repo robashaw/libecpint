@@ -209,6 +209,14 @@ void ECPIntegrator::compute_integrals() {
 
         for (auto i : ns) {
           ECP& U = ecps.getECP(i);
+
+          double bcx = shellB.center()[0] - U.center_[0];
+          double bcy = shellB.center()[1] - U.center_[1];
+          double bcz = shellB.center()[2] - U.center_[2];
+          double B2 = bcx * bcx + bcy * bcy + bcz * bcz;
+          double sbB = shell_bound(shellB.l, shellB.min_exp, B2, U.min_exp);
+          if (sbB <= thresh) continue;
+
           ecpint->compute_shell_pair(U, shellA, shellB, tempValues);
           shellPairInts.add(tempValues);
         }

@@ -41,7 +41,11 @@ namespace libecpint {
 		// Initialise singletons
 		initFactorials();
 		zero = nonzero = skipped = 0;
-		
+
+		// Screening tolerance follows the requested integral threshold so that callers asking
+		// for tight integrals are not silently denied small (e.g. high-exponent l>0) contributions.
+		tolerance = thresh;
+
 		// Initialise angular and radial integrators
 		angInts.init(maxLB + deriv, maxLU);
 		angInts.compute();

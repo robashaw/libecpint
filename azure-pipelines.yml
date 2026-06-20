@@ -6,7 +6,7 @@ jobs:
 - job: 'linux_build'
   displayName: 'Linux Builds'
   pool:
-    vmImage: 'ubuntu-20.04'
+    vmImage: 'ubuntu-latest'
   timeoutInMinutes: 10
   variables:
     CTEST_OUTPUT_ON_FAILURE: 1

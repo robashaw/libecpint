@@ -31,7 +31,7 @@ jobs:
 
       clang_latest:
         CXX_COMPILER: 'clang++'
-        CXX_FLAGS: "-O3 -std=c++17"
+        CXX_FLAGS: "-O3 -std=c++14"
         C_COMPILER: 'clang'
         F_COMPILER: 'gfortran'
         BUILD_TYPE: 'release'

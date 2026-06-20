@@ -38,8 +38,6 @@ namespace libecpint {
 /// returns the index for the ij-th second derivative for a system with N atoms
 #define H_START(i, j, N) (9 * j + 3 * (3 * N - 1) * i - (9 * i * (i + 1)) / 2 - 3)
 
-constexpr double TWO_C_TOLERANCE = 1E-12;
-
 /** \struct ECPIntegrator
  * \brief API object that stores and handles all data for computing ECP integrals and their
  * derivatives.
@@ -71,6 +69,10 @@ struct ECPIntegrator {
   bool ecp_is_set;    ///< true if the ecp basis has been set, false by default
   bool basis_is_set;  ///< true if the gaussian basis has been set, false by default
 
+  double tolerance;        ///< threshold for skipping shell-pair contributions (1e-12 by default)
+  double shell_tolerance;  ///< threshold for skipping whole shell contributions, determined by
+                           ///< tolerance and the max L in the ECP basis
+
   /** Container for the calculated ECP integrals, in canonical Cartesian order
    * i.e. for L=2 : {x^2, xy, xz, y^2, yz, z^2}
    */
@@ -96,6 +98,8 @@ struct ECPIntegrator {
   ECPIntegrator() {
     ecp_is_set = basis_is_set = false;
     maxLB = ncart = 0;
+    tolerance = 1e-12;
+    shell_tolerance = 1e-12;
   }
 
   /**  Constructs a basis set of GaussianShell objects from a stream of coordinates, exponents,
@@ -176,8 +180,15 @@ struct ECPIntegrator {
    *
    * @param deriv_ - the maximum derivative order to be computed; affects whether
    * compute_first/second_derivs can be called; default 0
+   * @param tol - the tolerance for screening shell pairs; default 1e-12
+   * @param radial_tol - the tolerance for convergence of radial integrals; default 1e-15
+   * @param smallGrid - the maximum number of quadrature points for the small radial integration
+   *  grid; default 256
+   * @param bigGrid - the maximum number of quadrature points for the large radial integration grid;
+   *  default 1024
    */
-  void init(int deriv_ = 0);
+  void init(int deriv_ = 0, double tol = 1e-12, double radial_tol = 1e-15, unsigned smallGrid = 256,
+            unsigned bigGrid = 1024);
 
   /** Computes the ECP integrals across all shell pairs, returning the results into the integrals
    * matrix. The order of the shells is canonical cartesian order, and matches the order in which

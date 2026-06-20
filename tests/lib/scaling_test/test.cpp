@@ -14,6 +14,7 @@
 // ECP28MDF: 28-electron ECP, maxL=4, channels l=0..3 plus local l=4
 static const int SHELLS_PER_ATOM = 12;
 static const int PRIMS_PER_ATOM = 61;
+static const double TWO_C_TOLERANCE = 1e-12;  // screening tolerance for shell pairs
 
 static const double ag_exps[61] = {
     1.800750E+02, 2.189870E+01, 1.386700E+01, 6.142630E+00, 1.438140E+00, 6.483820E-01,
@@ -130,10 +131,12 @@ static long long count_ecp_calls(libecpint::ECPIntegrator& factory) {
   thresh /= FAST_POW[maxLB](2.0 * M_EULER);
   thresh = TWO_C_TOLERANCE / std::sqrt(thresh);
 
+  double product_thresh = TWO_C_TOLERANCE;
+
   long long calls = 0;
   for (int s1 = 0; s1 < nshells; ++s1) {
     GaussianShell& shellA = shells[s1];
-    std::vector<int> ns;
+    std::vector<std::pair<int, double>> ns;
 
     for (int i = 0; i < ecps.getN(); i++) {
       ECP& U = ecps.getECP(i);
@@ -142,25 +145,84 @@ static long long count_ecp_calls(libecpint::ECPIntegrator& factory) {
       double acz = shellA.center()[2] - U.center_[2];
       double A2 = acx * acx + acy * acy + acz * acz;
       double sb = shell_bound(shellA.l, shellA.min_exp, A2, U.min_exp);
-      if (sb > thresh) ns.push_back(i);
+      if (sb > thresh) ns.push_back({i, sb});
     }
 
     if (ns.size() > 0) {
       for (int s2 = 0; s2 <= s1; ++s2) {
         GaussianShell& shellB = shells[s2];
-        for (auto i : ns) {
+        for (auto& [i, sbA] : ns) {
           ECP& U = ecps.getECP(i);
           double bcx = shellB.center()[0] - U.center_[0];
           double bcy = shellB.center()[1] - U.center_[1];
           double bcz = shellB.center()[2] - U.center_[2];
           double B2 = bcx * bcx + bcy * bcy + bcz * bcz;
           double sbB = shell_bound(shellB.l, shellB.min_exp, B2, U.min_exp);
-          if (sbB > thresh) calls++;
+          if (sbA * sbB > product_thresh) calls++;
         }
       }
     }
   }
   return calls;
+}
+
+static void dump_screening_diagnostics(libecpint::ECPIntegrator& factory) {
+  using namespace libecpint;
+  initFactorials();
+
+  int maxLB = factory.maxLB;
+  double min_alpha = factory.min_alpha;
+  auto& shells = factory.shells;
+  auto& ecps = factory.ecps;
+
+  double thresh =
+      FAST_POW[maxLB + 3]((maxLB + 3.0) / min_alpha) * FAST_POW[3](M_PI / (2 * maxLB + 3.0));
+  thresh /= FAST_POW[maxLB](2.0 * M_EULER);
+  thresh = TWO_C_TOLERANCE / std::sqrt(thresh);
+
+  std::cout << "\n=== Screening Diagnostics ===\n";
+  std::cout << "thresh (independent) = " << std::scientific << thresh << "\n";
+  std::cout << "thresh^2 (effective product) = " << thresh * thresh << "\n";
+  std::cout << "TWO_C_TOLERANCE = " << TWO_C_TOLERANCE << "\n\n";
+
+  // For the first ECP, show shell_bound vs distance for each shell type
+  ECP& U0 = ecps.getECP(0);
+  std::cout << "shell_bound values vs distance (ECP #0, eta_min=" << U0.min_exp << "):\n";
+  std::cout << std::setw(5) << "L" << std::setw(10) << "alpha" << std::setw(10) << "Dist";
+  std::cout << std::setw(15) << "sb" << std::setw(15) << "sb*sb_near" << std::setw(10) << "ind?"
+            << std::setw(10) << "prod?" << "\n";
+  std::cout << std::string(75, '-') << "\n";
+
+  // Collect unique (l, min_exp) shell types
+  struct ShType {
+    int l;
+    double alpha;
+  };
+  std::vector<ShType> types;
+  for (auto& sh : shells) {
+    bool found = false;
+    for (auto& t : types)
+      if (t.l == sh.l && std::abs(t.alpha - sh.min_exp) < 1e-10) {
+        found = true;
+        break;
+      }
+    if (!found) types.push_back({sh.l, sh.min_exp});
+  }
+
+  for (auto& t : types) {
+    double sb_near = shell_bound(t.l, t.alpha, 0.0, U0.min_exp);
+    for (double dist = 0; dist <= 25; dist += 2.5) {
+      double A2 = dist * dist;
+      double sb = shell_bound(t.l, t.alpha, A2, U0.min_exp);
+      double product = sb_near * sb;
+      std::cout << std::setw(5) << t.l << std::setw(10) << std::scientific << std::setprecision(2)
+                << t.alpha << std::setw(10) << std::fixed << std::setprecision(1) << dist
+                << std::setw(15) << std::scientific << std::setprecision(3) << sb << std::setw(15)
+                << product << std::setw(10) << (sb > thresh ? "pass" : "SCREEN") << std::setw(10)
+                << (product > TWO_C_TOLERANCE ? "pass" : "SCREEN") << "\n";
+    }
+    std::cout << "\n";
+  }
 }
 
 struct BenchResult {
@@ -255,6 +317,41 @@ int main(int argc, char* argv[]) {
             << std::setw(12) << "Integ(s)" << std::setw(12) << "us/pair" << std::setw(12)
             << "us/call" << "\n";
   std::cout << std::string(92, '-') << "\n";
+
+  // Run screening diagnostic on a small 2-atom system
+  {
+    auto diag_res = run_bench(2, spacing, share_dir);
+    // Need to rebuild factory to call dump_screening_diagnostics
+    auto coords2 = make_grid(2, spacing);
+    int ts = SHELLS_PER_ATOM * 2;
+    int tp = PRIMS_PER_ATOM * 2;
+    std::vector<double> gc(3 * ts), ge(tp), gco(tp);
+    std::vector<int> gl(ts), ga(ts), ch(2, 47);
+    std::vector<std::string> nm(2, "ecp28mdf");
+    int pc = 0;
+    for (int i = 0; i < 2; i++) {
+      int lc = 0;
+      for (int j = 0; j < SHELLS_PER_ATOM; j++) {
+        int si = SHELLS_PER_ATOM * i + j;
+        gc[3 * si] = coords2[3 * i];
+        gc[3 * si + 1] = coords2[3 * i + 1];
+        gc[3 * si + 2] = coords2[3 * i + 2];
+        gl[si] = ag_shell_lengths[j];
+        ga[si] = ag_shell_ams[j];
+        for (int k = 0; k < ag_shell_lengths[j]; k++) {
+          ge[pc] = ag_exps[lc];
+          gco[pc] = ag_coefs[lc];
+          pc++;
+          lc++;
+        }
+      }
+    }
+    libecpint::ECPIntegrator diag_factory;
+    diag_factory.set_gaussian_basis(ts, gc.data(), ge.data(), gco.data(), ga.data(), gl.data());
+    diag_factory.set_ecp_basis_from_library(2, coords2.data(), ch.data(), nm, share_dir);
+    diag_factory.init(0);
+    dump_screening_diagnostics(diag_factory);
+  }
 
   std::vector<BenchResult> results;
   for (int n : sizes) {

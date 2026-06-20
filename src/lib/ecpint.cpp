@@ -32,6 +32,12 @@
 
 namespace libecpint {
 
+	// The radial integrals index FAST_POW up to (3 + 2*LIBECPINT_MAX_L) (the both-on-ECP type 2
+	// term, FAST_POW[N+1] with N = 2 + LA + LB). Guard against silently running off the end of the
+	// hand-coded power table (entries beyond FAST_POW_MAX_EXPONENT are 1/z, 1/z^2 - i.e. wrong here).
+	static_assert(3 + 2 * LIBECPINT_MAX_L <= FAST_POW_MAX_EXPONENT,
+		"LIBECPINT_MAX_L is too large for the FAST_POW power table; extend mathutil's pow_* routines.");
+
 	ECPIntegral::ECPIntegral(int maxLB, int maxLU, int deriv,
 							 double thresh, unsigned smallGrid, unsigned bigGrid) {
 		// Make sure library can perform requested integrals
@@ -390,8 +396,8 @@ namespace libecpint {
 		makeC(CA, data.LA, data.A);
 		makeC(CB, data.LB, data.B);
 		
-		double screens[U.getL() + 1];
-		estimate_type2(U, shellA, shellB, data, screens);
+		std::vector<double> screens(U.getL() + 1);
+		estimate_type2(U, shellA, shellB, data, screens.data());
 	
 		// Calculate type1 integrals, if necessary
 		values.assign(data.ncartA, data.ncartB, 0.0);

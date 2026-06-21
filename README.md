@@ -10,6 +10,16 @@
 
 Libecpint is a C++ library for the efficient evaluation of integrals over ab initio effective core potentials, using a mixture of generated, recursive code and Gauss-Chebyshev quadrature. It is designed to be standalone and generic, and is now in its first stable release. If you experience any problems please raise an issue here; contributions and suggestions are also welcome.
 
+## Python bindings
+
+**pylibecpint** provides Python bindings for this library, installable via pip:
+
+```bash
+pip install pylibecpint
+```
+
+See the [pylibecpint repository](https://github.com/robashaw/pylibecpint) for documentation and usage examples.
+
 ## Contributing
 
 Contributions are welcomed, either in the form of raising issues or pull requests on this repo. Please take a look at the Code of Conduct before interacting, which includes instructions for reporting any violations.

@@ -13,6 +13,24 @@ libecpint is a C++ library for the efficient evaluation of integrals over ab ini
 
 This assumes ECPs and basis sets of the form usually seen in electronic structure calculations, namely those expanded in terms of Gaussian functions. The angular momentum of function that can be treated is in theory arbitrary, but is limited by your choice of maximum when the library is built.
 
+Python bindings
+===============
+
+`pylibecpint <https://github.com/robashaw/pylibecpint>`_ provides Python
+bindings for the main integration functionality of this library, installable
+via pip:
+
+.. code-block:: bash
+
+   pip install pylibecpint
+
+pylibecpint wraps the high-level ``ECPIntegrator`` API and the lower-level
+``ECPIntegral`` shell-pair interface, with all inputs and outputs as NumPy
+arrays. It does not currently expose the full functionality of the C++ library
+(e.g. internal quadrature, angular/radial integral classes) and is under active
+development. See the `pylibecpint documentation <https://pylibecpint.readthedocs.io>`_
+for details.
+
 Citing libecpint
 ================
 

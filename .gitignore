@@ -13,4 +13,5 @@ build_highl/*
 doc/doxygen/html/*
 doc/doxygen/latex/*
 doc/sphinx/build/*
+doc/sphinx/source/api/*
 compile_commands.json

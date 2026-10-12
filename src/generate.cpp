@@ -25,6 +25,8 @@
 #include "generate.hpp"
 
 #include <algorithm>
+#include <iomanip>
+#include <limits>
 #include <set>
 
 /**
@@ -50,6 +52,9 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
   std::string ofname =
       "generated/Q" + std::to_string(LA) + std::to_string(LB) + std::to_string(lam) + ".cpp";
   std::ofstream outfile(ofname);
+  // Unrolled angular coefficients are written as literals; the default 6 significant digits
+  // (e.g. 16pi^2 -> 157.914) made the unrolled s/p integrals wrong at ~1e-6 relative.
+  outfile << std::setprecision(std::numeric_limits<double>::max_digits10);
 
   if (!outfile.is_open())
     std::cerr << "Problems writing to file!" << std::endl;

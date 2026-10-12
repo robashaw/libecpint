@@ -41,7 +41,7 @@ STRING(REGEX REPLACE "\n" ";" GENERATED_SOURCES "${GENERATED_SOURCES}")
 add_custom_command(
 	OUTPUT ${GENERATED_SOURCES}
 	COMMAND generate "${PROJECT_SOURCE_DIR}/include/libecpint/"
-	DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.part
+	DEPENDS generate ${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.part
 	COMMENT "Generating and unrolling integral code."
 )
 

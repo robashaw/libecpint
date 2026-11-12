@@ -230,7 +230,23 @@ class ECPIntegral {
   void mixed_second_derivative(const ECP& U, const GaussianShell& shellA,
                                const GaussianShell& shellB,
                                std::array<TwoIndex<double>, 9>& results) const;
+  /**
+   * Computes the overall ECP integral first derivatives wrt an external magnetic field over the
+   * given ECP center, C, and GIAO shell pair (A | B).
+   * The results are placed in order [dECP/dBx, dECP/dBy, dECP/dBz].
+   * The order for each derivative matrices matches that specified in compute_shell_pair
+   *
+   * Note that the resulting integrals are imaginary, i.e., the user has to take care of
+   * skew-symmetry.
+   *
+   * @param U - reference to the ECP
+   * @param shellA - the first basis shell (rows in values)
+   * @param shellB - the second basis shell (cols in values)
+   * @param results - reference to array of 9 TwoIndex arrays where the results will be stored
+   */
+  void compute_shell_pair_derivative_Bfield(const ECP& U, const GaussianShell& shellA,
+                                            const GaussianShell& shellB,
+                                            std::array<TwoIndex<double>, 3>& results) const;
 };
-
 }  // namespace libecpint
 #endif

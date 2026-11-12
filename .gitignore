@@ -6,8 +6,9 @@
 .clangd/
 .DS_Store
 build/*
+install/*
 _example2/*
-#*
+include/libecpint/qgen.hpp
 build_debug/*
 build_highl/*
 doc/doxygen/html/*

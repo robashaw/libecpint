@@ -51,7 +51,8 @@ class RadialIntegral {
   GCQuadrature bigGrid;
   /// The smaller integration grid, default for the type 2 integrals
   GCQuadrature smallGrid;
-  /// Even smaller grid for primitive integrals
+  /// Grid of the smaller size (one-point scheme), mapped onto a finite window for numerical type 2
+  /// radial integrals of off-centre primitives
   GCQuadrature primGrid;
   /// Modified spherical Bessel function of the first kind
   BesselFunction bessie;
@@ -148,11 +149,13 @@ class RadialIntegral {
    * @param b - exponent of primitive in shellB
    * @param A - magnitude of distance of shellA from ECP
    * @param B - magnitude of distance of shellB from ECP
+   * @param rmin - lower limit of the region in which the integrand is non-negligible
+   * @param rmax - upper limit of the region in which the integrand is non-negligible
    * @return a pair, where the first is the integral value, and the second is true if integration
    * converged
    */
   std::pair<double, bool> integrate_small(int N, int l1, int l2, double n, double a, double b,
-                                          double A, double B) const;
+                                          double A, double B, double rmin, double rmax) const;
 
  public:
   /// Default constructor creates an empty object

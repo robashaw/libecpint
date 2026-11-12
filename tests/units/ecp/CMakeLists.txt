@@ -15,3 +15,4 @@ add_test(
 	WORKING_DIRECTORY
 	  ${CMAKE_SOURCE_DIR}/tests/units/ecp
 )
+ecpint_test_requires_max_l(GaussianECP 3)

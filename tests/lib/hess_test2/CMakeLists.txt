@@ -4,3 +4,4 @@ target_link_libraries(hess_test2 ecpint)
 add_test(NAME HessTest2
 	 COMMAND hess_test2
 	 WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tests/lib/hess_test2)
+ecpint_test_requires_max_l(HessTest2 4)

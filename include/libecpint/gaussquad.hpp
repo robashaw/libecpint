@@ -116,6 +116,13 @@ class GCQuadrature {
                         double p);  // Transfromation from [-1, 1] to [rmin, rmax] from Flores06
   void untransformRMinMax(double z, double p);
 
+  /**
+   * Linearly transforms the region of integration from [-1, 1] to [rmin, rmax]
+   * @param rmin - lower limit of the integration region
+   * @param rmax - upper limit of the integration region
+   */
+  void transformInterval(double rmin, double rmax);
+
   /// @return the maximum number of quadrature points
   int getN() const { return maxN; }
 

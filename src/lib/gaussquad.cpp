@@ -24,6 +24,7 @@
 
 #include "gaussquad.hpp"
 
+#include <algorithm>
 #include <cassert>
 #include <cmath>
 #include <iostream>
@@ -142,7 +143,16 @@ std::pair<double, bool> GCQuadrature::integrate(const double* params, const doub
     // 2k + 1 = (2k + 1) * M / 2^n = (2k + 1) * p
     // and checking convergence via whether
     // (T_{2m + 1} - 2T_m)^2 <= |T_{2m+1} - 4T_{(m-1)/2}| x tolerance
+    // on two consecutive levels. On a coarse level the test can pass by coincidence (e.g. the
+    // integrand is mostly between the few abscissae used so far), which made results jump
+    // between very different values under tiny changes of the integrand. (The two-point
+    // scheme below cannot simply continue past a first pass: on its grid of 3 * 2^p - 1 points
+    // the embedded one-point sequence is only nested down to a step of 3.)
     double Tn, T2n1, Tn12;  // T_n, T_{2n+1} and 4T_{(n-1)/2}
+    int passes = 0;
+    // sum of |w f| over all points; 16 absSum / (3 (maxN + 1)) approximates the integral of |f|
+    double absSum = 0.0;
+    for (int i = start; i <= end; i++) absSum += fabs(w[i] * params[i]);
 
     // Initialise values,
     // Single point integration would use midpoint, M
@@ -161,7 +171,14 @@ std::pair<double, bool> GCQuadrature::integrate(const double* params, const doub
       // Check convergence
       dT = T2n1 - 2.0 * Tn;
       n = 2 * n + 1;
-      if (dT * dT <= fabs(T2n1 - Tn12) * tolerance) {
+      // Once converged, both sides of the test are noise, so also accept a change of the
+      // integral (16 dT / (3 (n + 1))) below the tolerance or 1e-10 of the integral of |f|
+      // (not of the integral itself, which cancellation can make arbitrarily small).
+      const double noise = std::max(tolerance, 1e-10 * absSum * 16.0 / (3.0 * (maxN + 1)));
+      const bool pass =
+          dT * dT <= fabs(T2n1 - Tn12) * tolerance || 16.0 * fabs(dT) / (3.0 * (n + 1)) <= noise;
+      passes = pass ? passes + 1 : 0;
+      if (passes >= 2 || (passes == 1 && n >= maxN)) {
         converged = true;
       } else {
         Tn12 = 4.0 * Tn;
@@ -282,6 +299,15 @@ void GCQuadrature::transformRMinMax(const double z, const double p) {
   for (int i = 0; i < maxN; i++) {
     x[i] = rmid * x[i] + amid;
     w[i] *= rmid;
+  }
+}
+
+void GCQuadrature::transformInterval(const double rmin, const double rmax) {
+  const double half = 0.5 * (rmax - rmin);
+  const double mid = 0.5 * (rmax + rmin);
+  for (int i = 0; i < maxN; i++) {
+    x[i] = half * x[i] + mid;
+    w[i] *= half;
   }
 }
 

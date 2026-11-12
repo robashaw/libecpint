@@ -29,9 +29,48 @@
 #else
 #include "Faddeeva.hpp"
 #endif
+#include <algorithm>
+#include <cmath>
 #include <iostream>
+#include <utility>
 
 namespace libecpint {
+
+namespace {
+// Smallest min(x, y) = min(aA, bB), indexed by l1 + l2, for which the closed forms below are used.
+// Below it they lose accuracy to cancellation (measured against independent quadrature: e.g. with
+// l1 + l2 = 4, relative errors 5e-6 at min(x, y) = 0.16 and 0.5 at 0.04), and the radial integral
+// is computed numerically instead. Chosen so the closed forms stay within ~1e-10 relative.
+constexpr int CLOSED_FORM_NL = 9;
+constexpr double CLOSED_FORM_MIN_XY[CLOSED_FORM_NL] = {0.0, 0.04, 0.25, 0.5, 0.6,
+                                                       0.6, 0.6,  1.0,  1.0};
+
+// Region [rmin, rmax] outside which r^k exp(-n r^2 - a (r - A)^2 - b (r - B)^2) K_l1(2aAr)
+// K_l2(2bBr), with k in [kmin, kmax], l1 <= l1max and l2 <= l2max, is negligible. The Gaussian
+// factor is exactly exp(-zt (r - pt)^2) up to a constant, with zt = n + a + b and pt = (aA + bB) /
+// zt. The scaled Bessel functions K_l(z) = exp(-z) i_l(z) have logarithmic derivatives (in r)
+// between -1/r and l/r, so the remaining factor can only move the maximum to between the
+// stationary points of exp(-zt (r - pt)^2) r^m for m = kmin - 2 and m = kmax + l1max + l2max.
+// The window extends 7 and 9 Gaussian widths beyond those (as transformRMinMax does about pt).
+//
+// A finite window is needed because the integrand can be far narrower than the spacing of a grid
+// on [0, inf) (width 1/sqrt(zt) ~ 0.02 for a tight core s primitive), and the adaptive quadrature
+// then reports convergence to zero.
+std::pair<double, double> integrand_window(const int kmin, const int kmax, const int l1max,
+                                           const int l2max, const double n, const double a,
+                                           const double b, const double A, const double B) {
+  const double zt = n + a + b;
+  const double pt = (a * A + b * B) / zt;
+  const double width = 1.0 / std::sqrt(zt);
+  auto stationary = [&](const double m) {
+    const double disc = 0.25 * pt * pt + 0.5 * m / zt;
+    return disc > 0.0 ? 0.5 * pt + std::sqrt(disc) : 0.0;
+  };
+  const double rmin = stationary(kmin - 2) - 7.0 * width;
+  const double rmax = stationary(kmax + l1max + l2max) + 9.0 * width;
+  return {std::max(rmin, 0.0), rmax};
+}
+}  // namespace
 
 void RadialIntegral::compute_base_integrals(const int N_min, const int N_max, const double p,
                                             const double o_root_p, const double P1, const double P2,
@@ -110,55 +149,31 @@ void RadialIntegral::compute_base_integrals(const int N_min, const int N_max, co
 std::pair<double, bool> RadialIntegral::integrate_small(const int N, const int l1, const int l2,
                                                         const double n, const double a,
                                                         const double b, const double A,
-                                                        const double B) const {
-  int gridSize = primGrid.getN();
-  double zt = n + a + b;
-  double pt = (a * A + b * B) / zt;
-  // Reused per-thread scratch to avoid reallocating the grid and integrand table on every call
-  thread_local GCQuadrature transformedGrid;
-  transformedGrid = primGrid;
-  transformedGrid.transformRMinMax(zt, pt);
-  std::vector<double>& gridPoints = transformedGrid.getX();
+                                                        const double B, const double rmin,
+                                                        const double rmax) const {
+  // Fallback for type2() when the small grid on [rmin, rmax] does not converge: the large grid
+  // on the same window.
+  const double aA = 2.0 * a * A;
+  const double bB = 2.0 * b * B;
 
   thread_local std::vector<double> Ftab;
-  Ftab.resize(gridSize);
+  auto tabulate = [&](const std::vector<double>& gridPoints, const int gridSize) {
+    Ftab.resize(gridSize);
+    for (int i = 0; i < gridSize; i++) {
+      const double z = gridPoints[i];
+      const double zA = z - A;
+      const double zB = z - B;
+      Ftab[i] = FAST_POW[N](z) * exp(-n * z * z - a * zA * zA - b * zB * zB) *
+                bessie.calculate(aA * z, l1) * bessie.calculate(bB * z, l2);
+    }
+  };
 
-  double z, zA, zB, besselValue1, besselValue2;
-  double aA = 2.0 * a * A;
-  double bB = 2.0 * b * B;
-
-  z = gridPoints[0];
-  zA = z - A;
-  zB = z - B;
-  besselValue1 = bessie.calculate(aA * z, l1);
-  besselValue2 = bessie.calculate(bB * z, l2);
-  Ftab[0] =
-      FAST_POW[N](z) * exp(-n * z * z - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
-
-  int i = 1;
-  double TOL = tolerance;  ////(double(gridSize));
-  bool not_in_tail = true;
-  double delta = 1.0;
-  while (not_in_tail && i < gridSize) {
-    z = gridPoints[i];
-    zA = z - A;
-    zB = z - B;
-
-    besselValue1 = bessie.calculate(aA * z, l1);
-    besselValue2 = bessie.calculate(bB * z, l2);
-    Ftab[i] =
-        FAST_POW[N](z) * exp(-n * z * z - a * zA * zA - b * zB * zB) * besselValue1 * besselValue2;
-
-    delta = Ftab[i] - Ftab[i - 1];
-    not_in_tail = (Ftab[i] > TOL) || (delta > 0);
-    i++;
-  }
-
-  for (int j = i; j < gridSize; j++) Ftab[j] = 0.0;
-
-  // There should be no instances where this fails, so no backup plan to large grid, but return
-  // check just in case
-  return transformedGrid.integrate(Ftab.data(), 1e-12, 0, primGrid.getN() - 1);
+  // Reused per-thread scratch to avoid reallocating the grid on every call
+  thread_local GCQuadrature transformedGrid;
+  transformedGrid = bigGrid;
+  transformedGrid.transformInterval(rmin, rmax);
+  tabulate(transformedGrid.getX(), transformedGrid.getN());
+  return transformedGrid.integrate(Ftab.data(), tolerance, 0, transformedGrid.getN() - 1);
 }
 
 void RadialIntegral::type2(const std::vector<Triple>& triples, const int nbase, const int lam,
@@ -170,6 +185,24 @@ void RadialIntegral::type2(const std::vector<Triple>& triples, const int nbase, 
   // Base integrals are fully recomputed for each primitive triple, so a single reused
   // buffer suffices - this avoids a heap allocation in the innermost loop.
   std::vector<double> base_integrals(nbase + 2);
+
+  // Radial integrals without a usable closed form are integrated numerically. Per primitive pair,
+  // the exponential factor and every Bessel order on the quadrature grid are shared by all such
+  // triples, so they are tabulated once (lazily) rather than per triple.
+  if (triples.empty()) return;
+  int lmaxA = 0, lmaxB = 0, Nmin = std::get<0>(triples[0]), Nmax = Nmin;
+  for (const Triple& t : triples) {
+    lmaxA = std::max(lmaxA, std::get<1>(t));
+    lmaxB = std::max(lmaxB, std::get<2>(t));
+    Nmin = std::min(Nmin, std::get<0>(t));
+    Nmax = std::max(Nmax, std::get<0>(t));
+  }
+  // The small grid, mapped per primitive triple onto the window where the integrand lives
+  GCQuadrature qgrid = primGrid;
+  const int nq = qgrid.getN();
+  const std::vector<double>& rq = qgrid.getX();
+  std::vector<double> expq(nq), Kqa((lmaxA + 1) * nq), Kqb((lmaxB + 1) * nq), Fq(nq);
+  std::vector<double> bes(std::max(lmaxA, lmaxB) + 1);
 
   // Loop over primitives in ECP, only considering correct ang. momentum
   for (const auto& u : U.gaussians) {
@@ -189,6 +222,35 @@ void RadialIntegral::type2(const std::vector<Triple>& triples, const int nbase, 
           double p = u.a + a + b;
           double x = a * A;
           double y = b * B;
+
+          bool tables_built = false;
+          std::pair<double, double> window;
+          auto quadrature = [&](const int kk, const int ii, const int jj) {
+            if (!tables_built) {
+              window =
+                  integrand_window(Nmin + u.n + 2, Nmax + u.n + 2, lmaxA, lmaxB, u.a, a, b, A, B);
+              qgrid = primGrid;
+              qgrid.transformInterval(window.first, window.second);
+              for (int g = 0; g < nq; g++) {
+                const double r = rq[g], rA = r - A, rB = r - B;
+                expq[g] = std::exp(-u.a * r * r - a * rA * rA - b * rB * rB);
+                std::fill(bes.begin(), bes.end(), 0.0);
+                bessie.calculate(2.0 * x * r, lmaxA, bes);
+                for (int l = 0; l <= lmaxA; l++) Kqa[l * nq + g] = bes[l];
+                std::fill(bes.begin(), bes.end(), 0.0);
+                bessie.calculate(2.0 * y * r, lmaxB, bes);
+                for (int l = 0; l <= lmaxB; l++) Kqb[l * nq + g] = bes[l];
+              }
+              tables_built = true;
+            }
+            for (int g = 0; g < nq; g++)
+              Fq[g] = FAST_POW[kk](rq[g]) * expq[g] * Kqa[ii * nq + g] * Kqb[jj * nq + g];
+            std::pair<double, bool> q = qgrid.integrate(Fq.data(), tolerance, 0, nq - 1);
+            if (!q.second)  // large grid on the same window
+              q = integrate_small(kk, ii, jj, u.a, a, b, A, B, window.first, window.second);
+            if (!q.second) std::cout << "Quadrature failed" << std::endl;
+            return q.first;
+          };
 
           double P1 = (x + y) / p;
           double P2 = (y - x) / p;
@@ -235,7 +297,11 @@ void RadialIntegral::type2(const std::vector<Triple>& triples, const int nbase, 
 
             int ijk = i * 10000 + j * 100 + k;
             double result = 0.0;
-            if (a * b > MIN_EXP) {  // && b > MIN_EXP) {
+            if (i + j < CLOSED_FORM_NL && std::min(x, y) < CLOSED_FORM_MIN_XY[i + j]) {
+              // The closed forms are polynomials in 1/x, 1/y and cancel catastrophically for a
+              // diffuse primitive (small x = aA or y = bB), so integrate numerically instead.
+              result = quadrature(k, i, j);
+            } else if (a * b > MIN_EXP) {  // && b > MIN_EXP) {
               switch (ijk) {
                 case 2: {
                   result = (1) * values[0];
@@ -334,9 +400,9 @@ void RadialIntegral::type2(const std::vector<Triple>& triples, const int nbase, 
                 }
 
                 case 10110: {
-                  result += (-1 / (4 * x * y)) * values[6];
+                  result += (4 / (2 * x * y)) * values[6];
                   result += (-(p / 2 + y2) / (x * y)) * values[8];
-                  result += (1 / (2 * x)) * values[7];
+                  result += (-4 / x) * values[7];
                   result += (p / x) * values[9];
                   break;
                 }
@@ -827,17 +893,13 @@ void RadialIntegral::type2(const std::vector<Triple>& triples, const int nbase, 
 
                 default: {
                   if (estimate_type2(k, i, j, u.a, a, b, A, B) > tolerance) {
-                    std::pair<double, bool> quadval = integrate_small(k, i, j, u.a, a, b, A, B);
-                    result = quadval.first;
-                    if (!quadval.second) std::cout << "Quadrature failed" << std::endl;
+                    result = quadrature(k, i, j);
                   }
                 }
               }
             } else {
               if (estimate_type2(k, i, j, u.a, a, b, A, B) > tolerance) {
-                std::pair<double, bool> quadval = integrate_small(k, i, j, u.a, a, b, A, B);
-                result = quadval.first;
-                if (!quadval.second) std::cout << "Quadrature failed" << std::endl;
+                result = quadrature(k, i, j);
               }
             }
 

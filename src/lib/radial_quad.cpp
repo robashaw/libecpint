@@ -41,14 +41,15 @@ void RadialIntegral::init(int maxL, double tol, int small, int large) {
   bessie.init(maxL, 1600, 200, tol);
 
   tolerance = tol;
-
-  besselScratch_.resize(maxL + 1);
-  paramsScratch_.resize(large);
 }
+
+// Scratch buffers are thread_local rather than members: compute_shell_pair is const and may be
+// called concurrently on one object, so it must not write to shared state.
 
 void RadialIntegral::buildBessel(const std::vector<double>& r, const int nr, const int maxL,
                                  TwoIndex<double>& values, const double weight) const {
-  if (static_cast<int>(besselScratch_.size()) < maxL + 1) besselScratch_.resize(maxL + 1);
+  thread_local std::vector<double> besselScratch;
+  if (static_cast<int>(besselScratch.size()) < maxL + 1) besselScratch.resize(maxL + 1);
   if (std::abs(weight) < 1e-15) {
     for (int i = 0; i < nr; i++) {
       values(0, i) = 1.0;
@@ -56,8 +57,8 @@ void RadialIntegral::buildBessel(const std::vector<double>& r, const int nr, con
     }
   } else {
     for (int i = 0; i < nr; i++) {
-      bessie.calculate(weight * r[i], maxL, besselScratch_);
-      for (int l = 0; l <= maxL; l++) values(l, i) = besselScratch_[l];
+      bessie.calculate(weight * r[i], maxL, besselScratch);
+      for (int l = 0; l <= maxL; l++) values(l, i) = besselScratch[l];
     }
   }
 }
@@ -123,11 +124,12 @@ int RadialIntegral::integrate(const int maxL, const int gridSize, const TwoIndex
                               const int end, const int offset, const int skip) const {
   values.assign(maxL + 1, 0.0);
   int test;
-  if (static_cast<int>(paramsScratch_.size()) < gridSize) paramsScratch_.resize(gridSize);
-  std::fill(paramsScratch_.begin(), paramsScratch_.begin() + gridSize, 0.0);
+  thread_local std::vector<double> paramsScratch;
+  if (static_cast<int>(paramsScratch.size()) < gridSize) paramsScratch.resize(gridSize);
+  std::fill(paramsScratch.begin(), paramsScratch.begin() + gridSize, 0.0);
   for (int l = offset; l <= maxL; l += skip) {
-    for (int i = start; i <= end; i++) paramsScratch_[i] = intValues(l, i);
-    const auto integral_and_test = grid.integrate(paramsScratch_.data(), tolerance, start, end);
+    for (int i = start; i <= end; i++) paramsScratch[i] = intValues(l, i);
+    const auto integral_and_test = grid.integrate(paramsScratch.data(), tolerance, start, end);
     values[l] = integral_and_test.first;
     test = integral_and_test.second;
     if (test == 0) break;
@@ -339,15 +341,16 @@ void RadialIntegral::type2(const int l, const int l1start, int l1end, const int 
 
   // Build the integrals
   std::vector<int> tests((l1end + 1) * (l2end + 1));
-  if (static_cast<int>(paramsScratch_.size()) < gridSize) paramsScratch_.resize(gridSize);
+  thread_local std::vector<double> paramsScratch;
+  if (static_cast<int>(paramsScratch.size()) < gridSize) paramsScratch.resize(gridSize);
   bool failed = false;
   int ix = 0;
   for (int l1 = 0; l1 <= l1end; l1++) {
     int l2start = (l1 + N) % 2;
     for (int l2 = l2start; l2 <= l2end; l2 += 2) {
-      for (int i = 0; i < gridSize; i++) paramsScratch_[i] = Utab[i] * Fa(l1, i) * Fb(l2, i);
+      for (int i = 0; i < gridSize; i++) paramsScratch[i] = Utab[i] * Fa(l1, i) * Fb(l2, i);
       const auto this_integral_and_test =
-          smallGrid.integrate(paramsScratch_.data(), tolerance, start, end);
+          smallGrid.integrate(paramsScratch.data(), tolerance, start, end);
       tests[ix] = this_integral_and_test.second;
       failed = failed || (tests[ix] == 0);
       values(l1, l2) = tests[ix] == 0 ? 0.0 : this_integral_and_test.first;

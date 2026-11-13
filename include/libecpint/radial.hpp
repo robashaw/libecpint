@@ -59,9 +59,6 @@ class RadialIntegral {
   /// Tolerance for change below which an integral is considered converged
   double tolerance;
 
-  mutable std::vector<double> besselScratch_;
-  mutable std::vector<double> paramsScratch_;
-
   /**
    * Builds a matrix of Bessel at the given points up to the given maximum angular momentum.
    * @param r - vector of points to evaluate at

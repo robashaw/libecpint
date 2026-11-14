@@ -233,9 +233,11 @@ struct BenchResult {
   long long n_ecp_calls;
   double t_init;
   double t_integrals;
+  double t_total;  // wall time for the whole run, including setup and call counting
 };
 
 static BenchResult run_bench(int n_atoms, double spacing, const std::string& share_dir) {
+  auto t_start = std::chrono::steady_clock::now();
   auto coords = make_grid(n_atoms, spacing);
 
   int total_shells = SHELLS_PER_ATOM * n_atoms;
@@ -294,6 +296,7 @@ static BenchResult run_bench(int n_atoms, double spacing, const std::string& sha
   factory.compute_integrals();
   t1 = std::chrono::steady_clock::now();
   res.t_integrals = std::chrono::duration<double>(t1 - t0).count();
+  res.t_total = std::chrono::duration<double>(t1 - t_start).count();
 
   return res;
 }
@@ -310,13 +313,6 @@ int main(int argc, char* argv[]) {
 
   std::cout << "Scaling test: Ag clusters, spacing=" << spacing << " angstrom"
             << ", LIBECPINT_MAX_L=" << LIBECPINT_MAX_L << "\n\n";
-
-  std::cout << std::fixed << std::setprecision(4);
-  std::cout << std::setw(6) << "Natom" << std::setw(8) << "Nshell" << std::setw(8) << "Ncart"
-            << std::setw(10) << "Pairs" << std::setw(12) << "ECPcalls" << std::setw(12) << "Init(s)"
-            << std::setw(12) << "Integ(s)" << std::setw(12) << "us/pair" << std::setw(12)
-            << "us/call" << "\n";
-  std::cout << std::string(92, '-') << "\n";
 
   // Run screening diagnostic on a small 2-atom system
   {
@@ -353,9 +349,15 @@ int main(int argc, char* argv[]) {
     dump_screening_diagnostics(diag_factory);
   }
 
+  std::cout << std::fixed << std::setprecision(4);
+  std::cout << std::setw(6) << "Natom" << std::setw(8) << "Nshell" << std::setw(8) << "Ncart"
+            << std::setw(10) << "Pairs" << std::setw(12) << "ECPcalls" << std::setw(12) << "Init(s)"
+            << std::setw(12) << "Integ(s)" << std::setw(12) << "us/pair" << std::setw(12)
+            << "us/call" << std::setw(12) << "Total(s)" << "\n";
+  std::cout << std::string(104, '-') << "\n";
+
   std::vector<BenchResult> results;
   for (int n : sizes) {
-    std::cerr << "Running N=" << n << "..." << std::flush;
     auto res = run_bench(n, spacing, share_dir);
 
     double us_per_pair = res.t_integrals * 1e6 / res.n_shell_pairs;
@@ -364,8 +366,8 @@ int main(int argc, char* argv[]) {
     std::cout << std::setw(6) << res.n_atoms << std::setw(8) << res.n_shells << std::setw(8)
               << res.n_cart << std::setw(10) << res.n_shell_pairs << std::setw(12)
               << res.n_ecp_calls << std::setw(12) << res.t_init << std::setw(12) << res.t_integrals
-              << std::setw(12) << us_per_pair << std::setw(12) << us_per_call << "\n";
-    std::cerr << " done (" << std::setprecision(1) << res.t_integrals << "s)\n";
+              << std::setw(12) << us_per_pair << std::setw(12) << us_per_call << std::setw(12)
+              << res.t_total << std::endl;
     results.push_back(res);
   }
 

@@ -4,3 +4,4 @@ target_link_libraries(quadrature_smoothness_test ecpint)
 add_test(NAME QuadratureSmoothness
 	 COMMAND quadrature_smoothness_test
 	 WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tests/lib/quadrature_smoothness)
+ecpint_test_requires_max_l(QuadratureSmoothness 3)

@@ -6,11 +6,13 @@
 .clangd/
 .DS_Store
 build/*
+install/*
 _example2/*
-#*
+include/libecpint/qgen.hpp
 build_debug/*
 build_highl/*
 doc/doxygen/html/*
 doc/doxygen/latex/*
 doc/sphinx/build/*
+doc/sphinx/source/api/*
 compile_commands.json

@@ -1,121 +1,122 @@
-#include "gtest/gtest.h"
 #include "bessel.hpp"
-#include "mathutil.hpp"
+
 #include <iostream>
+
+#include "gtest/gtest.h"
+#include "mathutil.hpp"
 
 using namespace libecpint;
 
 class BesselTest : public testing::Test {
-protected:
-	BesselFunction bessie;
-	
-	void SetUp() override {
-		initFactorials();
-		bessie.init(2, 1600, 200, 1e-15);
-	}
+ protected:
+  BesselFunction bessie;
+
+  void SetUp() override {
+    initFactorials();
+    bessie.init(2, 1600, 200, 1e-15);
+  }
 };
 
 TEST_F(BesselTest, CalculateBigL) {
-	std::vector<double> values(4, 0.0);
-	// check it catches maxL > lMax
-	bessie.calculate(SMALL, 3, values);
+  std::vector<double> values(4, 0.0);
+  // check it catches maxL > lMax
+  bessie.calculate(SMALL, 3, values);
 }
 
 TEST_F(BesselTest, CalculateSmallZ) {
-	// check negative
-	std::vector<double> values(3, 0.0);
-	bessie.calculate(-1.0, 2, values);
-	EXPECT_DOUBLE_EQ(values[0], 1.0);
-	
-	values.assign(3, 0.0);
-	bessie.calculate(SMALL/2, 2, values);
-	EXPECT_NEAR(values[0], 1.0, 1e-7);
-	EXPECT_NEAR(values[1], 1.66667e-8, 1e-12);
-	
-	double v0 = bessie.calculate(SMALL/2, 0);
-	double v1 = bessie.calculate(SMALL/2, 1);
-	double v2 = bessie.calculate(SMALL/2, 2);
-	EXPECT_NEAR(values[0], v0, 1e-12);
-	EXPECT_NEAR(values[1], v1, 1e-12);
-	EXPECT_NEAR(values[2], v2, 1e-12);
+  // check negative
+  std::vector<double> values(3, 0.0);
+  bessie.calculate(-1.0, 2, values);
+  EXPECT_DOUBLE_EQ(values[0], 1.0);
+
+  values.assign(3, 0.0);
+  bessie.calculate(SMALL / 2, 2, values);
+  EXPECT_NEAR(values[0], 1.0, 1e-7);
+  EXPECT_NEAR(values[1], 1.66667e-8, 1e-12);
+
+  double v0 = bessie.calculate(SMALL / 2, 0);
+  double v1 = bessie.calculate(SMALL / 2, 1);
+  double v2 = bessie.calculate(SMALL / 2, 2);
+  EXPECT_NEAR(values[0], v0, 1e-12);
+  EXPECT_NEAR(values[1], v1, 1e-12);
+  EXPECT_NEAR(values[2], v2, 1e-12);
 }
 
 TEST_F(BesselTest, SingleVsMultiSmallZ) {
-	// Regression test: the single-L small-z branch must follow K_L(z) ~ (1-z) z^L / (2L+1)!!,
-	// i.e. agree (in relative terms) with the multi-L routine and the analytic value, even though
-	// the magnitudes are tiny. A previous bug used (z/(2L+1))^L, wrong for L >= 2.
-	double z = 1e-8;
-	std::vector<double> v(3, 0.0);
-	bessie.calculate(z, 2, v);
+  // Regression test: the single-L small-z branch must follow K_L(z) ~ (1-z) z^L / (2L+1)!!,
+  // i.e. agree (in relative terms) with the multi-L routine and the analytic value, even though
+  // the magnitudes are tiny. A previous bug used (z/(2L+1))^L, wrong for L >= 2.
+  double z = 1e-8;
+  std::vector<double> v(3, 0.0);
+  bessie.calculate(z, 2, v);
 
-	double analytic2 = (1.0 - z) * z * z / 15.0; // (2*2+1)!! = 15
-	EXPECT_NEAR(v[2] / analytic2, 1.0, 1e-6);
-	EXPECT_NEAR(bessie.calculate(z, 2) / analytic2, 1.0, 1e-6);
-	EXPECT_NEAR(bessie.calculate(z, 2) / v[2], 1.0, 1e-9);
+  double analytic2 = (1.0 - z) * z * z / 15.0;  // (2*2+1)!! = 15
+  EXPECT_NEAR(v[2] / analytic2, 1.0, 1e-6);
+  EXPECT_NEAR(bessie.calculate(z, 2) / analytic2, 1.0, 1e-6);
+  EXPECT_NEAR(bessie.calculate(z, 2) / v[2], 1.0, 1e-9);
 
-	double analytic1 = (1.0 - z) * z / 3.0; // (2*1+1)!! = 3
-	EXPECT_NEAR(bessie.calculate(z, 1) / analytic1, 1.0, 1e-6);
+  double analytic1 = (1.0 - z) * z / 3.0;  // (2*1+1)!! = 3
+  EXPECT_NEAR(bessie.calculate(z, 1) / analytic1, 1.0, 1e-6);
 }
 
 TEST_F(BesselTest, CalculateBigZ) {
-	std::vector<double> values(2, 0.0);
-	bessie.calculate(17.0, 1, values);
-	EXPECT_NEAR(values[0], 0.0294118, 1e-7);
-	EXPECT_NEAR(values[1], 0.0276817, 1e-7);
-	
-	double v0 = bessie.calculate(17.0, 0);
-	double v1 = bessie.calculate(17.0, 1);
-	EXPECT_NEAR(values[0], v0, 1e-12);
-	EXPECT_NEAR(values[1], v1, 1e-12);
+  std::vector<double> values(2, 0.0);
+  bessie.calculate(17.0, 1, values);
+  EXPECT_NEAR(values[0], 0.0294118, 1e-7);
+  EXPECT_NEAR(values[1], 0.0276817, 1e-7);
+
+  double v0 = bessie.calculate(17.0, 0);
+  double v1 = bessie.calculate(17.0, 1);
+  EXPECT_NEAR(values[0], v0, 1e-12);
+  EXPECT_NEAR(values[1], v1, 1e-12);
 }
 
 TEST_F(BesselTest, CalculateMidZ) {
-	std::vector<double> values(2, 0.0);
-	bessie.calculate(5.0, 1, values);
-	EXPECT_NEAR(values[0], 0.0999955, 1e-7);
-	EXPECT_NEAR(values[1], 0.0800054, 1e-7);
-	
-	double v0 = bessie.calculate(5.0, 0);
-	double v1 = bessie.calculate(5.0, 1);
-	EXPECT_NEAR(values[0], v0, 1e-12);
-	EXPECT_NEAR(values[1], v1, 1e-12);
+  std::vector<double> values(2, 0.0);
+  bessie.calculate(5.0, 1, values);
+  EXPECT_NEAR(values[0], 0.0999955, 1e-7);
+  EXPECT_NEAR(values[1], 0.0800054, 1e-7);
+
+  double v0 = bessie.calculate(5.0, 0);
+  double v1 = bessie.calculate(5.0, 1);
+  EXPECT_NEAR(values[0], v0, 1e-12);
+  EXPECT_NEAR(values[1], v1, 1e-12);
 }
 
 TEST_F(BesselTest, UpperBoundSmallZ) {
-	std::vector<double> values(3, 0.0); 
-	bessie.calculate(SMALL/2, 2, values);
-	double ub0 = bessie.upper_bound(SMALL/2, 0);
-	double ub1 = bessie.upper_bound(SMALL/2, 1);
-	double ub2 = bessie.upper_bound(SMALL/2, 2);
-	EXPECT_TRUE(ub0 >= values[0]);
-	EXPECT_TRUE(ub1 >= values[1]);
-	EXPECT_TRUE(ub2 >= values[2]);
+  std::vector<double> values(3, 0.0);
+  bessie.calculate(SMALL / 2, 2, values);
+  double ub0 = bessie.upper_bound(SMALL / 2, 0);
+  double ub1 = bessie.upper_bound(SMALL / 2, 1);
+  double ub2 = bessie.upper_bound(SMALL / 2, 2);
+  EXPECT_TRUE(ub0 >= values[0]);
+  EXPECT_TRUE(ub1 >= values[1]);
+  EXPECT_TRUE(ub2 >= values[2]);
 }
 
 TEST_F(BesselTest, UpperBoundBigZ) {
-	std::vector<double> values(3, 0.0); 
-	bessie.calculate(17.0, 2, values);
-	double ub0 = bessie.upper_bound(17.0, 0);
-	double ub1 = bessie.upper_bound(17.0, 1);
-	double ub2 = bessie.upper_bound(17.0, 2);
-	EXPECT_TRUE(ub0 >= values[0]);
-	EXPECT_TRUE(ub1 >= values[1]);
-	EXPECT_TRUE(ub2 >= values[2]);
+  std::vector<double> values(3, 0.0);
+  bessie.calculate(17.0, 2, values);
+  double ub0 = bessie.upper_bound(17.0, 0);
+  double ub1 = bessie.upper_bound(17.0, 1);
+  double ub2 = bessie.upper_bound(17.0, 2);
+  EXPECT_TRUE(ub0 >= values[0]);
+  EXPECT_TRUE(ub1 >= values[1]);
+  EXPECT_TRUE(ub2 >= values[2]);
 }
 
 TEST_F(BesselTest, UpperBoundMidZ) {
-	std::vector<double> values(3, 0.0); 
-	bessie.calculate(5.054, 2, values);
-	double ub0 = bessie.upper_bound(5.054, 0);
-	double ub1 = bessie.upper_bound(5.054, 1);
-	double ub2 = bessie.upper_bound(5.054, 2);
-	EXPECT_TRUE(ub0 >= values[0]);
-	EXPECT_TRUE(ub1 >= values[1]);
-	EXPECT_TRUE(ub2 >= values[2]);
+  std::vector<double> values(3, 0.0);
+  bessie.calculate(5.054, 2, values);
+  double ub0 = bessie.upper_bound(5.054, 0);
+  double ub1 = bessie.upper_bound(5.054, 1);
+  double ub2 = bessie.upper_bound(5.054, 2);
+  EXPECT_TRUE(ub0 >= values[0]);
+  EXPECT_TRUE(ub1 >= values[1]);
+  EXPECT_TRUE(ub2 >= values[2]);
 }
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
 }

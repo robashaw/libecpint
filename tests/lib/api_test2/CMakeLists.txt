@@ -4,3 +4,4 @@ target_link_libraries(api_test2 ecpint)
 add_test(NAME APITest2
 	 COMMAND api_test2 ${CMAKE_SOURCE_DIR}/share/libecpint
 	 WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tests/lib/api_test2)
+ecpint_test_requires_max_l(APITest2 4)

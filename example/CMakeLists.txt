@@ -15,3 +15,4 @@ file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/hydrogen.bas
 add_test(NAME example
       COMMAND example ${CMAKE_SOURCE_DIR}/share/libecpint
 	 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+ecpint_test_requires_max_l(example 4)

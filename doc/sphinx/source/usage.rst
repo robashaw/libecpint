@@ -45,9 +45,9 @@ These steps are performed as follows:
 	
 	factory.set_gaussian_basis(N_shells, g_coords, g_exps, g_coefs, g_ams, g_lengths);
 	factory.set_ecp_basis(N_ecps, u_coords, u_exps, u_coefs, u_ams, u_ns, u_lengths);
-	factory.init(deriv_order);
-	
-where ``N_shells`` and ``N_ecps`` are the numbers of shells in the Gaussian basis, and the number of ECP centers, respectively, while ``deriv_order`` is the maximum derivatives needed (0, 1, or 2). The rest of the parameters are:
+	factory.init(deriv_order, tol, radial_tol, smallGrid, bigGrid);
+
+where ``N_shells`` and ``N_ecps`` are the numbers of shells in the Gaussian basis, and the number of ECP centers, respectively, while ``deriv_order`` is the maximum derivatives needed (0, 1, or 2). The ``init`` parameters after ``deriv_order`` are optional and control screening and quadrature (see Settings_ below). The rest of the parameters are:
 
  - the Cartesian coordinates *in Bohr* (``g_coords, u_coords``);
  - the exponents, coefficients, and angular momenta (and powers, ``u_ns``, for the ECPs) comprising the basis sets
@@ -181,10 +181,37 @@ You then call the compute routines when you need the new integrals and/or deriva
 
 **NOTE** you will need to re-get the pointers using the get routines every time you recompute integrals/derivatives.
 
+.. _Settings:
+
 Settings
 ^^^^^^^^
 
-**TODO** detail optional settings that can be passed to ECPIntegrator
+The ``init`` method accepts optional parameters that control screening and quadrature accuracy:
+
+.. code-block:: c++
+
+	factory.init(deriv_order, tol, radial_tol, smallGrid, bigGrid);
+
++-----------------+-----------+----------------------------------------------------------+
+| Parameter       | Default   |  Description                                             |
++=================+===========+==========================================================+
+| deriv_order     | 0         | Maximum derivative order to compute (0, 1, or 2).       |
++-----------------+-----------+----------------------------------------------------------+
+| tol             | 1e-12     | Screening tolerance for skipping shell-pair              |
+|                 |           | contributions. Also determines ``shell_tolerance``       |
+|                 |           | for skipping entire shell contributions based on         |
+|                 |           | the maximum angular momentum in the ECP basis.           |
++-----------------+-----------+----------------------------------------------------------+
+| radial_tol      | 1e-15     | Convergence tolerance for the radial quadrature.         |
++-----------------+-----------+----------------------------------------------------------+
+| smallGrid       | 256       | Maximum number of quadrature points for the small        |
+|                 |           | radial integration grid.                                 |
++-----------------+-----------+----------------------------------------------------------+
+| bigGrid         | 1024      | Maximum number of quadrature points for the large        |
+|                 |           | radial integration grid.                                 |
++-----------------+-----------+----------------------------------------------------------+
+
+The ``tolerance`` and ``shell_tolerance`` fields on ``ECPIntegrator`` are set by ``init`` and are used during integral, first derivative, and second derivative evaluation to skip negligible contributions. For most applications the defaults are appropriate; loosening ``tol`` (e.g. to 1e-10) can speed up calculations on larger molecules at the cost of some accuracy.
 
 
 Low Level API
@@ -288,7 +315,29 @@ where ``A, B, C`` are as described earlier. These are again additive but THERE I
 Settings
 ^^^^^^^^
 
-**TODO** detail optional settings that can be passed to ECPIntegral
+The ``ECPIntegral`` constructor accepts the following parameters:
+
+.. code-block:: c++
+
+	ECPIntegral ecpint(maxLB, maxLU, deriv_order, thresh, smallGrid, bigGrid);
+
++-----------------+-----------+----------------------------------------------------------+
+| Parameter       | Default   |  Description                                             |
++=================+===========+==========================================================+
+| maxLB           | (required)| Maximum angular momentum in the Gaussian basis.          |
++-----------------+-----------+----------------------------------------------------------+
+| maxLU           | (required)| Maximum angular momentum in the ECP basis.               |
++-----------------+-----------+----------------------------------------------------------+
+| deriv_order     | 0         | Maximum derivative order to compute (0, 1, or 2).       |
++-----------------+-----------+----------------------------------------------------------+
+| thresh          | 1e-15     | Convergence tolerance for the radial quadrature.         |
++-----------------+-----------+----------------------------------------------------------+
+| smallGrid       | 256       | Maximum number of quadrature points for the small        |
+|                 |           | radial integration grid.                                 |
++-----------------+-----------+----------------------------------------------------------+
+| bigGrid         | 1024      | Maximum number of quadrature points for the large        |
+|                 |           | radial integration grid.                                 |
++-----------------+-----------+----------------------------------------------------------+
 
 .. toctree::
    :hidden:

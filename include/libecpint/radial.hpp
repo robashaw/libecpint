@@ -42,7 +42,7 @@ constexpr double MIN_EXP = 0.002;
  *
  * This should not be used directly, and is owned by ECPIntegral.
  * It provides the interface to the adaptive quadrature algorithms used to calculate the type 1 and
- * 2 radial integrals, and the unrolled recursive scheme for type 2 radial integrals.
+ * 2 radial integrals, and the fixed quadrature for off-centre type 2 radial integrals.
  */
 class RadialIntegral {
  private:
@@ -51,17 +51,13 @@ class RadialIntegral {
   GCQuadrature bigGrid;
   /// The smaller integration grid, default for the type 2 integrals
   GCQuadrature smallGrid;
-  /// Grid of the smaller size (one-point scheme), mapped onto a finite window for numerical type 2
-  /// radial integrals of off-centre primitives
+  /// Unused; kept so that the class layout (ABI) is unchanged
   GCQuadrature primGrid;
   /// Modified spherical Bessel function of the first kind
   BesselFunction bessie;
 
   /// Tolerance for change below which an integral is considered converged
   double tolerance;
-
-  mutable std::vector<double> besselScratch_;
-  mutable std::vector<double> paramsScratch_;
 
   /**
    * Builds a matrix of Bessel at the given points up to the given maximum angular momentum.
@@ -116,46 +112,6 @@ class RadialIntegral {
   int integrate(int maxL, int gridSize, const TwoIndex<double>& intValues, GCQuadrature& grid,
                 std::vector<double>& values, int start, int end, int offset = 0,
                 int skip = 1) const;
-
-  /**
-   * Computes the base integrals needed for the recursive type 2 integration. See ref. Shaw2017 for
-   * details.
-   * @param N_min - the lowest index of base integral needed (usually 2)
-   * @param N_max - the highest index of base integral needed
-   * @param p - the sum of shellA, shellB, and ECP exponents (p = a + b + n)
-   * @param o_root_p = 1/sqrt(p)
-   * @param P1 = (a * A + b * B) / p where A, B are the magnitudes of distance of shellA and shellB
-   * from ECP
-   * @param P2  = (b * B - a * A) / p
-   * @param P1_2 = P1^2
-   * @param P2_2 = P2^2
-   * @param X1 = exp(p * P1^2 - a*A^2*b*B^2) / (16.0 * a * A * b * B)
-   * @param X2 = exp(p * P2^2 - a*A^2*b*B^2) / (16.0 * a * A * b * B)
-   * @param oP1 = 1 / P1 (P1 can't be zero as a, A, b, B, p > 0)
-   * @param oP2 = 1 / P2 (set to zero if P2 = 0)
-   * @param values - array of size N_max - N_min + 1 in which results are returned
-   */
-  void compute_base_integrals(int N_min, int N_max, double p, double o_root_p, double P1, double P2,
-                              double P1_2, double P2_2, double X1, double X2, double oP1,
-                              double oP2, double* values) const;
-
-  /**
-   * Performs a single radial quadrature over a small grid
-   * @param N - power of r in integrand
-   * @param l1 - angular momentum of first Bessel function
-   * @param l2 - angular momentum of second Bessel function
-   * @param n - exponent of ECP
-   * @param a - exponent of primitive in shellA
-   * @param b - exponent of primitive in shellB
-   * @param A - magnitude of distance of shellA from ECP
-   * @param B - magnitude of distance of shellB from ECP
-   * @param rmin - lower limit of the region in which the integrand is non-negligible
-   * @param rmax - upper limit of the region in which the integrand is non-negligible
-   * @return a pair, where the first is the integral value, and the second is true if integration
-   * converged
-   */
-  std::pair<double, bool> integrate_small(int N, int l1, int l2, double n, double a, double b,
-                                          double A, double B, double rmin, double rmax) const;
 
  public:
   /// Default constructor creates an empty object
@@ -225,14 +181,14 @@ class RadialIntegral {
              const Parameters& parameters, TwoIndex<double>& values) const;
 
   /**
-   * Calculates all the requested type 2 radial integrals using predominantly a recursive algorithm.
+   * Calculates all the requested type 2 radial integrals, for shells A and B both off the ECP
+   * centre, by a fixed Gauss-Legendre quadrature on a window bracketing the integrand.
    * In the triples, l1 must be less than or equal to l2. Symmetry means that for l1 > l2, {N, l1,
    * l2} can be calculated as {N, l2, l1} but with shellA and shellB (And therefore also A and B)
    * swapped.
    *
    * @param triples - vector of triples of form {N, l1, l2} of all required radial integrals
-   * @param nbase - the maximum number of base integrals that will be needed (so only have to
-   * compute once)
+   * @param nbase - unused (formerly the number of base integrals for the closed forms)
    * @param lam - the ECP shell angular momentum to be calculated over
    * @param U - the ECP to be integrated over
    * @param shellA - the first GaussianShell

@@ -4,3 +4,4 @@ target_link_libraries(test1 ecpint)
 add_test(NAME IntTest1
 	 COMMAND test1
 	 WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tests/lib/int_test1)
+ecpint_test_requires_max_l(IntTest1 4)

@@ -8,9 +8,9 @@
 build/*
 install/*
 _example2/*
-include/libecpint/qgen.hpp
 build_debug/*
 build_highl/*
+experiments/*
 doc/doxygen/html/*
 doc/doxygen/latex/*
 doc/sphinx/build/*

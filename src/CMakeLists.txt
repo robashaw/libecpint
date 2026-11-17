@@ -11,7 +11,7 @@ else()
                    lib/mathutil.cpp
                    lib/angular.cpp)
 
-    target_compile_features(generate PUBLIC cxx_std_11)
+    target_compile_features(generate PUBLIC cxx_std_17)
     target_include_directories(generate
       PRIVATE
         ${PROJECT_SOURCE_DIR}/include
@@ -27,21 +27,18 @@ else()
 endif()
 
 file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/generated")
-file(
-  COPY
-    "${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.part"
-    "${CMAKE_CURRENT_SOURCE_DIR}/generated/qgen.part"
-  DESTINATION
-    "${CMAKE_CURRENT_BINARY_DIR}/generated"
-  )
 find_package (Python COMPONENTS Interpreter)
-execute_process(COMMAND ${Python_EXECUTABLE} "${CMAKE_CURRENT_SOURCE_DIR}/makelist.py" "${LIBECPINT_MAX_L}" "${CMAKE_CURRENT_BINARY_DIR}")
+execute_process(COMMAND ${Python_EXECUTABLE} "${CMAKE_CURRENT_SOURCE_DIR}/makelist.py" "${LIBECPINT_MAX_UNROL}" "${CMAKE_CURRENT_BINARY_DIR}")
 file(READ "${CMAKE_CURRENT_BINARY_DIR}/qlist.txt" GENERATED_SOURCES)
 STRING(REGEX REPLACE "\n" ";" GENERATED_SOURCES "${GENERATED_SOURCES}")
+# The generated header qgen.hpp is internal, and written to the build tree with the sources
 add_custom_command(
-	OUTPUT ${GENERATED_SOURCES}
-	COMMAND generate "${PROJECT_SOURCE_DIR}/include/libecpint/"
+	OUTPUT ${GENERATED_SOURCES} "${CMAKE_CURRENT_BINARY_DIR}/generated/qgen.hpp"
+	COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.part"
+	        "${CMAKE_CURRENT_SOURCE_DIR}/generated/qgen.part" "${CMAKE_CURRENT_BINARY_DIR}/generated"
+	COMMAND generate "${CMAKE_CURRENT_BINARY_DIR}/generated/"
 	DEPENDS generate ${CMAKE_CURRENT_SOURCE_DIR}/generated/ecpint_gen.part
+	        ${CMAKE_CURRENT_SOURCE_DIR}/generated/qgen.part
 	COMMENT "Generating and unrolling integral code."
 )
 
@@ -57,7 +54,7 @@ if(NOT BUILD_SHARED_LIBS)
   set_property(TARGET ecpint PROPERTY POSITION_INDEPENDENT_CODE ON)
 endif()
 
-target_compile_features(ecpint PUBLIC cxx_std_11)
+target_compile_features(ecpint PUBLIC cxx_std_17)
 set_target_properties(ecpint PROPERTIES SOVERSION ${API_VERSION})
 target_include_directories(ecpint
   PUBLIC
@@ -66,52 +63,14 @@ target_include_directories(ecpint
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include/libecpint>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/libecpint>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+  PRIVATE
+    ${CMAKE_CURRENT_BINARY_DIR}/generated
 )
-
-if (LIBECPINT_USE_CERF)
-    find_package(cerf CONFIG REQUIRED) # QUIET)  # COMPONENTS C)
-
-    if(${cerf_FOUND})
-        get_property(_loc TARGET cerf::cerf PROPERTY LOCATION)
-        message(STATUS "${Cyan}Found cerf${ColourReset}: ${_loc}")
-    else()
-        if(${CMAKE_INSIST_FIND_PACKAGE_cerf})
-            message(FATAL_ERROR "Suitable cerf could not be externally located as user insists")
-        endif()
-    endif()
-    target_compile_definitions(ecpint PRIVATE USING_CERF=1)
-    if(cerf_VERSION VERSION_GREATER_EQUAL "3")
-        target_link_libraries(ecpint
-         PRIVATE
-          cerf::cerfcpp
-        )
-    else()
-        target_link_libraries(ecpint
-         PRIVATE
-          cerf::cerf
-        )
-    endif()
-else()
-    message(STATUS "${Cyan}Using Faddeeva${ColourReset}: internal")
-    target_link_libraries(ecpint
-     PRIVATE
-      Faddeeva
-    )
-endif()
-
-if(LIBECPINT_USE_PUGIXML)
-  target_include_directories(ecpint PRIVATE ${PUGIXML_INCLUDE_DIR})
-  target_link_libraries(ecpint PRIVATE libpugixml)
-endif()
 
 # =========
 #  Install
 # =========
 
-if (LIBECPINT_USE_PUGIXML)
-  # used in api.h
-  target_compile_definitions(ecpint PUBLIC HAS_PUGIXML)
-endif()
 install(
   TARGETS
     ecpint

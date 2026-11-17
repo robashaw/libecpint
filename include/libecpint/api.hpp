@@ -30,13 +30,12 @@
 #include <string>
 #include <vector>
 
+#include "assembly.hpp"
 #include "ecpint.hpp"
 #include "multiarr.hpp"
+#include "screening.hpp"
 
 namespace libecpint {
-
-/// returns the index for the ij-th second derivative for a system with N atoms
-#define H_START(i, j, N) (9 * j + 3 * (3 * N - 1) * i - (9 * i * (i + 1)) / 2 - 3)
 
 /** \struct ECPIntegrator
  * \brief API object that stores and handles all data for computing ECP integrals and their
@@ -80,7 +79,9 @@ struct ECPIntegrator {
 
   /** Container for the ECP 1st derivatives, matrices are in same order as integrals,
    * order in the vector is {Ax, Ay, Az, Bx, By, Bz, ... } where atom order {A, B, C, ...}
-   * is the same as provided when calling set_gaussian_basis. Total length is 3*natoms
+   * is the same as provided when calling set_gaussian_basis. Total length is 3*natoms, so the
+   * memory needed grows as natoms * ncart^2 (e.g. ~7 GB for 77 atoms with 1900 basis functions);
+   * compute_gradient avoids this when only the contraction with a density matrix is needed.
    */
   std::vector<TwoIndex<double>> first_derivs;
 
@@ -89,7 +90,10 @@ struct ECPIntegrator {
    * is the same as provided when calling set_gaussian_basis. The coordinate order within this is
    * {xx, xy, xz, yy, yz, zz} for AA, BB, CC, etc. and
    * {xx, xy, xz, yx, yy, yz, zx, zy, zz} for AB, AC, BC, etc.
-   * Total length is therefore: 3*natoms*(3*natoms+1)/2
+   * Total length is therefore: 3*natoms*(3*natoms+1)/2, so the memory needed grows as
+   * natoms^2 * ncart^2, and is prohibitive beyond small systems (~800 GB for 77 atoms with 1900
+   * basis functions); compute_hessian avoids this when only the contraction with a density matrix
+   * is needed.
    */
   std::vector<TwoIndex<double>> second_derivs;
 
@@ -136,10 +140,10 @@ struct ECPIntegrator {
   void set_ecp_basis(int necps, const double* coords, const double* exponents, const double* coefs,
                      const int* ams, const int* ns, const int* shell_lengths);
 
-#ifdef HAS_PUGIXML
   /**  Constructs an ECPBasis with ECP objects for each ECP, from the built-in ECP library.
    *  The order of the atoms doesn't matter, and ids will be matched to the order from
-   * set_gaussian_basis. It will search for the file  "share_dir + / + name + .xml"
+   * set_gaussian_basis. It will search for the MOLPRO-format file
+   * "share_dir + /raw/ + name + .ecp"
    *
    *  @param necps - the number of ECPs
    *  @param coords  - a stream of cartesian coordinates (in bohr) in xyz order for each ECP (size
@@ -147,12 +151,11 @@ struct ECPIntegrator {
    *  @param charges - the atomic numbers of each ECP atom (in same order as coords, size necps)
    *  @param names - the name of each ECP, in same order as charges, e.g. "ecp10mdf" (size necps)
    *  @param share_dir - the location of the share directory with the ecp library (typically
-   * "PATH/share/libecpint/xml")
+   * "PATH/share/libecpint")
    */
   void set_ecp_basis_from_library(int necps, const double* coords, const int* charges,
                                   const std::vector<std::string>& names,
                                   const std::string& share_dir);
-#endif
 
   /**  Updates the positions of the GaussianShells.
    *  The order of the coordinates must match that when originally specified in set_gaussian_basis.
@@ -181,7 +184,8 @@ struct ECPIntegrator {
    * @param deriv_ - the maximum derivative order to be computed; affects whether
    * compute_first/second_derivs can be called; default 0
    * @param tol - the tolerance for screening shell pairs; default 1e-12
-   * @param radial_tol - the tolerance for convergence of radial integrals; default 1e-15
+   * @param radial_tol - the screening tolerance of the radial integrals (0 skips nothing); default
+   *  1e-15
    * @param smallGrid - the maximum number of quadrature points for the small radial integration
    *  grid; default 256
    * @param bigGrid - the maximum number of quadrature points for the large radial integration grid;
@@ -196,16 +200,40 @@ struct ECPIntegrator {
    */
   void compute_integrals();
 
+  /** Contracts the first derivatives of the ECP integrals V with a density matrix,
+   *   gradient[3 * X + i] = sum_kl density(k, l) dV(k, l) / dX_i,
+   * for each atom X (in the order given in set_gaussian_basis) and i = x, y, z. The derivative
+   * matrices are never stored, so memory needed is O(ncart^2 + natoms): this is the recommended
+   * way to get derivatives for large systems. Requires init with deriv >= 1.
+   * @param density - ncart x ncart matrix, row-major, in the order of the integrals (need not be
+   *  symmetric)
+   * @return the 3*natoms contractions
+   */
+  std::vector<double> compute_gradient(const double* density);
+
+  /** Contracts the second derivatives of the ECP integrals V with a density matrix,
+   *   hessian[(3 * X + i) * 3 * natoms + 3 * Y + j] = sum_kl density(k, l) d2V(k, l) / dX_i dY_j,
+   * as a full (symmetric) 3*natoms x 3*natoms matrix, row-major. The derivative matrices are never
+   * stored, so memory needed is O(ncart^2 + natoms^2). Requires init with deriv >= 2.
+   * @param density - as for compute_gradient
+   * @return the contractions
+   */
+  std::vector<double> compute_hessian(const double* density);
+
   /** Computes the first derivative of the ECP integrals with respect to each atomic coordinate,
    * placing the results in first_derivs. The atom order matches that specified in
-   * set_gaussian_basis, in xyz order.
+   * set_gaussian_basis, in xyz order. All 3*natoms ncart x ncart matrices are stored (see
+   * first_derivs for the memory needed); use compute_gradient where the contraction with a
+   * density matrix is enough.
    */
   void compute_first_derivs();
 
   /** Computes the second derivative of the ECP integrals with respect to each pair of atomic
    * coordinates, but taking into account symmetry of second derivatives. The atom order matches
    * that specified in set_gaussian_basis. See the docs for second_derivs for detailed description
-   * of the order.
+   * of the order. All 3*natoms*(3*natoms+1)/2 ncart x ncart matrices are stored (see
+   * second_derivs for the memory needed); use compute_hessian where the contraction with a density
+   * matrix is enough.
    */
   void compute_second_derivs();
 
@@ -218,6 +246,7 @@ struct ECPIntegrator {
 
   /** @return a vector (size 3*natoms) of shared pointers to the data for first_derivs
    * the packing is the same as for get_integrals, and the order is Ax,Ay,Az,Bx,By,Bz, etc.
+   * The data are copied, doubling the memory in use while both are held.
    */
   std::vector<std::shared_ptr<std::vector<double>>> get_first_derivs() {
     std::vector<std::shared_ptr<std::vector<double>>> results;
@@ -227,16 +256,28 @@ struct ECPIntegrator {
 
   /** @return a vector (size 3*natoms*(3*natoms+1)/2) of shared pointers to the data for
    * second_derivs the packing is the same as for get_integrals, and the order is that specified in
-   * the docs for second_derivs
+   * the docs for second_derivs. The data are copied, as for get_first_derivs.
    */
   std::vector<std::shared_ptr<std::vector<double>>> get_second_derivs() {
     std::vector<std::shared_ptr<std::vector<double>>> results;
     for (auto& v : second_derivs) results.push_back(std::make_shared<std::vector<double>>(v.data));
     return results;
   }
+
+ private:
+  /// The shell and shell-pair screening for derivatives of order d
+  ShellPairScreen screen(int d) const;
+
+  // The loops over shell pairs and ECPs for the derivatives (see first_derivs_loop and
+  // second_derivs_loop in assembly.hpp), with this integrator's engine and screening
+  template <typename Add>
+  void first_derivs_loop(Add add);
+  template <typename Add>
+  void second_derivs_loop(Add add);
 };
 
-double shell_bound(int la, double alpha, double A2, double eta);
+/// Shape factor bounding a primitive of a shell against an ECP; see screening.hpp
+using screening::shell_bound;
 
 }  // namespace libecpint
 

@@ -23,7 +23,6 @@ set(API_VERSION 1)
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 # code generator variables
-set(LIBECPINT_MAX_L "5" CACHE STRING "Maximum angular momentum")
 set(LIBECPINT_MAX_UNROL "1" CACHE STRING "Maximum L for unrolling")
 
 # per-thread cache for the radial factors of off-centre type 2 integrals, in MB
@@ -41,17 +40,6 @@ configure_file (
 )
 
 include(GNUInstallDirs)
-include(ExternalProject)
-
-option(LIBECPINT_USE_PUGIXML "Use pugixml and build file reading routines." ON)
-if (LIBECPINT_USE_PUGIXML)
-  include(external/ImportPugiXML.cmake)
-  add_compile_definitions(HAS_PUGIXML)
-else()
-  message(STATUS "pugixml not configured; reading ECP definitions from files is disabled.")
-endif()
-
-option(LIBECPINT_USE_CERF "Detect pre-built Cerf library for complex error functions. OFF builds internal Faddeeva library." OFF)
 
 if(MSVC)
     # MSVC does not include <cmath> constants, unless _USE_MATH_DEFINES is defined.
@@ -60,7 +48,6 @@ if(MSVC)
     add_definitions("/EHsc")
 endif()
 
-add_subdirectory(external)
 add_subdirectory(src)
 
 option(LIBECPINT_BUILD_TESTS "Enables Libecpint tests." ON)
@@ -70,6 +57,7 @@ if (LIBECPINT_BUILD_TESTS)
   include(external/ImportGTest.cmake)
   enable_testing()
   add_subdirectory(tests)
+  add_subdirectory(benchmarks)
   add_subdirectory(example)
 endif()
 

@@ -1,6 +1,7 @@
 #include "ecp.hpp"
 
 #include <iostream>
+#include <stdexcept>
 
 #include "gtest/gtest.h"
 
@@ -54,6 +55,18 @@ TEST_F(ECPTest, AddPrim) {
   EXPECT_EQ(u.getN(), 5);
   EXPECT_EQ(u.getL(), 4);
   EXPECT_EQ(u.getGaussian(4).n, -1);
+}
+
+TEST_F(ECPTest, AddPrimOutOfRange) {
+  // l up to LIBECPINT_MAX_L and n = 0..4 (r^-2..r^2) are supported; beyond, the arrays indexed by
+  // l and the power tables would be overrun, so addPrimitive throws
+  EXPECT_NO_THROW(u.addPrimitive(2, LIBECPINT_MAX_L, 1.0, 1.0));
+  EXPECT_NO_THROW(u.addPrimitive(4, 0, 1.0, 1.0));
+  EXPECT_THROW(u.addPrimitive(2, LIBECPINT_MAX_L + 1, 1.0, 1.0), std::invalid_argument);
+  EXPECT_THROW(u.addPrimitive(2, -1, 1.0, 1.0), std::invalid_argument);
+  EXPECT_THROW(u.addPrimitive(5, 0, 1.0, 1.0), std::invalid_argument);
+  EXPECT_THROW(u.addPrimitive(-1, 0, 1.0, 1.0), std::invalid_argument);
+  EXPECT_EQ(u.getN(), 6);
 }
 
 TEST_F(ECPTest, SetPos) {

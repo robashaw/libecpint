@@ -25,14 +25,14 @@
 #include "ecp.hpp"
 
 #include <algorithm>
+#include <cctype>
 #include <cmath>
+#include <fstream>
 #include <iostream>
+#include <sstream>
 #include <stdexcept>
 
 #include "mathutil.hpp"
-#ifdef HAS_PUGIXML
-#include "pugixml.hpp"
-#endif
 
 namespace libecpint {
 
@@ -101,7 +101,7 @@ void ECP::addPrimitive(const int n, const int l, const double a, const double d,
 
 void ECP::sort() {
   std::stable_sort(gaussians.begin(), gaussians.end(),
-            [&](const GaussianECP& g1, const GaussianECP& g2) { return (g1.l < g2.l); });
+                   [&](const GaussianECP& g1, const GaussianECP& g2) { return (g1.l < g2.l); });
 }
 
 bool ECP::noType1() const {
@@ -148,36 +148,68 @@ int ECPBasis::getECPCore(const int q) const {
   return core;
 }
 
-#ifdef HAS_PUGIXML
+static std::vector<std::string> split_commas(const std::string& s) {
+  std::vector<std::string> tokens;
+  std::stringstream ss(s);
+  std::string token;
+  while (std::getline(ss, token, ',')) tokens.push_back(token);
+  return tokens;
+}
+
 void ECPBasis::addECP_from_file(const int q, const std::array<double, 3>& coords,
                                 const std::string& filename) {
-  ECP newECP;
-  newECP.center_ = coords;
+  const int n_atoms = sizeof(atom_names) / sizeof(atom_names[0]);
+  if (q > n_atoms)
+    throw std::runtime_error("libecpint: no element name for atomic number " + std::to_string(q));
+  std::ifstream file(filename);
+  if (!file) throw std::runtime_error("libecpint: cannot open ECP file " + filename);
 
-  std::string atom_name = q < 1 ? "X" : atom_names[q - 1];
-  pugi::xml_document doc;
-  pugi::xml_parse_result result = doc.load_file(filename.c_str());
-  pugi::xml_node atom_node = doc.child("root").child(atom_name.c_str());
-  int maxl = std::stoi(atom_node.attribute("maxl").value());
-  int ncore = std::stoi(atom_node.attribute("ncore").value());
-
-  auto it = core_electrons.find(q);
-  if (it == core_electrons.end()) core_electrons[q] = ncore;
-
-  for (pugi::xml_node shell = atom_node.child("Shell"); shell;
-       shell = shell.next_sibling("Shell")) {
-    int l = std::stoi(shell.attribute("lval").value());
-
-    for (pugi::xml_node nxc = shell.child("nxc"); nxc; nxc = nxc.next_sibling("nxc")) {
-      int n = std::stoi(nxc.attribute("n").value());
-      double x = std::stod(nxc.attribute("x").value());
-      double c = std::stod(nxc.attribute("c").value());
-      newECP.addPrimitive(n, l, x, c);
+  // Molpro format: '!' starts a comment, and statements end at ';' or a newline.
+  // Statements are stored lower case with all whitespace removed.
+  std::vector<std::string> statements;
+  std::string line, statement;
+  while (std::getline(file, line)) {
+    std::stringstream ss(line.substr(0, line.find('!')));
+    while (std::getline(ss, statement, ';')) {
+      statement.erase(std::remove_if(statement.begin(), statement.end(),
+                                     [](unsigned char c) { return std::isspace(c); }),
+                      statement.end());
+      std::transform(statement.begin(), statement.end(), statement.begin(),
+                     [](unsigned char c) { return std::tolower(c); });
+      if (!statement.empty()) statements.push_back(statement);
     }
   }
 
-  newECP.sort();
-  addECP(newECP, 0);
+  const std::string atom_name = q < 1 ? "x" : atom_names[q - 1];
+  for (size_t i = 0; i < statements.size(); i++) {
+    // Header: ecp,name,ncore,lmax[,nso]. The lmax+1 blocks that follow are in the order
+    // lmax, 0, 1, ..., lmax-1, each a primitive count k then k primitives "n,exponent,coef".
+    // Any nso spin-orbit blocks come after these, and are not read.
+    const std::vector<std::string> header = split_commas(statements[i]);
+    if (header.size() < 4 || header[0] != "ecp" || header[1] != atom_name) continue;
+
+    ECP newECP;
+    newECP.center_ = coords;
+    const int maxl = std::stoi(header[3]);
+    if (maxl > LIBECPINT_MAX_L)
+      throw std::runtime_error("libecpint: ECP for " + atom_name + " in " + filename +
+                               " has lmax " + header[3] + " > LIBECPINT_MAX_L");
+    for (int block = 0; block <= maxl; block++) {
+      const int l = block == 0 ? maxl : block - 1;
+      const int nprims = std::stoi(statements.at(++i));
+      for (int p = 0; p < nprims; p++) {
+        const std::vector<std::string> nxc = split_commas(statements.at(++i));
+        newECP.addPrimitive(std::stoi(nxc.at(0)), l, std::stod(nxc.at(1)), std::stod(nxc.at(2)));
+      }
+    }
+
+    auto it = core_electrons.find(q);
+    if (it == core_electrons.end()) core_electrons[q] = std::stoi(header[2]);
+
+    newECP.sort();
+    addECP(newECP, 0);
+    return;
+  }
+  throw std::runtime_error("libecpint: no ECP for " + atom_name + " in " + filename);
 }
-#endif
 }  // namespace libecpint

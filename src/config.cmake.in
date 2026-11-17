@@ -7,11 +7,4 @@
 if(NOT TARGET ECPINT::ecpint)
 
     include("${CMAKE_CURRENT_LIST_DIR}/ecpint-targets.cmake")
-
-    if(@LIBECPINT_USE_CERF@)
-        include(CMakeFindDependencyMacro)
-        if(NOT TARGET cerf::cerf)
-            find_dependency(cerf)
-        endif()
-    endif()
 endif()

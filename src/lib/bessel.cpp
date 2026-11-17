@@ -24,6 +24,7 @@
 
 #include "bessel.hpp"
 
+#include <algorithm>
 #include <cassert>
 #include <cmath>
 #include <iostream>
@@ -127,6 +128,16 @@ int BesselFunction::tabulate(const double accuracy) {
     }
   }
 
+  // Store K^(n) / n!, so that the Taylor series is a polynomial in (z - z0) evaluated without
+  // divisions
+  for (int ix = 0; ix < N + 1; ix++) {
+    double ofac = 1.0;
+    for (int n = 1; n < TAYLOR_CUT + 1; n++) {
+      ofac /= n;
+      for (int l = 0; l < dK_stride1; l++) dK[ix * dK_stride0 + n * dK_stride1 + l] *= ofac;
+    }
+  }
+
   return retval;
 }
 
@@ -157,49 +168,49 @@ void BesselFunction::calculate(const double z, int maxL, std::vector<double>& va
     for (int l = 1; l <= maxL; l++) values[l] = values[l - 1] * z / (2.0 * l + 1.0);
   }
   // Large z case
-  // K_l(z) ~ R_l(-z)/(2z)
-  // where R_l(z) = sum_{k=0 to l} T_l,k(z)
-  // where T_l,k(z) = (l+k)!/[k!(l-k)!] * (2z)^{-k}
+  // K_l(z) = [R_l(-z) - (-1)^l e^{-2z} R_l(z)]/(2z), where R_l(z) = sum_{k=0 to l}
+  // (l+k)!/[k!(l-k)!] (2z)^{-k}, by the recurrence of the scaled modified spherical Bessel
+  // functions, K_{l+1} = K_{l-1} - (2l+1)/z K_l, upwards from exact K_0 and K_1 while 2l+1 <= z.
+  // Beyond that, upwards amplifies errors by (2l+1)/z per order (1e-14 at l = 16, 1e-8 at l = 30
+  // just above z = 16; dropping the e^{-2z} terms of K_0 and K_1 gives 2e-13 at l = 14), so the
+  // higher orders come from the recurrence downwards, which is stable there (Miller's algorithm):
+  // started from K_{top+1} = 0 far enough above lMax that the error this makes is damped by
+  // prod ((2l+1)/z)^2 > 1e20, and normalised to the last order from upwards. top depends on lMax,
+  // not maxL, so that each K_l is the same whatever maxL is asked for (shared_factor reuses
+  // values computed for a larger maxL; with top from maxL, they differed in the last bit).
   else if (z > 16.0) {
-    values[0] = 0.5 / z;
-    for (int l = 1; l <= maxL; l++) {
-      values[l] = values[0];
-      double Rl = 1.0;
-      double Tlk = 1.0;
-      double cof = 1.0;
-      for (int k = 1; k <= l; k++) {
-        cof = (l - k + 1) * (l + k) / ((double)k);
-        Tlk *= -cof * values[0];
-        Rl += Tlk;
+    const double oz = 1.0 / z, e2 = std::exp(-2.0 * z);
+    values[0] = 0.5 * oz * (1.0 - e2);
+    if (maxL > 0) values[1] = 0.5 * oz * ((1.0 - oz) + e2 * (1.0 + oz));
+    const int lup = std::min(maxL, static_cast<int>(0.5 * (z - 1.0)));
+    for (int l = 1; l < lup; l++) values[l + 1] = values[l - 1] - (2 * l + 1) * oz * values[l];
+    if (lup < maxL) {
+      int top = lMax;
+      for (double damp = 1.0; damp < 1e20; top++) damp *= std::pow((2 * top + 3) * oz, 2);
+      double kp = 0.0, k = 1.0;  // K_{l+1} and K_l, up to a common factor
+      for (int l = top; l > lup; l--) {
+        if (l <= maxL) values[l] = k;
+        const double km = kp + (2 * l + 1) * oz * k;
+        kp = k;
+        k = km;
       }
-      values[l] *= Rl;
+      const double scale = values[lup] / k;
+      for (int l = lup + 1; l <= maxL; l++) values[l] *= scale;
     }
   }
   // SMALL < z < 16
   // Use Taylor series around pretabulated values in class
   // 5 terms is usually sufficient for machine accuracy
   else {
-    // Index of abscissa z in table
-    int ix = std::floor(z * scale + 0.5);
-    double dz = z - ix / scale;  // z - z0
-
-    if (fabs(dz) < 1e-12) {  // z is one of the tabulated points
-      int K_ix = ix * K_stride;
-      for (int l = 0; l <= maxL; l++) values[l] = K[K_ix + l];
-    } else {
-      // Calculate (dz)^n/n! terms just once
-      double dzn[TAYLOR_CUT + 1];
-      dzn[0] = 1.0;
-      for (int n = 1; n < TAYLOR_CUT + 1; n++) dzn[n] = dzn[n - 1] * dz / ((double)n);
-
-      // Now tabulate the values through Taylor series
-      // K(z) ~ sum_{n=0 to 5} K^(n)(z0)(z-z0)^n / n!
-      int dK_ix = ix * dK_stride0;
-      for (int l = 0; l <= maxL; l++) {
-        values[l] = 0.0;
-        for (int n = 0; n < TAYLOR_CUT + 1; n++)
-          values[l] += dzn[n] * dK[dK_ix + n * dK_stride1 + l];
-      }
+    // Index of abscissa z in table, and K(z) ~ sum_{n=0 to 5} [K^(n)(z0) / n!] (z-z0)^n by Horner
+    const int ix = static_cast<int>(z * scale + 0.5);
+    const double dz = z - ix / scale;  // z - z0
+    const double* d = &dK[ix * dK_stride0];
+    const int s1 = dK_stride1;
+    for (int l = 0; l <= maxL; l++) {
+      double t = d[TAYLOR_CUT * s1 + l];
+      for (int n = TAYLOR_CUT - 1; n >= 0; n--) t = t * dz + d[n * s1 + l];
+      values[l] = t;
     }
   }
 }
@@ -216,23 +227,16 @@ double BesselFunction::calculate(const double z, const int L) const {
     value = 1.0 - z;
     for (int k = 1; k < L + 1; k++) value *= z / (2.0 * k + 1.0);
   } else if (z > 16.0) {
-    double v0 = 0.5 / z;
-    value = 1.0;
-    double Tlk = 1.0;
-    for (int k = 1; k < L + 1; k++) {
-      Tlk *= -v0 * (L - k + 1) * (L + k) / (double(k));
-      value += Tlk;
-    }
-    value = v0 * value;
+    // as for all orders: the closed form R_L(-z)/(2z) cancels badly for L near z
+    std::vector<double> values(L + 1);
+    calculate(z, L, values);
+    value = values[L];
   } else {
-    int ix = std::floor(z * scale + 0.5);
-    double dz = z - ix / scale;  // z - z0
-    int dK_ix = ix * dK_stride0;
-    double dzn = 1.0;
-    for (int n = 0; n < TAYLOR_CUT + 1; n++) {
-      value += dzn * dK[dK_ix + n * dK_stride1 + L];
-      dzn *= dz / (n + 1);
-    }
+    const int ix = static_cast<int>(z * scale + 0.5);
+    const double dz = z - ix / scale;  // z - z0
+    const double* d = &dK[ix * dK_stride0 + L];
+    value = d[TAYLOR_CUT * dK_stride1];
+    for (int n = TAYLOR_CUT - 1; n >= 0; n--) value = value * dz + d[n * dK_stride1];
   }
 
   return value;

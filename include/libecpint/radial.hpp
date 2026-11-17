@@ -36,6 +36,8 @@
 namespace libecpint {
 
 constexpr double MIN_EXP = 0.002;
+/// Accuracy to which the tabulated Bessel functions are converged, whatever the tolerance
+constexpr double BESSEL_ACCURACY = 1e-15;
 /**
  * \class RadialIntegral
  * \brief Abstracts the calculation of radial integrals for ECP integration.

@@ -1,9 +1,12 @@
 #include "bessel.hpp"
 
+#include <cmath>
 #include <iostream>
 
+#include "../../support/radial_reference.hpp"
 #include "gtest/gtest.h"
 #include "mathutil.hpp"
+#include "radial.hpp"
 
 using namespace libecpint;
 
@@ -114,6 +117,55 @@ TEST_F(BesselTest, UpperBoundMidZ) {
   EXPECT_TRUE(ub0 >= values[0]);
   EXPECT_TRUE(ub1 >= values[1]);
   EXPECT_TRUE(ub2 >= values[2]);
+}
+
+TEST(BesselAccuracy, AllOrdersAgainstSeries) {
+  // K_l(z) <= 1, from both forms of calculate (all orders up to lMax, and a single order) as the
+  // radial integrals use them, against the reference (power series, exact to ~1e-16), over the
+  // table (z < 16), the large-z forms beyond it, and the change between them; absolute error, as
+  // the integrals sum K_l times Gaussian factors. Orders up to 24 = 2 LIBECPINT_MAX_L + 8, the
+  // most the radial integrals are initialised for
+  initFactorials();
+  const int lMax = 24;
+  BesselFunction bessie(lMax, 1600, 200, libecpint::BESSEL_ACCURACY);
+  std::vector<double> values(lMax + 1);
+  for (int l = 0; l <= lMax; l++) {
+    double worst = 0.0, worst_z = 0.0, worst1 = 0.0, worst1_z = 0.0;
+    for (double z = 1e-3; z < 40.0; z += 0.00731) {
+      bessie.calculate(z, lMax, values);
+      const double ref = radref::K(l, z);
+      const double err = std::abs(values[l] - ref), err1 = std::abs(bessie.calculate(z, l) - ref);
+      if (!(err <= worst)) {
+        worst = err;
+        worst_z = z;
+      }
+      if (!(err1 <= worst1)) {
+        worst1 = err1;
+        worst1_z = z;
+      }
+    }
+    EXPECT_LE(worst, 2e-15) << "all orders, l=" << l << ": worst at z=" << worst_z;
+    EXPECT_LE(worst1, 2e-15) << "single order, l=" << l << ": worst at z=" << worst1_z;
+  }
+}
+
+TEST(BesselAccuracy, IndependentOfMaxL) {
+  // Each K_l is bitwise the same whatever maximum order is asked for, as the shared grid's cache
+  // reuses values computed for a larger one (with the downward recurrence started from the order
+  // asked for, they differed in the last bit, and results depended on the order of evaluation)
+  initFactorials();
+  const int lMax = 24;
+  BesselFunction bessie(lMax, 1600, 200, libecpint::BESSEL_ACCURACY);
+  std::vector<double> all(lMax + 1), some(lMax + 1);
+  int differ = 0;
+  for (double z = 1e-3; z < 60.0; z += 0.0371) {
+    bessie.calculate(z, lMax, all);
+    for (int maxL = 0; maxL < lMax; maxL++) {
+      bessie.calculate(z, maxL, some);
+      for (int l = 0; l <= maxL; l++) differ += some[l] != all[l];
+    }
+  }
+  EXPECT_EQ(differ, 0);
 }
 
 int main(int argc, char** argv) {

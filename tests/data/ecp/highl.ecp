@@ -1,0 +1,13 @@
+! Synthetic ECP at the angular momentum limit, lmax = 8: semi-local channels l = 0..7 and a local
+! (k) channel, with r^-2 (n = 0), r^-1 (n = 1), r^0 (n = 2) and r^2 (n = 4) terms, the last as in
+! dhf-ecp and ecp60mdf. Molpro format.
+ECP,Au,60,8;
+2; 2,1.8,-0.3; 4,0.9,0.05;
+2; 2,12.0,300.0; 2,5.0,40.0;
+2; 2,10.0,200.0; 4,4.0,-2.0;
+2; 2,8.0,120.0; 1,3.0,-6.0;
+2; 2,6.5,60.0; 0,2.5,1.5;
+2; 2,5.0,-25.0; 4,2.2,0.8;
+2; 2,4.0,-12.0; 2,1.6,1.2;
+2; 2,3.2,-5.0; 4,1.4,0.4;
+2; 2,2.6,-2.0; 2,1.1,0.3;

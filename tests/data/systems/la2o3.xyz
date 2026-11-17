@@ -1,0 +1,6 @@
+4
+La2O3 fragment with compressed geometry, bohr (former integral_reference and quadrature_smoothness tests)
+La   0.0   0.944863  -0.3286479
+La   0.0  -0.944863  -0.3286479
+O    0.0   1.88973    1.5610781
+O    0.0   0.0        1.5610781

@@ -1,0 +1,15 @@
+! ECP of the former single-shell-pair tests: semi-local channels l = 0..3 and a zero local (g)
+! channel, so only type 2 integrals; given for Li (on a shell centre) and Ag (on no shell).
+! Molpro format.
+ECP,Li,2,4;
+1; 2,1.0,0.0;
+1; 2,2.015185434,0.437903605;
+1; 2,1.225772391,0.418499875;
+1; 2,3.415601371,10.482661239;
+1; 2,3.574403408,-4.478284427;
+ECP,Ag,28,4;
+1; 2,1.0,0.0;
+1; 2,2.015185434,0.437903605;
+1; 2,1.225772391,0.418499875;
+1; 2,3.415601371,10.482661239;
+1; 2,3.574403408,-4.478284427;

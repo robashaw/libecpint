@@ -125,6 +125,29 @@ double pow_20(const double z) {
   double z8 = z4 * z4;
   return z8 * z8 * z4;
 }
+double pow_21(const double z) {
+  double z3 = z * z * z;
+  double z9 = z3 * z3 * z3;
+  return z9 * z9 * z3;
+}
+double pow_22(const double z) {
+  double z2 = z * z;
+  double z4 = z2 * z2;
+  double z8 = z4 * z4;
+  return z8 * z8 * z4 * z2;
+}
+double pow_23(const double z) {
+  double z2 = z * z;
+  double z4 = z2 * z2;
+  double z8 = z4 * z4;
+  return z8 * z8 * z4 * z2 * z;
+}
+double pow_24(const double z) {
+  double z3 = z * z * z;
+  double z6 = z3 * z3;
+  double z12 = z6 * z6;
+  return z12 * z12;
+}
 
 void initFactorials() {
   // Guard with a thread-safe local static so the tables are populated exactly once,
@@ -145,19 +168,23 @@ void initFactorials() {
 // x = std::cos (theta), writing the result into the caller-provided rshValues
 void realSphericalHarmonics(const int lmax, const double x, const double phi,
                             TwoIndex<double>& rshValues) {
+  realSphericalHarmonics(lmax, x, std::sqrt(std::max(0.0, 1.0 - x * x)), phi, rshValues);
+}
+
+void realSphericalHarmonics(const int lmax, const double x, const double sx, const double phi,
+                            TwoIndex<double>& rshValues) {
   rshValues.assign(lmax + 1, 2 * lmax + 1, 0.0);
 
   if (lmax > 0) {
     // First calculate the associated Legendre polynomials, Plm(std::cos theta), ustd::sing the
     // recursion relation (l-m)Plm = x(2l - 1)P{l-1}m - (l+m-1)P{l-2}m along with the zeroth order
     // term Pmm = (-1)^m (2m-1)!!(1-x^2)^{m/2}
-    double x2 = x * x;
     const int dim = lmax + 1;
     std::vector<double> Plm_data(dim * dim);
     auto Plm = [&Plm_data, dim](int l, int m) -> double& { return Plm_data[l * dim + m]; };
     // First get all Pmm terms
     Plm(0, 0) = 1.0;
-    double sox2 = std::sqrt(std::max(0.0, 1.0 - x2));
+    const double sox2 = sx;
     double ox2m = 1.0;
     for (int m = 1; m <= lmax; m++) {
       ox2m *= -sox2;

@@ -27,6 +27,7 @@
 #include <algorithm>
 #include <cmath>
 #include <iostream>
+#include <stdexcept>
 
 #include "mathutil.hpp"
 #ifdef HAS_PUGIXML
@@ -82,6 +83,12 @@ ECP::ECP(const ECP& other) {
 
 void ECP::addPrimitive(const int n, const int l, const double a, const double d,
                        const bool needSort) {
+  if (l < 0 || l > LIBECPINT_MAX_L)
+    throw std::invalid_argument("libecpint: ECP angular momentum " + std::to_string(l) +
+                                " outside 0.." + std::to_string(LIBECPINT_MAX_L));
+  if (n < 0 || n > 4)
+    throw std::invalid_argument("libecpint: ECP radial power n = " + std::to_string(n) +
+                                " outside 0..4 (r^(n-2))");
   GaussianECP newEcp(n, l, a, d);
   gaussians.push_back(newEcp);
   N++;
@@ -93,7 +100,7 @@ void ECP::addPrimitive(const int n, const int l, const double a, const double d,
 }
 
 void ECP::sort() {
-  std::sort(gaussians.begin(), gaussians.end(),
+  std::stable_sort(gaussians.begin(), gaussians.end(),
             [&](const GaussianECP& g1, const GaussianECP& g2) { return (g1.l < g2.l); });
 }
 

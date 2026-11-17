@@ -4,10 +4,10 @@ This directory contains a working example of how to use libecpint for its core f
 
 ## Build
 
-To build this, make sure you have built libecpint (and its dependencies, pugixml and Faddeeva). Then using cmake in this directory
+To build this, make sure you have built libecpint. Then using cmake in this directory
 
 ```
-cmake . -Bbuild -DCMAKE_CXX_FLAGS="-I/include/dirs -std=c++14" -DCMAKE_EXE_LINKER_FLAGS="-L/lib/dirs"
+cmake . -Bbuild -DCMAKE_CXX_FLAGS="-I/include/dirs" -DCMAKE_EXE_LINKER_FLAGS="-L/lib/dirs"
 ```
 where the -I and -L flags are used to point to the libecpint headers and library, respectively, if these are not already in your path.
 

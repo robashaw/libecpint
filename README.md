@@ -34,17 +34,17 @@ Contributions are welcomed, either in the form of raising issues or pull request
 - **API**: screening tolerances exposed in `ECPIntegralFactory` and propagated to 1st/2nd derivative integrals
 - **Build**: restored CI (Azure image + GoogleTest), fixed GoogleTest lib64 path, fixed clang build on Azure
 - **Build**: C++ standard migrated to targets; minimal Windows install and macOS arm64 cross-compile support
-- **Build**: `cerf::cerfcpp` target support for libcerf 3
+- **Build**: removed the unused Faddeeva/libcerf dependency and the `LIBECPINT_USE_CERF` option
+- **Build/API**: removed the pugixml dependency; the ECP library is read natively from the MOLPRO-format files in `share/libecpint/raw`, so `LIBECPINT_USE_PUGIXML`, `HAS_PUGIXML`, the XML files and `parseecp.py` are gone. `set_ecp_basis_from_library` is always available, and `addECP_from_file` takes a MOLPRO-format file (e.g. a Basis Set Exchange MOLPRO export) and throws `std::runtime_error` if the file or atom is missing
 - **Build**: example built as part of tests
 - **Code style**: codebase reformatted with clang-format (Google style)
 - **Correctness**: Bessel small-z guard, FAC guard, FAST_POW assert, VLA removal
+- **Build/API**: `LIBECPINT_MAX_L` is no longer a build option. Angular momentum is supported up to 8, for the orbital basis plus the order of derivative (second derivatives up to i functions) and for the ECPs, and the library throws `std::invalid_argument` beyond it (release builds used to return wrong derivatives silently). Only the small unrolled type 2 kernels are generated, and the generated `qgen.hpp` is written to the build tree rather than the source tree
+- **Performance**: the angular integral tables store only the entries that are used, cutting the memory taken at initialisation by about 50x (e.g. 550 MB to 10 MB for second derivatives with g functions)
 
 ## Dependencies
 
-- A modern C++ compiler, at least C++11 standard library is required. This has been tested with:
-  * gcc (v6.3.0 and above)
-  * clang (v10.0.0 and above), you may need the CXX flag "-std=c++14"
-  * icpc (v20.2.1), may also need the CXX flag "-std=c++14"
+- A C++17 compiler, e.g. gcc (v8 and above) or clang (v7 and above)
 - CMake/CTest build tools (v3.12 and higher)
 - Python (2.7 or above, including 3 and higher)
 
@@ -56,7 +56,19 @@ Please refer to the main documentation [here](https://libecpint.readthedocs.io/e
 
 ## Examples
 
-There is also a working example in the example folder, with instructions of how to build and link against the library. Please also the API tests in tests/lib/
+There is also a working example in the example folder, with instructions of how to build and link against the library.
+
+## Testing
+
+After building, run the tests from the build directory with
+
+```bash
+ctest -j8 -LE reference
+```
+
+This checks the library's components, its radial integrals and closed-form cases, and the integrals and their first and second derivatives for a set of test systems, against values from an independent reference engine stored in `tests/data/reference`. Configuring with `-DLIBECPINT_TEST_REFERENCE=ON` adds slower tests against the reference engine computed at test time (`ctest -L reference`). After changing a test system or the reference engine, regenerate the stored values with `cmake --build . --target regenerate_references`.
+
+See [tests/README.md](tests/README.md) for how the tests are organised, how to diagnose a failure, and how to add tests.
 
 ## Acknowledging usage
 

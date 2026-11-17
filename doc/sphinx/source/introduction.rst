@@ -52,7 +52,7 @@ Requirements
 For the library
 ^^^^^^^^^^^^^^^
 
-- A modern C++ compiler, at least C++11 standard library is required. This has currently only been tested with GCC (6.3.0 and above, but will in theory work with any > 4.9) and clang (9.0.0 and above). Intel compilers have been known to cause issues.
+- A C++17 compiler, e.g. GCC (8 and above) or clang (7 and above). Intel compilers have been known to cause issues.
 - CMake/CTest build tools v. >= 3.12 
 - Python (2.7 or above, including 3 and higher)
 

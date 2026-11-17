@@ -67,6 +67,9 @@ auto operator<<(std::basic_ostream<Ch, Tr>& os, std::tuple<Args...> const& t)
   return os << ")";
 }
 
+// The arrays declare no copy or move operations, so they have the implicit ones (memberwise), and
+// in particular move cheaply, e.g. when a std::vector of them reallocates.
+
 /// Templated skeleton two index array for convenience
 template <typename T>
 struct TwoIndex {
@@ -101,11 +104,6 @@ struct TwoIndex {
     data.resize(dim1 * dim2);
   }
   TwoIndex(const int dim1, const int dim2, const T value) { assign(dim1, dim2, value); }
-  TwoIndex(const TwoIndex<T>& other) {
-    data = other.data;
-    dims[0] = other.dims[0];
-    dims[1] = other.dims[1];
-  }
 };
 
 /// Templated skeleton three index array for convenience
@@ -130,10 +128,6 @@ struct ThreeIndex {
     dims[2] = dim3;
     data.resize(dim1 * dim2 * dim3);
   }
-  ThreeIndex(const ThreeIndex<T>& other) {
-    data = other.data;
-    for (int n = 0; n < 3; n++) dims[n] = other.dims[n];
-  }
   void fill(const T value) { std::fill(data.begin(), data.end(), value); }
 };
 
@@ -156,10 +150,6 @@ struct FiveIndex {
     dims[3] = dim4;
     dims[4] = dim5;
     data.resize(dim1 * dim2 * dim3 * dim4 * dim5);
-  }
-  FiveIndex(const FiveIndex<T>& other) {
-    data = other.data;
-    for (int n = 0; n < 5; n++) dims[n] = other.dims[n];
   }
 };
 
@@ -199,14 +189,6 @@ struct SevenIndex {
     mults[2] = mults[3] * dim4;
     mults[1] = mults[2] * dim3;
     mults[0] = mults[1] * dim2;
-  }
-  SevenIndex(const SevenIndex<T>& other) {
-    data = other.data;
-    for (int n = 0; n < 6; n++) {
-      dims[n] = other.dims[n];
-      mults[n] = other.mults[n];
-    }
-    dims[6] = other.dims[6];
   }
 };
 

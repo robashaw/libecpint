@@ -43,11 +43,24 @@ class AngularIntegral {
   int LB;  ///< Maximum angular momentum of orbital basis
   int LE;  ///< Maximum angular momentum of ECP basis
 
-  int wDim;  ///< Limits for the w-integral indices
-  int maxL;  ///< Limits for the angular momentum indices
+  int maxL;  ///< Largest power sum k + l + m and angular momentum in W: max(2 LB, LB + LE)
+  int nrs;   ///< Number of (rho, sigma) pairs in each row of omega: (LB + LE + 1)^2
 
-  FiveIndex<double> W;       ///< Stores the type 1 angular integrals
-  SevenIndex<double> omega;  ///< Stores the type 2 angular integrals
+  /// Type 1 angular integrals W(k, l, m, lam, mu), for k + l + m <= maxL and lam <= maxL, at
+  /// simplex(k, l, m) * (maxL + 1)^2 + lam^2 + lam + mu. Only the entries read are stored (a dense
+  /// array over every index took gigabytes at high angular momentum).
+  std::vector<double> W;
+  /// Type 2 angular integrals Omega(k, l, m, lam, mu, rho, sigma), for k + l + m <= LB, lam <= LE
+  /// (the ECP channel) and rho <= LB + LE (the basis side), at
+  /// (simplex(k, l, m) * (LE + 1)^2 + lam^2 + lam + mu) * nrs + rho^2 + rho + sigma
+  std::vector<double> omega;
+
+  /// Index of (k, l, m) among all power triples, ordered by k + l + m, so that the triples with
+  /// k + l + m <= n come first for every n
+  static int simplex(const int k, const int l, const int m) {
+    const int n = k + l + m, j = l + m;
+    return n * (n + 1) * (n + 2) / 6 + j * (j + 1) / 2 + m;
+  }
 
   /// Worker functions for calculating terms in the USP to spherical transformation coefficients
   double calcG(int l, int m) const;
@@ -124,27 +137,32 @@ class AngularIntegral {
    * @param mu - subshell
    * @return value of type 1 angular integral
    */
-  double getIntegral(int k, int l, int m, int lam, int mu) const;
+  double getIntegral(const int k, const int l, const int m, const int lam, const int mu) const {
+    return W[simplex(k, l, m) * (maxL + 1) * (maxL + 1) + lam * lam + lam + mu];
+  }
 
   /**
    * Returns the type 2 angular integral Omega(k, l, m, lam, mu, rho, sigma)
    * @param k - x index
    * @param l - y index
    * @param m - z index
-   * @param lam - angular momentum of current ECP shell
+   * @param lam - angular momentum of current ECP shell (<= LE)
    * @param mu - subshell of lam
    * @param rho - angular momentum of current basis shell
    * @param sigma - subshell of rho
    * @return value of type 2 angular integral
    */
-  double getIntegral(int k, int l, int m, int lam, int mu, int rho, int sigma) const;
+  double getIntegral(const int k, const int l, const int m, const int lam, const int mu,
+                     const int rho, const int sigma) const {
+    return getOmegaRow(k, l, m, lam, mu)[rho * rho + rho + sigma];
+  }
 
-  int* getOmegaMults() { return omega.mults; }
-  const int* getOmegaMults() const { return omega.mults; }
-  int* getOmegaDims() { return omega.dims; }
-  const int* getOmegaDims() const { return omega.dims; }
-  std::vector<double>& getOmegaData() { return omega.data; }
-  const std::vector<double>& getOmegaData() const { return omega.data; }
+  /// The type 2 angular integrals Omega(k, l, m, lam, mu, rho, sigma) for every (rho, sigma), at
+  /// rho^2 + rho + sigma
+  const double* getOmegaRow(const int k, const int l, const int m, const int lam,
+                            const int mu) const {
+    return &omega[(simplex(k, l, m) * (LE + 1) * (LE + 1) + lam * lam + lam + mu) * nrs];
+  }
 
   /// is W(k, l, m, lam, mu) zero to within a given tolerance?
   bool isZero(int k, int l, int m, int lam, int mu, double tolerance) const;

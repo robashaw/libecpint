@@ -1,0 +1,19 @@
+ecp56mhf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP56MHF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=10., MEFIT, HF, M. Dolg, H. Stoll, A. Savin, H. Preuss, Theor. Chim. Acta 75, 173 (1989).
+ECP,Dy,56,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,6.456700,264.776093; 2,3.228400,-2.590344; 
+2; 2,5.424300,162.676390; 2,2.712200,-1.484095; 
+2; 2,3.529800,53.604558; 2,1.764900,-1.543307; 
+1; 2,1.198100,6.701321; 
+
+!  Q=11., MEFIT, HF, M. Dolg, H. Stoll, A. Savin, H. Preuss, Theor. Chim. Acta 75, 173 (1989).
+ECP,Ho,56,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,5.985100,197.602711; 2,2.992500,-1.388663; 
+2; 2,5.126200,121.587585; 2,2.563100,0.517126; 
+2; 2,3.541700,51.364449; 2,1.770800,-0.586780; 
+1; 2,1.400800,8.313825; 

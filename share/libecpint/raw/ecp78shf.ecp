@@ -1,0 +1,10 @@
+ecp78shf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP78SHF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=1., SEFIT, HF, P. Fuentealba, H. Stoll, L. v. Szentpaly, P. Schwerdtfeger, H. Preuss, J. Phys. B 16, L323 (1983).
+ECP,Au,78,3,0;
+1; 2,1.000000,0.000000; 
+2; 2,0.900000,12.020000; 2,0.450000,-2.884000; 
+2; 2,0.900000,-2.815000; 2,0.450000,1.979000; 
+2; 2,0.450000,57.030000; 2,0.225000,-3.468000; 

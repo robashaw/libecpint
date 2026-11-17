@@ -1,0 +1,52 @@
+lcecp-2
+! lcecp-2 (Karlsruhe; 4f-in-core large-core ECPs for tetravalent lanthanides), from the Basis Set Exchange v0.12 ('lcecp-2-svp').
+
+! lcecp-2-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-2-ecp: Hülsen, Michael, Weigand, Anna, Dolg, Michael, Theor. Chem. Acc. 122, 23-29 (2009).
+! Same as Stuttgart ECP46MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Ce,46,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,3.9025970,119.4232910; 2,2.0907270,-2.5119800;
+2; 2,3.1582150,76.6070340; 2,1.6651190,-0.4308950;
+2; 2,2.5236210,68.8647340; 2,2.2757010,-4.2469700;
+1; 2,4.6452010,-41.6944110;
+
+! lcecp-2-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-2-ecp: Hülsen, Michael, Weigand, Anna, Dolg, Michael, Theor. Chem. Acc. 122, 23-29 (2009).
+! Same as Stuttgart ECP47MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Pr,47,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,4.0564900,119.4215110; 2,2.0633830,-2.5225710;
+2; 2,3.2873050,76.6045600; 2,1.6508030,-0.4525120;
+2; 2,2.6442960,68.8634190; 2,2.2648930,-4.2487700;
+2; 2,4.9055240,-42.5388740; 2,1.1484080,0.7257010;
+
+! lcecp-2-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-2-ecp: Hülsen, Michael, Weigand, Anna, Dolg, Michael, Theor. Chem. Acc. 122, 23-29 (2009).
+! Same as Stuttgart ECP48MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Nd,48,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,4.2588490,119.4105110; 2,2.3589000,-2.4812760;
+2; 2,3.4391620,76.5812270; 2,1.8026370,-0.3345440;
+2; 2,2.7769340,68.8529420; 2,2.3320810,-4.2568000;
+2; 2,5.1725880,-42.9296270; 2,1.1957080,1.4565750;
+
+! lcecp-2-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-2-ecp: Hülsen, Michael, Weigand, Anna, Dolg, Michael, Theor. Chem. Acc. 122, 23-29 (2009).
+! Same as Stuttgart ECP53MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Tb,53,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,5.1370670,119.3849160; 2,2.6551750,-2.4647670;
+2; 2,4.1681480,76.5254590; 2,1.9531530,-0.1698810;
+2; 2,3.4015860,68.8412210; 2,2.3394140,-4.2711700;
+2; 2,6.6747340,-37.3308330; 2,1.4379040,5.1416930;
+
+! lcecp-2-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-2-ecp: Hülsen, Michael, Weigand, Anna, Dolg, Michael, Theor. Chem. Acc. 122, 23-29 (2009).
+! Same as Stuttgart ECP54MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Dy,54,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,5.3029140,119.3816210; 2,2.6047200,-2.4909130;
+2; 2,4.3031390,76.5194460; 2,1.8863020,-0.2589420;
+2; 2,3.5187310,68.8393230; 2,2.3086260,-4.2773930;
+2; 2,7.0082570,-34.3918810; 2,1.4877040,5.8769880;

@@ -1,0 +1,17 @@
+ecp28shf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP28SHF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=1., SEFIT, HF, P. Fuentealba, H. Stoll, L. v. Szentpaly, P. Schwerdtfeger, H. Preuss, J. Phys. B 16, L323 (1983).
+ECP,Cu,28,3,0;
+1; 2,1.000000,0.000000; 
+2; 2,1.000000,6.849000; 2,0.500000,-1.742000; 
+2; 2,1.000000,10.649000; 2,0.500000,-2.538000; 
+2; 2,0.500000,2.923000; 2,0.250000,-0.245400; 
+
+!  Q=4., SEFIT, HF, G. Igel-Mann, Dissertation 1986.
+ECP,Ge,28,3,0;
+1; 2,1.000000,0.000000; 
+2; 2,2.873600,43.248200; 2,1.436800,-1.993700; 
+2; 2,2.873600,35.144900; 2,1.436800,0.566000; 
+2; 2,0.957900,1.950700; 2,0.478900,0.471900; 

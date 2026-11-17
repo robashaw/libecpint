@@ -1,0 +1,10 @@
+ecp18mhf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP18MHF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=4., MEFIT, HF, U. Wedig, M. Dolg, H. Stoll, H. Preuss in Quantum Chemistry, The Challenge of Transition Metals and Coordination Chemistry, A. Veillard, Reidel, Dordrecht (1986), p.79.
+ECP,Ti,18,3,0;
+1; 2,1.000000,0.000000; 
+2; 2,0.860000,9.191690; 2,0.172000,0.008301; 
+2; 2,0.860000,17.997720; 2,0.172000,-0.032600; 
+2; 2,1.600000,-9.504310; 2,0.320000,-0.151370; 

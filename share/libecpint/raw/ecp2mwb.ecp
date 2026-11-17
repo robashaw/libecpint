@@ -1,0 +1,45 @@
+ecp2mwb
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP2MWB.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=3., MEFIT, WB, A. Bergner, M. Dolg, W. Kuechle, H. Stoll, H. Preuss, Mol. Phys. 80, 1431 (1993).
+ECP,B,2,3,0;
+1; 2,1.00000000,0.00000000; 
+1; 2,4.50610000,23.99296000; 
+1; 2,5.22950000,-1.76672400; 
+1; 2,0.01080000,-0.00175400; 
+
+!  Q=4., MEFIT, WB, A. Bergner, M. Dolg, W. Kuechle, H. Stoll, H. Preuss, Mol. Phys. 80, 1431 (1993).
+ECP,C,2,3,0;
+1; 2,1.00000000,0.00000000; 
+1; 2,6.40105200,33.12163800; 
+1; 2,7.30774700,-1.98625700; 
+1; 2,5.96179600,-9.45431800; 
+
+!  Q=5., MEFIT, WB, A. Bergner, M. Dolg, W. Kuechle, H. Stoll, H. Preuss, Mol. Phys. 80, 1431 (1993).
+ECP,N,2,3,0;
+1; 2,1.00000000,0.00000000; 
+1; 2,7.97723200,38.53383100; 
+1; 2,10.18385400,-2.55081000; 
+1; 2,11.55994700,-2.99554500; 
+
+!  Q=6., MEFIT, WB, A. Bergner, M. Dolg, W. Kuechle, H. Stoll, H. Preuss, Mol. Phys. 80, 1431 (1993).
+ECP,O,2,3,0;
+1; 2,1.00000000,0.00000000; 
+1; 2,10.44567000,50.77106900; 
+1; 2,18.04517400,-4.90355100; 
+1; 2,8.16479800,-3.31212400; 
+
+!  Q=7., MEFIT, WB, A. Bergner, M. Dolg, W. Kuechle, H. Stoll, H. Preuss, Mol. Phys. 80, 1431 (1993); CPP: alpha=0.0016;delta=6.5859;ncut=1.
+ECP,F,2,3,0;
+1; 2,1.000000,0.000000; 
+2; 2,22.350400,102.597952; 2,11.175200,19.049663; 
+2; 2,26.476800,-15.143960; 2,13.238400,2.802921; 
+1; 2,0.031600,-0.001863; 
+
+!  Q=8., MEFIT, WB, A. Nicklass, M. Dolg, H. Stoll, H. Preuss, J. Chem. Phys. 102, 8942 (1995).
+ECP,Ne,2,3,0;
+1; 2,1.000000,0.00000000; 
+2; 2,31.860162,112.52543566; 2,12.362219,28.30083454; 
+2; 2,21.508034,-11.12658543; 2,12.910447,3.38754919; 
+1; 2,0.850385,-0.18408921; 

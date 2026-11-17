@@ -1,0 +1,19 @@
+ecp47mhf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP47MHF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=10., MEFIT, HF, M. Dolg, H. Stoll, A. Savin, H. Preuss, Theor. Chim. Acta 75, 173 (1989).
+ECP,La,47,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,3.386200,90.755796; 2,1.693100,-0.133089; 
+2; 2,2.855200,62.630852; 2,1.427600,0.114875; 
+2; 2,1.952300,28.783323; 2,0.976200,0.381812; 
+1; 2,0.981800,8.720231; 
+
+!  Q=11., MEFIT, HF, M. Dolg, H. Stoll, A. Savin, H. Preuss, Theor. Chim. Acta 75, 173 (1989).
+ECP,Ce,47,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,3.522200,95.537821; 2,1.761100,-0.108883; 
+2; 2,3.017700,68.312710; 2,1.508900,0.035977; 
+2; 2,2.144300,36.352201; 2,1.072200,0.028939; 
+1; 2,1.162300,10.456021; 

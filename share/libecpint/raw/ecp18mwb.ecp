@@ -1,0 +1,11 @@
+ecp18mwb
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP18MWB.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=13., MEFIT, WB, T. Leininger, A. Berning, A. Nicklass, H. Stoll, H.-J. Werner, H.-J. Flad, Chem. Phys. 217, 19 (1997).
+ECP,Ga,18,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,7.017905,96.678739; 2,1.918989,18.049817; 
+2; 2,10.967074,219.330866; 2,2.318001,41.949609; 
+2; 2,26.742182,-57.764576; 2,3.129182,-9.724297; 
+1; 2,4.749413,-11.106699; 

@@ -1,0 +1,11 @@
+ecp36mwb
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP36MWB.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=13., MEFIT, WB, T. Leininger, A. Nicklass, H. Stoll, M. Dolg, P. Schwerdtfeger, J. Chem. Phys. 105, 1052 (1996).
+ECP,In,36,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,5.090755,70.835656; 2,2.012289,63.938475; 
+2; 2,3.531760,60.690800; 2,1.474768,37.905215; 
+2; 2,4.589927,49.655422; 2,1.076122,-6.961425; 
+2; 2,9.990508,-49.016680; 2,2.227396,-6.122604; 

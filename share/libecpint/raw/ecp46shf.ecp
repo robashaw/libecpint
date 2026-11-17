@@ -1,0 +1,10 @@
+ecp46shf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP46SHF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=1., SEFIT, HF, P. Fuentealba, H. Stoll, L. v. Szentpaly, P. Schwerdtfeger, H. Preuss, J. Phys. B 16, L323 (1983).
+ECP,Ag,46,3,0;
+1; 2,1.000000,0.000000; 
+2; 2,0.800000,7.883000; 2,0.400000,-2.024000; 
+2; 2,0.800000,8.679000; 2,0.400000,-1.727000; 
+2; 2,0.400000,7.955000; 2,0.200000,-0.626100; 

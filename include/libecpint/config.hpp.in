@@ -25,10 +25,15 @@
 #ifndef LIBECPINT_CONFIG_HEAD
 #define LIBECPINT_CONFIG_HEAD
 
-// Maximum angular momentum for which integrals can be performed
-#cmakedefine LIBECPINT_MAX_L @LIBECPINT_MAX_L@
+// Maximum angular momentum supported, a fixed limit (no longer a build option): of the orbital
+// basis plus the derivative order (so second derivatives up to i functions), and of the ECPs
+// (including the local channel). The library throws std::invalid_argument beyond it.
+#define LIBECPINT_MAX_L 8
 
 // Angular momentum below which integrals are unrolled
 #define LIBECPINT_MAX_UNROL @LIBECPINT_MAX_UNROL@
+
+// Size in MB of the per-thread cache of radial factors for off-centre type 2 integrals
+#define LIBECPINT_RADIAL_CACHE_MB @LIBECPINT_RADIAL_CACHE_MB@
 
 #endif

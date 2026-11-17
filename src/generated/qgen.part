@@ -39,6 +39,16 @@
 namespace libecpint {
 	namespace qgen {
 
+		/// An unrolled integral function Q(LA, LB, lam), for LA <= LB
+		using Kernel = void (*)(const ECP&, const GaussianShell&, const GaussianShell&, const FiveIndex<double>&,
+		                        const FiveIndex<double>&, const TwoIndex<double>&, const TwoIndex<double>&, double, double,
+		                        const RadialIntegral&, const AngularIntegral&, const RadialIntegral::Parameters&,
+		                        ThreeIndex<double>&);
+
+		/// The unrolled function for (LA <= LB, lam), or nullptr if that case is not unrolled
+		/// (LIBECPINT_MAX_UNROL), in which case it is integrated with rolled_up
+		Kernel unrolled(int LA, int LB, int lam);
+
 		/** 
 		*  For integral functions that have not been unrolled, this loops over the angular and radial integrals to provide the overall ECP integrals,
 		*  returning in an array indexed as (shellA, shellB, mu), for mu = -lam .. lam

@@ -24,9 +24,13 @@
 
 #include "ecpint.hpp"
 
+#include <algorithm>
 #include <cassert>
 #include <cmath>
 #include <iostream>
+#include <set>
+#include <stdexcept>
+#include <string>
 
 #include "mathutil.hpp"
 #include "qgen.hpp"
@@ -43,8 +47,13 @@ static_assert(
 ECPIntegral::ECPIntegral(int maxLB, int maxLU, int deriv, double thresh, unsigned smallGrid,
                          unsigned bigGrid) {
   // Make sure library can perform requested integrals
-  assert(maxLB + deriv <= LIBECPINT_MAX_L);
-  assert(maxLU <= LIBECPINT_MAX_L);
+  if (maxLB + deriv > LIBECPINT_MAX_L)
+    throw std::invalid_argument("libecpint: basis angular momentum " + std::to_string(maxLB) +
+                                " with derivatives of order " + std::to_string(deriv) +
+                                " exceeds the maximum of " + std::to_string(LIBECPINT_MAX_L));
+  if (maxLU > LIBECPINT_MAX_L)
+    throw std::invalid_argument("libecpint: ECP angular momentum " + std::to_string(maxLU) +
+                                " exceeds the maximum of " + std::to_string(LIBECPINT_MAX_L));
 
   // Initialise singletons
   initFactorials();
@@ -57,12 +66,84 @@ ECPIntegral::ECPIntegral(int maxLB, int maxLU, int deriv, double thresh, unsigne
   // Initialise angular and radial integrators
   angInts.init(maxLB + deriv, maxLU);
   angInts.compute();
+  type2LB = maxLB + deriv;
+  type2LU = maxLU;
+  buildType2Radials();
 #ifdef DEBUG
   std::cout << "Initializing ECP radial integrator: thresh = " << thresh << "  grids: " << smallGrid
             << "/" << bigGrid << std::endl;
 #endif
   radInts.init(2 * (maxLB + deriv) + maxLU, thresh, smallGrid, bigGrid);
 };
+
+void ECPIntegral::buildType2Radials() {
+  // A radial integral (N, l1, l2) is needed for Q(LA, LB, lam) if, for some power triples alpha
+  // of shell A (|alpha| <= LA) and beta of shell B (|beta| <= LB) in the binomial expansions
+  // about the ECP, with N = |alpha| + |beta|, the angular factor
+  //   sum_mu [sum_mu1 Omega(alpha, lam, mu, l1, mu1)] [sum_mu2 Omega(beta, lam, mu, l2, mu2)]
+  // does not vanish (as the code generator, generate.cpp, selected them). The set for
+  // (|alpha|, |beta|) = (a, b) is found once, and the set for (LA, LB) is the union over a <= LA,
+  // b <= LB.
+  const double prefac = 16.0 * M_PI * M_PI;
+  const int L = type2LB;
+  type2Radials.assign((L + 1) * (L + 1) * type2LU, Type2Radials{});
+  std::vector<std::array<int, 3>> powers;  // every power triple with |alpha| <= L
+  for (int n = 0; n <= L; n++)
+    for (int x = n; x >= 0; x--)
+      for (int y = n - x; y >= 0; y--) powers.push_back({x, y, n - x - y});
+
+  for (int lam = 0; lam < type2LU; lam++) {
+    const int w_size = 2 * lam + 1;
+    // contr[t][l * w_size + lam + mu] = sum_mu1 Omega(powers[t], lam, mu, l, mu1)
+    std::vector<std::vector<double>> contr(powers.size());
+    for (size_t t = 0; t < powers.size(); t++) {
+      const auto& p = powers[t];
+      const int lmax = lam + p[0] + p[1] + p[2];
+      contr[t].assign(w_size * (lmax + 1), 0.0);
+      for (int l = 0; l <= lmax; l++)
+        for (int mu = -lam; mu <= lam; mu++) {
+          const double* om = angInts.getOmegaRow(p[0], p[1], p[2], lam, mu) + l * l + l;
+          double& c = contr[t][l * w_size + lam + mu];
+          for (int mu1 = -l; mu1 <= l; mu1++) c += om[mu1];
+        }
+    }
+
+    std::vector<std::set<Triple>> by_ab((L + 1) * (L + 1));
+    for (size_t ta = 0; ta < powers.size(); ta++) {
+      const int a = powers[ta][0] + powers[ta][1] + powers[ta][2];
+      for (size_t tb = 0; tb < powers.size(); tb++) {
+        const int b = powers[tb][0] + powers[tb][1] + powers[tb][2], N = a + b;
+        std::set<Triple>& found = by_ab[a * (L + 1) + b];
+        for (int l1 = 0; l1 <= lam + a; l1++)
+          for (int l2 = (l1 + N) % 2; l2 <= lam + b; l2 += 2) {
+            double ang = 0.0;
+            for (int mu = -lam; mu <= lam; mu++)
+              ang += prefac * contr[ta][l1 * w_size + lam + mu] * contr[tb][l2 * w_size + lam + mu];
+            if (std::fabs(ang) > 1e-15) found.insert(Triple{N, l1, l2});
+          }
+      }
+    }
+
+    for (int LB = 0; LB <= L; LB++)
+      for (int LA = 0; LA <= LB; LA++) {
+        std::set<Triple> needed;
+        for (int a = 0; a <= LA; a++)
+          for (int b = 0; b <= LB; b++)
+            needed.insert(by_ab[a * (L + 1) + b].begin(), by_ab[a * (L + 1) + b].end());
+        Type2Radials& r = type2Radials[(LA * (L + 1) + LB) * type2LU + lam];
+        if (!needed.empty()) {
+          const Triple& last = *needed.crbegin();
+          r.nbase = std::max(0, std::get<0>(last) + std::get<1>(last) - 1);
+        }
+        for (const Triple& t : needed) {
+          if (std::get<1>(t) <= std::get<2>(t))
+            r.A.push_back(t);
+          else
+            r.B.push_back(Triple{std::get<0>(t), std::get<2>(t), std::get<1>(t)});
+        }
+      }
+  }
+}
 
 double ECPIntegral::calcC(const int a, const int m, const double A) const {
   double value = 1.0 - 2 * ((a - m) % 2);
@@ -101,14 +182,8 @@ void ECPIntegral::type1(const ECP& U, const GaussianShell& shellA, const Gaussia
 
   // Build radial integrals
   int L = LA + LB;
-  TwoIndex<double> temp;
-  ThreeIndex<double> radials(L + 1, L + 1, 2 * L + 1);
-  for (int ix = 0; ix <= L; ix++) {
-    radInts.type1(ix, ix, ix % 2, U, shellA, shellB, data, parameters, temp);
-    for (int l = 0; l <= ix; l++) {
-      for (int m = -l; m <= l; m++) radials(ix, l, l + m) = temp(l, l + m);
-    }
-  }
+  ThreeIndex<double> radials;
+  radInts.type1(L, U, shellA, shellB, data, parameters, radials);
 
   // Unpack positions
   double Ax = data.A[0];
@@ -255,24 +330,36 @@ void ECPIntegral::type2(const int lam, const ECP& U, const GaussianShell& shellA
   } else {
     // At least one of the shells is not on the ECP, so spherical harmonics will be required
 
+    // cos and sin of the polar angles from the components (sin exactly 0 on the z axis)
     double xA = Am > 0 ? data.A[2] / Am : 0.0;
     double xB = Bm > 0 ? data.B[2] / Bm : 0.0;
+    double sA = Am > 0 ? std::sqrt(data.A[0] * data.A[0] + data.A[1] * data.A[1]) / Am : 1.0;
+    double sB = Bm > 0 ? std::sqrt(data.B[0] * data.B[0] + data.B[1] * data.B[1]) / Bm : 1.0;
     double phiA = atan2(data.A[1], data.A[0]);
     double phiB = atan2(data.B[1], data.B[0]);
-    TwoIndex<double> SA = realSphericalHarmonics(lam + LA, xA, phiA);
-    TwoIndex<double> SB = realSphericalHarmonics(lam + LB, xB, phiB);
+    TwoIndex<double> SA, SB;
+    realSphericalHarmonics(lam + LA, xA, sA, phiA, SA);
+    realSphericalHarmonics(lam + LB, xB, sB, phiB, SB);
+
+    // With one shell on the ECP, its radial factor is sum_a c_a exp(-a r^2) (of the Bessel
+    // functions only K_0 = 1 survives at zero distance), so the radials needed, G(N, 0, l2) for
+    // l2 = N mod 2, ..., lam + L_off, are integrated as for two off-centre shells, with the
+    // on-centre shell first at distance 0
+    auto on_centre_radials = [&](const GaussianShell& on, const GaussianShell& off, const int Loff,
+                                 const double Doff, ThreeIndex<double>& radials) {
+      std::vector<Triple> triples;
+      for (int N = 0; N <= L; N++)
+        for (int l2 = N % 2; l2 <= lam + Loff; l2 += 2) triples.push_back(Triple{N, 0, l2});
+      radials.fill(0.0);
+      radInts.type2(triples, 0, lam, U, on, off, 0.0, Doff, radials);
+    };
 
     if (data.A_on_ecp) {
       // Radial integrals need to be calculated by a different recursive scheme, or by quadrature
       ThreeIndex<double> radials(L + 1, lam + LA + 1, lam + LB + 1);
       TwoIndex<double> temp;
       std::fill(values.data.begin(), values.data.end(), 0.0);
-
-      for (int N = 0; N < L + 1; N++) {
-        radInts.type2(lam, 0, lam + LA, 0, lam + LB, N, U, shellA, shellB, data, parameters, temp);
-        for (int l1 = 0; l1 < lam + LA + 1; l1++)
-          for (int l2 = 0; l2 < lam + LB + 1; l2++) radials(N, l1, l2) = temp(l1, l2);
-      }
+      on_centre_radials(shellA, shellB, LB, Bm, radials);
 
       // a significant number of terms can be neglected a priori - see Shaw2017 supplementary
       // material.
@@ -283,13 +370,7 @@ void ECPIntegral::type2(const int lam, const ECP& U, const GaussianShell& shellA
       ThreeIndex<double> radials(L + 1, lam + LB + 1, lam + LA + 1);
       ThreeIndex<double> tmpValues(values.dims[1], values.dims[0], values.dims[2]);
       std::fill(tmpValues.data.begin(), tmpValues.data.end(), 0.0);
-      TwoIndex<double> temp;
-
-      for (int N = 0; N < L + 1; N++) {
-        radInts.type2(lam, 0, lam + LA, 0, lam + LB, N, U, shellA, shellB, data, parameters, temp);
-        for (int l1 = 0; l1 < lam + LB + 1; l1++)
-          for (int l2 = 0; l2 < lam + LA + 1; l2++) radials(N, l1, l2) = temp(l2, l1);
-      }
+      on_centre_radials(shellB, shellA, LA, Am, radials);
 
       // a significant number of terms can be neglected a priori - see Shaw2017 supplementary
       // material.
@@ -299,15 +380,35 @@ void ECPIntegral::type2(const int lam, const ECP& U, const GaussianShell& shellA
         for (int nb = 0; nb < values.dims[1]; nb++)
           for (int nc = 0; nc < values.dims[2]; nc++) values(na, nb, nc) = tmpValues(nb, na, nc);
     } else {
-      // Neither is on the ECP, the full recursive scheme with generated integrals can be used
-      // Need LA <= LB, but symmetry means we can just swap the arguments if LB > LA.
+      // Neither is on the ECP: an unrolled kernel for the smallest cases, otherwise the radial
+      // integrals that the angular integrals select (buildType2Radials) contracted with them by
+      // rolled_up. Both need LA <= LB, but symmetry means we can just swap the arguments if LB >
+      // LA.
+      auto integrate = [&](const GaussianShell& sA, const GaussianShell& sB, const int la,
+                           const int lb, const FiveIndex<double>& cA, const FiveIndex<double>& cB,
+                           const TwoIndex<double>& hA, const TwoIndex<double>& hB, const double am,
+                           const double bm, ThreeIndex<double>& out) {
+        if (const qgen::Kernel kernel = qgen::unrolled(la, lb, lam)) {
+          kernel(U, sA, sB, cA, cB, hA, hB, am, bm, radInts, angInts, parameters, out);
+          return;
+        }
+        assert(lb <= type2LB && lam < type2LU);
+        const Type2Radials& t = type2Radials[(la * (type2LB + 1) + lb) * type2LU + lam];
+        ThreeIndex<double> radials(lam + la + lb + 1, lam + la + 1, lam + lb + 1);
+        radInts.type2(t.A, t.nbase, lam, U, sA, sB, am, bm, radials);
+        // The radials with l1 > l2 are computed with the shells swapped
+        ThreeIndex<double> radials_B(lam + la + lb + 1, lam + lb + 1, lam + la + 1);
+        radInts.type2(t.B, t.nbase, lam, U, sB, sA, bm, am, radials_B);
+        for (const Triple& r : t.B)
+          radials(std::get<0>(r), std::get<2>(r), std::get<1>(r)) =
+              radials_B(std::get<0>(r), std::get<1>(r), std::get<2>(r));
+        qgen::rolled_up(lam, la, lb, radials, cA, cB, hA, hB, angInts, out);
+      };
       if (LA <= LB)
-        QGEN[LA][LB][lam](U, shellA, shellB, CA, CB, SA, SB, Am, Bm, radInts, angInts, parameters,
-                          values);
+        integrate(shellA, shellB, LA, LB, CA, CB, SA, SB, Am, Bm, values);
       else {
         ThreeIndex<double> temp_values(data.ncartB, data.ncartA, 2 * U.getL() + 1);
-        QGEN[LB][LA][lam](U, shellB, shellA, CB, CA, SB, SA, Bm, Am, radInts, angInts, parameters,
-                          temp_values);
+        integrate(shellB, shellA, LB, LA, CB, CA, SB, SA, Bm, Am, temp_values);
         for (int na = 0; na < data.ncartA; na++)
           for (int nb = 0; nb < data.ncartB; nb++)
             for (int nu = 0; nu < 2 * U.getL() + 1; nu++)

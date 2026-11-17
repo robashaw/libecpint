@@ -26,6 +26,14 @@ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 set(LIBECPINT_MAX_L "5" CACHE STRING "Maximum angular momentum")
 set(LIBECPINT_MAX_UNROL "1" CACHE STRING "Maximum L for unrolling")
 
+# per-thread cache for the radial factors of off-centre type 2 integrals, in MB
+set(LIBECPINT_RADIAL_CACHE_MB "4" CACHE STRING "Per-thread radial factor cache size (MB)")
+set(LIBECPINT_RADIAL_CACHE_MB_VALUES 1 2 4 8 16 32 64)
+set_property(CACHE LIBECPINT_RADIAL_CACHE_MB PROPERTY STRINGS ${LIBECPINT_RADIAL_CACHE_MB_VALUES})
+if (NOT LIBECPINT_RADIAL_CACHE_MB IN_LIST LIBECPINT_RADIAL_CACHE_MB_VALUES)
+  message(FATAL_ERROR "LIBECPINT_RADIAL_CACHE_MB must be one of: ${LIBECPINT_RADIAL_CACHE_MB_VALUES}")
+endif()
+
 # configure the config header to pass the above variables to the program
 configure_file (
   "${PROJECT_SOURCE_DIR}/include/libecpint/config.hpp.in"
@@ -77,7 +85,7 @@ install(DIRECTORY share/libecpint DESTINATION ${CMAKE_INSTALL_DATADIR})
 
 message("\nSummary:")
 message("--------")
-message(STATUS "Maximum angular momentum           : ${LIBECPINT_MAX_L}")
 message(STATUS "Maximum angular momentum unrolling : ${LIBECPINT_MAX_UNROL}")
+message(STATUS "Radial factor cache per thread (MB): ${LIBECPINT_RADIAL_CACHE_MB}")
 message(STATUS "Build tests                        : ${LIBECPINT_BUILD_TESTS}")
 message("")

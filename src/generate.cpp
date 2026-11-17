@@ -35,10 +35,9 @@
  */
 
 /**
- * For a given ECP integral, Q(LA, LB, lam), generates the integral code.
- * This determines which radial integrals are necessary, based on angular integral screening.
- * If LA, LB <= maxUnrol and (LA + LB + lam) <= 3*maxUnrol, then it unrols the angular integration
- * as well.
+ * For a given ECP integral, Q(LA, LB, lam), generates the unrolled integral code.
+ * This determines which radial integrals are necessary, based on angular integral screening, and
+ * unrolls the angular integration.
  *
  * @param LA - the shellA angular momentum
  * @param LB - the shellB angular momentum
@@ -75,25 +74,32 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
             << std::endl
             << std::endl;
 
-    // Do we need to unrol the angular integrals too?
-    bool unrolling = LA <= maxUnrol && LB <= maxUnrol && (LA + LB + lam) <= 3 * maxUnrol;
-
-    // Store the terms and radials if unrolling, just radial indices if not
+    // Store the terms and radials
     std::vector<SumTerm> terms;
     std::set<Triple> radial_triples;
 
-    int z1, z2, w_m, w_l;
-    int w_ax, w_ay, w_az, w_l1;
-    int w_bx, w_by, w_bz, w_l2;
+    int z1, z2, w_l;
+    int w_l1;
+    int w_l2;
     double ang;
     double prefac = 16.0 * M_PI * M_PI;
-    const int* mults = angInts.getOmegaMults();
-    const std::vector<double>& omega = angInts.getOmegaData();
     int w_size = 2 * lam + 1;
     std::vector<double> w1_contr(w_size * (lam + LA + 1));
     std::vector<double> w2_contr(w_size * (lam + LB + 1));
 
-    int w_lam = lam * mults[3];
+    // w_contr[l * w_size + lam + mu] = sum_mu1 Omega(x, y, z, lam, mu, l, mu1), for l <= lam + lmax
+    auto contract = [&](const int x, const int y, const int z, const int lmax,
+                        std::vector<double>& w_contr) {
+      for (int l1 = 0; l1 <= lam + lmax; l1++) {
+        w_l = l1 * w_size + lam;
+        for (int mu = -lam; mu <= lam; mu++) {
+          const double* om = angInts.getOmegaRow(x, y, z, lam, mu) + l1 * l1 + l1;
+          w_contr[w_l + mu] = 0.0;
+          for (int mu1 = -l1; mu1 <= l1; mu1++) w_contr[w_l + mu] += om[mu1];
+        }
+      }
+    };
+
     // Loop over cartesian shell functions in alpha order, e.g. {xx xy, xz, yy, yz, zz} for l=2
     int na = 0;  // Rows are shellA
     for (int x1 = LA; x1 >= 0; x1--) {
@@ -107,45 +113,18 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 
             // Begin full ECP integral expansion
             for (int alpha_x = 0; alpha_x <= x1; alpha_x++) {
-              w_ax = w_lam + alpha_x * mults[0];
               for (int alpha_y = 0; alpha_y <= r1; alpha_y++) {
-                w_ay = w_ax + alpha_y * mults[1];
                 for (int alpha_z = 0; alpha_z <= z1; alpha_z++) {
-                  w_az = w_ay + alpha_z * mults[2];
                   int alpha = alpha_x + alpha_y + alpha_z;
 
                   for (int beta_x = 0; beta_x <= x2; beta_x++) {
-                    w_bx = w_lam + beta_x * mults[0];
                     for (int beta_y = 0; beta_y <= y2; beta_y++) {
-                      w_by = w_bx + beta_y * mults[1];
                       for (int beta_z = 0; beta_z <= z2; beta_z++) {
-                        w_bz = w_by + beta_z * mults[2];
                         int beta = beta_x + beta_y + beta_z;
                         int N = alpha + beta;
 
-                        for (int lam1 = 0; lam1 <= lam + alpha; lam1++) {
-                          w_l = lam1 * w_size + lam;
-                          w_l1 = w_az + lam1 * (1 + mults[5]);
-                          w_m = w_l1 - mults[4];
-                          for (int mu = -lam; mu <= lam; mu++) {
-                            w_m += mults[4];
-                            w1_contr[w_l + mu] = 0.0;
-                            for (int mu1 = -lam1; mu1 <= lam1; mu1++)
-                              w1_contr[w_l + mu] += omega[w_m + mu1];
-                          }
-                        }
-
-                        for (int lam2 = 0; lam2 <= lam + beta; lam2++) {
-                          w_l = lam2 * w_size + lam;
-                          w_l2 = w_bz + lam2 * (1 + mults[5]);
-                          w_m = w_l2 - mults[4];
-                          for (int mu = -lam; mu <= lam; mu++) {
-                            w_m += mults[4];
-                            w2_contr[w_l + mu] = 0.0;
-                            for (int mu2 = -lam2; mu2 <= lam2; mu2++)
-                              w2_contr[w_l + mu] += omega[w_m + mu2];
-                          }
-                        }
+                        contract(alpha_x, alpha_y, alpha_z, alpha, w1_contr);
+                        contract(beta_x, beta_y, beta_z, beta, w2_contr);
 
                         for (int lam1 = 0; lam1 <= lam + alpha; lam1++) {
                           w_l1 = lam1 * w_size + lam;
@@ -159,27 +138,27 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 
                             if (fabs(ang) > 1e-15) {
                               radial_triples.insert(Triple{N, lam1, lam2});
-                              if (unrolling) {
-                                for (int mu = -lam; mu <= lam; mu++) {
-                                  for (int mu1 = -lam1; mu1 <= lam1; mu1++) {
-                                    for (int mu2 = -lam2; mu2 <= lam2; mu2++) {
-                                      SumTerm newTerm;
-                                      newTerm.SA = Pair(lam1, lam1 + mu1);
-                                      newTerm.SB = Pair(lam2, lam2 + mu2);
-                                      newTerm.radial = Triple(N, lam1, lam2);
-                                      newTerm.CA = Quintuple(0, na, alpha_x, alpha_y, alpha_z);
-                                      newTerm.CB = Quintuple(0, nb, beta_x, beta_y, beta_z);
-                                      newTerm.ang =
-                                          prefac * angInts.getIntegral(alpha_x, alpha_y, alpha_z,
-                                                                       lam, mu, lam1, mu1);
-                                      newTerm.ang *= angInts.getIntegral(beta_x, beta_y, beta_z,
-                                                                         lam, mu, lam2, mu2);
-                                      newTerm.mu = lam + mu;
-                                      newTerm.na = na;
-                                      newTerm.nb = nb;
+                              for (int mu = -lam; mu <= lam; mu++) {
+                                for (int mu1 = -lam1; mu1 <= lam1; mu1++) {
+                                  for (int mu2 = -lam2; mu2 <= lam2; mu2++) {
+                                    SumTerm newTerm;
+                                    newTerm.SA = Pair(lam1, lam1 + mu1);
+                                    newTerm.SB = Pair(lam2, lam2 + mu2);
+                                    newTerm.radial = Triple(N, lam1, lam2);
+                                    newTerm.CA = Quintuple(0, na, alpha_x, alpha_y, alpha_z);
+                                    newTerm.CB = Quintuple(0, nb, beta_x, beta_y, beta_z);
+                                    newTerm.ang =
+                                        prefac * angInts.getIntegral(alpha_x, alpha_y, alpha_z, lam,
+                                                                     mu, lam1, mu1);
+                                    newTerm.ang *= angInts.getIntegral(beta_x, beta_y, beta_z, lam,
+                                                                       mu, lam2, mu2);
+                                    newTerm.mu = lam + mu;
+                                    newTerm.na = na;
+                                    newTerm.nb = nb;
 
-                                      terms.push_back(newTerm);
-                                    }
+                                    // exact zeros would still be evaluated (0 * x is not
+                                    // folded without fast-math), so are not emitted
+                                    if (newTerm.ang != 0.0) terms.push_back(newTerm);
                                   }
                                 }
                               }
@@ -261,17 +240,8 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
             << std::endl
             << std::endl;
 
-    if (unrolling) {
-      // Print out the unrolled angular integral code if needed
-#ifdef DEBUG
-      std::cout << "unrolling... " << std::flush;
-#endif
-      for (auto& term : terms) outfile << "\t" << term << std::endl;
-    } else {
-      // Just use the generic rolled-up angular integral code
-      outfile << "\trolled_up(" << lam << ", " << LA << ", " << LB
-              << ", radials, CA, CB, SA, SB, angint, values);" << std::endl;
-    }
+    // Print out the unrolled angular integral code
+    for (auto& term : terms) outfile << "\t" << term << std::endl;
     outfile << "}" << std::endl << "}" << std::endl << "}" << std::endl;
 #ifdef DEBUG
     std::cout << "done." << std::endl;
@@ -283,9 +253,10 @@ void generate_lists(int LA, int LB, int lam, libecpint::AngularIntegral& angInts
 int main(int argc, char* argv[]) {
   // Factorial singletons will not have been initialised
   libecpint::initFactorials();
-  int maxL = libecpint::maxL;
-
-  libecpint::AngularIntegral angInts(maxL, maxL);
+  // Only the small cases are unrolled: LA <= LB <= maxUnrol, LA + LB + lam <= 3 maxUnrol (and
+  // src/makelist.py lists the files). The library integrates all others with its rolled-up code.
+  const int maxUnrol = libecpint::maxUnrol, maxLam = 3 * maxUnrol;
+  libecpint::AngularIntegral angInts(maxUnrol, maxLam);
   angInts.compute();
 
   // Generate the qgen.hpp header file
@@ -309,11 +280,11 @@ int main(int argc, char* argv[]) {
     }
     qgen_part.close();
 
-    // Loop over all possible (l1, l2, lam) integrals up to l1 = l2 = lam = maxL
-    // with l1 <= l2, generating the code and adding the function to the header file.
-    for (int j = 0; j <= maxL; j++) {
+    // Loop over the unrolled (l1, l2, lam) integrals with l1 <= l2, generating the code and adding
+    // the function to the header file.
+    for (int j = 0; j <= maxUnrol; j++) {
       for (int i = 0; i <= j; i++) {
-        for (int k = 0; k <= maxL; k++) {
+        for (int k = 0; i + j + k <= maxLam; k++) {
           generate_lists(i, j, k, angInts);
           qgen_head
               << "\tvoid Q" << i << "_" << j << "_" << k << "("
@@ -330,7 +301,7 @@ int main(int argc, char* argv[]) {
     qgen_head << "#endif" << std::endl;
     qgen_head.close();
 
-    // Now generate the function pointer array in ecpint_gen.cpp
+    // Now generate the kernel lookup in ecpint_gen.cpp
     std::ifstream ecpgen_part("generated/ecpint_gen.part");
     std::ofstream ecpgen_head("generated/ecpint_gen.cpp");
 
@@ -343,29 +314,15 @@ int main(int argc, char* argv[]) {
       }
       ecpgen_part.close();
 
-      for (int i = 0; i <= maxL; i++) {
-        ecpgen_head << "\t\t{ ";
-
-        for (int j = 0; j <= maxL; j++) {
-          ecpgen_head << "\t\t\t{";
-
-          int I = std::min(i, j);
-          int J = std::max(i, j);
-
-          for (int k = 0; k < maxL; k++)
-            ecpgen_head << "qgen::Q" << I << "_" << J << "_" << k << ", ";
-
-          ecpgen_head << "qgen::Q" << I << "_" << J << "_" << maxL << "}";
-          if (j != maxL) ecpgen_head << ",";
-          ecpgen_head << std::endl;
-        }
-
-        ecpgen_head << "\t\t}";
-        if (i != maxL) ecpgen_head << ",";
-        ecpgen_head << std::endl;
-      }
-
-      ecpgen_head << "\t};" << std::endl << "}" << std::endl;
+      // qgen::unrolled(LA, LB, lam): the unrolled kernel, or nullptr
+      for (int j = 0; j <= maxUnrol; j++)
+        for (int i = 0; i <= j; i++)
+          for (int k = 0; i + j + k <= maxLam; k++)
+            ecpgen_head << "\tif (LA == " << i << " && LB == " << j << " && lam == " << k
+                        << ") return Q" << i << "_" << j << "_" << k << ";" << std::endl;
+      ecpgen_head << "\treturn nullptr;" << std::endl << "}" << std::endl;
+      ecpgen_head << "}  // namespace qgen" << std::endl
+                  << "}  // namespace libecpint" << std::endl;
       ecpgen_head.close();
     }
   }

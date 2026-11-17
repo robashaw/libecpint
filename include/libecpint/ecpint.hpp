@@ -67,12 +67,20 @@ class ECPIntegral {
   /// Worker functions for calculating binomial expansion coefficients
   double calcC(int a, int m, double A) const;
 
-  /// Array of function pointers to generated integral evaluators in qgen
-  static void (*QGEN[LIBECPINT_MAX_L + 1][LIBECPINT_MAX_L + 1][LIBECPINT_MAX_L + 1])(
-      const ECP&, const GaussianShell&, const GaussianShell&, const FiveIndex<double>&,
-      const FiveIndex<double>&, const TwoIndex<double>&, const TwoIndex<double>&, double, double,
-      const RadialIntegral&, const AngularIntegral&, const RadialIntegral::Parameters&,
-      ThreeIndex<double>&);
+  /// The radial integrals (N, l1, l2) needed for the type 2 integrals over shells of angular
+  /// momenta LA <= LB in ECP channel lam, those whose angular integrals do not vanish: A with
+  /// l1 <= l2, B the others with l1 and l2 swapped; nbase as in RadialIntegral::type2
+  struct Type2Radials {
+    std::vector<Triple> A, B;
+    int nbase = 0;
+  };
+  int type2LB;  ///< largest basis angular momentum in type2Radials (maxLB + deriv)
+  int type2LU;  ///< number of ECP channels in type2Radials (maxLU)
+  /// Type2Radials for every (LA <= LB, lam), at (LA * (type2LB + 1) + LB) * type2LU + lam, found
+  /// once at construction from the angular integrals
+  std::vector<Type2Radials> type2Radials;
+  /// Finds type2Radials, from the angular integrals
+  void buildType2Radials();
 
  public:
   int skipped, zero, nonzero;
@@ -97,6 +105,7 @@ class ECPIntegral {
    * (default 256, minimum recommended)
    * @param large - the maximum number of quadrature points for the large radial integration grid
    * (default 1024, minimum recommended)
+   * @throws std::invalid_argument if maxLB + deriv or maxLU exceeds LIBECPINT_MAX_L
    */
   ECPIntegral(int maxLB, int maxLU, int deriv = 0, double thresh = 1e-15, unsigned smallGrid = 256,
               unsigned bigGrid = 1024);

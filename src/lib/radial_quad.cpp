@@ -31,6 +31,14 @@
 
 namespace libecpint {
 
+namespace {
+// Scratch buffers reused across calls. They are thread_local rather than members so that
+// the const methods of one RadialIntegral (and so one ECPIntegral) can be called from
+// several threads at once.
+thread_local std::vector<double> besselScratch_;
+thread_local std::vector<double> paramsScratch_;
+}  // namespace
+
 RadialIntegral::RadialIntegral() {}
 
 void RadialIntegral::init(int maxL, double tol, int small, int large) {
@@ -42,9 +50,6 @@ void RadialIntegral::init(int maxL, double tol, int small, int large) {
   bessie.init(maxL, 1600, 200, tol);
 
   tolerance = tol;
-
-  besselScratch_.resize(maxL + 1);
-  paramsScratch_.resize(large);
 }
 
 void RadialIntegral::buildBessel(const std::vector<double>& r, const int nr, const int maxL,

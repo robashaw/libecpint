@@ -14,8 +14,23 @@ TEST(MathUtil, Defines) {
 }
 
 TEST(MathUtil, Gamma) {
-  EXPECT_EQ(GAMMA[0], 1.7724538509055);
-  EXPECT_EQ(GAMMA[29], 8.7178291200e10);
+  // GAMMA[i] = Gamma((i + 1) / 2) to full double precision (14-digit half-integer values were off
+  // by up to 4e-14, visible in on-centre type 2 integrals)
+  for (int i = 0; i < 30; i++) {
+    const double exact = std::tgamma(0.5 * (i + 1));
+    EXPECT_NEAR(GAMMA[i], exact, 1e-15 * exact) << "i = " << i;
+  }
+  EXPECT_EQ(GAMMA[29], 8.7178291200e10);  // 14!, exact
+}
+
+TEST(MathUtil, FastPow) {
+  // FAST_POW[n](x) = x^n for n = 0..MAX_POW, then x^-1 and x^-2
+  for (const double x : {0.3, 1.7, 4.2}) {
+    for (int n = 0; n <= MAX_POW; n++)
+      EXPECT_NEAR(FAST_POW[n](x), std::pow(x, n), 1e-14 * std::pow(x, n)) << "n = " << n;
+    EXPECT_NEAR(FAST_POW[MAX_POW + 1](x), 1.0 / x, 1e-15 / x);
+    EXPECT_NEAR(FAST_POW[MAX_POW + 2](x), 1.0 / (x * x), 1e-15 / (x * x));
+  }
 }
 
 TEST(MathUtil, Factorials) {

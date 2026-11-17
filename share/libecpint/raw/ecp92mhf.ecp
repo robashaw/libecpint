@@ -1,0 +1,12 @@
+ecp92mhf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP92MHF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=13., MEFIT, HF, M. Dolg, H. Stoll, H. Preuss, R.M. Pitzer, J. Phys. Chem. 97, 5852 (1993).
+ECP,Db,92,5,0;
+1; 2,1.000000,0.000000; 
+2; 2,8.857898,1360.492391; 2,6.448927,78.336367; 
+2; 2,7.414141,1488.521620; 2,3.169518,-16.505151; 
+2; 2,4.575904,492.719951; 2,2.099189,-14.811973; 
+1; 2,1.662870,21.419496; 
+1; 2,3.500651,-41.994794; 

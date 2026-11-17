@@ -1,0 +1,20 @@
+ecp60oldmdf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP60OLDMDF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=19., MEFIT, DF, P. Schwerdtfeger, M. Dolg, W.H.E. Schwarz, G.A. Bowmaker, P.D.W. Boyd, J. Chem. Phys. 91, 1762 (1989).
+ECP,Au,60,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,13.205100,426.709840; 2,6.602550,35.938824; 
+2; 2,10.452020,261.161023; 2,5.226010,26.626284; 
+2; 2,7.851100,124.756831; 2,3.925550,15.772260; 
+2; 2,4.789800,30.568475; 2,2.394910,5.183774; 
+
+!  Q=20., MEFIT, WB, U. Haeussermann, M. Dolg, H. Stoll, H. Preuss, Mol. Phys. 78, 1211 (1993)
+ECP,Hg,60,5,0;
+1; 2,1.000000,0.000000; 
+2; 2,12.981549,274.532169; 2,6.490774,49.182192; 
+2; 2,10.538096,237.395770; 2,5.269048,28.121584; 
+2; 2,8.101721,114.252034; 2,4.050860,18.495638; 
+1; 2,3.885791,30.364996; 
+1; 2,6.241000,-29.473118; 

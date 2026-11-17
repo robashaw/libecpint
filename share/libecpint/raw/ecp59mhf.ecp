@@ -1,0 +1,19 @@
+ecp59mhf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP59MHF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=10., MEFIT, HF, M. Dolg, H. Stoll, A. Savin, H. Preuss, Theor. Chim. Acta 75, 173 (1989).
+ECP,Tm,59,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,8.234700,465.447015; 2,4.117400,-4.640558; 
+2; 2,6.914300,270.572636; 2,3.457200,-2.874946; 
+2; 2,4.387400,74.404111; 2,2.193700,-2.874287; 
+1; 2,1.336900,6.652959; 
+
+!  Q=11. MEFIT, HF, M. Dolg, H. Stoll, A. Savin, H. Preuss, Theor. Chim. Acta 75, 173 (1989).
+ECP,Yb,59,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,7.167400,271.538565; 2,3.583700,-2.443382; 
+2; 2,6.146000,159.285860; 2,3.073000,0.715586; 
+2; 2,4.203000,62.083331; 2,2.101500,-1.102109; 
+1; 2,1.550000,8.270963; 

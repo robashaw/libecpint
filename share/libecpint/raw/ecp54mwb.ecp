@@ -1,0 +1,27 @@
+ecp54mwb
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP54MWB.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=10., MEFIT, WB, M. Dolg, H. Stoll, H. Preuss, Theor. Chim. Acta 85, 441 (1993), M. Dolg, H. Stoll, A. Savin, H. Preuss, Theor. Chim. Acta 75, 173 (1989).
+ECP,Gd,54,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,5.570900,196.814708; 2,2.785500,-11.909078; 
+2; 2,4.680700,123.936252; 2,2.340400,-3.969076; 
+2; 2,3.085100,47.132939; 2,1.542600,-1.958724; 
+1; 2,5.711000,-69.000952; 
+
+!  Q=11., MEFIT, WB, M. Dolg, H. Stoll, H. Preuss, Theor. Chim. Acta 85, 441 (1993), M. Dolg, H. Stoll, A. Savin, H. Preuss, Theor. Chim. Acta 75, 173 (1989).
+ECP,Tb,54,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,5.326000,139.661156; 2,2.663000,-5.767915; 
+2; 2,4.559800,79.049864; 2,2.279900,1.864568; 
+2; 2,3.170700,35.140886; 2,1.585400,0.879040; 
+1; 2,6.525900,-80.073275; 
+
+!  Q=12., MEFIT, WB, M. Huelsen, A. Weigand, M. Dolg, Theor. Chem. Acc. 122, 23 (2009).
+ECP,Dy,54,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,5.302914,119.381621; 2,2.604720,-2.490913; 
+2; 2,4.303139,76.519446; 2,1.886302,-0.258942; 
+2; 2,3.518731,68.839323; 2,2.308626,-4.277393; 
+2; 2,7.008257,-34.391881; 2,1.487704,5.876988; 

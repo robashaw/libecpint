@@ -1,0 +1,10 @@
+ecp54shf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP54SHF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=1., SEFIT, HF, P. Fuentealba, H. Stoll, L. v. Szentpaly, P. Schwerdtfeger, H. Preuss, J. Phys. B 16, L323 (1983).
+ECP,Cs,54,3,0;
+1; 2,1.000000,0.000000; 
+1; 2,0.490000,9.700000; 
+1; 2,0.240000,2.981000; 
+1; 2,0.215000,-0.700000; 

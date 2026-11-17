@@ -1,0 +1,19 @@
+ecp91mwb
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP91MWB.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=10., MEFIT, WB, A. Moritz, X. Cao, M. Dolg, Theor. Chem. Acc. 118, 845 (2007); CPP: alpha=6.0933;delta=0.3058;ncut=2.
+ECP,Md,91,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,4.897112,101.499103; 2,2.329127,-12.396828; 
+2; 2,4.198316,61.828786; 2,1.866712,-0.947297; 
+2; 2,3.399310,27.652220; 2,1.873627,0.951381; 
+2; 2,2.590554,-1.813704; 2,1.112670,11.442016; 
+
+!  Q=11., MEFIT, WB, A. Moritz, X. Cao, M. Dolg, Theor. Chem. Acc. 117, 473 (2007); CPP: alpha=3.5464;delta=0.3127;ncut=2.
+ECP,No,91,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,4.732877,101.508085; 2,2.241962,-12.375223; 
+2; 2,4.018254,61.833084; 2,1.842826,-0.958049; 
+2; 2,2.919356,27.673112; 2,1.764125,1.040662; 
+2; 2,2.645788,-1.731716; 2,1.253468,13.893311; 

@@ -1,0 +1,156 @@
+lcecp-0
+! lcecp-0 (Karlsruhe; 4f-in-core large-core ECPs for divalent lanthanides), from the Basis Set Exchange v0.12 ('lcecp-0-svp').
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP47MWB (http://www.tc.uni-koeln.de/PP).
+ECP,La,47,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,3.3862000,90.1634560; 2,1.6931000,-3.4304540;
+2; 2,2.8552000,62.5164670; 2,1.4276000,-0.8407500;
+2; 2,1.9523000,28.7948350; 2,0.9762000,0.4122290;
+1; 2,3.7909000,-36.3795540;
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP48MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Ce,48,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,3.6400000,99.5281430; 2,1.8200000,-4.3284110;
+2; 2,3.0673000,68.2464780; 2,1.5337000,-1.1347740;
+2; 2,2.0876000,30.4603710; 2,1.0438000,0.1081420;
+1; 2,4.0265000,-40.3258350;
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP49MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Pr,49,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,3.9099000,110.3083940; 2,1.9550000,-5.3743180;
+2; 2,2.6955000,43.4275860; 2,1.3478000,-1.0805560;
+2; 2,2.2301000,32.2962120; 2,1.1151000,-0.2648800;
+1; 2,4.2761000,-44.5097320;
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP50MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Nd,50,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,4.1964000,122.3149660; 2,2.0982000,-6.1787750;
+2; 2,3.5308000,79.8524770; 2,1.7654000,-1.5450260;
+2; 2,2.3797000,37.2266580; 2,1.1899000,-0.8981270;
+1; 2,4.5382000,-48.9225500;
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP51MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Pm,51,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,4.5022000,136.7029980; 2,2.2511000,-7.3210720;
+2; 2,3.7871000,90.3718520; 2,1.8936000,-2.3300830;
+2; 2,2.5392000,36.5781560; 2,1.2696000,-0.6891240;
+1; 2,4.8126000,-53.5705060;
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP52MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Sm,52,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,4.8312000,153.1670430; 2,2.4156000,-8.5922150;
+2; 2,4.0613000,98.8454120; 2,2.0307000,-2.6559070;
+2; 2,2.7083000,41.0221410; 2,1.3542000,-1.2920040;
+1; 2,5.0994000,-58.4601940;
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP53MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Eu,53,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,5.1852000,172.7978960; 2,2.5926000,-10.0922600;
+2; 2,4.3588000,111.3150270; 2,2.1794000,-3.4025580;
+2; 2,2.8902000,41.8677290; 2,1.4451000,-1.2874330;
+1; 2,5.3988000,-63.6010500;
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP54MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Gd,54,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,5.5709000,196.8147080; 2,2.7855000,-11.9090780;
+2; 2,4.6807000,123.9362520; 2,2.3404000,-3.9690760;
+2; 2,3.0851000,47.1329390; 2,1.5426000,-1.9587240;
+1; 2,5.7110000,-69.0009520;
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP55MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Tb,55,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,5.9916000,226.1662400; 2,2.9958000,-14.1003610;
+2; 2,5.0346000,141.6951660; 2,2.5173000,-4.9654260;
+2; 2,3.2977000,48.9817000; 2,1.6489000,-2.0675290;
+1; 2,6.0363000,-74.6706920;
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP56MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Dy,56,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,6.4567000,262.9809270; 2,3.2284000,-16.7584710;
+2; 2,5.4243000,162.0357110; 2,2.7122000,-5.9652110;
+2; 2,3.5298000,53.8978430; 2,1.7649000,-2.6144920;
+1; 2,6.3755000,-80.6245800;
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP57MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Ho,57,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,6.9754000,310.5961780; 2,3.4877000,-20.0990950;
+2; 2,5.8588000,188.4112990; 2,2.9294000,-7.2755820;
+2; 2,3.7844000,58.9557650; 2,1.8922000,-3.1424760;
+1; 2,6.7288000,-86.8737620;
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP58MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Er,58,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,7.5616000,374.2398290; 2,3.7808000,-24.3961640;
+2; 2,6.3499000,222.8011070; 2,3.1750000,-8.9214130;
+2; 2,4.0682000,65.6155560; 2,2.0341000,-3.8496650;
+1; 2,7.0972000,-93.4337480;
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP59MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Tm,59,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,8.2347000,462.8650940; 2,4.1174000,-30.1074350;
+2; 2,6.9143000,269.8928380; 2,3.4572000,-11.1020040;
+2; 2,4.3874000,72.2575620; 2,2.1937000,-4.4859080;
+1; 2,7.4810000,-100.3185750;
+
+! lcecp-0-SVP-basis: Lukanowski, Marcel, Weigend, Florian, Phys. Chem. Chem. Phys. advanced article? (2026).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Savin, A., Preuss, H., Theor. Chim. Acta 75, 173-194 (1989).
+! lcecp-0-ecp: Dolg, M., Stoll, H., Preuss, H., Theor. Chim. Acta 85, 441-450 (1993).
+! Same as Stuttgart ECP60MWB (http://www.tc.uni-koeln.de/PP).
+ECP,Yb,60,4,0;
+1; 2,1.0000000,0.0000000;
+2; 2,9.0224000,592.0685340; 2,4.5112000,-37.9404800;
+2; 2,7.5724000,334.8454930; 2,3.7862000,-13.8654100;
+2; 2,4.7503000,90.5399040; 2,2.3752000,-6.6349580;
+1; 2,1.3864000,7.0165100;

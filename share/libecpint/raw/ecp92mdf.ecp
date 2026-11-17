@@ -1,0 +1,12 @@
+ecp92mdf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP92MDF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=13., MEFIT, DF, M. Dolg, H. Stoll, H. Preuss, R.M. Pitzer, J. Phys. Chem. 97, 5852 (1993).
+ECP,Db,92,5,0;
+1; 2,1.000000,0.000000; 
+2; 2,8.461537,479.332730; 2,1.608645,-5.025886; 
+2; 2,6.310826,473.635535; 2,0.389130,-1.142167; 
+2; 2,4.664265,235.968112; 2,3.482815,-2.097059; 
+1; 2,1.565444,20.051649; 
+1; 2,2.976102,-32.916628; 

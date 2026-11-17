@@ -35,14 +35,15 @@
 namespace libecpint {
 
 /// names of each atom in order of atomic number
-const std::string atom_names[109] = {
-    "h",  "he", "li", "be", "b",  "c",  "n",  "o",  "f",  "ne", "na", "mg", "al", "si", "p",  "s",
-    "cl", "ar", "k",  "ca", "sc", "ti", "v",  "cr", "mn", "fe", "co", "ni", "cu", "zn", "ga", "ge",
-    "as", "se", "br", "kr", "rb", "sr", "y",  "zr", "nb", "mo", "tc", "ru", "rh", "pd", "ag", "cd",
-    "in", "sn", "sb", "te", "i",  "xe", "cs", "ba", "la", "ce", "pr", "nd", "pm", "sm", "eu", "gd",
-    "tb", "dy", "ho", "er", "tm", "yb", "lu", "hf", "ta", "w",  "re", "os", "ir", "pt", "au", "hg",
-    "tl", "pb", "bi", "po", "at", "rn", "fr", "ra", "ac", "th", "pa", "u",  "np", "pu", "am", "cm",
-    "bk", "cf", "es", "fm", "md", "no", "lr", "rf", "db", "sg", "bh", "hs", "mt"};
+const std::string atom_names[118] = {
+    "h",  "he", "li", "be", "b",  "c",  "n",  "o",  "f",  "ne", "na", "mg", "al", "si", "p",
+    "s",  "cl", "ar", "k",  "ca", "sc", "ti", "v",  "cr", "mn", "fe", "co", "ni", "cu", "zn",
+    "ga", "ge", "as", "se", "br", "kr", "rb", "sr", "y",  "zr", "nb", "mo", "tc", "ru", "rh",
+    "pd", "ag", "cd", "in", "sn", "sb", "te", "i",  "xe", "cs", "ba", "la", "ce", "pr", "nd",
+    "pm", "sm", "eu", "gd", "tb", "dy", "ho", "er", "tm", "yb", "lu", "hf", "ta", "w",  "re",
+    "os", "ir", "pt", "au", "hg", "tl", "pb", "bi", "po", "at", "rn", "fr", "ra", "ac", "th",
+    "pa", "u",  "np", "pu", "am", "cm", "bk", "cf", "es", "fm", "md", "no", "lr", "rf", "db",
+    "sg", "bh", "hs", "mt", "ds", "rg", "cn", "nh", "fl", "mc", "lv", "ts", "og"};
 
 /** \struct GaussianECP
  * \brief  Describes a Gaussian of angular momentum l of the form d r^n e^{-ax^2}
@@ -103,6 +104,7 @@ struct ECP {
    * @param d - coefficient
    * @param needSort - true = the GaussianECPs are sorted (if done once at the end, speeds up
    * evaluation)
+   * @throws std::invalid_argument if l is outside 0..LIBECPINT_MAX_L or n outside 0..4 (r^-2..r^2)
    */
   void addPrimitive(const int n, const int l, const double a, const double d,
                     const bool needSort = true);
@@ -196,15 +198,15 @@ class ECPBasis {
   /// @return the number of ECPs in basis
   int getN() const { return N; }
 
-#ifdef HAS_PUGIXML
   /** Creates and adds an ECP object to the basis by reading from the ECP library
    * @param q - the atomic number of the atom
    * @param coords - the [x, y, z] coordinates (in bohr) of the ECP
-   * @param filename - path to the XML file containing the basis specification
+   * @param filename - path to the ECP file, in MOLPRO format, containing the basis specification
+   * @throws std::runtime_error if q is above 118, the file cannot be opened, has no ECP for atom
+   * q, or the ECP's maximum angular momentum exceeds LIBECPINT_MAX_L
    */
   void addECP_from_file(const int q, const std::array<double, 3>& coords,
                         const std::string& filename);
-#endif
 };
 
 }  // namespace libecpint

@@ -32,17 +32,22 @@
 #include <stdexcept>
 #include <string>
 
+#include "assembly.hpp"
 #include "mathutil.hpp"
 #include "qgen.hpp"
+#include "screening.hpp"
 
 namespace libecpint {
 
-// The radial integrals index FAST_POW up to (3 + 2*LIBECPINT_MAX_L) (the both-on-ECP type 2
-// term, FAST_POW[N+1] with N = 2 + LA + LB). Guard against silently running off the end of the
-// hand-coded power table (entries beyond FAST_POW_MAX_EXPONENT are 1/z, 1/z^2 - i.e. wrong here).
-static_assert(
-    3 + 2 * LIBECPINT_MAX_L <= FAST_POW_MAX_EXPONENT,
-    "LIBECPINT_MAX_L is too large for the FAST_POW power table; extend mathutil's pow_* routines.");
+// The largest power of r in the integrals is in the both-on-ECP type 2 term, FAST_POW[N + 1]
+// with N = 2 + LA + LB + (n - 2), for ECP terms r^(n - 2) with n <= 4 (ECP::addPrimitive), which
+// also indexes GAMMA[N]. Guard against running off the end of the hand-coded power table (entries
+// beyond FAST_POW_MAX_EXPONENT are 1/z, 1/z^2, so this would be silently wrong) or GAMMA.
+static_assert(5 + 2 * LIBECPINT_MAX_L <= FAST_POW_MAX_EXPONENT,
+              "LIBECPINT_MAX_L is too large for the FAST_POW power table; extend mathutil's "
+              "pow_* routines.");
+static_assert(4 + 2 * LIBECPINT_MAX_L < sizeof(GAMMA) / sizeof(GAMMA[0]),
+              "LIBECPINT_MAX_L is too large for the GAMMA table in mathutil.hpp.");
 
 ECPIntegral::ECPIntegral(int maxLB, int maxLU, int deriv, double thresh, unsigned smallGrid,
                          unsigned bigGrid) {
@@ -355,9 +360,7 @@ void ECPIntegral::type2(const int lam, const ECP& U, const GaussianShell& shellA
     };
 
     if (data.A_on_ecp) {
-      // Radial integrals need to be calculated by a different recursive scheme, or by quadrature
-      ThreeIndex<double> radials(L + 1, lam + LA + 1, lam + LB + 1);
-      TwoIndex<double> temp;
+      ThreeIndex<double> radials(L + 1, 1, lam + LB + 1);
       std::fill(values.data.begin(), values.data.end(), 0.0);
       on_centre_radials(shellA, shellB, LB, Bm, radials);
 
@@ -367,7 +370,7 @@ void ECPIntegral::type2(const int lam, const ECP& U, const GaussianShell& shellA
 
     } else if (data.B_on_ecp) {
       // Same as above with A and B reversed
-      ThreeIndex<double> radials(L + 1, lam + LB + 1, lam + LA + 1);
+      ThreeIndex<double> radials(L + 1, 1, lam + LA + 1);
       ThreeIndex<double> tmpValues(values.dims[1], values.dims[0], values.dims[2]);
       std::fill(tmpValues.data.begin(), tmpValues.data.end(), 0.0);
       on_centre_radials(shellB, shellA, LA, Am, radials);
@@ -421,52 +424,7 @@ void ECPIntegral::type2(const int lam, const ECP& U, const GaussianShell& shellA
 void ECPIntegral::estimate_type2(const ECP& U, const GaussianShell& shellA,
                                  const GaussianShell& shellB, const ShellPairData& data,
                                  double* results) const {
-  double sigma_a, sigma_b, min_eta, n2, an, bn, a_bound, b_bound, ab_bound;
-  double atilde, btilde, ztilde, Tk, Tk_0, xp;
-
-  double Na_0 = 0.5 * data.LA / M_EULER;
-  double Nb_0 = 0.5 * data.LB / M_EULER;
-
-  for (int l = 0; l <= U.getL(); l++) {
-    min_eta = U.min_exp_l[l];
-    n2 = min_eta * min_eta;
-    an = shellA.min_exp + min_eta;
-    bn = shellB.min_exp + min_eta;
-    if (data.A2 < 1e-6)
-      sigma_a = 0.5 * an / shellA.min_exp;
-    else
-      sigma_a = 0.5 * data.LA * an * an / (shellA.min_exp * (n2 * data.A2 + data.LA * an));
-    if (data.B2 < 1e-6)
-      sigma_b = 0.5 * bn / shellB.min_exp;
-    else
-      sigma_b = 0.5 * data.LB * bn * bn / (shellB.min_exp * (n2 * data.B2 + data.LB * bn));
-
-    atilde = (1.0 - sigma_a) * shellA.min_exp;
-    btilde = (1.0 - sigma_b) * shellB.min_exp;
-
-    a_bound = 0.0;
-    for (int i = 0; i < shellA.exps.size(); i++)
-      a_bound += FAST_POW[data.LA](std::sqrt(Na_0 / (shellA.exps[i] * sigma_a))) *
-                 std::abs(shellA.coeffs[i]);
-
-    b_bound = 0.0;
-    for (int i = 0; i < shellB.exps.size(); i++)
-      b_bound += FAST_POW[data.LB](std::sqrt(Nb_0 / (shellB.exps[i] * sigma_b))) *
-                 std::abs(shellB.coeffs[i]);
-
-    double Tk_0 = 2.0 * atilde * btilde * data.Am * data.Bm;
-    ab_bound = 0.0;
-    xp = atilde * atilde * data.A2 + btilde * btilde * data.B2;
-    for (int k = U.l_starts[l]; k < U.l_starts[l + 1]; k++) {
-      const GaussianECP& g = U.getGaussian(k);
-      ztilde = atilde + btilde + g.a;
-      Tk = Tk_0 / ztilde;
-      Tk = Tk > 1 ? 0.5 * std::exp(Tk) / Tk : SINH_1;
-      ab_bound += std::abs(g.d) * FAST_POW[3](std::sqrt(M_PI / g.a)) * std::exp(xp / ztilde) * Tk;
-    }
-    ab_bound *= std::exp(-atilde * data.A2 - btilde * data.B2);
-    results[l] = (2 * l + 1) * (2 * l + 1) * a_bound * b_bound * ab_bound;
-  }
+  screening::channel_bounds(U, shellA, shellB, data, results);
 }
 
 void ECPIntegral::compute_shell_pair(const ECP& U, const GaussianShell& shellA,
@@ -509,17 +467,27 @@ void ECPIntegral::compute_shell_pair(const ECP& U, const GaussianShell& shellA,
   makeC(CA, data.LA, data.A);
   makeC(CB, data.LB, data.B);
 
+  // Channels whose contribution is bounded below CHANNEL_SCREEN * tolerance (estimate_type2) are
+  // skipped. The factor allows for the number of blocks, each possibly missing skipped channels,
+  // summed into one value of the molecular integrals or derivatives: one per ECP for integrals;
+  // for first derivatives QA and QB (and C = -(QA + QB)) from two calls on raised shells each, so
+  // ~10; for second derivatives QAA, QAB and QBB from 3-4 calls each, combined with weights up to
+  // 4 (e.g. QAA + 2 QAB + QBB), so a few tens. Skipping at the tolerance itself gave second
+  // derivatives off by 2e-14 (Ag3). 1e-2 is set by the second derivatives and kept for every order
+  // (compute_shell_pair does not know which it serves): the cost is within timing noise.
+  constexpr double CHANNEL_SCREEN = 1e-2;
   std::vector<double> screens(U.getL() + 1);
   estimate_type2(U, shellA, shellB, data, screens.data());
+  const double channel_tol = CHANNEL_SCREEN * tolerance;
 
   // Calculate type1 integrals, if necessary
   values.assign(data.ncartA, data.ncartB, 0.0);
-  if (!U.noType1() && screens[U.getL()] > tolerance)
+  if (!U.noType1() && screens[U.getL()] > channel_tol)
     type1(U, shellA, shellB, data, CA, CB, radIntParameters, values);
 
   std::vector<int> l_list;
   for (int l = 0; l < U.getL(); l++)
-    if (screens[l] > tolerance) l_list.push_back(l);
+    if (screens[l] > channel_tol) l_list.push_back(l);
 
   // Now all the type2 integrals
   ThreeIndex<double> t2vals(data.ncartA, data.ncartB, 2 * U.getL() + 1);
@@ -759,67 +727,17 @@ void ECPIntegral::mixed_second_derivative(const ECP& U, const GaussianShell& she
 void ECPIntegral::compute_shell_pair_derivative(const ECP& U, const GaussianShell& shellA,
                                                 const GaussianShell& shellB,
                                                 std::array<TwoIndex<double>, 9>& results) const {
-  // First we check centres
-  double A[3], B[3], C[3];
-  for (int i = 0; i < 3; i++) {
-    A[i] = shellA.center()[i];
-    B[i] = shellB.center()[i];
-    C[i] = U.center()[i];
-  }
+  const bool onA = on_ecp(shellA, U), onB = on_ecp(shellB, U);
 
-  double dAC = std::abs(A[0] - C[0]) + std::abs(A[1] - C[1]) + std::abs(A[2] - C[2]);
-  double dBC = std::abs(B[0] - C[0]) + std::abs(B[1] - C[1]) + std::abs(B[2] - C[2]);
-
-  // Calculate shell derivatives
+  // Calculate shell derivatives (QB as d/dB <A|U|B>, from d/dB <B|U|A>)
   std::array<TwoIndex<double>, 3> QA, QB;
-  if (dAC > 1e-6) left_shell_derivative(U, shellA, shellB, QA);
-  if (dBC > 1e-6) left_shell_derivative(U, shellB, shellA, QB);
-
-  // initialise results matrices
-  int ncartA = (shellA.am() + 1) * (shellA.am() + 2) / 2;
-  int ncartB = (shellB.am() + 1) * (shellB.am() + 2) / 2;
-
-  // Now construct the nuclear derivs
-  if (dAC > 1e-6) {
-    results[0] = QA[0];
-    results[1] = QA[1];
-    results[2] = QA[2];
-    if (dBC > 1e-6) {
-      results[3] = QB[0].transpose();
-      results[4] = QB[1].transpose();
-      results[5] = QB[2].transpose();
-      for (int i = 6; i < 9; i++) results[i].assign(ncartA, ncartB, 0.0);
-      for (int nA = 0; nA < ncartA; nA++) {
-        for (int nB = 0; nB < ncartB; nB++) {
-          results[6](nA, nB) = -1.0 * (results[0](nA, nB) + results[3](nA, nB));
-          results[7](nA, nB) = -1.0 * (results[1](nA, nB) + results[4](nA, nB));
-          results[8](nA, nB) = -1.0 * (results[2](nA, nB) + results[5](nA, nB));
-        }
-      }
-    } else {
-      results[3] = results[0];
-      results[3].multiply(-1.0);
-      results[4] = results[1];
-      results[4].multiply(-1.0);
-      results[5] = results[2];
-      results[5].multiply(-1.0);
-      for (int i = 6; i < 9; i++) results[i].assign(ncartA, ncartB, 0.0);
-    }
-  } else if (dBC > 1e-6) {
-    results[3] = QB[0].transpose();
-    results[4] = QB[1].transpose();
-    results[5] = QB[2].transpose();
-    results[0] = results[3];
-    results[0].multiply(-1.0);
-    results[1] = results[4];
-    results[1].multiply(-1.0);
-    results[2] = results[5];
-    results[2].multiply(-1.0);
-    for (int i = 6; i < 9; i++) results[i].assign(ncartA, ncartB, 0.0);
-  } else {
-    // else everything is zero
-    for (auto& r : results) r.assign(ncartA, ncartB, 0.0);
+  if (!onA) left_shell_derivative(U, shellA, shellB, QA);
+  if (!onB) {
+    left_shell_derivative(U, shellB, shellA, QB);
+    for (auto& q : QB) q = q.transpose();
   }
+
+  pack_first_derivatives(QA, QB, onA, onB, shellA.ncartesian(), shellB.ncartesian(), results);
 }
 
 void ECPIntegral::compute_shell_pair_derivative_Bfield(
@@ -912,87 +830,20 @@ void ECPIntegral::compute_shell_pair_derivative_Bfield(
 void ECPIntegral::compute_shell_pair_second_derivative(
     const ECP& U, const GaussianShell& shellA, const GaussianShell& shellB,
     std::array<TwoIndex<double>, 45>& results) const {
-  // First we check centres
-  double A[3], B[3], C[3];
-  for (int i = 0; i < 3; i++) {
-    A[i] = shellA.center()[i];
-    B[i] = shellB.center()[i];
-    C[i] = U.center()[i];
-  }
+  const bool onA = on_ecp(shellA, U), onB = on_ecp(shellB, U);
 
-  double dAC = std::abs(A[0] - C[0]) + std::abs(A[1] - C[1]) + std::abs(A[2] - C[2]);
-  double dBC = std::abs(B[0] - C[0]) + std::abs(B[1] - C[1]) + std::abs(B[2] - C[2]);
-
-  // Calculate shell derivatives
+  // Calculate shell derivatives (QBB as d2/dB2 <A|U|B>, from d2/dB2 <B|U|A>)
   std::array<TwoIndex<double>, 6> QAA, QBB;
   std::array<TwoIndex<double>, 9> QAB;
-
-  if (dAC > 1e-6) {
-    left_shell_second_derivative(U, shellA, shellB, QAA);
-    if (dBC > 1e-6) {
-      left_shell_second_derivative(U, shellB, shellA, QBB);
-      mixed_second_derivative(U, shellA, shellB, QAB);
-    }
-  } else if (dBC > 1e-6) {
+  if (!onA) left_shell_second_derivative(U, shellA, shellB, QAA);
+  if (!onB) {
     left_shell_second_derivative(U, shellB, shellA, QBB);
+    for (auto& q : QBB) q = q.transpose();
   }
+  if (!onA && !onB) mixed_second_derivative(U, shellA, shellB, QAB);
 
-  // initialise results matrices
-  int ncartA = (shellA.am() + 1) * (shellA.am() + 2) / 2;
-  int ncartB = (shellB.am() + 1) * (shellB.am() + 2) / 2;
-  for (auto& r : results) r.assign(ncartA, ncartB, 0.0);
-
-  // Now construct the nuclear derivs
-  int jaas[9] = {0, 1, 2, 1, 3, 4, 2, 4, 5};
-  int jbbs[9] = {0, 3, 6, 1, 4, 7, 2, 5, 8};
-  int jaa, jbb;
-  if (dAC > 1e-6) {
-    // AA (xx, xy, xz, yy, yz, zz)
-    for (int i = 0; i < 6; i++) results[i] = QAA[i];
-
-    if (dBC > 1e-6) {
-      // AB (xx, xy, xz, yx, yy, yz, zx, zy, zz)
-      for (int i = 6; i < 15; i++) results[i] = QAB[i - 6];
-      // BB (xx, xy, xz, yy, yz, zz)
-      for (int i = 24; i < 30; i++) results[i] = QBB[i - 24].transpose();
-
-      for (int nA = 0; nA < ncartA; nA++) {
-        for (int nB = 0; nB < ncartB; nB++) {
-          for (int j = 0; j < 9; j++) {
-            jaa = jaas[j];
-            jbb = jbbs[j];
-
-            // AC (xx, xy, xz, yx, yy, yz, zx, zy, zz)
-            results[15 + j](nA, nB) = -1.0 * (QAA[jaa](nA, nB) + QAB[j](nA, nB));
-
-            // BC (xx, xy, xz, yx, yy, yz, zx, zy, zz)
-            results[30 + j](nA, nB) = -1.0 * (QBB[jaa](nB, nA) + QAB[jbb](nA, nB));
-
-            // CC (xx, xy, xz, yy, yz, zz)
-            results[39 + jaa](nA, nB) = -results[30 + j](nA, nB) - results[15 + j](nA, nB);
-          }
-        }
-      }
-    } else {
-      // AB (xx, xy, xz, yx, yy, yz, zx, zy, zz)
-      for (int i = 6; i < 15; i++) {
-        results[i] = QAA[jaas[i - 6]];
-        results[i].multiply(-1.0);
-      }
-      // BB (xx, xy, xz, yy, yz, zz)
-      for (int i = 24; i < 30; i++) results[i] = QAA[i - 24];
-    }
-  } else if (dBC > 1e-6) {
-    // BB (xx, xy, xz, yy, yz, zz)
-    for (int i = 24; i < 30; i++) results[i] = QBB[i - 24].transpose();
-    // AB (xx, xy, xz, yx, yy, yz, zx, zy, zz)
-    for (int i = 6; i < 15; i++) {
-      results[i] = QBB[jaas[i - 6]].transpose();
-      results[i].multiply(-1.0);
-    }
-    // AA (xx, xy, xz, yy, yz, zz)
-    for (int i = 0; i < 6; i++) results[i] = QBB[i].transpose();
-  }
+  pack_second_derivatives(QAA, QAB, QBB, onA, onB, shellA.ncartesian(), shellB.ncartesian(),
+                          results);
 }
 
 }  // namespace libecpint

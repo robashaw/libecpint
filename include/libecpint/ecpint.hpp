@@ -59,9 +59,10 @@ class ECPIntegral {
   RadialIntegral radInts;   ///< The interface to the radial integral calculation
   AngularIntegral angInts;  ///< The angular integrals, which can be reused over all ECP centers
 
-  /// Screening tolerance: shell-pair/channel contributions whose upper-bound estimate
-  /// falls below this are skipped. Set from the constructor `thresh` so the caller can
-  /// tighten it; a fixed value here would silently drop small but genuine l>0 integrals.
+  /// Screening tolerance: channel contributions whose upper bound falls below 1e-2 times this,
+  /// and primitive triples whose bound falls below their share of it, are skipped. Set from the
+  /// constructor `thresh` so the caller can tighten it; a fixed value here would silently drop
+  /// small but genuine l>0 integrals.
   double tolerance;
 
   /// Worker functions for calculating binomial expansion coefficients
@@ -142,6 +143,14 @@ class ECPIntegral {
              const ShellPairData& data, const FiveIndex<double>& CA, const FiveIndex<double>& CB,
              const RadialIntegral::Parameters& parameters, ThreeIndex<double>& values) const;
 
+  /**
+   * Upper bound on the contribution of each ECP channel l (0..L, L = local) to the integrals over
+   * a shell pair, used to skip channels below 1e-2 times the tolerance (compute_shell_pair); see
+   * screening::channel_bounds in
+   * screening.hpp for the formula.
+   *
+   * @param results - array of U.getL() + 1 bounds, one per channel
+   */
   void estimate_type2(const ECP& U, const GaussianShell& shellA, const GaussianShell& shellB,
                       const ShellPairData& data, double* results) const;
 

@@ -743,86 +743,49 @@ void ECPIntegral::compute_shell_pair_derivative(const ECP& U, const GaussianShel
 void ECPIntegral::compute_shell_pair_derivative_Bfield(
     const ECP& U, const GaussianShell& shellA, const GaussianShell& shellB,
     std::array<TwoIndex<double>, 3>& results) const {
-  // First we check centres
-  double A[3], B[3], C[3], AmC[3], BmC[3];
-  for (int i = 0; i < 3; i++) {
-    A[i] = shellA.center()[i];
-    B[i] = shellB.center()[i];
-    C[i] = U.center()[i];
-    AmC[i] = A[i] - C[i];
-    BmC[i] = B[i] - C[i];
-  }
+  const int LA = shellA.am(), LB = shellB.am();
+  for (auto& r : results) r.assign(shellA.ncartesian(), shellB.ncartesian(), 0.0);
 
-  int lqnA = shellA.am();
-  int lqnB = shellB.am();
+  // (A - C) x r = A x C + (A - C) x (r - A), and r - A raises shell A (likewise for B), so
+  //   results[k] = [(A - B) x C]_k <A|U|B> + [(A - C) x <A+1|]_k U|B> - <A|U [(B - C) x |B+1>]_k.
+  // The term of a shell on the ECP vanishes. When A and B share a centre off the ECP the block is
+  // not zero: the bra and ket factors act on different angular coordinates of the semi-local
+  // projectors, so they do not cancel.
+  const bool onA = on_ecp(shellA, U), onB = on_ecp(shellB, U);
+  if (onA && onB) return;
 
-  int ncartA = (lqnA + 1) * (lqnA + 2) / 2;
-  int ncartB = (lqnB + 1) * (lqnB + 2) / 2;
+  const double *A = shellA.center(), *B = shellB.center(), *C = U.center();
+  const double AmC[3] = {A[0] - C[0], A[1] - C[1], A[2] - C[2]};
+  const double BmC[3] = {B[0] - C[0], B[1] - C[1], B[2] - C[2]};
+  const double AmB[3] = {A[0] - B[0], A[1] - B[1], A[2] - B[2]};
+  const double ABxC[3] = {AmB[1] * C[2] - AmB[2] * C[1], AmB[2] * C[0] - AmB[0] * C[2],
+                          AmB[0] * C[1] - AmB[1] * C[0]};
 
-  results[0].assign(ncartA, ncartB, 0.0);
-  results[1].assign(ncartA, ncartB, 0.0);
-  results[2].assign(ncartA, ncartB, 0.0);
+  TwoIndex<double> Q, QAp, QBp;
+  compute_shell_pair(U, shellA, shellB, Q);
+  if (!onA) compute_shell_pair(U, shellA, shellB, QAp, 1, 0);
+  if (!onB) compute_shell_pair(U, shellA, shellB, QBp, 0, 1);
 
-  if ((std::abs(A[0] - B[0]) + std::abs(A[1] - B[1]) + std::abs(A[2] - B[2])) <
-      1e-5) {  // same centers, integrals are zero...
-    return;
-  }
-
-  int ncartAp1 = (lqnA + 2) * (lqnA + 3) / 2;
-  int ncartBp1 = (lqnB + 2) * (lqnB + 3) / 2;
-
-  double AxC[3];
-  AxC[0] = A[1] * C[2] - A[2] * C[1];
-  AxC[1] = A[2] * C[0] - A[0] * C[2];
-  AxC[2] = A[0] * C[1] - A[1] * C[0];
-  double BxC[3];
-  BxC[0] = B[1] * C[2] - B[2] * C[1];
-  BxC[1] = B[2] * C[0] - B[0] * C[2];
-  BxC[2] = B[0] * C[1] - B[1] * C[0];
-
-  // Calculate shell derivatives
-  TwoIndex<double> ABints, ApBints, ABpints;
-  compute_shell_pair(U, shellA, shellB, ABints);         // regular ints
-  compute_shell_pair(U, shellA, shellB, ApBints, 1, 0);  // A-shell increased l-qn by 1
-  compute_shell_pair(U, shellA, shellB, ABpints, 0, 1);  // B-shell increased l-qn by 1
-
-  int iB = 0;
-  for (int LxB = lqnB; LxB >= 0; LxB--) {
-    for (int LyB = lqnB - LxB; LyB >= 0; LyB--) {
-      const int LzB = lqnB - LxB - LyB;
-      int iA = 0;
-      for (int LxA = lqnA; LxA >= 0; LxA--) {
-        for (int LyA = lqnA - LxA; LyA >= 0; LyA--) {
-          const int LzA = lqnA - LxA - LyA;
-
-          const int pos0 = ncartB * iA + iB;
-
-          const int posAx = ncartB * iA + iB;                                               // LxA+1
-          const int posAy = ncartB * (LzA + ((LyA + LzA + 2) * (LyA + LzA + 1)) / 2) + iB;  // LyA+1
-          const int posAz = posAy + ncartB;                                                 // LzA+1
-
-          const int posBx = ncartBp1 * iA + iB;  // LxB+1
-          const int posBy =
-              ncartBp1 * iA + (LzB + ((LyB + LzB + 2) * (LyB + LzB + 1)) / 2);  // LyB+1
-          const int posBz = posBy + 1;                                          // LzB+1
-
-          results[0].data[pos0] = AxC[0] * ABints.data[pos0] + AmC[1] * ApBints.data[posAz] -
-                                  AmC[2] * ApBints.data[posAy];
-          results[1].data[pos0] = AxC[1] * ABints.data[pos0] + AmC[2] * ApBints.data[posAx] -
-                                  AmC[0] * ApBints.data[posAz];
-          results[2].data[pos0] = AxC[2] * ABints.data[pos0] + AmC[0] * ApBints.data[posAy] -
-                                  AmC[1] * ApBints.data[posAx];
-          results[0].data[pos0] -= BxC[0] * ABints.data[pos0] + BmC[1] * ABpints.data[posBz] -
-                                   BmC[2] * ABpints.data[posBy];
-          results[1].data[pos0] -= BxC[1] * ABints.data[pos0] + BmC[2] * ABpints.data[posBx] -
-                                   BmC[0] * ABpints.data[posBz];
-          results[2].data[pos0] -= BxC[2] * ABints.data[pos0] + BmC[0] * ABpints.data[posBy] -
-                                   BmC[1] * ABpints.data[posBx];
-
-          iA++;
+  int nA = 0;
+  for (int kA = LA; kA >= 0; kA--) {
+    for (int lA = LA - kA; lA >= 0; lA--, nA++) {
+      const int mA = LA - kA - lA;
+      // index of the component raised in x, y, z in the shell of angular momentum LA + 1
+      const int rA[3] = {N_INDEX(lA, mA), N_INDEX(lA + 1, mA), N_INDEX(lA, mA + 1)};
+      int nB = 0;
+      for (int kB = LB; kB >= 0; kB--) {
+        for (int lB = LB - kB; lB >= 0; lB--, nB++) {
+          const int mB = LB - kB - lB;
+          const int rB[3] = {N_INDEX(lB, mB), N_INDEX(lB + 1, mB), N_INDEX(lB, mB + 1)};
+          for (int k = 0; k < 3; k++) {
+            const int p = (k + 1) % 3, q = (k + 2) % 3;  // (D x V)_k = D_p V_q - D_q V_p
+            double v = ABxC[k] * Q(nA, nB);
+            if (!onA) v += AmC[p] * QAp(rA[q], nB) - AmC[q] * QAp(rA[p], nB);
+            if (!onB) v -= BmC[p] * QBp(nA, rB[q]) - BmC[q] * QBp(nA, rB[p]);
+            results[k](nA, nB) = v;
+          }
         }
       }
-      iB++;
     }
   }
 }

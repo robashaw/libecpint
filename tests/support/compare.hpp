@@ -53,14 +53,16 @@ struct Comparison {
 Comparison compare_values(const std::vector<double>& value, const std::vector<double>& ref,
                           double rel = DEFAULT_REL_TOL, const std::vector<double>* scale = nullptr);
 
-/// Labels of derivative indices: 3 * atom id + coordinate (first), packed order (second)
+/// Labels of derivative indices: 3 * atom id + coordinate (first), packed order (second), field
+/// component (bfield)
 std::string first_label(const System& sys, int index);
 std::string second_label(const System& sys, int index, int natoms);
+std::string bfield_label(int k);
 
 /**
- * Compares integrals and derivatives (up to deriv) as gtest assertions, each set (ints, first,
- * second) with its own scale and, if given, conditioning scales, describing the worst element of
- * any failing set.
+ * Compares integrals and derivatives (up to deriv; the magnetic field derivatives with the first)
+ * as gtest assertions, each set (ints, first, second, bfield) with its own scale and, if given,
+ * conditioning scales, describing the worst element of any failing set.
  */
 ::testing::AssertionResult compare_integrals(const System& sys, const Integrals& value,
                                              const Integrals& ref, int deriv,

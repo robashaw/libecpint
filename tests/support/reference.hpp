@@ -15,11 +15,12 @@
 
 namespace testsupport {
 
-/// Integrals and their derivatives, laid out as ECPIntegrator's integrals, first_derivs and
-/// second_derivs (derivative vectors are empty if not computed)
+/// Integrals and their derivatives, laid out as ECPIntegrator's integrals, first_derivs,
+/// second_derivs and bfield_derivs (derivative vectors are empty if not computed; the magnetic
+/// field derivatives are computed with the first derivatives, as they need the same engine)
 struct Integrals {
   libecpint::TwoIndex<double> ints;
-  std::vector<libecpint::TwoIndex<double>> first, second;
+  std::vector<libecpint::TwoIndex<double>> first, second, bfield;
 };
 
 /// The reference engine's input for the shells and ECPs of an ECPIntegrator (on which init has been
@@ -36,10 +37,26 @@ std::vector<intref::Ecp> reference_ecps(const libecpint::ECPIntegrator& f);
  * raised to l_s + o with coefficients |c| (2a)^o (1 + d_s sqrt(2a))^(l_s + o), d_s its distance
  * from the ECP. The library expands the shells about the ECP centre, which cancels by up to the
  * last factor for each primitive, and the derivative recurrence and the contraction cancel too, so
- * rounding gives errors up to ~1e-16 times this scale.
+ * rounding gives errors up to ~1e-16 times this scale. The magnetic field derivatives are built
+ * from the shells and the shells raised by one (ECPIntegral::compute_shell_pair_derivative_Bfield),
+ * so a block's scale for them is
+ *   |(A - B) x C| max |<A|U|B>| + |A - C| max |<A^(1)|U|B>| + |B - C| max |<A|U|B^(1)>|,
+ * with s^(1) as above but without the factor 2a, which only differentiation brings.
  */
 Integrals reference_integrals(const libecpint::ECPIntegrator& f, int deriv,
                               Integrals* scale = nullptr);
+
+/// Shell s raised to l + o with coefficients |c| (2a)^o (1 + d sqrt(2a))^(l + o), d its distance
+/// from U (without the factor (2a)^o if !diff): the size of the terms of derivatives of order o in
+/// the library (see reference_integrals)
+libecpint::GaussianShell conditioning_shell(const libecpint::GaussianShell& s,
+                                            const libecpint::ECP& U, int o, bool diff = true);
+
+/// The conditioning scale of the magnetic field derivative block (A | B) over U (see
+/// reference_integrals), with the integrals from engine (constructed with deriv >= 1)
+double bfield_conditioning_scale(const libecpint::ECPIntegral& engine, const libecpint::ECP& U,
+                                 const libecpint::GaussianShell& A,
+                                 const libecpint::GaussianShell& B);
 
 /// The library's integrals and derivatives up to order deriv, computed with f's settings
 Integrals library_integrals(libecpint::ECPIntegrator& f, int deriv);

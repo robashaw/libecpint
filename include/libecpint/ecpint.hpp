@@ -249,18 +249,26 @@ class ECPIntegral {
                                const GaussianShell& shellB,
                                std::array<TwoIndex<double>, 9>& results) const;
   /**
-   * Computes the overall ECP integral first derivatives wrt an external magnetic field over the
-   * given ECP center, C, and GIAO shell pair (A | B).
-   * The results are placed in order [dECP/dBx, dECP/dBy, dECP/dBz].
-   * The order for each derivative matrices matches that specified in compute_shell_pair
+   * Computes the first derivatives with respect to a uniform external magnetic field of the ECP
+   * integral over the ECP centre, C, and the shell pair (A | B) of gauge-including atomic orbitals
+   * (London orbitals, chi_A exp(-i/2 (B x A).r)), with the ECP's projectors gauge-transformed to
+   * its own centre. For k = x, y, z,
    *
-   * Note that the resulting integrals are imaginary, i.e., the user has to take care of
-   * skew-symmetry.
+   *   results[k] = <A| [(A - C) x r]_k U |B> - <A| U [(B - C) x r']_k |B>,
+   *
+   * with r (r') the position, relative to the global origin, on the bra (ket) side of the
+   * semi-local projectors. The derivative is i/2 results[k], so each matrix is real and
+   * antisymmetric (results[k] for (B | A) is minus the transpose), and depends on the origin as
+   * GIAO derivatives do. A block with both shells on the ECP is zero. The order of each matrix
+   * matches that of compute_shell_pair.
+   *
+   * The shells are raised by one in angular momentum, so this needs an ECPIntegral constructed
+   * with deriv >= 1.
    *
    * @param U - reference to the ECP
    * @param shellA - the first basis shell (rows in values)
    * @param shellB - the second basis shell (cols in values)
-   * @param results - reference to array of 9 TwoIndex arrays where the results will be stored
+   * @param results - reference to array of 3 TwoIndex arrays for the [x, y, z] derivatives
    */
   void compute_shell_pair_derivative_Bfield(const ECP& U, const GaussianShell& shellA,
                                             const GaussianShell& shellB,

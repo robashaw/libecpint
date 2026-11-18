@@ -72,15 +72,18 @@ Documentation
 This documentation can be generated locally via CMake by running
 
 .. code-block:: bash
-	
-	make docs
-	
-This requires the following to be available:
 
-- Doxygen
-- Sphinx
-- Breathe
-- Exhale
+	make docs
+
+in the build directory, which writes it to ``doc/html/index.html`` there. This requires Doxygen,
+and Sphinx with the packages in ``doc/sphinx/requirements.txt``:
+
+.. code-block:: bash
+
+	pip install -r doc/sphinx/requirements.txt
+
+If ``doxygen`` or ``sphinx-build`` is not on your path, pass its location to CMake with
+``-DDOXYGEN_EXECUTABLE=...`` or ``-DSPHINX_EXECUTABLE=...``.
 
 Closed-form radial integrals
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

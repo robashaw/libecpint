@@ -68,9 +68,7 @@ struct ECPIntegrator {
   bool ecp_is_set;    ///< true if the ecp basis has been set, false by default
   bool basis_is_set;  ///< true if the gaussian basis has been set, false by default
 
-  double tolerance;        ///< threshold for skipping shell-pair contributions (1e-12 by default)
-  double shell_tolerance;  ///< threshold for skipping whole shell contributions, determined by
-                           ///< tolerance and the max L in the ECP basis
+  double tolerance;  ///< threshold for skipping shells and shell pairs (1e-12 by default)
 
   /** Container for the calculated ECP integrals, in canonical Cartesian order
    * i.e. for L=2 : {x^2, xy, xz, y^2, yz, z^2}
@@ -110,7 +108,6 @@ struct ECPIntegrator {
     ecp_is_set = basis_is_set = false;
     maxLB = ncart = 0;
     tolerance = 1e-12;
-    shell_tolerance = 1e-12;
   }
 
   /**  Constructs a basis set of GaussianShell objects from a stream of coordinates, exponents,
@@ -193,10 +190,8 @@ struct ECPIntegrator {
    * @param tol - the tolerance for screening shell pairs; default 1e-12
    * @param radial_tol - the screening tolerance of the radial integrals (0 skips nothing); default
    *  1e-15
-   * @param smallGrid - the maximum number of quadrature points for the small radial integration
-   *  grid; default 256
-   * @param bigGrid - the maximum number of quadrature points for the large radial integration grid;
-   *  default 1024
+   * @param smallGrid - unused, kept for compatibility (the radial quadrature rules are fixed)
+   * @param bigGrid - unused, kept for compatibility
    */
   void init(int deriv_ = 0, double tol = 1e-12, double radial_tol = 1e-15, unsigned smallGrid = 256,
             unsigned bigGrid = 1024);
@@ -208,7 +203,9 @@ struct ECPIntegrator {
   void compute_integrals();
 
   /** Contracts the first derivatives of the ECP integrals V with a density matrix,
+   * @code{.unparsed}
    *   gradient[3 * X + i] = sum_kl density(k, l) dV(k, l) / dX_i,
+   * @endcode
    * for each atom X (in the order given in set_gaussian_basis) and i = x, y, z. The derivative
    * matrices are never stored, so memory needed is O(ncart^2 + natoms): this is the recommended
    * way to get derivatives for large systems. Requires init with deriv >= 1.
@@ -219,7 +216,9 @@ struct ECPIntegrator {
   std::vector<double> compute_gradient(const double* density);
 
   /** Contracts the second derivatives of the ECP integrals V with a density matrix,
+   * @code{.unparsed}
    *   hessian[(3 * X + i) * 3 * natoms + 3 * Y + j] = sum_kl density(k, l) d2V(k, l) / dX_i dY_j,
+   * @endcode
    * as a full (symmetric) 3*natoms x 3*natoms matrix, row-major. The derivative matrices are never
    * stored, so memory needed is O(ncart^2 + natoms^2). Requires init with deriv >= 2.
    * @param density - as for compute_gradient

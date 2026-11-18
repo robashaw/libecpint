@@ -21,6 +21,7 @@
 #include <vector>
 
 #include "../../support/radial_reference.hpp"
+#include "assembly.hpp"
 #include "ecpint.hpp"
 #include "system.hpp"
 
@@ -237,21 +238,25 @@ TEST_P(Systems, ChannelBoundsBoundChannels) {
 
 TEST_P(Systems, SkippedShellPairsBelowTolerance) {
   // Mirrors the loops of assembly.hpp: for shells s2 <= s1, the pair is skipped against ECP i when
-  // shell s1's bound is at most shell_tolerance, or the product of the bounds at most tolerance.
-  // Every block skipped must then be at most tolerance (each skipped pair by itself).
+  // the shell test drops s1 against i (ShellPairScreen::ecps_for), or the product of the bounds is
+  // at most tolerance. Every block skipped must then be at most tolerance (each skipped pair by
+  // itself).
   for (int deriv = 0; deriv <= sys_.spec.deriv; deriv++) {
     libecpint::ECPIntegrator f;
     sys_.setup(f, deriv);
     const int necp = f.ecps.getN();
     const std::vector<double> bounds = shell_ecp_bounds(f.shells, f.ecps, deriv);
+    const auto screen = ShellPairScreen::from_bounds(bounds, necp, f.tolerance);
     const ECPIntegral engine(f.maxLB, f.ecps.getMaxL(), deriv, 0.0);
     double worst = 0.0;
     int nskipped = 0, nviolations = 0;
-    for (size_t s1 = 0; s1 < f.shells.size(); s1++)
+    for (size_t s1 = 0; s1 < f.shells.size(); s1++) {
+      std::vector<bool> kept(necp, false);
+      for (const auto& [i, b] : screen.ecps_for(s1, necp)) kept[i] = true;
       for (size_t s2 = 0; s2 <= s1; s2++)
         for (int i = 0; i < necp; i++) {
           const double b1 = bounds[s1 * necp + i], b2 = bounds[s2 * necp + i];
-          if (b1 > f.shell_tolerance && b1 * b2 > f.tolerance) continue;
+          if (kept[i] && b1 * b2 > f.tolerance) continue;
           nskipped++;
           const ECP& U = f.ecps.getECP(i);
           const GaussianShell &A = f.shells[s1], &B = f.shells[s2];
@@ -275,11 +280,46 @@ TEST_P(Systems, SkippedShellPairsBelowTolerance) {
                           << ") and " << s2 << " (l=" << B.am() << ") against ECP " << i
                           << " (bounds " << b1 << ", " << b2 << ") have elements up to " << actual;
         }
+    }
     EXPECT_EQ(nviolations, 0) << "deriv " << deriv << ": " << nskipped
                               << " (shell pair, ECP) skipped, largest element " << worst;
     std::printf("[ info ] %s deriv %d: %d skipped, largest element %.3e (tolerance %.1e)\n",
                 GetParam().c_str(), deriv, nskipped, worst, f.tolerance);
   }
+}
+
+TEST(ShellScreen, ImpliedByPairTest) {
+  // The shell test must only save work: a shell dropped against an ECP must have every pair it
+  // forms (with any shell, itself included) at most the tolerance. Bounds spread over many decades,
+  // with zeros, so that both tests skip often; and the screen that skips nothing.
+  const int nshells = 60, necp = 4;
+  const double tolerance = 1e-12;
+  std::vector<double> bounds(nshells * necp);
+  for (int s = 0; s < nshells; s++)
+    for (int i = 0; i < necp; i++) {
+      const int k = (37 * s + 11 * i) % 29;
+      bounds[s * necp + i] = k == 0 ? 0.0 : std::pow(10.0, -0.9 * k + 2.0);
+    }
+  int ndropped = 0;
+  for (const auto& screen : {ShellPairScreen::from_bounds(bounds, necp, tolerance),
+                             ShellPairScreen::none(nshells, necp)}) {
+    for (int s = 0; s < nshells; s++) {
+      std::vector<bool> kept(necp, false);
+      for (const auto& [i, b] : screen.ecps_for(s, necp)) {
+        kept[i] = true;
+        EXPECT_EQ(b, screen.bounds[s * necp + i]);
+      }
+      for (int i = 0; i < necp; i++) {
+        if (kept[i]) continue;
+        ndropped++;
+        for (int t = 0; t < nshells; t++)
+          EXPECT_LE(screen.bounds[s * necp + i] * screen.bounds[t * necp + i], screen.tolerance)
+              << "shell " << s << " dropped against ECP " << i << ", but its pair with " << t
+              << " passes the pair test";
+      }
+    }
+  }
+  EXPECT_GT(ndropped, 0);  // the test must exercise the shell test
 }
 
 INSTANTIATE_TEST_SUITE_P(Manifest, Systems, ::testing::ValuesIn(system_names()),

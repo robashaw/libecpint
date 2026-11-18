@@ -28,6 +28,7 @@
 #include <algorithm>
 #include <array>
 #include <cmath>
+#include <utility>
 #include <vector>
 
 #include "ecp.hpp"
@@ -89,22 +90,32 @@ void pack_second_derivatives(const std::array<TwoIndex<double>, 6>& QAA,
                              int ncartA, int ncartB, std::array<TwoIndex<double>, 45>& results);
 
 /**
- * Screening of (shell, ECP) and (shell pair, ECP) combinations in the assembly loops: the shell
- * s is skipped against ECP i if bounds[s * necp + i] <= shell_tolerance, and the pair (s1, s2) if
- * bounds[s1 * necp + i] * bounds[s2 * necp + i] <= tolerance.
+ * Screening of (shell, ECP) and (shell pair, ECP) combinations in the assembly loops: the pair
+ * (s1, s2) is skipped against ECP i if bounds[s1 * necp + i] * bounds[s2 * necp + i] <= tolerance,
+ * and the shell s against ECP i if bounds[s * necp + i] * partner[i] <= tolerance, with partner[i]
+ * the largest bound of any shell against ECP i (screening::partner_bounds). A shell is therefore
+ * skipped only when every pair it forms would be, so the shell test only saves work.
  */
 struct ShellPairScreen {
-  std::vector<double> bounds;
-  double shell_tolerance, tolerance;
+  std::vector<double> bounds;   ///< [shell * necp + ecp]
+  std::vector<double> partner;  ///< [ecp], the largest bound against each ECP
+  double tolerance;
+
+  /// @return the screen for the given bounds (as from screening::shell_ecp_bounds)
+  static ShellPairScreen from_bounds(std::vector<double> bounds, const int necp,
+                                     const double tolerance) {
+    std::vector<double> partner = screening::partner_bounds(bounds, necp);
+    return {std::move(bounds), std::move(partner), tolerance};
+  }
 
   /// @return a screen that skips nothing, for nshells shells and necp ECPs
   static ShellPairScreen none(const size_t nshells, const int necp) {
-    return {std::vector<double>(nshells * necp, 1.0), -1.0, -1.0};
+    return {std::vector<double>(nshells * necp, 1.0), std::vector<double>(necp, 1.0), -1.0};
   }
 
   /// @return the ECPs (index, bound) not screened out for shell s
   std::vector<std::pair<int, double>> ecps_for(const int s, const int necp) const {
-    return screening::screen_shell_ecps(bounds, s, necp, shell_tolerance);
+    return screening::screen_shell_ecps(bounds, s, necp, partner, tolerance);
   }
 };
 

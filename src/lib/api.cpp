@@ -106,7 +106,6 @@ void ECPIntegrator::init(const int deriv_, const double tol, const double radial
 
   // Set the screening tolerance for shells and shell pairs
   tolerance = tol;
-  shell_tolerance = screening::shell_tolerance(tolerance, maxLB, min_alpha);
 
   ecpint =
       std::make_shared<ECPIntegral>(maxLB, ecps.getMaxL(), deriv, radial_tol, smallGrid, bigGrid);
@@ -157,7 +156,8 @@ void ECPIntegrator::init(const int deriv_, const double tol, const double radial
 }
 
 ShellPairScreen ECPIntegrator::screen(const int d) const {
-  return {screening::shell_ecp_bounds(shells, ecps, d), shell_tolerance, tolerance};
+  return ShellPairScreen::from_bounds(screening::shell_ecp_bounds(shells, ecps, d), ecps.getN(),
+                                      tolerance);
 }
 
 void ECPIntegrator::compute_integrals() {
@@ -236,7 +236,8 @@ void ECPIntegrator::compute_bfield_derivs() {
   bfield_derivs.assign(3, TwoIndex<double>(ncart, ncart, 0.0));
   bfield_derivs_loop(
       shells, ecps,
-      ShellPairScreen{screening::shell_ecp_bfield_bounds(shells, ecps), shell_tolerance, tolerance},
+      ShellPairScreen::from_bounds(screening::shell_ecp_bfield_bounds(shells, ecps), ecps.getN(),
+                                   tolerance),
       [&](const ECP& U, const GaussianShell& A, const GaussianShell& B,
           std::array<TwoIndex<double>, 3>& v) {
         ecpint->compute_shell_pair_derivative_Bfield(U, A, B, v);

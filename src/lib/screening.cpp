@@ -24,6 +24,7 @@
 
 #include "screening.hpp"
 
+#include <algorithm>
 #include <cmath>
 #include <limits>
 
@@ -165,20 +166,22 @@ std::vector<double> shell_ecp_bfield_bounds(const std::vector<GaussianShell>& sh
   return bounds;
 }
 
-std::vector<std::pair<int, double>> screen_shell_ecps(const std::vector<double>& bounds,
-                                                      const int s, const int necp,
-                                                      const double thresh) {
-  std::vector<std::pair<int, double>> result;
-  for (int i = 0; i < necp; i++)
-    if (bounds[s * necp + i] > thresh) result.push_back({i, bounds[s * necp + i]});
-  return result;
+std::vector<double> partner_bounds(const std::vector<double>& bounds, const int necp) {
+  std::vector<double> partner(necp, 0.0);
+  const size_t nshells = necp > 0 ? bounds.size() / necp : 0;
+  for (size_t s = 0; s < nshells; s++)
+    for (int i = 0; i < necp; i++) partner[i] = std::max(partner[i], bounds[s * necp + i]);
+  return partner;
 }
 
-double shell_tolerance(const double tolerance, const int maxLB, const double min_alpha) {
-  double denominator =
-      FAST_POW[maxLB + 3]((maxLB + 3.0) / min_alpha) * FAST_POW[3](M_PI / (2 * maxLB + 3.0));
-  denominator /= FAST_POW[maxLB](2.0 * M_EULER);
-  return tolerance / std::sqrt(denominator);
+std::vector<std::pair<int, double>> screen_shell_ecps(const std::vector<double>& bounds,
+                                                      const int s, const int necp,
+                                                      const std::vector<double>& partner,
+                                                      const double tolerance) {
+  std::vector<std::pair<int, double>> result;
+  for (int i = 0; i < necp; i++)
+    if (bounds[s * necp + i] * partner[i] > tolerance) result.push_back({i, bounds[s * necp + i]});
+  return result;
 }
 
 }  // namespace screening

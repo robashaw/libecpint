@@ -1,0 +1,17 @@
+ecp36sdf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP36SDF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=1., SEFIT, DF, L. v. Szentpaly, P. Fuentealba, H. Preuss, H. Stoll, Chem. Phys. Lett. 93, 555 (1982), P. Fuentealba, H. Stoll, L. v. Szentpaly, P. Schwerdtfeger, H. Preuss, J. Phys. B 16, L323 (1983); CPP: alpha=8.67;delta=0.23;ncut=1.
+ECP,Rb,36,3,0;
+1; 2,1.000000,0.000000; 
+1; 2,1.012000,45.272000; 
+1; 2,0.303600,2.830000; 
+1; 2,0.383800,-1.975000; 
+
+!  Q=2., SEFIT, DF, P. Fuentealba, L. v. Szentpaly, H. Preuss, H. Stoll, J. Phys. B 18, 1287 (1985); CPP: alpha=5.51;delta=0.315;ncut=1.
+ECP,Sr,36,3,0;
+1; 2,1.000000,0.000000; 
+1; 2,0.796200,15.387000; 
+1; 2,0.421200,5.077000; 
+1; 2,0.492700,-2.248000; 

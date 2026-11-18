@@ -1,3 +1,6 @@
+add_subdirectory(support)
 add_subdirectory(units)
-add_subdirectory(lib)
+add_subdirectory(radial)
+add_subdirectory(analytic)
+add_subdirectory(suite)
 

@@ -1,0 +1,17 @@
+ecp36shf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP36SHF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=1., SEFIT, HF, P. Fuentealba, H. Stoll, L. v. Szentpaly, P. Schwerdtfeger, H. Preuss, J. Phys. B 16, L323 (1983).
+ECP,Rb,36,3,0;
+1; 2,1.000000,0.000000; 
+1; 2,0.650000,10.116000; 
+1; 2,0.295000,2.703000; 
+1; 2,0.370000,-1.680000; 
+
+!  Q=2., SEFIT, HF, P.Fuentealba, Dissertation (1984).
+ECP,Sr,36,3,0;
+1; 2,1.000000,0.000000; 
+1; 2,0.767600,15.318000; 
+1; 2,0.428600,5.613300; 
+1; 2,0.440400,-1.381000; 

@@ -1,4 +1,5 @@
 codecov:
+  branch: main
   max_report_age: off
   notify:
     after_n_builds: 1

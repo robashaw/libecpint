@@ -1,0 +1,29 @@
+! Shells of the La2O3 regression system (former integral_reference and quadrature_smoothness
+! tests), by atom number: a tight O 1s contraction (exponent 2266) close to a large-core La ECP,
+! diffuse and moderate shells, and an f shell on the second La
+1     0
+D    2   1.00
+      1.5                    1.0
+      0.5                    0.6
+S    2   1.00
+      2.0                    0.8
+      0.3                    0.4
+****
+2     0
+F    1   1.00
+      0.25683                1.0
+****
+3     0
+P    3   1.00
+     17.721504317            3.24601
+      3.863550544            2.57350
+      1.0480920883           1.12084
+S    3   1.00
+   2266.1767785             -1.26159
+    340.87010191            -2.27485
+     21.47964494            -3.32999
+****
+4     0
+D    1   1.00
+      1.2                    1.0
+****

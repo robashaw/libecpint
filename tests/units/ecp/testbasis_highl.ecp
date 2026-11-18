@@ -1,0 +1,4 @@
+testbasis_highl
+! Header-only ECP with lmax = 20, above any supported LIBECPINT_MAX_L.
+ECP,si,10,20,0;
+1; 2,1.0,0.0;

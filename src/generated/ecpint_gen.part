@@ -23,12 +23,8 @@
  */
 
 #include "qgen.hpp"
-#include "ecpint.hpp"
 
 namespace libecpint {
+namespace qgen {
 
-	void(*ECPIntegral::QGEN[LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1][LIBECPINT_MAX_L+1])(
-      const ECP&, const GaussianShell&, const GaussianShell&,
-      const FiveIndex<double>&, const FiveIndex<double>&, const TwoIndex<double>&, const TwoIndex<double>&,
-      double, double,
-	    const RadialIntegral&, const AngularIntegral&, const RadialIntegral::Parameters&, ThreeIndex<double>&) {
+Kernel unrolled(const int LA, const int LB, const int lam) {

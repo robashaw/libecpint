@@ -1,0 +1,16 @@
+# Test systems for tests/suite: one per line, as key=value pairs. See tests/README.md.
+#   xyz, basis: files under tests/data
+#   ecp:        ELEMENT:SOURCE[,...], SOURCE being lib/NAME (share/libecpint/raw/NAME.ecp) or
+#               data/NAME (tests/data/ecp/NAME.ecp)
+#   deriv:      highest derivative order tested
+#   live:       yes to also compare with the reference engine in `ctest -L reference` (ag3_lanl2dz
+#               is no: its reference takes ~145 s, its steep local channel being the engine's
+#               slowest case; auh2_highl is no: ~100 s, for its i shells; Stored still checks both)
+name=ag3_mdf      xyz=systems/ag3.xyz      basis=basis/ag-valence.gbs       ecp=Ag:lib/ecp28mdf               deriv=2 live=yes
+name=ag3_lanl2dz  xyz=systems/ag3.xyz      basis=basis/ag-valence.gbs       ecp=Ag:data/lanl2dz-ag            deriv=2 live=no
+name=la2o3        xyz=systems/la2o3.xyz    basis=basis/la2o3-regression.gbs ecp=La:lib/def2-ecp               deriv=2 live=yes
+name=testpair     xyz=systems/testpair.xyz basis=basis/testpair.gbs         ecp=Li:data/testpair,Ag:data/testpair deriv=2 live=yes
+name=ch3i_svp     xyz=systems/ch3i.xyz     basis=basis/def2-svp.gbs         ecp=I:lib/def2-ecp                deriv=2 live=yes
+name=pt_tzvp      xyz=systems/pt.xyz       basis=basis/def2-tzvp.gbs        ecp=Pt:lib/def2-ecp               deriv=2 live=yes
+name=au2_tzvpp    xyz=systems/au2.xyz      basis=basis/def2-tzvpp.gbs       ecp=Au:lib/def2-ecp               deriv=1 live=no
+name=auh2_highl   xyz=systems/auh2.xyz     basis=basis/auh2-highl.gbs       ecp=Au:data/highl                 deriv=2 live=no

@@ -18,6 +18,7 @@ libecpint is an open-source library for the calculation of integrals over effect
    introduction
    installation
    usage
+   developer
    api/library_root
 
    

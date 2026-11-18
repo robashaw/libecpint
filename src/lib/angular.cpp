@@ -141,20 +141,18 @@ FiveIndex<double> AngularIntegral::makeU() const {
 }
 
 void AngularIntegral::makeW(const FiveIndex<double>& U) {
-  int LB2 = 2 * LB;
-  int dim = wDim;
-  int maxI = (maxL + dim) / 2;
-  int maxLam = maxL;
-
-  FiveIndex<double> values{dim + 1, dim + 1, dim + 1, maxLam + 1, 2 * (maxLam + 1)};
-  ThreeIndex<double> pijk = Pijk(maxI);
+  // W is read for k + l + m <= 2 LB (type 1) and <= LB + LE (in makeOmega), with lam <= maxL
+  const int maxLam = maxL, nlm = (maxL + 1) * (maxL + 1);
+  W.assign(simplex(maxL + 1, 0, 0) * nlm, 0.0);
+  // the powers in the polynomial integrals below are at most k + l + m + lam <= 2 maxL
+  ThreeIndex<double> pijk = Pijk(maxL);
 
   int plam, pmu;
   double smu, w;
   std::vector<int> ix(3);
-  for (int k = 0; k <= dim; k++) {
-    for (int l = 0; l <= dim; l++) {
-      for (int m = 0; m <= dim; m++) {
+  for (int k = 0; k <= maxL; k++) {
+    for (int l = 0; k + l <= maxL; l++) {
+      for (int m = 0; k + l + m <= maxL; m++) {
         plam = (k + l + m) % 2;
 
         int limit = maxLam > k + l + m ? k + l + m : maxLam;
@@ -178,42 +176,48 @@ void AngularIntegral::makeW(const FiveIndex<double>& U) {
               }
             }
 
-            values(k, l, m, lam, lam + (int)(smu * mu)) = w;
+            W[simplex(k, l, m) * nlm + lam * lam + lam + (int)(smu * mu)] = w;
           }
         }
       }
     }
   }
-  W = values;
 }
 
 void AngularIntegral::makeOmega(const FiveIndex<double>& U) {
-  int lamDim = LE + LB;
-  int muDim = 2 * lamDim + 1;
-  SevenIndex<double> values{LB + 1, LB + 1, LB + 1, lamDim + 1, muDim + 1, lamDim + 1, muDim + 1};
+  const int lamDim = LE + LB, nle = (LE + 1) * (LE + 1);
+  omega.assign(simplex(LB + 1, 0, 0) * nle * nrs, 0.0);
 
+  // Omega is symmetric in its two (l, m) pairs, and each value is computed with the U
+  // coefficients of the smaller l (lam <= rho below) and stored under both orders. Only the
+  // orders with the first l <= LE are stored, so lam > LE is not needed, nor the first store for
+  // rho > LE.
   double om_plus = 0.0, om_minus = 0.0;
   double wval;
   for (int k = 0; k <= LB; k++) {
-    for (int l = 0; l <= LB; l++) {
-      for (int m = 0; m <= LB; m++) {
+    for (int l = 0; k + l <= LB; l++) {
+      for (int m = 0; k + l + m <= LB; m++) {
+        const int row0 = simplex(k, l, m) * nle;
+        auto at = [&](const int l1, const int m1, const int l2, const int m2) -> double& {
+          return omega[(row0 + l1 * l1 + l1 + m1) * nrs + l2 * l2 + l2 + m2];
+        };
         for (int rho = 0; rho <= lamDim; rho++) {
           for (int sigma = -rho; sigma <= rho; sigma++) {
-            for (int lam = 0; lam <= rho; lam++) {
+            for (int lam = 0; lam <= rho && lam <= LE; lam++) {
               for (int mu = 0; mu <= lam; mu++) {
                 om_plus = om_minus = 0.0;
                 for (int i = 0; i <= lam; i++) {
                   for (int j = 0; j <= lam - i; j++) {
-                    wval = W(k + i, l + j, m + lam - i - j, rho, rho + sigma);
+                    wval = getIntegral(k + i, l + j, m + lam - i - j, rho, sigma);
                     om_plus += U(lam, mu, i, j, 0) * wval;
                     om_minus += U(lam, mu, i, j, 1) * wval;
                   }
                 }
                 if (mu == 0) om_minus = om_plus;
-                values(k, l, m, rho, sigma + rho, lam, lam + mu) = om_plus;
-                values(k, l, m, lam, lam + mu, rho, sigma + rho) = om_plus;
-                values(k, l, m, rho, sigma + rho, lam, lam - mu) = om_minus;
-                values(k, l, m, lam, lam - mu, rho, sigma + rho) = om_minus;
+                if (rho <= LE) at(rho, sigma, lam, mu) = om_plus;
+                at(lam, mu, rho, sigma) = om_plus;
+                if (rho <= LE) at(rho, sigma, lam, -mu) = om_minus;
+                at(lam, -mu, rho, sigma) = om_minus;
               }
             }
           }
@@ -221,8 +225,6 @@ void AngularIntegral::makeOmega(const FiveIndex<double>& U) {
       }
     }
   }
-
-  omega = values;
 }
 
 AngularIntegral::AngularIntegral() { init(0, 0); }
@@ -230,8 +232,8 @@ AngularIntegral::AngularIntegral(const int _LB, const int _LE) { init(_LB, _LE);
 void AngularIntegral::init(const int _LB, const int _LE) {
   LB = _LB;
   LE = _LE;
-  wDim = 4 * LB > 3 * LB + LE ? 4 * LB : 3 * LB + LE;
   maxL = 2 * LB > LB + LE ? 2 * LB : LB + LE;
+  nrs = (LB + LE + 1) * (LB + LE + 1);
 }
 
 void AngularIntegral::compute() {
@@ -242,26 +244,17 @@ void AngularIntegral::compute() {
 
 void AngularIntegral::clear() {}
 
-double AngularIntegral::getIntegral(const int k, const int l, const int m, const int lam,
-                                    const int mu) const {
-  return W(k, l, m, lam, lam + mu);
-}
-double AngularIntegral::getIntegral(const int k, const int l, const int m, const int lam,
-                                    const int mu, const int rho, const int sigma) const {
-  return omega(k, l, m, lam, lam + mu, rho, rho + sigma);
-}
-
 bool AngularIntegral::isZero(const int k, const int l, const int m, const int lam, const int mu,
                              const double tolerance) const {
-  if (wDim > 0)
-    return std::fabs(W(k, l, m, lam, lam + mu)) < tolerance;
+  if (LB > 0 || LE > 0)
+    return std::fabs(getIntegral(k, l, m, lam, mu)) < tolerance;
   else
     return true;
 }
 bool AngularIntegral::isZero(const int k, const int l, const int m, const int lam, const int mu,
                              const int rho, const int sigma, const double tolerance) const {
-  if (wDim > 0)
-    return std::fabs(omega(k, l, m, lam, lam + mu, rho, rho + sigma)) < tolerance;
+  if (LB > 0 || LE > 0)
+    return std::fabs(getIntegral(k, l, m, lam, mu, rho, sigma)) < tolerance;
   else
     return true;
 }

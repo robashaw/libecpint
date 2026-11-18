@@ -1,0 +1,19 @@
+ecp50mwb
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP50MWB.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=10., MEFIT, WB, M. Dolg, H. Stoll, H. Preuss, Theor. Chim. Acta 85, 441 (1993), M. Dolg, H. Stoll, A. Savin, H. Preuss, Theor. Chim. Acta 75, 173 (1989).
+ECP,Nd,50,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,4.196400,122.314966; 2,2.098200,-6.178775; 
+2; 2,3.530800,79.852477; 2,1.765400,-1.545026; 
+2; 2,2.379700,37.226658; 2,1.189900,-0.898127; 
+1; 2,4.538200,-48.922550; 
+
+!  Q=11., MEFIT, WB, M. Dolg, H. Stoll, H. Preuss, Theor. Chim. Acta 85, 441 (1993), M. Dolg, H. Stoll, A. Savin, H. Preuss, Theor. Chim. Acta 75, 173 (1989).
+ECP,Pm,50,4,0;
+1; 2,1.000000,0.000000; 
+2; 2,4.218400,117.358370; 2,2.109200,-5.509273; 
+2; 2,3.611800,80.979260; 2,1.805900,-1.450760; 
+2; 2,2.543500,39.096573; 2,1.271800,-0.067584; 
+1; 2,5.241700,-57.138239; 

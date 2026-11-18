@@ -1,0 +1,12 @@
+ecp68mwb
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP68MWB.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=13., MEFIT, WB, T. Leininger, A. Berning, A. Nicklass, H. Stoll, H.-J. Werner, H.-J. Flad, Chem. Phys. 217, 19 (1997).
+ECP,Tl,68,5,0;
+1; 2,1.000000,0.000000; 
+2; 2,3.933954,62.653702; 2,1.695467,38.103389; 
+2; 2,2.758542,55.806655; 2,1.031149,17.005964; 
+2; 2,5.086857,69.653489; 2,1.123655,-4.667625; 
+2; 2,6.195772,31.726110; 2,0.622456,-0.334585; 
+1; 2,2.772801,-15.811782; 

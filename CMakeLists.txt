@@ -16,15 +16,22 @@ endif(NOT CMAKE_BUILD_TYPE)
 
 # define project
 project( libecpint
-         VERSION 1.0.7
+         VERSION 1.1.0
          LANGUAGES CXX)
 
 set(API_VERSION 1)
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 # code generator variables
-set(LIBECPINT_MAX_L "5" CACHE STRING "Maximum angular momentum")
 set(LIBECPINT_MAX_UNROL "1" CACHE STRING "Maximum L for unrolling")
+
+# per-thread cache for the radial factors of off-centre type 2 integrals, in MB
+set(LIBECPINT_RADIAL_CACHE_MB "4" CACHE STRING "Per-thread radial factor cache size (MB)")
+set(LIBECPINT_RADIAL_CACHE_MB_VALUES 1 2 4 8 16 32 64)
+set_property(CACHE LIBECPINT_RADIAL_CACHE_MB PROPERTY STRINGS ${LIBECPINT_RADIAL_CACHE_MB_VALUES})
+if (NOT LIBECPINT_RADIAL_CACHE_MB IN_LIST LIBECPINT_RADIAL_CACHE_MB_VALUES)
+  message(FATAL_ERROR "LIBECPINT_RADIAL_CACHE_MB must be one of: ${LIBECPINT_RADIAL_CACHE_MB_VALUES}")
+endif()
 
 # configure the config header to pass the above variables to the program
 configure_file (
@@ -33,17 +40,6 @@ configure_file (
 )
 
 include(GNUInstallDirs)
-include(ExternalProject)
-
-option(LIBECPINT_USE_PUGIXML "Use pugixml and build file reading routines." ON)
-if (LIBECPINT_USE_PUGIXML)
-  include(external/ImportPugiXML.cmake)
-  add_compile_definitions(HAS_PUGIXML)
-else()
-  message(STATUS "pugixml not configured; reading ECP definitions from files is disabled.")
-endif()
-
-option(LIBECPINT_USE_CERF "Detect pre-built Cerf library for complex error functions. OFF builds internal Faddeeva library." OFF)
 
 if(MSVC)
     # MSVC does not include <cmath> constants, unless _USE_MATH_DEFINES is defined.
@@ -52,7 +48,6 @@ if(MSVC)
     add_definitions("/EHsc")
 endif()
 
-add_subdirectory(external)
 add_subdirectory(src)
 
 option(LIBECPINT_BUILD_TESTS "Enables Libecpint tests." ON)
@@ -62,6 +57,7 @@ if (LIBECPINT_BUILD_TESTS)
   include(external/ImportGTest.cmake)
   enable_testing()
   add_subdirectory(tests)
+  add_subdirectory(benchmarks)
   add_subdirectory(example)
 endif()
 
@@ -77,7 +73,7 @@ install(DIRECTORY share/libecpint DESTINATION ${CMAKE_INSTALL_DATADIR})
 
 message("\nSummary:")
 message("--------")
-message(STATUS "Maximum angular momentum           : ${LIBECPINT_MAX_L}")
 message(STATUS "Maximum angular momentum unrolling : ${LIBECPINT_MAX_UNROL}")
+message(STATUS "Radial factor cache per thread (MB): ${LIBECPINT_RADIAL_CACHE_MB}")
 message(STATUS "Build tests                        : ${LIBECPINT_BUILD_TESTS}")
 message("")

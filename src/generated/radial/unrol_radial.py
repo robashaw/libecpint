@@ -1,392 +1,240 @@
-# Script to turn the recurrence relations described in:
-# [Shaw2017] = Shaw and Hill, JCP 147, 074108 (2017), doi: 10.1063/1.4986887
-# for the radial integrals, into reduced form, and then into code
+"""Closed forms for the type 2 radial integrals, unrolled from the recurrence relations of
 
-MAX_UNROL_AM = 4 # The maximum angular momentum to unrol up to
+    [Shaw2017] R. A. Shaw and J. G. Hill, J. Chem. Phys. 147, 074108 (2017),
+               doi: 10.1063/1.4986887
 
-# DO NOT EDIT BELOW HERE
+Not used by the library at present: see README.md in this directory for why, and for what
+would be needed to use the closed forms again.
 
-from sympy import *
+For a primitive triple (ECP exponent n, basis exponents a and b at distances A and B from the
+ECP), with p = n + a + b, x = aA and y = bB,
+
+    Q_ijk = int_0^inf r^k exp(-p r^2) M_i(2xr) M_j(2yr) dr,
+
+where M_l is the modified spherical Bessel function of the first kind. The recurrences
+(eqs. 28, 29 and 33 of [Shaw2017]) reduce Q_ijk (i <= j) to the base integrals Q_00N, and those
+with N < 1 are eliminated in favour of G1A, G1B and H2 (eqs. 37-39). For each (i, j, k) this
+prints the coefficients of the base integrals, either as C++ switch cases (--format code, case
+label i*10000 + j*100 + k, with values[N - 2] holding Q_00N for N >= 2), or as a readable
+listing (--format simple).
+
+usage: python unrol_radial.py [--max-am 4] [--format code|simple] > output
+Requires sympy.
+"""
+
+import argparse
+import re
+import sys
+
+from sympy import Symbol, simplify
+
+x = Symbol('x')  # k_A / 2 = aA
+y = Symbol('y')  # k_B / 2 = bB
+p = Symbol('p')  # n + a + b
+
 
 class Qijk:
-    """Representation of a term in the type2 ECP integral
-       between gaussians on centres A and B
-       Q_{ijk} = int_0^{infty} dr r^k exp(-pr^2) M_i(2Ar) M_j(2Br)
-       and its reduction to the base integrals, F_N, G_N, H_N
-       (see eqs 30 - 32 in [Shaw2017])
-    
-       Members:
-       i, j, k - the integral indices
-       size - number of terms in recurrence, 2*i+j-1
-       start, end - the lowest, highest values of N in the recurrences
-       subq - Qijk terms in the recurrence expansion
-       terms, bases - coefficients and base integrals used
-       f, ga, gb, h - all ocurrences of base integrals in recurrence
-       
+    """A term Q_ijk and its reduction to base integrals.
+
+    Members:
+      i, j, k     - the integral indices
+      size        - number of base integrals in the reduction, 2i + j + 1
+      start, end  - the lowest and highest N of the base integrals Q_00N
+      subq, terms - the Qijk in one step of the recurrence, and the recurrence coefficient of each
+      bases       - for each N in [start, end], the coefficient of Q_00N
+      f, ga, gb, h - coefficients of the base integrals of each type after sort() and eliminate()
     """
-    def __init__(self, Ival = 0, Jval = 0, Kval = 0):
-        """Creates a term Qijk with i=Ival, j=Jval, k=Kval"""
-        self.i = Ival
-        self.j = Jval
-        self.k = Kval
-        self.size = 2*self.i + self.j + 1 
-        self.start = self.k-self.i-self.j
-        self.end = self.k+self.i
+
+    def __init__(self, i=0, j=0, k=0):
+        self.i, self.j, self.k = i, j, k
+        self.size = 2 * i + j + 1
+        self.start = k - i - j
+        self.end = k + i
         self.subq = []
         self.terms = []
-        self.bases = []
-        self.f = []
-        self.ga = []
-        self.gb = []
-        self.h = []
-        for i in range(self.size):
-            self.bases.append([])
-    
-    def print(self):
-        """Prints a list of the bases attached to the Qijk"""
-        print("Q", self.i, self.j, self.k)
-        for i in range(len(self.bases)):
-            print(i+self.start, ":")
-            for j in range(len(self.bases[i])):
-                print(self.bases[i][j])
-    
-    def print_simple(self):
-         """Prints algebraically simplified reps of the bases in Qijk"""
-         print("Q", self.i, self.j, self.k)
-         for i in range(len(self.bases)):
-            print(i+self.start, ":", simplify(self.bases[i]))
-            
-    def print_fgh(self):
-        """Prints simplified versions of the coefficients for each base
-           integral in Qijk
-        """
-        print("Q", self.i, self.j, self.k)
-        for i in range(len(self.f)):
-            ix = 2*i+self.start
-            if ix > 0:
-                print("F", ix, ":", simplify(self.f[i]))
-        for i in range(len(self.gb)):
-            ix = 2*i + self.start + 1
-            if ix > 0:
-                print("GB", ix, ":", simplify(self.gb[i]))
-        for i in range(len(self.ga)):
-            ix = 2*i + self.start + 1
-            if ix > 0:
-                print("GA", ix, ":", simplify(self.ga[i]))
-        for i in range(len(self.h)):
-            ix = 2*i+self.start + 2
-            if ix > 0:
-                print("H", ix, ":", simplify(self.h[i]))
-    
-    def write_code(self, f):
-        """Writes C++ code in the appropriate format for this term
-           to the file, f, given
-        """
-        # index in the switch-case block
-        print("\t\t\t\t\t\t\t\t\tcase", self.i*10000+self.j*100+self.k, ": {", file=f)
+        self.bases = [[] for _ in range(self.size)]
+        self.f, self.ga, self.gb, self.h = [], [], [], []
 
-        # print out F integral terms
-        for i in range(len(self.f)):
-            ix = 2*i+self.start
-            if ix == 2:
-                simp = simplify(self.f[i])
-                if simp!= 0:
-                    print("\t\t\t\t\t\t\t\t\t\tresult = (", simp, ") * values[0];", file=f)
-            elif ix > 2:
-                simp = simplify(self.f[i])
-                if simp!= 0:
-                    print("\t\t\t\t\t\t\t\t\t\tresult += (", simp, ") * values[", ix-2, "];", file=f)
-                
-        # Gb integral terms
-        for i in range(len(self.gb)):
-            ix = 2*i + self.start + 1
-            if ix == 1:
-                simp = simplify(self.gb[i])
-                if simp!= 0:
-                    print("\t\t\t\t\t\t\t\t\t\tresult += (", simp, ") * G1B;", file=f)
-            elif ix > 1:
-                simp = simplify(self.gb[i])
-                if simp!= 0:
-                    print("\t\t\t\t\t\t\t\t\t\tresult += (", simp, ") * values[", ix-2, "];", file=f)
+    def format_simple(self):
+        """Readable listing of the simplified coefficient of each base integral."""
+        lines = ["Q %d %d %d" % (self.i, self.j, self.k)]
+        for name, coefs, offset in (("F", self.f, 0), ("GB", self.gb, 1), ("GA", self.ga, 1),
+                                    ("H", self.h, 2)):
+            for n, c in enumerate(coefs):
+                N = 2 * n + self.start + offset
+                if N > 0:
+                    lines.append("%s %d : %s" % (name, N, simplify(c)))
+        return "\n".join(lines) + "\n"
 
-        # Ga integral terms
-        for i in range(len(self.ga)):
-            ix = 2*i + self.start + 1
-            if ix == 1:
-                simp = simplify(self.ga[i])
-                if simp != 0:
-                    print("\t\t\t\t\t\t\t\t\t\tresult += (", simp, ") * G1A;", file=f)
+    def format_code(self):
+        """C++ switch case accumulating result from the base integrals."""
+        out = ["case %d: {" % (self.i * 10000 + self.j * 100 + self.k)]
 
-        # H integrals terms
-        for i in range(len(self.h)):
-            ix = 2*i+self.start + 2
-            if ix == 2:
-                simp = simplify(self.h[i])
-                if simp!= 0:
-                    print("\t\t\t\t\t\t\t\t\t\tresult += (", simp, ") * H2;", file=f)
-                    
-        # close the case statement
-        print("\t\t\t\t\t\t\t\t\t\tbreak;", file=f)
-        print("\t\t\t\t\t\t\t\t\t}", file=f)
+        def emit(c, target, first=False):
+            c = simplify(c)
+            if c != 0:
+                out.append("  result %s (%s) * %s;" % ("=" if first else "+=", powers(str(c)),
+                                                       target))
 
-    def simplify(self):
-        """Simplifies the algebraic expressions for each term 
-           in the recurrence relation, using sympy
-        """
-        simple_bases = []
-        for i in range(len(self.bases)):
-            x = Symbol('x')
-            y = Symbol('y')
-            z = Symbol('z')
-            z = 0
-            for j in range(len(self.bases[i])):
-                z = z + parse(self.bases[i][j])
-            simple_bases.append(z)
-        self.bases = simple_bases
-        
+        for n, c in enumerate(self.f):  # F_N = Q_00N, N even
+            N = 2 * n + self.start
+            if N >= 2:
+                emit(c, "values[%d]" % (N - 2), first=(N == 2))
+        for n, c in enumerate(self.gb):  # Q_00N, N odd
+            N = 2 * n + self.start + 1
+            if N == 1:
+                emit(c, "G1B")
+            elif N > 1:
+                emit(c, "values[%d]" % (N - 2))
+        for n, c in enumerate(self.ga):
+            if 2 * n + self.start + 1 == 1:
+                emit(c, "G1A")
+        for n, c in enumerate(self.h):
+            if 2 * n + self.start + 2 == 2:
+                emit(c, "H2")
+        out += ["  break;", "}"]
+        return "\n".join(out) + "\n"
+
+    def combine(self):
+        """Sums the coefficient products collected for each base integral."""
+        self.bases = [sum((coefficient(t) for t in terms), 0) for terms in self.bases]
+
     def sort(self):
-        """Sorts all the bases found into base integral types
-           F if even, Gb if odd
-        """
-        for i in range(len(self.bases)):
-            if i % 2 == 0:
-                self.f.append(self.bases[i])
-            else:
-                self.gb.append(self.bases[i])
-                
+        """Sorts the base integrals by type: F for even N, Gb for odd N."""
+        for n, c in enumerate(self.bases):
+            (self.f if n % 2 == 0 else self.gb).append(c)
+
     def eliminate(self):
-        """Eliminates terms in the expanded recurrence expressions
-           where N < 1, as described by eqns 37-39 in [Shaw2017]
-        """
-        x = Symbol('x') # k_A/2
-        y = Symbol('y') # k_B/2
-        z = Symbol('z') # placeholder 
-        p = Symbol('p') # p
-        z = 0
-        
-        # only need to eliminate base integrals with N < 1
-        if self.start < 1:
-            # append a zero term if max N < 1 
-            if self.end < 1:
-                self.bases.append(z)
-            # and an additional zero if it is exactly 1
-            if self.end == 1:
-                self.bases.append(z)
-                
-            w = Symbol('w')  # placeholder
-            N = self.start
-            ix = 0    # start at lowest N and recur up
-            gaix = -1 # counts where we're up to in the Ga expansion (eq 38)
-            hix  = -1 # and the H expansion (eq 39)
-            while (N < 1):
-                # all base integrals share the first term
-                # X_N: (2p/N-1) * X_{N+2}
-                # so grab X_N and X_{N+2}
-                z = self.bases[ix] 
-                w = self.bases[ix+2]
-                # then add the new coefficient to X_{N+2}
-                w = w + (2 * p / (N-1))*z
-                self.bases[ix+2] = w 
-            
-                # we also have X_{N+1} gaining a k_B/(N-1)
-                w = self.bases[ix+1]
-                w = w - (2 * y / (N-1))*z
-                self.bases[ix+1] = w
-                
-                # if even, we add a Ga then H
-                if ix % 2 == 0:
-                    # is it the first Ga term?
-                    if gaix > -1:
-                        w = self.ga[gaix]
-                        w = w - (2*x / (N-1))*z
-                        self.ga[gaix] = w
-                    else:
-                        w = -(2*x / (N-1))*z
-                        self.ga.append(w)
-                        gaix += 1
-                    
-                    # is it the first H term?    
-                    if hix > -1:
-                        z = self.h[hix]
-                        w = (2 * p / (N-1))*z
-                        self.h.append(w)
-                        hix += 1
-                        
-                        w = self.ga[gaix]
-                        w = w - (2 * y / (N-1))*z
-                        self.ga[gaix] = w
-                        
-                        w = self.bases[ix+1]
-                        w = w - (2 * x / (N-1))*z
-                        self.bases[ix+1] = w
+        """Eliminates base integrals with N < 1, as described by eqs. 37-39 of [Shaw2017]."""
+        if self.start >= 1:
+            return
+        # append a zero term if max N < 1, and another if it is exactly 1
+        if self.end < 1:
+            self.bases.append(0)
+        if self.end == 1:
+            self.bases.append(0)
+
+        N = self.start
+        ix = 0  # start at the lowest N and recur up
+        gaix = -1  # where we are up to in the Ga expansion (eq. 38)
+        hix = -1  # and the H expansion (eq. 39)
+        while N < 1:
+            # all base integrals share the first term, X_N: (2p / (N - 1)) X_{N+2}
+            z = self.bases[ix]
+            self.bases[ix + 2] += (2 * p / (N - 1)) * z
+            # and X_{N+1} gains a -k_B / (N - 1)
+            self.bases[ix + 1] -= (2 * y / (N - 1)) * z
+
+            if ix % 2 == 0:  # even: a Ga then an H
+                if gaix > -1:
+                    self.ga[gaix] -= (2 * x / (N - 1)) * z
                 else:
-                    # otherwise H then Ga
-                    if hix > -1:
-                        w = self.h[hix]
-                        w = w - (2*x / (N-1))*z
-                        self.h[hix] = w
-                    else:
-                        w = - (2*x / (N-1))*z
-                        self.h.append(w)
-                        hix += 1
-                    
-                    if gaix > -1:
-                        z = self.ga[gaix]
-                        w = (2 * p /(N-1)) * z
-                        self.ga.append(w)
-                        gaix += 1
-                        
-                        w = self.h[hix]
-                        w = w - (2 * y / (N-1))*z
-                        self.h[hix] = w
-                        
-                        w = self.bases[ix+1]
-                        w = w - (2*x / (N-1))*z
-                        self.bases[ix+1] = w
-                
-                # recur upwards
-                N += 1
-                ix += 1
-
-def parse(term):
-    """Parses a string representation of the form of
-       eqn. 28 in [Shaw2017] into the symbolic representation
-       used by sympy
-    """
-    x = Symbol('x')
-    y = Symbol('y')
-    p = Symbol('p')
-    bits = term.split(',')
-    z = Symbol('z')
-    z = 1
-    for bit in bits:
-        bi = bit[:2]
-        if bi == "mu":
-            ix = 2
-            i = 0
-            j = 0
-            k = 0
-
-            I = bit[ix]
-            if I == "-":
-                ix += 1
-                i = -int(bit[ix])
-            else:
-                i = int(I)
-                
+                    self.ga.append(-(2 * x / (N - 1)) * z)
+                    gaix += 1
+                if hix > -1:
+                    z = self.h[hix]
+                    self.h.append((2 * p / (N - 1)) * z)
+                    hix += 1
+                    self.ga[gaix] -= (2 * y / (N - 1)) * z
+                    self.bases[ix + 1] -= (2 * x / (N - 1)) * z
+            else:  # odd: an H then a Ga
+                if hix > -1:
+                    self.h[hix] -= (2 * x / (N - 1)) * z
+                else:
+                    self.h.append(-(2 * x / (N - 1)) * z)
+                    hix += 1
+                if gaix > -1:
+                    z = self.ga[gaix]
+                    self.ga.append((2 * p / (N - 1)) * z)
+                    gaix += 1
+                    self.h[hix] -= (2 * y / (N - 1)) * z
+                    self.bases[ix + 1] -= (2 * x / (N - 1)) * z
+            N += 1
             ix += 1
-            J = bit[ix]
-            if J == "-":
-                ix += 1
-                j = -int(bit[ix])
-            else:
-                j = int(J)
 
-            ix += 1
-            K = bit[ix]
-            if K == "-":
-                ix += 1
-                k = -int(bit[ix])
-            else:
-                k = int(K)
 
-            z = z * (2 + j - i - k)/(2*x)
-        elif bi == "nu":
-            z = z * (-y/x)
-        elif bi == "xi":
-            z = z * p/x
-        elif bi == "rh":
-            j = int(bit[3])
-            z = z * (1 - 2*j)/(2*y)
-        elif bi == "om":
-            z = z * -1 / (2*y)
-    return z
-            
+def coefficient(terms):
+    """Product of the recurrence coefficients along one path of the unrolling (eqs. 28-33)."""
+    c = 1
+    for t in terms:
+        if t[0] == "mu":
+            _, i, j, k = t
+            c *= (2 + j - i - k) / (2 * x)
+        elif t[0] == "nu":
+            c *= -y / x
+        elif t[0] == "xi":
+            c *= p / x
+        elif t[0] == "rho":
+            c *= (1 - 2 * t[1]) / (2 * y)
+        elif t[0] == "om":
+            c *= -1 / (2 * y)
+        # "sigma" and "ups" have coefficient 1
+    return c
+
+
+def powers(s):
+    """Writes x**n, y**n and p**n with the squares x2, y2, p2 (declared by the caller)."""
+    def rep(m):
+        v, n = m.group(1), int(m.group(2))
+        f = [v + "2"] * (n // 2) + ([v] if n % 2 else [])
+        return f[0] if len(f) == 1 else "(" + "*".join(f) + ")"
+    return re.sub(r"\b([xyp])\*\*(\d+)", rep, s)
+
+
 def unrol(q):
-    """Recursively unrols the recurrence relations described in
-       [Shaw2017] equations 28 - 33, for the given Qijk objects
-    """
-    if (q.i == 0 and q.j == 0):
-        # already all base integrals
+    """Recursively unrolls the recurrences of [Shaw2017], eqs. 28-33, for q."""
+    if q.i == 0 and q.j == 0:  # already a base integral
         return
-    elif (q.i > 0):
-        # need to reduce i using eqn 28 of [Shaw2017]
-        q1 = Qijk(Ival = q.i-1, Jval = q.j, Kval = q.k-1)
-        q.subq.append(q1)
-        q.terms.append("mu" + str(q.i) + str(q.j) + str(q.k))
+    if q.i > 0:  # reduce i, eq. 28
+        q.subq += [Qijk(q.i - 1, q.j, q.k - 1), Qijk(q.i - 1, q.j - 1, q.k),
+                   Qijk(q.i - 1, q.j, q.k + 1)]
+        q.terms += [("mu", q.i, q.j, q.k), ("nu",), ("xi",)]
+    elif q.j > 1:  # reduce j, eq. 29
+        q.subq += [Qijk(0, q.j - 2, q.k), Qijk(0, q.j - 1, q.k - 1)]
+        q.terms += [("sigma",), ("rho", q.j)]
+    else:  # eq. 33
+        q.subq += [Qijk(0, 0, q.k), Qijk(0, 0, q.k - 1)]
+        q.terms += [("ups",), ("om",)]
+    for s in q.subq:
+        unrol(s)
 
-        q2 = Qijk(Ival = q.i-1, Jval = q.j-1, Kval = q.k)
-        q.subq.append(q2)
-        q.terms.append("nu")
-    
-        q3 = Qijk(Ival = q.i-1, Jval = q.j, Kval = q.k+1)
-        q.subq.append(q3)
-        q.terms.append("xi")
-    elif(q.j > 1):
-        # need to reduce j using eqn 29 of [Shaw2017]
-        q1 = Qijk(Ival = 0, Jval = q.j-2, Kval = q.k)
-        q.subq.append(q1)
-        q.terms.append("sigma")
-        
-        q2 = Qijk(Ival = 0, Jval = q.j-1, Kval = q.k-1)
-        q.subq.append(q2)
-        q.terms.append("rho" + str(q.j))
-    else:
-        # equation 33 of [Shaw2017]
-        q1 = Qijk(Ival = 0, Jval = 0, Kval = q.k)
-        q.subq.append(q1)
-        q.terms.append("ups")
-        
-        q2 = Qijk(Ival = 0, Jval = 0, Kval = q.k-1)
-        q.subq.append(q2)
-        q.terms.append("om")
-        
-    # we then recurseively unrol all the Qijks just added
-    # to this one
-    for i in range(len(q.subq)):
-        unrol(q.subq[i])
-    
-    return
 
-def collect(q, Q, term):
-    """Recursively joins all the coefficients from unrol(q)
-       into Q, forming a string of the algebraic expression.
-    """
-    if (q.i == 0 and q.j == 0):
-        # everything is in terms of base integrals
-        Q.bases[q.k-Q.start].append(term)
+def collect(q, Q, path=()):
+    """Appends to Q.bases the coefficient path from Q down to each base integral in q."""
+    if q.i == 0 and q.j == 0:
+        Q.bases[q.k - Q.start].append(path)
     else:
-        # we need to call again for each Qijk contained in
-        # the original Qijk
-        for i in range(len(q.subq)):
-            collect(q.subq[i], Q, term + q.terms[i] + ",")
+        for s, t in zip(q.subq, q.terms):
+            collect(s, Q, path + (t,))
+
 
 def algebraic_unrol(i, j, k):
-    """Unrols the algebraic expression for the integral Q_ijk
-       and returns the simplified Qijk object
-    """
-    q = Qijk(Ival = i, Jval = j, Kval = k)
+    """Q_ijk reduced to base integrals, with simplified coefficients."""
+    q = Qijk(i, j, k)
     unrol(q)
-    collect(q, q, "")
-    q.simplify()
+    collect(q, q)
+    q.combine()
     return q
 
 
-if __name__ == "__main__":
-    f = open('radial_gen.part2', 'w')
-    print("", file=f)
-    # unrol over all desired ijk
-    for j in range(MAX_UNROL_AM+1):
-        for i in range(j+1):
-            for k in range(1, 3*MAX_UNROL_AM+1-i-j):
-                if (i + j + k) % 2 == 0: 
-                    # generate the algebraic expression
+def main():
+    parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    parser.add_argument("--max-am", type=int, default=4,
+                        help="largest angular momentum j to unroll (default 4)")
+    parser.add_argument("--format", choices=("code", "simple"), default="code")
+    args = parser.parse_args()
+    L = args.max_am
+    for j in range(L + 1):
+        for i in range(j + 1):
+            for k in range(1, 3 * L + 1 - i - j):
+                if (i + j + k) % 2 == 0:
                     q = algebraic_unrol(i, j, k)
-                    # eliminate any non-base integrals
                     q.eliminate()
-                    # sort terms by N
                     q.sort()
-                    # write code to file
-                    q.write_code(f)
-                    # blank spacer before next switch case
-                    print("", file=f)
+                    sys.stdout.write(q.format_code() if args.format == "code" else
+                                     q.format_simple())
+                    sys.stdout.write("\n")
+
+
+if __name__ == "__main__":
+    main()

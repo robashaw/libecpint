@@ -59,20 +59,29 @@ class ECPIntegral {
   RadialIntegral radInts;   ///< The interface to the radial integral calculation
   AngularIntegral angInts;  ///< The angular integrals, which can be reused over all ECP centers
 
-  /// Screening tolerance: shell-pair/channel contributions whose upper-bound estimate
-  /// falls below this are skipped. Set from the constructor `thresh` so the caller can
-  /// tighten it; a fixed value here would silently drop small but genuine l>0 integrals.
+  /// Screening tolerance: channel contributions whose upper bound falls below 1e-2 times this,
+  /// and primitive triples whose bound falls below their share of it, are skipped. Set from the
+  /// constructor `thresh` so the caller can tighten it; a fixed value here would silently drop
+  /// small but genuine l>0 integrals.
   double tolerance;
 
   /// Worker functions for calculating binomial expansion coefficients
   double calcC(int a, int m, double A) const;
 
-  /// Array of function pointers to generated integral evaluators in qgen
-  static void (*QGEN[LIBECPINT_MAX_L + 1][LIBECPINT_MAX_L + 1][LIBECPINT_MAX_L + 1])(
-      const ECP&, const GaussianShell&, const GaussianShell&, const FiveIndex<double>&,
-      const FiveIndex<double>&, const TwoIndex<double>&, const TwoIndex<double>&, double, double,
-      const RadialIntegral&, const AngularIntegral&, const RadialIntegral::Parameters&,
-      ThreeIndex<double>&);
+  /// The radial integrals (N, l1, l2) needed for the type 2 integrals over shells of angular
+  /// momenta LA <= LB in ECP channel lam, those whose angular integrals do not vanish: A with
+  /// l1 <= l2, B the others with l1 and l2 swapped; nbase as in RadialIntegral::type2
+  struct Type2Radials {
+    std::vector<Triple> A, B;
+    int nbase = 0;
+  };
+  int type2LB;  ///< largest basis angular momentum in type2Radials (maxLB + deriv)
+  int type2LU;  ///< number of ECP channels in type2Radials (maxLU)
+  /// Type2Radials for every (LA <= LB, lam), at (LA * (type2LB + 1) + LB) * type2LU + lam, found
+  /// once at construction from the angular integrals
+  std::vector<Type2Radials> type2Radials;
+  /// Finds type2Radials, from the angular integrals
+  void buildType2Radials();
 
  public:
   int skipped, zero, nonzero;
@@ -90,13 +99,12 @@ class ECPIntegral {
    * calculations.
    * @param maxLB - the maximum angular momentum in the orbital basis
    * @param maxLU - the maximum angular momentum in the ECP basis
-   * @param deriv - the maximum order of derivative to be calculated (TODO: derivs currently being
-   * implemented)
-   * @param thresh - the tolerance for convergence of radial integrals (defaults to 1e-15)
-   * @param small - the maximum number of quadrature points for the small radial integration grid
-   * (default 256, minimum recommended)
-   * @param large - the maximum number of quadrature points for the large radial integration grid
-   * (default 1024, minimum recommended)
+   * @param deriv - the maximum order of derivative to be calculated (0, 1 or 2; defaults to 0)
+   * @param thresh - the screening tolerance of the radial integrals: contributions provably below
+   * it are skipped, and 0 skips nothing (defaults to 1e-15)
+   * @param smallGrid - unused, kept for compatibility (the radial quadrature rules are fixed)
+   * @param bigGrid - unused, kept for compatibility
+   * @throws std::invalid_argument if maxLB + deriv or maxLU exceeds LIBECPINT_MAX_L
    */
   ECPIntegral(int maxLB, int maxLU, int deriv = 0, double thresh = 1e-15, unsigned smallGrid = 256,
               unsigned bigGrid = 1024);
@@ -133,6 +141,14 @@ class ECPIntegral {
              const ShellPairData& data, const FiveIndex<double>& CA, const FiveIndex<double>& CB,
              const RadialIntegral::Parameters& parameters, ThreeIndex<double>& values) const;
 
+  /**
+   * Upper bound on the contribution of each ECP channel l (0..L, L = local) to the integrals over
+   * a shell pair, used to skip channels below 1e-2 times the tolerance (compute_shell_pair); see
+   * screening::channel_bounds in
+   * screening.hpp for the formula.
+   *
+   * @param results - array of U.getL() + 1 bounds, one per channel
+   */
   void estimate_type2(const ECP& U, const GaussianShell& shellA, const GaussianShell& shellB,
                       const ShellPairData& data, double* results) const;
 
@@ -230,7 +246,33 @@ class ECPIntegral {
   void mixed_second_derivative(const ECP& U, const GaussianShell& shellA,
                                const GaussianShell& shellB,
                                std::array<TwoIndex<double>, 9>& results) const;
+  /**
+   * Computes the first derivatives with respect to a uniform external magnetic field of the ECP
+   * integral over the ECP centre, C, and the shell pair (A | B) of gauge-including atomic orbitals
+   * (London orbitals, chi_A exp(-i/2 (B x A).r)), with the ECP's projectors gauge-transformed to
+   * its own centre. For k = x, y, z,
+   *
+   * @code{.unparsed}
+   *   results[k] = <A| [(A - C) x r]_k U |B> - <A| U [(B - C) x r']_k |B>,
+   * @endcode
+   *
+   * with r (r') the position, relative to the global origin, on the bra (ket) side of the
+   * semi-local projectors. The derivative is i/2 results[k], so each matrix is real and
+   * antisymmetric (results[k] for (B | A) is minus the transpose), and depends on the origin as
+   * GIAO derivatives do. A block with both shells on the ECP is zero. The order of each matrix
+   * matches that of compute_shell_pair.
+   *
+   * The shells are raised by one in angular momentum, so this needs an ECPIntegral constructed
+   * with deriv >= 1.
+   *
+   * @param U - reference to the ECP
+   * @param shellA - the first basis shell (rows in values)
+   * @param shellB - the second basis shell (cols in values)
+   * @param results - reference to array of 3 TwoIndex arrays for the [x, y, z] derivatives
+   */
+  void compute_shell_pair_derivative_Bfield(const ECP& U, const GaussianShell& shellA,
+                                            const GaussianShell& shellB,
+                                            std::array<TwoIndex<double>, 3>& results) const;
 };
-
 }  // namespace libecpint
 #endif

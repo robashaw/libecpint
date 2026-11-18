@@ -1,0 +1,10 @@
+ecp2mhf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP2MHF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=8., MEFIT, HF, A. Nicklass, M. Dolg, H. Stoll, H. Preuss, J. Chem. Phys. 102, 8942 (1995).
+ECP,Ne,2,3,0;
+1; 2,1.000000,0.00000000; 
+2; 2,32.029855,112.52822460; 2,12.294136,28.44589604; 
+2; 2,21.525406,-10.93982872; 2,13.091176,3.39426049; 
+1; 2,0.850385,-0.16409678; 

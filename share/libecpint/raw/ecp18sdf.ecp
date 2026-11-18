@@ -1,0 +1,17 @@
+ecp18sdf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP18SDF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=1., SEFIT, DF, P. Fuentealba, H. Preuss, H. Stoll, L. v. Szentpaly, Chem. Phys. Lett. 89, 418 (1982); CPP: alpha=5.354;delta=0.29;ncut=1.
+ECP,K,18,3,0;
+1; 2,1.000000,0.000000; 
+1; 2,0.853000,13.564000; 
+1; 2,0.369600,2.648000; 
+1; 2,0.663900,-4.517000; 
+
+!  Q=2., SEFIT, DF, P. Fuentealba, L. v. Szentpaly, H. Preuss, H. Stoll, J. Phys. B 18, 1287 (1985); CPP: alpha=3.06;delta=0.43;ncut=1.
+ECP,Ca,18,3,0;
+1; 2,1.000000,0.000000; 
+1; 2,0.898000,12.466000; 
+1; 2,0.548000,5.146000; 
+1; 2,1.119000,-7.709000; 

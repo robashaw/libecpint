@@ -1,0 +1,50 @@
+ecp2sdf
+! Stuttgart/Cologne energy-consistent pseudopotentials, ECP2SDF.
+! From http://www.tc.uni-koeln.de/PP (retrieved 2026-11-14), except where marked as from the Basis Set Exchange.
+
+!  Q=1., SEFIT, DF, P. Fuentealba, H. Preuss, H. Stoll, L. v. Szentpaly, Chem. Phys. Lett. 89, 418 (1982); CPP: alpha=0.1915;delta=0.831;ncut=1.
+ECP,Li,2,2,0;
+1; 2,1.000000,0.000000; 
+1; 2,1.276000,5.786000; 
+1; 2,1.607000,-1.065000; 
+
+!  Q=2., SEFIT, DF, P. Fuentealba, L. v. Szentpaly, H. Preuss, H. Stoll, J. Phys. B 18, 1287 (1985); CPP: alpha=0.052;delta=1.28;ncut=1.
+ECP,Be,2,2,0;
+1; 2,1.000000,0.000000; 
+1; 2,2.653000,13.325000; 
+1; 2,3.120000,-1.574000; 
+
+!  Q=3., SEFIT, DF, G.IGEL-MANN, G. Igel-Mann, H. Stoll, H. Preuss, Mol. Phys. 65, 1321 (1988).
+ECP,B,2,3,0;
+1; 2,1.000000,0.000000; 
+1; 2,4.506100,23.870000; 
+1; 2,5.229500,-2.108300; 
+1; 2,0.010800,-0.000200; 
+
+!  Q=4., SEFIT, DF, G. Igel-Mann, H. Stoll, H. Preuss, Mol. Phys. 65, 1321 (1988).
+ECP,C,2,3,0;
+1; 2,1.000000,0.000000; 
+1; 2,6.844600,37.456500; 
+1; 2,7.931700,-2.673900; 
+1; 2,6.020900,-0.594500; 
+
+!  Q=5., SEFIT, DF, G. Igel-Mann, H. Stoll, H. Preuss, Mol. Phys. 65, 1321 (1988).
+ECP,N,2,3,0;
+1; 2,1.000000,0.000000; 
+1; 2,9.669500,54.084400; 
+1; 2,11.214900,-3.256500; 
+1; 2,12.154700,-1.954600; 
+
+!  Q=6., SEFIT, DF, G. Igel-Mann, H. Stoll, H. Preuss, Mol. Phys. 65, 1321 (1988).
+ECP,O,2,3,0;
+1; 2,1.000000,0.000000; 
+1; 2,12.968600,73.608600; 
+1; 2,15.243000,-3.917200; 
+1; 2,9.617200,-0.655900; 
+
+!  Q=7., SEFIT, DF, G. Igel-Mann, H. Stoll, H. Preuss, Mol. Phys. 65, 1321 (1988).
+ECP,F,2,3,0;
+1; 2,1.000000,0.000000; 
+1; 2,16.762800,96.241900; 
+1; 2,19.857600,-4.581900; 
+1; 2,0.031600,-0.001500; 

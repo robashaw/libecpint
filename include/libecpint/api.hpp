@@ -97,6 +97,13 @@ struct ECPIntegrator {
    */
   std::vector<TwoIndex<double>> second_derivs;
 
+  /** Container for the derivatives of the ECP integrals over gauge-including atomic orbitals with
+   * respect to a uniform magnetic field, {x, y, z}, matrices in the same order as integrals. Each
+   * is real and antisymmetric: the derivative is i/2 times it (see
+   * ECPIntegral::compute_shell_pair_derivative_Bfield for the definition and conventions).
+   */
+  std::vector<TwoIndex<double>> bfield_derivs;
+
   /** Default constructor, sets default values
    */
   ECPIntegrator() {
@@ -237,6 +244,12 @@ struct ECPIntegrator {
    */
   void compute_second_derivs();
 
+  /** Computes the derivatives of the ECP integrals with respect to a uniform magnetic field (for
+   * a basis of gauge-including atomic orbitals), placing the three antisymmetric ncart x ncart
+   * matrices in bfield_derivs. Requires init with deriv >= 1.
+   */
+  void compute_bfield_derivs();
+
   /** @return a shared pointer to the underlying data for integrals
    * The packing is such that M(i, j) = i*ncart + j.
    */
@@ -261,6 +274,15 @@ struct ECPIntegrator {
   std::vector<std::shared_ptr<std::vector<double>>> get_second_derivs() {
     std::vector<std::shared_ptr<std::vector<double>>> results;
     for (auto& v : second_derivs) results.push_back(std::make_shared<std::vector<double>>(v.data));
+    return results;
+  }
+
+  /** @return a vector (size 3) of shared pointers to the data for bfield_derivs, in order x, y, z,
+   * with the packing of get_integrals. The data are copied, as for get_first_derivs.
+   */
+  std::vector<std::shared_ptr<std::vector<double>>> get_bfield_derivs() {
+    std::vector<std::shared_ptr<std::vector<double>>> results;
+    for (auto& v : bfield_derivs) results.push_back(std::make_shared<std::vector<double>>(v.data));
     return results;
   }
 

@@ -354,7 +354,19 @@ Within each block the order is ``xx, xy, xz, yy, yz, z`` on the diagonal (e.g. A
 	std::shared_ptr<std::vector<double>> h_Ay_Cx = factory.get_second_derivs()[deriv_index];
 	
 Hopefully this doesn't give you too much of a headache working out.
- 
+
+Magnetic field derivatives
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For a basis of gauge-including atomic orbitals (London orbitals), the derivatives of the ECP integrals with respect to a uniform magnetic field (e.g. for NMR shieldings) are computed by
+
+.. code-block:: c++
+
+	factory.compute_bfield_derivs();  // needs deriv_order >= 1
+	std::vector<std::shared_ptr<std::vector<double>>> bfield_derivs = factory.get_bfield_derivs();
+
+giving three matrices, for x, y and z, in the order of the integrals. Each is real and antisymmetric, the derivative being ``i/2`` times it; the ECP's projectors are gauge-transformed to the ECP centre. See ``ECPIntegral::compute_shell_pair_derivative_Bfield`` in ``ecpint.hpp`` for the precise definition.
+
 Updating coordinates
 ^^^^^^^^^^^^^^^^^^^^
 

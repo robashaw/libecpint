@@ -29,6 +29,8 @@
 #include <functional>
 #include <vector>
 
+#include "mathutil.hpp"
+
 namespace libecpint {
 
 /// Different choices of integration algorithm, see references

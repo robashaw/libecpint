@@ -19,9 +19,16 @@
  * every Gaussian feature.
  *
  * The engine gives the integrals over each ECP and shell pair, and their derivatives with respect
- * to the two shell centres. Derivatives with respect to the ECP centre (translational invariance)
- * and the placement in molecular matrices are bookkeeping, not accuracy, and are left to the
- * library's assembly code, which is unit-tested separately (see reference.hpp).
+ * to the two shell centres. Optionally it also gives the derivatives with respect to a uniform
+ * magnetic field over gauge-including orbitals (as
+ * ECPIntegral::compute_shell_pair_derivative_Bfield),
+ *
+ *   <f| [(A - C) x r]_k U |g> - <f| U [(B - C) x r']_k |g>,
+ *
+ * by multiplying each basis function pointwise by its factor (no raised shells). Derivatives with
+ * respect to the ECP centre (translational invariance) and the placement in molecular matrices are
+ * bookkeeping, not accuracy, and are left to the library's assembly code, which is unit-tested
+ * separately (see reference.hpp).
  */
 #ifndef LIBECPINT_TESTS_INTEGRAL_REFERENCE_HPP
 #define LIBECPINT_TESTS_INTEGRAL_REFERENCE_HPP
@@ -313,15 +320,23 @@ void parallel_for(const int n, F f) {
  */
 class Engine {
  public:
-  Engine(const std::vector<Shell>& shells, const std::vector<Ecp>& ecps, const int deriv)
-      : shells_(shells), ecps_(ecps), deriv_(deriv), vars_(detail::variants(deriv)) {
-    const int nv = vars_.size();
+  /// With bfield, also the magnetic field derivatives (get_bfield)
+  Engine(const std::vector<Shell>& shells, const std::vector<Ecp>& ecps, const int deriv,
+         const bool bfield = false)
+      : shells_(shells),
+        ecps_(ecps),
+        deriv_(deriv),
+        vars_(detail::variants(deriv)),
+        nb_(bfield ? 3 : 0) {
+    const int nv = vars_.size(), nt = nv + nb_;
     for (int a = 0; a < nv; a++)
       for (int b = 0; b < nv; b++)
         if (detail::order(vars_[a]) + detail::order(vars_[b]) <= deriv) vpairs_.push_back({a, b});
-    vpair_index_.assign(nv * nv, -1);
+    // the field factors, variants nv + k, on either side of an undifferentiated function
+    for (int k = 0; k < nb_; k++) vpairs_.insert(vpairs_.end(), {{nv + k, 0}, {0, nv + k}});
+    vpair_index_.assign(nt * nt, -1);
     for (size_t k = 0; k < vpairs_.size(); k++)
-      vpair_index_[vpairs_[k].first * nv + vpairs_[k].second] = k;
+      vpair_index_[vpairs_[k].first * nt + vpairs_[k].second] = k;
     for (const Shell& sh : shells_) carts_.push_back(detail::cartesians(sh.l));
     for (size_t e = 0; e < ecps_.size(); e++) blocks_.push_back(compute_ecp(e));
   }
@@ -338,8 +353,16 @@ class Engine {
   double get(const int e, const int sa, const int sb, const int va, const int vb, const int ca,
              const int cb) const {
     const int nca = carts_[sa].size(), ncb = carts_[sb].size();
-    const int k = vpair_index_[va * vars_.size() + vb];
+    const int k = vpair_index_[va * (vars_.size() + nb_) + vb];
     return blocks_[e][sa * (sa + 1) / 2 + sb][(k * nca + ca) * ncb + cb];
+  }
+
+  /// Component k of the magnetic field derivative of <ca|U_e|cb>, for shells sa >= sb (the engine
+  /// must be constructed with bfield)
+  double get_bfield(const int e, const int sa, const int sb, const int k, const int ca,
+                    const int cb) const {
+    const int nv = vars_.size();
+    return get(e, sa, sb, nv + k, 0, ca, cb) - get(e, sa, sb, 0, nv + k, ca, cb);
   }
 
  private:
@@ -354,8 +377,10 @@ class Engine {
     const auto& carts = carts_;
     const auto& shells = shells_;
     const int deriv = deriv_;
-    const int nv = vars.size();
+    const int nv = vars.size(), nb = nb_, nt = nv + nb;
     const int nshell = shells.size();
+    // polynomial degree added to the basis functions by the derivatives or field factors
+    const int extra = std::max(deriv, nb > 0 ? 1 : 0);
 
     int L = 0;
     for (const auto& p : ecp.prims) L = std::max(L, p.l);
@@ -365,12 +390,23 @@ class Engine {
     for (const auto& p : local) has_local = has_local || p.d != 0.0;
     std::vector<V3> centre(nshell);  // shell centres relative to the ECP
     for (int s = 0; s < nshell; s++) centre[s] = sub(shells[s].centre, ecp.centre);
+    // Field factor of shell s at pt (relative to the ECP): [(A - C) x r]_k for the absolute
+    // position r = pt + C (so exactly 0 for a shell on the ECP); appended to val as variants nv + k
+    auto add_field = [&](const int s, const V3& pt, const int nc, double* val) {
+      if (nb == 0) return;
+      const V3& D = centre[s];
+      const V3 r{pt[0] + ecp.centre[0], pt[1] + ecp.centre[1], pt[2] + ecp.centre[2]};
+      const double m[3] = {D[1] * r[2] - D[2] * r[1], D[2] * r[0] - D[0] * r[2],
+                           D[0] * r[1] - D[1] * r[0]};
+      for (int k = 0; k < 3; k++)
+        for (int c = 0; c < nc; c++) val[(nv + k) * nc + c] = m[k] * val[c];
+    };
     const int nlm = L * L;  // harmonics l < L
 
     // Semi-local part: projections of every shell on a radial grid shared by all shells
     std::vector<double> rs, ws;
     std::vector<std::vector<double>> Wl;         // w r^2 U_l(r) for each l < L
-    std::vector<std::vector<double>> P(nshell);  // [node][v][c][lm]
+    std::vector<std::vector<double>> P(nshell);  // [node][v][c][lm], v < nt
     if (L > 0) {
       std::vector<std::pair<double, double>> features;
       for (int s = 0; s < nshell; s++)
@@ -386,16 +422,16 @@ class Engine {
         const int nc = carts[s].size();
         const double A = norm(centre[s]);
         const V3 axis = unit_or_z(centre[s]);
-        P[s].assign(rs.size() * nv * nc * nlm, 0.0);
-        std::vector<Sum> acc(nv * nc * nlm);
+        P[s].assign(rs.size() * nt * nc * nlm, 0.0);
+        std::vector<Sum> acc(nt * nc * nlm);
         std::vector<V3> dir;
-        std::vector<double> dw, Y, poly, val(nv * nc);
+        std::vector<double> dw, Y, poly, val(nt * nc);
         for (size_t i = 0; i < rs.size(); i++) {
           const double r = rs[i];
           double kappa = 0.0;
           for (const double a : sh.exps)
             if (a * (r - A) * (r - A) < 100.0) kappa = std::max(kappa, 2.0 * a * A * r);
-          sphere_rule(axis, kappa, sh.l + deriv + L - 1, dir, dw);
+          sphere_rule(axis, kappa, sh.l + extra + L - 1, dir, dw);
           std::fill(acc.begin(), acc.end(), Sum());
           for (size_t k = 0; k < dir.size(); k++) {
             const V3 pt{r * dir[k][0], r * dir[k][1], r * dir[k][2]};
@@ -408,14 +444,15 @@ class Engine {
               primitive_poly(sh.exps[m], sh.coefs[m] * e, carts[s], vars, t, poly);
               for (int x = 0; x < nv * nc; x++) val[x] += poly[x];
             }
+            add_field(s, pt, nc, val.data());
             harmonics(L - 1, dir[k], Y);
-            for (int x = 0; x < nv * nc; x++) {
+            for (int x = 0; x < nt * nc; x++) {
               const double f = dw[k] * val[x];
               for (int lm = 0; lm < nlm; lm++) acc[x * nlm + lm].add(f * Y[lm]);
             }
           }
-          double* Pi = &P[s][i * nv * nc * nlm];
-          for (int x = 0; x < nv * nc * nlm; x++) Pi[x] = acc[x].value();
+          double* Pi = &P[s][i * nt * nc * nlm];
+          for (int x = 0; x < nt * nc * nlm; x++) Pi[x] = acc[x].value();
         }
       });
     }
@@ -439,8 +476,8 @@ class Engine {
       };
       // semi-local
       for (size_t i = 0; i < rs.size(); i++) {
-        const double* Pa = &P[sa][i * nv * nca * nlm];
-        const double* Pb = &P[sb][i * nv * ncb * nlm];
+        const double* Pa = &P[sa][i * nt * nca * nlm];
+        const double* Pb = &P[sb][i * nt * ncb * nlm];
         for (size_t k = 0; k < vpairs.size(); k++)
           for (int ca = 0; ca < nca; ca++)
             for (int cb = 0; cb < ncb; cb++) {
@@ -485,7 +522,7 @@ class Engine {
             if (p * (r - Pm) * (r - Pm) + a * b / p * AB2 > NEGLIGIBLE) continue;
             const double Wr = wl[i] * r * r * U(local, L, r);
             if (Wr == 0.0) continue;
-            sphere_rule(axis, 2.0 * p * Pm * r, shA.l + shB.l + deriv, dir, dw);
+            sphere_rule(axis, 2.0 * p * Pm * r, shA.l + shB.l + extra, dir, dw);
             for (size_t k = 0; k < dir.size(); k++) {
               const V3 pt{r * dir[k][0], r * dir[k][1], r * dir[k][2]};
               const V3 ta = sub(pt, A), tb = sub(pt, B);
@@ -495,6 +532,10 @@ class Engine {
               const double e = std::exp(-arg);
               primitive_poly(a, shA.coefs[ia], carts[sa], vars, ta, pa);
               primitive_poly(b, shB.coefs[ib], carts[sb], vars, tb, pb);
+              pa.resize(nt * nca);
+              pb.resize(nt * ncb);
+              add_field(sa, pt, nca, pa.data());
+              add_field(sb, pt, ncb, pb.data());
               const double f = Wr * dw[k] * e;
               for (size_t q = 0; q < vpairs.size(); q++)
                 for (int ca = 0; ca < nca; ca++) {
@@ -515,6 +556,7 @@ class Engine {
   std::vector<Ecp> ecps_;
   int deriv_;
   std::vector<std::array<int, 3>> vars_;
+  int nb_;  // number of field-factor variants (3 with bfield, else 0), after vars_
   std::vector<std::pair<int, int>> vpairs_;
   std::vector<int> vpair_index_;
   std::vector<std::vector<std::array<int, 3>>> carts_;

@@ -2,7 +2,7 @@
 # Regenerate with: cmake --build <build> --target regenerate_references
 system pt_tzvp
 hash 9f811506e2b79285
-generator libecpint-b1edbd7-dirty
+generator libecpint-822c5c7-dirty
 deriv 2
 ncart 46
 natoms 1
@@ -1114,6 +1114,13 @@ hessian 18
 0
 0
 0
+bfield 6
+0
+0
+0
+0
+0
+0
 integrals_scale 1081
 5712.6634085311161
 909.62542397728896
@@ -2216,6 +2223,13 @@ hessian_scale 18
 0
 0
 0
+0
+0
+0
+0
+0
+0
+bfield_scale 6
 0
 0
 0

@@ -44,6 +44,57 @@ std::vector<intref::Ecp> reference_ecps(const libecpint::ECPIntegrator& f) {
 }
 
 namespace {
+double max_abs(const TwoIndex<double>& v) {
+  double m = 0.0;
+  for (const double x : v.data) m = std::max(m, std::abs(x));
+  return m;
+}
+
+double length(const double x, const double y, const double z) {
+  return std::sqrt(x * x + y * y + z * z);
+}
+}  // namespace
+
+// The size of the terms of a derivative of order o on shell s about ECP U: the shell raised to
+// l + o (the leading term of the derivative recurrence) with coefficients
+//   |c| (2a)^o (1 + d sqrt(2a))^(l + o),
+// d the distance of s from the ECP, the last factor the cancellation of the expansion about the ECP
+// centre for that primitive, and nothing cancelling between primitives (computed by the library:
+// only a magnitude)
+GaussianShell conditioning_shell(const GaussianShell& s, const ECP& U, const int o,
+                                 const bool diff) {
+  double d2 = 0.0;
+  for (int i = 0; i < 3; i++) d2 += std::pow(s.center()[i] - U.center()[i], 2);
+  GaussianShell r(s.center(), s.am() + o);
+  for (int i = 0; i < s.nprimitive(); i++) {
+    const double a = s.exp(i);
+    r.addPrim(a, std::abs(s.coef(i)) * std::pow(2.0 * a, diff ? o : 0) *
+                     std::pow(1.0 + std::sqrt(2.0 * a * d2), s.am() + o));
+  }
+  return r;
+}
+
+double bfield_conditioning_scale(const libecpint::ECPIntegral& engine, const ECP& U,
+                                 const GaussianShell& A, const GaussianShell& B) {
+  auto term = [&](const int oA, const int oB) {
+    TwoIndex<double> v;
+    engine.compute_shell_pair(U, conditioning_shell(A, U, oA, false),
+                              conditioning_shell(B, U, oB, false), v);
+    return max_abs(v);
+  };
+  const double *a = A.center(), *b = B.center(), *c = U.center();
+  const double D[3] = {a[0] - b[0], a[1] - b[1], a[2] - b[2]};
+  const double dA = length(a[0] - c[0], a[1] - c[1], a[2] - c[2]);
+  const double dB = length(b[0] - c[0], b[1] - c[1], b[2] - c[2]);
+  double s =
+      length(D[1] * c[2] - D[2] * c[1], D[2] * c[0] - D[0] * c[2], D[0] * c[1] - D[1] * c[0]) *
+      term(0, 0);  // |(A - B) x C|
+  if (dA > 0.0) s += dA * term(1, 0);
+  if (dB > 0.0) s += dB * term(0, 1);
+  return s;
+}
+
+namespace {
 // Integrals and derivatives assembled by the library's loops from the blocks
 // q(e, sa, sb, va, vb, ca, cb) (see intref::Engine::get), adding absolute values if absolute
 template <typename Q>
@@ -145,6 +196,41 @@ Integrals assemble(const libecpint::ECPIntegrator& f, const int deriv, Q block_o
   return res;
 }
 
+// Magnetic field derivatives assembled by the library's loop from the blocks
+// q(e, sa, sb, k, ca, cb) (see intref::Engine::get_bfield), as
+// ECPIntegrator::compute_bfield_derivs, adding absolute values (and not negating the mirrored
+// blocks) if absolute
+template <typename Q>
+std::vector<TwoIndex<double>> assemble_bfield(const libecpint::ECPIntegrator& f, Q block_of,
+                                              const bool absolute) {
+  const auto screen = libecpint::ShellPairScreen::none(f.shells.size(), f.ecps.getN());
+  auto shell_index = [&](const GaussianShell& s) { return int(&s - f.shells.data()); };
+  auto ecp_index = [&](const ECP& U) { return int(&U - &f.ecps.getECP(0)); };
+  std::vector<TwoIndex<double>> res(3, TwoIndex<double>(f.ncart, f.ncart, 0.0));
+  libecpint::bfield_derivs_loop(
+      f.shells, f.ecps, screen,
+      [&](const ECP& U, const GaussianShell& A, const GaussianShell& B,
+          std::array<TwoIndex<double>, 3>& v) {
+        const int e = ecp_index(U), sa = shell_index(A), sb = shell_index(B);
+        for (int k = 0; k < 3; k++) {
+          v[k].assign(A.ncartesian(), B.ncartesian(), 0.0);
+          for (int ca = 0; ca < A.ncartesian(); ca++)
+            for (int cb = 0; cb < B.ncartesian(); cb++)
+              v[k](ca, cb) = block_of(e, sa, sb, k, ca, cb);
+        }
+      },
+      [&](const int n1, const int n2, const std::array<TwoIndex<double>, 3>& block) {
+        for (int k = 0; k < 3; k++)
+          for (int i = n1; i < n1 + block[k].dims[0]; i++)
+            for (int j = n2; j < n2 + block[k].dims[1]; j++) {
+              const double v = block[k](i - n1, j - n2);
+              res[k](i, j) = absolute ? std::abs(v) : v;
+              if (n1 != n2) res[k](j, i) = absolute ? res[k](i, j) : -res[k](i, j);
+            }
+      });
+  return res;
+}
+
 }  // namespace
 
 Integrals reference_integrals(const libecpint::ECPIntegrator& f, const int deriv,
@@ -153,35 +239,16 @@ Integrals reference_integrals(const libecpint::ECPIntegrator& f, const int deriv
   auto get = [&](const int e, const int sa, const int sb, const int va, const int vb, const int ca,
                  const int cb) { return engine.get(e, sa, sb, va, vb, ca, cb); };
   if (scale) {
-    // The size of the terms of a derivative of order o on shell s about ECP e: the shell raised to
-    // l + o (the leading term of the derivative recurrence) with coefficients
-    //   |c| (2a)^o (1 + d sqrt(2a))^(l + o),
-    // d the distance of s from the ECP, the last factor the cancellation of the expansion about
-    // the ECP centre for that primitive, and nothing cancelling between primitives (computed by the
-    // library: only a magnitude)
-    auto raised = [&](const int e, const int s, const int o) {
-      const GaussianShell& sh = f.shells[s];
-      const ECP& U = f.ecps.getECP(e);
-      double d2 = 0.0;
-      for (int i = 0; i < 3; i++) d2 += std::pow(sh.center()[i] - U.center()[i], 2);
-      GaussianShell r(sh.center(), sh.am() + o);
-      for (int i = 0; i < sh.nprimitive(); i++) {
-        const double a = sh.exp(i);
-        r.addPrim(a, std::abs(sh.coef(i)) * std::pow(2.0 * a, o) *
-                         std::pow(1.0 + std::sqrt(2.0 * a * d2), sh.am() + o));
-      }
-      return r;
-    };
     std::map<std::array<int, 5>, double> terms;  // (e, sa, sb, oA, oB) -> max |block|
     auto term_scale = [&](const int e, const int sa, const int sb, const int oA, const int oB) {
       const std::array<int, 5> key{e, sa, sb, oA, oB};
       auto it = terms.find(key);
       if (it != terms.end()) return it->second;
+      const ECP& U = f.ecps.getECP(e);
       TwoIndex<double> v;
-      f.ecpint->compute_shell_pair(f.ecps.getECP(e), raised(e, sa, oA), raised(e, sb, oB), v);
-      double m = 0.0;
-      for (const double x : v.data) m = std::max(m, std::abs(x));
-      return terms[key] = m;
+      f.ecpint->compute_shell_pair(U, conditioning_shell(f.shells[sa], U, oA),
+                                   conditioning_shell(f.shells[sb], U, oB), v);
+      return terms[key] = max_abs(v);
     };
     auto order = [](const int v) { return v == 0 ? 0 : (v <= 3 ? 1 : 2); };  // variants(2)
     *scale = assemble(
@@ -189,8 +256,31 @@ Integrals reference_integrals(const libecpint::ECPIntegrator& f, const int deriv
         [&](const int e, const int sa, const int sb, const int va, const int vb, const int,
             const int) { return term_scale(e, sa, sb, order(va), order(vb)); },
         true);
+    if (deriv >= 1) {
+      std::map<std::array<int, 3>, double> blocks;  // (e, sa, sb) -> scale
+      scale->bfield = assemble_bfield(
+          f,
+          [&](const int e, const int sa, const int sb, const int, const int, const int) {
+            const std::array<int, 3> key{e, sa, sb};
+            auto it = blocks.find(key);
+            if (it != blocks.end()) return it->second;
+            return blocks[key] = bfield_conditioning_scale(*f.ecpint, f.ecps.getECP(e),
+                                                           f.shells[sa], f.shells[sb]);
+          },
+          true);
+    }
   }
-  return assemble(f, deriv, get, false);
+  Integrals res = assemble(f, deriv, get, false);
+  if (deriv >= 1) {
+    const intref::Engine field(reference_shells(f), reference_ecps(f), 0, true);
+    res.bfield = assemble_bfield(
+        f,
+        [&](const int e, const int sa, const int sb, const int k, const int ca, const int cb) {
+          return field.get_bfield(e, sa, sb, k, ca, cb);
+        },
+        false);
+  }
+  return res;
 }
 
 Integrals library_integrals(libecpint::ECPIntegrator& f, const int deriv) {
@@ -201,6 +291,8 @@ Integrals library_integrals(libecpint::ECPIntegrator& f, const int deriv) {
     f.first_derivs.clear();
     f.compute_first_derivs();
     res.first = f.first_derivs;
+    f.compute_bfield_derivs();
+    res.bfield = f.bfield_derivs;
   }
   if (deriv >= 2) {
     f.second_derivs.clear();

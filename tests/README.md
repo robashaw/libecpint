@@ -35,10 +35,10 @@ A single test of a GoogleTest binary can also be run directly, e.g.
 
 | Directory | ctest names | What it checks |
 |---|---|---|
-| `units/` | `MathUtil`, `Bessel`, `GaussQuad`, `Assembly`, `DerivativeRecurrences`, `Screening`, `SharedGrid`, `Api`, `TestSupport`, ... | single components, mostly against exact or independent values |
+| `units/` | `MathUtil`, `Bessel`, `GaussQuad`, `Assembly`, `DerivativeRecurrences`, `Screening`, `SharedGrid`, `Api`, `BField`, `TestSupport`, ... | single components, mostly against exact or independent values |
 | `radial/` | `Radial.Type2.*`, `Radial.Smoothness.*` | type 2 radial integrals against independent quadrature, case by case |
 | `analytic/` | `Analytic` | integrals with all centres coincident, against closed forms, for both the library and the reference engine |
-| `suite/` | `Suite.<check>.<system>` | whole systems: integrals, first and second derivatives |
+| `suite/` | `Suite.<check>.<system>` | whole systems: integrals, first and second derivatives, magnetic field derivatives |
 | `support/` | | the test support library `ecpint_testsupport` (below) |
 | `data/` | | the systems, basis sets, ECPs and stored reference values |
 
@@ -50,7 +50,9 @@ The timing benchmark is in `../benchmarks`, outside ctest (`make Benchmark`; see
 
 `support/integral_reference.hpp` (`intref::Engine`) computes ECP integrals over contracted
 Cartesian shells, and their first and second derivatives with respect to the shell centres, by a
-different method from the library's. It integrates the semi-local projections numerically on the
+different method from the library's. With `bfield`, it also computes the derivatives with respect
+to a magnetic field over gauge-including orbitals, by multiplying each basis function pointwise by
+its factor `[(A - C) x r]_k`, where the library raises the shells by one. It integrates the semi-local projections numerically on the
 sphere, with grids aligned to each Gaussian, and the radial parts on composite Gauss-Legendre
 panels. It shares no code with the library, expands nothing about the ECP centre (the source of
 the library's main precision limit, below), and screens nothing beyond terms below ~1e-40. It is
@@ -81,10 +83,11 @@ name=la2o3  xyz=systems/la2o3.xyz  basis=basis/la2o3-regression.gbs  ecp=La:lib/
   `data/ecp/NAME.ecp` (Molpro format)
 - `deriv`: the highest derivative order checked
 - `live`: whether to add a `Suite.Live` test (ag3_lanl2dz and auh2_highl are `no`: their
-  references take ~100 s and ~75 s)
+  references take ~145 s and ~100 s)
 
 `data/reference/<system>.ref` holds the reference engine's values for each system: the integrals
-in full, and the first and second derivatives contracted with two fixed test densities (dense
+in full, and the first, second and magnetic field derivatives (the last computed for every system
+with `deriv` >= 1) contracted with two fixed test densities (dense
 derivatives would make the files too large; the live tests compare them in full). Each value has
 a conditioning scale (below). The header records a hash of the system's inputs; if the geometry,
 basis or ECP changes, the stored tests fail with "references stale" rather than with a misleading
@@ -95,14 +98,15 @@ difference.
 For each system:
 
 - **Stored**: the library, with default settings, through `compute_integrals`,
-  `compute_gradient` and `compute_hessian`, against the stored values.
+  `compute_gradient`, `compute_hessian` and `compute_bfield_derivs`, against the stored values.
 - **Live** (label `reference`): the library against the reference engine computed now, every
   element of the integrals and the dense derivatives, with the worst element named by atom, shell
   and Cartesian component.
 - **Screening**: the library with its default screening against the library with none. A
   difference is a screening error, whatever the accuracy of the integrals.
-- **Threads**: every (ECP, shell pair) block computed by several threads sharing one
-  `ECPIntegral` is identical to the serial result.
+- **Threads**: every (ECP, shell pair) block of every per-block kernel (integrals, first and
+  second derivatives up to the system's `deriv`, magnetic field derivatives) computed by several
+  threads sharing one `ECPIntegral` is identical to the serial result; a failure names the kernel.
 
 ### Tolerances
 
@@ -110,7 +114,7 @@ Each value must satisfy
 
     |value - reference| <= 1e-13 * max |reference| + 1e-14 * scale
 
-with the maximum over the set (integrals, first or second derivatives). The first term is the
+with the maximum over the set (integrals, first, second or magnetic field derivatives). The first term is the
 expected agreement between two accurate methods (`DEFAULT_REL_TOL` in `support/compare.hpp`).
 
 The second allows for the library's precision limit for type 2 integrals: it expands each shell
@@ -119,7 +123,9 @@ expansion exceed the result by up to ~(1 + d sqrt(2a))^l (l including the angula
 derivatives add), so small relative errors in the radial integrals are amplified by that much.
 The scale of a value estimates the size of those terms: for each block contributing to it, the
 largest element of the integral over the shells raised to l + o (for derivatives of order o) with
-coefficients |c| (2a)^o (1 + d sqrt(2a))^(l + o). `CONDITIONING_TOL` (1e-14) is calibrated on
+coefficients |c| (2a)^o (1 + d sqrt(2a))^(l + o). The magnetic field derivatives are built from
+the shells raised by one with no factor 2a, weighted by the distances in the formula (see
+`reference_integrals` in `support/reference.hpp`). `CONDITIONING_TOL` (1e-14) is calibrated on
 every element of the live systems; see its comment, and "Known limitations" in `ARCHITECTURE.md`.
 
 The unit, radial and analytic tests set their own tolerances, each with the measured error in a
@@ -131,6 +137,7 @@ comment, typically ~50x below the tolerance.
 |---|---|---|
 | `Assembly` | | packing of derivatives or the assembly loops |
 | `DerivativeRecurrences` | `Assembly` | the derivative recurrences of `ECPIntegral` |
+| `BField`, or only the magnetic field derivatives in `Suite.*` | `Assembly`, the other derivatives | `compute_shell_pair_derivative_Bfield` (its special cases are named by the `BField` tests) |
 | `Screening` (unit) or `Suite.Screening` | radial, analytic | a screening bound or estimate (`screening.hpp`) |
 | `Radial.*`, `SharedGrid`, `Bessel`, `GaussQuad` | | radial quadrature, the shared grid, Bessel functions |
 | `Analytic` for the library only | | on-centre integrals (type 1, or the both-on-ECP closed form) |

@@ -59,6 +59,8 @@ std::string first_label(const System& sys, const int index) {
   return "d/d" + sys.atom_label(index / 3) + "_" + XYZ[index % 3];
 }
 
+std::string bfield_label(const int k) { return std::string("d/dB_") + XYZ[k]; }
+
 std::string second_label(const System& sys, const int index, const int natoms) {
   const char* const sym[6] = {"xx", "xy", "xz", "yy", "yz", "zz"};
   for (int a = 0; a < natoms; a++)
@@ -100,6 +102,10 @@ std::string second_label(const System& sys, const int index, const int natoms) {
     const std::vector<double> sc = scale ? flatten(scale->first) : std::vector<double>();
     check("first derivatives", flatten(value.first), flatten(ref.first), scale ? &sc : nullptr,
           [&](const size_t i) { return element(i, first_label(sys, i / block) + " V"); });
+    const std::vector<double> sb = scale ? flatten(scale->bfield) : std::vector<double>();
+    check("magnetic field derivatives", flatten(value.bfield), flatten(ref.bfield),
+          scale ? &sb : nullptr,
+          [&](const size_t i) { return element(i, bfield_label(i / block) + " V"); });
   }
   if (deriv >= 2) {
     const std::vector<double> sc = scale ? flatten(scale->second) : std::vector<double>();

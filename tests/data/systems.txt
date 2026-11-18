@@ -4,8 +4,8 @@
 #               data/NAME (tests/data/ecp/NAME.ecp)
 #   deriv:      highest derivative order tested
 #   live:       yes to also compare with the reference engine in `ctest -L reference` (ag3_lanl2dz
-#               is no: its reference takes ~100 s, its steep local channel being the engine's
-#               slowest case; auh2_highl is no: ~75 s, for its i shells; Stored still checks both)
+#               is no: its reference takes ~145 s, its steep local channel being the engine's
+#               slowest case; auh2_highl is no: ~100 s, for its i shells; Stored still checks both)
 name=ag3_mdf      xyz=systems/ag3.xyz      basis=basis/ag-valence.gbs       ecp=Ag:lib/ecp28mdf               deriv=2 live=yes
 name=ag3_lanl2dz  xyz=systems/ag3.xyz      basis=basis/ag-valence.gbs       ecp=Ag:data/lanl2dz-ag            deriv=2 live=no
 name=la2o3        xyz=systems/la2o3.xyz    basis=basis/la2o3-regression.gbs ecp=La:lib/def2-ecp               deriv=2 live=yes

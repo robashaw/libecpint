@@ -1,28 +1,28 @@
 # Working example
 
-This directory contains a working example of how to use libecpint for its core functionality - calculating integrals and derivatives for, in this example, hydrogen iodide in a CC-pVTZ(-PP) basis.
+This directory contains a working example of how to use libecpint for its core functionality: calculating the ECP integrals and their gradient for, in this example, hydrogen iodide in a cc-pVDZ(-PP) basis, with the iodine ECP (ECP28MDF) taken from the built-in library. It also shows how to normalise the basis set coefficients, which libecpint uses exactly as given.
+
+It is built and run as one of libecpint's tests (`ctest -R example`).
 
 ## Build
 
-To build this, make sure you have built libecpint. Then using cmake in this directory
+To build it on its own, first build and install libecpint. Then, in this directory,
 
-```
-cmake . -Bbuild -DCMAKE_CXX_FLAGS="-I/include/dirs" -DCMAKE_EXE_LINKER_FLAGS="-L/lib/dirs"
-```
-where the -I and -L flags are used to point to the libecpint headers and library, respectively, if these are not already in your path.
-
-To then build the library and run the test:
-```
+```bash
+cmake . -Bbuild -DCMAKE_PREFIX_PATH=/path/to/libecpint/install
 cd build
 make
-./example LIBECPINT_SHARE_DIR
+./example /path/to/libecpint/install/share/libecpint
 ```
-where the argument points to the share/libecpint directory.
+
+where `CMAKE_PREFIX_PATH` is the `CMAKE_INSTALL_PREFIX` libecpint was installed to (not needed if that is a standard location), and the argument of `example` is the `share/libecpint` directory.
 
 ## With Eigen
 
-If you have Eigen3 installed and want to test the example matrix build, simply add the flag
+If you have Eigen3 installed and want to try mapping the integrals into an Eigen matrix, add
+
+```bash
+-DCMAKE_CXX_FLAGS="-D_WITH_EIGEN -I/path/to/eigen3"
 ```
--D_WITH_EIGEN
-```
-to the CMAKE_CXX_FLAGS in the cmake step. 
+
+to the cmake step.

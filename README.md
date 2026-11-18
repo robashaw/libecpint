@@ -1,7 +1,7 @@
 # Libecpint 1.1.0
 
-[![Build Status](https://dev.azure.com/robertshaw383/libecpint/_apis/build/status/robashaw.libecpint?branchName=master)](https://dev.azure.com/robertshaw383/libecpint/_build/latest?definitionId=2&branchName=master)
-[![codecov](https://codecov.io/gh/robashaw/libecpint/branch/master/graph/badge.svg)](https://codecov.io/gh/robashaw/libecpint)
+[![Build Status](https://dev.azure.com/robertshaw383/libecpint/_apis/build/status/robashaw.libecpint?branchName=main)](https://dev.azure.com/robertshaw383/libecpint/_build/latest?definitionId=2&branchName=main)
+[![codecov](https://codecov.io/gh/robashaw/libecpint/branch/main/graph/badge.svg)](https://codecov.io/gh/robashaw/libecpint)
 [![Documentation Status](https://readthedocs.org/projects/libecpint/badge/?version=latest)](https://libecpint.readthedocs.io/en/latest/index.html)
 [![Code Quality](https://www.code-inspector.com/project/15206/status/svg)]()
 

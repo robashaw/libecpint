@@ -19,7 +19,7 @@ It can be downloaded directly from there, or you can clone it locally using git 
 
 	git clone https://github.com/robashaw/libecpint.git 
 	
-If you are a developer looking to make changes to the code, please fork the repo into your own version, and make a pull request when you think your changes are production ready. We will not accept any attempts to push directly into master.
+If you are a developer looking to make changes to the code, please fork the repo into your own version, and make a pull request when you think your changes are production ready. We will not accept any attempts to push directly into main.
 
 Building
 ========

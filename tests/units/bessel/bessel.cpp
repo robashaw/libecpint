@@ -135,11 +135,11 @@ TEST(BesselAccuracy, AllOrdersAgainstSeries) {
       bessie.calculate(z, lMax, values);
       const double ref = radref::K(l, z);
       const double err = std::abs(values[l] - ref), err1 = std::abs(bessie.calculate(z, l) - ref);
-      if (!(err <= worst)) {
+      if (!(err <= worst) && !std::isnan(worst)) {  // a NaN, once recorded, is kept
         worst = err;
         worst_z = z;
       }
-      if (!(err1 <= worst1)) {
+      if (!(err1 <= worst1) && !std::isnan(worst1)) {
         worst1 = err1;
         worst1_z = z;
       }

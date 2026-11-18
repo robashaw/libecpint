@@ -63,9 +63,9 @@ target_include_directories(ecpint
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include/libecpint>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/libecpint>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
-  PRIVATE
-    ${CMAKE_CURRENT_BINARY_DIR}/generated
 )
+# BEFORE, so a stale qgen.hpp left in include/libecpint by the old generator is never picked up
+target_include_directories(ecpint BEFORE PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated)
 
 # =========
 #  Install

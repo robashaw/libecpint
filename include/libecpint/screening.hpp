@@ -32,6 +32,7 @@
 
 #include "ecp.hpp"
 #include "gshell.hpp"
+#include "mathutil.hpp"
 
 namespace libecpint {
 
@@ -242,6 +243,19 @@ double shell_ecp_bound(const GaussianShell& shell, const ECP& U, int deriv);
 /// shell_ecp_bound for every shell and ECP, bounds[s * necp + i]
 std::vector<double> shell_ecp_bounds(const std::vector<GaussianShell>& shells, const ECPBasis& ecps,
                                      int deriv);
+
+/**
+ * As shell_ecp_bounds, for the magnetic field derivatives (compute_shell_pair_derivative_Bfield),
+ *
+ *   bound = (1 + |R x C|) shell_ecp_bound(deriv = 0) + |R - C| shell_ecp_bound(deriv = 1),
+ *
+ * for a shell at R and an ECP at C. A block is [(A - B) x C] <A|U|B> plus (A - C) x <A+1|U|B> and
+ * (B - C) x <A|U|B+1>, and the product of the bounds of A and B covers each of these terms: the
+ * raised shells are bounded by the first-derivative bounds, which take the shape at l + 1 and
+ * coefficients at least as large. As for shell_ecp_bound, this is an estimate, not a proven bound.
+ */
+std::vector<double> shell_ecp_bfield_bounds(const std::vector<GaussianShell>& shells,
+                                            const ECPBasis& ecps);
 
 /// @return the ECPs (index, bound) for which the bound of shell s exceeds thresh
 std::vector<std::pair<int, double>> screen_shell_ecps(const std::vector<double>& bounds, int s,

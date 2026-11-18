@@ -4,137 +4,166 @@
 
 =====================================
 Installation
-=====================================   
+=====================================
 
 Obtaining libecpint
 ===================
 
-The latest stable release of libecpint can always be found at the Github Repo_. 
+The latest stable release of libecpint can always be found on GitHub_. It can be downloaded
+directly from there, or cloned with
 
-.. _Repo: https://www.github.com/robashaw/libecpint.git
-
-It can be downloaded directly from there, or you can clone it locally using git with the command
+.. _GitHub: https://github.com/robashaw/libecpint
 
 .. code-block:: bash
 
-	git clone https://github.com/robashaw/libecpint.git 
-	
-If you are a developer looking to make changes to the code, please fork the repo into your own version, and make a pull request when you think your changes are production ready. We will not accept any attempts to push directly into main.
+   git clone https://github.com/robashaw/libecpint.git
+
+If you are a developer looking to make changes to the code, please fork the repository, and make
+a pull request when you think your changes are ready (see :ref:`sec:developer`).
 
 Building
 ========
 
-To build the library, do the following in the top of the source tree (out-of-source build is required!):
+From the top of the source tree (an out-of-source build is required):
 
 .. code-block:: bash
 
-	mkdir build
-	cd build
-	cmake [options] ..
-	make [-jn]
+   mkdir build
+   cd build
+   cmake [options] ..
+   make -j8
+   ctest -j8 -LE reference   # optional, ~10 s
+   make install
 
-The ``-jn`` flag tells make to use ``n`` threads while compiling (e.g. ``-j4`` would use four threads), and is highly recommended if your computer can cope, as the generated code files can all be compiled independently of one another.
+The ``-j`` flag sets the number of parallel build jobs.
 
-CMake Options
+CMake options
 ^^^^^^^^^^^^^
 
-The options after cmake above can be included using the syntax `-DOPTION=value`. The pertinent options are as follows:
+Options are passed to ``cmake`` as ``-DOPTION=value``:
 
-+----------------------+---------------+------------------------------------------------------+
-| Option       	       | Default       |  Description                                         |    
-+======================+===============+======================================================+
-| CMAKE_CXX_FLAGS      | N/A           | Flags to pass to the C++ compiler. These will depend |
-|                      |               | on which compiler you're using, but in general we    |
-|                      |               | *strongly* recommend passing optimisation flags,     |
-|                      |               | specifically ``-O2`` or ``-O3``.                     |
-+----------------------+---------------+------------------------------------------------------+
-| CMAKE_INSTALL_PREFIX | /usr/local    | The directory where the library will be installed.   |
-|                      |               | You must have permissions to edit this directory.    |
-+----------------------+---------------+------------------------------------------------------+
-| LIBECPINT_MAX_UNROL  | 1             | The max. angular momentum for which the type 2       |
-|                      |               | angular integration is generated as unrolled code;   |
-|                      |               | all other cases use general code. 1 is fastest: 0    |
-|                      |               | is a few percent slower for s and p shells, while 2  |
-|                      |               | makes the library slower (up to 2x for d shells,     |
-|                      |               | 1.5x for some gradients) and the build ~20x longer;  |
-|                      |               | 3 takes hours to build. Leave this at its default.   |
-+----------------------+---------------+------------------------------------------------------+
++-------------------------------+-------------+--------------------------------------------------+
+| Option                        | Default     | Description                                      |
++===============================+=============+==================================================+
+| ``CMAKE_BUILD_TYPE``          | Release     | ``Release`` builds with optimisation (``-O3``),  |
+|                               |             | which you almost certainly want.                 |
++-------------------------------+-------------+--------------------------------------------------+
+| ``CMAKE_INSTALL_PREFIX``      | /usr/local  | Where ``make install`` puts the library.         |
++-------------------------------+-------------+--------------------------------------------------+
+| ``LIBECPINT_BUILD_TESTS``     | ON          | Build the tests, the benchmark and the example.  |
++-------------------------------+-------------+--------------------------------------------------+
+| ``LIBECPINT_TEST_REFERENCE``  | OFF         | Add the slower tests against the reference       |
+|                               |             | engine computed at test time (see                |
+|                               |             | :ref:`sec:developer`).                           |
++-------------------------------+-------------+--------------------------------------------------+
+| ``LIBECPINT_BUILD_DOCS``      | ON          | Add the ``docs`` target (never built by default; |
+|                               |             | see below).                                      |
++-------------------------------+-------------+--------------------------------------------------+
+| ``LIBECPINT_RADIAL_CACHE_MB`` | 4           | Per-thread cache for the radial factors of       |
+|                               |             | off-centre type 2 integrals, in MB: one of 1, 2, |
+|                               |             | 4, 8, 16, 32, 64. Larger values can help large   |
+|                               |             | basis sets; results do not depend on it.         |
++-------------------------------+-------------+--------------------------------------------------+
+| ``LIBECPINT_MAX_UNROL``       | 1           | The largest angular momentum for which the type  |
+|                               |             | 2 angular sums are generated as unrolled code.   |
+|                               |             | Leave this at its default: 0 is a few percent    |
+|                               |             | slower for s and p shells, while 2 makes the     |
+|                               |             | library slower (up to 2x for d shells) and the   |
+|                               |             | build ~20x longer; 3 takes hours to build.       |
++-------------------------------+-------------+--------------------------------------------------+
 
-The maximum angular momentum is fixed, and is no longer a build option (``LIBECPINT_MAX_L`` in
-``config.hpp``): 8 for the orbital basis plus the order of derivative, so second derivatives up to
-i functions, and 8 for the ECPs, including the local channel. The library throws
-``std::invalid_argument`` beyond it.
-
-	  
-Documentation
-^^^^^^^^^^^^^
-
-This documentation can be generated locally via CMake by running
-
-.. code-block:: bash
-
-	make docs
-
-in the build directory, which writes it to ``doc/html/index.html`` there. This requires Doxygen,
-and Sphinx with the packages in ``doc/sphinx/requirements.txt``:
-
-.. code-block:: bash
-
-	pip install -r doc/sphinx/requirements.txt
-
-If ``doxygen`` or ``sphinx-build`` is not on your path, pass its location to CMake with
-``-DDOXYGEN_EXECUTABLE=...`` or ``-DSPHINX_EXECUTABLE=...``.
-
-Closed-form radial integrals
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The type 2 radial integrals are calculated by quadrature. The generator for the closed forms of
-[Shaw2017], which earlier versions used for low angular momenta, is kept, unused, in
-``src/generated/radial``; its ``README.md`` explains why it is not used and how to check it.
-
-
-Testing
-=======
-
-To run the tests, in the build directory run
-
-.. code-block:: bash
-
-	ctest -j8 -LE reference
-
-This runs unit tests of the library's components, tests of the radial integrals and of cases with closed forms, and checks of the integrals and their first and second derivatives for a set of test systems against values from an independent reference engine, stored in ``tests/data/reference``. If any test fails, the reason can be found in ``build/Testing/Temporary/LastTest.log``, or by running ``ctest --output-on-failure``; a failing comparison names the worst element by atom, shell and Cartesian component. If you have followed these instructions and the tests are still failing, please raise an issue on Github, giving details of your environment, any options you gave, and the relevant contents of LastTest.log.
-
-Configuring with ``-DLIBECPINT_TEST_REFERENCE=ON`` adds slower tests that compare against the reference engine computed at test time (``ctest -L reference``). ``tests/README.md`` describes how the tests are organised, how to diagnose failures, and how to regenerate the stored values or add tests.
-
-Benchmark
-^^^^^^^^^
-
-To see how efficient your build is, you can run the timing benchmark (not run by ``ctest``):
-
-.. code-block:: bash
-
-	make Benchmark
-
-This times the shell-pair integrals for each combination of angular momenta, and the integrals and their first and second derivatives for several molecules, reporting the median and spread of repeated runs. ``benchmarks/ecpint_bench scaling`` times iodoalkane chains of increasing length, with estimated scaling exponents, and ``benchmarks/compare.py`` compares results between builds. ``benchmarks/README.md`` describes them.
+The maximum angular momentum is fixed at 8, for the ECPs and for the orbital basis plus the order
+of derivative; the library throws ``std::invalid_argument`` beyond it.
 
 Installation
 ============
 
-To install the library and share directory, run
+``make install`` creates
+
+.. code-block:: text
+
+   ${CMAKE_INSTALL_PREFIX}/lib/libecpint.a
+   ${CMAKE_INSTALL_PREFIX}/lib/cmake/ecpint/        # CMake package files
+   ${CMAKE_INSTALL_PREFIX}/include/libecpint.hpp
+   ${CMAKE_INSTALL_PREFIX}/include/libecpint/
+   ${CMAKE_INSTALL_PREFIX}/share/libecpint/raw/     # the ECP library
+
+The path to ``share/libecpint`` is what ``set_ecp_basis_from_library`` needs.
+
+Using libecpint from CMake
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+After installation:
+
+.. code-block:: cmake
+
+   find_package(ecpint CONFIG REQUIRED)
+   target_link_libraries(myprogram PRIVATE ECPINT::ecpint)
+
+adding the install prefix to ``CMAKE_PREFIX_PATH`` if it is not a standard location. To build
+libecpint as part of your project instead, ``add_subdirectory`` its source directory (perhaps with
+``-DLIBECPINT_BUILD_TESTS=OFF``) and link to the same ``ECPINT::ecpint`` target. The target brings
+its include directories and the C++17 requirement with it.
+
+.. _`sec:upgrading`:
+
+Upgrading from version 1.0
+==========================
+
+The public API is unchanged, apart from additions, but the build has changed:
+
+- **C++17** is required (previously C++11).
+- ``LIBECPINT_MAX_L`` is no longer an option: angular momentum up to 8 is always supported.
+  Remove it from your configuration; code that read it from ``config.hpp`` should use
+  ``LIBECPINT_MAX_L`` there, which is now always 8.
+- The **pugixml, Faddeeva and libcerf dependencies have been removed**, with the options
+  ``LIBECPINT_USE_PUGIXML`` and ``LIBECPINT_USE_CERF`` and the macro ``HAS_PUGIXML``. Only
+  ``libecpint.a`` needs linking (there is no longer a ``libFaddeeva.a``), and
+  ``set_ecp_basis_from_library`` is always available.
+- The **ECP library** is now ``share/libecpint/raw``, in MOLPRO format, replacing the XML files
+  in ``share/libecpint/xml``; ``share_dir`` is still the ``share/libecpint`` directory.
+  ``ECPBasis::addECP_from_file`` now reads MOLPRO-format files (e.g. an export from the Basis Set
+  Exchange), and throws ``std::runtime_error`` if the file or atom is missing.
+- The generated header ``qgen.hpp`` is internal: it is written to the build tree and not
+  installed.
+- ``init``'s ``smallGrid`` and ``bigGrid`` arguments are accepted but no longer have any effect.
+
+Some public but internal classes and functions (the radial, angular and quadrature classes, for
+example) have changed or been removed. These are not part of the documented API.
+
+Documentation
+=============
+
+This documentation can be built from the build directory with
 
 .. code-block:: bash
 
-	make install
-	
-which will create the following files/directories:
+   pip install -r ../doc/sphinx/requirements.txt
+   make docs
+
+which writes it to ``doc/html/index.html`` in the build directory. This needs Doxygen, and Sphinx
+with the packages in ``doc/sphinx/requirements.txt``. If ``doxygen`` or ``sphinx-build`` is not on
+your path, pass its location to CMake with ``-DDOXYGEN_EXECUTABLE=...`` or
+``-DSPHINX_EXECUTABLE=...``.
+
+Testing
+=======
+
+To check your build, run in the build directory
 
 .. code-block:: bash
 
-	${CMAKE_INSTALL_PREFIX}/lib/libecpint.a
-	${CMAKE_INSTALL_PREFIX}/include/libecpint.hpp
-	${CMAKE_INSTALL_PREFIX}/include/libecpint
-	${CMAKE_INSTALL_PREFIX}/share/libecpint
+   ctest -j8 -LE reference
 
+This checks the library's components, its radial integrals and closed-form cases, and the
+integrals and their derivatives for a set of molecules against stored values from an independent
+reference implementation. If a test fails, ``ctest --output-on-failure`` (or
+``Testing/Temporary/LastTest.log``) gives the reason, naming the worst element. If tests still
+fail after following these instructions, please raise an issue on GitHub, giving details of your
+environment, the options you used, and the relevant part of ``LastTest.log``.
+
+:ref:`sec:developer` describes the tests in more detail, and the timing benchmark
+(``make Benchmark``).
 
 .. toctree::
    :hidden:

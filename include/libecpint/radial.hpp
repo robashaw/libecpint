@@ -102,8 +102,10 @@ class RadialIntegral {
 
   /**
    * Calculates the requested type 2 radial integrals
+   * @code{.unparsed}
    *   G(N, l1, l2) = sum c_a c_b d_u int r^(N+2+n_u) exp(-u r^2 - a (r - A)^2 - b (r - B)^2)
    *                  K_l1(2 a A r) K_l2(2 b B r) dr,
+   * @endcode
    * over the primitives a of shellA, b of shellB and u of the ECP channel lam. Primitive triples
    * with both basis exponents <= 30 are integrated on a composite Gauss-Legendre grid shared by
    * all shell pairs (per thread, cached), the others each by the same composite rule on a window

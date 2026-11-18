@@ -18,18 +18,20 @@ if (NOT DOXYGEN_FOUND OR NOT SPHINX_FOUND)
   return()
 endif()
 
-# Doxygen: wrap the checked-in Doxyfile so that paths are absolute and output lands here
+# Doxygen: wrap the checked-in Doxyfile so that paths are absolute and output lands here. Only the
+# installed headers are documented: reading the sources too makes Doxygen merge declarations with
+# their definitions, whose signatures differ in top-level const, and breathe then renders nothing.
 set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/doxygen)
 set(DOXYGEN_INDEX_FILE ${DOXYGEN_OUT}/xml/index.xml)
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
   "@INCLUDE = ${CMAKE_CURRENT_SOURCE_DIR}/doxygen/Doxyfile\n"
   "OUTPUT_DIRECTORY = ${DOXYGEN_OUT}\n"
-  "INPUT = ${PROJECT_SOURCE_DIR}/README.md ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/include\n"
+  "INPUT = ${PROJECT_SOURCE_DIR}/README.md ${PROJECT_SOURCE_DIR}/include/libecpint.hpp ${PROJECT_SOURCE_DIR}/include/libecpint\n"
   "USE_MDFILE_AS_MAINPAGE = ${PROJECT_SOURCE_DIR}/README.md\n"
   "STRIP_FROM_PATH = ${PROJECT_SOURCE_DIR}\n")
 
 file(GLOB_RECURSE LIBECPINT_DOC_SOURCES CONFIGURE_DEPENDS
-     ${PROJECT_SOURCE_DIR}/include/*.hpp ${PROJECT_SOURCE_DIR}/src/*.hpp ${PROJECT_SOURCE_DIR}/src/*.cpp)
+     ${PROJECT_SOURCE_DIR}/include/libecpint.hpp ${PROJECT_SOURCE_DIR}/include/libecpint/*.hpp)
 
 add_custom_command(OUTPUT ${DOXYGEN_INDEX_FILE}
                    COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile

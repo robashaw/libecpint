@@ -45,8 +45,10 @@ namespace libecpint {
  *
  * With shells A and B at distances A and B from the ECP centre (either may be 0, where only
  * K_0 = 1 is non-zero),
+ * @code{.unparsed}
  *   sum_triples coef G = int r^(N+2) U_lam(r) F_A,l1(r) F_B,l2(r) dr,
  *   F_A,l(r) = sum_a c_a exp(-a (r - A)^2) K_l(2 a A r).
+ * @endcode
  * F_A depends only on the shell, its distance from the ECP and the grid, so with one grid per ECP
  * type it is computed once and reused for every partner shell and ECP angular momentum, instead
  * of evaluating Bessel functions per primitive triple and shell pair. The grid is a composite

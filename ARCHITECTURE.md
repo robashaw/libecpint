@@ -13,15 +13,20 @@ The code is roughly divided into four chunks:
 
 As a general rule, the API will not change. If functionality is added to the library, it should be exposed through ```api.hpp```, following the style of other functions in that interface. Changing any existing parts of the API will break compatibility, so we will only do this if it is *absolutely* necessary.
 
-The other three parts are discussed below.
+All four are discussed below. How the integrals are computed and screened (the methodology) is described in the developer guide of the documentation (```doc/sphinx/source/developer.rst```).
 
 ## Code Map
+
+### Interface
+
+The public API is ```ECPIntegrator``` (```include/libecpint/api.hpp```, ```src/lib/api.cpp```), the high-level interface that takes a basis, ECPs and geometry and returns molecular matrices of integrals and derivatives, or derivatives contracted with a density; and ```ECPIntegral``` (```ecpint.hpp```), the shell-pair interface it is built on, together with the containers ```GaussianShell``` and ```ECP```/```ECPBasis``` that both take. ```include/libecpint.hpp``` includes everything a user needs. Other headers are installed too, but their contents are internal and may change between versions.
 
 ### Fixed backend
 
 This is found in ```src/lib``` and can be further divided into the following functionalities:
 
-- Quadrature: the fixed Gauss-Legendre rules (```gaussquad.cpp```), the type 1 and type 2 radial integrals (```radial.cpp```), and the radial grid shared between shell pairs, with its per-thread caches (```shared_grid.cpp```)
+- Quadrature: the fixed Gauss-Legendre rules (```GaussLegendre<N>``` in ```gaussquad.hpp```), the type 1 and type 2 radial integrals (```radial.cpp```), and the radial grid shared between shell pairs, with its per-thread caches (```shared_grid.cpp```). ```gaussquad.cpp``` also holds the Gauss-Chebyshev ```GCQuadrature``` of earlier versions, which the library no longer uses.
+- The general (rolled-up) type 2 angular sums, ```qgen::rolled_up``` (```qgen.cpp```), used for every angular momentum class that is not unrolled by the code generator
 - Screening: every bound and estimate used to skip negligible work, from whole shells down to primitive triples (```screening.cpp```)
 - Assembly: packing per-ECP shell-pair derivatives into derivatives with respect to the centres, and the loops that place shell-pair blocks in the molecular matrices (```assembly.cpp```)
 - Analytic angular integrals (```angular.cpp```)
@@ -49,6 +54,16 @@ This part is compiled and run as a separate project before the main library. The
 ### Tests and benchmarks
 
 The tests are in ```tests```: unit tests of single components (```tests/units```), the type 2 radial integrals (```tests/radial```), closed-form cases (```tests/analytic```), and whole test systems against stored values from an independent reference engine (```tests/suite```, with the support code in ```tests/support``` and the data in ```tests/data```). ```tests/README.md``` describes the design, how to diagnose failures, and how to add tests. A change to the fixed backend should keep them passing, and comes with a test that fails without it. The timing benchmark, outside the tests, is in ```benchmarks``` (```make Benchmark```; see ```benchmarks/README.md```).
+
+```example``` holds a small working program for users (HI, integrals and gradient), built and run as one of the tests (```ctest -R example```), and buildable on its own against an installed library. Keep it working with any change to the API.
+
+### Documentation
+
+The documentation, published on Read the Docs, is built from ```doc/sphinx/source``` (reStructuredText pages: introduction, installation, usage, developer guide) and the Doxygen comments in the headers, which become the API reference (via breathe and exhale; ```doc/doxygen/Doxyfile``` configures Doxygen). Locally, ```make docs``` runs both into the build tree (```doc/CMakeLists.txt```); on Read the Docs, ```conf.py``` runs Doxygen itself. A change to the API or the build options should update the usage or installation page, and a change to the methods or the tests the developer guide. ```doc/joss``` holds the JOSS paper.
+
+### Continuous integration
+
+```azure-pipelines.yml``` builds the library and runs the tests with GCC and clang on Linux for every pull request and push to main, and uploads coverage to Codecov. A GitHub workflow (```.github/workflows/clang-format.yml```) checks the formatting of ```src``` and ```include``` with ```clang-format```.
 
 ## Known limitations
 

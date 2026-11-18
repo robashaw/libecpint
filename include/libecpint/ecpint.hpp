@@ -99,13 +99,11 @@ class ECPIntegral {
    * calculations.
    * @param maxLB - the maximum angular momentum in the orbital basis
    * @param maxLU - the maximum angular momentum in the ECP basis
-   * @param deriv - the maximum order of derivative to be calculated (TODO: derivs currently being
-   * implemented)
-   * @param thresh - the tolerance for convergence of radial integrals (defaults to 1e-15)
-   * @param small - the maximum number of quadrature points for the small radial integration grid
-   * (default 256, minimum recommended)
-   * @param large - the maximum number of quadrature points for the large radial integration grid
-   * (default 1024, minimum recommended)
+   * @param deriv - the maximum order of derivative to be calculated (0, 1 or 2; defaults to 0)
+   * @param thresh - the screening tolerance of the radial integrals: contributions provably below
+   * it are skipped, and 0 skips nothing (defaults to 1e-15)
+   * @param smallGrid - unused, kept for compatibility (the radial quadrature rules are fixed)
+   * @param bigGrid - unused, kept for compatibility
    * @throws std::invalid_argument if maxLB + deriv or maxLU exceeds LIBECPINT_MAX_L
    */
   ECPIntegral(int maxLB, int maxLU, int deriv = 0, double thresh = 1e-15, unsigned smallGrid = 256,
@@ -254,7 +252,9 @@ class ECPIntegral {
    * (London orbitals, chi_A exp(-i/2 (B x A).r)), with the ECP's projectors gauge-transformed to
    * its own centre. For k = x, y, z,
    *
+   * @code{.unparsed}
    *   results[k] = <A| [(A - C) x r]_k U |B> - <A| U [(B - C) x r']_k |B>,
+   * @endcode
    *
    * with r (r') the position, relative to the global origin, on the bra (ket) side of the
    * semi-local projectors. The derivative is i/2 results[k], so each matrix is real and

@@ -147,6 +147,24 @@ std::vector<double> shell_ecp_bounds(const std::vector<GaussianShell>& shells, c
   return bounds;
 }
 
+std::vector<double> shell_ecp_bfield_bounds(const std::vector<GaussianShell>& shells,
+                                            const ECPBasis& ecps) {
+  const int necp = ecps.getN();
+  std::vector<double> bounds(shells.size() * necp);
+  for (size_t s = 0; s < shells.size(); s++)
+    for (int i = 0; i < necp; i++) {
+      const ECP& U = ecps.getECP(i);
+      const double *R = shells[s].center(), *C = U.center();
+      const double RxC[3] = {R[1] * C[2] - R[2] * C[1], R[2] * C[0] - R[0] * C[2],
+                             R[0] * C[1] - R[1] * C[0]};
+      const double cross = std::sqrt(RxC[0] * RxC[0] + RxC[1] * RxC[1] + RxC[2] * RxC[2]);
+      bounds[s * necp + i] =
+          (1.0 + cross) * shell_ecp_bound(shells[s], U, 0) +
+          std::sqrt(shell_ecp_distance2(shells[s], U)) * shell_ecp_bound(shells[s], U, 1);
+    }
+  return bounds;
+}
+
 std::vector<std::pair<int, double>> screen_shell_ecps(const std::vector<double>& bounds,
                                                       const int s, const int necp,
                                                       const double thresh) {

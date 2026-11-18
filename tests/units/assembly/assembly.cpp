@@ -338,6 +338,38 @@ TEST(AssemblyLoops, ContractionsMatchDenseDerivatives) {
   for (int i = 0; i < n3 * n3; i++) EXPECT_NEAR(h[i], expected[i], 1e-12);
 }
 
+TEST(AssemblyLoops, BfieldDerivativesMatchBlocks) {
+  // The loop computes the shell pairs s2 <= s1 and fills the rest by antisymmetry; here every
+  // ordered pair is computed directly
+  const Tiny t;
+  ECPIntegrator f;
+  t.setup(f, 1);
+  f.compute_bfield_derivs();
+  ASSERT_EQ(f.bfield_derivs.size(), 3u);
+  std::vector<TwoIndex<double>> expected(3, TwoIndex<double>(f.ncart, f.ncart, 0.0));
+  std::array<TwoIndex<double>, 3> block;
+  int n1 = 0;
+  for (const auto& A : f.shells) {
+    int n2 = 0;
+    for (const auto& B : f.shells) {
+      for (int i = 0; i < f.ecps.getN(); i++) {
+        f.ecpint->compute_shell_pair_derivative_Bfield(f.ecps.getECP(i), A, B, block);
+        for (int k = 0; k < 3; k++)
+          for (int a = 0; a < A.ncartesian(); a++)
+            for (int b = 0; b < B.ncartesian(); b++) expected[k](n1 + a, n2 + b) += block[k](a, b);
+      }
+      n2 += B.ncartesian();
+    }
+    n1 += A.ncartesian();
+  }
+  for (int k = 0; k < 3; k++) {
+    const double scale = max_abs(expected[k].data);
+    EXPECT_GT(scale, 1e-3);
+    for (size_t i = 0; i < expected[k].data.size(); i++)
+      EXPECT_NEAR(f.bfield_derivs[k].data[i], expected[k].data[i], 1e-14 * scale) << "k " << k;
+  }
+}
+
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

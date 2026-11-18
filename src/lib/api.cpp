@@ -231,6 +231,26 @@ void ECPIntegrator::compute_second_derivs() {
   });
 }
 
+void ECPIntegrator::compute_bfield_derivs() {
+  assert(deriv > 0);
+  bfield_derivs.assign(3, TwoIndex<double>(ncart, ncart, 0.0));
+  bfield_derivs_loop(
+      shells, ecps,
+      ShellPairScreen{screening::shell_ecp_bfield_bounds(shells, ecps), shell_tolerance, tolerance},
+      [&](const ECP& U, const GaussianShell& A, const GaussianShell& B,
+          std::array<TwoIndex<double>, 3>& v) {
+        ecpint->compute_shell_pair_derivative_Bfield(U, A, B, v);
+      },
+      [&](const int n1, const int n2, const std::array<TwoIndex<double>, 3>& block) {
+        for (int k = 0; k < 3; k++)
+          for (int i = n1; i < n1 + block[k].dims[0]; i++)
+            for (int j = n2; j < n2 + block[k].dims[1]; j++) {
+              bfield_derivs[k](i, j) = block[k](i - n1, j - n2);
+              if (n1 != n2) bfield_derivs[k](j, i) = -bfield_derivs[k](i, j);
+            }
+      });
+}
+
 std::vector<double> ECPIntegrator::compute_hessian(const double* density) {
   // Contracted in the packed order of second_derivs, then unpacked
   std::vector<double> packed((3 * natoms * (3 * natoms + 1)) / 2, 0.0);

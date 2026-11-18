@@ -151,6 +151,47 @@ void integrals_loop(const std::vector<GaussianShell>& shells, const ECPBasis& ec
 }
 
 /**
+ * As integrals_loop, for the magnetic field derivatives: kernel(U, shellA, shellB, block) gives
+ * the [x, y, z] components of one ECP block (as from compute_shell_pair_derivative_Bfield), and
+ * store(n1, n2, sum) receives their sum over the ECPs. The matrices are antisymmetric, so for
+ * s2 < s1 the block also stands for minus its transpose.
+ */
+template <typename Kernel, typename Store>
+void bfield_derivs_loop(const std::vector<GaussianShell>& shells, const ECPBasis& ecps,
+                        const ShellPairScreen& screen, Kernel&& kernel, Store&& store) {
+  std::array<TwoIndex<double>, 3> tempValues, shellPairInts;
+  const int nshells = shells.size(), necp = ecps.getN();
+
+  int n1 = 0;
+  for (auto s1 = 0; s1 < nshells; ++s1) {
+    const GaussianShell& shellA = shells[s1];
+    int ncartA = shellA.ncartesian();
+    auto ns = screen.ecps_for(s1, necp);
+
+    int n2 = 0;
+    for (auto s2 = 0; s2 <= s1; ++s2) {
+      const GaussianShell& shellB = shells[s2];
+      int ncartB = shellB.ncartesian();
+
+      bool computed = false;
+      for (auto& [i, sbA] : ns) {
+        const ECP& U = ecps.getECP(i);
+        if (sbA * screen.bounds[s2 * necp + i] <= screen.tolerance) continue;
+
+        if (!computed)
+          for (auto& m : shellPairInts) m.assign(ncartA, ncartB, 0.0);
+        computed = true;
+        kernel(U, shellA, shellB, tempValues);
+        for (int k = 0; k < 3; k++) shellPairInts[k].add(tempValues[k]);
+      }
+      if (computed) store(n1, n2, shellPairInts);
+      n2 += ncartB;
+    }
+    n1 += ncartA;
+  }
+}
+
+/**
  * Loops over the shell pairs (s2 <= s1) and ECPs for the first derivatives, with
  * kernel(U, shellA, shellB, results) giving the packed derivatives of one ECP block (as from
  * pack_first_derivatives). Each contribution goes to add(index, k, l, value, mirror): value is the

@@ -202,7 +202,7 @@ void ECPIntegrator::second_derivs_loop(Add add) {
 }
 
 void ECPIntegrator::compute_first_derivs() {
-  for (int n = 0; n < 3 * natoms; n++) first_derivs.push_back(TwoIndex<double>(ncart, ncart, 0.0));
+  first_derivs.assign(3 * natoms, TwoIndex<double>(ncart, ncart, 0.0));
   first_derivs_loop([&](const int i, const int k, const int l, const double v, const bool mirror) {
     TwoIndex<double>& M = first_derivs[i];
     M(k, l) += v;
@@ -223,7 +223,7 @@ std::vector<double> ECPIntegrator::compute_gradient(const double* density) {
 
 void ECPIntegrator::compute_second_derivs() {
   const int nhess = (3 * natoms * (3 * natoms + 1)) / 2;
-  for (int n = 0; n < nhess; n++) second_derivs.push_back(TwoIndex<double>(ncart, ncart, 0.0));
+  second_derivs.assign(nhess, TwoIndex<double>(ncart, ncart, 0.0));
   second_derivs_loop([&](const int i, const int k, const int l, const double v, const bool mirror) {
     TwoIndex<double>& M = second_derivs[i];
     M(k, l) += v;

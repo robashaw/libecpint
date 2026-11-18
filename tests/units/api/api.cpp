@@ -119,6 +119,23 @@ TEST(Api, Getters) {
   for (size_t i = 0; i < second.size(); i++) EXPECT_EQ(*second[i], f.second_derivs[i].data);
 }
 
+TEST(Api, RepeatedDerivatives) {
+  // Computing the derivatives again replaces the previous results rather than adding to them
+  const System sys = load_system("testpair");
+  libecpint::ECPIntegrator f;
+  sys.setup(f, 2);
+  f.compute_first_derivs();
+  f.compute_second_derivs();
+  const auto first = f.first_derivs;
+  const auto second = f.second_derivs;
+  f.compute_first_derivs();
+  f.compute_second_derivs();
+  ASSERT_EQ(f.first_derivs.size(), first.size());
+  for (size_t i = 0; i < first.size(); i++) EXPECT_EQ(f.first_derivs[i].data, first[i].data);
+  ASSERT_EQ(f.second_derivs.size(), second.size());
+  for (size_t i = 0; i < second.size(); i++) EXPECT_EQ(f.second_derivs[i].data, second[i].data);
+}
+
 TEST(Api, AngularMomentumLimit) {
   // Basis angular momentum plus derivative order, and ECP angular momentum, up to
   // LIBECPINT_MAX_L (8) are supported; beyond, the library throws rather than computing wrong

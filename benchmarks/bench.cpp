@@ -225,23 +225,21 @@ void setup_chain(libecpint::ECPIntegrator& f, const std::vector<ChainAtom>& atom
 std::pair<long long, long long> count_calls(libecpint::ECPIntegrator& f) {
   long long calls = 0, wasted = 0;
   libecpint::TwoIndex<double> values;
-  for (size_t s1 = 0; s1 < f.shells.size(); s1++) {
-    std::vector<double> sbA(f.ecps.getN());
-    for (int i = 0; i < f.ecps.getN(); i++)
-      sbA[i] = libecpint::screening::shell_ecp_bound(f.shells[s1], f.ecps.getECP(i), 0);
-    for (size_t s2 = 0; s2 <= s1; s2++)
-      for (int i = 0; i < f.ecps.getN(); i++) {
+  // the same screen as compute_integrals (see integrals_loop in assembly.hpp)
+  const int necp = f.ecps.getN();
+  const auto screen = libecpint::ShellPairScreen::from_bounds(
+      libecpint::screening::shell_ecp_bounds(f.shells, f.ecps, 0), necp, f.tolerance);
+  for (size_t s1 = 0; s1 < f.shells.size(); s1++)
+    for (const auto& [i, sbA] : screen.ecps_for(s1, necp))
+      for (size_t s2 = 0; s2 <= s1; s2++) {
         const libecpint::ECP& U = f.ecps.getECP(i);
-        if (sbA[i] <= f.shell_tolerance ||
-            sbA[i] * libecpint::screening::shell_ecp_bound(f.shells[s2], U, 0) <= f.tolerance)
-          continue;
+        if (sbA * screen.bounds[s2 * necp + i] <= f.tolerance) continue;
         calls++;
         f.ecpint->compute_shell_pair(U, f.shells[s1], f.shells[s2], values);
         double vmax = 0.0;
         for (const double v : values.data) vmax = std::max(vmax, std::abs(v));
         if (vmax < f.tolerance) wasted++;
       }
-  }
   return {calls, wasted};
 }
 

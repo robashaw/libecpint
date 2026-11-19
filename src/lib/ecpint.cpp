@@ -60,6 +60,11 @@ ECPIntegral::ECPIntegral(int maxLB, int maxLU, int deriv, double thresh, unsigne
     throw std::invalid_argument("libecpint: ECP angular momentum " + std::to_string(maxLU) +
                                 " exceeds the maximum of " + std::to_string(LIBECPINT_MAX_L));
 
+  // A negative maxLU means "no ECP channels" (Psi4 passes -1 when no ECPs are present).
+  // Clamp it here so buildType2Radials never sizes its array with a negative count.
+  if (maxLU < 0)
+    maxLU = 0;
+
   // Initialise singletons
   initFactorials();
   zero = nonzero = skipped = 0;

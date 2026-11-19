@@ -157,6 +157,14 @@ TEST(Api, AngularMomentumLimit) {
   EXPECT_THROW(g.set_ecp_basis(1, ecoords, eexps, ecoefs, eams, ens, elens), std::invalid_argument);
 }
 
+TEST(ECPIntegralConstruction, NegativeMaxLUMeansNoECPChannels) {
+  // Psi4 passes maxLU = -1 when no ECPs are present. buildType2Radials sizes a
+  // vector by (maxLB + 1)^2 * maxLU, so a negative value becomes a huge size_t
+  // allocation. A negative maxLU must instead be treated as no ECP channels.
+  EXPECT_NO_THROW(libecpint::ECPIntegral(2, -1));
+  EXPECT_NO_THROW(libecpint::ECPIntegral(2, -5));
+}
+
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
